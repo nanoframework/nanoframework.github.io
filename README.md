@@ -1,4 +1,4 @@
-# nano-framework.github.io
-Source files for the nano-framework.github.io website.
+# nanoframework.github.io
+Source files for the nanoframework.github.io website.
 
-http://nano-framework.net
+http://nanoframework.net
