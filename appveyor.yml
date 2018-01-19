@@ -1,0 +1,44 @@
+environment:
+  GitHubUserName:
+    secure: 7OBtVAMTodMWK20wg6pGnQ==
+  GitHubUserEmail:
+    secure: HeABB68Sn/Lhbd69C2cUcfWv0ab/rMDEcOLvcxf8gGw=
+  GitHubToken:
+    secure: WOqlCsnwTzfDPJFoNV/h8mEESIpG/9uFn1u6oE8hGZtXwIQQlsY+NyyLt9Y5xoFn
+
+init:
+  - git config --global core.autocrlf true
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GitHubToken):x-oauth-basic@github.com`n"
+  - git config --global user.email "%GitHubUserEmail%"
+  - git config --global user.name "%GitHubUserName%"
+
+install:
+  - cmd: git submodule update --recursive --remote
+  - ps: .\install-vsix-appveyor.ps1
+
+before_build:
+  - ps: |
+        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+        {
+            git checkout $env:APPVEYOR_REPO_BRANCH -q
+            choco install docfx -y
+            # choco install nuget.commandline -y
+        }
+
+after_build:
+  - ps: |
+        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+        {
+            & docfx docfx.json
+            if ($lastexitcode -ne 0){
+              throw [System.Exception] "docfx build failed with exit code $lastexitcode."
+            }
+            
+            git clone https://github.com/nanoframework/nanoframework.github.io.git -b gh-pages origin_site -q
+            Copy-Item origin_site/.git _site -recurse
+            CD _site
+            git add -A 2>&1
+            git commit -m "CI Updates" -q
+            git push origin gh-pages -q
+        }
