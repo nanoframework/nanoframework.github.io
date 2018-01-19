@@ -15,8 +15,8 @@ init:
   - git submodule init --recursive --remote
 
 install:
-  - ps: >-
-      install-vsix-appveyor.ps1
+  - cmd: git submodule update --init
+  - ps: install-vsix-appveyor.ps1
 
 before_build:
   - ps: |
