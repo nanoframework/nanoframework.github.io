@@ -12,11 +12,11 @@ init:
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GitHubToken):x-oauth-basic@github.com`n"
   - git config --global user.email "%GitHubUserEmail%"
   - git config --global user.name "%GitHubUserName%"
+  - git submodule init --recursive --remote
 
 install:
-  - cmd: git submodule update --recursive --remote
-  - ps: |
-        install-vsix-appveyor.ps1
+  - ps: >-
+      install-vsix-appveyor.ps1
 
 before_build:
   - ps: |
