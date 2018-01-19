@@ -1,3 +1,8 @@
+image: Visual Studio 2017
+
+build:
+  verbosity: minimal
+
 environment:
   GitHubUserName:
     secure: 7OBtVAMTodMWK20wg6pGnQ==
@@ -28,6 +33,10 @@ before_build:
             # rename nF project files
             Get-ChildItem -Filter "*.nfproj*" -Recurse | Rename-Item -NewName {$_.name -replace 'csproj','nfproj' }
         }
+
+build_script:
+  - ps: >-
+      
 
 after_build:
   - ps: |
