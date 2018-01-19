@@ -29,19 +29,38 @@ before_build:
             git checkout $env:APPVEYOR_REPO_BRANCH -q
             choco install docfx -y
             # choco install nuget.commandline -y
-            
-            # rename nF project files
-            Get-ChildItem -Filter "*.nfproj*" -Recurse | Rename-Item -NewName {$_.name -replace 'csproj','nfproj' }
         }
 
 build_script:
-  - ps: >-
-      
+  - ps: |
+        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+        {
+            msbuild CoreLibrary\source\nanoFramework.CoreLibrary.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
+            msbuild nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+            msbuild nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+            msbuild Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+            msbuild Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+            msbuild Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+            msbuild Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+            msbuild Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+            msbuild Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        }
+    
 after_build:
   - ps: |
         if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
         {
+            # rename nF project files
+            Get-ChildItem -Filter "*.nfproj*" -Recurse | Rename-Item -NewName {$_.name -replace 'csproj','nfproj' }
+        
             & docfx docfx.json
             if ($lastexitcode -ne 0){
               throw [System.Exception] "docfx build failed with exit code $lastexitcode."
