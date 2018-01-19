@@ -24,6 +24,9 @@ before_build:
             git checkout $env:APPVEYOR_REPO_BRANCH -q
             choco install docfx -y
             # choco install nuget.commandline -y
+            
+            # rename nF project files
+            Get-ChildItem -Filter "*.nfproj*" -Recurse | Rename-Item -NewName {$_.name -replace 'csproj','nfproj' }
         }
 
 after_build:
