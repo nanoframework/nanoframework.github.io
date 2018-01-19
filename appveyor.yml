@@ -29,6 +29,27 @@ before_build:
             git checkout $env:APPVEYOR_REPO_BRANCH -q
             choco install docfx -y
             # choco install nuget.commandline -y
+         
+            nuget sources add -name MyGet -Source https://www.myget.org/F/nanoframework-dev
+         
+            nuget restore CoreLibrary\source\nanoFramework.CoreLibrary.sln
+
+            nuget restore nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln
+
+            nuget restore nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln
+
+            nuget restore Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln
+
+            nuget restore Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln
+
+            nuget restore Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln
+
+            nuget restore Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln
+
+            nuget restore Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln
+
+            nuget restore Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln
+            
         }
 
 build_script:
