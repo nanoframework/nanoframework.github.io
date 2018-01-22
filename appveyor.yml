@@ -24,73 +24,92 @@ install:
 
 before_build:
   - ps: |
-        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
-        {
-            git checkout $env:APPVEYOR_REPO_BRANCH -q
-            choco install docfx -y
-            # choco install nuget.commandline -y
-         
-            nuget sources add -name MyGet -Source https://www.myget.org/F/nanoframework-dev
-         
-            nuget restore CoreLibrary\source\nanoFramework.CoreLibrary.sln
+        git checkout $env:APPVEYOR_REPO_BRANCH -q
+        choco install docfx -y
+        # choco install nuget.commandline -y
+      
+        nuget sources add -name MyGet -Source https://www.myget.org/F/nanoframework-dev
+      
+        nuget restore CoreLibrary\source\nanoFramework.CoreLibrary.sln
 
-            nuget restore nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln
+        nuget restore nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln
 
-            nuget restore nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln
+        nuget restore nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln
 
-            nuget restore Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln
+        nuget restore Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln
 
-            nuget restore Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln
+        nuget restore Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln
 
-            nuget restore Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln
+        nuget restore Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln
 
-            nuget restore Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln
+        nuget restore Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln
 
-            nuget restore Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln
+        nuget restore Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln
 
-            nuget restore Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln
-            
-        }
+        nuget restore Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln
 
 build_script:
   - ps: |
-        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
-        {
-            msbuild CoreLibrary\source\nanoFramework.CoreLibrary.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild CoreLibrary\source\nanoFramework.CoreLibrary.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        msbuild Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
-            msbuild Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-        }
-    
+        msbuild Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
 after_build:
   - ps: |
+        .\rename-nfproj-files.ps1
+
+        & docfx docfx.json
+
+        if ($lastexitcode -ne 0)
+        {
+          throw [System.Exception] "docfx build failed with exit code $lastexitcode."
+        }
+
         if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
         {
-            # rename nF project files
-            Get-ChildItem -Filter "*.nfproj*" -Recurse | Rename-Item -NewName {$_.name -replace 'csproj','nfproj' }
-        
-            & docfx docfx.json
-            if ($lastexitcode -ne 0){
-              throw [System.Exception] "docfx build failed with exit code $lastexitcode."
-            }
-            
-            git clone https://github.com/nanoframework/nanoframework.github.io.git -b gh-pages origin_site -q
-            Copy-Item origin_site/.git _site -recurse
-            CD _site
-            git add -A 2>&1
-            git commit -m "CI Updates" -q
-            git push origin gh-pages -q
+          git clone https://github.com/nanoframework/nanoframework.github.io.git -b gh-pages origin_site -q
+          Copy-Item origin_site/.git _site -recurse
+          CD _site
+          git add -A 2>&1
+          git commit -m "CI Updates" -q
+          git push origin gh-pages -q
         }
+
+on_success:
+  - ps: >-
+
+      .\rename-nfproj-files.ps1
+
+      & docfx docfx.json
+      if ($lastexitcode -ne 0)
+      {
+        throw [System.Exception] "docfx build failed with exit code $lastexitcode."
+      }
+
+      if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+      {
+        git clone https://github.com/nanoframework/nanoframework.github.io.git -b gh-pages origin_site -q
+        Copy-Item origin_site/.git _site -recurse
+        CD _site
+        git add -A 2>&1
+        git commit -m "CI Updates" -q
+        git push origin gh-pages -q
+      }
+
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  
