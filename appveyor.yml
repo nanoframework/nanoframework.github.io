@@ -19,8 +19,27 @@ init:
   - git config --global user.name "%GitHubUserName%
 
 install: 
-  - cmd: git submodule update --init
-  - ps: .\install-vsix-appveyor.ps1
+  - ps: |
+
+        git clone https://github.com/nanoframework/lib-CoreLibrary.git -b develop CoreLibrary --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-nanoFramework.Runtime.Events.git -b develop nanoFramework.Runtime.Events --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-nanoFramework.Runtime.Native.git -b develop nanoFramework.Runtime.Native --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-Windows.Devices.Gpio.git -b develop Windows.Devices.Gpio --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-Windows.Devices.I2c.git -b develop Windows.Devices.I2c --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-Windows.Devices.Pwm.git -b develop Windows.Devices.Pwm --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication.git -b develop Windows.Devices.SerialCommunication --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-Windows.Devices.Spi.git -b develop Windows.Devices.Spi --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-Windows.Storage.Streams.git -b develop Windows.Storage.Streams --depth 1 -q
+
+        .\install-vsix-appveyor.ps1
 
 before_build:
   - ps: |
