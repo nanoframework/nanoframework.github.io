@@ -39,6 +39,8 @@ install:
 
         git clone https://github.com/nanoframework/lib-Windows.Storage.Streams.git -b develop Windows.Storage.Streams --depth 1 -q
 
+        git clone https://github.com/nanoframework/lib-Windows.Devices.Adc.git -b develop Windows.Devices.Adc --depth 1 -q
+
         .\install-vsix-appveyor.ps1
 
 before_build:
@@ -67,6 +69,8 @@ before_build:
 
         nuget restore Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln
 
+        nuget restore Windows.Devices.Adc\source\nanoFramework.Windows.Devices.Adc.sln
+
 build_script:
   - ps: |
         msbuild CoreLibrary\source\nanoFramework.CoreLibrary.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
@@ -86,6 +90,8 @@ build_script:
         msbuild Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
         msbuild Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+        msbuild Windows.Devices.Adc\source\nanoFramework.Windows.Devices.Adc.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 after_build:
   - ps: >-
