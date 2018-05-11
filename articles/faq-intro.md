@@ -9,6 +9,12 @@ Please do contribute with your own!
 - ### [Working with Visual Studio extension](faq/working-with-vs-extension.md)
 
 
+- ### [Working with ESP32 targets](faq/working-with-esp32-targets.md)
+
+
+- ### [Working with STM32 targets](faq/working-with-stm32-targets.md)
+
+
 <!-- ## Coding C/C++ (native firmware) -->
 
 
