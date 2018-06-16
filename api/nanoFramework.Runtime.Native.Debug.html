@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Debug
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.35.4.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -126,7 +126,7 @@
     <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/new/develop/apiSpec/new?filename=nanoFramework_Runtime_Native_Debug_Assert_System_Boolean_.md&amp;value=---%0Auid%3A%20nanoFramework.Runtime.Native.Debug.Assert(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/blob/develop/source/Debug.cs/#L38">View Source</a>
+    <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/blob/develop/source/Debug.cs/#L42">View Source</a>
   </span>
   <a id="nanoFramework_Runtime_Native_Debug_Assert_" data-uid="nanoFramework.Runtime.Native.Debug.Assert*"></a>
   <h4 id="nanoFramework_Runtime_Native_Debug_Assert_System_Boolean_" data-uid="nanoFramework.Runtime.Native.Debug.Assert(System.Boolean)">Assert(Boolean)</h4>
@@ -161,7 +161,7 @@ public static void Assert(bool condition)</code></pre>
     <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/new/develop/apiSpec/new?filename=nanoFramework_Runtime_Native_Debug_Assert_System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20nanoFramework.Runtime.Native.Debug.Assert(System.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/blob/develop/source/Debug.cs/#L52">View Source</a>
+    <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/blob/develop/source/Debug.cs/#L56">View Source</a>
   </span>
   <a id="nanoFramework_Runtime_Native_Debug_Assert_" data-uid="nanoFramework.Runtime.Native.Debug.Assert*"></a>
   <h4 id="nanoFramework_Runtime_Native_Debug_Assert_System_Boolean_System_String_" data-uid="nanoFramework.Runtime.Native.Debug.Assert(System.Boolean,System.String)">Assert(Boolean, String)</h4>
@@ -202,7 +202,7 @@ public static void Assert(bool condition, string message)</code></pre>
     <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/new/develop/apiSpec/new?filename=nanoFramework_Runtime_Native_Debug_Assert_System_Boolean_System_String_System_String_.md&amp;value=---%0Auid%3A%20nanoFramework.Runtime.Native.Debug.Assert(System.Boolean%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/blob/develop/source/Debug.cs/#L67">View Source</a>
+    <a href="https://github.com/nanoframework/lib-nanoFramework.Runtime.Native/blob/develop/source/Debug.cs/#L71">View Source</a>
   </span>
   <a id="nanoFramework_Runtime_Native_Debug_Assert_" data-uid="nanoFramework.Runtime.Native.Debug.Assert*"></a>
   <h4 id="nanoFramework_Runtime_Native_Debug_Assert_System_Boolean_System_String_System_String_" data-uid="nanoFramework.Runtime.Native.Debug.Assert(System.Boolean,System.String,System.String)">Assert(Boolean, String, String)</h4>
@@ -273,6 +273,10 @@ public static void Assert(bool condition, string message, string detailedMessage
       </tr>
     </tbody>
   </table>
+  <h5 id="nanoFramework_Runtime_Native_Debug_EnableGCMessages_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Despite this method enabling the GC messages there is the possibility of those never being outputted depending on the target build options.
+RTM builds (which remove all non essential features) are one of those situations.</p>
+</div>
   
   
   <a id="nanoFramework_Runtime_Native_Debug_GC_" data-uid="nanoFramework.Runtime.Native.Debug.GC*"></a>
@@ -313,7 +317,8 @@ public static void Assert(bool condition, string message, string detailedMessage
     <tbody>
       <tr>
         <td><a class="xref" href="System.UInt32.html">UInt32</a></td>
-        <td></td>
+        <td><p>The amount of free (unused) memory, in bytes.</p>
+</td>
       </tr>
     </tbody>
   </table>

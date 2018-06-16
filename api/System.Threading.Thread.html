@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Thread
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.35.4.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -464,13 +464,60 @@
         <td><a class="xref" href="System.Int32.html">Int32</a></td>
         <td><span class="parametername">millisecondsTimeout</span></td>
         <td><p>The number of milliseconds for which the thread is suspended. 
-If the value of the millisecondsTimeout argument is zero, the thread relinquishes the remainder 
+If the value of the <code data-dev-comment-type="paramref" class="paramref">millisecondsTimeout</code> argument is zero, the thread relinquishes the remainder 
 of its time slice to any thread of equal priority that is ready to run. If there are no other threads 
 of equal priority that are ready to run, execution of the current thread is not suspended.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="System_Threading_Thread_Sleep_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The thread will not be scheduled for execution by the operating system for the amount of time specified. 
+You can specify Timeout.Infinite for the <code data-dev-comment-type="paramref" class="paramref">millisecondsTimeout</code> parameter to suspend the thread indefinitely. However, we recommend that you use other <a class="xref" href="System.Threading.html">System.Threading</a> classes such as <a class="xref" href="System.Threading.AutoResetEvent.html">AutoResetEvent</a>, <a class="xref" href="System.Threading.ManualResetEvent.html">ManualResetEvent</a>, <a class="xref" href="System.Threading.Monitor.html">Monitor</a> or <a class="xref" href="System.Threading.WaitHandle.html">WaitHandle</a> instead to synchronize threads or manage resources.
+The system clock ticks at a specific rate called the clock resolution. The actual timeout might not be exactly the specified timeout, because the specified timeout will be adjusted to coincide with clock ticks. </p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-CoreLibrary/new/develop/apiSpec/new?filename=System_Threading_Thread_Sleep_System_TimeSpan_.md&amp;value=---%0Auid%3A%20System.Threading.Thread.Sleep(System.TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-CoreLibrary/blob/develop/source/System/Threading/Thread.cs/#L138">View Source</a>
+  </span>
+  <a id="System_Threading_Thread_Sleep_" data-uid="System.Threading.Thread.Sleep*"></a>
+  <h4 id="System_Threading_Thread_Sleep_System_TimeSpan_" data-uid="System.Threading.Thread.Sleep(System.TimeSpan)">Sleep(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Suspends the current thread for the specified amount of time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Sleep(TimeSpan timeout)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>The amount of time for which the thread is suspended. 
+If the value of the <code data-dev-comment-type="paramref" class="paramref">timeout</code> argument is Zero, the thread relinquishes the remainder 
+of its time slice to any thread of equal priority that is ready to run. If there are no other threads 
+of equal priority that are ready to run, execution of the current thread is not suspended.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_Thread_Sleep_System_TimeSpan__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The thread will not be scheduled for execution by the operating system for the amount of time specified. 
+You can specify <a class="xref" href="System.Threading.Timeout.html#System_Threading_Timeout_Infinite">Infinite</a> for the <code data-dev-comment-type="paramref" class="paramref">timeout</code> parameter to suspend the thread indefinitely. However, we recommend that you use other <a class="xref" href="System.Threading.html">System.Threading</a> classes such as <a class="xref" href="System.Threading.AutoResetEvent.html">AutoResetEvent</a>, <a class="xref" href="System.Threading.ManualResetEvent.html">ManualResetEvent</a>, <a class="xref" href="System.Threading.Monitor.html">Monitor</a> or <a class="xref" href="System.Threading.WaitHandle.html">WaitHandle</a> instead to synchronize threads or manage resources.
+The system clock ticks at a specific rate called the clock resolution. The actual timeout might not be exactly the specified timeout, because the specified timeout will be adjusted to coincide with clock ticks. </p>
+</div>
   
   
   <a id="System_Threading_Thread_Start_" data-uid="System.Threading.Thread.Start*"></a>
