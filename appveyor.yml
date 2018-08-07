@@ -43,6 +43,10 @@ install:
 
         git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Esp32 -b develop nanoFramework.Hardware.Esp32 --depth 1 -q
 
+        git clone https://github.com/nanoframework/lib-nanoFramework.Networking.Sntp -b develop nanoFramework.Networking.Sntp --depth 1 -q
+
+        git clone https://github.com/nanoframework/lib-nanoFramework.System.Net -b develop nanoFramework.System.Net --depth 1 -q
+
         .\install-vsix-appveyor.ps1
 
 before_build:
@@ -75,6 +79,10 @@ before_build:
 
         nuget restore nanoFramework.Hardware.Esp32\source\nanoFramework.Hardware.Esp32.sln
 
+        nuget restore nanoFramework.Networking.Sntp\source\nanoFramework.Networking.Sntp.sln
+
+        nuget restore nanoFramework.System.Net\source\nanoFramework.System.Net.sln
+
 build_script:
   - ps: |
         msbuild CoreLibrary\source\nanoFramework.CoreLibrary.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
@@ -98,6 +106,10 @@ build_script:
         msbuild Windows.Devices.Adc\source\nanoFramework.Windows.Devices.Adc.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
         msbuild nanoFramework.Hardware.Esp32\source\nanoFramework.Hardware.Esp32.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+        msbuild nanoFramework.Networking.Sntp\source\nanoFramework.Networking.Sntp.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+        msbuild nanoFramework.System.Net\source\nanoFramework.System.Net.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 after_build:
   - ps: >-
