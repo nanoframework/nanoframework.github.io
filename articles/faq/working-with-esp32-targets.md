@@ -1,5 +1,6 @@
-## Working with ESP32 targets
+# Working with ESP32 targets
 
-* ### Question 1?
-    Answer 1.
+## Question 1?
+
+Answer 1.
 
