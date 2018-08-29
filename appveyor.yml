@@ -111,6 +111,13 @@ build_script:
 
         msbuild nanoFramework.System.Net\source\nanoFramework.System.Net.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
+on_failure:
+- ps: |
+
+      cd ..
+
+      .\appveyor-discord.ps1 failure $env:APPVEYOR_DISCORD_WEBHOOK_URL
+
 after_build:
   - ps: >-
 
