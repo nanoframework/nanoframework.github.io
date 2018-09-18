@@ -82,6 +82,9 @@
 To prevent this from happening, you have to open the &quot;Configuration Manager&quot; dialog for the Solution and un-check the &quot;Deploy&quot; option for all projects <em>except</em> the executable.
 To remove the lock on that file open a PowerShell console and execute the following command, being NNNN the process number that shows at the very end of the VS message:
 <code>Stop-Process -id NNNNN</code>.</p>
+<h2 id="when-i-build-a-projectsolutions-it-fails-with-an-error-nfmdp-error-0x81010009-what-is-this">When I build a project/solutions it fails with an error <code>NFMDP: Error 0x81010009</code>. What is this?</h2>
+<p>This happens when you are using a C# feature that is not currently supported by nanoFramework. The most common cases are generics or a complicated Linq expression.
+There is currently no way to point you exactly where the issue is. The best suggestion is to build often so you can spot this as early as possible. It can also help if you comment the code that you've added recently and start uncomment as you run the build. This way you'll have a general guidance on where the root cause could be.</p>
 </article>
           </div>
           
