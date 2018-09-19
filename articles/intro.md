@@ -2,6 +2,7 @@
 
 ## Getting started guides
 
+- [Build nanoFramework - STM32](getting-started-guides/build-stm32.md)
 - [Getting started guide](getting-started-guides/getting-started-managed.md)
 
 
