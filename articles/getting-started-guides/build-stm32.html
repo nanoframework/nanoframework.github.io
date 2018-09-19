@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-build-flash-and-debug-the-stm32-nanobooter-and-nanoclr-on-windows-using-visual-studio-code">How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code</h1>
+
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#Setting-up-the-build-environment-for-STM32">Setting up the build environment for STM32</a></li>
+<li><a href="#**nanoFramework**-GitHub-repo">nanoFramework Github Repo</a></li>
+<li><a href="#Set-up-Visual-Studio-Code">Set up Visual Studio Code</a></li>
+<li><a href="#Build-nanoBooter-and-nanoCLR">Build nanoBooter and nanoCLR</a></li>
+<li><a href="#Flash-the-STM32-target">Flash the STM32 target</a></li>
+<li><a href="#Next-Steps">Next Steps</a></li>
+</ul>
+<p><strong>About this document</strong></p>
+<p>This document describes how to build the required images for <strong>nanoFramework</strong> for STM32 targets.
+The build is based on CMake tool to ease the development in all major platforms.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You'll need:</p>
+<ul>
+<li><a href="http://code.visualstudio.com/">Visual Studio Code</a></li>
+<li>Visual Studio Code Extensions
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake">CMake</a> - language support for Visual Studio Code (by twxs)</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by vector-of-bool)</li>
+</ul>
+</li>
+<li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.11)</li>
+<li>A build system for CMake to generate the build files to.
+<ul>
+<li>If you have Visual Studio (full version) you can use the included NMake.</li>
+<li><a href="https://github.com/ninja-build/ninja/releases">Ninja</a>. This is lightweight build system, designed for speed and it works on Windows and Linux machines. See <a href="cmake/ninja-build.md">here</a> how to setup Ninja to build <strong>nanoFramework</strong>. This guide will use Ninja.</li>
+</ul>
+</li>
+<li><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU ARM Embedded Toolchain</a></li>
+<li>OpenOCD (any working distribution will work, some suggestions follow)\
+<ul>
+<li><a href="http://www.freddiechopin.info/en/download/category/4-openocd">Freddie Chopin OpenOCD</a></li>
+<li><a href="https://sourceforge.net/projects/openocd/">OpenOCD – Open On-Chip Debugger</a></li>
+<li><a href="https://github.com/gnuarmeclipse/openocd">GNU ARM Eclipse OpenOCD</a></li>
+</ul>
+</li>
+<li><a href="http://www.chibios.org/dokuwiki/doku.php">ChibiOS</a> - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the <code>CMake-variants.json</code> (more info <a href="#Set-up-Visual-Studio-Code">here</a>).</li>
+</ul>
+<h2 id="setting-up-the-build-environment-for-stm32">Setting up the build environment for STM32</h2>
+<p>To simplify, this guide we will put all our tools and source in easily accessible folders and not at the default install paths (you do not have to do the same):</p>
+<ol>
+<li><p>Create a directory structure such as the following:</p>
+<ul>
+<li><code>C:\nanoFramework_Tools</code></li>
+<li><code>C:\nanoFramework</code></li>
+</ul>
+</li>
+<li><p><a href="http://code.visualstudio.com/">Download</a> and install Visual Studio Code.</p>
+</li>
+<li><p><a href="https://cmake.org/download/">Download</a> and install CMake to <code>C:\nanoFramework_Tools\CMake</code></p>
+</li>
+<li><p><a href="https://github.com/ninja-build/ninja/releases">Download</a> Ninja and place the executable in <code>C:\nanoFramework_Tools\Ninja</code></p>
+</li>
+<li><p><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">Download</a> and install the GNU ARM Embedded Toolchain to <code>C:\nanoFramework_Tools\GNU_ARM_Toolchain</code></p>
+</li>
+<li><p><a href="https://sourceforge.net/projects/chibios/files/">Download</a> and extract ChibiOS to <code>C:\nanoframework_tools\ChibiOS-stable_18.2.x</code></p>
+</li>
+<li><p>Finally, clone <code>nf-interpreter</code> into <code>C:\nanoFramework\nf-interpreter</code>. See next section for more info.</p>
+</li>
+</ol>
+<h2 id="nanoframework-github-repo"><strong>nanoFramework</strong> GitHub repo</h2>
+<p>If you intend to change the nanoBooter or nanoCLR for the STM32 target and create Pull Requests then you will need to fork the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as the <a href="https://desktop.github.com/">GitHub Desktop application</a>.</p>
+<p>See the <a href="https://github.com/nanoframework/Home/blob/master/CONTRIBUTING.md">Contributing to nanoFramework</a> guide for specific instructions when contributing.</p>
+<p>If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> directly from here.</p>
+<h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
+<ol>
+<li><p>Install the extensions:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake">CMake</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools">CMake Tools</a></li>
+</ul>
+</li>
+<li><p>Set up the <code>CMake-variants.json</code> in root directory of your local nanoFramework/nf-interpreter clone.</p>
+<p>There is a template file called <code>cmake-variants.TEMPLATE.json</code> that can be renamed and configured accordingly.</p>
+<p>More info available on the <a href="https://github.com/nanoframework/Home/blob/master/docs/building/cmake-tools-cmake-variants.md">Tweaking cmake-variants.TEMPLATE.json</a> documentation page.</p>
+<p>For any of the <a href="http://docs.nanoframework.net/articles/reference-targets-intro.html">Reference target boards</a> you can find pre-populated template files <a href="https://github.com/nanoframework/Home/blob/c2eb47665ed426a000e18858cbdf5d71cb836421/docs/building/cmake-tools-cmake-variants.md#templates">here</a>.
+<br>
+Here is an example <code>CMake-variants.json</code> for the STM32F429I-DISCOVERY:</p>
+</li>
+</ol>
+<pre><code>{
+  &quot;buildType&quot;: {
+    &quot;default&quot;: &quot;MinSizeRel&quot;,
+      &quot;choices&quot;: { 
+        &quot;debug&quot;: {
+          &quot;short&quot;: &quot;Debug&quot;,
+          &quot;long&quot;: &quot;Emit debug information without performing optimizations&quot;,
+          &quot;buildType&quot;: &quot;Debug&quot;
+        },
+        &quot;release&quot;: {
+          &quot;short&quot;: &quot;Release&quot;,
+          &quot;long&quot;: &quot;Enable optimizations, omit debug info&quot;,
+          &quot;buildType&quot;: &quot;Release&quot;
+        },
+        &quot;minsize&quot;: {
+          &quot;short&quot;: &quot;MinSizeRel&quot;,
+          &quot;long&quot;: &quot;Optimize for smallest binary size&quot;,
+          &quot;buildType&quot;: &quot;MinSizeRel&quot;
+        },
+        &quot;reldeb&quot;: {
+          &quot;short&quot;: &quot;RelWithDebInfo&quot;,
+          &quot;long&quot;: &quot;Perform optimizations AND include debugging information&quot;,
+          &quot;buildType&quot;: &quot;RelWithDebInfo&quot;
+        }    
+      }
+  },
+
+  &quot;linkage&quot;: {
+    &quot;default&quot;: &quot;&quot;,
+    &quot;choices&quot;: {
+
+      &quot;ST_STM32F429I_DISCOVERY&quot;: {
+        &quot;short&quot;: &quot;ST_STM32F429I_DISCOVERY&quot;,
+        &quot;settings&quot;: {
+          &quot;BUILD_VERSION&quot; : &quot;0.9.99.999&quot;,
+          &quot;TOOLCHAIN_PREFIX&quot; : &quot;C:/nanoFramework_Tools/GNU_ARM_Toolchain&quot;,
+          &quot;TARGET_SERIES&quot; : &quot;STM32F4xx&quot;,
+          &quot;USE_RNG&quot; : &quot;ON&quot;,
+          &quot;CHIBIOS_SOURCE&quot; : &quot;C:/nanoFramework_Tools/ChibiOS-stable_18.2.x&quot;,
+          &quot;CHIBIOS_BOARD&quot; : &quot;ST_STM32F429I_DISCOVERY&quot;,
+          &quot;SWO_OUTPUT&quot; : &quot;ON&quot;,
+          &quot;NF_FEATURE_DEBUGGER&quot; : &quot;ON&quot;,
+          &quot;NF_FEATURE_RTC&quot; : &quot;ON&quot;,
+          &quot;API_Windows.Devices.Adc&quot; : &quot;ON&quot;,
+          &quot;API_Windows.Devices.Gpio&quot; : &quot;ON&quot;,
+          &quot;API_Windows.Devices.Spi&quot; : &quot;ON&quot;,
+          &quot;API_Windows.Devices.I2c&quot; : &quot;ON&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<ol start="3">
+<li>In the<code>.vscode</code> create a file named <code>settings.json</code> and paste the following</li>
+</ol>
+<pre><code>{
+    &quot;cmake.generator&quot;: &quot;Ninja&quot;,
+    &quot;cmake.configureSettings&quot;: {
+        &quot;CMAKE_MAKE_PROGRAM&quot;:&quot;C:/nanoFramework_Tools/ninja/ninja.exe&quot;
+    },
+    &quot;cmake.cmakePath&quot;: &quot;C:/nanoFramework_Tools/CMake/bin/cmake.exe&quot;
+}
+</code></pre>
+<ol start="4">
+<li><p>Save all files and exit VS Code.</p>
+</li>
+<li><p>Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
+</li>
+<li><p>In the status bar at the bottom left, click on the <code>CMake:MinSizeRel ST_STM32F429I_DISCOVERY: Ready</code> and select <code>MinSizeRel</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner).</p>
+</li>
+</ol>
+<h2 id="build-nanobooter-and-nanoclr">Build nanoBooter and nanoCLR</h2>
+<ol>
+<li><p>In the status bar click <code>Build</code>.</p>
+</li>
+<li><p>Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
+</li>
+<li><p>In the <code>C:\nanoFramework\nf-interpreter\build</code> folder will be the required binary files:</p>
+</li>
+</ol>
+<ul>
+<li>nanoBooter.bin</li>
+<li>nanoBooter.elf</li>
+<li>nanoBooter.hex</li>
+<li>nanoCLR.bin</li>
+<li>nanoCLR.elf</li>
+<li>nanoCLR.hex</li>
+</ul>
+<h2 id="flash-the-stm32-target">Flash the STM32 target</h2>
+<ol>
+<li><p>Download the <a href="https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">STM32 ST-LINK Utility</a> from ST web site and install it in your development machine.</p>
+</li>
+<li><p>Connect the Target board to your PC using an USB cable.</p>
+</li>
+<li><p>Open STM32 ST-Link Utility. And click on <code>Target &gt; Connect</code>.</p>
+</li>
+<li><p>Next erase the entire chip by clicking on <code>Target &gt; Erase Chip</code>.</p>
+</li>
+<li><p>Open <code>nanoBooter.hex</code> (<code>Open &gt; Open File...</code>) and program and verify (<code>Target &gt; Program &amp; Verify...</code>). Make sure you tick the <code>Reset after programming</code> check box and hit <code>Start</code>. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!</p>
+</li>
+<li><p>Open <code>nanoCLR.hex</code> (<code>Open &gt; Open File...</code>) and program and verify (<code>Target &gt; Program &amp; Verify...</code>). Make sure you tick the <code>Reset after programming</code> check box and hit <code>Start</code>. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking.</p>
+</li>
+</ol>
+<h2 id="next-steps">Next Steps</h2>
+<p>See <a href="http://docs.nanoframework.net/articles/getting-started-guides/getting-started-managed.html">Getting Started</a> for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/articles/getting-started-guides/build-stm32.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
