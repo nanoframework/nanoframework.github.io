@@ -2,8 +2,12 @@
 
 ## Getting started guides
 
+### Managed
+- [Getting Started Guide](getting-started-guides/getting-started-managed.md)
+
+### Native
 - [Build nanoFramework - STM32](getting-started-guides/build-stm32.md)
-- [Getting started guide](getting-started-guides/getting-started-managed.md)
+- [Build nanoFramework - ESP32](getting-started-guides/build-esp32.md)
 
 
 ## Reference target boards
