@@ -81,7 +81,8 @@
   
   <h1 id="Windows_Storage_Streams_IInputStream" data-uid="Windows.Storage.Streams.IInputStream" class="text-break">Interface IInputStream
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Represents a sequential stream of bytes to be read.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Windows.Storage.Streams.html">Windows.Storage.Streams</a></h6>
   <h6><strong>Assembly</strong>: Windows.Storage.Streams.dll</h6>
@@ -93,19 +94,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/lib-Windows.Storage.Streams/new/pages-source/apiSpec/new?filename=Windows_Storage_Streams_IInputStream_Read_Windows_Storage_Streams_IBuffer_UInt32_Windows_Storage_Streams_InputStreamOptions_.md&amp;value=---%0Auid%3A%20Windows.Storage.Streams.IInputStream.Read(Windows.Storage.Streams.IBuffer%2CUInt32%2CWindows.Storage.Streams.InputStreamOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Storage.Streams/new/pages-source/apiSpec/new?filename=Windows_Storage_Streams_IInputStream_Read_Windows_Storage_Streams_IBuffer_System_UInt32_Windows_Storage_Streams_InputStreamOptions_.md&amp;value=---%0Auid%3A%20Windows.Storage.Streams.IInputStream.Read(Windows.Storage.Streams.IBuffer%2CSystem.UInt32%2CWindows.Storage.Streams.InputStreamOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Storage.Streams/blob/develop/source/IInputStream.cs/#L23">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Storage.Streams/blob/develop/source/Windows.Storage.Streams/IInputStream.cs/#L24">View Source</a>
   </span>
   <a id="Windows_Storage_Streams_IInputStream_Read_" data-uid="Windows.Storage.Streams.IInputStream.Read*"></a>
-  <h4 id="Windows_Storage_Streams_IInputStream_Read_Windows_Storage_Streams_IBuffer_UInt32_Windows_Storage_Streams_InputStreamOptions_" data-uid="Windows.Storage.Streams.IInputStream.Read(Windows.Storage.Streams.IBuffer,UInt32,Windows.Storage.Streams.InputStreamOptions)">Read(IBuffer, UInt32, InputStreamOptions)</h4>
+  <h4 id="Windows_Storage_Streams_IInputStream_Read_Windows_Storage_Streams_IBuffer_System_UInt32_Windows_Storage_Streams_InputStreamOptions_" data-uid="Windows.Storage.Streams.IInputStream.Read(Windows.Storage.Streams.IBuffer,System.UInt32,Windows.Storage.Streams.InputStreamOptions)">Read(IBuffer, UInt32, InputStreamOptions)</h4>
   <div class="markdown level1 summary"><p>Reads data from the stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IBuffer Read(IBuffer buffer, UInt32 count, InputStreamOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">uint Read(IBuffer buffer, uint count, InputStreamOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -120,11 +121,11 @@
       <tr>
         <td><a class="xref" href="Windows.Storage.Streams.IBuffer.html">IBuffer</a></td>
         <td><span class="parametername">buffer</span></td>
-        <td><p>A buffer that may be used to return the bytes that are read. The return value contains the buffer that holds the results.</p>
+        <td><p>A buffer that is used to return the array of bytes that are read. The return value contains the buffer that holds the results.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">UInt32</span></td>
+        <td><a class="xref" href="System.UInt32.html">UInt32</a></td>
         <td><span class="parametername">count</span></td>
         <td><p>The number of bytes to read that is less than or equal to the Capacity value.</p>
 </td>
@@ -147,14 +148,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Windows.Storage.Streams.IBuffer.html">IBuffer</a></td>
-        <td><p>The Buffer</p>
+        <td><a class="xref" href="System.UInt32.html">UInt32</a></td>
+        <td><p>The number of bytes that were actually read.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Windows_Storage_Streams_IInputStream_Read_Windows_Storage_Streams_IBuffer_UInt32_Windows_Storage_Streams_InputStreamOptions__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Don't assume that the input buffer contains the data. Depending on the implementation, the data that's read might be placed into the input buffer, or it might be returned in a different buffer. For the input buffer, you don't have to implement the IBuffer interface. Instead, you can create an instance of the Buffer class.</p>
+  <h5 id="Windows_Storage_Streams_IInputStream_Read_Windows_Storage_Streams_IBuffer_System_UInt32_Windows_Storage_Streams_InputStreamOptions__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is specific to nanoFramework. The equivalent method in the UWP API is: ReadAsync(IBuffer buffer, UInt32 count, InputStreamOptions options).</p>
 </div>
 </article>
           </div>
@@ -167,7 +168,7 @@
                     <a href="https://github.com/nanoframework/lib-Windows.Storage.Streams/new/pages-source/apiSpec/new?filename=Windows_Storage_Streams_IInputStream.md&amp;value=---%0Auid%3A%20Windows.Storage.Streams.IInputStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nanoframework/lib-Windows.Storage.Streams/blob/develop/source/IInputStream.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nanoframework/lib-Windows.Storage.Streams/blob/develop/source/Windows.Storage.Streams/IInputStream.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
