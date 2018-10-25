@@ -1,0 +1,587 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GpioChangeReader
+   | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GpioChangeReader
+   | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Windows.Devices.Gpio.GpioChangeReader">
+  
+  
+  <h1 id="Windows_Devices_Gpio_GpioChangeReader" data-uid="Windows.Devices.Gpio.GpioChangeReader" class="text-break">Class GpioChangeReader
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a shared circular buffer between kernel mode and user mode into which high-resolution timestamps are placed when a general-purpose I/O (GPIO) pin changes value.
+<remarks><p>Kernel mode places a timestamp into the buffer when a pin changes value, and user mode removes items from the buffer.
+An overflow occurs when there is no longer sufficient room in the buffer to place additional timestamps.
+Upon overflow, further events are not recorded, and the IsOverflowed property will return true.</p><p>
+<p>This class is not thread-safe.Calling functions of this class concurrently from multiple threads will have unpredictable results.</p></remarks>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="System.Object.html">Object</a></div>
+    <div class="level1"><span class="xref">GpioChangeReader</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Windows.Devices.Gpio.html">Windows.Devices.Gpio</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class GpioChangeReader</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader__ctor_" data-uid="Windows.Devices.Gpio.GpioChangeReader.#ctor*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader__ctor_Windows_Devices_Gpio_GpioPin_" data-uid="Windows.Devices.Gpio.GpioChangeReader.#ctor(Windows.Devices.Gpio.GpioPin)">GpioChangeReader(GpioPin)</h4>
+  <div class="markdown level1 summary"><p>Creates a new GpioChangeReader associated with the specified pin. Only a single GpioChangeReader may be associated with a pin at any given time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeReader(GpioPin pin)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioPin.html">GpioPin</a></td>
+        <td><span class="parametername">pin</span></td>
+        <td><p>The pin on which to read changes. The pin must have been opened in Exclusive mode, and cannot be associated with another change reader.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader__ctor_Windows_Devices_Gpio_GpioPin__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The following exceptions can be thrown by this method:</p>
+<ul><li>E_POINTER - The pin passed in is null.</li><li>HRESULT_FROM_WIN32(ERROR_SHARING_VIOLATION) - The pin is already associated with a change reader.That change reader must be disposed before the pin can be associated with a new change reader.</li><li>E_ACCESSDENIED - The pin is not opened in Exclusive mode.</li></ul>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader__ctor_" data-uid="Windows.Devices.Gpio.GpioChangeReader.#ctor*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader__ctor_Windows_Devices_Gpio_GpioPin_Int32_" data-uid="Windows.Devices.Gpio.GpioChangeReader.#ctor(Windows.Devices.Gpio.GpioPin,Int32)">GpioChangeReader(GpioPin, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates a new GpioChangeReader associated with the specified pin. Only a single GpioChangeReader may be associated with a pin at any given time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeReader(GpioPin pin, Int32 minCapacity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioPin.html">GpioPin</a></td>
+        <td><span class="parametername">pin</span></td>
+        <td><p>The pin on which to read changes. The pin must have been opened in Exclusive mode, and cannot be associated with another change reader.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Int32</span></td>
+        <td><span class="parametername">minCapacity</span></td>
+        <td><p>The minimum number of change records that the reader must be able to hold.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader__ctor_Windows_Devices_Gpio_GpioPin_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The following exceptions can be thrown by this method:</p>
+<ul><li>E_POINTER - The pin passed in is null.</li><li>HRESULT_FROM_WIN32(ERROR_SHARING_VIOLATION) - The pin is already associated with a change reader.That change reader must be disposed before the pin can be associated with a new change reader.</li><li>E_ACCESSDENIED - The pin is not opened in Exclusive mode.</li></ul>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_Capacity_" data-uid="Windows.Devices.Gpio.GpioChangeReader.Capacity*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_Capacity" data-uid="Windows.Devices.Gpio.GpioChangeReader.Capacity">Capacity</h4>
+  <div class="markdown level1 summary"><p>Gets the maximum number of change records that the GpioChangeReader can store at one time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Capacity { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><p>The maximum number of change records.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_Capacity_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>When this maximum number of records is met, further changes will not be recorded and the IsOverflowed property will return true.</p>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_IsEmpty_" data-uid="Windows.Devices.Gpio.GpioChangeReader.IsEmpty*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_IsEmpty" data-uid="Windows.Devices.Gpio.GpioChangeReader.IsEmpty">IsEmpty</h4>
+  <div class="markdown level1 summary"><p>Gets whether there are currently zero change records in the reader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEmpty { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><p>Returns true if there are zero change items in the reader, and false otherwise</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_IsOverflowed_" data-uid="Windows.Devices.Gpio.GpioChangeReader.IsOverflowed*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_IsOverflowed" data-uid="Windows.Devices.Gpio.GpioChangeReader.IsOverflowed">IsOverflowed</h4>
+  <div class="markdown level1 summary"><p>Gets whether an attempt to place a change record into the reader's buffer has failed due to the buffer being full.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOverflowed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><p>Returns true if an attempt at placement has been unsuccessful, and false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_IsOverflowed_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Removing an item from the buffer will cause IsOverflowed to reset to false.</p>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_IsStarted_" data-uid="Windows.Devices.Gpio.GpioChangeReader.IsStarted*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_IsStarted" data-uid="Windows.Devices.Gpio.GpioChangeReader.IsStarted">IsStarted</h4>
+  <div class="markdown level1 summary"><p>Gets whether pin change recording is currently active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsStarted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><p>Returns true if pin changes are currently being recorded, and false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_Length_" data-uid="Windows.Devices.Gpio.GpioChangeReader.Length*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_Length" data-uid="Windows.Devices.Gpio.GpioChangeReader.Length">Length</h4>
+  <div class="markdown level1 summary"><p>Gets the number of records currently in the change reader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><p>The current number of change records.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_Polarity_" data-uid="Windows.Devices.Gpio.GpioChangeReader.Polarity*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_Polarity" data-uid="Windows.Devices.Gpio.GpioChangeReader.Polarity">Polarity</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the polarity of transitions that will be recorded. The polarity may only be changed when pin change recording is not started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangePolarity Polarity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioChangePolarity.html">GpioChangePolarity</a></td>
+        <td><p>Rising or Falling. The default polarity value is Falling.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_Polarity_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Listening to a single edge (Falling or Rising) can be considerably more efficient than listening to both edges.</p>
+<p>The following exceptions can be thrown when setting the polarity:
+<ul><li>E_INVALIDARG - value is not a valid GpioChangePolarity value.</li><li>HRESULT_FROM_WIN32(ERROR_BAD_COMMAND) - change recording is currently active.Polarity can only be set before calling Start() or after calling Stop().</li></ul>
+</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_Clear_" data-uid="Windows.Devices.Gpio.GpioChangeReader.Clear*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_Clear" data-uid="Windows.Devices.Gpio.GpioChangeReader.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Discards all change records from the reader's buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_Clear_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This will also reset an active overflow condition, causing the IsOverflowed property to return false.</p>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_GetAllItems_" data-uid="Windows.Devices.Gpio.GpioChangeReader.GetAllItems*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_GetAllItems" data-uid="Windows.Devices.Gpio.GpioChangeReader.GetAllItems">GetAllItems()</h4>
+  <div class="markdown level1 summary"><p>Removes and returns all items current in the reader's buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeRecord[] GetAllItems()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioChangeRecord.html">GpioChangeRecord</a>[]</td>
+        <td><p>The returned vector enables random access to all the change records removed from the buffer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_GetAllItems_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This will also reset an active overflow condition, causing the IsOverflowed property to return false.</p>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_GetNextItem_" data-uid="Windows.Devices.Gpio.GpioChangeReader.GetNextItem*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_GetNextItem" data-uid="Windows.Devices.Gpio.GpioChangeReader.GetNextItem">GetNextItem()</h4>
+  <div class="markdown level1 summary"><p>Retrieves and removes the earliest inserted change record from the reader's buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeRecord GetNextItem()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioChangeRecord.html">GpioChangeRecord</a></td>
+        <td><p>A <a class="xref" href="Windows.Devices.Gpio.GpioChangeRecord.html">GpioChangeRecord</a> structure containing the timestamp and polarity (rising or falling) of the change.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_GetNextItem_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This will also reset an active overflow condition, causing the IsOverflowed property to return false.</p>
+<p>The following exception can be thrown by this method:</p>
+<ul><li>HRESULT_FROM_WIN32(ERROR_NO_MORE_ITEMS) - the reader&apos;s buffer is empty.</li></ul>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_PeekNextItem_" data-uid="Windows.Devices.Gpio.GpioChangeReader.PeekNextItem*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_PeekNextItem" data-uid="Windows.Devices.Gpio.GpioChangeReader.PeekNextItem">PeekNextItem()</h4>
+  <div class="markdown level1 summary"><p>Retrieves the earlier inserted change record from the reader's buffer, without removing it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeRecord PeekNextItem()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioChangeRecord.html">GpioChangeRecord</a></td>
+        <td><p>A <a class="xref" href="Windows.Devices.Gpio.GpioChangeRecord.html">GpioChangeRecord</a> structure containing the timestamp and polarity (rising or falling) of the change.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_PeekNextItem_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This will also reset an active overflow condition, causing the IsOverflowed property to return false.</p>
+<p>The following exception can be thrown by this method:</p>
+<ul><li>HRESULT_FROM_WIN32(ERROR_NO_MORE_ITEMS) - the reader&apos;s buffer is empty.</li></ul>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_Start_" data-uid="Windows.Devices.Gpio.GpioChangeReader.Start*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_Start" data-uid="Windows.Devices.Gpio.GpioChangeReader.Start">Start()</h4>
+  <div class="markdown level1 summary"><p>Starts recording changes in pin polarity. This method may only be called when change recording is not already active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_Start_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Calling Start() may enable or reconfigure interrupts for the pin.</p>
+<p>The following exceptions can be thrown by this method:</p>
+<ul><li>HRESULT_FROM_WIN32(ERROR_BAD_COMMAND) - change reading is not currently active.</li><li>HRESULT_FROM_WIN32(ERROR_INVALID_HANDLE) - the change reader or the associated pin has been disposed.</li></ul>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_Stop_" data-uid="Windows.Devices.Gpio.GpioChangeReader.Stop*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_Stop" data-uid="Windows.Devices.Gpio.GpioChangeReader.Stop">Stop()</h4>
+  <div class="markdown level1 summary"><p>Stop recording changes in pin polarity. This method may only be called when change recording is currently active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_Stop_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Calling Stop() may enable or reconfigure interrupts for the pin.</p>
+<p>The following exceptions can be thrown by this method:</p>
+<ul><li>HRESULT_FROM_WIN32(ERROR_BAD_COMMAND) - change reading is not currently active.</li><li>HRESULT_FROM_WIN32(ERROR_INVALID_HANDLE) - the change reader or the associated pin has been disposed.</li></ul>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeReader_WaitForItems_" data-uid="Windows.Devices.Gpio.GpioChangeReader.WaitForItems*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeReader_WaitForItems_Int32_" data-uid="Windows.Devices.Gpio.GpioChangeReader.WaitForItems(Int32)">WaitForItems(Int32)</h4>
+  <div class="markdown level1 summary"><p>Waits for the buffer to fill with at least count number of items, at which point the async action will complete. This action is cancelable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void WaitForItems(Int32 count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The number of items with which the buffer must fill before the async operation completes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeReader_WaitForItems_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the pin or change reader is closed while a wait is in progress, the async operation will be cancelled.</p>
+<p>The following exceptions can be thrown by this method:</p>
+<ul><li>E_INVALIDARG - count is 0, or count is greater than the buffer&apos;s capacity.</li><li>HRESULT_FROM_WIN32(ERROR_INVALID_HANDLE) - The change reader was disposed of the associated pin was closed.</li></ul>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

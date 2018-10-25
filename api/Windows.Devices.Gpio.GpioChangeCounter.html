@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GpioChangeCounter
+   | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GpioChangeCounter
+   | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Windows.Devices.Gpio.GpioChangeCounter">
+  
+  
+  <h1 id="Windows_Devices_Gpio_GpioChangeCounter" data-uid="Windows.Devices.Gpio.GpioChangeCounter" class="text-break">Class GpioChangeCounter
+  </h1>
+  <div class="markdown level0 summary"><p>Counts changes of a specified polarity on a general-purpose I/O (GPIO) pin.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="System.Object.html">Object</a></div>
+    <div class="level1"><span class="xref">GpioChangeCounter</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Windows.Devices.Gpio.html">Windows.Devices.Gpio</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class GpioChangeCounter</code></pre>
+  </div>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>When the pin is an input, interrupts are used to detect pin changes. Interrupts for the pin are enabled for the specified polarity, and the count is incremented when an interrupt occurs.</p>
+<p>When the pin is an output, the count will increment whenever the specified transition occurs on the pin.For example, if the pin is configured as an output and counting is enabled for rising edges, writing a 0 and then a 1 will cause the count to be incremented.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeCounter__ctor_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.#ctor*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeCounter__ctor_Windows_Devices_Gpio_GpioPin_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.#ctor(Windows.Devices.Gpio.GpioPin)">GpioChangeCounter(GpioPin)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Windows.Devices.Gpio.GpioChangeCounter.html">GpioChangeCounter</a> class associated with the specified pin.
+Only a single <a class="xref" href="Windows.Devices.Gpio.GpioChangeCounter.html">GpioChangeCounter</a> may be associated with a pin at any given time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeCounter(GpioPin pin)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioPin.html">GpioPin</a></td>
+        <td><span class="parametername">pin</span></td>
+        <td><p>The pin on which to count changes.
+This pin must have been opened in Exclusive mode, and cannot be associated with another GpioChangeCounter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter__ctor_Windows_Devices_Gpio_GpioPin__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The following exceptions can be thrown by this method:</p>
+<p>E_POINTER - The pin passed in is null.</p>
+<p>HRESULT_FROM_WIN32(ERROR_SHARING_VIOLATION) - The pin is already associated with a change counter.That change counter must be disposed before the pin can be associated with a new change counter.</p>
+<p>E_ACCESSDENIED - The pin is not opened in Exclusive mode.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeCounter_IsStarted_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.IsStarted*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeCounter_IsStarted" data-uid="Windows.Devices.Gpio.GpioChangeCounter.IsStarted">IsStarted</h4>
+  <div class="markdown level1 summary"><p>Gets whether pin change counting is currently active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsStarted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><p><code>TRUE</code> if this pin change counting is active and <code>FALSE</code> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeCounter_Polarity_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Polarity*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeCounter_Polarity" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Polarity">Polarity</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the polarity of transitions that will be counted. The polarity may only be changed when pin counting is not started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangePolarity Polarity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioChangePolarity.html">GpioChangePolarity</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter_Polarity_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The default polarity value is Falling. See <a class="xref" href="Windows.Devices.Gpio.GpioChangePolarity.html">GpioChangePolarity</a> for more information on polarity values. Counting a single edge can be considerably more efficient than counting both edges.</p>
+<p>The following exceptions can be thrown when setting the polarity:</p>
+<p>E_INVALIDARG - value is not a valid GpioChangePolarity value.</p>
+<p>HRESULT_FROM_WIN32(ERROR_BAD_COMMAND) - change counting is currently active.Polarity can only be set before calling Start() or after calling Stop().</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeCounter_Read_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Read*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeCounter_Read" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Read">Read()</h4>
+  <div class="markdown level1 summary"><p>Reads the current count of polarity changes. Before counting has been started, this will return 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeCount Read()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioChangeCount.html">GpioChangeCount</a></td>
+        <td><p>A <a class="xref" href="Windows.Devices.Gpio.GpioChangeCount.html">GpioChangeCount</a> structure containing a count and an associated timestamp.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter_Read_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The following exception can be thrown by this method:</p>
+<p>HRESULT_FROM_WIN32(ERROR_INVALID_HANDLE) - the change counter or the associated pin has been disposed.</p>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeCounter_Reset_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Reset*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeCounter_Reset" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Reset">Reset()</h4>
+  <div class="markdown level1 summary"><p>Resets the count to 0 and returns the previous count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpioChangeCount Reset()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Devices.Gpio.GpioChangeCount.html">GpioChangeCount</a></td>
+        <td><p>A <a class="xref" href="Windows.Devices.Gpio.GpioChangeCount.html">GpioChangeCount</a> structure containing a count and an associated timestamp.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter_Reset_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The following exception can be thrown by this method:</p>
+<p>HRESULT_FROM_WIN32(ERROR_INVALID_HANDLE) - the change counter or the associated pin has been disposed.</p>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeCounter_Start_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Start*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeCounter_Start" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Start">Start()</h4>
+  <div class="markdown level1 summary"><p>Starts counting changes in pin polarity. This method may only be called when change counting is not already active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter_Start_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Calling Start() may enable or reconfigure interrupts for the pin.</p>
+<p>The following exceptions can be thrown by this method:</p>
+<p>HRESULT_FROM_WIN32(ERROR_BAD_COMMAND) - change counting has already been started.</p>
+<p>HRESULT_FROM_WIN32(ERROR_INVALID_HANDLE) - the change counter or the associated pin has been disposed.</p>
+</div>
+  
+  
+  <a id="Windows_Devices_Gpio_GpioChangeCounter_Stop_" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Stop*"></a>
+  <h4 id="Windows_Devices_Gpio_GpioChangeCounter_Stop" data-uid="Windows.Devices.Gpio.GpioChangeCounter.Stop">Stop()</h4>
+  <div class="markdown level1 summary"><p>Stop counting changes in pin polarity. This method may only be called when change counting is currently active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+  <h5 id="Windows_Devices_Gpio_GpioChangeCounter_Stop_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Calling Stop() may enable or reconfigure interrupts for the pin.</p>
+<p>The following exceptions can be thrown by this method:</p>
+<p>HRESULT_FROM_WIN32(ERROR_BAD_COMMAND) - change counting has already been started.</p>
+<p>HRESULT_FROM_WIN32(ERROR_INVALID_HANDLE) - the change counter or the associated pin has been disposed.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
