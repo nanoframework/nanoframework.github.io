@@ -1,5 +1,7 @@
 image: Visual Studio 2017
 
+test: off
+
 build:
   verbosity: minimal
 
@@ -91,7 +93,7 @@ after_build:
         git clone https://github.com/nanoframework/nanoframework.github.io.git -b master origin_site -q
         Copy-Item _site/* origin_site -recurse -Force
         CD origin_site
-        git add -A 2>&1
+        git add -A 2>&1  > $null
         git commit -m "Update documentation from PR" -q
-        git push origin master -q
+        git push origin master -q > $null
       }
