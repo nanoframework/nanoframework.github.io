@@ -59,7 +59,14 @@ before_build:
 build_script:
   - ps: >-
 
-      &docfx docfx.json
+      &docfx metadata docfx.json
+      
+      if ($lastexitcode -ne 0)
+      {
+        throw [System.Exception] "docfx build failed with exit code $lastexitcode."
+      }
+
+      &docfx build docfx.json
       
       if ($lastexitcode -ne 0)
       {
