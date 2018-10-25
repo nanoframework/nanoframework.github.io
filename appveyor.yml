@@ -51,6 +51,8 @@ install:
 
         git clone https://github.com/nanoframework/lib-nanoFramework.System.Net -b develop nanoFramework.System.Net --depth 1 -q
 
+  - ps: .\install-vsix-appveyor.ps1        
+
 before_build:
   - ps: |
         git checkout $env:APPVEYOR_REPO_BRANCH -q
@@ -58,6 +60,8 @@ before_build:
 
 build_script:
   - ps: >-
+
+      .\rename-nfproj-files.ps1
 
       &docfx metadata docfx.json
       
