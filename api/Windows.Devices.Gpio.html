@@ -85,16 +85,6 @@
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="Windows.Devices.Gpio.GpioChangeCounter.html">GpioChangeCounter</a></h4>
-      <section><p>Counts changes of a specified polarity on a general-purpose I/O (GPIO) pin.</p>
-</section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.GpioChangeReader.html">GpioChangeReader</a></h4>
-      <section><p>Represents a shared circular buffer between kernel mode and user mode into which high-resolution timestamps are placed when a general-purpose I/O (GPIO) pin changes value.
-<remarks><p>Kernel mode places a timestamp into the buffer when a pin changes value, and user mode removes items from the buffer.
-An overflow occurs when there is no longer sufficient room in the buffer to place additional timestamps.
-Upon overflow, further events are not recorded, and the IsOverflowed property will return true.</p><p>
-<p>This class is not thread-safe.Calling functions of this class concurrently from multiple threads will have unpredictable results.</p></remarks>
-</section>
       <h4><a class="xref" href="Windows.Devices.Gpio.GpioController.html">GpioController</a></h4>
       <section><p>Represents the default general-purpose I/O (GPIO) controller for the system.</p>
 </section>
@@ -107,35 +97,14 @@ Upon overflow, further events are not recorded, and the IsOverflowed property wi
       <h4><a class="xref" href="Windows.Devices.Gpio.GpioPinValueChangedEventArgs.html">GpioPinValueChangedEventArgs</a></h4>
       <section><p>Provides data about the <a class="xref" href="Windows.Devices.Gpio.GpioPin.html#Windows_Devices_Gpio_GpioPin_ValueChanged">ValueChanged</a> event that occurs when the value of the general-purpose I/O (GPIO) pin changes, either because of an external stimulus when the pin is configured as an input, or when a value is written to the pin when the pin in configured as an output.</p>
 </section>
-    <h3 id="structs">Structs
-  </h3>
-      <h4><a class="xref" href="Windows.Devices.Gpio.GpioChangeCount.html">GpioChangeCount</a></h4>
-      <section><p>Represents a near-simultaneous sampling of the number of times a pin has changed value, and the time at which this count was sampled.
-This structure can be used to determine the number of pin value changes over a period of time.</p>
-</section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.GpioChangeRecord.html">GpioChangeRecord</a></h4>
-      <section><p>Stores a relative timestap of a general-purpose I/O (GPIO) pin value change, and whether the pin transitioned from low to high or from high to low.</p>
-</section>
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="Windows.Devices.Gpio.IGpioController.html">IGpioController</a></h4>
       <section></section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.IGpioControllerProvider.html">IGpioControllerProvider</a></h4>
-      <section><p>Represents the actions common to all general-purpose I/O (GPIO) controllers.</p>
-</section>
       <h4><a class="xref" href="Windows.Devices.Gpio.IGpioPin.html">IGpioPin</a></h4>
       <section></section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.IGpioPinProvider.html">IGpioPinProvider</a></h4>
-      <section><p>Represents actions common to general-purpose I/O (GPIO) pin providers.</p>
-</section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.IGpioProvider.html">IGpioProvider</a></h4>
-      <section><p>Represents actions common to general-purpose I/O (GPIO) controller providers.</p>
-</section>
     <h3 id="enums">Enums
   </h3>
-      <h4><a class="xref" href="Windows.Devices.Gpio.GpioChangePolarity.html">GpioChangePolarity</a></h4>
-      <section><p>Represents the polarity of changes that are relevant to the associated action.</p>
-</section>
       <h4><a class="xref" href="Windows.Devices.Gpio.GpioOpenStatus.html">GpioOpenStatus</a></h4>
       <section><p>Describes the possible results of opening a pin with the <see><cref>GpioPin.TryOpenPin</cref></see> method.</p>
 </section>
@@ -151,19 +120,6 @@ This structure can be used to determine the number of pin value changes over a p
       <h4><a class="xref" href="Windows.Devices.Gpio.GpioSharingMode.html">GpioSharingMode</a></h4>
       <section><p>Describes the modes in which you can open a general-purpose I/O (GPIO) pin.</p>
 <p>These modes determine whether other connections to the GPIO pin can be opened while you have the pin open.</p>
-</section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.ProviderGpioPinDriveMode.html">ProviderGpioPinDriveMode</a></h4>
-      <section><p>Describes whether a general-purpose I/O (GPIO) pin is configured as an input or an output, and how values are driven onto the pin.</p>
-</section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.ProviderGpioPinEdge.html">ProviderGpioPinEdge</a></h4>
-      <section><p>Describes the possible types of change that can occur to the value of the general-purpose I/O (GPIO) pin.</p>
-</section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.ProviderGpioPinValue.html">ProviderGpioPinValue</a></h4>
-      <section><p>Describes the possible values for a general-purpose I/O (GPIO) pin.</p>
-</section>
-      <h4><a class="xref" href="Windows.Devices.Gpio.ProviderGpioSharingMode.html">ProviderGpioSharingMode</a></h4>
-      <section><p>Describes the modes in which you can open a general-purpose I/O (GPIO) pin.
-These modes determine whether other connections to the GPIO pin can be opened while you have the pin open.</p>
 </section>
     <h3 id="delegates">Delegates
   </h3>
