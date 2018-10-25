@@ -51,77 +51,20 @@ install:
 
         git clone https://github.com/nanoframework/lib-nanoFramework.System.Net -b develop nanoFramework.System.Net --depth 1 -q
 
-        .\install-vsix-appveyor.ps1
-
 before_build:
   - ps: |
         git checkout $env:APPVEYOR_REPO_BRANCH -q
         choco install docfx -y
-        # choco install nuget.commandline -y
-      
-        nuget sources add -name MyGet -Source https://www.myget.org/F/nanoframework-dev
-      
-        nuget restore CoreLibrary\source\nanoFramework.CoreLibrary.sln
-
-        nuget restore nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln
-
-        nuget restore nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln
-
-        nuget restore Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln
-
-        nuget restore Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln
-
-        nuget restore Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln
-
-        nuget restore Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln
-
-        nuget restore Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln
-
-        nuget restore Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln
-
-        nuget restore Windows.Devices.Adc\source\nanoFramework.Windows.Devices.Adc.sln
-
-        nuget restore Windows.Devices.WiFi\source\nanoFramework.Windows.Devices.WiFi.sln
-
-        nuget restore nanoFramework.Hardware.Esp32\source\nanoFramework.Hardware.Esp32.sln
-
-        nuget restore nanoFramework.Hardware.Stm32\source\nanoFramework.Hardware.Stm32.sln
-
-        nuget restore nanoFramework.Networking.Sntp\source\nanoFramework.Networking.Sntp.sln
-
-        nuget restore nanoFramework.System.Net\source\nanoFramework.System.Net.sln
 
 build_script:
-  - ps: |
-        msbuild CoreLibrary\source\nanoFramework.CoreLibrary.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - ps: >-
 
-        msbuild nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Devices.Adc\source\nanoFramework.Windows.Devices.Adc.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild Windows.Devices.WiFi\source\nanoFramework.Windows.Devices.WiFi.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild nanoFramework.Hardware.Esp32\source\nanoFramework.Hardware.Esp32.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild nanoFramework.Hardware.Stm32\source\nanoFramework.Hardware.Stm32.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild nanoFramework.Networking.Sntp\source\nanoFramework.Networking.Sntp.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
-        msbuild nanoFramework.System.Net\source\nanoFramework.System.Net.sln /p:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+      &docfx docfx.json
+      
+      if ($lastexitcode -ne 0)
+      {
+        throw [System.Exception] "docfx build failed with exit code $lastexitcode."
+      }
 
 # requires APPVEYOR_DISCORD_WEBHOOK_URL enviroment variable set with Discord webhook URL
 on_failure:
@@ -131,15 +74,6 @@ on_failure:
 
 after_build:
   - ps: >-
-
-      .\rename-nfproj-files.ps1
-
-      &docfx docfx.json
-      
-      if ($lastexitcode -ne 0)
-      {
-        throw [System.Exception] "docfx build failed with exit code $lastexitcode."
-      }
 
       if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
       {
