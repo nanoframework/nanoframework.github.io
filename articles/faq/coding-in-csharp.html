@@ -82,6 +82,8 @@
 <h2 id="i-have-a-solution-that-targets-both-nanoframework-and-standard-net-and-would-like-to-sharereuse-code-in-both-platforms-i-know-i-cant-reference-assemblies-from-one-into-the-other-how-can-i-accomplish-this">I have a Solution that targets both nanoFramework and standard .NET and would like to share/reuse code in both platforms. I know I can't reference assemblies from one into the other. How can I accomplish this?</h2>
 <p>Your best option is to use a shared project to hold the common code. Put there the classes that are to be used in both platforms. You can go all the way into this reusability by using compiler constants, compiler defines and even partial classes.
 For a small example on this check the <a href="https://github.com/nanoframework/Samples/tree/master/ToStringTest">ToString sample</a> on our samples repo. It's using this technic to share code between a nanoFramework app and a .NET console app.</p>
+<h2 id="i-need-to-debug-something-in-a-class-library-how-can-i-easily-replace-the-nuget-reference-with-the-real-project">I need to debug something in a class library how can I easily replace the NuGet reference with the real project?</h2>
+<p>This can be easily accomplished by using a handy Visual Studio extension called <a href="https://marketplace.visualstudio.com/items?itemName=RicoSuter.NuGetReferenceSwitcherforVisualStudio2017">NuGet Reference Switcher</a>. Add the class library project to your solution and using that tool <em>switch</em> the NuGet package reference to the recently added project. After debugging you can switch back to the NuGet reference.</p>
 </article>
           </div>
           
