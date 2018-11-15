@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NetworkStream
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.40.0.0">
+    <meta name="generator" content="docfx 2.40.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -87,14 +87,59 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="System.Object.html">Object</a></div>
-    <div class="level1"><span class="xref">NetworkStream</span></div>
-      <div class="level2"><a class="xref" href="System.Net.Security.SslStream.html">SslStream</a></div>
+    <div class="level1"><a class="xref" href="System.MarshalByRefObject.html">MarshalByRefObject</a></div>
+    <div class="level2"><a class="xref" href="System.IO.Stream.html">Stream</a></div>
+    <div class="level3"><span class="xref">NetworkStream</span></div>
+      <div class="level4"><a class="xref" href="System.Net.Security.SslStream.html">SslStream</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Close">Stream.Close()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose">Stream.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Finalize">Stream.Finalize()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_ReadByte">Stream.ReadByte()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteByte_System_Byte_">Stream.WriteByte(Byte)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="System.Net.Sockets.html">System.Net.Sockets</a></h6>
   <h6><strong>Assembly</strong>: System.Net.dll</h6>
   <h5 id="System_Net_Sockets_NetworkStream_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class NetworkStream : Stream</code></pre>
+    <pre><code class="lang-csharp hljs">public class NetworkStream : Stream, IDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -301,6 +346,8 @@ use to send and receive data.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanRead">Stream.CanRead</a></div>
   <h5 id="System_Net_Sockets_NetworkStream_CanRead_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If CanRead is true, <a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a> allows calls to the <a class="xref" href="System.Net.Sockets.NetworkStream.html#System_Net_Sockets_NetworkStream_Read_System_Byte___System_Int32_System_Int32_">Read(Byte[], Int32, Int32)</a> method. Provide the appropriate FileAccess enumerated value in the constructor to set
 the readability and writability of the <a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a>. The CanRead property is set when the <a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a> is initialized.</p>
@@ -337,6 +384,8 @@ the readability and writability of the <a class="xref" href="System.Net.Sockets.
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanSeek">Stream.CanSeek</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_CanTimeout.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.CanTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -369,6 +418,8 @@ the readability and writability of the <a class="xref" href="System.Net.Sockets.
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanTimeout">Stream.CanTimeout</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_CanWrite.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.CanWrite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -401,6 +452,8 @@ the readability and writability of the <a class="xref" href="System.Net.Sockets.
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanWrite">Stream.CanWrite</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_DataAvailable.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.DataAvailable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -466,6 +519,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Length">Stream.Length</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_Position.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.Position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -498,6 +553,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Position">Stream.Position</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_ReadTimeout.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.ReadTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -530,6 +587,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_ReadTimeout">Stream.ReadTimeout</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_WriteTimeout.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.WriteTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -562,6 +621,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteTimeout">Stream.WriteTimeout</a></div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
@@ -635,6 +696,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose_System_Boolean_">Stream.Dispose(Boolean)</a></div>
   <h5 id="System_Net_Sockets_NetworkStream_Dispose_System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method is called by the public Dispose method and the Finalize method. Dispose invokes the protected Dispose(Boolean) method with the disposing parameter set to true. Finalize invokes Dispose with disposing set to false.</p>
 <p>When the disposing parameter is true, this method releases all resources held by any managed objects that this NetworkStream references. This method invokes the Dispose method of each referenced object.</p>
@@ -655,6 +718,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Flush()</code></pre>
   </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Flush">Stream.Flush()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_Read_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.Read(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -717,6 +782,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Read_System_Byte___System_Int32_System_Int32_">Stream.Read(Byte[], Int32, Int32)</a></div>
   <h5 id="System_Net_Sockets_NetworkStream_Read_System_Byte___System_Int32_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method reads data into the buffer parameter and returns the number of bytes successfully read. If no data is available for reading, the Read method returns 0. The Read operation reads as much data as is available, up to the number of bytes specified by the count parameter. If the remote host shuts down the connection, and all available data has been received, the Read method completes immediately and return zero bytes.</p>
 <div class="IMPORTANT"><h5>important</h5><p>
@@ -725,13 +792,13 @@ Check to see if the <a class="xref" href="System.Net.Sockets.NetworkStream.html"
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_Seek_System_Int64_SeekOrigin_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.Seek(System.Int64%2CSeekOrigin)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_Seek_System_Int64_System_IO_SeekOrigin_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.Seek(System.Int64%2CSystem.IO.SeekOrigin)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/blob/develop/source/nanoFramework.System.Net/Sockets/NetworkStream.cs/#L360">View Source</a>
   </span>
   <a id="System_Net_Sockets_NetworkStream_Seek_" data-uid="System.Net.Sockets.NetworkStream.Seek*"></a>
-  <h4 id="System_Net_Sockets_NetworkStream_Seek_System_Int64_SeekOrigin_" data-uid="System.Net.Sockets.NetworkStream.Seek(System.Int64,SeekOrigin)">Seek(Int64, SeekOrigin)</h4>
+  <h4 id="System_Net_Sockets_NetworkStream_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="System.Net.Sockets.NetworkStream.Seek(System.Int64,System.IO.SeekOrigin)">Seek(Int64, SeekOrigin)</h4>
   <div class="markdown level1 summary"><p>Sets the current position of the stream to the given value. This method is
 not currently supported and always throws a System.NotSupportedException.</p>
 </div>
@@ -757,7 +824,7 @@ not currently supported and always throws a System.NotSupportedException.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">SeekOrigin</span></td>
+        <td><a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a></td>
         <td><span class="parametername">origin</span></td>
         <td><p>This parameter is not used.</p>
 </td>
@@ -780,6 +847,8 @@ not currently supported and always throws a System.NotSupportedException.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Seek_System_Int64_System_IO_SeekOrigin_">Stream.Seek(Int64, SeekOrigin)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_SetLength_System_Int64_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.SetLength(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -814,6 +883,8 @@ not currently supported and always throws a System.NotSupportedException.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_SetLength_System_Int64_">Stream.SetLength(Int64)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_NetworkStream_Write_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.NetworkStream.Write(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -860,12 +931,18 @@ not currently supported and always throws a System.NotSupportedException.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Write_System_Byte___System_Int32_System_Int32_">Stream.Write(Byte[], Int32, Int32)</a></div>
   <h5 id="System_Net_Sockets_NetworkStream_Write_System_Byte___System_Int32_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The Write method starts at the specified offset and sends count bytes from the contents of buffer to the network.
 The Write method blocks until the requested number of bytes is sent or a SocketException is thrown.
 If you receive a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>, use the <a class="xref" href="System.Net.Sockets.SocketException.html#System_Net_Sockets_SocketException_ErrorCode">ErrorCode</a> property to obtain
 the specific error code, and refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.</p>
 </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="System.IDisposable.html">IDisposable</a>
+  </div>
 </article>
           </div>
           
