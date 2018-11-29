@@ -1,0 +1,376 @@
+trigger:
+  branches:
+    include:
+    - pages-source
+  paths:
+    exclude:
+    - /*.md
+    - .gitignore
+
+pr:
+  branches:
+    include:
+    - pages-source
+  autoCancel: true
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: nanoframework/nf-tools
+      endpoint: nfbot
+
+pool:
+  vmImage: 'VS2017-Win2016'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+
+# need this here in order to persist GitHub credentials
+- checkout: self
+  persistCredentials: true
+
+# setup GitHub credentials and prefs
+- script: |
+    git config --global user.email "nfbot"
+    git config --global user.name "nanoframework@outlook.com"
+
+    git config --global core.autocrlf true
+  displayName: Setup git identity
+
+# clone class libs repos
+# fetch only the last 10 commits to be (reasonaly) sure that we have the history up to the last tag
+- powershell: |
+      git clone https://github.com/nanoframework/lib-CoreLibrary.git -b develop CoreLibrary 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Devices.OneWire.git -b develop nanoFramework.Devices.OneWire 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Runtime.Events.git -b develop nanoFramework.Runtime.Events 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Runtime.Native.git -b develop nanoFramework.Runtime.Native 
+
+      git clone https://github.com/nanoframework/lib-Windows.Devices.Gpio.git -b develop Windows.Devices.Gpio 
+
+      git clone https://github.com/nanoframework/lib-Windows.Devices.I2c.git -b develop Windows.Devices.I2c 
+
+      git clone https://github.com/nanoframework/lib-Windows.Devices.Pwm.git -b develop Windows.Devices.Pwm 
+
+      git clone https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication.git -b develop Windows.Devices.SerialCommunication 
+
+      git clone https://github.com/nanoframework/lib-Windows.Devices.Spi.git -b develop Windows.Devices.Spi 
+
+      git clone https://github.com/nanoframework/lib-Windows.Storage.Streams.git -b develop Windows.Storage.Streams 
+
+      git clone https://github.com/nanoframework/lib-Windows.Devices.Adc.git -b develop Windows.Devices.Adc 
+
+      git clone https://github.com/nanoframework/lib-Windows.Devices.WiFi.git -b develop Windows.Devices.WiFi 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Esp32 -b develop nanoFramework.Hardware.Esp32 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Stm32 -b develop nanoFramework.Hardware.Stm32 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Networking.Sntp -b develop nanoFramework.Networking.Sntp 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.System.Net -b develop nanoFramework.System.Net 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.System.Net.Http -b develop nanoFramework.System.Net.Http 
+  displayName: Clone repos of class libs
+
+# install docfx
+- powershell: choco install docfx -y
+  displayName: Install docfx
+
+- task: NuGetToolInstaller@0
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'CoreLibrary\source\nanoFramework.CoreLibrary.sln'
+    feedsToUse: config
+    nugetConfigPath: 'CoreLibrary\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Devices.OneWire\source\nanoFramework.Devices.OneWire.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Devices.OneWire\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Runtime.Events\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Runtime.Native\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Devices.Gpio\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Devices.I2c\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Devices.Pwm\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Devices.SerialCommunication\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Devices.Spi\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Storage.Streams\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Devices.Adc\source\nanoFramework.Windows.Devices.Adc.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Devices.Adc\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'Windows.Devices.WiFi\source\nanoFramework.Windows.Devices.WiFi.sln'
+    feedsToUse: config
+    nugetConfigPath: 'Windows.Devices.WiFi\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Hardware.Esp32\source\nanoFramework.Hardware.Esp32.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Hardware.Esp32\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Hardware.Stm32\source\nanoFramework.Hardware.Stm32.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Hardware.Stm32\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Networking.Sntp\source\nanoFramework.Networking.Sntp.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Networking.Sntp\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.System.Net\source\nanoFramework.System.Net.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.System.Net\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.System.Net.Http\source\nanoFramework.System.Net.Http.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.System.Net.Http\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: InstallnFBuildComponents@1
+  displayName: Install nanoFramework MSBuild components
+
+- task: VSBuild@1
+  inputs:
+    solution: 'CoreLibrary\source\nanoFramework.CoreLibrary.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Devices.OneWire\source\nanoFramework.Devices.OneWire.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Runtime.Events\source\nanoFramework.Runtime.Events.sln '
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Runtime.Native\source\nanoFramework.Runtime.Native.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Devices.Gpio\source\nanoFramework.Windows.Devices.Gpio.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Devices.I2c\source\nanoFramework.Windows.Devices.I2c.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Devices.Pwm\source\nanoFramework.Windows.Devices.Pwm.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Devices.SerialCommunication\source\nanoFramework.Windows.Devices.SerialCommunication.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Devices.Spi\source\nanoFramework.Windows.Devices.Spi.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Storage.Streams\source\nanoFramework.Windows.Storage.Streams.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Devices.Adc\source\nanoFramework.Windows.Devices.Adc.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'Windows.Devices.WiFi\source\nanoFramework.Windows.Devices.WiFi.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Hardware.Esp32\source\nanoFramework.Hardware.Esp32.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Hardware.Stm32\source\nanoFramework.Hardware.Stm32.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Networking.Sntp\source\nanoFramework.Networking.Sntp.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.System.Net\source\nanoFramework.System.Net.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.System.Net.Http\source\nanoFramework.System.Net.Http.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+# rename project files (need this to trick docfx)
+- powershell: Get-ChildItem -Filter "*.nfproj" -Recurse | Rename-Item -NewName { $_.name -replace 'nfproj','csproj' }
+  displayName: Rename nfproj files
+  condition: succeeded()
+
+# run docfx
+- powershell: |
+      &docfx metadata docfx.json
+      
+      if ($lastexitcode -ne 0)
+      {
+        throw [System.Exception] "docfx build failed with exit code $lastexitcode."
+      }
+
+      &docfx build docfx.json
+      
+      if ($lastexitcode -ne 0)
+      {
+        throw [System.Exception] "docfx build failed with exit code $lastexitcode."
+      }
+  condition: succeeded()
+  displayName: Run docfx
+
+# commit changes
+- powershell: |
+        git clone https://github.com/nanoframework/nanoframework.github.io.git -b master origin_site -q
+        Copy-Item _site/* origin_site -recurse -Force
+        
+        cd origin_site > $null
+
+        $auth = "basic $([System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("nfbot:$(GitHubToken)"))))"
+
+        git add . -A > $null
+        git commit -m "Update documentation from PR" -q > $null
+        git -c http.extraheader="AUTHORIZATION: $auth" push origin master -q > $null
+  failOnStderr: false
+  ignoreLASTEXITCODE: true
+  condition: and( succeeded(), not( startsWith(variables['Build.SourceBranch'], 'refs/pull') ) )
+  displayName: Commit changes
+
+# step from template @ nf-tools repo
+# report error
+- template: azure-pipelines-templates/discord-webhook-task.yml@templates  
+  parameters:
+    status: 'failure'
+    webhookUrl: '$(DiscordWebhook)'
+    message: ''
