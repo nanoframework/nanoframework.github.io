@@ -47,6 +47,8 @@ steps:
 - powershell: |
       git clone https://github.com/nanoframework/lib-CoreLibrary.git -b develop CoreLibrary 
 
+      git clone https://github.com/nanoframework/lib-nanoFramework.Devices.Can.git -b develop nanoFramework.Devices.Can 
+
       git clone https://github.com/nanoframework/lib-nanoFramework.Devices.OneWire.git -b develop nanoFramework.Devices.OneWire 
 
       git clone https://github.com/nanoframework/lib-nanoFramework.Runtime.Events.git -b develop nanoFramework.Runtime.Events 
@@ -91,6 +93,13 @@ steps:
     restoreSolution: 'CoreLibrary\source\nanoFramework.CoreLibrary.sln'
     feedsToUse: config
     nugetConfigPath: 'CoreLibrary\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Devices.Can\source\nanoFramework.Devices.Can.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Devices.Can\source\NuGet.config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -211,6 +220,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'CoreLibrary\source\nanoFramework.CoreLibrary.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Devices.Can\source\nanoFramework.Devices.Can.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
