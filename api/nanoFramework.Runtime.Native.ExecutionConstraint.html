@@ -130,7 +130,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Install(int timeout, int priority)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Install(int timeoutMilliseconds, int priority)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -144,8 +144,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.Int32.html">Int32</a></td>
-        <td><span class="parametername">timeout</span></td>
-        <td><p>The number of clock ticks before a <a class="xref" href="nanoFramework.Runtime.Native.ConstraintException.html">ConstraintException</a> exception is thrown. Note that the value -1 in this parameter indicates that the current constraint exception is to be uninstalled.</p>
+        <td><span class="parametername">timeoutMilliseconds</span></td>
+        <td><p>The number of milliseconds before a <a class="xref" href="nanoFramework.Runtime.Native.ConstraintException.html">ConstraintException</a> exception is thrown. Note that the value -1 in this parameter indicates that the current constraint exception is to be uninstalled.</p>
 </td>
       </tr>
       <tr>
@@ -157,7 +157,7 @@
     </tbody>
   </table>
   <h5 id="nanoFramework_Runtime_Native_ExecutionConstraint_Install_System_Int32_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>If the specified time period expires before the thread has completed the operation, a ConstraintException exception is thrown. Note that the time that was set in the timeout parameter is standard clock time, not thread execution time.
+  <div class="markdown level1 remarks"><p>If the specified timeout expires before the thread has completed the operation, a <a class="xref" href="nanoFramework.Runtime.Native.ConstraintException.html">ConstraintException</a> exception is thrown. Note that the time that was set in the timeout parameter is standard clock time, not thread execution time.
 The priority level can only be raised for threads that already have a priority level higher than 0 (zero).</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
