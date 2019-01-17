@@ -50,12 +50,12 @@ After cloning the repo, you need to setup the build environemnt. You can use the
 
 __The following power shell script is not signed. Run Power Shell as an Administrator and run `set-executionpolicy remotesigned` to enable execution of the non-signed script.__ 
 
-On Windows, one may use the `.\install-esp32-tools.ps1` Power Shell script located in the repository root folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository folder and extract them into subfolders of the main ESP32 tool folder:
+On Windows, one may use the `.\install-esp32-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository `zips` folder and extract them into subfolders of the main ESP32 tool folder:
 
    - `C:\Esp32_Tools`
 
 
-Open Power Shell in the root folder of the repository and run the script specifying the COM port the ESP32 flash programming utility will use (The COM port is easily changed later. If it is not specified, manually edit tasks.json and change instances of `<COMPORT>` to the required port before flashing the ESP32 nanoCLR firmware.)
+Open Power Shell in the `install-scripts` folder of the repository and run the script specifying the COM port the ESP32 flash programming utility will use (The COM port is easily changed later. If it is not specified, manually edit tasks.json and change instances of `<COMPORT>` to the required port before flashing the ESP32 nanoCLR firmware.)
 
 Example Power Shell command line:
 ```
@@ -243,7 +243,7 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 
 4. Create a `./.vscode/tasks.json` from `/.vscode/tasks.TEMPLATE-ESP32.json`.
 
-    For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a `tasks.json` file. You can manually copy the template (`tasks.TEMPLATE-ESP32.json`) and then adjust the COM port and the varios paths with place holders (**!!mind the forward slashes!!**) to your needs. The Power Shell script `.\install-esp32-tools.ps1` will adjust the file for you if you used it.  Use the paramter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.
+    For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a `tasks.json` file. You can manually copy the template (`tasks.TEMPLATE-ESP32.json`) and then adjust the COM port and the varios paths with place holders (**!!mind the forward slashes!!**) to your needs. The Power Shell script `.\install-esp32-tools.ps1` will adjust the file for you if you used it.  Use the parameter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.
 
 ```
 { 
@@ -300,6 +300,8 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 
 5. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/ESP32_Tools/libs-v3.1/bootloader.bin` if the automated install script is used.
 
+    Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
+    In this case deleting the contents of the `build` folder should allow the build to complete once you resolve the issues that cause the original failure. 
 
 ## Flash nanoCLR into ESP32
 
