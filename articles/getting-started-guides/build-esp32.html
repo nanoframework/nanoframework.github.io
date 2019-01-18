@@ -8,7 +8,7 @@
     <title>How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.40.6.0">
+    <meta name="generator" content="docfx 2.40.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -118,11 +118,11 @@ The build is based on CMake tool to ease the development in all major platforms.
 <p>After cloning the repo, you need to setup the build environemnt. You can use the power shell script or follow the step-by-step instrunctions.</p>
 <h2 id="automated-install-of-the-build-environment-for-esp32">Automated Install of the build environment for ESP32</h2>
 <p><strong>The following power shell script is not signed. Run Power Shell as an Administrator and run <code>set-executionpolicy remotesigned</code> to enable execution of the non-signed script.</strong></p>
-<p>On Windows, one may use the <code>.\install-esp32-tools.ps1</code> Power Shell script located in the repository root folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use <strong>Run as Administrator</strong> for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository folder and extract them into subfolders of the main ESP32 tool folder:</p>
+<p>On Windows, one may use the <code>.\install-esp32-tools.ps1</code> Power Shell script located in the repository <code>install-scripts</code> folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use <strong>Run as Administrator</strong> for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository <code>zips</code> folder and extract them into subfolders of the main ESP32 tool folder:</p>
 <ul>
 <li><code>C:\Esp32_Tools</code></li>
 </ul>
-<p>Open Power Shell in the root folder of the repository and run the script specifying the COM port the ESP32 flash programming utility will use (The COM port is easily changed later. If it is not specified, manually edit tasks.json and change instances of <code>&lt;COMPORT&gt;</code> to the required port before flashing the ESP32 nanoCLR firmware.)</p>
+<p>Open Power Shell in the <code>install-scripts</code> folder of the repository and run the script specifying the COM port the ESP32 flash programming utility will use (The COM port is easily changed later. If it is not specified, manually edit tasks.json and change instances of <code>&lt;COMPORT&gt;</code> to the required port before flashing the ESP32 nanoCLR firmware.)</p>
 <p>Example Power Shell command line:</p>
 <pre><code>.\install-esp32-tools.ps1 -COMPORT COM19
 </code></pre>
@@ -297,7 +297,7 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
 </code></pre>
 <ol start="4">
 <li><p>Create a <code>./.vscode/tasks.json</code> from <code>/.vscode/tasks.TEMPLATE-ESP32.json</code>.</p>
-<p>For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a <code>tasks.json</code> file. You can manually copy the template (<code>tasks.TEMPLATE-ESP32.json</code>) and then adjust the COM port and the varios paths with place holders (<strong>!!mind the forward slashes!!</strong>) to your needs. The Power Shell script <code>.\install-esp32-tools.ps1</code> will adjust the file for you if you used it.  Use the paramter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.</p>
+<p>For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a <code>tasks.json</code> file. You can manually copy the template (<code>tasks.TEMPLATE-ESP32.json</code>) and then adjust the COM port and the varios paths with place holders (<strong>!!mind the forward slashes!!</strong>) to your needs. The Power Shell script <code>.\install-esp32-tools.ps1</code> will adjust the file for you if you used it.  Use the parameter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.</p>
 </li>
 </ol>
 <pre><code>{ 
@@ -345,6 +345,8 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
 <li><p>If you get no error you will have in the build directory the files <code>nanoCLR.bin</code> and <code>partitions_4mb.bin</code>.</p>
 </li>
 <li><p>The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>C:/ESP32_Tools/libs-v3.1/bootloader.bin</code> if the automated install script is used.</p>
+<p>Note: If there are errors during the build process it is possible to end up with a partial build in the <code>build</code> folder, and the <code>CMake/Ninja</code> build process declaring a successful build despite the <code>.bin</code> targets not being created, and a <code>CMake clean</code> not helping.
+In this case deleting the contents of the <code>build</code> folder should allow the build to complete once you resolve the issues that cause the original failure.</p>
 </li>
 </ol>
 <h2 id="flash-nanoclr-into-esp32">Flash nanoCLR into ESP32</h2>
