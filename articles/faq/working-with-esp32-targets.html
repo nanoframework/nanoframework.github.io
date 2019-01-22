@@ -77,8 +77,35 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="working-with-esp32-targets">Working with ESP32 targets</h1>
 
-<h2 id="question-1">Question 1?</h2>
-<p>Answer 1.</p>
+<h2 id="is-the-esp32-dev-kit-c-the-only-board-version-that-will-work-with-nanoframework">Is the ESP32 Dev Kit C the ONLY board version that will work with nanoFramework?</h2>
+<p>There are available several different versions including: ESP32-WROOM-32, ESP32-WROOM-32D, ESP32-WROOM-32U, ESP32-SOLO-1, ESP32-WROVER-B, ESP32-WROVER-IB, etc.
+The current ESP32 Dev Kit C image that we provide works on all ESP32 boards that use the ESP32-Wroom-32x or ESP32-WROVER modules. The ESP32-WROVER modules also have PSRAM which we currently don't support but will in the future.  The SOLO modules have only one core which currently won't work as we start the nanoCLR on the 2nd core.</p>
+<h2 id="can-i-use-smart-config-to-configure-my-esp32-devices">Can I use Smart Config to configure my ESP32 devices?</h2>
+<p>Yes you can! The Smart Config is automatically started when the device is booted and there is no wireless SSID set up. i.e. When the device is first flashed.</p>
+<p>To configure the device use one of the Smart Config apps on your phone such as :- the ESP8266 SmartConfig, DHC smartConfig apps on Android and EspressiF ESpTouch on IOS.</p>
+<p>Connect phone to Wifi to the Access point, run Smart Config application which will prompt you for the AP password.
+This will then send the details to the device. The device saves the details and connects to the AP point. When connected it confirms the connection back to the Phone.</p>
+<p>When the device is next rebooted the device automatically connects to AP as the WiFi details have been saved.</p>
+<p>For more information see <a href="https://www.switchdoc.com/2018/06/tutorial-esp32-bc24-provisioning-for-wifi">here</a>.</p>
+<p>In your application you can wait for the network to be configured/connected by waiting for the IP to be set.</p>
+<pre><code class="lang-csharp">static void WaitIP()
+{
+    Console.WriteLine(&quot;Wait for IP&quot;);
+        while (true)
+        {
+            NetworkInterface ni = NetworkInterface.GetAllNetworkInterfaces()[0];
+            if (ni.IPv4Address != null &amp;&amp; ni.IPv4Address.Length &gt; 0)
+            {
+                if (ni.IPv4Address[0] != '0')
+                {
+                    Console.WriteLine(&quot;Have IP &quot; + ni.IPv4Address);
+                    break;
+                }
+            }
+            Thread.Sleep(1000);
+        }
+}
+</code></pre>
 </article>
           </div>
           
