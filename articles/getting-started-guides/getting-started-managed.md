@@ -60,8 +60,8 @@ To manually flash firmware using ST DFUSE tools, get a copy of ST DFUSE tools. S
 
 ## Step Two
 - Start the DFUSE Demo Application
-- Locate the **.dfu file** located in the device firmware update .zip file.
-** Note:If the .dfu file does not exist in the .zip file. It can be created the instructions are here: (https://github.com/Dweaver309/nanoframework.github.io/blob/pages-source/articles/getting-started-guides/create-dfu-file.md)
+- Locate the **.dfu file** located in the device firmware update .zip file. 
+** Note: If the .dfu file does not exist in the .zip file. It can be created the instructions are here: (https://github.com/Dweaver309/nanoframework.github.io/blob/pages-source/articles/getting-started-guides/create-dfu-file.md)
 - Click the "Choose" button then the "Update" button
 - Toggle the devices power
 
