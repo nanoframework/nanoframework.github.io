@@ -25,9 +25,9 @@ The first part is to get Visual Studio 2017 and the **nanoFramework** extension 
 3.	Now open the Device Explorer window. You can do this by going into View > Other Windows > Device Explorer.
 
 
-## Uploading the firmware to the board
+## Uploading the firmware to the board Using the ST-LINK Utility
 
-The second part is to load the **nanoFramework** image in the board flash. Actually there are two images, one for nanoBooter and another one for nanoCLR.
+The second part is to load the **nanoFramework** image in the board flash. Actually there are two images, one for nanoBooter and another one for nanoCLR. There are two methods to flash the image to the device. This method uses the ST-LINK Utility. The second method using a **.dfu** file will explored in the next section below.
 
 1. Download the [STM32 ST-LINK Utility](http://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html) from ST web site and install it in your development machine.
 
@@ -43,6 +43,27 @@ The second part is to load the **nanoFramework** image in the board flash. Actua
 
 7. Next, load the `nanoCLR.hex` file from the extracted package folder and hit again the "Program and verify" button. Make sure you tick the "Reset after programming" check box and hit "Start". After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking. You can check if the board is properly running **nanoFramework** by looking into the Device Explorer window in VS.
 
+## Uploading the firmware to the board using the **.dfu file**
+This is the second method that can be used to flash the board.
+To manually flash firmware using ST DFUSE tools, get a copy of [ST DFUSE tools](https://www.st.com/en/development-tools/stsw-stm32080.html).
+
+1. Install the DFUSE tools.
+2. Put your device in bootloader mode. This can be acomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
+
+### Step One
+- Start the STDFU Tester application.
+- Select the "Protocol" tab.
+- Press the "Create from Map" button.
+- Select the "Erase" radio button option.
+- Press the "Go" button.
+- Wait for the erase process to complete.
+
+### Step Two
+- Start the DFUSE Demo Application
+- Locate the **.dfu file** located in the device firmware update .zip file. 
+>> Note: If the .dfu file does not exist in the .zip file. It can be created following the instructions [here](create-dfu-file.md).
+- Click the "Choose" button then the "Update" button.
+- Toggle the devices power.
 
 ## Coding a 'Hello World' application
 
@@ -72,4 +93,4 @@ You've went through the steps required to install Visual Studio, the **nanoFrame
 You've also learned how to upload **nanoFramework** firmware images into a target board.
 And last, but not the least: how to code a simple 'Hello World' C# application and deploy it to a target board.
 
-Check out other guides and tutorials. You may also want to join our [Discord channel](https://discordapp.com/invite/gCyBu8T), where you'll find a supportive community to discuss your ideas and help you in case you get stuck on something.
+Check out other guides and tutorials. You may also want to join our [Discord channel](https://discord 
