@@ -43,27 +43,27 @@ The second part is to load the **nanoFramework** image in the board flash. Actua
 
 7. Next, load the `nanoCLR.hex` file from the extracted package folder and hit again the "Program and verify" button. Make sure you tick the "Reset after programming" check box and hit "Start". After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking. You can check if the board is properly running **nanoFramework** by looking into the Device Explorer window in VS.
 
-## Uploading the firmware to the board Using the **.dfu file**
-This is the second method that can be used to flash the board. 
-To manually flash firmware using ST DFUSE tools, get a copy of ST DFUSE tools. Search for STSW-STM32080
+## Uploading the firmware to the board using the **.dfu file**
+This is the second method that can be used to flash the board.
+To manually flash firmware using ST DFUSE tools, get a copy of [ST DFUSE tools](https://www.st.com/en/development-tools/stsw-stm32080.html).
 
-1. Install the DFUSE tools
-2. Put your device in bootloader mode
+1. Install the DFUSE tools.
+2. Put your device in bootloader mode. This can be acomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
 
-## Step One
-- Start the STDFU Tester application
-- Select the "Protocol" tab
-- Press the "Create from Map" button
-- Select the "Erase" radio button option
-- Press the "Go" button
-- Wait for the erase process to complete
+### Step One
+- Start the STDFU Tester application.
+- Select the "Protocol" tab.
+- Press the "Create from Map" button.
+- Select the "Erase" radio button option.
+- Press the "Go" button.
+- Wait for the erase process to complete.
 
-## Step Two
+### Step Two
 - Start the DFUSE Demo Application
 - Locate the **.dfu file** located in the device firmware update .zip file. 
-** Note: If the .dfu file does not exist in the .zip file. It can be created the instructions are here: (https://github.com/Dweaver309/nanoframework.github.io/blob/pages-source/articles/getting-started-guides/create-dfu-file.md)
-- Click the "Choose" button then the "Update" button
-- Toggle the devices power
+>> Note: If the .dfu file does not exist in the .zip file. It can be created following the instructions [here](create-dfu-file.md).
+- Click the "Choose" button then the "Update" button.
+- Toggle the devices power.
 
 ## Coding a 'Hello World' application
 
