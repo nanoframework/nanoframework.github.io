@@ -5,21 +5,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum Sleep.WakeupMode
-   | nanoFramework Documentation </title>
+    <title>How To Create a .dfu file | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum Sleep.WakeupMode
-   | nanoFramework Documentation ">
+    <meta name="title" content="How To Create a .dfu file | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.40.8.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix">
@@ -36,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -76,42 +74,53 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="nanoFramework.Hardware.Esp32.Sleep.WakeupMode">
-  
-  
-  <h1 id="nanoFramework_Hardware_Esp32_Sleep_WakeupMode" data-uid="nanoFramework.Hardware.Esp32.Sleep.WakeupMode" class="text-break">Enum Sleep.WakeupMode
-  </h1>
-  <div class="markdown level0 summary"><p>Wakeup mode used by EnableWakeupByMultiPins</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.Hardware.Esp32.html">nanoFramework.Hardware.Esp32</a></h6>
-  <h6><strong>Assembly</strong>: nanoFramework.Hardware.Esp32.dll</h6>
-  <h5 id="nanoFramework_Hardware_Esp32_Sleep_WakeupMode_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum WakeupMode</code></pre>
-  </div>
-  <h3 id="fields">Fields
-  </h3>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td id="nanoFramework_Hardware_Esp32_Sleep_WakeupMode_AllLow">AllLow</td>
-        <td><p>Wakeup when all pins are low</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Hardware_Esp32_Sleep_WakeupMode_AnyHigh">AnyHigh</td>
-        <td><p>Wakeup when any pin is high</p>
-</td>
-      </tr>
-    </tbody>
-  </thead></thead></table>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-create-a-dfu-file">How To Create a .dfu file</h1>
+
+<p>To manually flash firmware using ST DFUSE tools, get a copy of <a href="https://www.st.com/en/development-tools/stsw-stm32080.html">ST DFUSE tools</a>.</p>
+<ul>
+<li>Install the DFUSE tools</li>
+<li>Download the devices firmware update .zip file</li>
+<li>Repeat step 1 above</li>
+</ul>
+<h2 id="step-one">Step one</h2>
+<ul>
+<li>Locate the devices Device_BlockStorage.c file.
+<ul>
+<li>E.g. the Netduino 3 file is located <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/NETDUINO3_WIFI/common/Device_BlockStorage.c">here</a>.</li>
+</ul>
+</li>
+<li>Find the BlockRegionInfo segment Start address and bytes per block.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="lang-c">const BlockRegionInfo BlockRegions[] =
+
+{
+    {
+        0x08000000,                         // start address for block region
+        4,                                  // total number of blocks in this region
+        0x4000,                             // total number of bytes per block
+        ARRAYSIZE_CONST_EXPR(BlockRange1),
+        BlockRange1,
+    },
+}
+</code></pre>
+<ul>
+<li>Start the STDFU File Manager and select the &quot;I want to generate a .dfu file ....&quot; radio button.</li>
+<li>Select the &quot;Muti BIN&quot; button and select the nanoBooter.bin file from the firmware update .zip file. Enter the Start address from above into the &quot;Address&quot; textbox. Example: 8000000.</li>
+<li>Press the &quot;Add to List&quot; button.</li>
+<li>Next select the nanoCLR.bin file. Enter the Start address + bytes per block into the &quot;Address&quot; textbox. Example: 804000.</li>
+<li>Press the &quot;Add to List&quot; button.</li>
+<li>Press the &quot;Generate&quot; button.</li>
+</ul>
+<h2 id="step-two">Step two</h2>
+<ul>
+<li>Start the DFUSE Demo Application.</li>
+<li>Locate the .dfu file generated above.</li>
+<li>Click the &quot;Choose&quot; button then  the &quot;Update&quot; button.</li>
+<li>Toggle the devices power.</li>
+<li>That's all, we are done!</li>
+</ul>
 </article>
           </div>
           
@@ -120,10 +129,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/lib-nanoFramework.Hardware.Esp32/new/pages-source/apiSpec/new?filename=nanoFramework_Hardware_Esp32_Sleep_WakeupMode.md&amp;value=---%0Auid%3A%20nanoFramework.Hardware.Esp32.Sleep.WakeupMode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/nanoframework/lib-nanoFramework.Hardware.Esp32/blob/develop/source/nanoFramework.Hardware.Esp32/Sleep.cs/#L19" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/articles/stm32/create-dfu-file.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -149,8 +155,8 @@
       </footer>
     </div>
     
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>
