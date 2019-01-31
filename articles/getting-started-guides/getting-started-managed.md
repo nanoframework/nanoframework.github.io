@@ -1,18 +1,14 @@
-# Getting Started Guide
-
+# Getting Started Guide for managed code (C#)
 
 **nanoFramework** enables the writing of managed code applications for embedded devices. Doesn't matter if you are a seasoned .NET developer or if you've just arrived here and want to give it a try.
 
 This getting started guide will walk you through the setup of your development machine to get you coding a nice "Hello World" in no time!
 
-
 You can find the video for this guide on our YouTube channel [here](https://youtu.be/iZdN2GmefXI).
-
 
 ## The hardware
 
 In this guide we'll be using a ST Microelectronics [STM32F746 NUCLEO](http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f746zg.html) board. This is a rather common and inexpensive board that packs a Cortex M7 with 1MB flash, 320 kB of RAM and includes an ethernet connector.
-
 
 ## Installing Visual Studio 2017
 
@@ -23,7 +19,6 @@ The first part is to get Visual Studio 2017 and the **nanoFramework** extension 
 2.	Launch Visual Studio 2017 (we'll just refer to it as VS from now on) and install the **nanoFramework** extension. You can do this by going into Tools > Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter _nanoFramework_ in the search box.
 
 3.	Now open the Device Explorer window. You can do this by going into View > Other Windows > Device Explorer.
-
 
 ## Uploading the firmware to the board Using the ST-LINK Utility
 
@@ -83,7 +78,6 @@ Now you have everything that you need to start coding your first application. Le
 5. We are almost there. Go into the Device Explorer window and click on the **nanoFramework** device showing there. Make sure the connection is OK by hitting the "Ping" button. On success, a message shows on the output window.
 
 6. Let's deploy the application to the board. In order to do that, right click on the Project name and choose "Deploy". You'll see the feedback of the several operations that are running on the background in the Output Window. After a successful deployment you need to reset the target and your 'Hello World' blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a debug session. To do that hit F5 (as usual) in Visual Studio and watch it run.
-
 
 ## Wrapping up
 
