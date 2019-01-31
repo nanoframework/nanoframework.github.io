@@ -13,7 +13,7 @@
 
 ## Reference target boards
 
-- [ESP32_DEVKITC](reference-targets/esp32-devkitc.md)
+- [ESP32 WROOM-32](reference-targets/esp32-wroom-32.md)
 - [MBN_QUAIL](reference-targets/mbn-quail.md)
 - [NETDUINO3_WIFI](reference-targets/netduino3-wifi.md)
 - [NUCLEO64_F091RC](reference-targets/st-nucleo64-f091rc.md)

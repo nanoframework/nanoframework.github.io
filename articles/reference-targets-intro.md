@@ -4,7 +4,7 @@ We provide ready build firmware images for several reference target boards. Thes
 
 ## Espressif ESP32 boards
 
-- [ESP32_DEVKITC](reference-targets/esp32-devkitc.md)
+- [ESP32 WROOM-32](reference-targets/esp32-wroom-32.md)
 
 ## Mikrobus.Net board
 
