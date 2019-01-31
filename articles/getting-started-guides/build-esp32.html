@@ -8,7 +8,7 @@
     <title>How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.40.8.0">
+    <meta name="generator" content="docfx 2.40.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -98,11 +98,8 @@ The build is based on CMake tool to ease the development in all major platforms.
 <li><a href="https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe">Python 3.6.5</a> Required for uploading the nanoCLR to the ESP32.</li>
 <li><a href="https://cmake.org/download/">CMake</a> Download the latest stable version and install it (Minimum required version is 3.11).</li>
 <li>A build system for CMake to generate the build files to.
-<ul>
-<li>If you have Visual Studio (full version) you can use the included NMake.</li>
-<li>In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.</li>
-</ul>
-</li>
+. If you have Visual Studio (full version) you can use the included NMake.
+. In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.</li>
 <li><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">CP210x USB to UART Bridge</a> Driver for the USB to UART Bridge integrated into the standard ESP32 DevKitC. If Windows does not install the driver automatically, then you can download and install manually. If your ESP32 uses a different serila driver, install that and ignore this driver. With the ESP32 DevKetC plugged in, use Windows Device Manager to determine the COM port as this is needed to complete the setup.</li>
 </ul>
 <p>The following may be installed <a href="#Manual-Install-of-the-build-environment-for-ESP32">manually</a>, or use the Power Shell script <code>.\install-esp32-tools.ps1</code></p>
@@ -115,19 +112,19 @@ The build is based on CMake tool to ease the development in all major platforms.
 <p>You should use the <em>develop</em> branch for mainstream development or the <em>develop-network</em> branch to work with the networking features which is currently a work in progress.</p>
 <p>A guide to making contributions is provided <a href="https://github.com/nanoframework/Home/blob/master/CONTRIBUTING.md">here</a></p>
 <h2 id="setting-up-the-build-environment-for-esp32">Setting up the build environment for ESP32</h2>
-<p>After cloning the repo, you need to setup the build environemnt. You can use the power shell script or follow the step-by-step instrunctions.</p>
+<p>After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.</p>
 <h2 id="automated-install-of-the-build-environment-for-esp32">Automated Install of the build environment for ESP32</h2>
 <p><strong>The following power shell script is not signed. Run Power Shell as an Administrator and run <code>set-executionpolicy remotesigned</code> to enable execution of the non-signed script.</strong></p>
-<p>On Windows, one may use the <code>.\install-esp32-tools.ps1</code> Power Shell script located in the repository <code>install-scripts</code> folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use <strong>Run as Administrator</strong> for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository <code>zips</code> folder and extract them into subfolders of the main ESP32 tool folder:</p>
+<p>On Windows, one may use the <code>.\install-esp32-tools.ps1</code> Power Shell script located in the repository <code>install-scripts</code> folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use <strong>Run as Administrator</strong> for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository <code>zips</code> folder and extract them into sub-folders of the main ESP32 tool folder:</p>
 <ul>
 <li><code>C:\Esp32_Tools</code></li>
 </ul>
 <p>Open Power Shell in the <code>install-scripts</code> folder of the repository and run the script specifying the COM port the ESP32 flash programming utility will use (The COM port is easily changed later. If it is not specified, manually edit tasks.json and change instances of <code>&lt;COMPORT&gt;</code> to the required port before flashing the ESP32 nanoCLR firmware.)</p>
 <p>Example Power Shell command line:</p>
-<pre><code>.\install-esp32-tools.ps1 -COMPORT COM19
+<pre><code class="lang-ps">.\install-esp32-tools.ps1 -COMPORT COM19
 </code></pre>
-<p>You can force the environemnt variables to be updated by adding -Force to the command line.</p>
-<p>The script will create the following subfolders (see manual install below and appveyor.yml)</p>
+<p>You can force the environment variables to be updated by adding -Force to the command line.</p>
+<p>The script will create the following sub-folders (see manual install below and appveyor.yml)</p>
 <ul>
 <li><code>C:\Esp32_Tools\1.22.0-80</code></li>
 <li><code>C:\Esp32_Tools\esp-idf-v3.1</code></li>
@@ -161,8 +158,7 @@ This has already been done and the libraries can be just be downloaded.</p>
 <li><code>C:\Esp32_Tools\libs-v3.1</code></li>
 </ul>
 </li>
-<li><p>Download the pre-built libs zip from <a href="https://bintray.com/nfbot/internal-build-tools/download_file?file_path=IDF_libs-v3.1.zip">here</a>
-and extract it into <code>C:\Esp32_Tools\libs-v3.1</code>.</p>
+<li><p>Download the pre-built libs zip from <a href="https://bintray.com/nfbot/internal-build-tools/download_file?file_path=IDF_libs-v3.1.zip">here</a> and extract it into <code>C:\Esp32_Tools\libs-v3.1</code>.</p>
 </li>
 <li><p>Download the v3.1 IDF source zip file from <a href="https://github.com/espressif/esp-idf/releases/download/v3.1/esp-idf-v3.1.zip">here</a> and extract it into <code>C:\Esp32_Tools</code> so you get <code>C:\ESP32_Tools\esp-idf-v3.1\components</code> etc.</p>
 </li>
@@ -171,12 +167,10 @@ and extract it into <code>C:\Esp32_Tools\libs-v3.1</code>.</p>
 <li><p>For on chip debugging of the nanoCLR, download OpenOCD from <a href="https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180724/openocd-esp32-win32-0.10.0-esp32-20180724.zip">here</a> and extract OpenOCD into <code>C:\Esp32_Tools</code> so you get <code>C:\Esp32_Tools\openocd-esp32</code>.</p>
 </li>
 <li><p>Download the light weight build system Ninja for CMake to generate the build files from <a href="https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip">here</a>. This is lightweight build system, designed for speed and it works on Windows and Linux machines. See <a href="cmake/ninja-build.md">here</a> how to setup Ninja to build <strong>nanoFramework</strong>.</p>
+<blockquote>
+<p>If you have Visual Studio (full version) you can use the included NMake.</p>
+</blockquote>
 </li>
-</ol>
-<ul>
-<li>If you have Visual Studio (full version) you can use the included NMake.</li>
-</ul>
-<ol start="7">
 <li><p>Define the environment variables to match the install locations. Default locations are:</p>
 <ul>
 <li><code>ESP32_TOOLS_PATH = C:\ESP32_TOOLS</code></li>
@@ -196,7 +190,7 @@ and extract it into <code>C:\Esp32_Tools\libs-v3.1</code>.</p>
 <p>Note that <code>.\install-esp32-tools.ps1</code> will do this for you.</p>
 <h2 id="set-up-python">Set up Python</h2>
 <p>Install <a href="https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe">Python 3.6.5</a> and then install the serial driver for python from the command line:</p>
-<pre><code>python -m pip install pyserial
+<pre><code class="lang-cmd">python -m pip install pyserial
 </code></pre>
 <p>Note that <code>.\install-esp32-tools.ps1</code> will install <code>pyserial</code> for you if you installed Python prior to running the script. (It is Ok to run <code>python -m pip install pyserial</code> multiple times.)</p>
 <h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
@@ -214,7 +208,7 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
 <p>There is a template file called <code>cmake-variants.TEMPLATE-ESP32.json</code> that can be copied to <code>CMake-variants.json</code> and used if you followed the paths in this guide. If different install paths were used, then edit the file accordingly.</p>
 </li>
 </ol>
-<pre><code>{
+<pre><code class="lang-json">{
     &quot;buildType&quot;: {
       &quot;default&quot;: &quot;debug&quot;,
         &quot;choices&quot;: { 
@@ -288,7 +282,7 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
 <li>Create a <code>./.vscode/cmake-kits.json</code> from <code>/.vscode/cmake-kits.TEMPLATE-ESP32.json</code>.</li>
 </ol>
 <p>The default template file is ok, and may be copied to <code>./.vscode/cmake-kits.json</code></p>
-<pre><code>[
+<pre><code class="lang-json">[
   {
     &quot;name&quot;: &quot;ESP32 Tools&quot;,
     &quot;toolchainFile&quot;: &quot;CMake/toolchain.FreeRtos.ESP32.GCC.cmake&quot;
@@ -300,46 +294,46 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
 <p>For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a <code>tasks.json</code> file. You can manually copy the template (<code>tasks.TEMPLATE-ESP32.json</code>) and then adjust the COM port and the varios paths with place holders (<strong>!!mind the forward slashes!!</strong>) to your needs. The Power Shell script <code>.\install-esp32-tools.ps1</code> will adjust the file for you if you used it.  Use the parameter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.</p>
 </li>
 </ol>
-<pre><code>{ 
-    &quot;version&quot;: &quot;2.0.0&quot;, 
-	    &quot;tasks&quot;: [ 
-        { 
-            &quot;taskName&quot;: &quot;Flash nanoCLR &lt;COMPORT&gt;&quot;, 
-            &quot;type&quot;: &quot;shell&quot;, 
-            &quot;command&quot;: &quot;python &lt;absolute-path-to-the-IDF-folder-mind-the-forward-slashes&gt;/components/esptool_py/esptool/esptool.py --chip esp32 --port \&quot;&lt;COMPORT&gt;\&quot; --baud 460800 --before \&quot;default_reset\&quot; --after \&quot;hard_reset\&quot; write_flash -z --flash_mode \&quot;dio\&quot; --flash_freq \&quot;40m\&quot; --flash_size detect 0x1000 &lt;absolute-path-to-the-bootloader-folder-mind-the-forward-slashes&gt;/bootloader.bin 0x10000 &lt;path-to-nanoFramework-build-directory-mind-the-forward-slashes&gt;/nanoCLR.bin 0x8000 &lt;path-to-nanoFramework-build-directory-mind-the-forward-slashes&gt;/partitions_4mb.bin&quot;, 
-            &quot;presentation&quot;: { 
-                &quot;reveal&quot;: &quot;always&quot;, 
-                &quot;panel&quot;: &quot;shared&quot; 
-            }, 
-            &quot;problemMatcher&quot;: [] 
-        }, 
-        { 
-            &quot;taskName&quot;: &quot;Erase flash &lt;COMPORT&gt;&quot;, 
-            &quot;type&quot;: &quot;shell&quot;, 
-            &quot;command&quot;: &quot;python &lt;absolute-path-to-the-IDF-folder-mind-the-forward-slashes&gt;/components/esptool_py/esptool/esptool.py --chip esp32 --port \&quot;&lt;COMPORT&gt;\&quot; --baud 460800 --before \&quot;default_reset\&quot; --after \&quot;hard_reset\&quot; erase_flash&quot;, 
-            &quot;presentation&quot;: { 
-                &quot;reveal&quot;: &quot;always&quot;, 
-                &quot;panel&quot;: &quot;shared&quot; 
-            }, 
-            &quot;problemMatcher&quot;: [] 
-        } 
-    ] 
-} 
+<pre><code class="lang-json">{
+    &quot;version&quot;: &quot;2.0.0&quot;,
+        &quot;tasks&quot;: [
+        {
+            &quot;taskName&quot;: &quot;Flash nanoCLR &lt;COMPORT&gt;&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;python &lt;absolute-path-to-the-IDF-folder-mind-the-forward-slashes&gt;/components/esptool_py/esptool/esptool.py --chip esp32 --port \&quot;&lt;COMPORT&gt;\&quot; --baud 460800 --before \&quot;default_reset\&quot; --after \&quot;hard_reset\&quot; write_flash -z --flash_mode \&quot;dio\&quot; --flash_freq \&quot;40m\&quot; --flash_size detect 0x1000 &lt;absolute-path-to-the-bootloader-folder-mind-the-forward-slashes&gt;/bootloader.bin 0x10000 &lt;path-to-nanoFramework-build-directory-mind-the-forward-slashes&gt;/nanoCLR.bin 0x8000 &lt;path-to-nanoFramework-build-directory-mind-the-forward-slashes&gt;/partitions_4mb.bin&quot;,
+            &quot;presentation&quot;: {
+                &quot;reveal&quot;: &quot;always&quot;,
+                &quot;panel&quot;: &quot;shared&quot;
+            },
+            &quot;problemMatcher&quot;: []
+        },
+        {
+            &quot;taskName&quot;: &quot;Erase flash &lt;COMPORT&gt;&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;python &lt;absolute-path-to-the-IDF-folder-mind-the-forward-slashes&gt;/components/esptool_py/esptool/esptool.py --chip esp32 --port \&quot;&lt;COMPORT&gt;\&quot; --baud 460800 --before \&quot;default_reset\&quot; --after \&quot;hard_reset\&quot; erase_flash&quot;,
+            &quot;presentation&quot;: {
+                &quot;reveal&quot;: &quot;always&quot;,
+                &quot;panel&quot;: &quot;shared&quot;
+            },
+            &quot;problemMatcher&quot;: []
+        }
+    ]
+}
 </code></pre>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
 <ol>
-<li><p>Launch Visual Studio and from the <strong>File</strong> menu, seletc <strong>Open Folder</strong> and browse to the repo folder. VSCode will prompt asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build varient first.</p>
+<li><p>Launch Visual Studio and from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VSCode will prompt asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
 <p>To enter a command into Visual Studio Code use the key combination Ctrl+Shift+P.</p>
 </li>
 <li><p>Click on <code>CMake</code> in the Status bar or enter the command</p>
-<pre><code>CMake: Set build varient
+<pre><code class="lang-cmd">CMake: Set build variant
 </code></pre>
 <p>and set it to the <code>Debug + NanoCLR</code> build type.</p>
 <p>If it also asks for a kit select <code>ESP32 Tools</code></p>
 <p>Wait for CMake to process the files and build the CMake cache. This can take a while the first time.</p>
 </li>
 <li><p>Press F7, or click on <code>Build</code> in the Status bar or enter the command</p>
-<pre><code>CMake: Build
+<pre><code class="lang-json">CMake: Build
 </code></pre>
 </li>
 <li><p>If you get no error you will have in the build directory the files <code>nanoCLR.bin</code> and <code>partitions_4mb.bin</code>.</p>
@@ -356,26 +350,26 @@ In this case deleting the contents of the <code>build</code> folder should allow
 <li><p>Bring your board into download mode by holding down the GPIO0 pin to GND or holding down the respective button during power up.</p>
 </li>
 <li><p>In Visual Studio Code enter the command</p>
-<pre><code>Tasks: Run task
+<pre><code class="lang-cmd">Tasks: Run task
 </code></pre>
 <p>and if you flash the board for the first time</p>
-<pre><code>Erase flash
+<pre><code class="lang-cmd">Erase flash
 </code></pre>
 <p>and then</p>
-<pre><code>Flash nanoCLR
+<pre><code class="lang-cmd">Flash nanoCLR
 </code></pre>
 </li>
 </ol>
 <h2 id="start-with-a-hello-world-c-application">Start with a 'Hello World' C# application</h2>
 <ol>
-<li>Watch the video tutorial <a href="https://youtu.be/iZdN2GmefXI">here</a> and follow the step that should be done in Visual Studio 2017 Community Editon. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.</li>
+<li>Watch the video tutorial <a href="https://youtu.be/iZdN2GmefXI">here</a> and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.</li>
 </ol>
 <h2 id="debugging-nanoclr">Debugging nanoCLR</h2>
 <p>If you want to debug the nanoCLR on the ESP32 chip you can use the Olimex ARM-USB-OCD-H JTAG debugging adapter. The following setup is specific for the Olimex ARM-USB-OCD-H but you can use other configuration files to get it working with other JTAG adapters.</p>
 <p>Create a <code>./.vscode/launch.json</code> from <code>/.vscode/launch.TEMPLATE-ESP32.json</code>.</p>
 <p>Edit the file and adjust the absolute path <code>&lt;absolute-path-to-the-build-folder-mind-the-forward-slashes&gt;</code> to the build folder (<strong>!!mind the forward slashes!!</strong>) to your needs. The Power Shell script <code>.\install-esp32-tools.ps1</code> will adjust the file for you.</p>
 <p>The following example assumes the OpenOCD tool was installed in the default location. Adjust the path as required if you used a custom install path to OpenOCD.</p>
-<pre><code>{
+<pre><code class="lang-json">{
     &quot;version&quot;: &quot;0.2.0&quot;,
     &quot;configurations&quot;: [
         {
@@ -415,27 +409,26 @@ In this case deleting the contents of the <code>build</code> folder should allow
         }
     ]
 }
-
-
 </code></pre>
 <p>You can now debug nanoCLR on the ESP32 by pressing F5 in Visual Studio Code.</p>
 <h2 id="notes-on-jtag-debugging-on-esp32">Notes on JTAG debugging on ESP32</h2>
 <p>The JTAG connections on ESP32 DEVKITC are:</p>
-<pre><code>TDI -&gt; GPIO12
-TCK -&gt; GPIO13
-TMS -&gt; GPIO14
-TDO -&gt; GPIO15
-TRST -&gt; EN / RST (Reset)
-GND -&gt; GND
-</code></pre>
-<p>See Gojimmypi for description of JTAG connections: <a href="https://gojimmypi.blogspot.com/2017/03/jtag-debugging-for-esp32.html">https://gojimmypi.blogspot.com/2017/03/jtag-debugging-for-esp32.html</a></p>
+<ul>
+<li>TDI -&gt; GPIO12</li>
+<li>TCK -&gt; GPIO13</li>
+<li>TMS -&gt; GPIO14</li>
+<li>TDO -&gt; GPIO15</li>
+<li>TRST -&gt; EN / RST (Reset)</li>
+<li>GND -&gt; GND</li>
+</ul>
+<p>See Gojimmypi for description of JTAG connections <a href="https://gojimmypi.blogspot.com/2017/03/jtag-debugging-for-esp32.html">here</a>.</p>
 <p>If flashing nanoCLR via a COM port (default), then be aware that you need to disconnect the JTAG to avoid it preventing the bootloader from running, and therefore being unable to reprogram the ESP23. e.g. if you see the following pattern repeating, unplug the USB-OCD-H, and then the programming will proceed.</p>
-<pre><code>esptool.py v2.1
+<pre><code class="lang-txt">esptool.py v2.1
 Connecting........_____....._____...
 </code></pre>
 <p>The Esp32 only has 2 hardware breakpoints.</p>
 <p>As code is dynamically loaded unless the method has an <code>IRAM_ATTR</code> attribute any breakpoints set up at the start will cause an error when you try to debug (Unable to set breakpoint). When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.</p>
-<p>For more information on JTAG debugging see <a href="http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/">Espressif documentaion</a>.</p>
+<p>For more information on JTAG debugging see <a href="http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/">Espressif documentation</a>.</p>
 </article>
           </div>
           

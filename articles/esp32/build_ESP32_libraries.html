@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Build the ESP32 IDF Libraries | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Build the ESP32 IDF Libraries | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.40.9.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="build-the-esp32-idf-libraries">Build the ESP32 IDF Libraries</h1>
+
+<p>Using the instruction of the Espressif <a href="https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html">website</a>.</p>
+<p>Download the complete Msys2 enviroment and toolchain and unzip to c:\msys2</p>
+<p>Download the required <a href="https://github.com/espressif/esp-idf/releases/download/v3.0/esp-idf-v3.1.zip">ESP IDF</a> into the nanoClr build default location c:\Esp32_tools\esp-idf-v3.1</p>
+<p>Set up your Windows environment with the IDF_PATH=c:\Esp32_tools\esp-idf-v3.1</p>
+<p>Start Msys command shell C:\msys32\mingw32.exe</p>
+<pre><code class="lang-cmd"> cd /c/esp32_tools/esp-idf-v3.1/examples/get-started/blink/
+</code></pre>
+<p>run:</p>
+<pre><code class="lang-cmd">make menuconfig
+</code></pre>
+<p>Change the following options:</p>
+<ul>
+<li>Esp32 specific/Cpu frquency 240Mhz</li>
+<li>Esp32 specific/Initialize Task Watcho dog Timer in startup = OFF</li>
+<li>Esp32 specific/Main XTAL frequency = Autodetect</li>
+<li>LWIP SO RCVbuf</li>
+<li>Component config/Bluetooth enable</li>
+</ul>
+<p>Save and Exit</p>
+<p>Run <em>make</em> to build blink project</p>
+<p>Exit msys2</p>
+<p><em>Copy the libraries to the Esp32_tools/lib-v3.1 directory</em></p>
+<p>Copy the nf-interpreter\targets\FreeRTOS\ESP32_DevKitC\CopyLibs.cmd to the  c:\esp32_tools\esp-idf-v3.1\examples\get-started\blink directory
+Open windows command in same directory and run batch file.</p>
+<p>This will create and copy all the libraries and bootloader.bin to the c:\esp32_tools\libs-v3.1 directory</p>
+<p>copy the updated build/include/sdkconfig.h to the nf-interpreter\targets\FreeRTOS\ESP32_DevKitC directory</p>
+<h2 id="checkupdate-build-files">Check/update build files</h2>
+<p>In the nf-interpreter repo check/update the following files:</p>
+<ul>
+<li>azure-pipelines-templates\build-esp32.ymlAppveyor.yml</li>
+<li>azure-pipelines-templates\download-install-esp32-build-components.yml</li>
+<li>install-scripts\install-esp32-idf.ps1</li>
+<li>install-scripts\install_esp32-libs.ps1</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/articles/esp32/build_ESP32_libraries.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

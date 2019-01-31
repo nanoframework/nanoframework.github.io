@@ -8,7 +8,7 @@
     <title>How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.40.8.0">
+    <meta name="generator" content="docfx 2.40.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -95,27 +95,18 @@ The build is based on CMake tool to ease the development in all major platforms.
 <ul>
 <li><a href="http://code.visualstudio.com/">Visual Studio Code</a></li>
 <li>Visual Studio Code Extensions
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)</li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake">CMake</a> - language support for Visual Studio Code (by twxs)</li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by vector-of-bool)</li>
-</ul>
-</li>
+. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
+. <a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake">CMake</a> - language support for Visual Studio Code (by twxs)
+. <a href="https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by vector-of-bool)</li>
 <li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.11)</li>
 <li>A build system for CMake to generate the build files to.
-<ul>
-<li>If you have Visual Studio (full version) you can use the included NMake.</li>
-<li><a href="https://github.com/ninja-build/ninja/releases">Ninja</a>. This is lightweight build system, designed for speed and it works on Windows and Linux machines. See <a href="cmake/ninja-build.md">here</a> how to setup Ninja to build <strong>nanoFramework</strong>. This guide will use Ninja.</li>
-</ul>
-</li>
+. If you have Visual Studio (full version) you can use the included NMake.
+. <a href="https://github.com/ninja-build/ninja/releases">Ninja</a>. This is lightweight build system, designed for speed and it works on Windows and Linux machines. See <a href="cmake/ninja-build.md">here</a> how to setup Ninja to build <strong>nanoFramework</strong>. This guide will use Ninja.</li>
 <li><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU ARM Embedded Toolchain</a></li>
 <li>OpenOCD (any working distribution will work, some suggestions follow)\
-<ul>
-<li><a href="http://www.freddiechopin.info/en/download/category/4-openocd">Freddie Chopin OpenOCD</a></li>
-<li><a href="https://sourceforge.net/projects/openocd/">OpenOCD – Open On-Chip Debugger</a></li>
-<li><a href="https://github.com/gnuarmeclipse/openocd">GNU ARM Eclipse OpenOCD</a></li>
-</ul>
-</li>
+. <a href="http://www.freddiechopin.info/en/download/category/4-openocd">Freddie Chopin OpenOCD</a>
+. <a href="https://sourceforge.net/projects/openocd/">OpenOCD – Open On-Chip Debugger</a>
+. <a href="https://github.com/gnuarmeclipse/openocd">GNU ARM Eclipse OpenOCD</a></li>
 <li><a href="http://www.chibios.org/dokuwiki/doku.php">ChibiOS</a> - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the <code>CMake-variants.json</code> (more info <a href="#Set-up-Visual-Studio-Code">here</a>).</li>
 </ul>
 <h2 id="setting-up-the-build-environment-for-stm32">Setting up the build environment for STM32</h2>
@@ -161,7 +152,7 @@ The build is based on CMake tool to ease the development in all major platforms.
 Here is an example <code>CMake-variants.json</code> for the STM32F429I-DISCOVERY:</p>
 </li>
 </ol>
-<pre><code>{
+<pre><code class="lang-json">{
   &quot;buildType&quot;: {
     &quot;default&quot;: &quot;MinSizeRel&quot;,
       &quot;choices&quot;: { 
@@ -217,7 +208,7 @@ Here is an example <code>CMake-variants.json</code> for the STM32F429I-DISCOVERY
 <ol start="3">
 <li>In the<code>.vscode</code> create a file named <code>settings.json</code> and paste the following</li>
 </ol>
-<pre><code>{
+<pre><code class="lang-json">{
     &quot;cmake.generator&quot;: &quot;Ninja&quot;,
     &quot;cmake.configureSettings&quot;: {
         &quot;CMAKE_MAKE_PROGRAM&quot;:&quot;C:/nanoFramework_Tools/ninja/ninja.exe&quot;
