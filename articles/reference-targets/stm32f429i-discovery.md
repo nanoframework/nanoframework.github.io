@@ -2,9 +2,7 @@
 
 ![](../../images/reference-targets/stm32f429i-disco.jpg)
 
-
 ## [Product page](http://www.st.com/en/evaluation-tools/32f429idiscovery.html)
-
 
 ## Features
 
@@ -19,7 +17,6 @@
 - Simple extension header exposing most of the mcu pins
 - On-board ST-LINK/V2
 
-
 ## Firmware images (ready to deploy)
 
 The ready to use firmware images provided include support for the class libraries and features marked bellow.
@@ -27,7 +24,6 @@ The ready to use firmware images provided include support for the class librarie
 | Gpio | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: |
-
 
 | Stable | Preview |
 |---|---|

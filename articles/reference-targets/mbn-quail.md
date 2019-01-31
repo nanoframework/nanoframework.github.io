@@ -2,7 +2,6 @@
 
 ![](../../images/reference-targets/mbn-quail_board.png)
 
-
 [Product page](https://www.mikrobusnet.org/project/quail-mainboard)
 
 ### Firmware images (ready to deploy)

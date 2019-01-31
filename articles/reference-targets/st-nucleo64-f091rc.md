@@ -2,7 +2,6 @@
 
 ![](../../images/reference-targets/nucleo64-f091rc.jpg)
 
-
 [Product page](http://www.st.com/en/evaluation-tools/nucleo-f091rc.html)
 ### Firmware images (ready to deploy)
 
