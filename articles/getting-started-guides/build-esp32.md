@@ -43,13 +43,13 @@ A guide to making contributions is provided [here](https://github.com/nanoframew
 
 ## Setting up the build environment for ESP32
 
-After cloning the repo, you need to setup the build environemnt. You can use the power shell script or follow the step-by-step instrunctions.
+After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.
 
-## Automated Install of the build environment for ESP32 
+## Automated Install of the build environment for ESP32
 
 __The following power shell script is not signed. Run Power Shell as an Administrator and run `set-executionpolicy remotesigned` to enable execution of the non-signed script.__
 
-On Windows, one may use the `.\install-esp32-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository `zips` folder and extract them into subfolders of the main ESP32 tool folder:
+On Windows, one may use the `.\install-esp32-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja Zips. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives. The script will download the zips into the repository `zips` folder and extract them into sub-folders of the main ESP32 tool folder:
 
 - `C:\Esp32_Tools`
 
@@ -63,7 +63,7 @@ Example Power Shell command line:
 
 You can force the environment variables to be updated by adding -Force to the command line.
 
-The script will create the following subfolders (see manual install below and appveyor.yml)
+The script will create the following sub-folders (see manual install below and appveyor.yml)
 
 - `C:\Esp32_Tools\1.22.0-80`
 - `C:\Esp32_Tools\esp-idf-v3.1`
@@ -121,10 +121,10 @@ This has already been done and the libraries can be just be downloaded.
 ## Set up CMake
 
 Download the latest stable version from [here](https://cmake.org/download/) and install it.
- 
+
 ## Set up Ninja
 
-Extract the exe into `C:\Esp32_Tools\ninja` and add the `C:\Esp32_Tools\ninja` directory to your path variable. 
+Extract the exe into `C:\Esp32_Tools\ninja` and add the `C:\Esp32_Tools\ninja` directory to your path variable.
 
 Note that `.\install-esp32-tools.ps1` will do this for you. 
 
@@ -272,7 +272,7 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 
 ## Build nanoCLR
 
-1. Launch Visual Studio and from the __File__ menu, seletc __Open Folder__ and browse to the repo folder. VSCode will prompt asking "Would you like to configure this project?". Ignore the prompt as you need to select the build varient first. 
+1. Launch Visual Studio and from the __File__ menu, select __Open Folder__ and browse to the repo folder. VSCode will prompt asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 
    To enter a command into Visual Studio Code use the key combination Ctrl+Shift+P.
 
@@ -311,7 +311,7 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
     ```cmd
     Tasks: Run task
     ```
-    and if you flash the board for the first time 
+    and if you flash the board for the first time
 
     ```cmd
     Erase flash
@@ -323,10 +323,9 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
     Flash nanoCLR
     ```
 
-
 ## Start with a 'Hello World' C# application
 
-1. Watch the video tutorial [here](https://youtu.be/iZdN2GmefXI) and follow the step that should be done in Visual Studio 2017 Community Editon. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.
+1. Watch the video tutorial [here](https://youtu.be/iZdN2GmefXI) and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.
 
 ## Debugging nanoCLR
 
@@ -407,4 +406,4 @@ The Esp32 only has 2 hardware breakpoints.
 
 As code is dynamically loaded unless the method has an `IRAM_ATTR` attribute any breakpoints set up at the start will cause an error when you try to debug (Unable to set breakpoint). When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
 
-For more information on JTAG debugging see [Espressif documentaion](http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/).
+For more information on JTAG debugging see [Espressif documentation](http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/).
