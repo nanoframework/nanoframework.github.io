@@ -1,6 +1,6 @@
 # Build the ESP32 IDF Libraries
 
-Using the instruction of the Espressif [website](https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html).
+Using the instructions on the Espressif [website](https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html).
 
 Download the complete Msys2 enviroment and toolchain and unzip to c:\msys2
 
@@ -36,12 +36,12 @@ Exit msys2
 
 *Copy the libraries to the Esp32_tools/lib-v3.1 directory*
 
-Copy the nf-interpreter\targets\FreeRTOS\ESP32_DevKitC\CopyLibs.cmd to the  c:\esp32_tools\esp-idf-v3.1\examples\get-started\blink directory
+Copy the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32\CopyLibs.cmd to the  c:\esp32_tools\esp-idf-v3.1\examples\get-started\blink directory
 Open windows command in same directory and run batch file.
 
-This will create and copy all the libraries and bootloader.bin to the c:\esp32_tools\libs-v3.1 directory
+This will create and copy all the libraries plus the bootloader.bin to the c:\esp32_tools\libs-v3.1 directory
 
-copy the updated build/include/sdkconfig.h to the nf-interpreter\targets\FreeRTOS\ESP32_DevKitC directory
+copy the updated build/include/sdkconfig.h to the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32 directory
 
 ## Check/update build files
 
