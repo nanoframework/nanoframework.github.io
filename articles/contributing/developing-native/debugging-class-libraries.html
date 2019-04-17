@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Guidelines for debugging nanoFramework class libraries native code | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Guidelines for debugging nanoFramework class libraries native code | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.41.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="guidelines-for-debugging-nanoframework-class-libraries-native-code">Guidelines for debugging <strong>nanoFramework</strong> class libraries native code</h1>
+
+<p><strong>About this document</strong></p>
+<p>This document provides guidelines useful when debugging class libraries native code.
+It doesn't care if the developer is using VS Code or other IDE.</p>
+<h2 id="how-does-an-assembly-load-successfully">How does an assembly load successfully?</h2>
+<p>The assemblies with the class libraries and the managed application are loaded at startup from the deployment area in the FLASH memory.
+When the <code>LoadDeploymentAssemblies()</code> is called the deployment area is sweep and all 'candidate' assemblies are validated. The validation steps are basically checking the start token, a valid header and the CRC32 of the full assembly. Only the ones that pass the complete set of validation make it to the assembly collection.</p>
+<p>After this step a call to <code>g_CLR_RT_TypeSystem.ResolveAll()</code> happens in which the type system tries to resolve all the assemblies. This means that all the required types and methods (from all the assemblies) are available and in the correct versions.</p>
+<p>Next comes the <code>g_CLR_RT_TypeSystem.PrepareForExecution()</code> which is only called if all the assemblies could be resolved along with the required types.</p>
+<h2 id="starting-the-execution-engine">Starting the execution engine</h2>
+<p>The managed application actually starts to be executed with a call to <code>g_CLR_RT_ExecutionEngine.Execute()</code>.
+As long the managed code is being executed this will never exit.
+When the execution ends, because of a serious exception or because there is no managed application to execute the code flow hits the <code>CLR_EE_DBG_IS( RebootPending )</code> line (bellow the the call to the execution engine call).</p>
+<h2 id="summarizing">Summarizing</h2>
+<p>So, by setting break points at, or after, the above calls one can understand and perform a check if the assemblies are being loaded and/or the managed application being executed.
+If something goes wrong (for instance) with an assembly failing to load the developer has to go deeper in order to find out the root cause. But that's a matter for another piece of documentation.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/articles/contributing/developing-native/debugging-class-libraries.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

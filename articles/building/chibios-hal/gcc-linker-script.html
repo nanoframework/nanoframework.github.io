@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GCC linker script for ChibiOS boards | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="GCC linker script for ChibiOS boards | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.41.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="gcc-linker-script-for-chibios-boards">GCC linker script for ChibiOS boards</h1>
+
+<p><strong>About this document</strong></p>
+<p>This document describes the GCC linker script for <strong>nanoFramework</strong> boards using ChibiOS HAL/PAL and some explanations on how to customize and adapt it to a new target board.</p>
+<h2 id="linker-script-file-naming">Linker script file naming</h2>
+<p>To make it very clear on what file belongs to what image, the linker script files names carry a suffix of '_booter' for the nanoBooter and '_CLR' for the nanoCLR.</p>
+<p>These linker scripts are used by the linker at the link stage and are added to the build on the CMakeLists.txt global to a target board.</p>
+<p>When adding a new target board make sure that you set each linker script file to the appropriate target (in CMake, that is).</p>
+<p>It's also recommended that each linker script file is located in the respective nanoBooter or nanoCLR folder (these being inside a target board folder, that is).</p>
+<h2 id="configurations-for-nanobooter-link-script">Configurations for nanoBooter link script</h2>
+<p>The nanoBooter image is located at the default boot address of the target Soc/MCU.</p>
+<p>It's recommended that that the region length is set to match the FLASH space reserved for the nanoBooter. This adds an extra check because when the build and link occurs, if the image is too large to fit that space an error is generated and corrective actions can be taken.</p>
+<p>To illustrate this we are going to look into the linker script for the ST_NUCLEO_F091RC board. This is file <a href="../../targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoBooter/STM32F091xC_booter.ld">STM32F091xC_booter.ld</a>.</p>
+<p>The only configuration here is the length of the <code>flash</code> region that should be set to the FLASH space reserved for the nanoBooter. In the example it can be seen that the nanoBooter image will start at address 0x08000000, with a maximum size of 16K.</p>
+<h2 id="configurations-for-nanoclr-link-script">Configurations for nanoCLR link script</h2>
+<p>The nanoCLR image is located at the designated address of the available FLASH space, typically right after the space reserved for the nanoBooter.</p>
+<p>It's recommended that that the region length is set to match the FLASH space reserved for the nanoCLR. This adds an extra check because when the build and link occurs, if the image is too large to fit that space an error is generated and corrective actions can be taken.</p>
+<p>To illustrate this we are going to look into the linker script for the ST_NUCLEO_F091RC board. This is file <a href="../../targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoCLR/STM32F091xC_CLR.ld">STM32F091xC_CLR.ld</a>.</p>
+<p>The <code>flash</code> region configuration depends on two factors: the space reserved for nanoBooter image and the space reserved for application deployment.
+In the example it can be seen that nanoCLR image will start at address 0x08004000 and has a maximum size of 256k - 16k - 100k. That's the size reserved for nanoBooter and the size reserved for the application deployment.</p>
+<p>On this particular example (because this SoC requires that the vector table is copied to RAM) the <code>ram0</code> region needs to be tweaked so it starts after the space reserved for the vector table. The end result is <code>ram0</code> starting at 0x200000C0 with a length of 32k - 0xC0.</p>
+<h3 id="tips">Tips</h3>
+<ul>
+<li><p>When designing the address map make sure that the address region boundaries <strong>match the FLASH memory blocks</strong>. This is very important in order to be able to perform image updates. This is valid for nanoBooter, nanoCLR and application deployment.</p>
+</li>
+<li><p>The link script accepts several number format. Use the one that is convenient for what you are specifying.
+Follow some examples. For an absolute address (such as the start of a FLASH block) use the hexadecimal notation like in 0x08000000. When specifying the size of a region use the <em>k</em> and <em>M</em> suffixes, like 16k for a block with 16k Bytes (4096 bytes), or 1M. This makes it much easier to copy/paste from the device data sheet.</p>
+</li>
+<li><p>It's OK to use mathematical expressions. For example, when setting the available space for the nanoCLR image don't bother with doing the math, just put there 1M - 16k.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/articles/building/chibios-hal/gcc-linker-script.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

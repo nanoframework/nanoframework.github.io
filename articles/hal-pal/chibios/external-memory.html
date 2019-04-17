@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>External memory | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="External memory | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.41.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="external-memory">External memory</h1>
+
+<p><strong>About this document</strong></p>
+<p>This document describes how to use external memory for the managed heap using the ChibiOS FSMC driver from the <strong>nanoFramework</strong> overlay.
+Please refer to the CLR managed heap <a href="clr-managed-heap.html">documentation</a>.</p>
+<h2 id="memory-controller">Memory controller</h2>
+<p>Most STM32 devices include a FSMC (Flexible Static Memory Controller) that provides seamless interface with the most common memory types either synchronous or asynchronous.</p>
+<h2 id="assumptions-and-design">Assumptions and design</h2>
+<p>The initialization of the memory controller along with the memory configuration have to occur as early as possible after the boot. In the current <strong>nanoFramework</strong> design this is expected to occur right after the call to CMSIS <code>osKernelInitialize()</code> when all other initialization and configurations have already happen and interrupts are enabled. Because the memory space is to be used as the managed heap the timing is no more critical than that, so pretty much anywhere before the call to the CLR startup should be quite alright.</p>
+<p>The function were the external memory configuration and initialization is to occur is <code>Target_ExternalMemoryInit()</code>. The <code>nanoHAL_v2.h</code> provides a <em>weak</em> and empty implementation of this function. If a target is to use external memory it has to provide the <em>strong</em> implementation of this function and call it before <code>ClrStartup()</code> is called.</p>
+<p>Considering that the default placement of the CLR managed is in the SoC internal RAM, the linker file includes a rule to place this region (called <code>clr_managed_heap</code>) in one of its RAM regions.</p>
+<h3 id="example-for-stm32f429i-discovery-reference-target">Example for STM32F429I-Discovery reference target</h3>
+<p>To provide a working example of this configuration we are taking the STM32F429I-Discovery reference target that is in the nf-interpreter repository <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/CMSIS-OS/ChibiOS/ST_STM32F429I_DISCOVERY">here</a>.
+This targets board has a 64Mbit SDRAM (the chip is the IS42S16400J).</p>
+<ol>
+<li>The <em>target</em> implementation is provided in the <code>target_external_memory.c</code> file that is located in the target base folder. This location allows the function to be reused by nanoCLR and nanoBooter, if desired. Plus, it's included in the compile sequence at a time that the target CPU and other required definitions are already set.
+In order to include this code file in the build it has to be included as source file the target definition. For our example this is in the arguments of <code>add_executable</code> for nanoCLR.</li>
+<li>Next we have to set the <code>__crt_heap_size__</code> symbol to 0 so the managed heap is not placed in the SoC RAM. This is done by setting it to 0 in the target CMakelist.txt like this <code>--defsym=__crt_heap_size__=0x0</code>.</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/articles/hal-pal/chibios/external-memory.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
