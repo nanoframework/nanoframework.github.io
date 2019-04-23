@@ -1,4 +1,4 @@
-# Merge Workflow and Strategy
+# Publish Workflow and Strategy
 
 **About this document**
 
