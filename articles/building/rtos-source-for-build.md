@@ -25,5 +25,6 @@ This option is good when you have a local clone of the repo and you don't want t
 The downside is that you have to manage the update process for the ChibiOS repo yourself.
 
 Another important aspect to consider is the branch **to _manually_ checkout**. Not doing this is synonym of using the 'master' branch that contains the development files and is not a stable version, which is probably not what you want to use.
+So, make sure that you checkout the branch matching the currently supported stable version. In doubt ask in the Discord channel.
 
 Also here, if the build folder is cleaned the 'cached' repo will be gone.
