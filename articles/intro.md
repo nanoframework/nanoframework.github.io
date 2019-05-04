@@ -19,6 +19,7 @@
 - [NUCLEO64_F091RC](reference-targets/st-nucleo64-f091rc.md)
 - [STM32F429I_DISCOVERY](reference-targets/stm32f429i-discovery.md)
 - [STM32F769I_DISCOVERY](reference-targets/stm32f769i-discovery.md)
+- [TI CC3220SF_LAUNCHXL](reference-targets/ti-cc3220sf-launchxl.md)
 
 ## Community target boards
 

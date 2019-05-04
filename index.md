@@ -8,5 +8,6 @@
 - [Community provided target boards](articles/community-targets-intro.md)
 - [ESP32 specific articles](articles/esp32-specific-intro.md)
 - [STM32 specific articles](articles/stm32-specific-intro.md)
+- [TI specific articles](articles/ti-specific-intro.md)
 
 > Keep in mind that this a work in progress :wink:
