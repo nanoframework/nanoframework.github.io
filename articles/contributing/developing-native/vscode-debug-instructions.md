@@ -45,6 +45,22 @@ _Note 1: VS Code parser seems to have trouble parsing and replacing the ${worksp
 
 _Note 2: Always mind the forward slash in the paths above, otherwise you'll get into troubles with strange and unclear errors from OpenOCD._
 
+### Templates
+
+To make your life easier, we provide templates with pre-configured launch.json for the various reference targets. Just grab them from our Gist.
+
+- [ST_STM32F4_DISCOVERY](https://gist.github.com/nfbot/560137d32820c5cd3b06e77cb5d9bee7)
+
+- [ST_STM32F429I_DISCOVERY](https://gist.github.com/nfbot/06eadeca52fbed933b4b37a5942661a6)
+
+- [ST_NUCLEO_F091RC](https://gist.github.com/nfbot/827f96ab56d638d2a9806c59fd958112)
+
+- [ST_NUCLEO144_F746ZG](https://gist.github.com/nfbot/11aa07dd11480a23810c58f33f82f499)
+
+- [ST_STM32F769I_DISCOVERY](https://gist.github.com/nfbot/6629a3c37f4351ba793dd5e4e3228ca4)
+
+- [TI_CC3220SF_LAUNCHXL](https://gist.github.com/nfbot/1c088f66b19fb20d45f0aa0656131239)
+
 ## Launch the debug session
 
 Using VS Code menu View > Debug, clicking on the debug icon on the left hand toolbar or hitting the CTRL+SHIT+D shortcut you'll reach the debug view. There you'll find the launch configurations for debug that we've setup above (see the drop down at the top) and the familiar green play button (or F5 if you prefer).
