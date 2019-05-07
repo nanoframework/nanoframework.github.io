@@ -187,3 +187,5 @@ To make your life easier, we provide templates with pre-configured cmake-variant
 - [NETDUINO3_WIFI](https://gist.github.com/nfbot/dae2411ba9d2251c45d302ea1cac135a)
 
 - [ESP32_WROOM_32](https://gist.github.com/nfbot/627051a2f9f459d3c8f17752ca4985be)
+
+- [TI_CC3220SF_LAUNCHXL](https://gist.github.com/nfbot/557af962f3e6e8047925c36a99e19fc9)
