@@ -2,7 +2,7 @@
 
 For non code files (xml etc) our current best guidance is consistency. When editing files, keep new code and changes consistent with the style in the files. For new files, it should conform to the style for that component. Last, if there's a completely new component, anything that is reasonably broadly accepted is fine.
 
-The general rule we follow is "use Visual Studio defaults".
+The general rule we follow is "use Visual Studio defaults". For details check the [Naming Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines) of .NET guide.
 
 1. We use [Allman style](http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, where each brace begins on a new line. A single line statement block can go without braces but the block must be properly indented on its own line and it must not be nested in other statement blocks that use braces. 
 2. We use four spaces of indentation (no tabs).
