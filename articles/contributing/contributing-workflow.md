@@ -25,7 +25,7 @@ You do not need to file an issue for trivial changes (e.g. typo fixes). Just cre
 
 ## Making a change
 
-Make a quality change. Consider and document (preferably with tests) as many usage scenarios as you can to ensure that your change will work correctly in the miriad of ways it might get used.
+Make a quality change. Consider and document (preferably with tests) as many usage scenarios as you can to ensure that your change will work correctly in the myriad of ways it might get used.
 
 There are several issues to keep in mind when making a change.
 
@@ -35,7 +35,7 @@ Typos are embarrassing! We will accept most PRs that fix typos. In order to make
 
 ## Coding Style Changes
 
-We would like to have **nanoFramework** in full conformance with the style guidelines described here [C/C++ Coding Style](cxx-coding-style.md) and here [C# Coding Style](cs-coding-style.md). We plan to do that with tooling, in a holistic way. In the meantime, please:
+We would like to have **nanoFramework** in full conformance with the style guidelines described here [C/C++ Coding Style](cxx-coding-style.html) and here [C# Coding Style](cs-coding-style.html). We plan to do that with tooling, in a holistic way. In the meantime, please:
 
 * **DO NOT** send PRs for style changes.
 * **DO** give priority to the current style of the project or file you're changing even if it diverges from the general guidelines.
@@ -84,16 +84,16 @@ Specifically, our Contributor License Agreements (CLAs) grant the contributor an
 
 All contributions to **nanoFramework** (no matter if that's code, bug fixes, configuration changes, documentation, or anything elase) requires that the contributor(s) complete and sign a Contributor License Agreement. You can read it [here](cla.md).
 
-**nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback. 
+**nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.
 
 ## PR Feedback
 
-**nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback. 
+**nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.
 
 One or more **nanoFramework** team members will review every PR prior to merge. They will often reply with "LGTM, modulo comments". That means that the PR will be merged once the feedback is resolved. "LGTM" == "looks good to me".
 
 There are lots of thoughts and [approaches](https://github.com/antlr/antlr4-cpp/blob/master/CONTRIBUTING.md#emoji) for how to efficiently discuss changes. It is best to be clear and explicit with your feedback. Please be patient with people who might not understand the finer details about your approach to feedback.
-Also don't think that comments and requests for changes means that your contribution is not appreciated and people can be stalling or discouraging you. You may have done a wonderfull job on the task at hand but, as it's still part of a very large sofware project, there could be implications on aspects that you might not be aware of, or that it's impacting or causing side effects on other parts. Keep an open mind and positive attitude! :wink:
+Also don't think that comments and requests for changes means that your contribution is not appreciated and people can be stalling or discouraging you. You may have done a wonderful job on the task at hand but, as it's still part of a very large software project, there could be implications on aspects that you might not be aware of, or that it's impacting or causing side effects on other parts. Keep an open mind and positive attitude! :wink:
 
 **nanoFramework** project uses many labels for categorizing issues and pull requests. Check [here](labels.md) the full list.
 
@@ -113,7 +113,7 @@ We use and recommend the following workflow:
     - You can skip this step for trivial changes.
     - Reuse an existing issue on the topic, if there is one.
     - Get agreement from the team and the community that your proposed change is a good one.
-    - If your change adds a new API, follow the [API Review Process](api-review-process.md). 
+    - If your change adds a new API, follow the [API Review Process]().
     - Clearly state that you are going to take on implementing it, if that's the case. You can request that the issue be assigned to you. Note: The issue filer and the implementer don't have to be the same person.
 
 2. Create a personal fork of the repository on GitHub (if you already have one you can jump straight to step 5 bellow).
@@ -126,7 +126,7 @@ We use and recommend the following workflow:
 
     - GitHub has it's own [desktop client](https://desktop.github.com/).
     - There is an extension for [Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio).
-    - Visual Studio Code has it's owned Git client baked in. 
+    - Visual Studio Code has it's owned Git client baked in.
     - There is also the popular [Tower](https://www.git-tower.com/) and many others.
 
     If you are using a GUI client don't bother with the the git command lines shown bellow.
@@ -166,11 +166,15 @@ We use and recommend the following workflow:
       - Make sure that the builds are clean.
       - Make sure that the tests are all passing, including any new tests that you've added.
 
-10. Push your changes to your fork on GitHub (if you haven't already).
+10. If you've been working in this branch and changes have been made in upstream develop, you should rebase the working branch on the upstream develop branch so that your work shows on top of any other changes. If you have just created your working branch you can skip this step.
+
+    `git rebase upstream/develop`
+
+11. Push your changes to your fork on GitHub (if you haven't already).
 
     `git push origin <branch-name-here>`
 
-11. Create a pull request (PR) against the upstream repository's **develop** branch.
+12. Create a pull request (PR) against the upstream repository's **develop** branch.
 
     Creating a PR is a simple click on the "Pull Request" button that shows on your personal fork in GitHub.
 
