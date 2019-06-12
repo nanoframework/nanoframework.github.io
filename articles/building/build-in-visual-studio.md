@@ -91,7 +91,7 @@ We are able to build in separate locations to suit the target type and configura
 The STM32 builds are most likely to require a shortened build path, so we can use  `"${env.nfRoot}Build/${name}"` in our `CMakeSettings.json` file STM769IDiscovery section. The build will then be done in `"B:\Build\STM769IDiscovery"`.
 
 ### Debugging
-Once the program has been build and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:
+Once the program has been built and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:
 ![](VS2019Toolbars.png)
 >Note that the launch configuration, here  `ESP32 nanoCLR - Segger JLink`, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!
 
@@ -135,11 +135,17 @@ Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_
 50	{
 =breakpoint-deleted,id="1"
 ```
-The processor has now stopped as the temporary breakpoint inserted by our `launch.vs.json` startup sequence, showing as an Exception at the entry point in the source code window.
-
+The processor has now stopped at the temporary breakpoint inserted by our `launch.vs.json` startup sequence, showing as an Exception at the entry point in the source code window.
+![](VS2019BreakPoint.png)
 You can now step through the code, observe variables, set breakpoints  and so on.
 
+### Summary
+This documentation is a work in progress, as is Visual Studio support for this type of project.
 
+Your feedback and contributions are welcome!
+
+
+[Feedback](#feedback)
 
 <br>
 
@@ -154,6 +160,7 @@ Some compromises were required to get this to a working stage.
 I made a decision to put the code at the top level to reduce path length of files which caused warnings of the potential to overflow the command line.
 >Hard coded paths are used to ensure it works with the current CMake coding and the Microsoft usage of CMake
 >There are some issues with the CMakeSettings.json file with path separators.
+
 
 <br>
 
