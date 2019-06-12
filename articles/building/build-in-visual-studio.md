@@ -136,7 +136,7 @@ Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_
 =breakpoint-deleted,id="1"
 ```
 The processor has now stopped at the temporary breakpoint inserted by our `launch.vs.json` startup sequence, showing as an Exception at the entry point in the source code window.
-![](VS2019BreakPoint.png)
+![](VS2019Breakpoint.png)
 You can now step through the code, observe variables, set breakpoints  and so on.
 
 ### Summary
