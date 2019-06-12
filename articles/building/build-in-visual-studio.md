@@ -26,11 +26,11 @@ You should now have the pieces in place to build, deploy and debug the nanoFrame
 Install the following :
 
 | Software | Workload/Component |
-|:-|---|---|
+|:-|---|
 | Visual Studio 2019 community edition |Linux development with C++|
 |option|C++ CMake tools for Windows and Linux   
-|option|Embedded and IoT Development tools|
-|||
+|option|Embedded and IoT Development tools
+
 
 ### Configuration Files
 VS Code and VS2019/2017 keep the majority of their configuration files in `"hidden"` directories (in the sense that Unix/Linux hides directory names beginning with a period). For VS Code this is named `".vscode"` and for VS2019 it is named `".vs"`, which helps to keep them from treading on each others toes.
@@ -41,12 +41,12 @@ The two configuration files in `.vs` are `tasks.vs.json` and `launch.vs.json`. W
 >Unlike VS2017, VS2019 currently rewrites your JSON configuration files,and in doing so will remove any comments you have added. This may strictly follow the JSON spec., but for human readable configuration files is a _Really Bad Thing!_ Hopefully MS will realize this and change the behaviour, perhaps taking on a more reasoned format such as [JSON5](https://json5.org/)
 
 #### tasks.vs.json
-This adds some entries to the Right-Click context menu for items in the `Solution Explorer` pane, for example `CMakeLists.txt`. The sample file is set up for the ESP32, and uses `esptool.py` to erase or program Flash on the device. You may need to modify the `"port"` setting near the top of the file to match the COM port the SP32 is connected to on your system.
+This adds some entries to the Right-Click context menu for items in the `Solution Explorer` pane, for example `CMakeLists.txt`. The sample file is set up for the ESP32, and uses `esptool.py` to erase or program Flash on the device. You may need to modify the `"port"` setting near the top of the file from `COM3` to the port your ESP32 is connected to.
 
 #### launch.vs.json
 This is used to launch the debugger, using `GDB` locally with `OpenOCD` acting as the GDB server providing a connection to your device. The example for ESP32 is using a `SEGGER JLINK` device to connect to the ESP32 JTAG pins, while the STM32 example uses the `STM32 STLINK` interface on the STM769IDiscovery board.
 
-Note that we haven't been able to get the debug system working purely using the  VS2019 resources, and we call a Windows batch file `"startocd.bat"` to handle the `OpenOCD` configuration details. Take a look at that file and modify to suit your configuration. (It __can__ have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.
+Note that we haven't been able to get the debug system working purely using the  VS2019 resources, and we call a Windows batch file `"startocd.bat"` to handle the `OpenOCD` configuration details. Take a look at that file and modify it to suit your configuration. (It __can__ have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.
 
 >GDB requires `/` separators in the path passed for the executable file and symbols, rather than the windows backslash `\`, and at present neither VS Code or VS2017/2019 can do that for us when expanding variables, hence the need to add a hard-coded file path. For VS Code we have a neat little extension `nf` to take care of that for us, but at this stage no such solution for VS.
 
@@ -60,7 +60,7 @@ Note that VS2019 will walk all over this file! But on the up-side it does give y
 
 #### RunCmd.bat
 Helper script to run a command in a separate console window, with a timeout after the command completes before closing the window. This was required when programming ESP32 boards requiring manual intervention (button press). `Esptool.py` sends a sequence of `___...___...___...` during which you may need to hold the boot button and press reset, however VS2019 buffers the output window so you don't see this until it is too late.
-First parameter `n` is timout in seconds.
+First parameter `n` is timeout in seconds.
  * n = 0 - wait for user input after command completes
  * n > 0 - wait for n seconds after command completes
  * N < 0 - wait only if command completed with error
@@ -68,7 +68,7 @@ First parameter `n` is timout in seconds.
 #### SetNFRoot.bat
 This script is used to help overcome the problem of file paths exceeding the Windows 250 character limit when building `nf-interpreter`. It does this by usingthe Windows `SUBST` command to map an unused drive letter to the source root directory. If a mapping already exists, it will be re-used. The environment variable `nfRoot` is set to this location, which can be accessed from within Visual Studio.
 
-For example, if my source is located at `D:\usr_chronos\Sandbox\NanoFramework\nf-interpreter\`
+For example, if my source root is located at `D:\usr_chronos\Sandbox\NanoFramework\nf-interpreter\`
 ``` batch
 D:\usr_chronos\Sandbox\NanoFramework\nf-interpreter>SetNFRoot.bat
 Found free drive letter: B:
@@ -77,12 +77,69 @@ You can remove it with subst B: /D
 Using short path B:\ for D:\usr_chronos\Sandbox\NanoFramework\nf-interpreter\
 B:\
 ```
+Now we can refer to the source root as `B:\` and build from there, giving as a substantially shorter path.
+
 The script output (see above) is sent to `stderr` rather than `stdout`, except for the final `B:\`, meaning it can be used as a command variable expansion in VS, as well as an environment variable expansion, ie `${env.nfRoot}` or `${cmd.SetNFRoot.bat}`
 
 #### startocd.bat
 This script is called by `GDB` to start `OpenOCD` as a separate process, you can add additional entries to the bottom of the script following the existing pattern. The label is passed from a line in `launch.vs.json`, default is for ESP32 with J-Link.
 >The script currently starts `C:/nanoFramework_Tools/Tools/openocd/bin/openocd.exe` for the `STM32_STLINK` label, which is what you will have installed if you followed the STM32 instructions, but I've actually had better results using the ESP32 version of OpenOCD with the STM32.
 If you have that version installed just comment out the line following the `:STM32_STLINK` label. 
+
+### Build Locations
+We are able to build in separate locations to suit the target type and configuration we are working on. The current layout is to use the `Build` subdirectory to contain all the separate build types folders, so `Build\ESP32` for ESP32 vanilla build, `Build\ESP32_test` for a test build, etc.
+The STM32 builds are most likely to require a shortened build path, so we can use  `"${env.nfRoot}Build/${name}"` in our `CMakeSettings.json` file STM769IDiscovery section. The build will then be done in `"B:\Build\STM769IDiscovery"`.
+
+### Debugging
+Once the program has been build and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:
+![](VS2019Toolbars.png)
+>Note that the launch configuration, here  `ESP32 nanoCLR - Segger JLink`, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!
+
+You can then commence debugging from the top DEBUG menu.
+
+OpenOCD should open in its own console window, connect to the target device, and display something similar to this:
+![](OpenOCDConsole.png)
+
+In the VS2019 IDE output Window you should see: 
+```
+=thread-group-added,id="i1"
+GNU gdb (crosstool-NG crosstool-ng-1.22.0-80-g6c4433a5) 7.10
+Copyright (C) 2015 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "--host=i686-host_pc-mingw32 --target=xtensa-esp32-elf".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+Warning: Debuggee TargetArchitecture not detected, assuming x86_64.
+=cmd-param-changed,param="pagination",value="off"
+@"Detected debug stubs @ 3ffcbaa0 on core0 of target 'esp32'\n"
+@"Target halted. PRO_CPU: PC=0x400D1F4C (active)    APP_CPU: PC=0x4000C276 \n"
+[New Thread 1073557668]
+[New Thread 1073555768]
+[New Thread 1073561472]
+[New Thread 1073560324]
+[New Thread 1073548060]
+[New Thread 1073544580]
+[New Thread 1073546588]
+[New Thread 1073549192]
+[Switching to Thread 1073553736]
+
+Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_32/nanoCLR/app_main.c:50
+50	{
+=breakpoint-deleted,id="1"
+```
+The processor has now stopped as the temporary breakpoint inserted by our `launch.vs.json` startup sequence, showing as an Exception at the entry point in the source code window.
+
+You can now step through the code, observe variables, set breakpoints  and so on.
+
+
 
 <br>
 
