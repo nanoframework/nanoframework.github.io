@@ -7,6 +7,12 @@ People contributing to **nanoFramework** do so in the spirit of Open Source, our
 We've setup an Open Collective to manage our funding in a completely transparent way. Yes, funding is required. There are infrastructure costs; PR efforts to make the project known in the embedded systems industry, throughout hobbyist communities and academia; marketing work; development and maintenance tasks that no one volunteers to do; supporting projects that we depend on...
 To make a donation click on the button bellow.
 
+<div align="center">
+  <a href="https://opencollective.com/nanoframework/donate" target="_blank">
+    <img src="https://opencollective.com/nanoframework/donate/button@2x.png?color=blue" width=300 />
+  </a>
+</div>
+
 ## How can I help?
 
 Almost everyone can help the project in a number of ways:
