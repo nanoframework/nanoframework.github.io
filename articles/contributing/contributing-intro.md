@@ -4,7 +4,7 @@
 
 People contributing to **nanoFramework** do so in the spirit of Open Source, our community, developers using **nanoFramework** and, most importantly, pushing the embedded systems world forward together in a community effort.
 
-Funding is necessary for us to manage things like infrastructure costs, carry out PR (including advertising the project to the embedded systems industry, hobbyist communities and academia), marketing work, development and maintenance tasks that no one volunteers to do, supporting projects that we depend on, etc... To this end, we have setup an 'Open Collective' to manage our funding in a completely transparent manner. There are 
+Funding is necessary for us to manage things like infrastructure costs, carry out PR (including advertising the project to the embedded systems industry, hobbyist communities and academia), marketing work, development and maintenance tasks that no one volunteers to do, supporting projects that we depend on, etc... To this end, we have setup an 'Open Collective' to manage our funding in a completely transparent manner. 
 To make a donation click on the button bellow.
 
 <div align="center">
