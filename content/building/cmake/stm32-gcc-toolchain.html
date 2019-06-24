@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CMake toolchain file for STM32 with GNU ARM Embedded Toolchain | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="CMake toolchain file for STM32 with GNU ARM Embedded Toolchain | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="cmake-toolchain-file-for-stm32-with-gnu-arm-embedded-toolchain">CMake <em>toolchain file</em> for STM32 with GNU ARM Embedded Toolchain</h1>
+
+<p><strong>About this document</strong></p>
+<p>This document describes the CMake module that is loaded as a <em>toolchain file</em> to support STM32 devices using the GNU ARM Embedded Toolchain.</p>
+<h2 id="purpose">Purpose</h2>
+<p>The purpose of this CMake module is to configure CMake for cross-compiling an ARM Cortex image in the platform that is running (Windows, MAC or Linux) using the GNU ARM Embedded Toolchain.
+In the process the parameters that were passed to CMake when invoking it are also validated.
+The toolchain CMake module is located in the CMake directory, not in the Modules directory because CMake understands it as a <em>toolchain file</em> not a module (despite being technically of the same kind).</p>
+<h2 id="workflow">Workflow</h2>
+<p>Follows a brief description on the validations that are performed:</p>
+<ul>
+<li>Toolchain location</li>
+<li>Target chip. The support for STM32 devices is added for each series (F0, F4, etc). The target chip is validated against a list of the series that are supported.</li>
+</ul>
+<p>The next part of the file takes care of configuring the GCC toolchain location, setup the working directories, C, C++ and assembly compilers, flags for the various build flavors (debug/release) and the targets that will eventually result from running the build.</p>
+<p>An important part is the inclusion of a CMake module that is specific to the STM32 series of the target chip. This helps on keeping things separated and more manageable. The general aspects, configurations and definitions are kept in this toolchain file and the particulars of the target series remain in the series CMake module. The naming of the series module follows the structure &quot;STM32<strong>NN</strong>_GCC_options.cmake&quot; on which the <strong>NN</strong> are replaced with the series designation in upper case.
+The series CMake module has to be placed in the CMake\Modules directory otherwise CMake won't be able to find it.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/building/cmake/stm32-gcc-toolchain.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

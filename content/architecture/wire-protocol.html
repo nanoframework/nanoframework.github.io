@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Wire Protocol | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Wire Protocol | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.43.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="wire-protocol">Wire Protocol</h1>
+
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#wire-protocol-message">Wire Protocol Message</a></li>
+<li><a href="#data-channels">Data channels</a></li>
+<li><a href="#receiving-and-transmitting-data">Receiving and transmitting data</a></li>
+<li><a href="#receiver-workflow">Receiver workflow</a></li>
+<li><a href="#wire-protocol-commands">Wire Protocol Commands</a></li>
+<li><a href="#how-to-add-support-for-a-new-command">How to add support for a new command</a></li>
+<li><a href="#how-to-add-support-for-new-channels">How to add support for new channels</a></li>
+<li><a href="#hal-interface">HAL interface</a></li>
+<li><a href="#application-interface">Application interface</a></li>
+<li><a href="#debugging-wire-protocol-communications">Debugging Wire Protocol communications</a></li>
+<li><a href="#crc32-validatons">CRC32 validations</a></li>
+</ul>
+<p><strong>About this document</strong></p>
+<p>This document describes the Wire Protocol used by <strong>nanoFramework</strong> for debug and the booter stage.
+The protocol follows the implementation of the .NET Micro Framework Wire Protocol. The intention is to review it later in order to improve and simplify it.</p>
+<h2 id="wire-protocol-message">Wire Protocol Message</h2>
+<p>The message basic structure is comprised by:</p>
+<ul>
+<li>Signature which is basically a marker to detect the start of a new message packet. Has a fixed length.</li>
+<li>Header with several fields to cary packet sequence, flags, commands, CRC, etc. Has a fixed length.
+<ul>
+<li>CRC32 of header (for verification calculation this CRC32 field has to be zeroed).</li>
+<li>CRC32 of payload, when it exists (for verification calculation this CRC32 field has to be zeroed).</li>
+<li>Command code.</li>
+<li>Sequence number of the message.</li>
+<li>Sequence reply. Carries the sequence number of the message that the message is a reply to.</li>
+<li>Flags.</li>
+<li>Size of the payload.</li>
+</ul>
+</li>
+<li>Payload for carrying data. Optional and its size is variable.</li>
+</ul>
+<p>You can check the details on <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol.h">WireProtocol.h</a></p>
+<h2 id="data-channels">Data channels</h2>
+<p>Currently <strong>nanoFramework</strong> Wire Protocol supports only serial channels. The plan is to add support for USB (using CDC class device) and TCP.
+To ease the port to new HAL/platforms the code is architecture so that only minimal changes are required to add support for new implementations.</p>
+<h2 id="receiving-and-transmitting-data">Receiving and transmitting data</h2>
+<p>The code is architecture to receive and transmit data over a serial stream.
+Preferably (and to use the reference implementation provided without much changes) the interface/API of the serial stream should:</p>
+<ul>
+<li>Allow checking if there is data available for reading.</li>
+<li>Allow reading sequentially (FIFO fashion) the input stream for a definite number of bytes. Having a timeout for the read operation is ideal to prevent bad/incomplete read operations.</li>
+<li>Allow writing to the transmit stream a definite number of bytes. Ideally in a non-blocking fashion to prevent bad/incomplete write operations.</li>
+</ul>
+<h2 id="receiver-workflow">Receiver workflow</h2>
+<p>Follows a high-level description on how the Wire Protocol component works.</p>
+<ul>
+<li>RTOS thread - <code>ReceiverThread(...)</code> in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_ReceiverThread.c">WireProtocol_ReceiverThread.c</a> - that loops continuously checking for available data in the receiving channel.</li>
+<li>On available data the reception of the message is initialized (WP_Message_Initialize) and prepared (WP_Message_PrepareReception) so the reception can actually occur and be processed by calling WP_Message_Process.</li>
+<li>During the reception states the input stream is read (<code>WP_ReceiveBytes(...)</code> in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_HAL_Interface.c">WireProtocol_HAL_Interface.c</a>) so the message header is received and it's integrity checked. Follows the reception and the integrity check of the payload, if there is any.</li>
+<li>After a successful reception of the header (and payload, if any) the <em>Process</em> state machine in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_Message.c">WireProtocol_Message.c</a>) reaches the <code>ReceiveState_CompletePayload</code> state and calls the <code>ProcessPayload(...)</code> function.</li>
+<li>Inside <code>ProcessPayload(...)</code> the lookup table for the commands that are implemented is searched and, if the command is found, the respective handler is called. According to the command its processing can require extra processing or gathering data. Invariably the handler execution end with a call to <code>ReplyToCommand(...)</code> where the reply is sent back to the host device.</li>
+<li>When executing <code>ReplyToCommand(...)</code> the output stream is written (<code>WP_TransmitMessage(...)</code> in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_HAL_Interface.c">WireProtocol_HAL_Interface.c</a>) with the reply message.</li>
+</ul>
+<h2 id="wire-protocol-commands">Wire Protocol Commands</h2>
+<p>Processing a command is carried in a handler function.
+The collection of the commands that are implemented is listed in <code>c_Lookup_Request</code>. This lookup structure is basically an array with the command code along with a pointer to the respective handler. It resides in <em>WireProtocol_App_Interface.c</em>.
+The actual command implementation resides in <em>WireProtocol_Commands.c</em>.</p>
+<h2 id="how-to-add-support-for-a-new-command">How to add support for a new command</h2>
+<p>There are two groups of commands: monitor commands and debug commands.</p>
+<p>In order to add a new monitor command you have to:</p>
+<ul>
+<li>Add the function declaration and any required structure and/or type definition in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_MonitorCommands.h">WireProtocol_MonitorCommands.h</a></li>
+<li>Add a weak prototype in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_MonitorCommands.c">WireProtocol_MonitorCommands.c</a></li>
+<li>The actual code for the command handler function (and any required helper functions or extra processing) is added at target level. For the reference implementation for nanoBooter in ChibiOS check <a href="..%5Ctargets%5CCMSIS-OS%5CChibiOS%5CnanoBooter%5CWireProtocol_MonitorCommands.c">WireProtocol_MonitorCommands.c</a></li>
+</ul>
+<p>To add the command to the collection of the supported monitor commands un-comment or add the respective line in the <code>c_Lookup_Request</code> variable in <em>WireProtocol_App_Interface.c</em> for both <a href="..%5Ctargets%5CCMSIS-OS%5CChibiOS%5CnanoBooter%5CWireProtocol_MonitorCommands.c">nanoBooter</a> and/or <a href="..%5Ctargets%5CCMSIS-OS%5CChibiOS%5CnanoCLR%5CWireProtocol_MonitorCommands.c">nanoCLR</a>.
+Because this declaration uses a macro to add the declaration of a command, make sure the existing naming pattern is <em><strong>strictly</strong></em> followed.</p>
+<p>This architecture tries to bring flexibility by making it easy to have different monitor commands for nanoBooter and nanoCLR and also having them implemented in different ways, if necessary.</p>
+<p>To ease code portability from .NET Micro Framework code base and maintain an understandable implementation the naming has been maintained or minimally adapted from the original C++ code.
+Try to follow this as much as possible when implementing new commands or porting the original C++ code to C.</p>
+<h2 id="how-to-add-support-for-new-channels">How to add support for new channels</h2>
+<p>Current Wire Protocol implementation has support for transmission over serial port (UART/USART) and serial over USB (USB CDC device class).
+Support for TCP channel is planned at a later stage.</p>
+<p>When adding support for new channels the functions <code>WP_ReceiveBytes(...)</code> and <code>WP_TransmitMessage(...)</code> in <em>WireProtocol_HAL_Interface.c</em> are the ones that need to be reworked. This implementation is target and board specific so it resides in the board folder. Check the reference implementation for the ST_STM32F4_DISCOVERY board <a href="..%5Ctargets%5CCMSIS-OS%5CChibiOS%5CST_STM32F4_DISCOVERY%5Ccommon%5CWireProtocol_HAL_Interface.c">here</a>.</p>
+<p>On both, the relevant part is that they read/write to a serial stream a specified number of bytes. Preferably non blocking calls with a timeout. Please read the comments inside of each of those functions for the details.
+The last piece that needs to be adjusted is the code inside the <code>ReceiverThread(...)</code> which is the RTOS thread that is running the Wire Protocol component. That thread is basically a loop with a wait state were the checks for existing data to be read on the input stream. On data available the <code>WP_Message_Process(...)</code> function is called.</p>
+<h2 id="hal-interface">HAL interface</h2>
+<p>The Wire Protocol requires the following functions in order to interface with the HAL.
+Weak implementations of each function are part of the core code.</p>
+<ul>
+<li><code>WP_TransmitMessage(...)</code> in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_HAL_Interface.c">WireProtocol_HAL_Interface.c</a></li>
+<li><code>WP_ReceiveBytes(...)</code> in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_HAL_Interface.c">WireProtocol_HAL_Interface.c</a></li>
+<li><code>WP_CheckAvailableIncomingData(...)</code> in <a href="..%5Csrc%5CCLR%5CWireProtocol%5CWireProtocol_HAL_Interface.c">WireProtocol_HAL_Interface.c</a></li>
+</ul>
+<p>An implementation for an STM32F4_DISCOVERY board with ChibiOS (including its HAL) is provided as a reference. Please check it at <a href="..%5Ctargets%5CCMSIS-OS%5CChibiOS%5CST_STM32F4_DISCOVERY%5Ccommon%5CWireProtocol_HAL_Interface.c">WireProtocol_HAL_Interface.c</a>.</p>
+<p>When porting <strong>nanoFramework</strong> to another RTOS or HAL follow the reference implementation to ease the port work.</p>
+<h2 id="application-interface">Application interface</h2>
+<p>The Wire Protocol requires the following functions in order to interface with it's client app.
+Weak implementations of each function are part of the core code.</p>
+<ul>
+<li><code>WP_App_ProcessHeader(...)</code> in <a href="">WireProtocol_App_Interface.c</a></li>
+<li><code>WP_App_ProcessPayload(...)</code> in <a href="">WireProtocol_App_Interface.c</a></li>
+</ul>
+<p>Actual implementations of these are to be provided by nanoBooter and nanoCLR. Please check the reference implementation for ChibiOS at <a href="..%5Ctargets%5CCMSIS-OS%5CChibiOS%5CnanoBooter%5CWireProtocol_App_Interface.c">WireProtocol_App_Interface.c</a>.</p>
+<h2 id="debugging-wire-protocol-communications">Debugging Wire Protocol communications</h2>
+<p>To ease debugging of Wire Protocol sessions there are available a set of CMake options to adjust the output of the Wire Protocol state machine and TX/Rx operations. The available options are:</p>
+<ul>
+<li>NF_WP_TRACE_ERRORS: Enable error tracing.</li>
+<li>NF_WP_TRACE_HEADERS: Enable packet headers tracing.</li>
+<li>NF_WP_TRACE_STATE: Enable tracing of the current state of the Wire Protocol sate machine.</li>
+<li>NF_WP_TRACE_NODATA: Enable tracing of empty or incomplete packets.</li>
+<li>NF_WP_TRACE_ALL: Enable all the options above. In case this setting is chosen it takes precedence over all the other and replaces when on.</li>
+</ul>
+<h2 id="crc32-validations">CRC32 validations</h2>
+<p>In order to ensure Wire Protocol communications integrity the message header and payload have each a CRC32 field that can be filled in with the CRC32 hash of the respective section. This allows the receiver to validate the integrity of both the header and the payload.</p>
+<p>Considering that the most frequent transport layers are USB and Ethernet (under development) which already have their own validation and integrity mechanisms, it might seems a bit paranoid to have this extra validation on top of those. Moreover, in the unlikely event of a garbled packet reaching the end of the parser engine, the wrong data would (most likely) prevent the correct execution of such command.</p>
+<p>In face of the above the CRC32 calculation and validation of the Wire Protocol header and payload has been made optional, meaning that a target can choose <em>not</em> to implement that. The Wire Protocol layer in the debugger is able to automatically handle both situations.</p>
+<p>To have a target image built <strong>without</strong> implementing CRC32 validation the option <code>NF_WP_IMPLEMENTS_CRC32=OFF</code> has to be passed to CMake.</p>
+<p>In case a less reliable transport layer is used (COM port for example) or if the developer deems this necessary it can be enabled with the option above set to <code>ON</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/wire-protocol.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
