@@ -4,21 +4,21 @@ We provide ready build firmware images for several reference target boards. Thes
 
 ## Espressif ESP32 boards
 
-- [ESP32 WROOM-32](reference-targets/esp32-wroom-32.md)
+- [ESP32 WROOM-32](esp32-wroom-32.md)
 
 ## Mikrobus.Net board
 
-- [MBN_QUAIL](reference-targets/mbn-quail.md)
+- [MBN_QUAIL](mbn-quail.md)
 
 ## Netduino boards
 
-- [NETDUINO3_WIFI](reference-targets/netduino3-wifi.md)
+- [NETDUINO3_WIFI](netduino3-wifi.md)
 
 ## STMicroelectronics boards
 
-- [NUCLEO64_F091RC](reference-targets/st-nucleo64-f091rc.md)
-- [STM32F429I_DISCOVERY](reference-targets/stm32f429i-discovery.md)
-- [STM32F769I_DISCOVERY](reference-targets/stm32f769i-discovery.md)
+- [NUCLEO64_F091RC](st-nucleo64-f091rc.md)
+- [STM32F429I_DISCOVERY](stm32f429i-discovery.md)
+- [STM32F769I_DISCOVERY](stm32f769i-discovery.md)
 
 ## Community target boards
 

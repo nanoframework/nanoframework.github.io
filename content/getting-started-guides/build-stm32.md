@@ -77,7 +77,7 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
 
     More info available on the [Tweaking cmake-variants.TEMPLATE.json](https://github.com/nanoframework/Home/blob/master/docs/building/cmake-tools-cmake-variants.md) documentation page.
 
-    For any of the [Reference target boards](http://docs.nanoframework.net/articles/reference-targets-intro.html) you can find pre-populated template files [here](https://github.com/nanoframework/Home/blob/c2eb47665ed426a000e18858cbdf5d71cb836421/docs/building/cmake-tools-cmake-variants.md#templates).
+    For any of the [Reference target boards](http://docs.nanoframework.net/content/reference-targets-intro.html) you can find pre-populated template files [here](https://github.com/nanoframework/Home/blob/c2eb47665ed426a000e18858cbdf5d71cb836421/docs/building/cmake-tools-cmake-variants.md#templates).
 \
     Here is an example `CMake-variants.json` for the STM32F429I-DISCOVERY:
 
@@ -184,4 +184,4 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
 
 ## Next Steps
 
-See [Getting Started](http://docs.nanoframework.net/articles/getting-started-guides/getting-started-managed.html) for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.
+See [Getting Started](http://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html) for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.
