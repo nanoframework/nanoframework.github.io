@@ -5,6 +5,7 @@
 These companies and organizations contribute to the develop effort of **nanoFramework**.
 
 - [Eclo Solutions](http://www.eclo.solutions) which allows [José Simões](https://github.com/josesimoes) and other developers to work for **nanoFramework** on their work hours along with providing Azure infrastructure to run nfbot and has paid **nanoFramework** bills for sometime.
+- [Global Control 5 Ltd.](https://www.gc5.pl) which has sponsor the port for NXP target NXP_MIMXRT1060_EVK.
 - [OrgPal](https://www.orgpal.com/) which has sponsor the development of several **nanoFramework** features.
 
 ### Organizations helping **nanoFramework**
