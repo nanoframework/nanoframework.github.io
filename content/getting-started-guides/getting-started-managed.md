@@ -20,48 +20,38 @@ The first part is to get Visual Studio 2017 and the **nanoFramework** extension 
 
 1. Now open the Device Explorer window. You can do this by going into View > Other Windows > Device Explorer.
 
-## Uploading the firmware to the board Using the ST-LINK Utility
+## Uploading the firmware to the board using nanoFirmwareFlasher
 
-The second part is to load the **nanoFramework** image in the board flash. Actually there are two images, one for nanoBooter and another one for nanoCLR. There are two methods to flash the image to the device. This method uses the ST-LINK Utility. The second method using a **.dfu** file will explored in the next section below.
+The second part is to load the **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
 
-1. Download the [STM32 ST-LINK Utility](http://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html) from ST web site and install it in your development machine.
+1. Install [nano Firmware Flasher](https://github.com/nanoframework/nanoFirmwareFlasher).
 
-2. Download a ZIP file with the firmware for the board from our web site [here](https://github.com/nanoframework/nf-interpreter#firmware-for-reference-boards) by clicking on the appropriate badge. This will take you to our JFrog Bintray repository that holds the packages with pre-build images for several target boards. After downloading it, unzip the package contents. 
+    ```console
+    dotnet tool install -g nanoFirmwareFlasher
+    ```
 
-3. Connect the STM32F746 NUCLEO board to your PC using an USB cable. In fact, you'll be needing two USB cables with a micro USB connector. One to connect to the ST-Link debugger, that doubles as power supply to the board. And a second one to connect the USB client of the board. 
+1. Perform the update by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
+(The following include the description for targets of several platforms for completeness)
 
-4. Launch the ST-LINK Utility that you've just installed and connect to the STM32F746 NUCLEO board.
+    - To update the firmware of an ESP32 target connected to COM31, to the latest available development version.
 
-5. Perform a "full chip erase" to clear the flash.
+        ```console
+        nanoff --update --platform esp32 --serialport COM31
+        ```
 
-6. Load the `nanoBooter.hex` file from the package and hit the "Program and verify" button. Make sure you tick the "Reset after programming" check box and hit "Start". After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
+    - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available development version.
 
-7. Next, load the `nanoCLR.hex` file from the extracted package folder and hit again the "Program and verify" button. Make sure you tick the "Reset after programming" check box and hit "Start". After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking. You can check if the board is properly running **nanoFramework** by looking into the Device Explorer window in VS.
+        ```console
+        nanoff --update --target ST_NUCLEO144_F746ZG --masserase
+        ```
 
-## Uploading the firmware to the board using the **.dfu file**
+    - To update the firmware of a ST board connected through DFU (like the NETDUINO3) you first need to put the board in DFU mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
 
-This is the second method that can be used to flash the board.
-To manually flash firmware using ST DFUSE tools, get a copy of [ST DFUSE tools](https://www.st.com/en/development-tools/stsw-stm32080.html).
+        ```console
+        nanoff --update --target NETDUINO3_WIFI
+        ```
 
-1. Install the DFUSE tools.
-2. Put your device in bootloader mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
-
-### Step one
-
-- Start the STDFU Tester application.
-- Select the "Protocol" tab.
-- Press the "Create from Map" button.
-- Select the "Erase" radio button option.
-- Press the "Go" button.
-- Wait for the erase process to complete.
-
-### Step two
-
-- Start the DFUSE Demo Application
-- Locate the **.dfu file** located in the device firmware update .zip file.
-  > Note: If the .dfu file does not exist in the .zip file. It can be created following the instructions [here](../stm32/create-dfu-file.md).
-- Click the "Choose" button then the "Update" button.
-- Toggle the devices power.
+1. After the upload completes, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running **nanoFramework** by looking into the Device Explorer window in Visual Studio.
 
 ## Coding a 'Hello World' application
 
