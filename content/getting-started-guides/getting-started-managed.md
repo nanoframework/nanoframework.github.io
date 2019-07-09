@@ -14,11 +14,11 @@ In this guide we'll be using a ST Microelectronics [STM32F746 NUCLEO](http://www
 
 The first part is to get Visual Studio 2017 and the **nanoFramework** extension installed.
 
-1.	Download Visual Studio 2017. If you already have it installed, you can skip this step. If you don't, please download the free [Visual Studio Community 2017](https://www.visualstudio.com/downloads) edition. Either way, make sure you've selected the .NET desktop workload.
+1. Download Visual Studio 2017. If you already have it installed, you can skip this step. If you don't, please download the free [Visual Studio Community 2017](https://www.visualstudio.com/downloads) edition. Either way, make sure you've selected the .NET desktop workload.
 
-2.	Launch Visual Studio 2017 (we'll just refer to it as VS from now on) and install the **nanoFramework** extension. You can do this by going into Tools > Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter _nanoFramework_ in the search box.
+1. Launch Visual Studio 2017 (we'll just refer to it as VS from now on) and install the **nanoFramework** extension. You can do this by going into Tools > Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter _nanoFramework_ in the search box.
 
-3.	Now open the Device Explorer window. You can do this by going into View > Other Windows > Device Explorer.
+1. Now open the Device Explorer window. You can do this by going into View > Other Windows > Device Explorer.
 
 ## Uploading the firmware to the board Using the ST-LINK Utility
 
@@ -69,21 +69,21 @@ Now you have everything that you need to start coding your first application. Le
 
 1. Go back to VS and click File > New > Project. Make sure you have selected 'Framework 4.6 or above' and choose nanoFramework, on the left hand side tree view. Choose the 'Blank Application' template and a location of your choosing were the project files will be saved. Name your project and hit OK. The program file will be automatically opened for you.
 
-2. We'll code a very simple application that enters an infinite loop and turns on and off an LED. We'll skip the details because that's not the aim of this guide. Let's just grab the code from the **nanoFramework** samples repo [here](https://github.com/nanoframework/Samples/tree/master/samples/Blinky). Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board.
+1. We'll code a very simple application that enters an infinite loop and turns on and off an LED. We'll skip the details because that's not the aim of this guide. Let's just grab the code from the **nanoFramework** samples repo [here](https://github.com/nanoframework/Samples/tree/master/samples/Blinky). Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board.
 
-3. Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on 'References' in the Solution Explorer and click 'Manage NuGet Packages'. On the search box type 'nanoFramework'. Make sure you have the preview checkbox ticked. Find the Windows.Devices.Gpio package and click "Install". After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.
+1. Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on 'References' in the Solution Explorer and click 'Manage NuGet Packages'. On the search box type 'nanoFramework'. Make sure you have the preview checkbox ticked. Find the Windows.Devices.Gpio package and click "Install". After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.
 
-4. Click "Build Solution" from the Build menu. A success message shows in the Build window.
+1. Click "Build Solution" from the Build menu. A success message shows in the Build window.
 
-5. We are almost there. Go into the Device Explorer window and click on the **nanoFramework** device showing there. Make sure the connection is OK by hitting the "Ping" button. On success, a message shows on the output window.
+1. We are almost there. Go into the Device Explorer window and click on the **nanoFramework** device showing there. Make sure the connection is OK by hitting the "Ping" button. On success, a message shows on the output window.
 
-6. Let's deploy the application to the board. In order to do that, right click on the Project name and choose "Deploy". You'll see the feedback of the several operations that are running on the background in the Output Window. After a successful deployment you need to reset the target and your 'Hello World' blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a debug session. To do that hit F5 (as usual) in Visual Studio and watch it run.
+1. Let's deploy the application to the board. In order to do that, right click on the Project name and choose "Deploy". You'll see the feedback of the several operations that are running on the background in the Output Window. After a successful deployment you need to reset the target and your 'Hello World' blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a debug session. To do that hit F5 (as usual) in Visual Studio and watch it run.
 
 ## Wrapping up
 
 Congratulations! That's your first **nanoFramework** C# application executing right there on the target board. How awesome is that?!
 
-And this is it for the getting started guide. 
+And this is it for the getting started guide.
 
 You've went through the steps required to install Visual Studio, the **nanoFramework** extension and the ST-LINK Utility.
 
