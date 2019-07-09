@@ -116,6 +116,8 @@ The following explains each line of the *linkage* section. Text highlighted in *
   - Lists the name of the Interop assembly(ies) to be added to the build. Leave empty or don't add it if no Interop assembly is to be added.
 - "API_nanoFramework.Devices.OneWire" : "**OFF**"
   - Allows you to specify whether support for Devices.OneWire is available to your application. Default is OFF.
+- "API_System.Devices.Dac" : "**OFF**"
+  - Allows you to specify whether DAC functions are available to your application. Default is OFF.
 - "API_System.Net" : "**OFF**"
   - Allows you to specify whether System.Net support is available to your application. Default is OFF.
 - "API_Windows.Devices.Adc" : "**OFF**"
