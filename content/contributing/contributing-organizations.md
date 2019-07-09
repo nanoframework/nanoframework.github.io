@@ -17,6 +17,7 @@ These companies and organizations support the community and the project.
 - [Icons 8](https://icons8.com/) that allows to use their icons on our Visual Studio extension.
 - [JFrog](https://bintray.com/) which provides us free hosting and distribution for our firmware images and other utils used in the build process.
 - [Microsoft](https://dev.azure.com) through free Azure DevOps that runs our CD & CI infrastructure.
+- [MyGet](https://www.myget.org) which provides us free hosting of the development versions of our NuGet packages and Visual Studio extensions.
 - [Sonar Cloud](https://sonarcloud.io/about) by providing free access to their Continuous Code Quality analysis tools.
 
 ### Projects and communities supporting **nanoFramework**
