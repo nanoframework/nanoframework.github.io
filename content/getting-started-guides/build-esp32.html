@@ -231,7 +231,7 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
             &quot;short&quot;: &quot;RelWithDebInfo&quot;,
             &quot;long&quot;: &quot;Perform optimizations AND include debugging information&quot;,
             &quot;buildType&quot;: &quot;RelWithDebInfo&quot;
-          }    
+          }
         }
     },
   
@@ -243,10 +243,10 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
         &quot;short&quot;: &quot;NanoCLR&quot;,
           &quot;settings&quot;: {
             &quot;BUILD_VERSION&quot; : &quot;0.9.99.999&quot;,
-            &quot;TOOLCHAIN_PREFIX&quot; : &quot;&lt;absolute-path-to-the-toolchain-prefix-folder-mind-the-forward-slashes&gt;&quot;, 
-            &quot;ESP32_IDF_PATH&quot; : &quot;&lt;absolute-path-to-the-IDF-folder-mind-the-forward-slashes&gt;&quot;, 
-            &quot;ESP32_LIBS_PATH&quot; : &quot;&lt;absolute-path-to-the-bootloader-folder-mind-the-forward-slashes&gt;&quot;, 
-            &quot;TARGET_SERIES&quot; : &quot;ESP32&quot;, 
+            &quot;TOOLCHAIN_PREFIX&quot; : &quot;&lt;absolute-path-to-the-toolchain-prefix-folder-mind-the-forward-slashes&gt;&quot;,
+            &quot;ESP32_IDF_PATH&quot; : &quot;&lt;absolute-path-to-the-IDF-folder-mind-the-forward-slashes&gt;&quot;,
+            &quot;ESP32_LIBS_PATH&quot; : &quot;&lt;absolute-path-to-the-bootloader-folder-mind-the-forward-slashes&gt;&quot;,
+            &quot;TARGET_SERIES&quot; : &quot;ESP32&quot;,
           &quot;USE_FPU&quot; : &quot;TRUE&quot;,
           &quot;RTOS&quot; : &quot;FREERTOS&quot;,
           &quot;SWO_OUTPUT&quot; : &quot;OFF&quot;,
@@ -321,6 +321,28 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
     ]
 }
 </code></pre>
+<ol start="5">
+<li>In the<code>.vscode</code> create a file named <code>settings.json</code> and paste the following (mind to update the path to your setup):</li>
+</ol>
+<pre><code class="lang-json">{
+    &quot;cmake.preferredGenerators&quot;: [
+        &quot;Ninja&quot;
+    ],
+    &quot;cmake.generator&quot;: &quot;Ninja&quot;,
+    &quot;cmake.useCMakeServer&quot; : true,
+    &quot;cmake.autoRestartBuild&quot; : true,
+    &quot;cmake.configureSettings&quot;: {
+        &quot;CMAKE_MAKE_PROGRAM&quot;:&quot;C:/nanoFramework_Tools/ninja/ninja.exe&quot;
+    },
+    &quot;cmake.cmakePath&quot;: &quot;C:/nanoFramework_Tools/CMake/bin/cmake.exe&quot;
+}
+</code></pre>
+<blockquote>
+<p>Note: if the path to CMake executable is on the PATH system variable the last setting (<code>cmake.cmakePath</code>) is not required.</p>
+</blockquote>
+<ol start="6">
+<li>Save all files and exit VS Code.</li>
+</ol>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
 <ol>
 <li><p>Launch Visual Studio and from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VSCode will prompt asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
@@ -362,9 +384,7 @@ In this case deleting the contents of the <code>build</code> folder should allow
 </li>
 </ol>
 <h2 id="start-with-a-hello-world-c-application">Start with a 'Hello World' C# application</h2>
-<ol>
-<li>Watch the video tutorial <a href="https://youtu.be/iZdN2GmefXI">here</a> and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.</li>
-</ol>
+<p>Watch the video tutorial <a href="https://youtu.be/iZdN2GmefXI">here</a> and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.</p>
 <h2 id="debugging-nanoclr">Debugging nanoCLR</h2>
 <p>If you want to debug the nanoCLR on the ESP32 chip you can use the Olimex ARM-USB-OCD-H JTAG debugging adapter. The following setup is specific for the Olimex ARM-USB-OCD-H but you can use other configuration files to get it working with other JTAG adapters.</p>
 <p>Create a <code>./.vscode/launch.json</code> from <code>/.vscode/launch.TEMPLATE-ESP32.json</code>.</p>

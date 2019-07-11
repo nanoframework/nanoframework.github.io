@@ -103,7 +103,7 @@ The build is based on CMake tool to ease the development in all major platforms.
 . If you have Visual Studio (full version) you can use the included NMake.
 . <a href="https://github.com/ninja-build/ninja/releases">Ninja</a>. This is lightweight build system, designed for speed and it works on Windows and Linux machines. See <a href="cmake/ninja-build.md">here</a> how to setup Ninja to build <strong>nanoFramework</strong>. This guide will use Ninja.</li>
 <li><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU ARM Embedded Toolchain</a></li>
-<li>OpenOCD (any working distribution will work, some suggestions follow)\
+<li>OpenOCD (any working distribution will work, some suggestions follow)<br>
 . <a href="http://www.freddiechopin.info/en/download/category/4-openocd">Freddie Chopin OpenOCD</a>
 . <a href="https://sourceforge.net/projects/openocd/">OpenOCD – Open On-Chip Debugger</a>
 . <a href="https://github.com/gnuarmeclipse/openocd">GNU ARM Eclipse OpenOCD</a></li>
@@ -175,7 +175,7 @@ Here is an example <code>CMake-variants.json</code> for the STM32F429I-DISCOVERY
           &quot;short&quot;: &quot;RelWithDebInfo&quot;,
           &quot;long&quot;: &quot;Perform optimizations AND include debugging information&quot;,
           &quot;buildType&quot;: &quot;RelWithDebInfo&quot;
-        }    
+        }
       }
   },
 
@@ -206,16 +206,24 @@ Here is an example <code>CMake-variants.json</code> for the STM32F429I-DISCOVERY
 }
 </code></pre>
 <ol start="3">
-<li>In the<code>.vscode</code> create a file named <code>settings.json</code> and paste the following</li>
+<li>In the<code>.vscode</code> create a file named <code>settings.json</code> and paste the following (mind to update the path to your setup):</li>
 </ol>
 <pre><code class="lang-json">{
+    &quot;cmake.preferredGenerators&quot;: [
+        &quot;Ninja&quot;
+    ],
     &quot;cmake.generator&quot;: &quot;Ninja&quot;,
+    &quot;cmake.useCMakeServer&quot; : true,
+    &quot;cmake.autoRestartBuild&quot; : true,
     &quot;cmake.configureSettings&quot;: {
         &quot;CMAKE_MAKE_PROGRAM&quot;:&quot;C:/nanoFramework_Tools/ninja/ninja.exe&quot;
     },
     &quot;cmake.cmakePath&quot;: &quot;C:/nanoFramework_Tools/CMake/bin/cmake.exe&quot;
 }
 </code></pre>
+<blockquote>
+<p>Note: if the path to CMake executable is on the PATH system variable the last setting (<code>cmake.cmakePath</code>) is not required.</p>
+</blockquote>
 <ol start="4">
 <li><p>Save all files and exit VS Code.</p>
 </li>
