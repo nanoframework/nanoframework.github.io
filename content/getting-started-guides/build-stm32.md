@@ -29,7 +29,7 @@ You'll need:
   . If you have Visual Studio (full version) you can use the included NMake.
   . [Ninja](https://github.com/ninja-build/ninja/releases). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**. This guide will use Ninja.
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
-- OpenOCD (any working distribution will work, some suggestions follow)\ 
+- OpenOCD (any working distribution will work, some suggestions follow)\
   . [Freddie Chopin OpenOCD](http://www.freddiechopin.info/en/download/category/4-openocd)
   . [OpenOCD – Open On-Chip Debugger](https://sourceforge.net/projects/openocd/)
   . [GNU ARM Eclipse OpenOCD](https://github.com/gnuarmeclipse/openocd)
@@ -71,7 +71,7 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
     - [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools)
 
-2. Set up the `CMake-variants.json` in root directory of your local nanoFramework/nf-interpreter clone.
+1. Set up the `CMake-variants.json` in root directory of your local nanoFramework/nf-interpreter clone.
   
     There is a template file called `cmake-variants.TEMPLATE.json` that can be renamed and configured accordingly.
 
@@ -105,7 +105,7 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
           "short": "RelWithDebInfo",
           "long": "Perform optimizations AND include debugging information",
           "buildType": "RelWithDebInfo"
-        }    
+        }
       }
   },
 
@@ -136,17 +136,24 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
 }
 ```
 
-3. In the`.vscode` create a file named `settings.json` and paste the following
+3. In the`.vscode` create a file named `settings.json` and paste the following (mind to update the path to your setup):
 
 ```json
 {
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ],
     "cmake.generator": "Ninja",
+    "cmake.useCMakeServer" : true,
+    "cmake.autoRestartBuild" : true,
     "cmake.configureSettings": {
         "CMAKE_MAKE_PROGRAM":"C:/nanoFramework_Tools/ninja/ninja.exe"
     },
     "cmake.cmakePath": "C:/nanoFramework_Tools/CMake/bin/cmake.exe"
 }
 ```
+
+> Note: if the path to CMake executable is on the PATH system variable the last setting (`cmake.cmakePath`) is not required.
 
 4. Save all files and exit VS Code.
 
@@ -158,9 +165,10 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
 
 1. In the status bar click `Build`.
 
-2. Wait for the build to finish with `Build finished with exit code 0` output message.
+1. Wait for the build to finish with `Build finished with exit code 0` output message.
 
-3. In the `C:\nanoFramework\nf-interpreter\build` folder will be the required binary files:
+1. In the `C:\nanoFramework\nf-interpreter\build` folder will be the required binary files:
+
 - nanoBooter.bin
 - nanoBooter.elf
 - nanoBooter.hex
@@ -172,15 +180,15 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
 
 1. Download the [STM32 ST-LINK Utility](https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html) from ST web site and install it in your development machine.
 
-2. Connect the Target board to your PC using an USB cable.
+1. Connect the Target board to your PC using an USB cable.
 
-3. Open STM32 ST-Link Utility. And click on `Target > Connect`.
+1. Open STM32 ST-Link Utility. And click on `Target > Connect`.
 
-4. Next erase the entire chip by clicking on `Target > Erase Chip`.
+1. Next erase the entire chip by clicking on `Target > Erase Chip`.
 
-5. Open `nanoBooter.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
+1. Open `nanoBooter.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
 
-6. Open `nanoCLR.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking.
+1. Open `nanoCLR.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking.
 
 ## Next Steps
 

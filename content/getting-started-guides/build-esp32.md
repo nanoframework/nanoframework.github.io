@@ -23,9 +23,9 @@ You'll need these installed before your start.
 - [Visual Studio Code](http://code.visualstudio.com/). Additional extensions and setup steps follow below. [Set up Visual Code](#Set-up-Visual-Code)
 - [Python 3.6.5](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) Required for uploading the nanoCLR to the ESP32.
 - [CMake](https://cmake.org/download/) Download the latest stable version and install it (Minimum required version is 3.11).
-- A build system for CMake to generate the build files to. 
+- A build system for CMake to generate the build files to.
   . If you have Visual Studio (full version) you can use the included NMake.
-  . In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually. 
+  . In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.
 - [CP210x USB to UART Bridge](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) Driver for the USB to UART Bridge integrated into the standard ESP32 DevKitC. If Windows does not install the driver automatically, then you can download and install manually. If your ESP32 uses a different serila driver, install that and ignore this driver. With the ESP32 DevKetC plugged in, use Windows Device Manager to determine the COM port as this is needed to complete the setup.
 
 The following may be installed [manually](#Manual-Install-of-the-build-environment-for-ESP32), or use the Power Shell script `.\install-esp32-tools.ps1`
@@ -126,11 +126,11 @@ Download the latest stable version from [here](https://cmake.org/download/) and 
 
 Extract the exe into `C:\Esp32_Tools\ninja` and add the `C:\Esp32_Tools\ninja` directory to your path variable.
 
-Note that `.\install-esp32-tools.ps1` will do this for you. 
+Note that `.\install-esp32-tools.ps1` will do this for you.
 
 ## Set up Python
 
-Install [Python 3.6.5](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) and then install the serial driver for python from the command line: 
+Install [Python 3.6.5](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) and then install the serial driver for python from the command line:
 
 ```cmd
 python -m pip install pyserial
@@ -146,7 +146,7 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
     - "CMake" language support for Visual Studio Code by twxs.
     - "CMake tools" Extended CMake support in Visual Studio code by vector-of-bool
 
-2. Set up the `CMake-variants.json` in root directory of your local nanoFramework/nf-interpreter clone.
+1. Set up the `CMake-variants.json` in root directory of your local nanoFramework/nf-interpreter clone.
 
     See `cmake-variants.TEMPLATE.json` for the generalised template. Be aware of the forward slashes in the paths.
     The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf is the subdirectory.
@@ -177,7 +177,7 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
             "short": "RelWithDebInfo",
             "long": "Perform optimizations AND include debugging information",
             "buildType": "RelWithDebInfo"
-          }    
+          }
         }
     },
   
@@ -189,10 +189,10 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
         "short": "NanoCLR",
           "settings": {
             "BUILD_VERSION" : "0.9.99.999",
-            "TOOLCHAIN_PREFIX" : "<absolute-path-to-the-toolchain-prefix-folder-mind-the-forward-slashes>", 
-            "ESP32_IDF_PATH" : "<absolute-path-to-the-IDF-folder-mind-the-forward-slashes>", 
-            "ESP32_LIBS_PATH" : "<absolute-path-to-the-bootloader-folder-mind-the-forward-slashes>", 
-            "TARGET_SERIES" : "ESP32", 
+            "TOOLCHAIN_PREFIX" : "<absolute-path-to-the-toolchain-prefix-folder-mind-the-forward-slashes>",
+            "ESP32_IDF_PATH" : "<absolute-path-to-the-IDF-folder-mind-the-forward-slashes>",
+            "ESP32_LIBS_PATH" : "<absolute-path-to-the-bootloader-folder-mind-the-forward-slashes>",
+            "TARGET_SERIES" : "ESP32",
           "USE_FPU" : "TRUE",
           "RTOS" : "FREERTOS",
           "SWO_OUTPUT" : "OFF",
@@ -271,47 +271,70 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 }
 ```
 
+5. In the`.vscode` create a file named `settings.json` and paste the following (mind to update the path to your setup):
+
+```json
+{
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ],
+    "cmake.generator": "Ninja",
+    "cmake.useCMakeServer" : true,
+    "cmake.autoRestartBuild" : true,
+    "cmake.configureSettings": {
+        "CMAKE_MAKE_PROGRAM":"C:/nanoFramework_Tools/ninja/ninja.exe"
+    },
+    "cmake.cmakePath": "C:/nanoFramework_Tools/CMake/bin/cmake.exe"
+}
+```
+
+> Note: if the path to CMake executable is on the PATH system variable the last setting (`cmake.cmakePath`) is not required.
+
+6. Save all files and exit VS Code.
+
 ## Build nanoCLR
 
 1. Launch Visual Studio and from the __File__ menu, select __Open Folder__ and browse to the repo folder. VSCode will prompt asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 
    To enter a command into Visual Studio Code use the key combination Ctrl+Shift+P.
 
-2. Click on `CMake` in the Status bar or enter the command
+1. Click on `CMake` in the Status bar or enter the command
 
     ```cmd
     CMake: Set build variant
     ```
-    and set it to the `Debug + NanoCLR` build type. 
+
+    and set it to the `Debug + NanoCLR` build type.
 
     If it also asks for a kit select `ESP32 Tools`
 
     Wait for CMake to process the files and build the CMake cache. This can take a while the first time. 
 
-3. Press F7, or click on `Build` in the Status bar or enter the command
+1. Press F7, or click on `Build` in the Status bar or enter the command
 
     ```json
     CMake: Build
     ```
 
-4. If you get no error you will have in the build directory the files `nanoCLR.bin` and `partitions_4mb.bin`.
+1. If you get no error you will have in the build directory the files `nanoCLR.bin` and `partitions_4mb.bin`.
 
-5. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/ESP32_Tools/libs-v3.1/bootloader.bin` if the automated install script is used.
+1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/ESP32_Tools/libs-v3.1/bootloader.bin` if the automated install script is used.
 
     Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
-    In this case deleting the contents of the `build` folder should allow the build to complete once you resolve the issues that cause the original failure. 
+    In this case deleting the contents of the `build` folder should allow the build to complete once you resolve the issues that cause the original failure.
 
 ## Flash nanoCLR into ESP32
 
 1. Connect your development board to the computer port that you've setup in `tasks.json`.
 
-2. Bring your board into download mode by holding down the GPIO0 pin to GND or holding down the respective button during power up.
+1. Bring your board into download mode by holding down the GPIO0 pin to GND or holding down the respective button during power up.
 
-3. In Visual Studio Code enter the command
+1. In Visual Studio Code enter the command
 
     ```cmd
     Tasks: Run task
     ```
+
     and if you flash the board for the first time
 
     ```cmd
@@ -326,7 +349,7 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 
 ## Start with a 'Hello World' C# application
 
-1. Watch the video tutorial [here](https://youtu.be/iZdN2GmefXI) and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.
+Watch the video tutorial [here](https://youtu.be/iZdN2GmefXI) and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.
 
 ## Debugging nanoCLR
 
@@ -334,7 +357,7 @@ If you want to debug the nanoCLR on the ESP32 chip you can use the Olimex ARM-US
 
 Create a `./.vscode/launch.json` from `/.vscode/launch.TEMPLATE-ESP32.json`.
 
-Edit the file and adjust the absolute path `<absolute-path-to-the-build-folder-mind-the-forward-slashes>` to the build folder (**!!mind the forward slashes!!**) to your needs. The Power Shell script `.\install-esp32-tools.ps1` will adjust the file for you. 
+Edit the file and adjust the absolute path `<absolute-path-to-the-build-folder-mind-the-forward-slashes>` to the build folder (**!!mind the forward slashes!!**) to your needs. The Power Shell script `.\install-esp32-tools.ps1` will adjust the file for you.
 
 The following example assumes the OpenOCD tool was installed in the default location. Adjust the path as required if you used a custom install path to OpenOCD.
 
