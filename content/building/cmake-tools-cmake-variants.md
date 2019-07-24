@@ -114,12 +114,24 @@ The following explains each line of the *linkage* section. Text highlighted in *
   Default is OFF meaning that CLR will inline IL.
 - "NF_INTEROP_ASSEMBLIES" : [ "Assembly1-Namespace", "Assembly2-Namespace" ]
   - Lists the name of the Interop assembly(ies) to be added to the build. Leave empty or don't add it if no Interop assembly is to be added.
+- "NF_NETWORKING_SNTP" : "**ON**"
+  - Allows you to specify whether SNTP is enabled. Requires networking feature to be enabled. Default is ON.
+- "NF_SECURITY_MBEDTLS" : "**OFF**"
+  - Enables support for secure sockets using mbedTLS. Default is OFF.
+- "MBEDTLS_SOURCE" : "**OFF**"
+  - Path to an optional local with mbedTLS source files.
 - "API_nanoFramework.Devices.OneWire" : "**OFF**"
   - Allows you to specify whether support for Devices.OneWire is available to your application. Default is OFF.
 - "API_System.Devices.Dac" : "**OFF**"
   - Allows you to specify whether DAC functions are available to your application. Default is OFF.
+- "API_System.Math" : "**OFF**"
+  - Allows you to specify whether System.Math support is available to your application. Default is OFF.
 - "API_System.Net" : "**OFF**"
   - Allows you to specify whether System.Net support is available to your application. Default is OFF.
+- "API_nanoFramework.Devices.Can" : "**OFF**"
+  - Allows you to specify whether CAN bus functions are available to your application. Default is OFF.
+- "API_nanoFramework.Devices.OneWire" : "**OFF**"
+  - Allows you to specify whether 1-Wire functions are available to your application. Default is OFF.
 - "API_Windows.Devices.Adc" : "**OFF**"
   - Allows you to specify whether ADC functions are available to your application. Default is OFF.
 - "API_Windows.Devices.Gpio" : "**OFF**"
