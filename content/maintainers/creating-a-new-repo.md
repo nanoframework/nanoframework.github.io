@@ -151,7 +151,7 @@ If in doubt please ask one of the senior team members.
       - Enable "Require pull request reviews before merging"
       - Enable "Require status checks to pass before merging" with the options:
         - "Require branches to be up to date before merging"
-        - "Status checks: nanoframework.<strong>azure-devops-project-name</strong><i>"
+        - "Status checks: nanoframework.<i><strong>azure-devops-project-name</strong></i>"
         - "Status checks: license/cla" (for develop branch)
 
 ## Update the dependency upwards
