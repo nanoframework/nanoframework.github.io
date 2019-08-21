@@ -2,7 +2,7 @@
 
 Our awesome community has your back!
 
-### Everything in nanoFramework is public
+### Everything in **nanoFramework** is public
 
 Note that we all do this in the spirit of Open Source.
 
