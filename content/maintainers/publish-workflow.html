@@ -8,7 +8,7 @@
     <title>Publish Workflow and Strategy | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Publish Workflow and Strategy | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.43.3.0">
+    <meta name="generator" content="docfx 2.44.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -81,16 +81,16 @@
 <p>This document describes the workflow and strategy adopted by <strong>nanoFramework</strong> to handle the merging, branching and release publishing.</p>
 <h2 id="pull-requests">Pull Requests</h2>
 <p>Pull requests with contributions are <strong>always</strong> merged into <em>develop</em> branch.
-On each pull request build the respective NuGet packages are published to nanoFramework <a href="https://www.myget.org/feed/Packages/nanoframework-dev">MyGet feed</a> (if this is a component that uses this distribution channel). By sourcing this NuGet feed someone testing that pull request can reference it straight away without any further hassle.
-There is nothing else to be done as the package identifier and the version are automatically incremented based upon the GitVersion configuration.</p>
+On each pull request build the respective NuGet packages are published to nanoFramework <a href="https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&amp;feed=sandbox">Azure DevOps NuGet feed</a> (if this is a component that uses this distribution channel). By sourcing this NuGet feed someone testing that pull request can reference it straight away without any further hassle.
+There is nothing else to be done as the package identifier and the version are automatically incremented based.</p>
 <h2 id="development">Development</h2>
-<p>Once pull requests have been merged into <em>develop</em> a new release is automatically generated and published to nanoFramework <a href="https://www.myget.org/feed/Packages/nanoframework-dev">MyGet feed</a> (if this is a component that uses this distribution channel).
-There is nothing else to be done as the package identifier and the version are automatically incremented based upon the GitVersion configuration.</p>
+<p>Once pull requests have been merged into <em>develop</em> a new release is automatically generated and published to nanoFramework <a href="https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&amp;feed=sandbox">Azure DevOps NuGet feed</a> (if this is a component that uses this distribution channel).
+There is nothing else to be done as the package identifier and the version are automatically incremented.</p>
 <h2 id="release-candidates">Release Candidates</h2>
 <p>The process is kicked off by opening up a pull request from <em>develop</em> to a new branch named <em>release-vN.N.N</em> (note the branch name starting with <em>release</em>, this is mandatory for the configuration and scripts to properly recognize this as such).</p>
 <p>If this release contains a breaking change then increase the MAJOR version by one and reset the MINOR back to zero and keep the PATCH at zero. Otherwise just bump the MINOR version by one and keep the PATCH at zero.</p>
 <p>At this stage the contributor proposing a new release must perform a few administrative tasks. It's the responsibility of the release approver to verify that these tasks have been performed correctly.</p>
-<p>Edit the source/version.json and bump the <code>version</code> field to the appropriate number matching the release at hand.</p>
+<p>Details on the release preparation can be read from the Nerdbank GitVersioning documentation <a href="https://github.com/AArnott/Nerdbank.GitVersioning/blob/master/doc/nbgv-cli.md#preparing-a-release">here</a>.</p>
 <p>If the process for merging individual pull requests was followed perfectly there is not much else to do except verify that all pull requests have assigned a milestone and an appropriate label.
 The label classifies the type of change and it's mandatory because the release notes are automatically generated from this information.
 For the purposes of the automated release notes generation, only the pull requests have to follow this strict label mapping, not the issues. This is because the issue management is centralized in the Home repo (not per repository).

@@ -8,7 +8,7 @@
     <title>Procedure for creating a new repository | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Procedure for creating a new repository | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.43.3.0">
+    <meta name="generator" content="docfx 2.44.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -136,9 +136,13 @@ If in doubt please ask one of the senior team members.</p>
 </li>
 <li><p>Click &quot;New service connection&quot; and choose <em>NuGet</em>.</p>
 </li>
-<li><p>Enter the details for a connection named <code>MyGet</code>, with URL <code>https://api.nuget.org/v3/index.json</code> and API key from nanoFramework MyGet feed.</p>
+<li><p>Enter the details for a connection named <code>AzurePipelines</code>, with URL <code>https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json</code> and PAT token for nanoFramework Azure DevOps account.</p>
 </li>
-<li><p>Repeat step 5 and enter the details for another connection named <code>NuGet</code>, with URL <code>https://www.myget.org/F/nanoframework-dev/api/v2/package</code> and API key from nanoFramework NuGet API.</p>
+<li><p>Repeat the previous step and enter the details for another connection named <code>NuGet</code>, with URL <code>https://api.nuget.org/v3/index.json</code> and API key from nanoFramework NuGet API.</p>
+</li>
+<li><p>Click again on &quot;New service connection&quot; and choose <em>SonarCloud</em>.</p>
+</li>
+<li><p>Enter the details for a connection named <code>sonarcloud</code>, with the token for nanoFramework SonarCloud account.</p>
 </li>
 <li><p>Navigate to Pipelines and click &quot;New pipeline&quot;.</p>
 </li>
@@ -238,7 +242,7 @@ If in doubt please ask one of the senior team members.</p>
 <li>Enable &quot;Require status checks to pass before merging&quot; with the options:
 <ul>
 <li>&quot;Require branches to be up to date before merging&quot;</li>
-<li>&quot;Status checks: nanoframework.<strong>azure-devops-project-name</strong><i>&quot;</i></li>
+<li>&quot;Status checks: nanoframework.<i><strong>azure-devops-project-name</strong></i>&quot;</li>
 <li>&quot;Status checks: license/cla&quot; (for develop branch)</li>
 </ul>
 </li>

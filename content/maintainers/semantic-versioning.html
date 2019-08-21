@@ -8,7 +8,7 @@
     <title>Semantic Versioning | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Semantic Versioning | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.43.3.0">
+    <meta name="generator" content="docfx 2.44.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -78,7 +78,7 @@
 <h1 id="semantic-versioning">Semantic Versioning</h1>
 
 <p><strong>nanoFramework</strong> versioning follows the <a href="http://semver.org/">Semantic Versioning</a> guidelines.</p>
-<p>Semantic versioning is all about releases and our continuous integration infrastructure uses <a href="https://github.com/GitTools/GitVersion">GitVersion</a> to automatically version the releases as per the configuration of each repository.</p>
+<p>Semantic versioning is all about releases and our continuous integration infrastructure uses <a href="https://github.com/AArnott/Nerdbank.GitVersioning">Nerdbank GitVersioning</a> to automatically version the releases as per the configuration of each repository.</p>
 <p><strong>nanoFramework</strong> follows the <a href="http://nvie.com/posts/a-successful-git-branching-model/">GitFlow branching model</a> which allows more structured releases and versioning.</p>
 <p><strong>nanoFramework</strong> has three different workflows which control how the versioning.</p>
 <h2 id="development-builds">Development Builds</h2>
@@ -88,7 +88,7 @@
 <p>Builds from pull requests have a suffix of test$BuildNumber and are not automatically published to NuGet (if they are distributed by NuGet) but the packages - or artifacts - are available for download from AppVeyor which allows the team or anyone interested to test the unit of change without having to merge it into develop.</p>
 <h2 id="release-builds">Release Builds</h2>
 <p>Builds from the master branch do not have a suffix and GitVersion is configured in <a href="http://gitversion.readthedocs.io/en/stable/reference/continuous-delivery/">Continuous Delivery</a> mode. If a commit is tagged, the version in the tag overrides the automatic versioning strategies.</p>
-<h1 id="versioning">Versioning</h1>
+<h2 id="versioning">Versioning</h2>
 <p><strong>nanoFramework</strong> follows the following version pattern: MAJOR.MINOR.PATCH[-PREVIEW\ALPHA\RC-BUILDNUMBER].</p>
 <p><strong>Major</strong> or <strong>Breaking</strong>:</p>
 <ul>
