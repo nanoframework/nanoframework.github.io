@@ -53,41 +53,45 @@ If in doubt please ask one of the senior team members.
 
 1. Still on that Private browser window, navigate to [Azure DevOps](https://dev.azure.com/nanoframework).
 
-2. Click "Create Project".
+1. Click "Create Project".
 
-3. Name the project following the GiHub repo name but without the "lib" prefix. Make it _Public_, select _Git_ as the version control and _Agile_ as the work item process.
+1. Name the project following the GiHub repo name but without the "lib" prefix. Make it _Public_, select _Git_ as the version control and _Agile_ as the work item process.
 
-4. After the project is created and showing the Summary page, go to the _Project Settings_ (cog wheel at the bottom left) and navigate to _Service Connections_.
+1. After the project is created and showing the Summary page, go to the _Project Settings_ (cog wheel at the bottom left) and navigate to _Service Connections_.
 
-5. Click "New service connection" and choose _NuGet_.
+1. Click "New service connection" and choose _NuGet_.
 
-6. Enter the details for a connection named `MyGet`, with URL `https://api.nuget.org/v3/index.json` and API key from nanoFramework MyGet feed.
+1. Enter the details for a connection named `AzurePipelines`, with URL `https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json` and PAT token for nanoFramework Azure DevOps account.
 
-7. Repeat step 5 and enter the details for another connection named `NuGet`, with URL `https://www.myget.org/F/nanoframework-dev/api/v2/package` and API key from nanoFramework NuGet API.
+1. Repeat the previous step and enter the details for another connection named `NuGet`, with URL `https://api.nuget.org/v3/index.json` and API key from nanoFramework NuGet API.
 
-6. Navigate to Pipelines and click "New pipeline".
+1. Click again on "New service connection" and choose _SonarCloud_.
 
-7. Choose _GitHub_ on the option "Where is my code?" and authorize with OAuth.
+1. Enter the details for a connection named `sonarcloud`, with the token for nanoFramework SonarCloud account.
 
-8. On the next step select the new repository from the drop down list.
+1. Navigate to Pipelines and click "New pipeline".
 
-9. As a template choose "Starter pipeline" to get things moving and then click on "Save and run". This happens twice to make the commit and start the very first build.
+1. Choose _GitHub_ on the option "Where is my code?" and authorize with OAuth.
 
-10. Click the ellipsis icon on the top right and go to "Edit pipeline".
+1. On the next step select the new repository from the drop down list.
 
-11. After the pipeline view loads, choose _Hosted VS2017_ in the Agent pool list.
- 
-12. Move to "Get sources" and verify that the default branch is `develop`.
+1. As a template choose "Starter pipeline" to get things moving and then click on "Save and run". This happens twice to make the commit and start the very first build.
 
-13. Navigate to "Variables" and add `DiscordWebhook` with a value taken from the Azure webhook of the "build-monitor" channel in our Discord server. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
+1. Click the ellipsis icon on the top right and go to "Edit pipeline".
 
-14. Add another variable `GitHubToken` with a value taken from the nfbot personal tokens in GitHub. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
+1. After the pipeline view loads, choose _Hosted VS2017_ in the Agent pool list.
 
-15. Navigate to "Triggers". Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
+1. Move to "Get sources" and verify that the default branch is `develop`.
 
-16. Click the "Save" button and confirm the operation on the pop-up.
+1. Navigate to "Variables" and add `DiscordWebhook` with a value taken from the Azure webhook of the "build-monitor" channel in our Discord server. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
 
-17. Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on "Status badge". Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.
+1. Add another variable `GitHubToken` with a value taken from the nfbot personal tokens in GitHub. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
+
+1. Navigate to "Triggers". Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
+
+1. Click the "Save" button and confirm the operation on the pop-up.
+
+1. Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on "Status badge". Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.
 
 ## Prepare the initial commit
 

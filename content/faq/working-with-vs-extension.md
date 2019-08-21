@@ -22,5 +22,5 @@ It could be that you are referencing preview versions of the NuGet packages but 
 
 ## I'm having issues with NuGet package manager complaining that it can't resolve dependencies for a package.
 
-This is occurring because you're referencing a preview NuGet package that is published only on nanoFramework MyGet feed. The same can occor if the package is referencing another package that its only available there.
-If working with preview packages, make sure that you register nanoFramework MyGet feed by adding the package source in Visual Studio. Follow our blog post with instructions [here](https://nanoframework.net/2018/05/16/setup-visual-studio-to-access-preview-versions-feed/).
+This is occurring because you're probably referencing a preview version of a NuGet package that is published only on **nanoFramework** development feed. The same can occur if the package is referencing another package that its only available there.
+When working with preview packages, make sure that you register nanoFramework Azude DevOps NuGet feed by adding the package source in Visual Studio. Follow our blog post with instructions [here](https://nanoframework.net/2018/05/16/setup-visual-studio-to-access-preview-versions-feed/).

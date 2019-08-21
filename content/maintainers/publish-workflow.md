@@ -6,13 +6,13 @@ This document describes the workflow and strategy adopted by **nanoFramework** t
 
 ## Pull Requests
 
-Pull requests with contributions are **always** merged into _develop_ branch. 
-On each pull request build the respective NuGet packages are published to nanoFramework [MyGet feed](https://www.myget.org/feed/Packages/nanoframework-dev) (if this is a component that uses this distribution channel). By sourcing this NuGet feed someone testing that pull request can reference it straight away without any further hassle.
+Pull requests with contributions are **always** merged into _develop_ branch.
+On each pull request build the respective NuGet packages are published to nanoFramework [Azure DevOps NuGet feed](https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&feed=sandbox) (if this is a component that uses this distribution channel). By sourcing this NuGet feed someone testing that pull request can reference it straight away without any further hassle.
 There is nothing else to be done as the package identifier and the version are automatically incremented based upon the GitVersion configuration.
 
 ## Development
 
-Once pull requests have been merged into _develop_ a new release is automatically generated and published to nanoFramework [MyGet feed](https://www.myget.org/feed/Packages/nanoframework-dev) (if this is a component that uses this distribution channel). 
+Once pull requests have been merged into _develop_ a new release is automatically generated and published to nanoFramework [Azure DevOps NuGet feed](https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&feed=sandbox) (if this is a component that uses this distribution channel).
 There is nothing else to be done as the package identifier and the version are automatically incremented based upon the GitVersion configuration.
 
 ## Release Candidates
