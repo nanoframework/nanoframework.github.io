@@ -8,12 +8,12 @@ This document describes the workflow and strategy adopted by **nanoFramework** t
 
 Pull requests with contributions are **always** merged into _develop_ branch.
 On each pull request build the respective NuGet packages are published to nanoFramework [Azure DevOps NuGet feed](https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&feed=sandbox) (if this is a component that uses this distribution channel). By sourcing this NuGet feed someone testing that pull request can reference it straight away without any further hassle.
-There is nothing else to be done as the package identifier and the version are automatically incremented based upon the GitVersion configuration.
+There is nothing else to be done as the package identifier and the version are automatically incremented based.
 
 ## Development
 
 Once pull requests have been merged into _develop_ a new release is automatically generated and published to nanoFramework [Azure DevOps NuGet feed](https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&feed=sandbox) (if this is a component that uses this distribution channel).
-There is nothing else to be done as the package identifier and the version are automatically incremented based upon the GitVersion configuration.
+There is nothing else to be done as the package identifier and the version are automatically incremented.
 
 ## Release Candidates
 
@@ -23,7 +23,7 @@ If this release contains a breaking change then increase the MAJOR version by on
 
 At this stage the contributor proposing a new release must perform a few administrative tasks. It's the responsibility of the release approver to verify that these tasks have been performed correctly.
 
-Edit the source/version.json and bump the `version` field to the appropriate number matching the release at hand.
+Details on the release preparation can be read from the Nerdbank GitVersioning documentation [here](https://github.com/AArnott/Nerdbank.GitVersioning/blob/master/doc/nbgv-cli.md#preparing-a-release).
 
 If the process for merging individual pull requests was followed perfectly there is not much else to do except verify that all pull requests have assigned a milestone and an appropriate label.
 The label classifies the type of change and it's mandatory because the release notes are automatically generated from this information.
