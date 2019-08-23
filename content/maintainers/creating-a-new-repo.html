@@ -8,7 +8,7 @@
     <title>Procedure for creating a new repository | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Procedure for creating a new repository | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.44.0.0">
+    <meta name="generator" content="docfx 2.45.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -126,54 +126,40 @@ If in doubt please ask one of the senior team members.</p>
 </ol>
 <h2 id="setup-azure-devops">Setup Azure DevOps</h2>
 <ol>
-<li><p>Still on that Private browser window, navigate to <a href="https://dev.azure.com/nanoframework">Azure DevOps</a>.</p>
+<li>Open a new browser window on which you are signed in to GitHub as <code>nfbot</code>.</li>
+<li>On the repo Settings, navigate to &quot;Integrations &amp; Services&quot;.</li>
+<li>Click &quot;Configure&quot; button for Azure Pipelines.</li>
+<li>Scroll down to &quot;Repository Access&quot; and click &quot;Save&quot;.
+<ul>
+<li>If the Save button is not enabled. Switch the radio buttons with the options until it does. Make sure that you leave that on &quot;All repositories&quot; option.</li>
+</ul>
 </li>
-<li><p>Click &quot;Create Project&quot;.</p>
-</li>
-<li><p>Name the project following the GiHub repo name but without the &quot;lib&quot; prefix. Make it <em>Public</em>, select <em>Git</em> as the version control and <em>Agile</em> as the work item process.</p>
-</li>
-<li><p>After the project is created and showing the Summary page, go to the <em>Project Settings</em> (cog wheel at the bottom left) and navigate to <em>Service Connections</em>.</p>
-</li>
-<li><p>Click &quot;New service connection&quot; and choose <em>NuGet</em>.</p>
-</li>
-<li><p>Enter the details for a connection named <code>AzurePipelines</code>, with URL <code>https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json</code> and PAT token for nanoFramework Azure DevOps account.</p>
-</li>
-<li><p>Repeat the previous step and enter the details for another connection named <code>NuGet</code>, with URL <code>https://api.nuget.org/v3/index.json</code> and API key from nanoFramework NuGet API.</p>
-</li>
-<li><p>Click again on &quot;New service connection&quot; and choose <em>SonarCloud</em>.</p>
-</li>
-<li><p>Enter the details for a connection named <code>sonarcloud</code>, with the token for nanoFramework SonarCloud account.</p>
-</li>
-<li><p>Navigate to Pipelines and click &quot;New pipeline&quot;.</p>
-</li>
-<li><p>Choose <em>GitHub</em> on the option &quot;Where is my code?&quot; and authorize with OAuth.</p>
-</li>
-<li><p>On the next step select the new repository from the drop down list.</p>
-</li>
-<li><p>As a template choose &quot;Starter pipeline&quot; to get things moving and then click on &quot;Save and run&quot;. This happens twice to make the commit and start the very first build.</p>
-</li>
-<li><p>Click the ellipsis icon on the top right and go to &quot;Edit pipeline&quot;.</p>
-</li>
-<li><p>After the pipeline view loads, choose <em>Hosted VS2017</em> in the Agent pool list.</p>
-</li>
-<li><p>Move to &quot;Get sources&quot; and verify that the default branch is <code>develop</code>.</p>
-</li>
-<li><p>Navigate to &quot;Variables&quot; and add <code>DiscordWebhook</code> with a value taken from the Azure webhook of the &quot;build-monitor&quot; channel in our Discord server. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the padlock icon.</p>
-</li>
-<li><p>Add another variable <code>GitHubToken</code> with a value taken from the nfbot personal tokens in GitHub. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the padlock icon.</p>
-</li>
-<li><p>Navigate to &quot;Triggers&quot;. Make sure that the option to override YAML is <strong>not</strong> checked for &quot;Continuous integration&quot;. Uncheck the same option for &quot;Pull request validation&quot; and check the &quot;Make secrets available to builds of forks&quot;.</p>
-</li>
-<li><p>Click the &quot;Save&quot; button and confirm the operation on the pop-up.</p>
-</li>
-<li><p>Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on &quot;Status badge&quot;. Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.</p>
-</li>
+<li>The next step will take you to the <a href="https://dev.azure.com/nanoframework">Azure DevOps</a> website.</li>
+<li>Click on &quot;Create New Project&quot;.</li>
+<li>Name the project following the GiHub repo name but without the &quot;lib&quot; prefix. Make it <em>Public</em>, select <em>Git</em> as the version control and <em>Agile</em> as the work item process.</li>
+<li>After the project is created and showing the Summary page, go to the <em>Project Settings</em> (cog wheel at the bottom left) and navigate to <em>Service Connections</em>.</li>
+<li>Click &quot;New service connection&quot; and choose <em>NuGet</em>.</li>
+<li>Enter the details for a connection named <code>AzurePipelines</code>, with URL <code>https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json</code> and PAT token for nanoFramework Azure DevOps account.</li>
+<li>Repeat the previous step and enter the details for another connection named <code>NuGet</code>, with URL <code>https://api.nuget.org/v3/index.json</code> and API key from nanoFramework NuGet API.</li>
+<li>Click again on &quot;New service connection&quot; and choose <em>SonarCloud</em>.</li>
+<li>Enter the details for a connection named <code>sonarcloud</code>, with the token for nanoFramework SonarCloud account.</li>
+<li>Navigate to Pipelines and click &quot;New pipeline&quot;.</li>
+<li>Choose <em>GitHub</em> on the option &quot;Where is my code?&quot; and authorize with OAuth.</li>
+<li>On the next step select the new repository from the drop down list.</li>
+<li>As a template choose &quot;Starter pipeline&quot; to get things moving and then click on &quot;Save and run&quot;. This happens twice to make the commit and start the very first build.</li>
+<li>Click the ellipsis icon on the top right and go to &quot;Edit pipeline&quot;.</li>
+<li>After the pipeline view loads, choose <em>Hosted VS2017</em> in the Agent pool list.</li>
+<li>Move to &quot;Get sources&quot; and verify that the default branch is <code>develop</code>.</li>
+<li>Navigate to &quot;Variables&quot; and add <code>DiscordWebhook</code> with a value taken from the Azure webhook of the &quot;build-monitor&quot; channel in our Discord server. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the padlock icon.</li>
+<li>Add another variable <code>GitHubToken</code> with a value taken from the nfbot personal tokens in GitHub. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the padlock icon.</li>
+<li>Navigate to &quot;Triggers&quot;. Make sure that the option to override YAML is <strong>not</strong> checked for &quot;Continuous integration&quot;. Uncheck the same option for &quot;Pull request validation&quot; and check the &quot;Make secrets available to builds of forks&quot;.</li>
+<li>Click the &quot;Save&quot; button and confirm the operation on the pop-up.</li>
+<li>Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on &quot;Status badge&quot;. Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.</li>
 </ol>
 <h2 id="prepare-the-initial-commit">Prepare the initial commit</h2>
 <ol>
-<li><p>Fork the repo into your preferred GutHub account and clone it locally.</p>
-</li>
-<li><p>The best option is to copy/paste from an existing repo, so you're more efficient doing just that. Mind the name changes tough! Grab the following files:</p>
+<li>Fork the repo into your preferred GutHub account and clone it locally.</li>
+<li>The best option is to copy/paste from an existing repo, so you're more efficient doing just that. Mind the name changes tough! Grab the following files:
 <ul>
 <li>.github\PULL_REQUEST_TEMPLATE.md <em>(no changes required)</em></li>
 <li>.gitignore <em>(no changes required)</em></li>
@@ -186,47 +172,40 @@ If in doubt please ask one of the senior team members.</p>
 <li>template.vssettings <em>(no changes required)</em></li>
 <li>source/version.json</li>
 <li>source/NuGet.Config</li>
+<li>source/readme.txt</li>
 <li>update-dependencies.ps1 <em>(this is only required if this class library is a dependency of others)</em></li>
 </ul>
 </li>
-<li><p>Open &quot;azure-pipelines.yml&quot;</p>
+<li>Open &quot;azure-pipelines.yml&quot;
 <ol>
 <li>Rename the <code>nugetPackageName</code> variable with the new name (mind the nanoframework prefix).</li>
 <li>Rename the <code>repoName</code> variable with the repo name.</li>
 <li>Rename the <code>sourceFileName</code> parameter with the equivalent name. It's probably wise to wait for the first successful build of the class library and then get back here with the correct name for the assembly declaration source file.</li>
+<li>Rename the <code>sonarCloudProject</code> variable with the repo name.</li>
 <li>If there are class libraries that depend on this one, copy the &quot;update dependencies&quot; step from CorLib &quot;azure-pipelines.yml&quot;. If there aren't just skip this step.</li>
 </ol>
 </li>
-<li><p>Open &quot;.github_changelog_generator&quot; and set the <em>project</em> to the repo name.</p>
-</li>
-<li><p>Open &quot;source\version.json&quot; and set the <em>version</em> to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.</p>
-</li>
-<li><p>Open &quot;README.md&quot;</p>
+<li>Open &quot;.github_changelog_generator&quot; and set the <em>project</em> to the repo name.</li>
+<li>Open &quot;source\version.json&quot; and set the <em>version</em> to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.</li>
+<li>Open &quot;README.md&quot;
 <ol>
-<li>Rename the class library name occurrences with  the new name.</li>
+<li>Rename the class library name occurrences with the new name.</li>
 <li>Rename the package name for the NuGet badges.</li>
 <li>Replace the build status badges with the ones that you've copied from Azure DevOps. They'll be the same until there is a second pipeline for the master branch.</li>
 </ol>
 </li>
-<li><p>Create a &quot;source&quot; folder that will hold the code files and VS Solutions and projects.</p>
-</li>
-<li><p>Create a folder inside &quot;source&quot; with the name of the new class library.</p>
-</li>
-<li><p>Add to the VS Solution the class library project. Again it's better to follow an existing one and ask in doubt.</p>
+<li>Create a &quot;source&quot; folder that will hold the code files and VS Solutions and projects.</li>
+<li>Create a folder inside &quot;source&quot; with the name of the new class library.</li>
+<li>Add to the VS Solution the class library project. Again it's better to follow an existing one and ask in doubt.
 <ol>
 <li>Make sure you are following the naming pattern.</li>
 <li>Do not add a <code>.nuget</code> solution folder</li>
 <li>Make sure you copy the <code>key.snk</code> from the initial repo (or from the CorLib repo). <strong>DO NOT</strong> create a new one.</li>
 </ol>
 </li>
-<li><p>Rename, edit and adjust as required the &quot;nuspec&quot; files to create the NuGet packages.</p>
-</li>
-<li><p>Go back to &quot;azure-pipelines.yml&quot;</p>
-<ol>
-<li>Adjust the <code>sourceFileName</code> parameter to the file name of this new project that can be found in the stubs folder after running the build.</li>
-</ol>
-</li>
-<li><p>Still on&quot;azure-pipelines.yml&quot; <em>and only</em> if there are class libraries that depend on this one.</p>
+<li>Rename, edit and adjust as required the &quot;nuspec&quot; files to create the NuGet packages.</li>
+<li>Edit the &quot;readme.txt&quot; inside the source folder and rename the repository name.</li>
+<li>Still on&quot;azure-pipelines.yml&quot; <em>and only</em> if there are class libraries that depend on this one.
 <ol>
 <li>Adjust the <code>repositoriesToUpdate</code> list with the repo names of the class libraries that depend on this new one.</li>
 </ol>
@@ -234,9 +213,8 @@ If in doubt please ask one of the senior team members.</p>
 </ol>
 <h2 id="adjust-the-repository-settings-part-2">Adjust the repository settings (part 2)</h2>
 <ol>
-<li><p>Go to the repository settings in GitHub and move into <em>Branches</em>.</p>
-</li>
-<li><p>Go to the rule for &quot;develop&quot; branch and change the following:</p>
+<li>Go to the repository settings in GitHub and move into <em>Branches</em>.</li>
+<li>Go to the rule for &quot;develop&quot; branch and change the following:
 <ul>
 <li>Enable &quot;Require pull request reviews before merging&quot;</li>
 <li>Enable &quot;Require status checks to pass before merging&quot; with the options:
