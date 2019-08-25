@@ -3,9 +3,11 @@
 ## Table of contents
 
 - [Prerequisites](#prerequisites)
+- [Overview](#overview)
 - [Setting up the build environment for ESP32](#setting-up-the-build-environment-for-esp32)
 - [Set up Visual Studio Code](#set-up-visual-studio-code)
-- [Build the nanoCLR](#build-nanoclr)
+- [Build nanoCLR](#build-nanoclr)
+- [Common Build Issues](#common-build-issues)
 - [Flash nanoCLR to ESP32](#flash-nanoclr-into-esp32)
 - [Start with a Hello World C# application](#start-with-a-hello-world-c-application)
 - [Debug the nanoCLR](#debugging-nanoclr)
@@ -26,18 +28,32 @@ You'll need these installed before your start.
 - A build system for CMake to generate the build files to.
   . If you have Visual Studio (full version) you can use the included NMake.
   . In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.
-- [CP210x USB to UART Bridge](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) Driver for the USB to UART Bridge integrated into the standard ESP32 DevKitC. If Windows does not install the driver automatically, then you can download and install manually. If your ESP32 uses a different serila driver, install that and ignore this driver. With the ESP32 DevKetC plugged in, use Windows Device Manager to determine the COM port as this is needed to complete the setup.
+- [CP210x USB to UART Bridge](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) Driver for the USB to UART Bridge integrated into the standard ESP32 DevKitC. If Windows does not install the driver automatically, then you can download and install manually. If your ESP32 uses a different serila driver, install that and ignore this driver. With the ESP32 DevKitC plugged in, use Windows Device Manager to determine the COM port as this is needed to complete the setup.
 
-The following may be installed [manually](#Manual-Install-of-the-build-environment-for-ESP32), or use the Power Shell script `.\install-esp32-tools.ps1`
+The following may be installed [manually](#Manual-Install-of-the-build-environment-for-ESP32), or use the Power Shell script `.\install-esp32-tools.ps1` from the `install-scripts` folder withing the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded)
 
 - [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
 - [OpenOCD](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180418/openocd-esp32-win32-0.10.0-esp32-20180418.zip) For on chip debugging of the nanoCLR
+
+## Overview
+
+The setup will involve the following steps:
+1. Install all the prerequisites from above.
+2. Clone or download the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) repository to a location that is pretty short (long path names will cause issues) 
+3. Run the `install-esp32-tools.ps1` as documented below (highly recommended instead of manual)
+4. Review and adjust several JSON files to match your environment (as documented below)
+5. Restart Visual Studio Code (due to json changes)
+6. Build (and repeat 4.5.6 until it works - should be easy)
+
+The setup is a lot easier than it seems. The setup scripts do almost everything.
 
 ## **nanoFramework** GitHub repo
 
 If you intend to change the nanoCLR for ESP32 and create Pull Requests then you will need to fork the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as the [GitHub Desktop application](https://desktop.github.com/).
 
 You should use the _develop_ branch for mainstream development or the _develop-network_ branch to work with the networking features which is currently a work in progress.
+
+Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMAKE does not support filenames in excess of 250 characters.
 
 A guide to making contributions is provided [here](https://github.com/nanoframework/Home/blob/master/CONTRIBUTING.md)
 
@@ -83,8 +99,13 @@ The following ESP32 settings files will be created and the place-holder values s
 
 - `.\cmake-variants.json` as a copy of `.\cmake-variants.TEMPLATE-ESP32.json`
 - `.\.vscode\cmake-kits.json` as a copy of `.\.vscode\cmake-kits.TEMPLATE-ESP32.json`
-- `.\.vscode\tasks.json` as a copy of `.\vscode\tasks.TEMPLATE-ESP32.json` with install paths and COM port set
-- `.\.vscode\launch.json` as a copy of `.\vscode\launch.TEMPLATE-ESP32.json` with install paths set
+- `.\.vscode\tasks.json` as a copy of `.\.vscode\tasks.TEMPLATE-ESP32.json` with install paths and COM port set
+- `.\.vscode\launch.json` as a copy of `.\.vscode\launch.TEMPLATE-ESP32.json` with install paths set
+- `.\.vscode\settings.json` as a copy of `.\.vscode\settings.TEMPLATE-ESP32.json`
+
+Edit all these files and audit their content. You may need to replace some paths, for example: `<absolute-path-to-the-toolchain-folder-mind-the-forward-slashes>` with `C:/ESP32_TOOLS/esp-idf-v3.1`
+
+Please note all these JSON files require all paths separators to be forward slashes `/`. Example: `C:\ESP32_TOOLS\esp-idf-v3.1` will need to be typed like this: `C:/ESP32_TOOLS/esp-idf-v3.1` (forward slash manner)
 
 ## Manual Install of the build environment for ESP32
 
@@ -146,7 +167,9 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
     - "CMake" language support for Visual Studio Code by twxs.
     - "CMake tools" Extended CMake support in Visual Studio code by vector-of-bool
 
-1. Set up the `CMake-variants.json` in root directory of your local nanoFramework/nf-interpreter clone.
+    Next: the following JSON files should be already setup if you used the install script.
+
+2. Set up the `CMake-variants.json` in root directory of your local nanoFramework/nf-interpreter clone.
 
     See `cmake-variants.TEMPLATE.json` for the generalised template. Be aware of the forward slashes in the paths.
     The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf is the subdirectory.
@@ -278,13 +301,14 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
     "cmake.preferredGenerators": [
         "Ninja"
     ],
-    "cmake.generator": "Ninja",
+    "cmake.generator": "",
     "cmake.useCMakeServer" : true,
     "cmake.autoRestartBuild" : true,
     "cmake.configureSettings": {
-        "CMAKE_MAKE_PROGRAM":"C:/nanoFramework_Tools/ninja/ninja.exe"
+        "CMAKE_MAKE_PROGRAM":"C:/ESP32_TOOLS/ninja/ninja.exe"
     },
-    "cmake.cmakePath": "C:/nanoFramework_Tools/CMake/bin/cmake.exe"
+    "cmake.configureOnOpen": false,
+    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"
 }
 ```
 
@@ -322,6 +346,15 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 
     Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
     In this case deleting the contents of the `build` folder should allow the build to complete once you resolve the issues that cause the original failure.
+
+## Common Build Issues
+
+The above may have some errors if:
+- CMAKE: may not be installed properly, or not in the PATH and cannot be found.
+- NINJA is not recognized: check settings.json, check your PATH environment variable and restart Visual Studio Code. 
+- COMPILATION object file not found: check that your paths don't exceed 140 chars. Put the solution folder high enough on your C drive.
+- Make sure to 'Build all' first time.
+- Make sure to open the CMAKE extension and trigger a 'Clean Reconfigure' from itse '...' menu. Especially if you moved the folder location.
 
 ## Flash nanoCLR into ESP32
 
