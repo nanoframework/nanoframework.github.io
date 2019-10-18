@@ -75,9 +75,11 @@ steps:
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.WiFi.git -b develop Windows.Devices.WiFi 
 
-      git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Esp32 -b develop nanoFramework.Hardware.Esp32 
+      git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Esp32 -b develop nanoFramework.Hardware.Esp32
 
-      git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Stm32 -b develop nanoFramework.Hardware.Stm32 
+      git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Stm32 -b develop nanoFramework.Hardware.Stm32
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.ResourceManager -b develop nanoFramework.ResourceManager
 
       git clone https://github.com/nanoframework/lib-nanoFramework.Networking.Sntp -b develop nanoFramework.Networking.Sntp 
 
@@ -209,6 +211,13 @@ steps:
     restoreSolution: 'nanoFramework.Hardware.Stm32\source\nanoFramework.Hardware.Stm32.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Stm32\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.ResourceManager\source\nanoFramework.ResourceManager.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.ResourceManager\source\NuGet.config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
