@@ -86,6 +86,9 @@ steps:
       git clone https://github.com/nanoframework/lib-nanoFramework.System.Net -b develop nanoFramework.System.Net 
 
       git clone https://github.com/nanoframework/lib-nanoFramework.System.Net.Http -b develop nanoFramework.System.Net.Http 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.TI.EasyLink -b develop nanoFramework.TI.EasyLink
+ 
   displayName: Clone repos of class libs
 
 # install docfx
@@ -239,6 +242,13 @@ steps:
     restoreSolution: 'nanoFramework.System.Net.Http\source\nanoFramework.System.Net.Http.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Net.Http\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.TI.EasyLink\source\nanoFramework.TI.EasyLink.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.TI.EasyLink\source\NuGet.config'
     verbosityRestore: quiet
 
 - task: InstallnFBuildComponents@1
