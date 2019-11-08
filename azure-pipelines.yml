@@ -83,6 +83,8 @@ steps:
 
       git clone https://github.com/nanoframework/lib-nanoFramework.Networking.Sntp -b develop nanoFramework.Networking.Sntp 
 
+      git clone https://github.com/nanoframework/lib-nanoFramework.System.Collections -b develop nanoFramework.System.Collections 
+
       git clone https://github.com/nanoframework/lib-nanoFramework.System.Net -b develop nanoFramework.System.Net 
 
       git clone https://github.com/nanoframework/lib-nanoFramework.System.Net.Http -b develop nanoFramework.System.Net.Http 
@@ -232,6 +234,13 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
+    restoreSolution: 'nanoFramework.System.Collections\source\nanoFramework.System.Collections.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.System.Collections\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
     restoreSolution: 'nanoFramework.System.Net\source\nanoFramework.System.Net.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Net\source\NuGet.config'
@@ -377,6 +386,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'nanoFramework.Networking.Sntp\source\nanoFramework.Networking.Sntp.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.System.Collections\source\nanoFramework.System.Collections.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
