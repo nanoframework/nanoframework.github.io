@@ -40,19 +40,19 @@ The second part is to load the **nanoFramework** image in the board flash. The b
     - To update the firmware of an ESP32 target connected to COM31, to the latest available development version.
 
         ```console
-        nanoff --update --platform esp32 --serialport COM31
+        nanoff --target ESP32_WROOM_32 --serialport COM31
         ```
 
     - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available development version.
 
         ```console
-        nanoff --update --target ST_NUCLEO144_F746ZG --masserase
+        nanoff --target ST_NUCLEO144_F746ZG --update
         ```
 
     - To update the firmware of a ST board connected through DFU (like the NETDUINO3) you first need to put the board in DFU mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
 
         ```console
-        nanoff --update --target NETDUINO3_WIFI
+        nanoff --target NETDUINO3_WIFI --update
         ```
 
 1. After the upload completes, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running **nanoFramework** by looking into the Device Explorer window in Visual Studio.
