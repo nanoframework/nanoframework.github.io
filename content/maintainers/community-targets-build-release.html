@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Community targets build and publishing | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Community targets build and publishing | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="community-targets-build-and-publishing">Community targets build and publishing</h1>
+
+<p><strong>About this document</strong></p>
+<p>This document describes the recipe to setup the build and publish of new Community targets.</p>
+<h2 id="introduction">Introduction</h2>
+<p>The build of each of the Community targets is a job in Azure Pipelines yaml.</p>
+<p>The build of each target is triggered by adding to the commit message (or PR description) a <em>token</em> (or more than one) or <code>#ALL#</code>. The <em>token</em> is the board name enclosed in '#', e.g. <code>#ST_STM32F4_DISCOVERY#</code>. Note that it's possible to add more than one token to the commit message to trigger the build for the specific targets.</p>
+<h2 id="setup-the-build-for-a-new-target">Setup the build for a new target</h2>
+<p>Update the <a href="https://github.com/nanoframework/nf-Community-Targets/blob/master/azure-pipelines.yml">azure-pipelines.yml</a> in the Community repository as follows:</p>
+<ol>
+<li><p>Start by adding a new job to the collection. Preferably copy/paste from a similar target.</p>
+</li>
+<li><p>Make sure to use the target name at the various places where it shows, namely: job name, condition expression and variables.</p>
+</li>
+</ol>
+<h2 id="setup-the-image-publishing">Setup the image publishing</h2>
+<p>Community target images are distributed through <strong>nanoFramework</strong> JFrog Bintray <a href="https://bintray.com/nfbot/nanoframework-images-community-targets">repository</a>.</p>
+<ol>
+<li><p>Sign-in with <strong>nanoFramework</strong> Bintray account.</p>
+</li>
+<li><p>Go to nanoframework-images-community-targets repository <a href="https://bintray.com/nfbot/nanoframework-images-community-targets">here</a></p>
+</li>
+<li><p>Add a new package inside that repository.</p>
+<ul>
+<li>The package name must be <strong>exactly</strong> the same as the target name otherwise the publish step will fail.</li>
+<li>The remaining details are to be copied from one of the other existing targets. Mind the description field to update the target name and possibly the manufacturer.</li>
+</ul>
+</li>
+<li><p>Go to the package main page of the recently created package and grab the markdown from the &quot;Latest Version Badge&quot; link there and past it in the Community targets list in the readme.</p>
+</li>
+</ol>
+<h2 id="prs-and-manual-builds">PRs and manual builds</h2>
+<p>When merging a PR make sure to add to the commit message the token(s) for the targets to build, otherwise the merge to the master branch won't trigger a build for any board.</p>
+<p>It's possible to manually start a build <em>and</em> specify that it should build all targets. This is most handy, for example, after a number of changes in the nf-interpreter repo to build new images for the Community targets. Another situation is when one forgets to add the build token in the PR merge and needs to trigger a build afterwards.</p>
+<p>To do this, go to the Builds page in the project Azure Pipelines and hit the 'Queue' button. When the pop-up shows, change the BUILD_ALL variable to 'true'. Like this:
+<img src="../images/docs-trigger-build-all-community-targets.png" alt=""></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/maintainers/community-targets-build-release.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

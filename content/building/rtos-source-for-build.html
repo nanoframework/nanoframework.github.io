@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Building nanoFramework with local RTOS source vs RTOS source from repository | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Building nanoFramework with local RTOS source vs RTOS source from repository | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="building-nanoframework-with-local-rtos-source-vs-rtos-source-from-repository">Building <strong>nanoFramework</strong> with local RTOS source vs RTOS source from repository</h1>
+
+<p>When building <strong>nanoFramework</strong> for a CMSIS target (currently only ChibiOS is supported) the developer has two options: either using a local path for the RTOS source code or downloading it from the official repository.
+This document aims to give you an brief overview of the differences between these two so you can choose the option that best fits your use scenario.</p>
+<h2 id="source-from-official-repository">Source from official repository</h2>
+<p>When running CMake, if the parameter <code>-DCHIBIOS_SOURCE</code> is not not specified CMake will connect to <strong>nanoFrameworks</strong> <a href="https://github.com/nanoframework/ChibiOS">ChibiOS mirror</a> on GitHub and will clone the source from there. The time for this operation to complete will mostly depend on the speed of your internet connection.</p>
+<p>ChibiOS will be cached within the build directory so the full download won't happen again unless the build directory is cleared. A check for any changes in the repo is made whenever a build is run. If there are any, the changes will be downloaded and merged.</p>
+<p>This option is good for automated builds or when you don't have (or don't want) the repo cloned to your local storage device.</p>
+<p>Another advantage is that you don't have to manage the updates to the local clone yourself.</p>
+<p>An obvious disadvantage is that if the build folder is cleaned (required when switching between target boards) the 'cached' repo will be gone and a full download will occur when the project is next built.</p>
+<h2 id="source-from-local-clone">Source from local clone</h2>
+<p>When running CMake, if the parameter <code>-DCHIBIOS_SOURCE=&quot;.....&quot;</code> is specified a local clone located at the designated path will be used when the build occurs.
+The only <em>timing penalty</em> is the one necessary for CMake to copy the contents of the local ChibiOS repo to the build cache folder. This is a one time operation and it won't happen again unless the build folder is cleaned up.</p>
+<p>This option is good when you have a local clone of the repo and you don't want to increase the build time with checks on the repo and downloading it or wish to target a different branch (such as <code>master</code>).</p>
+<p>The downside is that you have to manage the update process for the ChibiOS repo yourself.</p>
+<p>Another important aspect to consider is the branch <strong>to <em>manually</em> checkout</strong>. Not doing this is synonym of using the 'master' branch that contains the development files and is not a stable version, which is probably not what you want to use.
+So, make sure that you checkout the branch matching the currently supported stable version. In doubt ask in the Discord channel.</p>
+<p>Also here, if the build folder is cleaned the 'cached' repo will be gone.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/building/rtos-source-for-build.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

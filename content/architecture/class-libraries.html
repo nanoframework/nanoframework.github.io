@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Libraries | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Libraries | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.47.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="class-libraries">Class Libraries</h1>
+
+<p><strong>About this document</strong></p>
+<p>This document describes the design and organization of <strong>nanoFramework</strong> Class Libraries, offers some explanation on the choices that were made and how to add a new Class Library. The examples bellow are related with ChibiOS (which is the currently reference implementation for <strong>nanoFramework</strong>).</p>
+<h2 id="libraries">Libraries</h2>
+<p>Follow the list of the existing libraries, respective Nuget package and CMake enable option:</p>
+<table>
+<thead>
+<tr>
+<th>Class Library</th>
+<th>Nuget package name</th>
+<th>CMake option</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base Class Library (also know as mscorlib)</td>
+<td>nanoFramework.CoreLibrary</td>
+<td>(always included)</td>
+</tr>
+<tr>
+<td>nanoFramework.Hardware.Esp32</td>
+<td>nanoFramework.Hardware.Esp32</td>
+<td>-DAPI_Hardware.Esp32=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.Runtime.Events</td>
+<td>nanoFramework.Runtime.Events</td>
+<td>(always included)</td>
+</tr>
+<tr>
+<td>nanoFramework.Runtime.Native</td>
+<td>nanoFramework.Runtime.Native</td>
+<td>(always included)</td>
+</tr>
+<tr>
+<td>nanoFramework.Runtime.Sntp</td>
+<td>nanoFramework.Runtime.Sntp</td>
+<td>(included when network option is ON)</td>
+</tr>
+<tr>
+<td>Windows.Devices.Adc</td>
+<td>nanoFramework.Windows.Devices.Adc</td>
+<td>-DAPI_Windows.Devices.Adc=ON</td>
+</tr>
+<tr>
+<td>Windows.Devices.I2c</td>
+<td>nanoFramework.Windows.Devices.I2c</td>
+<td>-DAPI_Windows.Devices.I2c=ON</td>
+</tr>
+<tr>
+<td>Windows.Device.Gpio</td>
+<td>nanoFramework.Windows.Devices.Gpio</td>
+<td>-DAPI_Windows.Devices.Gpio=ON</td>
+</tr>
+<tr>
+<td>Windows.Devices.Pwm</td>
+<td>nanoFramework.Windows.Devices.Pwm</td>
+<td>-DAPI_Windows.Devices.Pwm=ON</td>
+</tr>
+<tr>
+<td>Windows.Devices.SerialCommunication</td>
+<td>nanoFramework.Windows.Devices.SerialCommunication</td>
+<td>-DAPI_Windows.Devices.SerialCommunication=ON</td>
+</tr>
+<tr>
+<td>Windows.Devices.Spi</td>
+<td>nanoFramework.Windows.Devices.Spi</td>
+<td>-DAPI_Windows.Devices.Spi=ON</td>
+</tr>
+<tr>
+<td>Windows.Devices.WiFi</td>
+<td>nanoFramework.Windows.Devices.WiFi</td>
+<td>-DAPI_Windows.Devices.WiFi=ON</td>
+</tr>
+<tr>
+<td>Windows.Networking.Sockets</td>
+<td>nanoFramework.Windows.Networking.Sockets</td>
+<td>-DAPI_Windows.Networking.Sockets=ON</td>
+</tr>
+<tr>
+<td>Windows.Storage</td>
+<td>nanoFramework.Windows.Storage</td>
+<td>-DNF_FEATURE_HAS_SDCARD=ON and/or -DNF_FEATURE_HAS_USB_MSD=ON</td>
+</tr>
+<tr>
+<td>Windows.Storage.Streams</td>
+<td>nanoFramework.Windows.Storage.Streams</td>
+<td>-DAPI_=ON</td>
+</tr>
+<tr>
+<td>System.Net</td>
+<td>nanoFramework.Windows.System.Net</td>
+<td>-DAPI_System.Net=ON</td>
+</tr>
+</tbody>
+</table>
+<h2 id="distribution-strategy">Distribution strategy</h2>
+<p>To ease the burden of distributing and updating the class libraries we've choose to use Nuget to handle all this. It has the added benefit of dealing with the dependency management, version and such.</p>
+<p>So, for each class library, there is a Nuget package that includes the assembly and documentation files. The Nuget package takes care of making sure that the required dependency(ies) and correct version(s) are added to a managed (C#) project, making a developer's life much easier.</p>
+<h2 id="how-to-add-a-new-class-library">How to add a new class library</h2>
+<p>Follows the procedure to add a new class library to a <strong>nanoFramework</strong> target image.</p>
+<p>The example is for adding Windows.Devices.Gpio library.</p>
+<ol>
+<li><p>In VS2017 start a new project for a <strong>nanoFramework</strong> C# Class library. Source code <a href="https://github.com/nanoframework/lib-Windows.Devices.Gpio">here</a></p>
+</li>
+<li><p>Implement all the required methods, enums, properties in that project. It's recommended that you add XML comments there (and enable the automated documentation generation in the project properties).</p>
+</li>
+<li><p>Add the Nuget packaging project to distribute the managed assembly and documentation. We have a second Nuget package that includes all the build artifacts, generated stubs, dump files and such. This is to be used in automated testing and distribution of followup projects or build steps.</p>
+</li>
+<li><p>Upon a successfully build of the managed project the skeleton with the stubs should be available in the respective folder. Because <strong>nanoFramework</strong> aims to be target independent the native implementation of a class library will live 'inside' each target RTOS folder.
+The next step would be to copy the stubs to a folder with the assembly name inside the nanoCLR folder. For our example: <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</p>
+</li>
+<li><p>Add the CMake as a module to the modules folder <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules">here</a>. The name of the module should follow the assembly name (Find<strong>Windows.Devices.Gpio</strong>.cmake). Mind the CMake rules for the naming: start with <em>Find</em> followed by the module name and <em>cmake</em> extension. The CMake for the Windows.Devices.Gpio module is <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/FindWindows.Devices.Gpio.cmake">here</a>.</p>
+</li>
+<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_API_Namespaces.cmake">NF_API_Namespaces.cmake</a> add an option for the API. The option name must follow the pattern API_<strong>namespace</strong>. The option for Windows.Devices.Gpio is API_Windows.Devices.Gpio.</p>
+</li>
+<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_API_Namespaces.cmake">NF_API_Namespaces.cmake</a> find the macro <code>ParseApiOptions</code> and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.</p>
+</li>
+<li><p>Update the template file for the CMake variants <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/cmake-variants.TEMPLATE.json">here</a> to include the respective option. For the Windows.Devices.Gpio example you would add to the <em>OPTION1...</em> and <em>OPTION2...</em> (under <em>linkage</em>) the following line: &quot;API_Windows.Devices.Gpio&quot; : &quot;OFF&quot;</p>
+</li>
+<li><p>If the API requires enabling hardware or SoC peripherals in the target HAL/PAL make the required changes to the appropriate files.
+For Windows.Devices.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
+In contrast, for the Windows.Devices.Spi, the SPI subsystem has to be enabled at the <em>halconf.h</em> file and also (at driver level) in <em>mcuconf.h</em> the SPI peripherals have to be individually enabled (e.g. <code>#define STM32_SPI_USE_SPI1 TRUE</code>).</p>
+</li>
+</ol>
+<p>To ease the overall configuration of an API and related hardware (and when it makes sense) the API option (API_Windows.Devices.Gpio) can be <em>extended</em> to automatically enable the HAL subsystem. This happens with the Windows.Devices.Spi API. The CMake option is mirrored in the general <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt">CMakeLists.txt</a> in order to be used in CMakes and headers. This mirror property is <code>HAL_USE_SPI_OPTION</code>. It's being defined here and not in the individual <em>halconf.h</em> files as usual. To make this work the CMake property has to be added to the CMake template file of the platform <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/target_platform.h.in">target_platform.h.in</a>.</p>
+<ol start="10">
+<li><p>When adding/enabling new APIs and depending on how the drivers and the library are coded, some static variables will be added to the BSS RAM area. Because of that extra space that is taken by those variables the Managed Heap size may have to be adjusted to make room for those. To do this find the <code>__clr_managed_heap_size__</code> in the general CMakeLists.txt of that target and decrease the value there as required.</p>
+</li>
+<li><p>Some APIs depend of others. This happens for example with Windows.Devices.Gpio that requires nanoFramework.Runtime.Events in order to generate the interrupts for the changed pin values. To make this happen the option to include the required API(s) has to be enabled in the main <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt">CMakeLists.txt</a> inside the if clause of the dependent API. Just like if the option was enabled at the CMake command line. Check this by searching for <code>API_nanoFramework.Runtime.Events</code> inside the <code>if(API_Windows.Devices.Gpio)</code>.</p>
+</li>
+</ol>
+<h2 id="how-to-include-a-class-library-in-the-build">How to include a class library in the build</h2>
+<p>To include a class library in the build for a target image you have to add to the CMake an option for the API. For the Windows.Devices.Gpio example the option would be <code>-DAPI_Windows.Devices.Gpio=ON</code>.
+You can also add this to your own cmake-variants.json file.
+To exclude a class library just set the option to OFF or simply don't include it in the command.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/class-libraries.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
