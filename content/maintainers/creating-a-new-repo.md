@@ -59,12 +59,6 @@ If in doubt please ask one of the senior team members.
 1. Name the project following the GiHub repo name but without the "lib" prefix. Make it _Public_, select _Git_ as the version control and _Agile_ as the work item process.
 1. After the project is created a list with GitHub repositories shows. Select the repository that has been just created.
 1. The next step asks for the Pipeline configuration. Choose "Starter Pipeline" to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml and the option to save the file and run the pipeline. Click on "Save and run". This will trigger the very first build.
-1. Navigate now to the _Project Settings_ (cog wheel at the bottom left) and navigate to _Service Connections_.
-1. Click "New service connection" and choose _NuGet_.
-1. Enter the details for a connection named `AzurePipelines`, with URL `https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json` and PAT token for nanoFramework Azure DevOps account.
-1. Repeat the previous step and enter the details for another connection named `NuGet`, with URL `https://api.nuget.org/v3/index.json` and API key from nanoFramework NuGet API.
-1. Click again on "New service connection" and choose _SonarCloud_.
-1. Enter the details for a connection named `sonarcloud`, with the token for nanoFramework SonarCloud account.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
 1. Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
 1. Navigate to "Variables" and add `DiscordWebhook` with a value taken from the Azure webhook of the "build-monitor" channel in our Discord server. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
