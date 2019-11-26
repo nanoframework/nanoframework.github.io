@@ -49,6 +49,8 @@ The following explains each line of the *linkage* section. Text highlighted in *
 - "long": "**<description-here>**"
   - This is a more complete description of the configuration
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
+- "CMAKE_TOOLCHAIN_FILE" : "**CMake/toolchain.<arm-none-eabi-OR-xtensa-esp32-elf>.cmake**"
+  - This is the toolchain file for the target being built. Currently there we support GNU GCC and Xtensa for ESP32.
 - "TOOLCHAIN_PREFIX" : "**absolute-to-gcc-toolchain-mind-the-forward-slash**"
   - This is the path to your gcc toolchain compiler. Use forward slashes and do not provide executable name here
 - "TOOL_HEX2DFU_PREFIX" : "**absolute-path-to-hex2dfu-utility-mind-the-forward-slash**"

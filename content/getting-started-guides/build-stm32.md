@@ -117,6 +117,7 @@ If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone
         "short": "ST_STM32F429I_DISCOVERY",
         "settings": {
           "BUILD_VERSION" : "0.9.99.999",
+          "CMAKE_TOOLCHAIN_FILE" : "CMake/toolchain.arm-none-eabi.cmake",
           "TOOLCHAIN_PREFIX" : "C:/nanoFramework_Tools/GNU_ARM_Toolchain",
           "TARGET_SERIES" : "STM32F4xx",
           "USE_RNG" : "ON",

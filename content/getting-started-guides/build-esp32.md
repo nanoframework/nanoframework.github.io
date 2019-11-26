@@ -212,6 +212,7 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
         "short": "NanoCLR",
           "settings": {
             "BUILD_VERSION" : "0.9.99.999",
+            "CMAKE_TOOLCHAIN_FILE" : "CMake/toolchain.xtensa-esp32-elf.cmake",
             "TOOLCHAIN_PREFIX" : "<absolute-path-to-the-toolchain-prefix-folder-mind-the-forward-slashes>",
             "ESP32_IDF_PATH" : "<absolute-path-to-the-IDF-folder-mind-the-forward-slashes>",
             "ESP32_LIBS_PATH" : "<absolute-path-to-the-bootloader-folder-mind-the-forward-slashes>",
