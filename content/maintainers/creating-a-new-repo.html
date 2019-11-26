@@ -134,12 +134,6 @@ If in doubt please ask one of the senior team members.</p>
 <li>Name the project following the GiHub repo name but without the &quot;lib&quot; prefix. Make it <em>Public</em>, select <em>Git</em> as the version control and <em>Agile</em> as the work item process.</li>
 <li>After the project is created a list with GitHub repositories shows. Select the repository that has been just created.</li>
 <li>The next step asks for the Pipeline configuration. Choose &quot;Starter Pipeline&quot; to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml and the option to save the file and run the pipeline. Click on &quot;Save and run&quot;. This will trigger the very first build.</li>
-<li>Navigate now to the <em>Project Settings</em> (cog wheel at the bottom left) and navigate to <em>Service Connections</em>.</li>
-<li>Click &quot;New service connection&quot; and choose <em>NuGet</em>.</li>
-<li>Enter the details for a connection named <code>AzurePipelines</code>, with URL <code>https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json</code> and PAT token for nanoFramework Azure DevOps account.</li>
-<li>Repeat the previous step and enter the details for another connection named <code>NuGet</code>, with URL <code>https://api.nuget.org/v3/index.json</code> and API key from nanoFramework NuGet API.</li>
-<li>Click again on &quot;New service connection&quot; and choose <em>SonarCloud</em>.</li>
-<li>Enter the details for a connection named <code>sonarcloud</code>, with the token for nanoFramework SonarCloud account.</li>
 <li>Navigate back to the Pipeline, select it and click &quot;Edit&quot; (at the top right). Then click on the 3 vertical dots (again at the top right) and then &quot;Triggers&quot;.</li>
 <li>Make sure that the option to override YAML is <strong>not</strong> checked for &quot;Continuous integration&quot;. Uncheck the same option for &quot;Pull request validation&quot; and check the &quot;Make secrets available to builds of forks&quot;.</li>
 <li>Navigate to &quot;Variables&quot; and add <code>DiscordWebhook</code> with a value taken from the Azure webhook of the &quot;build-monitor&quot; channel in our Discord server. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the padlock icon.</li>
