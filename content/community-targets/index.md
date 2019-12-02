@@ -15,3 +15,4 @@ These boards are now maintained by the core team and any questions/issues about 
 - [ST_NUCLEO64_F401RE_NF](ST_NUCLEO64_F401RE_NF.md)
 - [ST_NUCLEO64_F411RE_NF](ST_NUCLEO64_F411RE_NF.md)
 - [ST_STM32F4_DISCOVERY](stm32f4-discovery.md)
+- [TI CC1352P1_LAUNCHXL](ti-cc1352p1-launchxl.md)

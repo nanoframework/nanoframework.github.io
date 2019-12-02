@@ -22,8 +22,8 @@ We provide ready build firmware images for several reference target boards. Thes
 
 ## TI SimpleLink boards
 
-- [TI CC1352R1 LAUNCHXL](ti-cc1352r1-launchxl.md)
-- [TI CC3220SF LAUNCHXL](ti-cc3220sf-launchxl.md)
+- [TI CC1352R1_LAUNCHXL](ti-cc1352r1-launchxl.md)
+- [TI CC3220SF_LAUNCHXL](ti-cc3220sf-launchxl.md)
 
 ## Community target boards
 
