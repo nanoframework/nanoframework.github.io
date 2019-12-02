@@ -50,9 +50,9 @@ The next step would be to copy the stubs to a folder with the assembly name insi
 
 5. Add the CMake as a module to the modules folder [here](https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules). The name of the module should follow the assembly name (Find**Windows.Devices.Gpio**.cmake). Mind the CMake rules for the naming: start with _Find_ followed by the module name and _cmake_ extension. The CMake for the Windows.Devices.Gpio module is [here](https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/FindWindows.Devices.Gpio.cmake).
 
-6. In the CMake [NF_API_Namespaces.cmake](https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_API_Namespaces.cmake) add an option for the API. The option name must follow the pattern API_**namespace**. The option for Windows.Devices.Gpio is API_Windows.Devices.Gpio.
+6. In the CMake [NF_NativeAssemblies.cmake](https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_NativeAssemblies.cmake) add an option for the API. The option name must follow the pattern API_**namespace**. The option for Windows.Devices.Gpio is API_Windows.Devices.Gpio.
 
-7. In the CMake [NF_API_Namespaces.cmake](https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_API_Namespaces.cmake) find the macro `ParseApiOptions` and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.
+7. In the CMake [NF_NativeAssemblies.cmake](https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_NativeAssemblies.cmake) find the macro `ParseApiOptions` and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.
 
 8. Update the template file for the CMake variants [here](https://github.com/nanoframework/nf-interpreter/blob/develop/cmake-variants.TEMPLATE.json) to include the respective option. For the Windows.Devices.Gpio example you would add to the _OPTION1..._ and _OPTION2..._ (under _linkage_) the following line: "API_Windows.Devices.Gpio" : "OFF"
 
