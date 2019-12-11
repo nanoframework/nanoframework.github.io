@@ -40,7 +40,7 @@ The second part is to load the **nanoFramework** image in the board flash. The b
     - To update the firmware of an ESP32 target connected to COM31, to the latest available development version.
 
         ```console
-        nanoff --target ESP32_WROOM_32 --serialport COM31
+        nanoff --target ESP32_WROOM_32 --serialport COM31 --update
         ```
 
     - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available development version.
