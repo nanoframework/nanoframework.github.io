@@ -20,13 +20,13 @@ You can download it from here: [OpenSDA](https://www.nxp.com/design/microcontrol
 
 
 ## FAQ ##
-> Device is not recognised by Device Explorer.
-- Try to restart Visual Studio
-- Check that firmware was properly programmed, try booting to nanoBooter, device should be listed in Devices Explorer
+- Device is not recognised by Device Explorer.
+> Try to restart Visual Studio
+> Check that firmware was properly programmed, try booting to nanoBooter, device should be listed in Devices Explorer
 
-> In FAIL.txt on removable disk error: "The interface firmware FAILED to reset/halt the target MCU"
-  - Check that jumpers J47, J48, J49 are present and J44 is not
-  - Jumper J1 must be in middle position if your not using external power
+- In FAIL.txt on removable disk error: "The interface firmware FAILED to reset/halt the target MCU"
+> Check that jumpers J47, J48, J49 are present and J44 is not
+> Jumper J1 must be in middle position if your not using external power
 
-> Device correctly boots to nanoBooter but is not detected otherwise
-  - If you flashed nanoBooter.hex and then nanoCLR.hex, programmer erases memory every flashing procces. If you want to flash them separatly you can use method described [here]()
+- Device correctly boots to nanoBooter but is not detected otherwise
+> If you flashed nanoBooter.hex and then nanoCLR.hex, programmer erases memory every flashing procces. If you want to flash them separatly you can use method described [here]()
