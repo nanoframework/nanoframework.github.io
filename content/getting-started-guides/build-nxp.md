@@ -16,7 +16,7 @@
 
 **About this document**
 
-This document describes how to build the required images for **nanoFramework** for STM32 targets.
+This document describes how to build the required images for **nanoFramework** for NXP targets.
 The build is based on CMake tool to ease the development in all major platforms.
 
 ## Prerequisites
