@@ -4,7 +4,7 @@
 
 The easiest way to flash nanoBooter and nanoCLR image onto i.MX RT1060 board is through mbed, which provides virtual disk after you connect the board to PC.
 
-You will need proper DAPLink firmware for OpenSDA serial and debug adapter that is built into eval board, it provides USB host (IDE, file system and serial terminal).
+> NOTE: If you overwritten DAPLink firmware, you will need proper DAPLink firmware for OpenSDA serial and debug adapter that is built into eval board, it provides USB host (IDE, file system and serial terminal).
 You can download it from here: [OpenSDA](https://www.nxp.com/design/microcontrollers-developer-resources/ides-for-kinetis-mcus/opensda-serial-and-debug-adapter:OPENSDA?&tid=vanOpenSDA#MIMXRT1060-EVK). Then follow the procedure described in a link.
 
 1. Download the image from **nanoFramework** repository.

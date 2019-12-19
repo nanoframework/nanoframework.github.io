@@ -10,3 +10,4 @@ We have several getting started guides to help you start with **nanoFramework**.
 
 - [Build nanoFramework - STM32](build-stm32.md)
 - [Build nanoFramework - ESP32](build-esp32.md)
+- [Build nanoFramework - NXP](build-nxp.md)
