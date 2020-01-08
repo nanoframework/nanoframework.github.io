@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flash a nanoCLR image/nanoBooter in a NXP MIMXRT1060_EVAL board | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flash a nanoCLR image/nanoBooter in a NXP MIMXRT1060_EVAL board | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.48.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flash-a-nanoclr-imagenanobooter-in-a-nxp-mimxrt1060_eval-board">Flash a nanoCLR image/nanoBooter in a NXP MIMXRT1060_EVAL board</h1>
+
+<h2 id="how-to-guide">How To guide</h2>
+<p>The easiest way to flash nanoBooter and nanoCLR image onto i.MX RT1060 board is through mbed, which provides virtual disk after you connect the board to PC.</p>
+<blockquote>
+<p>NOTE: If you overwritten DAPLink firmware, you will need proper DAPLink firmware for OpenSDA serial and debug adapter that is built into eval board, it provides USB host (IDE, file system and serial terminal).
+You can download it from here: <a href="https://www.nxp.com/design/microcontrollers-developer-resources/ides-for-kinetis-mcus/opensda-serial-and-debug-adapter:OPENSDA?&amp;tid=vanOpenSDA#MIMXRT1060-EVK">OpenSDA</a>. Then follow the procedure described in a link.</p>
+</blockquote>
+<ol>
+<li>Download the image from <strong>nanoFramework</strong> repository.</li>
+<li>Check that <strong>J1</strong> is in middle position (power from micro-usb port) and connect usb cable to <strong>J41</strong> usb.</li>
+<li>Removable disk &quot;rt1060-evk&quot; should appear in file manager.</li>
+<li>Extract downloaded image and copy nanoFramework image &quot;nanobooter-nanoclr.hex&quot; to removable disk.
+<img src="../../images/nxp/rt1060_disk.png" alt="rt1060_removable_disk"></li>
+<li>Device should automatically program flash and reset itself after short time.</li>
+<li>Check if programming was successful by reseting the board while pressing <strong>SW8</strong> button. If a green led starts blinking it means that nanoBooter is working correctly.</li>
+<li>Finally reset the board and open Visual Studio. Device should be recognised by Device Explorer nanoFramework plugin.
+<img src="../../images/nxp/rt1060_device_explorer.jpg" alt="rt1060_device_explorer"></li>
+</ol>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li>Device is not recognised by Device Explorer.</li>
+</ul>
+<blockquote>
+<p>Try to restart Visual Studio
+Check that firmware was properly programmed, try booting to nanoBooter, device should be listed in Devices Explorer</p>
+</blockquote>
+<ul>
+<li>In FAIL.txt on removable disk error: &quot;The interface firmware FAILED to reset/halt the target MCU&quot;</li>
+</ul>
+<blockquote>
+<p>Check that jumpers J47, J48, J49 are present and J44 is not
+Jumper J1 must be in middle position if your not using external power</p>
+</blockquote>
+<ul>
+<li>Device correctly boots to nanoBooter but is not detected otherwise</li>
+</ul>
+<blockquote>
+<p>If you flashed nanoBooter.hex and then nanoCLR.hex, programmer erases memory every flashing procces. If you want to flash them separatly you can use method described <a href="">here</a></p>
+</blockquote>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/nxp/flash-nxp-mbed.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
