@@ -27,12 +27,12 @@ You'll need:
 - Visual Studio Code Extensions
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
   . [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake) - language support for Visual Studio Code (by twxs)
-  . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools) - Extended CMake support in Visual Studio Code (by vector-of-bool)
+  . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
   . [Cortex Debug](https://marcelball.ca/projects/cortex-debug/) - Debug tool made explicity for ARM Cortex-M cores (needed for J-Link), if you're using on board programmer you don't need it.
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.11).
 - A build system for CMake to generate the build files to.
   . If you have Visual Studio (full version) you can use the included NMake.
-  . [Ninja](https://github.com/ninja-build/ninja/releases). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**. This guide will use Ninja.
+  . [Ninja](https://github.com/ninja-build/ninja/releases). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**. This guide will use Ninja.
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 
 ## Setting up the build environment for NXP

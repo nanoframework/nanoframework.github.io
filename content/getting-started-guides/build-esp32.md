@@ -32,7 +32,7 @@ You'll need these installed before your start.
 
 The following may be installed [manually](#Manual-Install-of-the-build-environment-for-ESP32), or use the Power Shell script `.\install-esp32-tools.ps1` from the `install-scripts` folder withing the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded)
 
-- [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
+- [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
 - [OpenOCD](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180418/openocd-esp32-win32-0.10.0-esp32-20180418.zip) For on chip debugging of the nanoCLR
 
 ## Overview
@@ -127,7 +127,7 @@ This has already been done and the libraries can be just be downloaded.
 
 5. For on chip debugging of the nanoCLR, download OpenOCD from [here](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180724/openocd-esp32-win32-0.10.0-esp32-20180724.zip) and extract OpenOCD into `C:\Esp32_Tools` so you get `C:\Esp32_Tools\openocd-esp32`.
 
-6. Download the light weight build system Ninja for CMake to generate the build files from [here](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
+6. Download the light weight build system Ninja for CMake to generate the build files from [here](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
     > If you have Visual Studio (full version) you can use the included NMake.
   
 7. Define the environment variables to match the install locations. Default locations are:
@@ -163,9 +163,9 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
 
 1. Install the extensions:
 
-    - "C/C++" extension by Microsoft.
-    - "CMake" language support for Visual Studio Code by twxs.
-    - "CMake tools" Extended CMake support in Visual Studio code by vector-of-bool
+    - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
+    - [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake) - language support for Visual Studio Code (by twxs)
+    - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
 
     Next: the following JSON files should be already setup if you used the install script.
 

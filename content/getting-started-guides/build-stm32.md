@@ -23,11 +23,11 @@ You'll need:
 - Visual Studio Code Extensions
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
   . [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake) - language support for Visual Studio Code (by twxs)
-  . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools) - Extended CMake support in Visual Studio Code (by vector-of-bool)
+  . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.11)
 - A build system for CMake to generate the build files to. 
   . If you have Visual Studio (full version) you can use the included NMake.
-  . [Ninja](https://github.com/ninja-build/ninja/releases). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**. This guide will use Ninja.
+  . [Ninja](https://github.com/ninja-build/ninja/releases). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**. This guide will use Ninja.
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - OpenOCD (any working distribution will work, some suggestions follow)\
   . [Freddie Chopin OpenOCD](http://www.freddiechopin.info/en/download/category/4-openocd)
