@@ -96,12 +96,20 @@ The build is based on CMake tool to ease the development in all major platforms.
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You'll need these installed before your start.</p>
 <ul>
+<li><a href="https://git-scm.com/">Git for Windows</a>. Helpful for doing <code>git clone</code> in a command window.</li>
 <li><a href="http://code.visualstudio.com/">Visual Studio Code</a>. Additional extensions and setup steps follow below. <a href="#Set-up-Visual-Code">Set up Visual Code</a></li>
-<li><a href="https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe">Python 3.6.5</a> Required for uploading the nanoCLR to the ESP32.</li>
+<li><a href="https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe">Python 3.6.5</a> Required for uploading the nanoCLR to the ESP32.
+<ul>
+<li>Ensure the Windows default app to open <code>.py</code> files is Python.</li>
+</ul>
+</li>
 <li><a href="https://cmake.org/download/">CMake</a> Download the latest stable version and install it (Minimum required version is 3.11).</li>
 <li>A build system for CMake to generate the build files to.
-. If you have Visual Studio (full version) you can use the included NMake.
-. In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.</li>
+<ul>
+<li>If you have Visual Studio (full version) you can use the included NMake.</li>
+<li>In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.</li>
+</ul>
+</li>
 <li><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">CP210x USB to UART Bridge</a> Driver for the USB to UART Bridge integrated into the standard ESP32 DevKitC. If Windows does not install the driver automatically, then you can download and install manually. If your ESP32 uses a different serila driver, install that and ignore this driver. With the ESP32 DevKitC plugged in, use Windows Device Manager to determine the COM port as this is needed to complete the setup.</li>
 </ul>
 <p>The following may be installed <a href="#Manual-Install-of-the-build-environment-for-ESP32">manually</a>, or use the Power Shell script <code>.\install-esp32-tools.ps1</code> from the <code>install-scripts</code> folder withing the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> project (cloned or downloaded)</p>
@@ -113,8 +121,14 @@ The build is based on CMake tool to ease the development in all major platforms.
 <p>The setup will involve the following steps:</p>
 <ol>
 <li>Install all the prerequisites from above.</li>
-<li>Clone or download the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> repository to a location that is pretty short (long path names will cause issues)</li>
-<li>Run the <code>install-esp32-tools.ps1</code> as documented below (highly recommended instead of manual)</li>
+<li>Clone or download the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> repository to a location that is pretty short (long path names will cause issues)
+<pre><code>if not exist &quot;c:\nanoFramework&quot; mkdir c:\nanoFramework
+cd /D C:\nanoFramework
+git clone https://github.com/nanoframework/nf-interpreter.git
+</code></pre>
+</li>
+<li>Run the <code>install-esp32-tools.ps1 -COMPORT COM[n]</code> as documented below (highly recommended instead of manual)
+For best results, run in an elevated command prompt, otherwise setting system environnment variables will fail.</li>
 <li>Review and adjust several JSON files to match your environment (as documented below)</li>
 <li>Restart Visual Studio Code (due to json changes)</li>
 <li>Build (and repeat 4.5.6 until it works - should be easy)</li>
@@ -123,7 +137,7 @@ The build is based on CMake tool to ease the development in all major platforms.
 <h2 id="nanoframework-github-repo"><strong>nanoFramework</strong> GitHub repo</h2>
 <p>If you intend to change the nanoCLR for ESP32 and create Pull Requests then you will need to fork the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as the <a href="https://desktop.github.com/">GitHub Desktop application</a>.</p>
 <p>You should use the <em>develop</em> branch for mainstream development or the <em>develop-network</em> branch to work with the networking features which is currently a work in progress.</p>
-<p>Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMAKE does not support filenames in excess of 250 characters.</p>
+<p>Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMAKE does not support filenames in excess of 250 characters. The recommended location is <code>C:\nanoFramework</code>.</p>
 <p>A guide to making contributions is provided <a href="https://github.com/nanoframework/Home/blob/master/CONTRIBUTING.md">here</a></p>
 <h2 id="setting-up-the-build-environment-for-esp32">Setting up the build environment for ESP32</h2>
 <p>After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.</p>
