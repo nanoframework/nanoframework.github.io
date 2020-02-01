@@ -43,8 +43,9 @@ The setup will involve the following steps:
 1. Install all the prerequisites from above.
 2. Clone or download the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) repository to a location that is pretty short (long path names will cause issues) 
    ```
-   cd /D C:
-   git clone https://github.com/nanoframework/nf-interpreter.git nanoFramework
+   if not exist "c:\nanoFramework" mkdir c:\nanoFramework
+   cd /D C:\nanoFramework
+   git clone https://github.com/nanoframework/nf-interpreter.git
    ```
 3. Run the `install-esp32-tools.ps1 -COMPORT COM[n]` as documented below (highly recommended instead of manual)
    For best results, run in an elevated command prompt, otherwise setting system environnment variables will fail.
