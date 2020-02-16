@@ -60,6 +60,7 @@ The following is a working example:
 ```text
 cmake \
 -DTOOLCHAIN_PREFIX="E:/GNU_Tools_ARM_Embedded/5_4_2016q3" \
+-DCMAKE_TOOLCHAIN_FILE=CMake/toolchain.arm-none-eabi.cmake \
 -DCHIBIOS_BOARD=ST_NUCLEO_F091RC \
 -DTARGET_SERIES=STM32F0xx \
 -DNF_FEATURE_DEBUGGER=TRUE \
@@ -75,6 +76,7 @@ Another example:
 ```text
 cmake \
 -DTOOLCHAIN_PREFIX="E:/GNU_Tools_ARM_Embedded/5_4_2016q3" \
+-DCMAKE_TOOLCHAIN_FILE=CMake/toolchain.arm-none-eabi.cmake \
 -DCHIBIOS_SOURCE=E:/GitHub/ChibiOS \
 -DCHIBIOS_BOARD=ST_NUCLEO144_F746ZG \
 -DTARGET_SERIES=STM32F7xx \

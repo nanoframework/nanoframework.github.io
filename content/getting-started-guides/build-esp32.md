@@ -22,17 +22,19 @@ The build is based on CMake tool to ease the development in all major platforms.
 
 You'll need these installed before your start.
 
+- [Git for Windows](https://git-scm.com/). Helpful for doing `git clone` in a command window.
 - [Visual Studio Code](http://code.visualstudio.com/). Additional extensions and setup steps follow below. [Set up Visual Code](#Set-up-Visual-Code)
 - [Python 3.6.5](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) Required for uploading the nanoCLR to the ESP32.
+  - Ensure the Windows default app to open `.py` files is Python.
 - [CMake](https://cmake.org/download/) Download the latest stable version and install it (Minimum required version is 3.11).
 - A build system for CMake to generate the build files to.
-  . If you have Visual Studio (full version) you can use the included NMake.
-  . In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.
+  - If you have Visual Studio (full version) you can use the included NMake.
+  - In Visual Studio Code, use Ninja. Ninja can be installed for you or you can do it manually.
 - [CP210x USB to UART Bridge](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) Driver for the USB to UART Bridge integrated into the standard ESP32 DevKitC. If Windows does not install the driver automatically, then you can download and install manually. If your ESP32 uses a different serila driver, install that and ignore this driver. With the ESP32 DevKitC plugged in, use Windows Device Manager to determine the COM port as this is needed to complete the setup.
 
 The following may be installed [manually](#Manual-Install-of-the-build-environment-for-ESP32), or use the Power Shell script `.\install-esp32-tools.ps1` from the `install-scripts` folder withing the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded)
 
-- [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
+- [Ninja](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
 - [OpenOCD](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180418/openocd-esp32-win32-0.10.0-esp32-20180418.zip) For on chip debugging of the nanoCLR
 
 ## Overview
@@ -40,7 +42,13 @@ The following may be installed [manually](#Manual-Install-of-the-build-environme
 The setup will involve the following steps:
 1. Install all the prerequisites from above.
 2. Clone or download the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) repository to a location that is pretty short (long path names will cause issues) 
-3. Run the `install-esp32-tools.ps1` as documented below (highly recommended instead of manual)
+   ```
+   if not exist "c:\nanoFramework" mkdir c:\nanoFramework
+   cd /D C:\nanoFramework
+   git clone https://github.com/nanoframework/nf-interpreter.git
+   ```
+3. Run the `install-esp32-tools.ps1 -COMPORT COM[n]` as documented below (highly recommended instead of manual)
+   For best results, run in an elevated command prompt, otherwise setting system environnment variables will fail.
 4. Review and adjust several JSON files to match your environment (as documented below)
 5. Restart Visual Studio Code (due to json changes)
 6. Build (and repeat 4.5.6 until it works - should be easy)
@@ -53,7 +61,7 @@ If you intend to change the nanoCLR for ESP32 and create Pull Requests then you 
 
 You should use the _develop_ branch for mainstream development or the _develop-network_ branch to work with the networking features which is currently a work in progress.
 
-Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMAKE does not support filenames in excess of 250 characters.
+Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMAKE does not support filenames in excess of 250 characters. The recommended location is `C:\nanoFramework`.
 
 A guide to making contributions is provided [here](https://github.com/nanoframework/Home/blob/master/CONTRIBUTING.md)
 
@@ -127,7 +135,7 @@ This has already been done and the libraries can be just be downloaded.
 
 5. For on chip debugging of the nanoCLR, download OpenOCD from [here](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180724/openocd-esp32-win32-0.10.0-esp32-20180724.zip) and extract OpenOCD into `C:\Esp32_Tools` so you get `C:\Esp32_Tools\openocd-esp32`.
 
-6. Download the light weight build system Ninja for CMake to generate the build files from [here](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
+6. Download the light weight build system Ninja for CMake to generate the build files from [here](https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
     > If you have Visual Studio (full version) you can use the included NMake.
   
 7. Define the environment variables to match the install locations. Default locations are:
@@ -163,9 +171,9 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
 
 1. Install the extensions:
 
-    - "C/C++" extension by Microsoft.
-    - "CMake" language support for Visual Studio Code by twxs.
-    - "CMake tools" Extended CMake support in Visual Studio code by vector-of-bool
+    - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
+    - [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake) - language support for Visual Studio Code (by twxs)
+    - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
 
     Next: the following JSON files should be already setup if you used the install script.
 
@@ -212,6 +220,7 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
         "short": "NanoCLR",
           "settings": {
             "BUILD_VERSION" : "0.9.99.999",
+            "CMAKE_TOOLCHAIN_FILE" : "CMake/toolchain.xtensa-esp32-elf.cmake",
             "TOOLCHAIN_PREFIX" : "<absolute-path-to-the-toolchain-prefix-folder-mind-the-forward-slashes>",
             "ESP32_IDF_PATH" : "<absolute-path-to-the-IDF-folder-mind-the-forward-slashes>",
             "ESP32_LIBS_PATH" : "<absolute-path-to-the-bootloader-folder-mind-the-forward-slashes>",

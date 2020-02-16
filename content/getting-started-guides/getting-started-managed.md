@@ -10,23 +10,23 @@ You can find the video for this guide on our YouTube channel [here](https://yout
 
 In this guide we'll be using a ST Microelectronics [STM32F746 NUCLEO](http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f746zg.html) board. This is a rather common and inexpensive board that packs a Cortex M7 with 1MB flash, 320 kB of RAM and includes an ethernet connector.
 
-## Installing Visual Studio 2017
+## Installing Visual Studio
 
-**Note: VS2019 is not currently recommended due to known issues. Please see the https://github.com/nanoframework/home/issues for the latest updates.**
+The first part is to get Visual Studio (both 2017 and 2019 versions are supported) and the **nanoFramework** extension installed.
 
-The first part is to get Visual Studio 2017 and the **nanoFramework** extension installed.
-
-1. Download Visual Studio 2017. If you already have it installed, you can skip this step. If you don't, please download the free [Visual Studio Community 2017](https://www.visualstudio.com/downloads) edition. Either way, make sure you've selected the .NET desktop workload.
+1. Download Visual Studio. If you already have it installed, you can skip this step. If you don't, please download the free [Visual Studio Community](https://www.visualstudio.com/downloads) edition. Either way, make sure you've selected the .NET desktop workload.
 
 1. **If using the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: https://nanoframework.net/2019/08/21/new-preview-feeds-for-nanoframework.**
 
-1. Launch Visual Studio 2017 (we'll just refer to it as VS from now on) and install the **nanoFramework** extension. You can do this by going into Tools > Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter _nanoFramework_ in the search box.
+1. Launch Visual Studio (we'll just refer to it as VS from now on) and install the **nanoFramework** extension. You can do this by going into Tools > Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter _nanoFramework_ in the search box.
 
 1. Now open the Device Explorer window. You can do this by going into View > Other Windows > Device Explorer.
 
 ## Uploading the firmware to the board using nanoFirmwareFlasher
 
 The second part is to load the **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
+
+### Note: the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.
 
 1. Install [nano Firmware Flasher](https://github.com/nanoframework/nanoFirmwareFlasher).
 
@@ -40,19 +40,19 @@ The second part is to load the **nanoFramework** image in the board flash. The b
     - To update the firmware of an ESP32 target connected to COM31, to the latest available development version.
 
         ```console
-        nanoff --update --platform esp32 --serialport COM31
+        nanoff --target ESP32_WROOM_32 --serialport COM31 --update
         ```
 
     - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available development version.
 
         ```console
-        nanoff --update --target ST_NUCLEO144_F746ZG --masserase
+        nanoff --target ST_NUCLEO144_F746ZG --update
         ```
 
     - To update the firmware of a ST board connected through DFU (like the NETDUINO3) you first need to put the board in DFU mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
 
         ```console
-        nanoff --update --target NETDUINO3_WIFI
+        nanoff --target NETDUINO3_WIFI --update
         ```
 
 1. After the upload completes, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running **nanoFramework** by looking into the Device Explorer window in Visual Studio.

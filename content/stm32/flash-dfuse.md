@@ -14,9 +14,9 @@ To manually flash firmware using ST DFUSE tools, get a copy of [ST DFUSE tools](
 
 - Start the STDFU Tester application.
 - Select the "Protocol" tab.
-- Press the "Create from Map" button.
+- Click the "Create from Map" button.
 - Select the "Erase" radio button option.
-- Press the "Go" button.
+- Click the "Go" button.
 - Wait for the erase process to complete.
 
 ### Step two
@@ -24,5 +24,6 @@ To manually flash firmware using ST DFUSE tools, get a copy of [ST DFUSE tools](
 - Start the DFUSE Demo Application
 - Locate the **.dfu file** located in the device firmware update .zip file.
   > Note: If the .dfu file does not exist in the .zip file. It can be created following the instructions [here](create-dfu-file.md).
-- Click the "Choose" button then the "Update" button.
+- Within the "Upgrade or Verify" box, click the "Choose" button and then the "Update" button.
+- Wait for the process to complete.
 - Toggle the devices power.
