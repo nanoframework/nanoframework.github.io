@@ -90,8 +90,8 @@ You can force the environment variables to be updated by adding -Force to the co
 The script will create the following sub-folders (see manual install below and appveyor.yml)
 
 - `C:\Esp32_Tools`
-- `C:\Esp32_Tools\esp-idf-v3.3`
-- `C:\Esp32_Tools\libs-v3.3`
+- `C:\Esp32_Tools\esp-idf-v3.3.1`
+- `C:\Esp32_Tools\libs-v3.3.1`
 - `C:\Esp32_Tools\ninja`  
 - `C:\Esp32_Tools\openocd-esp32`  
 
@@ -99,8 +99,8 @@ The following Environment Variables will be created for the current Windows User
 
 - `ESP32_TOOLS_PATH = C:\ESP32_TOOLS`
 - `ESP32_TOOLCHAIN_PATH = C:\ESP32_TOOLS\xtensa-esp32-elf`
-- `ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3`
-- `IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3`
+- `ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3.1`
+- `IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3.1`
 - `NINJA_PATH = C:\ESP32_TOOLS\ninja`
 
 The following ESP32 settings files will be created and the place-holder values set to the respective default install paths.
@@ -111,9 +111,9 @@ The following ESP32 settings files will be created and the place-holder values s
 - `.\.vscode\launch.json` as a copy of `.\.vscode\launch.TEMPLATE-ESP32.json` with install paths set
 - `.\.vscode\settings.json` as a copy of `.\.vscode\settings.TEMPLATE-ESP32.json`
 
-Edit all these files and audit their content. You may need to replace some paths, for example: `<absolute-path-to-the-toolchain-folder-mind-the-forward-slashes>` with `C:/ESP32_TOOLS/esp-idf-v3.3`
+Edit all these files and audit their content. You may need to replace some paths, for example: `<absolute-path-to-the-toolchain-folder-mind-the-forward-slashes>` with `C:/ESP32_TOOLS/esp-idf-v3.3.1`
 
-Please note all these JSON files require all paths separators to be forward slashes `/`. Example: `C:\ESP32_TOOLS\esp-idf-v3.3` will need to be typed like this: `C:/ESP32_TOOLS/esp-idf-v3.3` (forward slash manner)
+Please note all these JSON files require all paths separators to be forward slashes `/`. Example: `C:\ESP32_TOOLS\esp-idf-v3.3.1` will need to be typed like this: `C:/ESP32_TOOLS/esp-idf-v3.3.1` (forward slash manner)
 
 ## Manual Install of the build environment for ESP32
 
@@ -125,11 +125,11 @@ This has already been done and the libraries can be just be downloaded.
 1. Create a directory such as the following:
 
    - `C:\Esp32_Tools`
-   - `C:\Esp32_Tools\libs-v3.3`
+   - `C:\Esp32_Tools\libs-v3.3.1`
 
-2. Download the pre-built libs zip from [here](https://bintray.com/nfbot/internal-build-tools/download_file?file_path=IDF_libs-v3.3.zip) and extract it into `C:\Esp32_Tools\libs-v3.3`.
+2. Download the pre-built libs zip from [here](https://bintray.com/nfbot/internal-build-tools/download_file?file_path=IDF_libs-v3.3.1.zip) and extract it into `C:\Esp32_Tools\libs-v3.3.1`.
 
-3. Download the v3.3 IDF source zip file from [here](https://github.com/espressif/esp-idf/releases/download/v3.3/esp-idf-v3.3.zip) and extract it into `C:\Esp32_Tools` so you get `C:\ESP32_Tools\esp-idf-v3.3\components` etc.
+3. Download the v3.3.1 IDF source zip file from [here](https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.1.zip) and extract it into `C:\Esp32_Tools` so you get `C:\ESP32_Tools\esp-idf-v3.3\components` etc.
 
 4. Download the Esp32 toolchain from [here](https://dl.espressif.com/dl/xtensa-esp32-elf-win32-1.22.0-80-g6c4433a-5.2.0.zip) and extract it into `C:\Esp32_Tools` so you get `C:\Esp32_Tools\xtensa-esp32-elf`.
 
@@ -141,8 +141,8 @@ This has already been done and the libraries can be just be downloaded.
 7. Define the environment variables to match the install locations. Default locations are:
    - `ESP32_TOOLS_PATH = C:\ESP32_TOOLS`
    - `ESP32_TOOLCHAIN_PATH = C:\ESP32_TOOLS\xtensa-esp32-elf`
-   - `ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3`
-   - `IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3`
+   - `ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3.1`
+   - `IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3.1`
    - `NINJA_PATH = C:\ESP32_TOOLS\ninja`
 
 8. Add Ninja to the PATH (i.e. `C:\ESP32_TOOLS\ninja`)
@@ -351,7 +351,7 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 
 1. If you get no error you will have in the build directory the files `nanoCLR.bin` and `partitions_4mb.bin`.
 
-1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/ESP32_Tools/libs-v3.3/bootloader.bin` if the automated install script is used.
+1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/ESP32_Tools/libs-v3.3.1/bootloader.bin` if the automated install script is used.
 
     Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
     In this case deleting the contents of the `build` folder should allow the build to complete once you resolve the issues that cause the original failure.
