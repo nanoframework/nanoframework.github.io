@@ -2,11 +2,11 @@
 
 ## Table of contents
 
-- [Wire Protocol Message](#wire-protocol-message)
+- `Wire Protocol Message](#wire-protocol-message)
 - [Data channels](#data-channels)
 - [Receiving and transmitting data](#receiving-and-transmitting-data)
 - [Receiver workflow](#receiver-workflow)
-- [Wire Protocol Commands](#wire-protocol-commands)
+- `Wire Protocol Commands](#wire-protocol-commands)
 - [How to add support for a new command](#how-to-add-support-for-a-new-command)
 - [How to add support for new channels](#how-to-add-support-for-new-channels)
 - [HAL interface](#hal-interface)
@@ -34,12 +34,12 @@ The message basic structure is comprised by:
   - Size of the payload.
 - Payload for carrying data. Optional and its size is variable.
 
-You can check the details on [WireProtocol.h](..\src\CLR\WireProtocol\WireProtocol.h)
+You can check the details on `WireProtocol.h](@ src\CLR\WireProtocol\WireProtocol.h)
 
 ## Data channels
 
 Currently **nanoFramework** Wire Protocol supports only serial channels. The plan is to add support for USB (using CDC class device) and TCP.
-To ease the port to new HAL/platforms the code is architecture so that only minimal changes are required to add support for new implementations. 
+To ease the port to new HAL/platforms the code is architecture so that only minimal changes are required to add support for new implementations.
 
 ## Receiving and transmitting data
 
@@ -54,12 +54,12 @@ Preferably (and to use the reference implementation provided without much change
 
 Follows a high-level description on how the Wire Protocol component works.
 
-- RTOS thread - ```ReceiverThread(...)``` in [WireProtocol_ReceiverThread.c](..\src\CLR\WireProtocol\WireProtocol_ReceiverThread.c) - that loops continuously checking for available data in the receiving channel.
+- RTOS thread - ```ReceiverThread(...)``` in `WireProtocol_ReceiverThread`(@ src\CLR\WireProtocol\WireProtocol_ReceiverThread.c) - that loops continuously checking for available data in the receiving channel.
 - On available data the reception of the message is initialized (WP_Message_Initialize) and prepared (WP_Message_PrepareReception) so the reception can actually occur and be processed by calling WP_Message_Process.
-- During the reception states the input stream is read (```WP_ReceiveBytes(...)``` in [WireProtocol_HAL_Interface.c](..\src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)) so the message header is received and it's integrity checked. Follows the reception and the integrity check of the payload, if there is any.
-- After a successful reception of the header (and payload, if any) the _Process_ state machine in [WireProtocol_Message.c](..\src\CLR\WireProtocol\WireProtocol_Message.c)) reaches the ```ReceiveState_CompletePayload``` state and calls the ```ProcessPayload(...)``` function.
+- During the reception states the input stream is read (```WP_ReceiveBytes(...)``` in `WireProtocol_HAL_Interface`(@ src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)) so the message header is received and it's integrity checked. Follows the reception and the integrity check of the payload, if there is any.
+- After a successful reception of the header (and payload, if any) the _Process_ state machine in `WireProtocol_Message`(@ src\CLR\WireProtocol\WireProtocol_Message.c)) reaches the ```ReceiveState_CompletePayload``` state and calls the ```ProcessPayload(...)``` function.
 - Inside ```ProcessPayload(...)``` the lookup table for the commands that are implemented is searched and, if the command is found, the respective handler is called. According to the command its processing can require extra processing or gathering data. Invariably the handler execution end with a call to ```ReplyToCommand(...)``` where the reply is sent back to the host device.
-- When executing ```ReplyToCommand(...)``` the output stream is written (```WP_TransmitMessage(...)``` in [WireProtocol_HAL_Interface.c](..\src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)) with the reply message.
+- When executing ```ReplyToCommand(...)``` the output stream is written (```WP_TransmitMessage(...)``` in `WireProtocol_HAL_Interface`(@ src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)) with the reply message.
 
 ## Wire Protocol Commands
 
@@ -73,11 +73,11 @@ There are two groups of commands: monitor commands and debug commands.
 
 In order to add a new monitor command you have to:
 
-- Add the function declaration and any required structure and/or type definition in [WireProtocol_MonitorCommands.h](..\src\CLR\WireProtocol\WireProtocol_MonitorCommands.h)
-- Add a weak prototype in [WireProtocol_MonitorCommands.c](..\src\CLR\WireProtocol\WireProtocol_MonitorCommands.c)
-- The actual code for the command handler function (and any required helper functions or extra processing) is added at target level. For the reference implementation for nanoBooter in ChibiOS check [WireProtocol_MonitorCommands.c](..\targets\CMSIS-OS\ChibiOS\nanoBooter\WireProtocol_MonitorCommands.c)
+- Add the function declaration and any required structure and/or type definition in `WireProtocol_MonitorCommands.h`(@ src\CLR\WireProtocol\WireProtocol_MonitorCommands.h)
+- Add a weak prototype in `WireProtocol_MonitorCommands.c`(@ src\CLR\WireProtocol\WireProtocol_MonitorCommands.c)
+- The actual code for the command handler function (and any required helper functions or extra processing) is added at target level. For the reference implementation for nanoBooter in ChibiOS check `WireProtocol_MonitorCommands.c`(@ targets\CMSIS-OS\ChibiOS\nanoBooter\WireProtocol_MonitorCommands.c)
 
-To add the command to the collection of the supported monitor commands un-comment or add the respective line in the ```c_Lookup_Request``` variable in _WireProtocol_App_Interface.c_ for both [nanoBooter](..\targets\CMSIS-OS\ChibiOS\nanoBooter\WireProtocol_MonitorCommands.c) and/or [nanoCLR](..\targets\CMSIS-OS\ChibiOS\nanoCLR\WireProtocol_MonitorCommands.c).
+To add the command to the collection of the supported monitor commands un-comment or add the respective line in the ```c_Lookup_Request``` variable in _WireProtocol_App_Interface.c_ for both `nanoBooter`(@ targets\CMSIS-OS\ChibiOS\nanoBooter\WireProtocol_MonitorCommands.c) and/or `nanoCLR]`(@ targets\CMSIS-OS\ChibiOS\nanoCLR\WireProtocol_MonitorCommands.c).
 Because this declaration uses a macro to add the declaration of a command, make sure the existing naming pattern is _**strictly**_ followed.
 
 This architecture tries to bring flexibility by making it easy to have different monitor commands for nanoBooter and nanoCLR and also having them implemented in different ways, if necessary.
@@ -90,7 +90,7 @@ Try to follow this as much as possible when implementing new commands or porting
 Current Wire Protocol implementation has support for transmission over serial port (UART/USART) and serial over USB (USB CDC device class).
 Support for TCP channel is planned at a later stage.
 
-When adding support for new channels the functions ```WP_ReceiveBytes(...)``` and ```WP_TransmitMessage(...)``` in _WireProtocol_HAL_Interface.c_ are the ones that need to be reworked. This implementation is target and board specific so it resides in the board folder. Check the reference implementation for the ST_STM32F4_DISCOVERY board [here](..\targets\CMSIS-OS\ChibiOS\ST_STM32F4_DISCOVERY\common\WireProtocol_HAL_Interface.c).
+When adding support for new channels the functions ```WP_ReceiveBytes(...)``` and ```WP_TransmitMessage(...)``` in _WireProtocol_HAL_Interface.c_ are the ones that need to be reworked. This implementation is target and board specific so it resides in the board folder. Check the reference implementation for the ST_STM32F4_DISCOVERY board here (@ targets\CMSIS-OS\ChibiOS\ST_STM32F4_DISCOVERY\common\WireProtocol_HAL_Interface.c).
 
 On both, the relevant part is that they read/write to a serial stream a specified number of bytes. Preferably non blocking calls with a timeout. Please read the comments inside of each of those functions for the details.
 The last piece that needs to be adjusted is the code inside the ```ReceiverThread(...)``` which is the RTOS thread that is running the Wire Protocol component. That thread is basically a loop with a wait state were the checks for existing data to be read on the input stream. On data available the ```WP_Message_Process(...)``` function is called.
@@ -100,11 +100,11 @@ The last piece that needs to be adjusted is the code inside the ```ReceiverThrea
 The Wire Protocol requires the following functions in order to interface with the HAL.
 Weak implementations of each function are part of the core code.
 
-- ```WP_TransmitMessage(...)``` in [WireProtocol_HAL_Interface.c](..\src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)
-- ```WP_ReceiveBytes(...)``` in [WireProtocol_HAL_Interface.c](..\src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)
-- ```WP_CheckAvailableIncomingData(...)``` in [WireProtocol_HAL_Interface.c](..\src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)
+- ```WP_TransmitMessage(...)``` in `WireProtocol_HAL_Interface.c`(@ src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)
+- ```WP_ReceiveBytes(...)``` in `WireProtocol_HAL_Interface.c`(@ src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)
+- ```WP_CheckAvailableIncomingData(...)``` in `WireProtocol_HAL_Interface.c`(@ src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)
 
-An implementation for an STM32F4_DISCOVERY board with ChibiOS (including its HAL) is provided as a reference. Please check it at [WireProtocol_HAL_Interface.c](..\targets\CMSIS-OS\ChibiOS\ST_STM32F4_DISCOVERY\common\WireProtocol_HAL_Interface.c).
+An implementation for an STM32F4_DISCOVERY board with ChibiOS (including its HAL) is provided as a reference. Please check it at `WireProtocol_HAL_Interface`(@ targets\CMSIS-OS\ChibiOS\ST_STM32F4_DISCOVERY\common\WireProtocol_HAL_Interface.c).
 
 When porting **nanoFramework** to another RTOS or HAL follow the reference implementation to ease the port work.
 
@@ -113,29 +113,25 @@ When porting **nanoFramework** to another RTOS or HAL follow the reference imple
 The Wire Protocol requires the following functions in order to interface with it's client app.
 Weak implementations of each function are part of the core code.
 
-- ```WP_App_ProcessHeader(...)``` in [WireProtocol_App_Interface.c]()
-- ```WP_App_ProcessPayload(...)``` in [WireProtocol_App_Interface.c]()
+- ```WP_App_ProcessHeader(...)``` in `WireProtocol_App_Interface.c`()
+- ```WP_App_ProcessPayload(...)``` in `WireProtocol_App_Interface.c`()
 
-Actual implementations of these are to be provided by nanoBooter and nanoCLR. Please check the reference implementation for ChibiOS at [WireProtocol_App_Interface.c](..\targets\CMSIS-OS\ChibiOS\nanoBooter\WireProtocol_App_Interface.c).
+Actual implementations of these are to be provided by nanoBooter and nanoCLR. Please check the reference implementation for ChibiOS at `WireProtocol_App_Interface.c`(@ targets\CMSIS-OS\ChibiOS\nanoBooter\WireProtocol_App_Interface.c).
 
 ## Debugging Wire Protocol communications
 
 To ease debugging of Wire Protocol sessions there are available a set of CMake options to adjust the output of the Wire Protocol state machine and TX/Rx operations. The available options are:
 
- - NF_WP_TRACE_ERRORS: Enable error tracing.
- - NF_WP_TRACE_HEADERS: Enable packet headers tracing.
- - NF_WP_TRACE_STATE: Enable tracing of the current state of the Wire Protocol sate machine.
- - NF_WP_TRACE_NODATA: Enable tracing of empty or incomplete packets.
- - NF_WP_TRACE_ALL: Enable all the options above. In case this setting is chosen it takes precedence over all the other and replaces when on.
+- NF_WP_TRACE_ERRORS: Enable error tracing.
+- NF_WP_TRACE_HEADERS: Enable packet headers tracing.
+- NF_WP_TRACE_STATE: Enable tracing of the current state of the Wire Protocol sate machine.
+- NF_WP_TRACE_NODATA: Enable tracing of empty or incomplete packets.
+- NF_WP_TRACE_ALL: Enable all the options above. In case this setting is chosen it takes precedence over all the other and replaces when on.
 
 ## CRC32 validations
 
-In order to ensure Wire Protocol communications integrity the message header and payload have each a CRC32 field that can be filled in with the CRC32 hash of the respective section. This allows the receiver to validate the integrity of both the header and the payload.
+In order to ensure Wire Protocol communications integrity the message header and payload have each a CRC32 field which is filled in with the CRC32 hash of the respective section. This allows the receiver to validate the integrity of both the header and the payload.
 
-Considering that the most frequent transport layers are USB and Ethernet (under development) which already have their own validation and integrity mechanisms, it might seems a bit paranoid to have this extra validation on top of those. Moreover, in the unlikely event of a garbled packet reaching the end of the parser engine, the wrong data would (most likely) prevent the correct execution of such command.
-
-In face of the above the CRC32 calculation and validation of the Wire Protocol header and payload has been made optional, meaning that a target can choose *not* to implement that. The Wire Protocol layer in the debugger is able to automatically handle both situations.
+A target can choose *not* to implement that. The Wire Protocol layer in the debugger is able to automatically handle both situations.
 
 To have a target image built **without** implementing CRC32 validation the option `NF_WP_IMPLEMENTS_CRC32=OFF` has to be passed to CMake.
-
-In case a less reliable transport layer is used (COM port for example) or if the developer deems this necessary it can be enabled with the option above set to `ON`.
