@@ -8,7 +8,7 @@
     <title>GCC linker script for ChibiOS boards | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="GCC linker script for ChibiOS boards | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.48.1.0">
+    <meta name="generator" content="docfx 2.49.0.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -87,12 +87,12 @@
 <h2 id="configurations-for-nanobooter-link-script">Configurations for nanoBooter link script</h2>
 <p>The nanoBooter image is located at the default boot address of the target Soc/MCU.</p>
 <p>It's recommended that that the region length is set to match the FLASH space reserved for the nanoBooter. This adds an extra check because when the build and link occurs, if the image is too large to fit that space an error is generated and corrective actions can be taken.</p>
-<p>To illustrate this we are going to look into the linker script for the ST_NUCLEO_F091RC board. This is file <a href="../../targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoBooter/STM32F091xC_booter.ld">STM32F091xC_booter.ld</a>.</p>
+<p>To illustrate this we are going to look into the linker script for the ST_NUCLEO_F091RC board. This is file <code>STM32F091xC_booter.ld</code>(@ targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoBooter/STM32F091xC_booter.ld).</p>
 <p>The only configuration here is the length of the <code>flash</code> region that should be set to the FLASH space reserved for the nanoBooter. In the example it can be seen that the nanoBooter image will start at address 0x08000000, with a maximum size of 16K.</p>
 <h2 id="configurations-for-nanoclr-link-script">Configurations for nanoCLR link script</h2>
 <p>The nanoCLR image is located at the designated address of the available FLASH space, typically right after the space reserved for the nanoBooter.</p>
 <p>It's recommended that that the region length is set to match the FLASH space reserved for the nanoCLR. This adds an extra check because when the build and link occurs, if the image is too large to fit that space an error is generated and corrective actions can be taken.</p>
-<p>To illustrate this we are going to look into the linker script for the ST_NUCLEO_F091RC board. This is file <a href="../../targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoCLR/STM32F091xC_CLR.ld">STM32F091xC_CLR.ld</a>.</p>
+<p>To illustrate this we are going to look into the linker script for the ST_NUCLEO_F091RC board. This is file <code>STM32F091xC_CLR.ld</code>(@ targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoCLR/STM32F091xC_CLR.ld).</p>
 <p>The <code>flash</code> region configuration depends on two factors: the space reserved for nanoBooter image and the space reserved for application deployment.
 In the example it can be seen that nanoCLR image will start at address 0x08004000 and has a maximum size of 256k - 16k - 100k. That's the size reserved for nanoBooter and the size reserved for the application deployment.</p>
 <p>On this particular example (because this SoC requires that the vector table is copied to RAM) the <code>ram0</code> region needs to be tweaked so it starts after the space reserved for the vector table. The end result is <code>ram0</code> starting at 0x200000C0 with a length of 32k - 0xC0.</p>
