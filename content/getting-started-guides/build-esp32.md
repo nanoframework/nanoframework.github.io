@@ -486,7 +486,7 @@ you want to debug a nanoCLR code which can be executed via managed code.
    e.g.: What is the value of a variable? Which part of an if-else statement gets executed?
 3. Put the following temporary code there:
 
-```
+```cpp
         {
             char temporaryStringBuffer[64];
             int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), "interestingValue: %d\r\n", interestingValue);
@@ -494,7 +494,7 @@ you want to debug a nanoCLR code which can be executed via managed code.
         }
 ```
    Or simly:
-```
+```cpp
         CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
 ```
 
@@ -502,3 +502,4 @@ you want to debug a nanoCLR code which can be executed via managed code.
 5. Start debugging in Visual Studio and keep eye on it's debug output window. 
    You will get your messages there when the related temporary code gets executed!
 6. Iterate steps 2-5 till you find out what you were interested in.
+7. Do not forget to remove all those temporary code blocks before you accidentally commit it!
