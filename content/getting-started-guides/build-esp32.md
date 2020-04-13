@@ -12,6 +12,7 @@
 - [Start with a Hello World C# application](#start-with-a-hello-world-c-application)
 - [Debug the nanoCLR](#debugging-nanoclr)
 - [Notes on JTAG Debugging on ESP32](#notes-on-jtag-debugging-on-esp32)
+- [Debug the nanoCLR without special hardware](#debugging-nanoclr-without-special-hardware)
 
 **About this document**
 
@@ -473,3 +474,31 @@ The Esp32 only has 2 hardware breakpoints.
 As code is dynamically loaded unless the method has an `IRAM_ATTR` attribute any breakpoints set up at the start will cause an error when you try to debug (Unable to set breakpoint). When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
 
 For more information on JTAG debugging see [Espressif documentation](http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/).
+
+## Debugging nanoCLR without special hardware
+
+If you do not have access to any special hardware required for debug methods mentioned above you still may use some old-school technique: just place some temporary code at interesting places to get the required information. Using steps below you will get that information in Visual Studio's standard debug output window.
+Certainly Visual Studio must be debugging something to have that window in working state. So this hack will work only in cases when 
+you want to debug a nanoCLR code which can be executed via managed code.
+
+1. Write some managed code which results in a nanoCLR call executing the code you are interested in.
+2. Choose one or more places in nanoCLR code where you want to know something.
+   e.g.: What is the value of a variable? Which part of an if-else statement gets executed?
+3. Put the following temporary code there:
+
+```
+        {
+            char temporaryStringBuffer[64];
+            int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), "interestingValue: %d\r\n", interestingValue);
+            CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+        }
+```
+   Or simly:
+```
+        CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+```
+
+4. The boring part: rebuild and reflash firmware and your program.
+5. Start debugging in Visual Studio and keep eye on it's debug output window. 
+   You will get your messages there when the related temporary code gets executed!
+6. Iterate steps 2-5 till you find out what you were interested in.
