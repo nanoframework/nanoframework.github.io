@@ -25,6 +25,8 @@ Its content describes what kind of build you will get, which toolchain(s) you wi
 
 First, you have to either rename the file or copy the contents to **cmake-variants.json**. Then, you will have to modify the content to match your environment.
 
+Later, when you change something in the **cmake-variants.json** you have to close and reopen VS Code and also wipe the build folder, then start again.
+
 ## Brief description
 
 There are two sets of parameters that need to be present in this file:

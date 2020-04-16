@@ -182,6 +182,8 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
 
     See `cmake-variants.TEMPLATE.json` for the generalised template. Be aware of the forward slashes in the paths.
     The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf is the subdirectory.
+    
+    More info available on the [Tweaking cmake-variants.TEMPLATE.json](../building/cmake-tools-cmake-variants.md) documentation page.
 
     There is a template file called `cmake-variants.TEMPLATE-ESP32.json` that can be copied to `CMake-variants.json` and used if you followed the paths in this guide. If different install paths were used, then edit the file accordingly.
 
