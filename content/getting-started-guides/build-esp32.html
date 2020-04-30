@@ -172,7 +172,6 @@ For best results, run in an elevated command prompt, otherwise setting system en
 <p>The following ESP32 settings files will be created and the place-holder values set to the respective default install paths.</p>
 <ul>
 <li><code>.\cmake-variants.json</code> as a copy of <code>.\cmake-variants.TEMPLATE-ESP32.json</code></li>
-<li><code>.\.vscode\cmake-kits.json</code> as a copy of <code>.\.vscode\cmake-kits.TEMPLATE-ESP32.json</code></li>
 <li><code>.\.vscode\tasks.json</code> as a copy of <code>.\.vscode\tasks.TEMPLATE-ESP32.json</code> with install paths and COM port set</li>
 <li><code>.\.vscode\launch.json</code> as a copy of <code>.\.vscode\launch.TEMPLATE-ESP32.json</code> with install paths set</li>
 <li><code>.\.vscode\settings.json</code> as a copy of <code>.\.vscode\settings.TEMPLATE-ESP32.json</code></li>
@@ -315,17 +314,6 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
 }
 </code></pre>
 <ol start="3">
-<li>Create a <code>./.vscode/cmake-kits.json</code> from <code>/.vscode/cmake-kits.TEMPLATE-ESP32.json</code>.</li>
-</ol>
-<p>The default template file is ok, and may be copied to <code>./.vscode/cmake-kits.json</code></p>
-<pre><code class="lang-json">[
-  {
-    &quot;name&quot;: &quot;ESP32 Tools&quot;,
-    &quot;toolchainFile&quot;: &quot;CMake/toolchain.FreeRtos.ESP32.GCC.cmake&quot;
-  }
-]
-</code></pre>
-<ol start="4">
 <li><p>Create a <code>./.vscode/tasks.json</code> from <code>/.vscode/tasks.TEMPLATE-ESP32.json</code>.</p>
 <p>For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a <code>tasks.json</code> file. You can manually copy the template (<code>tasks.TEMPLATE-ESP32.json</code>) and then adjust the COM port and the varios paths with place holders (<strong>!!mind the forward slashes!!</strong>) to your needs. The Power Shell script <code>.\install-esp32-tools.ps1</code> will adjust the file for you if you used it.  Use the parameter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.</p>
 </li>
@@ -356,27 +344,25 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
     ]
 }
 </code></pre>
-<ol start="5">
+<ol start="4">
 <li>In the<code>.vscode</code> create a file named <code>settings.json</code> and paste the following (mind to update the path to your setup):</li>
 </ol>
 <pre><code class="lang-json">{
     &quot;cmake.preferredGenerators&quot;: [
         &quot;Ninja&quot;
     ],
-    &quot;cmake.generator&quot;: &quot;&quot;,
-    &quot;cmake.useCMakeServer&quot; : true,
+    &quot;cmake.generator&quot;: &quot;Ninja&quot;,
     &quot;cmake.autoRestartBuild&quot; : true,
     &quot;cmake.configureSettings&quot;: {
         &quot;CMAKE_MAKE_PROGRAM&quot;:&quot;C:/ESP32_TOOLS/ninja/ninja.exe&quot;
     },
-    &quot;cmake.configureOnOpen&quot;: false,
-    &quot;C_Cpp.default.configurationProvider&quot;: &quot;vector-of-bool.cmake-tools&quot;
+    &quot;cmake.configureOnOpen&quot;: false
 }
 </code></pre>
 <blockquote>
 <p>Note: if the path to CMake executable is on the PATH system variable the last setting (<code>cmake.cmakePath</code>) is not required.</p>
 </blockquote>
-<ol start="6">
+<ol start="5">
 <li>Save all files and exit VS Code.</li>
 </ol>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
