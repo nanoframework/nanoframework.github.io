@@ -107,7 +107,6 @@ The following Environment Variables will be created for the current Windows User
 The following ESP32 settings files will be created and the place-holder values set to the respective default install paths.
 
 - `.\cmake-variants.json` as a copy of `.\cmake-variants.TEMPLATE-ESP32.json`
-- `.\.vscode\cmake-kits.json` as a copy of `.\.vscode\cmake-kits.TEMPLATE-ESP32.json`
 - `.\.vscode\tasks.json` as a copy of `.\.vscode\tasks.TEMPLATE-ESP32.json` with install paths and COM port set
 - `.\.vscode\launch.json` as a copy of `.\.vscode\launch.TEMPLATE-ESP32.json` with install paths set
 - `.\.vscode\settings.json` as a copy of `.\.vscode\settings.TEMPLATE-ESP32.json`
@@ -261,20 +260,7 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
 }
 ```
 
-3. Create a `./.vscode/cmake-kits.json` from `/.vscode/cmake-kits.TEMPLATE-ESP32.json`.
-
-The default template file is ok, and may be copied to `./.vscode/cmake-kits.json`
-
-```json
-[
-  {
-    "name": "ESP32 Tools",
-    "toolchainFile": "CMake/toolchain.FreeRtos.ESP32.GCC.cmake"
-  }
-]
-```
-
-4. Create a `./.vscode/tasks.json` from `/.vscode/tasks.TEMPLATE-ESP32.json`.
+3. Create a `./.vscode/tasks.json` from `/.vscode/tasks.TEMPLATE-ESP32.json`.
 
     For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a `tasks.json` file. You can manually copy the template (`tasks.TEMPLATE-ESP32.json`) and then adjust the COM port and the varios paths with place holders (**!!mind the forward slashes!!**) to your needs. The Power Shell script `.\install-esp32-tools.ps1` will adjust the file for you if you used it.  Use the parameter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.
 
@@ -306,27 +292,25 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 }
 ```
 
-5. In the`.vscode` create a file named `settings.json` and paste the following (mind to update the path to your setup):
+4. In the`.vscode` create a file named `settings.json` and paste the following (mind to update the path to your setup):
 
 ```json
 {
     "cmake.preferredGenerators": [
         "Ninja"
     ],
-    "cmake.generator": "",
-    "cmake.useCMakeServer" : true,
+    "cmake.generator": "Ninja",
     "cmake.autoRestartBuild" : true,
     "cmake.configureSettings": {
         "CMAKE_MAKE_PROGRAM":"C:/ESP32_TOOLS/ninja/ninja.exe"
     },
-    "cmake.configureOnOpen": false,
-    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"
+    "cmake.configureOnOpen": false
 }
 ```
 
 > Note: if the path to CMake executable is on the PATH system variable the last setting (`cmake.cmakePath`) is not required.
 
-6. Save all files and exit VS Code.
+5. Save all files and exit VS Code.
 
 ## Build nanoCLR
 
