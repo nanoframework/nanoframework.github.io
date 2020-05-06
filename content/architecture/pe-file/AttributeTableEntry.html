@@ -5,19 +5,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>nanoFramework Architecture | nanoFramework Documentation </title>
+    <title>AttributeTableEntry (CLR_RECORD_ATTRIBUTE) | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="nanoFramework Architecture | nanoFramework Documentation ">
+    <meta name="title" content="AttributeTableEntry (CLR_RECORD_ATTRIBUTE) | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.52.0.0">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
     
-    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:rel" content="../../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix">
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -75,17 +75,42 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="nanoframework-architecture"><strong>nanoFramework</strong> Architecture</h1>
+<h1 id="attributetableentry-clr_record_attribute">AttributeTableEntry (CLR_RECORD_ATTRIBUTE)</h1>
 
-<ul>
-<li><a href="class-libraries.html">Class Libraries</a></li>
-<li><a href="date-and-time.html">Date and Time</a></li>
-<li><a href="deployment.html">Application deployment</a></li>
-<li><a href="thread-execution.html">Thread execution</a></li>
-<li><a href="native-interrupt-handlers.html">Native interrupt handlers</a></li>
-<li><a href="wire-protocol.html">Wire Protocol</a></li>
-<li><a href="pe-file/index.html">PE File format</a></li>
-</ul>
+<p>The Attribute table contains entries with the following structure</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OwnerType</td>
+<td>TableKind</td>
+<td>One of <code>TableKind::TypeDef</code>, <code>TableKind::MethodDef</code>, or <code>TableKind::FieldDef</code></td>
+</tr>
+<tr>
+<td>OwnerIndex</td>
+<td>uint16_t</td>
+<td>Index into the table specified by OwnerType</td>
+</tr>
+<tr>
+<td>Constructor</td>
+<td>MethodRefOrMethodDef</td>
+<td>Binary token for a MethodRef or MethodDef that represents the constructor of the Attribute</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>SigTableIndex</td>
+<td>Index into the signature table that defines the parts of the attribute</td>
+</tr>
+</tbody>
+</table>
+<h2 id="signature-table-usage">Signature Table Usage</h2>
+<p>(TODO: Define valid signature table sequences for an attribute)</p>
 </article>
           </div>
           
@@ -94,7 +119,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/AttributeTableEntry.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -120,8 +145,8 @@
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
   </body>
 </html>

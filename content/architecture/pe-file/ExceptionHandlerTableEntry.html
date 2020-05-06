@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ExceptionHandlerTableEntry (CLR_RECORD_EH) | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ExceptionHandlerTableEntry (CLR_RECORD_EH) | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="exceptionhandlertableentry-clr_record_eh">ExceptionHandlerTableEntry (CLR_RECORD_EH)</h1>
+
+<p>The Exception Handler table contains entries for the exception handling blocks within a method. If a method has the <code>MethodDefFlags::HasExceptionHandlers</code> flag
+set then the last byte of the ByteCode table for the method is the number of Exception handlers for the method. The exception handlers precede the count in the byte code stream (e.g. with a negative offset from the size).</p>
+<p><strong>NOTE:</strong>
+This means that instances of this structure stored in a PE image may be stored at an address that is <strong>NOT</strong> correctly aligned for the structure. Thus consumers should always copy the data into a properly aligned buffer.</p>
+<p><strong><em>REVIEW:</em></strong>
+In a future revision of the PE binary format this should be managed by inserting padding into the ByteCode stream so that copying and dealing with unaligned data isn't needed.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mode</td>
+<td>ExceptionHandlerMode</td>
+<td>Mode for the exception handler</td>
+</tr>
+<tr>
+<td>ClassToken(<a href="#Notes">1</a>)</td>
+<td>TypeRefOrTypeDef</td>
+<td>Class token for the handler</td>
+</tr>
+<tr>
+<td>FilterStart</td>
+<td>MetadataOffset</td>
+<td>Offset into the IL ByteCode stream for the filter code</td>
+</tr>
+<tr>
+<td>TryStart</td>
+<td>MetadataOffset</td>
+<td>Offset into the IL ByteCode stream for the starting range this handler covers</td>
+</tr>
+<tr>
+<td>TryEnd</td>
+<td>MetadataOffset</td>
+<td>Offset into the IL ByteCode stream for the end of the range this handler covers</td>
+</tr>
+<tr>
+<td>HandlerStart</td>
+<td>MetadataOffset</td>
+<td>Offset into the IL ByteCode stream for the start of the exception handler</td>
+</tr>
+<tr>
+<td>HandlerEnd</td>
+<td>MetadataOffset</td>
+<td>Offset into the IL ByteCode stream for the end of the exception handler</td>
+</tr>
+</tbody>
+</table>
+<h6 id="notes">Notes</h6>
+<ol>
+<li>The Mode, ClassToken and FilterStart form a discriminated union with the mode as the discriminator and the ClassToken and FilterStart sharing the same memory location. That is the ClassToken and FilterStart are representable as a C/C++ anonymous union.</li>
+<li>Start and End offsets are inclusive</li>
+</ol>
+<h2 id="exceptionhandlermode">ExceptionHandlerMode</h2>
+<p>The exception handler mode determines the specific mode for the exception handler, the base type for the enumeration is a uint16_t</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catch</td>
+<td>0x0000</td>
+<td>Exception handler is a catch handler for a specific type</td>
+</tr>
+<tr>
+<td>CatchAll</td>
+<td>0x0001</td>
+<td>Exception handler catches all exceptions, regardless of type</td>
+</tr>
+<tr>
+<td>Finally</td>
+<td>0x0002</td>
+<td>Exception handler is a Finally block</td>
+</tr>
+<tr>
+<td>Filter</td>
+<td>0x0003</td>
+<td>Exception handler is a filter block</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/ExceptionHandlerTableEntry.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

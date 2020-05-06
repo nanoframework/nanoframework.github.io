@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ResourcesTableEntry (CLR_RECORD_RESOURCE) | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ResourcesTableEntry (CLR_RECORD_RESOURCE) | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="resourcestableentry-clr_record_resource">ResourcesTableEntry (CLR_RECORD_RESOURCE)</h1>
+
+<p>The Resources table is used to describe the resources bound to an assembly</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>uint16_t</td>
+<td>Id of the resource</td>
+</tr>
+<tr>
+<td>Kind</td>
+<td>ResourceKind</td>
+<td>Kind of the resource</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>uint8_t</td>
+<td>Flags for the resource</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>ResourcesDataTableIndex</td>
+<td>Index into the ResourcesData blob table</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resourcekind">ResourceKind</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invalid</td>
+<td>0x00</td>
+<td>Invalid entry</td>
+</tr>
+<tr>
+<td>Bitmap</td>
+<td>0x01</td>
+<td>The resource is a Bitmap</td>
+</tr>
+<tr>
+<td>Font</td>
+<td>0x02</td>
+<td>The resource is a Font in the TinyCLR Font format</td>
+</tr>
+<tr>
+<td>String</td>
+<td>0x03</td>
+<td>The resource is a String</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>0x04</td>
+<td>The resource is a binary blob</td>
+</tr>
+</tbody>
+</table>
+<h2 id="manifest-constants">Manifest Constants</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SentinelId</td>
+<td>0x7FFF</td>
+<td>Sentinel marker (See <a href="#Notes">Notes</a> for details)</td>
+</tr>
+<tr>
+<td>FlagsPaddingMask</td>
+<td>0x03</td>
+<td>Mask for lower two bits of flags to retrieve padding (See <a href="#Notes">Notes</a> for details)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes</h2>
+<p>The last entry in the Resources table will have:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>SentinelId</td>
+</tr>
+<tr>
+<td>Kind</td>
+<td>Invalid</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Size of the ResourceData table</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>This is used to ensure that the preceding entry can use the offset of the last entry
+to compute the size of its data in the ResourceData blob table.</p>
+<p>The lower two bits of the flags is the padding applied to align this entries data in
+the ResourcesData blob table. That is, the size of the previous entries data is the
+offset of this entry minus the offset of the previous entry minus the padding for this
+entry. Or to put that another way, to compute the size of a resource requires a reference
+to the next entry in the table. With the next entry the size is computable using the
+following formula:</p>
+<p><code>sizeOfResource = next.Offset - Offset + ( next.Flags &amp; FlagsPaddingMask )</code></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/ResourcesTableEntry.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

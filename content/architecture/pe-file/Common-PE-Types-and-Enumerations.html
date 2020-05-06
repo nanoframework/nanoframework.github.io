@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Philosophy | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Philosophy | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="philosophy">Philosophy</h1>
+
+<p>The PE File format is expressed in terms of a number of common types. In code these are generally realized as an enumeration, typedef or type alias of some sort o help ensure both clarity of code and correctness of use. This additional clarity and type safety is preferred over use of raw primitive types directly as they onvey no real meaning beyond their basic ranges making correct use of the code less obvious and more error prone.</p>
+<h2 id="table-index">Table Index</h2>
+<p>Many PE data structures store an index into a particular table index as a field. This table defines the type names used to store the index and which table it is an index into.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>underlying type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>StringTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the string table (see: <a href="StringTables.md">StringTables</a>) for more details)</td>
+</tr>
+<tr>
+<td>TypeDefTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the type definition table</td>
+</tr>
+<tr>
+<td>TypeRefTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the type reference table</td>
+</tr>
+<tr>
+<td>FieldDefTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the field definition table</td>
+</tr>
+<tr>
+<td>MethodDefTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the method definition table</td>
+</tr>
+<tr>
+<td>SigTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the signature table (see: <a href="SignatureBlobs.md">SignatureBlobs</a> for more details)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="emptyindex-constant">EmptyIndex Constant</h2>
+<p>Since an index values are used to access members of a table and since (in C, C++, and many other languages) tables are indexed with the first element as index == 0 the value 0 is not useable as a constant to indicate &quot;none&quot; or &quot;null&quot;. Thus a dedicated value is used for <strong>nanoFramework</strong> metadata tables. Any index with the value 0xFFFF is considered the EmptyIndex and this is normally defined as a manifest constant for the entire code base to test against.</p>
+<h2 id="tablekind">TableKind</h2>
+<p>The TableKind enumeration identifies a specific table in the assembly metadata.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AssemblyRef</td>
+<td>0x0000</td>
+<td>Assembly reference table</td>
+</tr>
+<tr>
+<td>TypeRef</td>
+<td>0x0001</td>
+<td>Type Reference Table</td>
+</tr>
+<tr>
+<td>FieldRef</td>
+<td>0x0002</td>
+<td>Field Reference table</td>
+</tr>
+<tr>
+<td>MethodRef</td>
+<td>0x0003</td>
+<td>Method Reference Table</td>
+</tr>
+<tr>
+<td>TypeDef</td>
+<td>0x0004</td>
+<td>Type Definition Table</td>
+</tr>
+<tr>
+<td>FieldDef</td>
+<td>0x0005</td>
+<td>Field Definition Table</td>
+</tr>
+<tr>
+<td>MethodDef</td>
+<td>0x0006</td>
+<td>Method Definition Table</td>
+</tr>
+<tr>
+<td>Attributes</td>
+<td>0x0007</td>
+<td>Attribute Table</td>
+</tr>
+<tr>
+<td>TypeSpec</td>
+<td>0x0008</td>
+<td>Type Specification Table</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>0x0009</td>
+<td>Resources Table</td>
+</tr>
+<tr>
+<td>ResourcesData</td>
+<td>0x000A</td>
+<td>Resource Data Blob Table</td>
+</tr>
+<tr>
+<td>Strings</td>
+<td>0x000B</td>
+<td>String Blob table</td>
+</tr>
+<tr>
+<td>Signatures</td>
+<td>0x000C</td>
+<td>Signature Blob table</td>
+</tr>
+<tr>
+<td>ByteCode</td>
+<td>0x000D</td>
+<td>IL Byte Code Stream Blob Table</td>
+</tr>
+<tr>
+<td>ResourcesFiles</td>
+<td>0x000E</td>
+<td>Resource Files Table</td>
+</tr>
+<tr>
+<td>EndOfAssembly</td>
+<td>0x000F</td>
+<td>End of Assembly Table (Used to quickly find the end of the assembly when scanning assemblies)</td>
+</tr>
+<tr>
+<td>Max</td>
+<td>0x0010</td>
+<td>End of enumeration valid enumeration values must be <strong><em>less</em></strong> than this value</td>
+</tr>
+</tbody>
+</table>
+<h2 id="miscellaneous-types">Miscellaneous Types</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>underlying type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MetadataOffset</td>
+<td>unsigned 16 bit integer</td>
+<td>Offset from the start of the IL instruction stream blob data</td>
+</tr>
+<tr>
+<td>MetadataPtr</td>
+<td>pointer to a const byte</td>
+<td>Pointer to the interior of the IL instruction stream blob data</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tokens">Tokens</h2>
+<p>Many instructions in IL and fields of data structures contain a token. Tokens in IL Metadata reference some other piece of metadata in the assembly. Tokens contain the table the token refers to along with an index into the table into a single primitive integral value. In <strong>nanoFramework</strong> PE files there are two kinds of tokens MetadataToken and a more compact BinaryToken.</p>
+<h3 id="metadata-token">Metadata Token</h3>
+<p>A metadata token is an unsigned 32 bit value where the Most significant byte is the table kind and the least significant 16 bits are the table index (In <strong>nanoFramework</strong> PE format a table index is 16bits only thus there are 8 bits of unused data in a MetadataToken)</p>
+<h3 id="binary-token">Binary Token</h3>
+<p>A Binary Token is a compact form of representing an index to one of two possible tables. Binary tokens are 16 but unsigned integers where the most significant bit is used to determine which of two possible tables the remaining 15 bits provide the index for. The following table provides the type name aliases for the various combinations of tables used in <strong>nanoFramework</strong> PE metadata.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>MSB==1 Table</th>
+<th>MSB==0 Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TypeRefOrAssemblyRef</td>
+<td>TypeRef</td>
+<td>AssemblyRef</td>
+</tr>
+<tr>
+<td>TypeRefOrTypeDef</td>
+<td>TypeRef</td>
+<td>TypeDef</td>
+</tr>
+<tr>
+<td>MethodRefOrMethodDef</td>
+<td>MethodRef</td>
+<td>MethodDef</td>
+</tr>
+<tr>
+<td>FieldRefOrFieldDef</td>
+<td>FieldRef</td>
+<td>FieldDef</td>
+</tr>
+</tbody>
+</table>
+<h2 id="versioninfo">VersionInfo</h2>
+<p>Many <strong>nanoFramework</strong> PE data structures include a version. The versions, when presented for readability are typically represented as a quad of 4 integer values separated by a '.' (i.e. 1.2.3.4) the following table defines the Version info structure used in the PE file to represent a version.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Major</td>
+<td>unsigned 16 bit integer</td>
+<td>Major component of the common version quad</td>
+</tr>
+<tr>
+<td>Minor</td>
+<td>unsigned 16 bit integer</td>
+<td>Minor component of the common version quad</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>unsigned 16 bit integer</td>
+<td>Build component of the common version quad</td>
+</tr>
+<tr>
+<td>Revision</td>
+<td>unsigned 16 bit integer</td>
+<td>Revision component of the common version quad</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datatype">DataType</h2>
+<p>The <code>DataType</code> enumeration corresponds to the ECMA ELEMENT_TYPE_xxxx, however the
+actual numeric values are not the same as the interpreter uses only a reduced
+sub-set of the standard values.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Void</td>
+<td>0 byte void value</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>1 byte boolean value</td>
+</tr>
+<tr>
+<td>I1</td>
+<td>8 bit signed integer</td>
+</tr>
+<tr>
+<td>U1</td>
+<td>8 bit unsigned integer</td>
+</tr>
+<tr>
+<td>CHAR</td>
+<td>16 bit UTF-16 character</td>
+</tr>
+<tr>
+<td>I2</td>
+<td>16 bit signed integer</td>
+</tr>
+<tr>
+<td>U2</td>
+<td>16 bit unsigned integer</td>
+</tr>
+<tr>
+<td>I4</td>
+<td>32 bit signed integer</td>
+</tr>
+<tr>
+<td>U4</td>
+<td>32 bit unsigned integer</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>32 bit IEEE-754 floating point value</td>
+</tr>
+<tr>
+<td>I8</td>
+<td>64 bit signed integer</td>
+</tr>
+<tr>
+<td>U8</td>
+<td>64 bit unsigned integer</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>64 bit IEEE-754 floating point value</td>
+</tr>
+<tr>
+<td>DateTime</td>
+<td>8 bytes - Shortcut for System.DateTime</td>
+</tr>
+<tr>
+<td>TimeSpan</td>
+<td>8 bytes - Shortcut for System.TimeSpan</td>
+</tr>
+<tr>
+<td>String</td>
+<td>4 bytes - short cut for reference to System.String</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>4 bytes - Shortcut for reference to System.Object</td>
+</tr>
+<tr>
+<td>Class</td>
+<td>CLASS <code>&lt;class Token&gt;</code></td>
+</tr>
+<tr>
+<td>ValueType</td>
+<td>VALUETYPE <code>&lt;class Token&gt;</code></td>
+</tr>
+<tr>
+<td>SZArray</td>
+<td>Shortcut for single dimension zero lower bound array SZARRAY <code>&lt;type&gt;</code></td>
+</tr>
+<tr>
+<td>ByRef</td>
+<td>BYREF <code>&lt;type&gt;</code></td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/Common-PE-Types-and-Enumerations.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

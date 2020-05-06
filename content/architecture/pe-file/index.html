@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>.NET nanoFramework PE File Format | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=".NET nanoFramework PE File Format | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="net-nanoframework-pe-file-format">.NET <strong>nanoFramework</strong> PE File Format</h1>
+
+<p>The .NET <strong>nanoFramework</strong> PE data format is based on the ECMA-335 specification. Specifically sections II.22 - II.24.
+Due to the constraints of the systems <strong>nanoFramework</strong> targets the PE file format is not an exact match/implementation of the ECMA-335 specification. <strong>nanoFramework</strong> PE file format is essentially an extended subset of the format defined in ECMA-335.</p>
+<h2 id="major-differences-from-ecma-335">Major differences from ECMA-335</h2>
+<ul>
+<li>The number and size of the metadata tables is limited in <strong>nanoFramework</strong> to keep the overall memory footprint as low as possible.</li>
+<li>The Windows PE32/COFF header, tables and information is stripped out.</li>
+<li>Switch instruction branch table index is limited to 8 bits.</li>
+<li>Table indexes are limited to 12 bits.</li>
+<li>This also means that the metadata tokens are 16 bits and not 32 so the actual IL instruction stream is different for <strong>nanoFramework</strong>.</li>
+<li>Resources are handled in a very different manner with their own special table in the assembly header.</li>
+</ul>
+<h2 id="file-data-structure">File Data Structure</h2>
+<p>The PE file starts with an <a href="AssemblyHeader.html">Assembly header</a> which is the top level structure of every <strong>nanoFramework</strong> PE file. On disk the AssemblyHeader structure is at offset 0 of the .PE file. On the device the AssemblyHeader is aligned at a 32 bit boundary within a well known ROM/FLASH region (the Deployment region) with the first assembly at offset 0 of the region. Immediately following the assembly header is the metadata table data. Since there are no fixed requirements that an assembly requires all possible tables or what the number of entries in each table will be, the exact size and location of the start of each table's data is entirely described within the header including the end of the assembly, which is used to compute the start location of any subsequent assemblies in memory.</p>
+<pre><code>+-----------------+ &lt;--- Aligned to 32 bit boundary in memory
+| AssemblyHeader  |   
++-----------------+
+| Metadata        |
++-----------------+
+| { padding }     |
++-----------------+ &lt;--- Aligned to 32 bit boundary in memory
+| AssemblyHeader  |   
++-----------------+
+| Metadata        |
++-----------------+ 
+| { padding }     |
++-----------------+ &lt;--- Aligned to 32 bit boundary in memory
+|  ...            |
+</code></pre>
+<h2 id="structures-for-the-other-table-entries">Structures for the other table entries</h2>
+<ul>
+<li><p><a href="AssemblyRefTableEntry.html">AssemblyRef Table</a></p>
+</li>
+<li><p><a href="AttributeTableEntry.html">Attribute Table </a></p>
+</li>
+<li><p><a href="ExceptionHandlerTableEntry.html">ExceptionHandler Table </a></p>
+</li>
+<li><p><a href="FieldRefTableEntry.html">FieldRef Table </a></p>
+</li>
+<li><p><a href="MethodDefTableEntry.html">MethodDef Table </a></p>
+</li>
+<li><p><a href="MethodRefTableEntry.html">MethodRef Table </a></p>
+</li>
+<li><p><a href="ResourcesTableEntry.html">Resources Table </a></p>
+</li>
+<li><p><a href="TypeDefTableEntry.html">TypeDef Table </a></p>
+</li>
+<li><p><a href="TypeRefTableEntry.html">TypeRef Table </a></p>
+</li>
+<li><p><a href="TypeSpecTableEntry.html">TypeSpec Table </a></p>
+</li>
+<li><p><a href="Common-PE-Types-and-Enumerations.html">Common PE Types and Enumerations</a></p>
+<blockquote>
+<p>Note: the documentation for the PE file format was taken from the original one at .NET Micro Framework.</p>
+</blockquote>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

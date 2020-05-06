@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AssemblyHeader (CLR_RECORD_ASSEMBLY) | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AssemblyHeader (CLR_RECORD_ASSEMBLY) | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="assemblyheader-clr_record_assembly">AssemblyHeader (CLR_RECORD_ASSEMBLY)</h1>
+
+<p>The AssemblyHeader structure contains a number of verification markers and CRCs to validate the legitimacy of the assembly at
+runtime. Additionally, the Assembly header contains the location information for the MetadataTables and BLOB storage areas.</p>
+<p>The Structure of the AssemblyHeader is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#marker">Marker</a></td>
+<td><code>uint8_t[8]</code></td>
+<td>Id marker for an assembly</td>
+</tr>
+<tr>
+<td><a href="#headercrc">HeaderCRC</a></td>
+<td><code>uint32_t</code></td>
+<td>CRC32 of the AssemblyHeader structure itself</td>
+</tr>
+<tr>
+<td><a href="#assemblycrc">AssemblyCRC</a></td>
+<td><code>uint32_t</code></td>
+<td>CRC32 of the complete assembly</td>
+</tr>
+<tr>
+<td><a href="#flags">Flags</a></td>
+<td><a href="#flags">AssemblyHeaderFlags</a></td>
+<td>Flags for the assembly</td>
+</tr>
+<tr>
+<td><a href="#nativemethodschecksum">NativeMethodsChecksum</a></td>
+<td><code>uint32_t</code></td>
+<td>Native Method Checksum</td>
+</tr>
+<tr>
+<td><a href="#patchentryoffset">PatchEntryOffset</a></td>
+<td><code>uint32_t</code></td>
+<td>Offset into ResourceData table of patch native method</td>
+</tr>
+<tr>
+<td><a href="#version">Version</a></td>
+<td><code>VersionInfo</code></td>
+<td>Version information data structure for this assembly</td>
+</tr>
+<tr>
+<td><a href="#assemblyname">AssemblyName</a></td>
+<td><code>uint16_t</code></td>
+<td>String table index for the Assembly's name</td>
+</tr>
+<tr>
+<td><a href="#startoftables">StartOfTables</a></td>
+<td><code>uint32_t[16]</code></td>
+<td>Array of offsets into the PE file for the metadata tables</td>
+</tr>
+<tr>
+<td>NumPatchedMethods</td>
+<td><code>uint32_t</code></td>
+<td>(Deprecated) No longer used</td>
+</tr>
+<tr>
+<td><a href="#paddingoftables">PaddingOfTables</a></td>
+<td><code>uint8_t[16]</code></td>
+<td>amount of alignment padding for each metadata table</td>
+</tr>
+</tbody>
+</table>
+<h2 id="field-details">Field Details</h2>
+<p>The following sections describe the individual fields of the AssemblyHeader structure.</p>
+<h3 id="marker">Marker</h3>
+<p>The assembly marker is an eight character marker consisting of a string non zero terminated ASCII encoded characters.
+This is used to clearly identify a .NET <strong>nanoFramework</strong> PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases <strong>MUST</strong> use a new marker string. For all released versions of <strong>nanoFramework</strong> this string is 'NFMRK1'.</p>
+<h3 id="header-crc">Header CRC</h3>
+<p>ANSI X3.66 32 bit CRC for the AssemblyHeader. This is computed assuming the HeaderCRC and AssemblyCRC fields are 0.</p>
+<h3 id="assembly-crc">Assembly CRC</h3>
+<p>ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data. This is computed assuming the HeaderCRC and AssemblyCRC fields
+are 0.</p>
+<h3 id="flags">Flags</h3>
+<p>The flags property are meant to contain a bit flags value. They are not used in <strong>nanoFramework</strong> and were kept for historical reasons and structure compatibility.</p>
+<h3 id="nativemethodschecksum">NativeMethodsChecksum</h3>
+<p>The <em><strong>NativeMethodsChecksum</strong></em> is a unique value that is matched against the native methods table stored in the CLR firmware to ensure the methods match. The actual algorithm used for computing this checksum are documented in the [NativeMethodsChecksum Algorithm] document. Though, it worth noting that the actual algorithm doesn't matter. Nothing in the runtime will compute this value. The runtime only compares the assembly's value with the one for the native code registered for a given assembly to ensure they match. As long as the tool generating the assembly and the native method stubs header and code files use the same value then the actual algorithm is mostly irrelevant. The most important aspect of the algorithm chosen is that any change to any type or method signature
+of any type with native methods <strong>MUST</strong> generate a distinct checksum value. The current MetadataProcessor algorithm constructs a mangled string name for the native methods (used to generate the stubs), sorts them all and runs a CRC32 across them to get a distinct value. Since the CRC is based on the fully qualified method name and the types of all parameters any change of the signatures will generate a new value - denoting a mismatch.</p>
+<h3 id="patchentryoffset">PatchEntryOffset</h3>
+<p>The <em><strong>PatchEntryOffset</strong></em> field is an offset into the assemblies ResourceData blob table where native &quot;patch&quot; code exists. At runtime if this is not 0xFFFFFFFF then the CLR will compute a physical address of the start of the patch code and call the function located there. The function must be position independent and must have the following signature <code>void PatchEntry()</code> This is a very limited mechanism at present and ultimately requires deep knowledge of the underlying platform HAL/PAL etc... to be of any real use. Of special importance is the location of the assembly in physical memory as many micro controllers limit the memory addresses where executable code can reside. (i.e. internal flash or RAM only ) thus, this is not a generalized extensibility/dynamically loaded native code mechanism.</p>
+<h3 id="version">Version</h3>
+<p>The <em><strong>Version</strong></em> field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the debugger for version checks at deployment time. The runtime itself doesn't use versions to resolve references, as only one version of an assembly can be loaded at a time. Thus assembly references in the PE format don't include a version.</p>
+<h3 id="assemblyname">AssemblyName</h3>
+<p><a href="StringTable.md">String Table</a> index for the name of the assembly</p>
+<h3 id="startoftables">StartOfTables</h3>
+<p>Fixed array of offsets to the table data for each of the 16 different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th><strong>nanoFramework</strong> Source Element Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="AssemblyRefTableEntry.html">AssemblyRef</a></td>
+<td>CLR_RECORD_ASSEMBLYREF</td>
+<td>Table of Assembly references</td>
+</tr>
+<tr>
+<td><a href="TypeRefTableEntry.html">TypeRef</a></td>
+<td>CLR_RECORD_TYPEREF</td>
+<td>Reference to a type in another assembly</td>
+</tr>
+<tr>
+<td><a href="FieldRefTableEntry.html">FieldRef</a></td>
+<td>CLR_RECORD_FIELDREF</td>
+<td>Reference to a field of a type in another assembly</td>
+</tr>
+<tr>
+<td><a href="MethodRefTableEntry.html">MethodRef</a></td>
+<td>CLR_RECORD_METHODREF</td>
+<td>Reference to a method of a type in another assembly</td>
+</tr>
+<tr>
+<td><a href="TypeDefTableEntry.html">TypeDef</a></td>
+<td>CLR_RECORD_TYPEDEF</td>
+<td>Type definition for a type in this assembly</td>
+</tr>
+<tr>
+<td><a href="FieldDefTableEntry.md">FieldDef</a></td>
+<td>CLR_RECORD_FIELDDEF</td>
+<td>Field definition for a type in this assembly</td>
+</tr>
+<tr>
+<td><a href="MethodDefTableEntry.html">MethodDef</a></td>
+<td>CLR_RECORD_METHODDEF</td>
+<td>Method definition for a type in this assembly</td>
+</tr>
+<tr>
+<td><a href="AttributesTableEntry.md">Attributes</a></td>
+<td>CLR_RECORD_ATTRIBUTE</td>
+<td>Attribute types defined in this assembly</td>
+</tr>
+<tr>
+<td><a href="TypeSpecTableEntry.html">TypeSpec</a></td>
+<td>CLR_RECORD_TYPESPEC</td>
+<td>TypeSpecifications (signatures) used in this assembly</td>
+</tr>
+<tr>
+<td><a href="ResourcesTableEntry.html">Resources</a></td>
+<td>CLR_RECORD_RESOURCE</td>
+<td>Resource items in a resource file bound to this assembly</td>
+</tr>
+<tr>
+<td><a href="ResourcesDataBlob.md">ResourcesData</a></td>
+<td>&lt;blob&gt;</td>
+<td>Blob table data for the resources</td>
+</tr>
+<tr>
+<td><a href="StringsBlob.md">Strings</a></td>
+<td>&lt;blob&gt;</td>
+<td>Blob table data for the strings</td>
+</tr>
+<tr>
+<td><a href="SignaturesBlob.md">Signatures</a></td>
+<td>&lt;blob&gt;</td>
+<td>Blob table data for the metadata signatures</td>
+</tr>
+<tr>
+<td><a href="ByteCodeBlob.md">ByteCode</a></td>
+<td>&lt;blob&gt;</td>
+<td>Blob table data for the IL byte code instructions</td>
+</tr>
+<tr>
+<td><a href="ResourcesFilesTableEntry.md">ResourcesFiles</a></td>
+<td>CLR_RECORD_RESOURCE_FILE</td>
+<td>Resource files descriptors for resource files bound to this assembly</td>
+</tr>
+<tr>
+<td><a href="EndOfAssembly.md">EndOfAssembly</a></td>
+<td>&lt;N/A&gt;</td>
+<td>Technically, this is not a table. Instead this entry contains the offset to the end of the assembly, which is useful for finding the next assembly in a DAT region</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paddingoftables">PaddingOfTables</h3>
+<p>For every table, a number of bytes that were padded to the end of the table to align the next table to a 32bit boundary. The start of each table is aligned to a 32bit boundary, and ends at a 32bit boundary.
+Some of these tables will, therefore, have no padding, and all will have values in the range [0-3]. This isn't the most compact form to hold this information, but it only costs 16 bytes/assembly. Trying to only align some of the tables is just much more hassle than it's worth. This field itself must also be aligned on a 32 bit boundary. This padding is used to compute the size of a given table (including the blob data) using the following formula:</p>
+<p><code>TableSize = StartOfTables[ tableindex + 1 ] - StartOfTables[ tableindex ] - PaddingOfTables[ tableindex ]</code></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/AssemblyHeader.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
