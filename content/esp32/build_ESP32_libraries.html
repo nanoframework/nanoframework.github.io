@@ -8,7 +8,7 @@
     <title>Build the ESP32 IDF Libraries | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Build the ESP32 IDF Libraries | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.52.0.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -79,10 +79,10 @@
 
 <p>Using the instructions on the Espressif <a href="https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html">website</a>.</p>
 <p>Download the complete Msys2 enviroment and toolchain and unzip to c:\msys2</p>
-<p>Download the required <a href="https://github.com/espressif/esp-idf/releases/download/v3.3/esp-idf-v3.3.zip">ESP IDF</a> into the nanoClr build default location c:\Esp32_tools\esp-idf-v3.3</p>
-<p>Set up your Windows environment with the IDF_PATH=c:\Esp32_tools\esp-idf-v3.3</p>
+<p>Download the required <a href="https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.1.zip">ESP IDF</a> into the nanoClr build default location c:\Esp32_tools\esp-idf-v3.3.1</p>
+<p>Set up your Windows environment with the IDF_PATH=c:\Esp32_tools\esp-idf-v3.3.1</p>
 <p>Start Msys command shell C:\msys32\mingw32.exe</p>
-<pre><code class="lang-cmd"> cd /c/esp32_tools/esp-idf-v3.3/examples/get-started/blink/
+<pre><code class="lang-cmd"> cd /c/esp32_tools/esp-idf-v3.3.1/examples/get-started/blink/
 </code></pre>
 <p>run:</p>
 <pre><code class="lang-cmd">make menuconfig
@@ -95,14 +95,15 @@
 <li>LWIP SO RCVbuf</li>
 <li>Component config/Bluetooth enable</li>
 <li>FatFS Long filename support(Heap)</li>
+<li>Psram autodetect 32bit or 64bit</li>
 </ul>
 <p>Save and Exit</p>
 <p>Run <em>make</em> to build blink project</p>
 <p>Exit msys2</p>
-<p><em>Copy the libraries to the Esp32_tools/lib-v3.3 directory</em></p>
-<p>Copy the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32\CopyLibs.cmd to the  c:\esp32_tools\esp-idf-v3.3\examples\get-started\blink directory
+<p><em>Copy the libraries to the Esp32_tools/lib-v3.3.1 directory</em></p>
+<p>Copy the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32\CopyLibs.cmd to the  c:\esp32_tools\esp-idf-v3.3.1\examples\get-started\blink directory
 Open windows command in same directory and run batch file.</p>
-<p>This will create and copy all the libraries plus the bootloader.bin to the c:\esp32_tools\libs-v3.3 directory</p>
+<p>This will create and copy all the libraries plus the bootloader.bin to the c:\esp32_tools\libs-v3.3.1 directory</p>
 <p>copy the updated build/include/sdkconfig.h to the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32 directory</p>
 <h2 id="checkupdate-build-files">Check/update build files</h2>
 <p>In the nf-interpreter repo check/update the following files:</p>

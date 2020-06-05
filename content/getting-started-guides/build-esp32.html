@@ -8,7 +8,7 @@
     <title>How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.52.0.0">
+    <meta name="generator" content="docfx 2.54.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -156,8 +156,8 @@ For best results, run in an elevated command prompt, otherwise setting system en
 <p>The script will create the following sub-folders (see manual install below and appveyor.yml)</p>
 <ul>
 <li><code>C:\Esp32_Tools</code></li>
-<li><code>C:\Esp32_Tools\esp-idf-v3.3</code></li>
-<li><code>C:\Esp32_Tools\libs-v3.3</code></li>
+<li><code>C:\Esp32_Tools\esp-idf-v3.3.1</code></li>
+<li><code>C:\Esp32_Tools\libs-v3.3.1</code></li>
 <li><code>C:\Esp32_Tools\ninja</code></li>
 <li><code>C:\Esp32_Tools\openocd-esp32</code></li>
 </ul>
@@ -165,8 +165,8 @@ For best results, run in an elevated command prompt, otherwise setting system en
 <ul>
 <li><code>ESP32_TOOLS_PATH = C:\ESP32_TOOLS</code></li>
 <li><code>ESP32_TOOLCHAIN_PATH = C:\ESP32_TOOLS\xtensa-esp32-elf</code></li>
-<li><code>ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3</code></li>
-<li><code>IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3</code></li>
+<li><code>ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3.1</code></li>
+<li><code>IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3.1</code></li>
 <li><code>NINJA_PATH = C:\ESP32_TOOLS\ninja</code></li>
 </ul>
 <p>The following ESP32 settings files will be created and the place-holder values set to the respective default install paths.</p>
@@ -176,8 +176,8 @@ For best results, run in an elevated command prompt, otherwise setting system en
 <li><code>.\.vscode\launch.json</code> as a copy of <code>.\.vscode\launch.TEMPLATE-ESP32.json</code> with install paths set</li>
 <li><code>.\.vscode\settings.json</code> as a copy of <code>.\.vscode\settings.TEMPLATE-ESP32.json</code></li>
 </ul>
-<p>Edit all these files and audit their content. You may need to replace some paths, for example: <code>&lt;absolute-path-to-the-toolchain-folder-mind-the-forward-slashes&gt;</code> with <code>C:/ESP32_TOOLS/esp-idf-v3.3</code></p>
-<p>Please note all these JSON files require all paths separators to be forward slashes <code>/</code>. Example: <code>C:\ESP32_TOOLS\esp-idf-v3.3</code> will need to be typed like this: <code>C:/ESP32_TOOLS/esp-idf-v3.3</code> (forward slash manner)</p>
+<p>Edit all these files and audit their content. You may need to replace some paths, for example: <code>&lt;absolute-path-to-the-toolchain-folder-mind-the-forward-slashes&gt;</code> with <code>C:/ESP32_TOOLS/esp-idf-v3.3.1</code></p>
+<p>Please note all these JSON files require all paths separators to be forward slashes <code>/</code>. Example: <code>C:\ESP32_TOOLS\esp-idf-v3.3.1</code> will need to be typed like this: <code>C:/ESP32_TOOLS/esp-idf-v3.3.1</code> (forward slash manner)</p>
 <h2 id="manual-install-of-the-build-environment-for-esp32">Manual Install of the build environment for ESP32</h2>
 <p>These steps are not required if you used the Automated Install script.</p>
 <p>To save time on building the nanoCLR and to avoid having to create a CMakeLists.txt project for the ESP32 IDF files, the ESP32 IDF libraries are prebuilt using the Esp32 Msys32 environment then used for linking in the CMake build of nanoCLR.
@@ -186,12 +186,12 @@ This has already been done and the libraries can be just be downloaded.</p>
 <li><p>Create a directory such as the following:</p>
 <ul>
 <li><code>C:\Esp32_Tools</code></li>
-<li><code>C:\Esp32_Tools\libs-v3.3</code></li>
+<li><code>C:\Esp32_Tools\libs-v3.3.1</code></li>
 </ul>
 </li>
-<li><p>Download the pre-built libs zip from <a href="https://bintray.com/nfbot/internal-build-tools/download_file?file_path=IDF_libs-v3.3.zip">here</a> and extract it into <code>C:\Esp32_Tools\libs-v3.3</code>.</p>
+<li><p>Download the pre-built libs zip from <a href="https://bintray.com/nfbot/internal-build-tools/download_file?file_path=IDF_libs-v3.3.1.zip">here</a> and extract it into <code>C:\Esp32_Tools\libs-v3.3.1</code>.</p>
 </li>
-<li><p>Download the v3.3 IDF source zip file from <a href="https://github.com/espressif/esp-idf/releases/download/v3.3/esp-idf-v3.3.zip">here</a> and extract it into <code>C:\Esp32_Tools</code> so you get <code>C:\ESP32_Tools\esp-idf-v3.3\components</code> etc.</p>
+<li><p>Download the v3.3.1 IDF source zip file from <a href="https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.1.zip">here</a> and extract it into <code>C:\Esp32_Tools</code> so you get <code>C:\ESP32_Tools\esp-idf-v3.3\components</code> etc.</p>
 </li>
 <li><p>Download the Esp32 toolchain from <a href="https://dl.espressif.com/dl/xtensa-esp32-elf-win32-1.22.0-80-g6c4433a-5.2.0.zip">here</a> and extract it into <code>C:\Esp32_Tools</code> so you get <code>C:\Esp32_Tools\xtensa-esp32-elf</code>.</p>
 </li>
@@ -206,8 +206,8 @@ This has already been done and the libraries can be just be downloaded.</p>
 <ul>
 <li><code>ESP32_TOOLS_PATH = C:\ESP32_TOOLS</code></li>
 <li><code>ESP32_TOOLCHAIN_PATH = C:\ESP32_TOOLS\xtensa-esp32-elf</code></li>
-<li><code>ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3</code></li>
-<li><code>IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3</code></li>
+<li><code>ESP32_LIBS_PATH = C:\ESP32_TOOLS\libs-v3.3.1</code></li>
+<li><code>IDF_PATH = C:\ESP32_TOOLS\esp-idf-v3.3.1</code></li>
 <li><code>NINJA_PATH = C:\ESP32_TOOLS\ninja</code></li>
 </ul>
 </li>
@@ -383,7 +383,7 @@ The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf i
 </li>
 <li><p>If you get no error you will have in the build directory the files <code>nanoCLR.bin</code> and <code>partitions_4mb.bin</code>.</p>
 </li>
-<li><p>The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>C:/ESP32_Tools/libs-v3.3/bootloader.bin</code> if the automated install script is used.</p>
+<li><p>The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>C:/ESP32_Tools/libs-v3.3.1/bootloader.bin</code> if the automated install script is used.</p>
 <p>Note: If there are errors during the build process it is possible to end up with a partial build in the <code>build</code> folder, and the <code>CMake/Ninja</code> build process declaring a successful build despite the <code>.bin</code> targets not being created, and a <code>CMake clean</code> not helping.
 In this case deleting the contents of the <code>build</code> folder should allow the build to complete once you resolve the issues that cause the original failure.</p>
 </li>
