@@ -14,6 +14,10 @@ We provide ready build firmware images for several reference target boards. Thes
 
 - [NETDUINO3_WIFI](netduino3-wifi.md)
 
+## Orgpal boards
+
+- [OrgPal PalThree](orgpal-palthree)
+
 ## STMicroelectronics boards
 
 - [NUCLEO64_F091RC](st-nucleo64-f091rc.md)
