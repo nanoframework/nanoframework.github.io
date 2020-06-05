@@ -53,4 +53,4 @@ The ready to use firmware images provided include support for the class librarie
 
 | Stable | Preview |
 |---|---|
-| []() | [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/ORGPAL_PALTHREE/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images-dev/ORGPAL_PALTHREE/_latestVersion) |
+| [![Download](https://api.bintray.com/packages/nfbot/nanoframework-images/ORGPAL_PALTHREE/images/download.svg)](https://bintray.com/nfbot/nanoframework-images-dev/ORGPAL_PALTHREE/_latestVersion) | [![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/ORGPAL_PALTHREE/images/download.svg)](https://bintray.com/nfbot/nanoframework-images-dev/ORGPAL_PALTHREE/_latestVersion) |
