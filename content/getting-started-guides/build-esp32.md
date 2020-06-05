@@ -12,6 +12,7 @@
 - [Start with a Hello World C# application](#start-with-a-hello-world-c-application)
 - [Debug the nanoCLR](#debugging-nanoclr)
 - [Notes on JTAG Debugging on ESP32](#notes-on-jtag-debugging-on-esp32)
+- [Debug the nanoCLR without special hardware](#debugging-nanoclr-without-special-hardware)
 
 **About this document**
 
@@ -106,7 +107,6 @@ The following Environment Variables will be created for the current Windows User
 The following ESP32 settings files will be created and the place-holder values set to the respective default install paths.
 
 - `.\cmake-variants.json` as a copy of `.\cmake-variants.TEMPLATE-ESP32.json`
-- `.\.vscode\cmake-kits.json` as a copy of `.\.vscode\cmake-kits.TEMPLATE-ESP32.json`
 - `.\.vscode\tasks.json` as a copy of `.\.vscode\tasks.TEMPLATE-ESP32.json` with install paths and COM port set
 - `.\.vscode\launch.json` as a copy of `.\.vscode\launch.TEMPLATE-ESP32.json` with install paths set
 - `.\.vscode\settings.json` as a copy of `.\.vscode\settings.TEMPLATE-ESP32.json`
@@ -181,6 +181,8 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
 
     See `cmake-variants.TEMPLATE.json` for the generalised template. Be aware of the forward slashes in the paths.
     The TOOLCHAIN_PREFIX should be set to the directory where the xtensa-esp32-elf is the subdirectory.
+    
+    More info available on the [Tweaking cmake-variants.TEMPLATE.json](../building/cmake-tools-cmake-variants.md) documentation page.
 
     There is a template file called `cmake-variants.TEMPLATE-ESP32.json` that can be copied to `CMake-variants.json` and used if you followed the paths in this guide. If different install paths were used, then edit the file accordingly.
 
@@ -258,20 +260,7 @@ Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you ins
 }
 ```
 
-3. Create a `./.vscode/cmake-kits.json` from `/.vscode/cmake-kits.TEMPLATE-ESP32.json`.
-
-The default template file is ok, and may be copied to `./.vscode/cmake-kits.json`
-
-```json
-[
-  {
-    "name": "ESP32 Tools",
-    "toolchainFile": "CMake/toolchain.FreeRtos.ESP32.GCC.cmake"
-  }
-]
-```
-
-4. Create a `./.vscode/tasks.json` from `/.vscode/tasks.TEMPLATE-ESP32.json`.
+3. Create a `./.vscode/tasks.json` from `/.vscode/tasks.TEMPLATE-ESP32.json`.
 
     For flashing the nanoCLR into the ESP32 or to erase the flash of the ESP32 you will need a `tasks.json` file. You can manually copy the template (`tasks.TEMPLATE-ESP32.json`) and then adjust the COM port and the varios paths with place holders (**!!mind the forward slashes!!**) to your needs. The Power Shell script `.\install-esp32-tools.ps1` will adjust the file for you if you used it.  Use the parameter '-C COM6' to select COM6 for flashing the ESP32 DevKitC.
 
@@ -303,27 +292,25 @@ The default template file is ok, and may be copied to `./.vscode/cmake-kits.json
 }
 ```
 
-5. In the`.vscode` create a file named `settings.json` and paste the following (mind to update the path to your setup):
+4. In the`.vscode` create a file named `settings.json` and paste the following (mind to update the path to your setup):
 
 ```json
 {
     "cmake.preferredGenerators": [
         "Ninja"
     ],
-    "cmake.generator": "",
-    "cmake.useCMakeServer" : true,
+    "cmake.generator": "Ninja",
     "cmake.autoRestartBuild" : true,
     "cmake.configureSettings": {
         "CMAKE_MAKE_PROGRAM":"C:/ESP32_TOOLS/ninja/ninja.exe"
     },
-    "cmake.configureOnOpen": false,
-    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"
+    "cmake.configureOnOpen": false
 }
 ```
 
 > Note: if the path to CMake executable is on the PATH system variable the last setting (`cmake.cmakePath`) is not required.
 
-6. Save all files and exit VS Code.
+5. Save all files and exit VS Code.
 
 ## Build nanoCLR
 
@@ -473,3 +460,32 @@ The Esp32 only has 2 hardware breakpoints.
 As code is dynamically loaded unless the method has an `IRAM_ATTR` attribute any breakpoints set up at the start will cause an error when you try to debug (Unable to set breakpoint). When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
 
 For more information on JTAG debugging see [Espressif documentation](http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/).
+
+## Debugging nanoCLR without special hardware
+
+If you do not have access to any special hardware required for debug methods mentioned above you still may use some old-school technique: just place some temporary code at interesting places to get the required information. Using steps below you will get that information in Visual Studio's standard debug output window.
+Certainly Visual Studio must be debugging something to have that window in working state. So this hack will work only in cases when 
+you want to debug a nanoCLR code which can be executed via managed code.
+
+1. Write some managed code which results in a nanoCLR call executing the code you are interested in.
+2. Choose one or more places in nanoCLR code where you want to know something.
+   e.g.: What is the value of a variable? Which part of an if-else statement gets executed?
+3. Put the following temporary code there:
+
+```cpp
+        {
+            char temporaryStringBuffer[64];
+            int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), "interestingValue: %d\r\n", interestingValue);
+            CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+        }
+```
+   Or simly:
+```cpp
+        CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+```
+
+4. The boring part: rebuild and reflash firmware and your program.
+5. Start debugging in Visual Studio and keep eye on it's debug output window. 
+   You will get your messages there when the related temporary code gets executed!
+6. Iterate steps 2-5 till you find out what you were interested in.
+7. Do not forget to remove all those temporary code blocks before you accidentally commit it!
