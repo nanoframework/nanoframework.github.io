@@ -10,7 +10,8 @@ Most of the core team members and contributors are embedded systems enthusiasts,
 
 Sponsors will get their logo and link to a website on our GitHub readme and also on our home page.
 
-<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/sponsor.svg?avatarHeight=80"></a>
+<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/sponsor.svg?avatarHeight=80"></a></a>
+<a href="https://www.orgpal.com"><img src="https://www.orgpal.com/orgpallogo.png" height="50" width="114"/></a>
 
 ### Backers
 
