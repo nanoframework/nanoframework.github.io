@@ -464,7 +464,7 @@ steps:
         git -c http.extraheader="AUTHORIZATION: $auth" push origin master -q > $null
   failOnStderr: false
   ignoreLASTEXITCODE: true
-  condition: and( succeeded(), not( startsWith(variables['Build.SourceBranch'], 'refs/pull') ) )
+  condition: and( succeeded(), ne(variables['Build.Reason'], 'PullRequest') )
   displayName: Commit changes
 
 # step from template @ nf-tools repo
