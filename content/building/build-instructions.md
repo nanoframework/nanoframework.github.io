@@ -1,9 +1,14 @@
-# Instructions for building **nanoFramework** images
+# Building **nanoFramework**
 
-## Table of contents
+**nanoFramework** build system is based in CMake. Please read the instructions specific to each target series.
+
+- [STM32](build-stm32.md)
+- [ESP32](build-esp32.md)
+- [NXP](build-nxp.md)
 
 - [Prerequisites](#prerequisites)
-- [Preparation](#preparation)
+- [Pre
+paration](#preparation)
 - [Build a **nanoFramework** image](#build-a-nanoframework-image)
 - [**nanoFramework** build deliverables](#nanoframework-build-deliverables)
 
@@ -57,7 +62,7 @@ For more information on this check CMake documentation [here](https://cmake.org/
 If you are building from the command prompt, just go to your *build* directory and run CMake from there with the appropriate parameters. 
 The following is a working example:
 
-```text
+```dotnetcli
 cmake \
 -DTOOLCHAIN_PREFIX="E:/GNU_Tools_ARM_Embedded/5_4_2016q3" \
 -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain.arm-none-eabi.cmake \
