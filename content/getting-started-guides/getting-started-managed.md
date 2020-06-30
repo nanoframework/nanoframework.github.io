@@ -37,7 +37,7 @@ The second part is to load the **nanoFramework** image in the board flash. The b
 1. Perform the update by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
 (The following include the description for targets of several platforms for completeness)
 
-    - To update the firmware of an ESP32 target connected to COM31, to the latest available development version.
+    - To update the firmware of an ESP32 target connected to COM31, to the latest available development version. (Please press and hold Flash button on your board before running command and until you see 'Erasing flash..." message) 
 
         ```console
         nanoff --target ESP32_WROOM_32 --serialport COM31 --update
