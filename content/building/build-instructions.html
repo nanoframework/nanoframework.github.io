@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Instructions for building nanoFramework images | nanoFramework Documentation </title>
+    <title>Building nanoFramework | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Instructions for building nanoFramework images | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.54.0.0">
+    <meta name="title" content="Building nanoFramework | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.56.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -75,14 +75,25 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="instructions-for-building-nanoframework-images">Instructions for building <strong>nanoFramework</strong> images</h1>
+<h1 id="building-nanoframework">Building <strong>nanoFramework</strong></h1>
 
-<h2 id="table-of-contents">Table of contents</h2>
+<p><strong>nanoFramework</strong> build system is based in CMake. Please read the instructions specific to each target series.</p>
 <ul>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#preparation">Preparation</a></li>
-<li><a href="#build-a-nanoframework-image">Build a <strong>nanoFramework</strong> image</a></li>
-<li><a href="#nanoframework-build-deliverables"><strong>nanoFramework</strong> build deliverables</a></li>
+<li><p><a href="build-stm32.html">STM32</a></p>
+</li>
+<li><p><a href="build-esp32.html">ESP32</a></p>
+</li>
+<li><p><a href="build-nxp.html">NXP</a></p>
+</li>
+<li><p><a href="#prerequisites">Prerequisites</a></p>
+</li>
+<li><p><a href="#preparation">Pre
+paration</a></p>
+</li>
+<li><p><a href="#build-a-nanoframework-image">Build a <strong>nanoFramework</strong> image</a></p>
+</li>
+<li><p><a href="#nanoframework-build-deliverables"><strong>nanoFramework</strong> build deliverables</a></p>
+</li>
 </ul>
 <p><strong>About this document</strong></p>
 <p>This document describes how to build the required images for <strong>nanoFramework</strong> to be flashed in a SoC or MCU.
@@ -124,7 +135,7 @@ For more information on this check CMake documentation <a href="https://cmake.or
 <h2 id="building-from-the-command-prompt">Building from the command prompt</h2>
 <p>If you are building from the command prompt, just go to your <em>build</em> directory and run CMake from there with the appropriate parameters.
 The following is a working example:</p>
-<pre><code class="lang-text">cmake \
+<pre><code class="lang-dotnetcli">cmake \
 -DTOOLCHAIN_PREFIX=&quot;E:/GNU_Tools_ARM_Embedded/5_4_2016q3&quot; \
 -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain.arm-none-eabi.cmake \
 -DCHIBIOS_BOARD=ST_NUCLEO_F091RC \
