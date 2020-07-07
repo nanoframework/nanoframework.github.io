@@ -8,7 +8,7 @@
     <title>C/C++ Coding Style | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="C/C++ Coding Style | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.56.0.0">
+    <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -77,25 +77,25 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="cc-coding-style">C/C++ Coding Style</h1>
 
-<p>For C/C++ files (*.c, *.cpp and *.h), we use clang-format (version 3.6+) to ensure code styling.</p>
+<p>For C/C++ files (*.c, *.cpp and *.h), we use clang-format (version 3.10) to ensure code styling.
+The rules and config files are included in the nf-interpreter repository.</p>
 <h2 id="using-visual-studio-code">Using Visual Studio Code</h2>
 <p>If you are using Visual Studio Code we suggest that you install the <a href="https://marketplace.visualstudio.com/items?itemName=xaver.clang-format">Clang-Format extension</a>.
-To have this extension working you need to have the clang-format.exe installed in your system.</p>
+To have this extension working you need to have the clang-format.exe installed on your system.</p>
 <p>LLVM.org doesn't provide a separate installer for this tool so follows a quick and dirty way of getting it.</p>
 <ol>
 <li>Install the Clang-Format extension.</li>
-<li>Install the Visual Studio plugin (as described bellow) and <strong>DON'T</strong> close the install window before opening the install log.</li>
-<li>After a succesfull install of the plugin, scroll down the install log until you find the path where it was installed.</li>
-<li>Copy that path and edit your VS Code user settings.</li>
-<li>Add to the end of the setting collection the following:</li>
+<li>Install the LLVM package from GitHub <a href="https://github.com/llvm/llvm-project/releases/tag/llvmorg-10.0.0">here</a>.</li>
+<li>Take note of the path where you choose to install it.</li>
+<li>Back in VS Code, open the settings and adjust the entry for <code>clang-format.executable</code> with the path to the executable. The new setting file will have a new entry with something similar to the following:</li>
 </ol>
-<pre><code class="lang-json">&quot;clang-format.executable&quot; : &quot;C:/Users/nnnnnnnnn/AppData/Local/Microsoft/VisualStudio/14.0/Extensions/yyyyyy.zzzz/clang-format.exe&quot;
+<pre><code class="lang-json">&quot;clang-format.executable&quot; : &quot;C:/Program Files/LLVM/bin/clang-format.exe&quot;
 </code></pre>
-<p>You might have something different in your setup.
+<p>You might have something slightly different in your setup.
 Just remember the following: add that setting, the path that you've copied before, change it to have forward slashes and add the <strong>clang-format.exe</strong> at the end.</p>
-<p>After following the above steps successfully you can now right click on any C, C++ or H file and hit 'Format Document'. The VS Code extension will take care that the document is properly formated according to the coding style guidelines.</p>
+<p>After following the above steps successfully you can now right click on any C, C++ or H file and hit 'Format Document'. The VS Code extension will take care that the document is properly formatted according to the coding style guidelines.</p>
 <h2 id="using-visual-studio">Using Visual Studio</h2>
-<p>If you are using Visual Studio we suggest that you install the <a href="http://llvm.org/builds/">clang-format plugin for Visual Studio</a>.</p>
+<p>If you are using Visual Studio we suggest that you install the <a href="https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.ClangFormat">ClangFormat extension</a>.</p>
 </article>
           </div>
           
