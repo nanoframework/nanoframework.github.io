@@ -215,6 +215,20 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
+    restoreSolution: 'nanoFramework.Hardware.Esp32.Rmt\source\nanoFramework.Hardware.Esp32.Rmt.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Hardware.Esp32.Rmt\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Json\source\nanoFramework.Json.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Json\source\NuGet.config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
     restoreSolution: 'nanoFramework.Hardware.Stm32\source\nanoFramework.Hardware.Stm32.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Stm32\source\NuGet.config'
@@ -381,6 +395,20 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'nanoFramework.Hardware.Esp32\source\nanoFramework.Hardware.Esp32.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Hardware.Esp32.Rmt\source\nanoFramework.Hardware.Esp32.Rmt.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Json\source\nanoFramework.Json.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
