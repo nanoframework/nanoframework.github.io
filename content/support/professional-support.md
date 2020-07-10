@@ -4,7 +4,7 @@ Professional support is provided by core team members.
 
 Aimed at commercial users developing **nanoFramework** based projects has the objective to help them reduce their development effort and, consequently, the time to market. The support services ensure that:
 
-- Your questions will be answered correctly and in a timelly fashion.
+- Your questions will be answered correctly and in a timely fashion.
 - Bugs that you report are fixed with higher priority.
 
 The above will, obviously, help the project continuous growth.
