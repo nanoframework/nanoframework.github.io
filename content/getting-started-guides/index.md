@@ -10,6 +10,6 @@ PLEASE NOTE: You **DO NOT** have to build the firmware images to get started wit
 
 ## Build instructions
 
-- [Build nanoFramework for STM32](build-stm32.md)
-- [Build nanoFramework for ESP32](build-esp32.md)
-- [Build nanoFramework for NXP](build-nxp.md)
+- [Build nanoFramework for STM32](..\building\build-stm32.md)
+- [Build nanoFramework for ESP32](..\building\build-esp32.md)
+- [Build nanoFramework for NXP](..\building\build-nxp.md)
