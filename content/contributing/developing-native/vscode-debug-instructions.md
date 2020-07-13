@@ -29,7 +29,7 @@ Assuming you are using VS Code to launch your builds, you'll have this image rea
 (see [Build instructions documentation](build-instructions.md))
 
 In order to launch the debug session you'll need to setup the *launch.json* file, located in the .vscode folder.
-We've provided a template file [launch.TEMPLATE.json](..\.vscode\launch.TEMPLATE.json) to get you started with this. Just copy it and rename to *launch.json*.
+We've provided a template file `launch.TEMPLATE.json` (inside .vscode folder on the repository) to get you started with this. Just copy it and rename to *launch.json*.
 
 Here's what you need to change in order to adapt the template file to your setup and make it more suitable to your working style and preferences.
 

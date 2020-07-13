@@ -2,7 +2,7 @@
 
 We have several getting started guides to help you start with **nanoFramework**.
 
-PLEASE NOTE: You **DO NOT** have to build the firmware images to get started with **nanoFramework**. We provide ready to flash images for several [reference targets](content\reference-targets\index.md) and several others [community contributed](content\community-targets\index.md).
+PLEASE NOTE: You **DO NOT** have to build the firmware images to get started with **nanoFramework**. We provide ready to flash images for several [reference targets](../reference-targets/index.md) and several others [community contributed](../community-targets/index.md).
 
 ## Managed (C#)
 
@@ -10,6 +10,6 @@ PLEASE NOTE: You **DO NOT** have to build the firmware images to get started wit
 
 ## Build instructions
 
-- [Build nanoFramework for STM32](..\building\build-stm32.md)
-- [Build nanoFramework for ESP32](..\building\build-esp32.md)
-- [Build nanoFramework for NXP](..\building\build-nxp.md)
+- [Build nanoFramework for STM32](../building/build-stm32.md)
+- [Build nanoFramework for ESP32](../building/build-esp32.md)
+- [Build nanoFramework for NXP](../building/build-nxp.md)
