@@ -32,7 +32,7 @@ You'll need:
   - [CP210x USB to UART Bridge VCP Drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) used in the standard ESP32 DevKitC.
   - [FTDI Virtual COM Port Drivers](https://www.ftdichip.com/Drivers/VCP.htm).
 
-The above can be installed [manually](#Manual-Install-of-the-build-environment-for-ESP32), or using the Power Shell script `.\install-nf-tools.ps1 -TargetSeries ESP32` from the `install-scripts` folder within the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded)
+All the above can be installed using the Power Shell script `.\install-nf-tools.ps1 -TargetSeries ESP32` from the `install-scripts` folder within the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it [manually](#Manual-Install-of-the-build-environment-for-ESP32) (NOT RECOMMENDED for obvious reasons).
 
 ## Overview
 
@@ -74,7 +74,7 @@ After cloning the repo, you need to setup the build environment. You can use the
 __The following power shell script is not signed. Run Power Shell as an Administrator and run `set-executionpolicy remotesigned` to enable execution of the non-signed script.__
 
 On Windows, one may use the `.\install-nf-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download/install CMake, the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives.
-The script will download the zips and installers into the repository `zips` folder and extract them into sub-folders of the nanoFramework tools folder `C:\nftools` or install the tool.
+The script will download the zips and installers into the repository `zips` folder and extract them into sub-folders of the nanoFramework tools folder `C:\nftools` or install the tool [manually](#Manual-Install-of-the-build-environment-for-ESP32).
 
 1. Open Power Shell in the `install-scripts` folder of the repository.
 
@@ -146,7 +146,6 @@ This has already been done and the libraries can be just be downloaded.
 1. Install the extensions:
 
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-    - [CMake](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
 1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work. You can specify the COM port the ESP32 flash programming utility will use (The COM port is easily changed later). If it is not specified, manually edit tasks.json and change instances of `<default-com-port-for-esp32>` to the required port before flashing the ESP32 nanoCLR firmware. (COM22 used in the example bellow)
@@ -159,7 +158,7 @@ This has already been done and the libraries can be just be downloaded.
     - The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json`, `cmake-variants.json` and `settings.json` to replace the relevant paths. **!!mind to always use forward slashes in the paths!!**
     - More info available on the [Tweaking cmake-variants.TEMPLATE.json](../building/cmake-tools-cmake-variants.md) documentation page.
     
-1. Save any open files and exit VS Code.
+1. Save any open files and **RESTART** VS Code. Have you **RESTARTED** VS Code? You really have to do it otherwise this won't work.
 
 ## Build nanoCLR
 
@@ -194,13 +193,15 @@ The above may have some errors if:
 
 ## Flash nanoCLR into ESP32
 
-1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/ESP32_Tools/libs-v3.3.1/bootloader.bin` if the automated install script is used.
+1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/nftools/libs-v3.3.1/bootloader.bin` if the automated install script is used.
 
-1. Connect your development board to the computer port that you've setup in `tasks.json`.
+1. Connect your development board.
 
-1. Bring your board into download mode by holding down the GPIO0 pin to GND or holding down the respective button during power up.
+1. Some ESP32 boards require to be put into "download mode". Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.
 
-1. In Visual Studio Code enter the command
+1. In Visual Studio Code go to menu "Terminal" -> "Run Task" and select "Flash nanoCLR to ESP32 from the list.
+
+1. As an alternative enter the command in command palette:
 
     ```cmd
     Tasks: Run task
@@ -215,8 +216,10 @@ The above may have some errors if:
     and then
 
     ```cmd
-    Flash ESP32
+    Flash nanoCLR to ESP32
     ```
+
+    it will ask you for the COM port where it's connected
 
 ## Start with a 'Hello World' C# application
 

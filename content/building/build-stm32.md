@@ -34,7 +34,7 @@ You'll need:
   . [OpenOCD – Open On-Chip Debugger](https://sourceforge.net/projects/openocd/)
 - [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `cmake-variants.json` (more info [here](#Set-up-Visual-Studio-Code)).
 
-The above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries STM32` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded).
+All the the above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries STM32` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).
 
 ## Overview
 
@@ -107,7 +107,6 @@ The following Environment Variables will be created for the current Windows User
 1. Install the extensions:
 
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-    - [CMake](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
 1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
@@ -154,6 +153,31 @@ The above may have some errors if:
 - Clean the build folder by deleting it's contents and restart VS Code.
 
 ## Flash the STM32 target
+
+There are two options to flash the nanoBooter & nanoCLR images to a target. The first one uses the C/C++ tools in VS Code along with OpenOCD. This is the way to do it if you're planning to debug the code. The second uses a stand alone tool from STM that _just_ flashes the images into the target. Useful if you don't plan to do any debugging.  
+
+### Starting a debug session in VS Code
+
+1. Assuming that you have a valid `launch.json` configuration for the target that you've build, you can go to the Run section.
+
+1. Choose the launch configuration for nanoBooter corresponding to your target.
+
+1. Click on the `Start Debugging` (green arrow).
+  (this will flash the nanoBooter into the target's flash memory)
+
+1. Stop the debug session.
+
+1. Choose the launch configuration for nanoCLR corresponding to your target.
+
+1. Click on the `Start Debugging` (green arrow).
+  (this will flash the nanoBooter into the target's flash memory)
+
+1. Stop the debug session.
+
+>>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR as it won't be erased.
+
+
+### Using STM32 ST-LINK Utility
 
 1. Download the [STM32 ST-LINK Utility](https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html) from ST web site and install it in your development machine.
 

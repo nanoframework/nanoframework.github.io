@@ -35,7 +35,7 @@ You'll need:
   . [OpenOCD – Open On-Chip Debugger](https://sourceforge.net/projects/openocd/)
 - [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `cmake-variants.json` (more info [here](#Set-up-Visual-Studio-Code)).
 
-The above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries NXP` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded).
+All the above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries NXP` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).
 
 ## Overview
 
@@ -133,7 +133,6 @@ The following Environment Variables will be created for the current Windows User
 1. Install the extensions:
 
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-    - [CMake](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
 1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.

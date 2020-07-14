@@ -6,10 +6,6 @@ This getting started guide will walk you through the setup of your development m
 
 You can find the video for this guide on our YouTube channel [here](https://youtu.be/iZdN2GmefXI).
 
-## The hardware
-
-In this guide we'll be using a ST Microelectronics [STM32F746 NUCLEO](http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f746zg.html) board. This is a rather common and inexpensive board that packs a Cortex M7 with 1MB flash, 320 kB of RAM and includes an ethernet connector.
-
 ## Installing Visual Studio
 
 The first part is to get Visual Studio (both 2017 and 2019 versions are supported) and the **nanoFramework** extension installed.
@@ -24,14 +20,14 @@ The first part is to get Visual Studio (both 2017 and 2019 versions are supporte
 
 ## Uploading the firmware to the board using nanoFirmwareFlasher
 
-The second part is to load the **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
+The second part is to load the **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher (nanoff)](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
 
 ### Note: the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.
 
-1. Install [nano Firmware Flasher](https://github.com/nanoframework/nanoFirmwareFlasher).
+1. Install [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher).
 
     ```console
-    dotnet tool install -g nanoFirmwareFlasher
+    dotnet tool install -g nanoff
     ```
 
 1. Perform the update by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
