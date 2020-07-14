@@ -112,7 +112,7 @@ The build is based on CMake tool to ease the development in all major platforms.
 </ul>
 </li>
 </ul>
-<p>The above can be installed <a href="#Manual-Install-of-the-build-environment-for-ESP32">manually</a>, or using the Power Shell script <code>.\install-nf-tools.ps1 -TargetSeries ESP32</code> from the <code>install-scripts</code> folder within the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> project (cloned or downloaded)</p>
+<p>All the above can be installed using the Power Shell script <code>.\install-nf-tools.ps1 -TargetSeries ESP32</code> from the <code>install-scripts</code> folder within the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> project (cloned or downloaded). If you prefer you can do it <a href="#Manual-Install-of-the-build-environment-for-ESP32">manually</a> (NOT RECOMMENDED for obvious reasons).</p>
 <h2 id="overview">Overview</h2>
 <p>To simplify: this guide we will put all our tools and source in easily accessible folders and not at the default install paths (you do not have to do the same).</p>
 <ol>
@@ -146,7 +146,7 @@ For best results, run in an elevated command prompt, otherwise setting system en
 <h3 id="automated-install-of-the-build-environment">Automated Install of the build environment</h3>
 <p><strong>The following power shell script is not signed. Run Power Shell as an Administrator and run <code>set-executionpolicy remotesigned</code> to enable execution of the non-signed script.</strong></p>
 <p>On Windows, one may use the <code>.\install-nf-tools.ps1</code> Power Shell script located in the repository <code>install-scripts</code> folder to download/install CMake, the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja. You may need to use <strong>Run as Administrator</strong> for power shell to permit installing modules to unzip the downloaded archives.
-The script will download the zips and installers into the repository <code>zips</code> folder and extract them into sub-folders of the nanoFramework tools folder <code>C:\nftools</code> or install the tool.</p>
+The script will download the zips and installers into the repository <code>zips</code> folder and extract them into sub-folders of the nanoFramework tools folder <code>C:\nftools</code> or install the tool <a href="#Manual-Install-of-the-build-environment-for-ESP32">manually</a>.</p>
 <ol>
 <li><p>Open Power Shell in the <code>install-scripts</code> folder of the repository.</p>
 <p>Example Power Shell command line:</p>
@@ -216,7 +216,6 @@ This has already been done and the libraries can be just be downloaded.</p>
 <li><p>Install the extensions:</p>
 <ul>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
 </ul>
 </li>
@@ -229,7 +228,7 @@ This has already been done and the libraries can be just be downloaded.</p>
 <li>More info available on the <a href="cmake-tools-cmake-variants.html">Tweaking cmake-variants.TEMPLATE.json</a> documentation page.</li>
 </ul>
 </li>
-<li><p>Save any open files and exit VS Code.</p>
+<li><p>Save any open files and <strong>RESTART</strong> VS Code. Have you <strong>RESTARTED</strong> VS Code? You really have to do it otherwise this won't work.</p>
 </li>
 </ol>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
@@ -271,21 +270,24 @@ In this case deleting the contents of the <code>build</code> folder should allow
 </ul>
 <h2 id="flash-nanoclr-into-esp32">Flash nanoCLR into ESP32</h2>
 <ol>
-<li><p>The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>C:/ESP32_Tools/libs-v3.3.1/bootloader.bin</code> if the automated install script is used.</p>
+<li><p>The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>C:/nftools/libs-v3.3.1/bootloader.bin</code> if the automated install script is used.</p>
 </li>
-<li><p>Connect your development board to the computer port that you've setup in <code>tasks.json</code>.</p>
+<li><p>Connect your development board.</p>
 </li>
-<li><p>Bring your board into download mode by holding down the GPIO0 pin to GND or holding down the respective button during power up.</p>
+<li><p>Some ESP32 boards require to be put into &quot;download mode&quot;. Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.</p>
 </li>
-<li><p>In Visual Studio Code enter the command</p>
+<li><p>In Visual Studio Code go to menu &quot;Terminal&quot; -&gt; &quot;Run Task&quot; and select &quot;Flash nanoCLR to ESP32 from the list.</p>
+</li>
+<li><p>As an alternative enter the command in command palette:</p>
 <pre><code class="lang-cmd">Tasks: Run task
 </code></pre>
 <p>and if you flash the board for the first time</p>
 <pre><code class="lang-cmd">Erase ESP32
 </code></pre>
 <p>and then</p>
-<pre><code class="lang-cmd">Flash ESP32
+<pre><code class="lang-cmd">Flash nanoCLR to ESP32
 </code></pre>
+<p>it will ask you for the COM port where it's connected</p>
 </li>
 </ol>
 <h2 id="start-with-a-hello-world-c-application">Start with a 'Hello World' C# application</h2>

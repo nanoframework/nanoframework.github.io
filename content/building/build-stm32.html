@@ -108,7 +108,7 @@ The build is based on CMake tool to ease the development in all major platforms.
 . <a href="https://sourceforge.net/projects/openocd/">OpenOCD – Open On-Chip Debugger</a></li>
 <li><a href="http://www.chibios.org/dokuwiki/doku.php">ChibiOS</a> - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the <code>cmake-variants.json</code> (more info <a href="#Set-up-Visual-Studio-Code">here</a>).</li>
 </ul>
-<p>The above can be installed by the Power Shell script <code>.\install-nf-tools.ps1 -TargetSeries STM32</code> from the <code>install-scripts</code> folder within the <a href="https://github.com/nanoFramework/nf-interpreter"><code>nf-interpreter</code></a> project (cloned or downloaded).</p>
+<p>All the the above can be installed by the Power Shell script <code>.\install-nf-tools.ps1 -TargetSeries STM32</code> from the <code>install-scripts</code> folder within the <a href="https://github.com/nanoFramework/nf-interpreter"><code>nf-interpreter</code></a> project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).</p>
 <h2 id="overview">Overview</h2>
 <p>To simplify: this guide we will put all our tools and source in easily accessible folders and not at the default install paths (you do not have to do the same).</p>
 <ol>
@@ -172,7 +172,6 @@ The script will download the zips and installers into the repository <code>zips<
 <li><p>Install the extensions:</p>
 <ul>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
 </ul>
 </li>
@@ -225,6 +224,32 @@ In this case deleting the contents of the <code>build</code> folder should allow
 <li>Clean the build folder by deleting it's contents and restart VS Code.</li>
 </ul>
 <h2 id="flash-the-stm32-target">Flash the STM32 target</h2>
+<p>There are two options to flash the nanoBooter &amp; nanoCLR images to a target. The first one uses the C/C++ tools in VS Code along with OpenOCD. This is the way to do it if you're planning to debug the code. The second uses a stand alone tool from STM that <em>just</em> flashes the images into the target. Useful if you don't plan to do any debugging.</p>
+<h3 id="starting-a-debug-session-in-vs-code">Starting a debug session in VS Code</h3>
+<ol>
+<li><p>Assuming that you have a valid <code>launch.json</code> configuration for the target that you've build, you can go to the Run section.</p>
+</li>
+<li><p>Choose the launch configuration for nanoBooter corresponding to your target.</p>
+</li>
+<li><p>Click on the <code>Start Debugging</code> (green arrow).
+(this will flash the nanoBooter into the target's flash memory)</p>
+</li>
+<li><p>Stop the debug session.</p>
+</li>
+<li><p>Choose the launch configuration for nanoCLR corresponding to your target.</p>
+</li>
+<li><p>Click on the <code>Start Debugging</code> (green arrow).
+(this will flash the nanoBooter into the target's flash memory)</p>
+</li>
+<li><p>Stop the debug session.</p>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR as it won't be erased.</p>
+</blockquote>
+</blockquote>
+<h3 id="using-stm32-st-link-utility">Using STM32 ST-LINK Utility</h3>
 <ol>
 <li><p>Download the <a href="https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">STM32 ST-LINK Utility</a> from ST web site and install it in your development machine.</p>
 </li>

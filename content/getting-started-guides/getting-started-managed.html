@@ -80,8 +80,6 @@
 <p><strong>nanoFramework</strong> enables the writing of managed code applications for embedded devices. Doesn't matter if you are a seasoned .NET developer or if you've just arrived here and want to give it a try.</p>
 <p>This getting started guide will walk you through the setup of your development machine to get you coding a nice &quot;Hello World&quot; in no time!</p>
 <p>You can find the video for this guide on our YouTube channel <a href="https://youtu.be/iZdN2GmefXI">here</a>.</p>
-<h2 id="the-hardware">The hardware</h2>
-<p>In this guide we'll be using a ST Microelectronics <a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f746zg.html">STM32F746 NUCLEO</a> board. This is a rather common and inexpensive board that packs a Cortex M7 with 1MB flash, 320 kB of RAM and includes an ethernet connector.</p>
 <h2 id="installing-visual-studio">Installing Visual Studio</h2>
 <p>The first part is to get Visual Studio (both 2017 and 2019 versions are supported) and the <strong>nanoFramework</strong> extension installed.</p>
 <ol>
@@ -95,11 +93,11 @@
 </li>
 </ol>
 <h2 id="uploading-the-firmware-to-the-board-using-nanofirmwareflasher">Uploading the firmware to the board using nanoFirmwareFlasher</h2>
-<p>The second part is to load the <strong>nanoFramework</strong> image in the board flash. The best way is to use the <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher</a> tool. This is a .NET Core CLI command tool.</p>
+<p>The second part is to load the <strong>nanoFramework</strong> image in the board flash. The best way is to use the <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher (nanoff)</a> tool. This is a .NET Core CLI command tool.</p>
 <h3 id="note-the-vc-2010-x86-redistributable-may-required-installing-on-your-pc-in-certain-circumstances">Note: the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.</h3>
 <ol>
-<li><p>Install <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher</a>.</p>
-<pre><code class="lang-console">dotnet tool install -g nanoFirmwareFlasher
+<li><p>Install <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a>.</p>
+<pre><code class="lang-console">dotnet tool install -g nanoff
 </code></pre>
 </li>
 <li><p>Perform the update by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
