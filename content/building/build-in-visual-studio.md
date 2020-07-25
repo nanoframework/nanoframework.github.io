@@ -1,4 +1,4 @@
-# Building **nanoFramework** in Visual Studio
+# Building .NET **nanoFramework** in Visual Studio
 
 
 ## Developing firmware for the nanoframework using Visual Studio 2019 community edition

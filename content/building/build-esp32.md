@@ -15,7 +15,7 @@
 
 **About this document**
 
-This document describes how to build the required images for **nanoFramework** for ESP32 targets.
+This document describes how to build the required images for .NET **nanoFramework** for ESP32 targets.
 The build is based on CMake tool to ease the development in all major platforms.
 
 ## Prerequisites
@@ -55,7 +55,7 @@ To simplify: this guide we will put all our tools and source in easily accessibl
 
 The setup is a lot easier than it seems. The setup scripts do almost everything.
 
-## **nanoFramework** GitHub repo
+## .NET **nanoFramework** GitHub repo
 
 If you intend to change the nanoCLR and create Pull Requests then you will need to fork the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as [Fork](https://fork.dev) or the [GitHub Desktop application](https://desktop.github.com).
 
@@ -121,7 +121,7 @@ This has already been done and the libraries can be just be downloaded.
 
 1. For on chip debugging of the nanoCLR, download OpenOCD from [here](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180724/openocd-esp32-win32-0.10.0-esp32-20180724.zip) and extract OpenOCD into `C:\nftools` so you get `C:\nftools\openocd-esp32`.
 
-1. Download the light weight build system Ninja for CMake to generate the build files from [here](https://github.com/ninja-build/ninja/releases/). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build **nanoFramework**.
+1. Download the light weight build system Ninja for CMake to generate the build files from [here](https://github.com/ninja-build/ninja/releases/). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build .NET **nanoFramework**.
   
 1. Define the environment variables to match the install locations. Default locations are:
    - `ESP32_TOOLS_PATH = C:\nftools`

@@ -1,6 +1,6 @@
 # Financial sponsors
 
-**nanoFramework** uses 'Open Collective' to manage our funding in a completely transparent manner.
+.NET **nanoFramework** uses 'Open Collective' to manage our funding in a completely transparent manner.
 Funding is necessary for us to manage things like infrastructure costs, carry out PR (including advertising the project to the embedded systems industry, hobbyist communities and academia), marketing work, development and maintenance tasks that no one volunteers to do, supporting projects that we depend on, etc... To this end, we have setup an 'Open Collective' to manage our funding in a completely transparent manner.
 To make a donation you can use either Open Collective or GitHub Sponsors. Click on the appropriate button bellow.
 

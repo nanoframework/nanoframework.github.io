@@ -1,4 +1,4 @@
-# **nanoFramework** HAL/PAL
+# .NET **nanoFramework** HAL/PAL
 
 ## [ChibiOS HAL](chibios)
 

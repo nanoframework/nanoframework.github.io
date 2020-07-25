@@ -1,4 +1,4 @@
-# Instructions for debugging **nanoFramework** native code in VS Code
+# Instructions for debugging .NET **nanoFramework** native code in VS Code
 
 ## Table of contents
 
@@ -8,7 +8,7 @@
 
 **About this document**
 
-This document describes how to debug **nanoFramework** native code using VS Code.
+This document describes how to debug .NET **nanoFramework** native code using VS Code.
 
 ## Prerequisites
 

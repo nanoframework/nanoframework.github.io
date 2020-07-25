@@ -1,6 +1,6 @@
 # Frequently asked questions
 
-Despite working with **nanoFramework** being tremendously easy there always moments where one needs a hand or bumps into an award situations. This is a collection of tips, perls of wisdom and answers to frequent situations.
+Despite working with .NET **nanoFramework** being tremendously easy there always moments where one needs a hand or bumps into an award situations. This is a collection of tips, perls of wisdom and answers to frequent situations.
 Please do contribute with your own!
 
 - [Coding in C#](coding-in-csharp.md)

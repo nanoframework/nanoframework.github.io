@@ -17,7 +17,7 @@ SigTableIndex       | unsigned 16 bit integer | Index into the signature table (
 
 ## EmptyIndex Constant
 
-Since an index values are used to access members of a table and since (in C, C++, and many other languages) tables are indexed with the first element as index == 0 the value 0 is not useable as a constant to indicate "none" or "null". Thus a dedicated value is used for **nanoFramework** metadata tables. Any index with the value 0xFFFF is considered the EmptyIndex and this is normally defined as a manifest constant for the entire code base to test against. 
+Since an index values are used to access members of a table and since (in C, C++, and many other languages) tables are indexed with the first element as index == 0 the value 0 is not useable as a constant to indicate "none" or "null". Thus a dedicated value is used for .NET **nanoFramework** metadata tables. Any index with the value 0xFFFF is considered the EmptyIndex and this is normally defined as a manifest constant for the entire code base to test against. 
 
 ## TableKind
 
@@ -52,15 +52,15 @@ MetadataPtr         | pointer to a const byte | Pointer to the interior of the I
 
 ## Tokens
 
-Many instructions in IL and fields of data structures contain a token. Tokens in IL Metadata reference some other piece of metadata in the assembly. Tokens contain the table the token refers to along with an index into the table into a single primitive integral value. In **nanoFramework** PE files there are two kinds of tokens MetadataToken and a more compact BinaryToken.
+Many instructions in IL and fields of data structures contain a token. Tokens in IL Metadata reference some other piece of metadata in the assembly. Tokens contain the table the token refers to along with an index into the table into a single primitive integral value. In .NET **nanoFramework** PE files there are two kinds of tokens MetadataToken and a more compact BinaryToken.
 
 ### Metadata Token
 
-A metadata token is an unsigned 32 bit value where the Most significant byte is the table kind and the least significant 16 bits are the table index (In **nanoFramework** PE format a table index is 16bits only thus there are 8 bits of unused data in a MetadataToken)
+A metadata token is an unsigned 32 bit value where the Most significant byte is the table kind and the least significant 16 bits are the table index (In .NET **nanoFramework** PE format a table index is 16bits only thus there are 8 bits of unused data in a MetadataToken)
 
 ### Binary Token
 
-A Binary Token is a compact form of representing an index to one of two possible tables. Binary tokens are 16 but unsigned integers where the most significant bit is used to determine which of two possible tables the remaining 15 bits provide the index for. The following table provides the type name aliases for the various combinations of tables used in **nanoFramework** PE metadata.
+A Binary Token is a compact form of representing an index to one of two possible tables. Binary tokens are 16 but unsigned integers where the most significant bit is used to determine which of two possible tables the remaining 15 bits provide the index for. The following table provides the type name aliases for the various combinations of tables used in .NET **nanoFramework** PE metadata.
 
 Name                 | MSB==1 Table | MSB==0 Table
 ---------------------|--------------|------------
@@ -71,7 +71,7 @@ FieldRefOrFieldDef   | FieldRef     | FieldDef
 
 ## VersionInfo
 
-Many **nanoFramework** PE data structures include a version. The versions, when presented for readability are typically represented as a quad of 4 integer values separated by a '.' (i.e. 1.2.3.4) the following table defines the Version info structure used in the PE file to represent a version.
+Many .NET **nanoFramework** PE data structures include a version. The versions, when presented for readability are typically represented as a quad of 4 integer values separated by a '.' (i.e. 1.2.3.4) the following table defines the Version info structure used in the PE file to represent a version.
 
 Name     | Type                    | Description
 ---------|-------------------------|------------

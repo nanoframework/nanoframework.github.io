@@ -2,7 +2,7 @@
 
 **About this document**
 
-This document describes the GCC linker script for **nanoFramework** boards using ChibiOS HAL/PAL and some explanations on how to customize and adapt it to a new target board.
+This document describes the GCC linker script for .NET **nanoFramework** boards using ChibiOS HAL/PAL and some explanations on how to customize and adapt it to a new target board.
 
 ## Linker script file naming
 

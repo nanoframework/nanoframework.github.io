@@ -1,7 +1,7 @@
-## Companies using **nanoFramework**
+## Companies using .NET **nanoFramework**
 
-**nanoFramework** is comprised of a number of components, from the firmware running on the target devices to the various class libraries distributed as NuGet packages. All those have got a considerable download count (and keep increasing). Because it's OSS we can't possible know or track who is using it.
-If you are using **nanoFramework** in a commercial product we would love to know. Please fill in [this form](https://1drv.ms/xs/s!AnbQmclZwQHagSzU74bS4uOTLxsc).
+.NET **nanoFramework** is comprised of a number of components, from the firmware running on the target devices to the various class libraries distributed as NuGet packages. All those have got a considerable download count (and keep increasing). Because it's OSS we can't possible know or track who is using it.
+If you are using .NET **nanoFramework** in a commercial product we would love to know. Please fill in [this form](https://1drv.ms/xs/s!AnbQmclZwQHagSzU74bS4uOTLxsc).
 
 <table>
     <tr>

@@ -1,6 +1,6 @@
-# Building **nanoFramework** with local RTOS source vs RTOS source from repository
+# Building .NET **nanoFramework** with local RTOS source vs RTOS source from repository
 
-When building **nanoFramework** for a CMSIS target (currently only ChibiOS is supported) the developer has two options: either using a local path for the RTOS source code or downloading it from the official repository.
+When building .NET **nanoFramework** for a CMSIS target (currently only ChibiOS is supported) the developer has two options: either using a local path for the RTOS source code or downloading it from the official repository.
 This document aims to give you an brief overview of the differences between these two so you can choose the option that best fits your use scenario.
 
 ## Source from official repository

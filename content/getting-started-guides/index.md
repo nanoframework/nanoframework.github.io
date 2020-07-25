@@ -1,8 +1,8 @@
-# Getting started with **nanoFramework**
+# Getting started with .NET **nanoFramework**
 
-We have several getting started guides to help you start with **nanoFramework**.
+We have several getting started guides to help you start with .NET **nanoFramework**.
 
-PLEASE NOTE: You **DO NOT** have to build the firmware images to get started with **nanoFramework**. We provide ready to flash images for several [reference targets](../reference-targets/index.md) and several others [community contributed](../community-targets/index.md).
+PLEASE NOTE: You **DO NOT** have to build the firmware images to get started with .NET **nanoFramework**. We provide ready to flash images for several [reference targets](../reference-targets/index.md) and several others [community contributed](../community-targets/index.md).
 
 ## Managed (C#)
 

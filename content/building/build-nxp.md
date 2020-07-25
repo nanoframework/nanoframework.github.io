@@ -14,7 +14,7 @@
 
 **About this document**
 
-This document describes how to build the required images for **nanoFramework** for NXP targets.
+This document describes how to build the required images for .NET **nanoFramework** for NXP targets.
 The build is based on CMake tool to ease the development in all major platforms.
 
 ## Prerequisites
@@ -58,7 +58,7 @@ To simplify: this guide we will put all our tools and source in easily accessibl
 
 The setup is a lot easier than it seems. The setup scripts do almost everything.
 
-## **nanoFramework** GitHub repo
+## .NET **nanoFramework** GitHub repo
 
 If you intend to change the nanoBooter or nanoCLR and create Pull Requests then you will need to fork the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as the [GitHub Desktop application](https://desktop.github.com/).
 

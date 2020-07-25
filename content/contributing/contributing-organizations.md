@@ -1,14 +1,14 @@
-# Organizations contributing or helping **nanoFramework**
+# Organizations contributing or helping .NET **nanoFramework**
 
-### Organizations contributing to **nanoFramework**
+### Organizations contributing to .NET **nanoFramework**
 
-These companies and organizations contribute to the develop effort of **nanoFramework**.
+These companies and organizations contribute to the develop effort of .NET **nanoFramework**.
 
-- [Eclo Solutions](http://www.eclo.solutions) that allows [José Simões](https://github.com/josesimoes) and other developers of it's team to work for **nanoFramework** on their work hours, along with providing Azure infrastructure to run nfbot and that has paid **nanoFramework** bills during the early stages.
+- [Eclo Solutions](http://www.eclo.solutions) that allows [José Simões](https://github.com/josesimoes) and other developers of it's team to work for .NET **nanoFramework** on their work hours, along with providing Azure infrastructure to run nfbot and that has paid .NET **nanoFramework** bills during the early stages.
 - [Global Control 5 Ltd.](https://www.gc5.pl) which has contributed with NXP port and the NXP_MIMXRT1060_EVK reference target.
-- [OrgPal](https://www.orgpal.com/) that has commissioned the development of several **nanoFramework** features.
+- [OrgPal](https://www.orgpal.com/) that has commissioned the development of several .NET **nanoFramework** features.
 
-### Organizations helping **nanoFramework**
+### Organizations helping .NET **nanoFramework**
 
 These companies and organizations support the community and the project.
 
@@ -19,7 +19,7 @@ These companies and organizations support the community and the project.
 - [Microsoft](https://dev.azure.com) through free Azure DevOps that runs our CD & CI infrastructure.
 - [Sonar Cloud](https://sonarcloud.io/about) by providing free access to their Continuous Code Quality analysis tools.
 
-### Projects and communities supporting **nanoFramework**
+### Projects and communities supporting .NET **nanoFramework**
 
 - [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) the awesome AMQP library developed by [Xin Chen](https://github.com/xinchen10).
 - [Nerdbank.GitVersioning](https://github.com/AArnott/Nerdbank.GitVersioning) package from [Andrew Arnott](https://github.com/AArnott) that provides semver-compatible git commit information and that we use on all our class libraries.

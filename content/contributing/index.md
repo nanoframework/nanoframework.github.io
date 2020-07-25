@@ -1,4 +1,4 @@
-# Contributing to **nanoFramework**
+# Contributing to .NET **nanoFramework**
 
 ## Financial contributions
 
@@ -59,7 +59,7 @@ C# developers with general coding experiencing, coding Visual Studio extension d
 
 ### Commissioning new features
 
-A great way to get something back from your financial contribution is to commission new features. If your company is working on a new product or project and **nanoFramework** is missing a feature, could use a couple of APIs that don't exist or even an entire library, just reach out to [Eclo Solutions](mailto:nanoframework@eclo.solutions) to design and build it. If it's not a secret or something too specific, whit your permission, it can be merged to the codebase and benefit the ecosystem and the entire community.
+A great way to get something back from your financial contribution is to commission new features. If your company is working on a new product or project and .NET **nanoFramework** is missing a feature, could use a couple of APIs that don't exist or even an entire library, just reach out to [Eclo Solutions](mailto:nanoframework@eclo.solutions) to design and build it. If it's not a secret or something too specific, whit your permission, it can be merged to the codebase and benefit the ecosystem and the entire community.
 
 ### Sponsor bug fixes
 
@@ -76,7 +76,7 @@ Writing a review and classifying our extensions on the Visual Studio marketplace
 
 Providing a testimonial with an endorsement to the project or highlighting a feature or a situation where it has stand out it's another way of contributing to the project. Email, tweet or send a message on Discord. If you want it to be featured on the web site please include your name, title, company and picture.
 
-## Other sections about contributing to **nanoFramework**
+## Other sections about contributing to .NET **nanoFramework**
 
 - [Coding contributions](coding-contributions.md)
   - [API review process](api-review-process.md)

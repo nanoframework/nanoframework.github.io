@@ -6,7 +6,7 @@ To flash nanoCLR image in TI CC13x2/CC6x2 boards [Uniflash](http://www.ti.com/to
 
 Assuming that Uniflash tool and the USB drivers are properly installed, follows the recommend procedure for a CC1352R1 LaunchPad board.
 
-1. Download the image from **nanoFramework** repository.
+1. Download the image from .NET **nanoFramework** repository.
 1. Connect the board using the USB cable.
 1. Start Uniflash. The board should be detected and listed, unless the configuration is set to manual detection.
 ![uniflash-start-screen](../../images/ti/ti-uniflash-start-screen-cc1352r1.png)

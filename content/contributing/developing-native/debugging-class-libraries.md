@@ -1,4 +1,4 @@
-# Guidelines for debugging **nanoFramework** class libraries native code
+# Guidelines for debugging .NET **nanoFramework** class libraries native code
 
 **About this document**
 

@@ -2,7 +2,7 @@
 
 Our awesome community has your back!
 
-### Everything in **nanoFramework** is public
+### Everything in .NET **nanoFramework** is public
 
 Note that we all do this in the spirit of Open Source.
 
@@ -10,7 +10,7 @@ All discussions are public, so that everyone can participate and help each other
 
 This ensures the core team knows what's going on in the project and that everyone can benefit from each other's answers and knowledge.
 
-### If you a question on how to use **nanoFramework**
+### If you a question on how to use .NET **nanoFramework**
 
 Go to Stack overflow and use the ["nanoframework"](https://stackoverflow.com/tags/nanoframework) tag.
 
@@ -22,7 +22,7 @@ Please open an issue in our [GitHub](https://github.com/nanoframework/Home/issue
 
 Jump into our [Discord server](https://discord.gg/gCyBu8T). You'll find several public channels on the various topics.
 
-### You want to share what you are doing with **nanoFramework**
+### You want to share what you are doing with .NET **nanoFramework**
 
 You are welcomed to submit projects to [Hackster.io](https://www.hackster.io/nanoframework). Make sure you use one of our components there so your project gets tagged automatically.
 

@@ -1,4 +1,4 @@
-# Using Ninja to build **nanoFramework**
+# Using Ninja to build .NET **nanoFramework**
 
 ## Inside VS Code using CMake Tools
 

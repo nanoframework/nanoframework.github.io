@@ -2,7 +2,7 @@
 
 **About this document**
 
-This document describes the design and organization of **nanoFramework** Class Libraries, offers some explanation on the choices that were made and how to add a new Class Library. The examples bellow are related with ChibiOS (which is the currently reference implementation for **nanoFramework**).
+This document describes the design and organization of .NET **nanoFramework** Class Libraries, offers some explanation on the choices that were made and how to add a new Class Library. The examples bellow are related with ChibiOS (which is the currently reference implementation for .NET **nanoFramework**).
 
 ## Libraries
 
@@ -35,17 +35,17 @@ So, for each class library, there is a Nuget package that includes the assembly 
 
 ## How to add a new class library
 
-Follows the procedure to add a new class library to a **nanoFramework** target image.
+Follows the procedure to add a new class library to a .NET **nanoFramework** target image.
 
 The example is for adding Windows.Devices.Gpio library.
 
-1. In VS2017 start a new project for a **nanoFramework** C# Class library. Source code [here](https://github.com/nanoframework/lib-Windows.Devices.Gpio)
+1. In VS2017 start a new project for a .NET **nanoFramework** C# Class library. Source code [here](https://github.com/nanoframework/lib-Windows.Devices.Gpio)
 
 1. Implement all the required methods, enums, properties in that project. It's recommended that you add XML comments there (and enable the automated documentation generation in the project properties).
 
 1. Add the Nuget packaging project to distribute the managed assembly and documentation. We have a second Nuget package that includes all the build artifacts, generated stubs, dump files and such. This is to be used in automated testing and distribution of followup projects or build steps.
 
-1. Upon a successfully build of the managed project the skeleton with the stubs should be available in the respective folder. Because **nanoFramework** aims to be target independent, the native implementation of a class library can be split in two parts:
+1. Upon a successfully build of the managed project the skeleton with the stubs should be available in the respective folder. Because .NET **nanoFramework** aims to be target independent, the native implementation of a class library can be split in two parts:
     - Declaration and common code bits (these always exist) inside the `src` folder.
     - The specific implementation bits that are platform dependent and that will live 'inside' each platform RTOS folder.
 The next step would be to copy the stubs to a folder with the assembly name inside the `src` folder. Following the example above, these are:

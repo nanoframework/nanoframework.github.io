@@ -1,4 +1,4 @@
-# Coding contributions to **nanoFramework**
+# Coding contributions to .NET **nanoFramework**
 
 - [API review process](api-review-process.md)
 - [Contribution workflow](contributing-workflow.md)

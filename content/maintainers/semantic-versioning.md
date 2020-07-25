@@ -1,12 +1,12 @@
 # Semantic Versioning
 
-**nanoFramework** versioning follows the [Semantic Versioning](http://semver.org/) guidelines.
+.NET **nanoFramework** versioning follows the [Semantic Versioning](http://semver.org/) guidelines.
 
 Semantic versioning is all about releases and our continuous integration infrastructure uses [Nerdbank GitVersioning](https://github.com/AArnott/Nerdbank.GitVersioning) to automatically version the releases as per the configuration of each repository.
 
-**nanoFramework** follows the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) which allows more structured releases and versioning.
+.NET **nanoFramework** follows the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) which allows more structured releases and versioning.
 
-**nanoFramework** has three different workflows which control how the versioning.
+.NET **nanoFramework** has three different workflows which control how the versioning.
 
 ## Development Builds
 
@@ -24,7 +24,7 @@ Builds from the master branch do not have a suffix and GitVersion is configured 
 
 ## Versioning
 
-**nanoFramework** follows the following version pattern: MAJOR.MINOR.PATCH[-PREVIEW\ALPHA\RC-BUILDNUMBER].
+.NET **nanoFramework** follows the following version pattern: MAJOR.MINOR.PATCH[-PREVIEW\ALPHA\RC-BUILDNUMBER].
 
 **Major** or **Breaking**:
 

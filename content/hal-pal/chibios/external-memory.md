@@ -2,7 +2,7 @@
 
 **About this document**
 
-This document describes how to use external memory for the managed heap using the ChibiOS FSMC driver from the **nanoFramework** overlay.
+This document describes how to use external memory for the managed heap using the ChibiOS FSMC driver from the .NET **nanoFramework** overlay.
 Please refer to the CLR managed heap [documentation](clr-managed-heap.md).
 
 ## Memory controller
@@ -11,7 +11,7 @@ Most STM32 devices include a FSMC (Flexible Static Memory Controller) that provi
 
 ## Assumptions and design
 
-The initialization of the memory controller along with the memory configuration have to occur as early as possible after the boot. In the current **nanoFramework** design this is expected to occur right after the call to CMSIS `osKernelInitialize()` when all other initialization and configurations have already happen and interrupts are enabled. Because the memory space is to be used as the managed heap the timing is no more critical than that, so pretty much anywhere before the call to the CLR startup should be quite alright.
+The initialization of the memory controller along with the memory configuration have to occur as early as possible after the boot. In the current .NET **nanoFramework** design this is expected to occur right after the call to CMSIS `osKernelInitialize()` when all other initialization and configurations have already happen and interrupts are enabled. Because the memory space is to be used as the managed heap the timing is no more critical than that, so pretty much anywhere before the call to the CLR startup should be quite alright.
 
 The function were the external memory configuration and initialization is to occur is `Target_ExternalMemoryInit()`. The `nanoHAL_v2.h` provides a _weak_ and empty implementation of this function. If a target is to use external memory it has to provide the _strong_ implementation of this function and call it before `ClrStartup()` is called.
 

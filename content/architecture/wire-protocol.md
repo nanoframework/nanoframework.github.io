@@ -16,7 +16,7 @@
 
 **About this document**
 
-This document describes the Wire Protocol used by **nanoFramework** for debug and the booter stage.
+This document describes the Wire Protocol used by .NET **nanoFramework** for debug and the booter stage.
 The protocol follows the implementation of the .NET Micro Framework Wire Protocol. The intention is to review it later in order to improve and simplify it.
 
 ## Wire Protocol Message
@@ -38,7 +38,7 @@ You can check the details on `WireProtocol.h](@ src\CLR\WireProtocol\WireProtoco
 
 ## Data channels
 
-Currently **nanoFramework** Wire Protocol supports only serial channels. The plan is to add support for USB (using CDC class device) and TCP.
+Currently .NET **nanoFramework** Wire Protocol supports only serial channels. The plan is to add support for USB (using CDC class device) and TCP.
 To ease the port to new HAL/platforms the code is architecture so that only minimal changes are required to add support for new implementations.
 
 ## Receiving and transmitting data
@@ -106,7 +106,7 @@ Weak implementations of each function are part of the core code.
 
 An implementation for an STM32F4_DISCOVERY board with ChibiOS (including its HAL) is provided as a reference. Please check it at `WireProtocol_HAL_Interface`(@ targets\CMSIS-OS\ChibiOS\ST_STM32F4_DISCOVERY\common\WireProtocol_HAL_Interface.c).
 
-When porting **nanoFramework** to another RTOS or HAL follow the reference implementation to ease the port work.
+When porting .NET **nanoFramework** to another RTOS or HAL follow the reference implementation to ease the port work.
 
 ## Application interface
 

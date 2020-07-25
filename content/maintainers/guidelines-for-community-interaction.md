@@ -6,10 +6,10 @@ This document provides guidelines for maintainers on how to interact with the co
 
 ## Introduction
 
-**nanoFramework** it's an Open Source project therefore it aims to gather the interest of a community as broad as possible. This community is expected to be as active as possible in various fronts: providing feedback, generate discussions around issues and suggestions, contribute back to the project with code and performing various tasks like answering questions in project forums, repo maintenance, project web site, writing documentation, social marketing and others.
-The interaction between the project team and the community plays an important role on the overall success of **nanoFramework**. The following guidelines are provided as a suggestion and should also be considered as a "kind of" **S**ervice **L**evel **A**greement for maintainers.
+.NET **nanoFramework** it's an Open Source project therefore it aims to gather the interest of a community as broad as possible. This community is expected to be as active as possible in various fronts: providing feedback, generate discussions around issues and suggestions, contribute back to the project with code and performing various tasks like answering questions in project forums, repo maintenance, project web site, writing documentation, social marketing and others.
+The interaction between the project team and the community plays an important role on the overall success of .NET **nanoFramework**. The following guidelines are provided as a suggestion and should also be considered as a "kind of" **S**ervice **L**evel **A**greement for maintainers.
 
-* Always interact with community members in a friendly, courteous and positive way. Remember: people come here probably because they have questions or are in search for help. If they are treated correctly they'll be happy, feel welcome and the are more likely to contribute back, provide a positive feedback or spread the word about **nanoFramework**.
+* Always interact with community members in a friendly, courteous and positive way. Remember: people come here probably because they have questions or are in search for help. If they are treated correctly they'll be happy, feel welcome and the are more likely to contribute back, provide a positive feedback or spread the word about .NET **nanoFramework**.
 
 * If someone is not using the proper channel, not providing enough details to formulate a clear question or not writing clearly, do your best to point them in the right direction and try to understand them. They may not have understood the project instructions properly or they might not be English native. Be patient and understandable.
 

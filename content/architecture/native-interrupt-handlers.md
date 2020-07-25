@@ -2,7 +2,7 @@
 
 **About this document**
 
-This document describes how thread execution works with the **nanoFramework** CLR.
+This document describes how thread execution works with the .NET **nanoFramework** CLR.
 
 ## Native interrupt handlers
 

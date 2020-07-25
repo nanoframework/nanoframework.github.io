@@ -1,6 +1,6 @@
 # Contribution Workflow
 
-You can contribute to **nanoFramework** with issues and PRs. Simply filing issues for problems you encounter is a great way to contribute. Contributing implementations is greatly appreciated.
+You can contribute to .NET **nanoFramework** with issues and PRs. Simply filing issues for problems you encounter is a great way to contribute. Contributing implementations is greatly appreciated.
 
 ## Table of contents
 
@@ -17,7 +17,7 @@ You can contribute to **nanoFramework** with issues and PRs. Simply filing issue
 
 ## Getting Started
 
-If you are looking at getting your feet wet with some simple (but still beneficial) changes, check out [_up-for-grabs_](https://github.com/nanoframework/Home/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs) issues on the [**nanoFramework** Home](https://github.com/nanoframework/Home) repo.
+If you are looking at getting your feet wet with some simple (but still beneficial) changes, check out [_up-for-grabs_](https://github.com/nanoframework/Home/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs) issues on the [.NET **nanoFramework** Home](https://github.com/nanoframework/Home) repo.
 
 For new ideas, please always start with an issue before starting development of an implementation. See [project priorities](project-priorities.md) to understand the team's approach to engagement on general improvements to the product.
 
@@ -35,7 +35,7 @@ Typos are embarrassing! We will accept most PRs that fix typos. In order to make
 
 ## Coding Style Changes
 
-We would like to have **nanoFramework** in full conformance with the style guidelines described here [C/C++ Coding Style](cxx-coding-style.html) and here [C# Coding Style](cs-coding-style.html). We plan to do that with tooling, in a holistic way. In the meantime, please:
+We would like to have .NET **nanoFramework** in full conformance with the style guidelines described here [C/C++ Coding Style](cxx-coding-style.html) and here [C# Coding Style](cs-coding-style.html). We plan to do that with tooling, in a holistic way. In the meantime, please:
 
 * **DO NOT** send PRs for style changes.
 * **DO** give priority to the current style of the project or file you're changing even if it diverges from the general guidelines.
@@ -77,25 +77,25 @@ The project requires that the name used is your real name. Neither anonymous con
 
 ### Why a CLA?
 
-The Contributor License Agreement helps ensure everyone that **nanoFramework** is here to stay.
-Specifically, our Contributor License Agreements (CLAs) grant the contributor and **nanoFramework** joint copyright interest in contributed code. Further, it provides assurance from the contributor that contributions are original work that does not violate any third-party license agreement. The agreement between contributors and project is explicit, so developers and users can be confident in the legal status of the source code and their right to use it.
+The Contributor License Agreement helps ensure everyone that .NET **nanoFramework** is here to stay.
+Specifically, our Contributor License Agreements (CLAs) grant the contributor and .NET **nanoFramework** joint copyright interest in contributed code. Further, it provides assurance from the contributor that contributions are original work that does not violate any third-party license agreement. The agreement between contributors and project is explicit, so developers and users can be confident in the legal status of the source code and their right to use it.
 
 ### Our CLA's
 
-All contributions to **nanoFramework** (no matter if that's code, bug fixes, configuration changes, documentation, or anything elase) requires that the contributor(s) complete and sign a Contributor License Agreement. You can read it [here](cla.md).
+All contributions to .NET **nanoFramework** (no matter if that's code, bug fixes, configuration changes, documentation, or anything elase) requires that the contributor(s) complete and sign a Contributor License Agreement. You can read it [here](cla.md).
 
-**nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.
+.NET **nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.
 
 ## PR Feedback
 
-**nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.
+.NET **nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.
 
-One or more **nanoFramework** team members will review every PR prior to merge. They will often reply with "LGTM, modulo comments". That means that the PR will be merged once the feedback is resolved. "LGTM" == "looks good to me".
+One or more .NET **nanoFramework** team members will review every PR prior to merge. They will often reply with "LGTM, modulo comments". That means that the PR will be merged once the feedback is resolved. "LGTM" == "looks good to me".
 
 There are lots of thoughts and [approaches](https://github.com/antlr/antlr4-cpp/blob/master/CONTRIBUTING.md#emoji) for how to efficiently discuss changes. It is best to be clear and explicit with your feedback. Please be patient with people who might not understand the finer details about your approach to feedback.
 Also don't think that comments and requests for changes means that your contribution is not appreciated and people can be stalling or discouraging you. You may have done a wonderful job on the task at hand but, as it's still part of a very large software project, there could be implications on aspects that you might not be aware of, or that it's impacting or causing side effects on other parts. Keep an open mind and positive attitude! :wink:
 
-**nanoFramework** project uses many labels for categorizing issues and pull requests. Check [here](labels.md) the full list.
+.NET **nanoFramework** project uses many labels for categorizing issues and pull requests. Check [here](labels.md) the full list.
 
 ## Working on an open issue
 

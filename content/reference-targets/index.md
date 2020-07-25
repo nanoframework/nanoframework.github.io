@@ -1,6 +1,6 @@
 # Reference target boards
 
-We provide ready build firmware images for several reference target boards. These can be used for either initial testing and start feeling how cool is to work with **nanoFramework** or as the base for system designers to develop their own custom boards and firmware.
+We provide ready build firmware images for several reference target boards. These can be used for either initial testing and start feeling how cool is to work with .NET **nanoFramework** or as the base for system designers to develop their own custom boards and firmware.
 
 ## Espressif ESP32 boards
 

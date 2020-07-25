@@ -20,9 +20,9 @@ Update the [azure-pipelines.yml](https://github.com/nanoframework/nf-Community-T
 
 ## Setup the image publishing
 
-Community target images are distributed through **nanoFramework** JFrog Bintray [repository](https://bintray.com/nfbot/nanoframework-images-community-targets).
+Community target images are distributed through .NET **nanoFramework** JFrog Bintray [repository](https://bintray.com/nfbot/nanoframework-images-community-targets).
 
-1. Sign-in with **nanoFramework** Bintray account.
+1. Sign-in with .NET **nanoFramework** Bintray account.
 2. Go to nanoframework-images-community-targets repository [here](https://bintray.com/nfbot/nanoframework-images-community-targets)
 
 3. Add a new package inside that repository. 

@@ -26,7 +26,7 @@ The following sections describe the individual fields of the AssemblyHeader stru
 ### Marker
 
 The assembly marker is an eight character marker consisting of a string non zero terminated ASCII encoded characters.
-This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string. For all released versions of **nanoFramework** this string is 'NFMRK1'.
+This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string. For all released versions of .NET **nanoFramework** this string is 'NFMRK1'.
 
 ### Header CRC
 
@@ -39,7 +39,7 @@ are 0.
 
 ### Flags
 
-The flags property are meant to contain a bit flags value. They are not used in **nanoFramework** and were kept for historical reasons and structure compatibility.
+The flags property are meant to contain a bit flags value. They are not used in .NET **nanoFramework** and were kept for historical reasons and structure compatibility.
 
 ### NativeMethodsChecksum
 
@@ -62,7 +62,7 @@ The ***Version*** field holds the assembly's version number. (as opposed to the 
 
 Fixed array of offsets to the table data for each of the 16 different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)
 
-| Name                                         | **nanoFramework** Source Element Name |Description
+| Name                                         | .NET **nanoFramework** Source Element Name |Description
 |----------------------------------------------|---------------------------|-----------
 | [AssemblyRef](AssemblyRefTableEntry.md)      | CLR_RECORD_ASSEMBLYREF    | Table of Assembly references
 | [TypeRef](TypeRefTableEntry.md)              | CLR_RECORD_TYPEREF        | Reference to a type in another assembly

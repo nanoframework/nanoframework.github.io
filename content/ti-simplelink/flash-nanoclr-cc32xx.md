@@ -6,7 +6,7 @@ To flash nanoCLR image in a TI board [Uniflash](http://www.ti.com/tool/uniflash)
 
 Assuming that Uniflash tool and the USB drivers are properly installed, follows the recommend procedure for a CC3220SF-LAUNCHXL board.
 
-1. Download the image from **nanoFramework** repository.
+1. Download the image from .NET **nanoFramework** repository.
 1. Place the J13 SPO jumper in position 1.
 ![uniflash-start-screen](../../images/ti/cc3220sf-launchxl-sop-program-clr.jpg)
 1. Connect the board using the USB cable.

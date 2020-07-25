@@ -4,9 +4,9 @@
 
 -----
 
-### Welcome to the **nanoFramework** documentation source repository!
+### Welcome to the .NET **nanoFramework** documentation source repository!
 
-This repo contains the sources that generate the **nanoFramework** documentation website.
+This repo contains the sources that generate the .NET **nanoFramework** documentation website.
 
 ## Feedback and documentation
 
@@ -20,7 +20,7 @@ The list of contributors to this project can be found at [CONTRIBUTORS](https://
 
 ## License
 
-The **nanoFramework** contributors grant you a license to the **nanoFramework** documentation and other content in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
+The .NET **nanoFramework** contributors grant you a license to the .NET **nanoFramework** documentation and other content in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
 see the [LICENSE](LICENSE) file, and grant you a license to any code in this repository under the [MIT License](https://opensource.org/licenses/MIT), see the
 [LICENSE-CODE](LICENSE-CODE) file.
 

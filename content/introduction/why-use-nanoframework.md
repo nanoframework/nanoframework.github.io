@@ -1,8 +1,8 @@
-## Why use **nanoFramework**?
+## Why use .NET **nanoFramework**?
 
-**nanoFramework** is the perfect enabler for developing software that works on embedded devices. Start with a low cost and readily available development board, then use **nanoFramework** to write, debug and deploy your code.
+.NET **nanoFramework** is the perfect enabler for developing software that works on embedded devices. Start with a low cost and readily available development board, then use .NET **nanoFramework** to write, debug and deploy your code.
 
-Whether this is your first foray into programming or are a seasoned developer, if you want a powerful and easy to use tool for developing software that runs on embedded devices, you are in the right place. With its modular architecture, it’s easy to grab the core components (like the CLR, debugger and interpreter) and extendibility to new hardware platforms, **nanoFramework** is the perfect partner for your project. The current reference implementation uses [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) supporting several [ST Microelectronics](http://www.st.com/content/st_com/en.html) development boards and also [ESP32](https://en.wikipedia.org/wiki/ESP32).
+Whether this is your first foray into programming or are a seasoned developer, if you want a powerful and easy to use tool for developing software that runs on embedded devices, you are in the right place. With its modular architecture, it’s easy to grab the core components (like the CLR, debugger and interpreter) and extendibility to new hardware platforms, .NET **nanoFramework** is the perfect partner for your project. The current reference implementation uses [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) supporting several [ST Microelectronics](http://www.st.com/content/st_com/en.html) development boards and also [ESP32](https://en.wikipedia.org/wiki/ESP32).
 Because it’s completely free and [Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software) you have access to and the ability to modify all parts of the code including the ability to leverage what others have already contributed. If you are willing to, you can help shape the future by contributing back to the project and rapidly growing community.
 
 Here are some of its unique features:
@@ -24,4 +24,4 @@ Here are some advantages over other similar systems:
 - Easily expandable to other hardware platforms and [RTOSes](https://en.wikipedia.org/wiki/Real-time_operating_system). Currently is targeting [CMSIS](https://developer.arm.com/embedded/cmsis) compatible ones and ESP32 FreeRTOS port.
 - Completely free and [Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software). From the core components to the utilities used for building, deploying, debugging and IDE components.
 
-In case you wonder: [what is **nanoFramework**?](what-is-nanoframework.md)
+In case you wonder: [what is .NET **nanoFramework**?](what-is-nanoframework.md)
