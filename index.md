@@ -46,5 +46,5 @@ Explore our knowledge base, API documentation, samples, guides and tutorials.
 
 Know how to contribute to .NET **nanoFramework** project.
 
-- [Contribute to **nanoFramework**](contributing/index.md)
-- [Developer contribution](contributing/index.md#developers")
+- [Contribute to .NET **nanoFramework**](content/contributing/index.md)
+- [Developer contribution](content/contributing/index.md#developers)
