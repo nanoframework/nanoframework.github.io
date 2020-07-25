@@ -78,19 +78,19 @@
 <h1 id="date-and-time">Date and Time</h1>
 
 <p><strong>About this document</strong></p>
-<p>This document describes how <strong>nanoFramework</strong> handles Date &amp; Time and the available option regarding this matter.</p>
+<p>This document describes how .NET <strong>nanoFramework</strong> handles Date &amp; Time and the available option regarding this matter.</p>
 <h2 id="utc-and-local-time">UTC and local time</h2>
-<p>Time (and date) is fundamental for the inner works of <strong>nanoFramework</strong>. But an application running on top of it can make use of it, or not, thus making relevant the discussion and evaluation of the related features and associated code.
-Because <strong>nanoFramework</strong> runs on constrained resources platforms inclusion of features that increase both RAM and FLASH usage has to be considered and evaluated.</p>
+<p>Time (and date) is fundamental for the inner works of .NET <strong>nanoFramework</strong>. But an application running on top of it can make use of it, or not, thus making relevant the discussion and evaluation of the related features and associated code.
+Because .NET <strong>nanoFramework</strong> runs on constrained resources platforms inclusion of features that increase both RAM and FLASH usage has to be considered and evaluated.</p>
 <p><a href="https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx"><code>DateTime</code></a> supports the use of Local and UTC times by its <a href="https://msdn.microsoft.com/en-us/library/system.datetime.kind(v=vs.110).aspx"><code>DateTime.Kind</code></a> property. Supporting this requires adding several <em>blocks</em> such as: an API for setting the platform timezone, handling the huge number of available timezones, managing the daylight savings changes, manage conversion to/from the different kinds, etc.</p>
-<p>Considering all the above, <strong>nanoFramework</strong> addresses this matter providing the <em>absolute minimal viable</em> options.
+<p>Considering all the above, .NET <strong>nanoFramework</strong> addresses this matter providing the <em>absolute minimal viable</em> options.
 There is support for <code>DateTime</code> (obviously) but all DateTime are considered UTC. There is no support for <code>DateTime.Kind.Local</code>, setting timezone or converting to/from the different kinds.
 If an application requires this, it has to implement it at its own level.</p>
 <h2 id="time-source">Time source</h2>
 <p>The <em>time base</em> source is, by default, the <code>SysTick</code> available in the CMSIS RTOS API.
 This is the <em>source</em> of the time when a <code>DateTime</code> object is instantiated.</p>
-<p>Because almost all hardware platforms capable of running <strong>nanoFramework</strong> include an hardware <a href="https://en.wikipedia.org/wiki/Real-time_clock">RTC</a> this peripheral can be used as the <em>source</em> for time objects.
-Note that for all other internals of <strong>nanoFramework</strong> the CMSIS RTOS API <code>SysTick</code> keeps being used as the time base.</p>
+<p>Because almost all hardware platforms capable of running .NET <strong>nanoFramework</strong> include an hardware <a href="https://en.wikipedia.org/wiki/Real-time_clock">RTC</a> this peripheral can be used as the <em>source</em> for time objects.
+Note that for all other internals of .NET <strong>nanoFramework</strong> the CMSIS RTOS API <code>SysTick</code> keeps being used as the time base.</p>
 <p>This option is exposed to the board designer by the <code>NF_FEATURE_RTC</code> configuration option. Setting it to <code>ON</code> when calling CMake brings in the RTC subsystem and all the calls to <code>DateTime</code> make use of the time base provided by this peripheral.</p>
 <h2 id="rtc-and-hardware">RTC and hardware</h2>
 <p>Leveraging the RTC hardware peripheral allows several interesting/valuable features:</p>

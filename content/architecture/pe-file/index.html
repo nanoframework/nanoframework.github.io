@@ -78,18 +78,18 @@
 <h1 id="net-nanoframework-pe-file-format">.NET <strong>nanoFramework</strong> PE File Format</h1>
 
 <p>The .NET <strong>nanoFramework</strong> PE data format is based on the ECMA-335 specification. Specifically sections II.22 - II.24.
-Due to the constraints of the systems <strong>nanoFramework</strong> targets the PE file format is not an exact match/implementation of the ECMA-335 specification. <strong>nanoFramework</strong> PE file format is essentially an extended subset of the format defined in ECMA-335.</p>
+Due to the constraints of the systems .NET <strong>nanoFramework</strong> targets the PE file format is not an exact match/implementation of the ECMA-335 specification. .NET <strong>nanoFramework</strong> PE file format is essentially an extended subset of the format defined in ECMA-335.</p>
 <h2 id="major-differences-from-ecma-335">Major differences from ECMA-335</h2>
 <ul>
-<li>The number and size of the metadata tables is limited in <strong>nanoFramework</strong> to keep the overall memory footprint as low as possible.</li>
+<li>The number and size of the metadata tables is limited in .NET <strong>nanoFramework</strong> to keep the overall memory footprint as low as possible.</li>
 <li>The Windows PE32/COFF header, tables and information is stripped out.</li>
 <li>Switch instruction branch table index is limited to 8 bits.</li>
 <li>Table indexes are limited to 12 bits.</li>
-<li>This also means that the metadata tokens are 16 bits and not 32 so the actual IL instruction stream is different for <strong>nanoFramework</strong>.</li>
+<li>This also means that the metadata tokens are 16 bits and not 32 so the actual IL instruction stream is different for .NET <strong>nanoFramework</strong>.</li>
 <li>Resources are handled in a very different manner with their own special table in the assembly header.</li>
 </ul>
 <h2 id="file-data-structure">File Data Structure</h2>
-<p>The PE file starts with an <a href="AssemblyHeader.html">Assembly header</a> which is the top level structure of every <strong>nanoFramework</strong> PE file. On disk the AssemblyHeader structure is at offset 0 of the .PE file. On the device the AssemblyHeader is aligned at a 32 bit boundary within a well known ROM/FLASH region (the Deployment region) with the first assembly at offset 0 of the region. Immediately following the assembly header is the metadata table data. Since there are no fixed requirements that an assembly requires all possible tables or what the number of entries in each table will be, the exact size and location of the start of each table's data is entirely described within the header including the end of the assembly, which is used to compute the start location of any subsequent assemblies in memory.</p>
+<p>The PE file starts with an <a href="AssemblyHeader.html">Assembly header</a> which is the top level structure of every .NET <strong>nanoFramework</strong> PE file. On disk the AssemblyHeader structure is at offset 0 of the .PE file. On the device the AssemblyHeader is aligned at a 32 bit boundary within a well known ROM/FLASH region (the Deployment region) with the first assembly at offset 0 of the region. Immediately following the assembly header is the metadata table data. Since there are no fixed requirements that an assembly requires all possible tables or what the number of entries in each table will be, the exact size and location of the start of each table's data is entirely described within the header including the end of the assembly, which is used to compute the start location of any subsequent assemblies in memory.</p>
 <pre><code>+-----------------+ &lt;--- Aligned to 32 bit boundary in memory
 | AssemblyHeader  |   
 +-----------------+

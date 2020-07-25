@@ -78,12 +78,12 @@
 <h1 id="external-memory">External memory</h1>
 
 <p><strong>About this document</strong></p>
-<p>This document describes how to use external memory for the managed heap using the ChibiOS FSMC driver from the <strong>nanoFramework</strong> overlay.
+<p>This document describes how to use external memory for the managed heap using the ChibiOS FSMC driver from the .NET <strong>nanoFramework</strong> overlay.
 Please refer to the CLR managed heap <a href="clr-managed-heap.html">documentation</a>.</p>
 <h2 id="memory-controller">Memory controller</h2>
 <p>Most STM32 devices include a FSMC (Flexible Static Memory Controller) that provides seamless interface with the most common memory types either synchronous or asynchronous.</p>
 <h2 id="assumptions-and-design">Assumptions and design</h2>
-<p>The initialization of the memory controller along with the memory configuration have to occur as early as possible after the boot. In the current <strong>nanoFramework</strong> design this is expected to occur right after the call to CMSIS <code>osKernelInitialize()</code> when all other initialization and configurations have already happen and interrupts are enabled. Because the memory space is to be used as the managed heap the timing is no more critical than that, so pretty much anywhere before the call to the CLR startup should be quite alright.</p>
+<p>The initialization of the memory controller along with the memory configuration have to occur as early as possible after the boot. In the current .NET <strong>nanoFramework</strong> design this is expected to occur right after the call to CMSIS <code>osKernelInitialize()</code> when all other initialization and configurations have already happen and interrupts are enabled. Because the memory space is to be used as the managed heap the timing is no more critical than that, so pretty much anywhere before the call to the CLR startup should be quite alright.</p>
 <p>The function were the external memory configuration and initialization is to occur is <code>Target_ExternalMemoryInit()</code>. The <code>nanoHAL_v2.h</code> provides a <em>weak</em> and empty implementation of this function. If a target is to use external memory it has to provide the <em>strong</em> implementation of this function and call it before <code>ClrStartup()</code> is called.</p>
 <p>Considering that the default placement of the CLR managed is in the SoC internal RAM, the linker file includes a rule to place this region (called <code>clr_managed_heap</code>) in one of its RAM regions.</p>
 <h3 id="example-for-stm32f429i-discovery-reference-target">Example for STM32F429I-Discovery reference target</h3>

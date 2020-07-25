@@ -77,23 +77,23 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started-guide-for-managed-code-c">Getting Started Guide for managed code (C#)</h1>
 
-<p><strong>nanoFramework</strong> enables the writing of managed code applications for embedded devices. Doesn't matter if you are a seasoned .NET developer or if you've just arrived here and want to give it a try.</p>
+<p>.NET <strong>nanoFramework</strong> enables the writing of managed code applications for embedded devices. Doesn't matter if you are a seasoned .NET developer or if you've just arrived here and want to give it a try.</p>
 <p>This getting started guide will walk you through the setup of your development machine to get you coding a nice &quot;Hello World&quot; in no time!</p>
 <p>You can find the video for this guide on our YouTube channel <a href="https://youtu.be/iZdN2GmefXI">here</a>.</p>
 <h2 id="installing-visual-studio">Installing Visual Studio</h2>
-<p>The first part is to get Visual Studio (both 2017 and 2019 versions are supported) and the <strong>nanoFramework</strong> extension installed.</p>
+<p>The first part is to get Visual Studio (both 2017 and 2019 versions are supported) and the .NET <strong>nanoFramework</strong> extension installed.</p>
 <ol>
 <li><p>Download Visual Studio. If you already have it installed, you can skip this step. If you don't, please download the free <a href="https://www.visualstudio.com/downloads">Visual Studio Community</a> edition. Either way, make sure you've selected the .NET desktop workload.</p>
 </li>
 <li><p><strong>If using the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: <a href="https://nanoframework.net/2019/08/21/new-preview-feeds-for-nanoframework.">https://nanoframework.net/2019/08/21/new-preview-feeds-for-nanoframework.</a></strong></p>
 </li>
-<li><p>Launch Visual Studio (we'll just refer to it as VS from now on) and install the <strong>nanoFramework</strong> extension. You can do this by going into Tools &gt; Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter <em>nanoFramework</em> in the search box.</p>
+<li><p>Launch Visual Studio (we'll just refer to it as VS from now on) and install the .NET <strong>nanoFramework</strong> extension. You can do this by going into Tools &gt; Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter <em>nanoFramework</em> in the search box.</p>
 </li>
 <li><p>Now open the Device Explorer window. You can do this by going into View &gt; Other Windows &gt; Device Explorer.</p>
 </li>
 </ol>
 <h2 id="uploading-the-firmware-to-the-board-using-nanofirmwareflasher">Uploading the firmware to the board using nanoFirmwareFlasher</h2>
-<p>The second part is to load the <strong>nanoFramework</strong> image in the board flash. The best way is to use the <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher (nanoff)</a> tool. This is a .NET Core CLI command tool.</p>
+<p>The second part is to load the .NET <strong>nanoFramework</strong> image in the board flash. The best way is to use the <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher (nanoff)</a> tool. This is a .NET Core CLI command tool.</p>
 <h3 id="note-the-vc-2010-x86-redistributable-may-required-installing-on-your-pc-in-certain-circumstances">Note: the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.</h3>
 <ol>
 <li><p>Install <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a>.</p>
@@ -117,7 +117,7 @@
 </li>
 </ul>
 </li>
-<li><p>After the upload completes, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running <strong>nanoFramework</strong> by looking into the Device Explorer window in Visual Studio.</p>
+<li><p>After the upload completes, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET <strong>nanoFramework</strong> by looking into the Device Explorer window in Visual Studio.</p>
 </li>
 </ol>
 <h2 id="coding-a-hello-world-application">Coding a 'Hello World' application</h2>
@@ -125,22 +125,22 @@
 <ol>
 <li><p>Go back to VS and click File &gt; New &gt; Project. Make sure you have selected 'Framework 4.6 or above' and choose nanoFramework, on the left hand side tree view. Choose the 'Blank Application' template and a location of your choosing were the project files will be saved. Name your project and hit OK. The program file will be automatically opened for you.</p>
 </li>
-<li><p>We'll code a very simple application that enters an infinite loop and turns on and off an LED. We'll skip the details because that's not the aim of this guide. Let's just grab the code from the <strong>nanoFramework</strong> samples repo <a href="https://github.com/nanoframework/Samples/tree/master/samples/Blinky">here</a>. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board.</p>
+<li><p>We'll code a very simple application that enters an infinite loop and turns on and off an LED. We'll skip the details because that's not the aim of this guide. Let's just grab the code from the .NET <strong>nanoFramework</strong> samples repo <a href="https://github.com/nanoframework/Samples/tree/master/samples/Blinky">here</a>. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board.</p>
 </li>
 <li><p>Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on 'References' in the Solution Explorer and click 'Manage NuGet Packages'. On the search box type 'nanoFramework'. Make sure you have the preview checkbox ticked. Find the Windows.Devices.Gpio package and click &quot;Install&quot;. After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.</p>
 </li>
 <li><p>Click &quot;Build Solution&quot; from the Build menu. A success message shows in the Build window.</p>
 </li>
-<li><p>We are almost there. Go into the Device Explorer window and click on the <strong>nanoFramework</strong> device showing there. Make sure the connection is OK by hitting the &quot;Ping&quot; button. On success, a message shows on the output window.</p>
+<li><p>We are almost there. Go into the Device Explorer window and click on the .NET <strong>nanoFramework</strong> device showing there. Make sure the connection is OK by hitting the &quot;Ping&quot; button. On success, a message shows on the output window.</p>
 </li>
 <li><p>Let's deploy the application to the board. In order to do that, right click on the Project name and choose &quot;Deploy&quot;. You'll see the feedback of the several operations that are running on the background in the Output Window. After a successful deployment you need to reset the target and your 'Hello World' blinky application will start running and, <em>voilá</em>, the LED starts blinking! If you want, instead of &quot;just&quot; deploying the application to the target you can choose to start a debug session. To do that hit F5 (as usual) in Visual Studio and watch it run.</p>
 </li>
 </ol>
 <h2 id="wrapping-up">Wrapping up</h2>
-<p>Congratulations! That's your first <strong>nanoFramework</strong> C# application executing right there on the target board. How awesome is that?!</p>
+<p>Congratulations! That's your first .NET <strong>nanoFramework</strong> C# application executing right there on the target board. How awesome is that?!</p>
 <p>And this is it for the getting started guide.</p>
-<p>You've went through the steps required to install Visual Studio, the <strong>nanoFramework</strong> extension and the ST-LINK Utility.</p>
-<p>You've also learned how to upload <strong>nanoFramework</strong> firmware images into a target board.
+<p>You've went through the steps required to install Visual Studio, the .NET <strong>nanoFramework</strong> extension and the ST-LINK Utility.</p>
+<p>You've also learned how to upload .NET <strong>nanoFramework</strong> firmware images into a target board.
 And last, but not the least: how to code a simple 'Hello World' C# application and deploy it to a target board.</p>
 <p>Check out other guides and tutorials. You may also want to join our <a href="https://discordapp.com/invite/gCyBu8T">Discord channel</a>, where you'll find a supportive community to discuss your ideas and help you in case you get stuck on something.</p>
 </article>

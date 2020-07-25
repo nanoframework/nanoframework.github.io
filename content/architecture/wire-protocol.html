@@ -92,7 +92,7 @@
 <li><a href="#crc32-validatons">CRC32 validations</a></li>
 </ul>
 <p><strong>About this document</strong></p>
-<p>This document describes the Wire Protocol used by <strong>nanoFramework</strong> for debug and the booter stage.
+<p>This document describes the Wire Protocol used by .NET <strong>nanoFramework</strong> for debug and the booter stage.
 The protocol follows the implementation of the .NET Micro Framework Wire Protocol. The intention is to review it later in order to improve and simplify it.</p>
 <h2 id="wire-protocol-message">Wire Protocol Message</h2>
 <p>The message basic structure is comprised by:</p>
@@ -113,7 +113,7 @@ The protocol follows the implementation of the .NET Micro Framework Wire Protoco
 </ul>
 <p>You can check the details on `WireProtocol.h](@ src\CLR\WireProtocol\WireProtocol.h)</p>
 <h2 id="data-channels">Data channels</h2>
-<p>Currently <strong>nanoFramework</strong> Wire Protocol supports only serial channels. The plan is to add support for USB (using CDC class device) and TCP.
+<p>Currently .NET <strong>nanoFramework</strong> Wire Protocol supports only serial channels. The plan is to add support for USB (using CDC class device) and TCP.
 To ease the port to new HAL/platforms the code is architecture so that only minimal changes are required to add support for new implementations.</p>
 <h2 id="receiving-and-transmitting-data">Receiving and transmitting data</h2>
 <p>The code is architecture to receive and transmit data over a serial stream.
@@ -165,7 +165,7 @@ Weak implementations of each function are part of the core code.</p>
 <li><code>WP_CheckAvailableIncomingData(...)</code> in <code>WireProtocol_HAL_Interface.c</code>(@ src\CLR\WireProtocol\WireProtocol_HAL_Interface.c)</li>
 </ul>
 <p>An implementation for an STM32F4_DISCOVERY board with ChibiOS (including its HAL) is provided as a reference. Please check it at <code>WireProtocol_HAL_Interface</code>(@ targets\CMSIS-OS\ChibiOS\ST_STM32F4_DISCOVERY\common\WireProtocol_HAL_Interface.c).</p>
-<p>When porting <strong>nanoFramework</strong> to another RTOS or HAL follow the reference implementation to ease the port work.</p>
+<p>When porting .NET <strong>nanoFramework</strong> to another RTOS or HAL follow the reference implementation to ease the port work.</p>
 <h2 id="application-interface">Application interface</h2>
 <p>The Wire Protocol requires the following functions in order to interface with it's client app.
 Weak implementations of each function are part of the core code.</p>

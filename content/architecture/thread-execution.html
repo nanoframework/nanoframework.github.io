@@ -78,17 +78,17 @@
 <h1 id="thread-execution">Thread execution</h1>
 
 <p><strong>About this document</strong></p>
-<p>This document describes how thread execution works with the <strong>nanoFramework</strong> CLR.</p>
+<p>This document describes how thread execution works with the .NET <strong>nanoFramework</strong> CLR.</p>
 <h2 id="introduction-to-threads">Introduction to Threads</h2>
-<p>Oversimplifying it a <strong>nanoFramework</strong> thread is (in terms of execution) basically a stream of IL instructions that are translated by the interpreter making things happen.
+<p>Oversimplifying it a .NET <strong>nanoFramework</strong> thread is (in terms of execution) basically a stream of IL instructions that are translated by the interpreter making things happen.
 This execution occurs in a cooperative fashion, meaning that a thread is allowed to run for a certain amount of time, after that it stops and the execution is passed to the next thread that meets the required conditions to run.</p>
 <h2 id="thread-execution-1">Thread execution</h2>
-<p>The <strong>nanoFramework</strong> CLR and interpreter run on a RTOS thread. When the RTOS works in a <a href="https://en.wikipedia.org/wiki/Computer_multitasking#Cooperative_multitasking">cooperative</a> fashion (opposed to a <a href="https://en.wikipedia.org/wiki/Computer_multitasking#Preemptive_multitasking">preemptive</a> fashion) the thread is expected to relinquish control to the RTOS so that context switching can occur and the next RTOS thread is given the opportunity to run.
-This context switching in <strong>nanoFramework</strong> is expected to occur after each time slot that a <strong>nanoFramework</strong> thread is allowed to run.
+<p>The .NET <strong>nanoFramework</strong> CLR and interpreter run on a RTOS thread. When the RTOS works in a <a href="https://en.wikipedia.org/wiki/Computer_multitasking#Cooperative_multitasking">cooperative</a> fashion (opposed to a <a href="https://en.wikipedia.org/wiki/Computer_multitasking#Preemptive_multitasking">preemptive</a> fashion) the thread is expected to relinquish control to the RTOS so that context switching can occur and the next RTOS thread is given the opportunity to run.
+This context switching in .NET <strong>nanoFramework</strong> is expected to occur after each time slot that a .NET <strong>nanoFramework</strong> thread is allowed to run.
 It's up to the target board developer to provide the correct way to relinquish the control of the threads execution according to the RTOS running beneath.
 This may not be required by all RTOS's. For example when by default the RTOS works in a preemptive fashion, the thread execution occurs in a round robin fashion among the various RTOS threads.</p>
 <p>The execution relinquish to the underlying RTOS, so that the 'next' RTOS thread and other RTOS services can run is performed inside the <code>Events_WaitForEvents</code> function that is implemented for each target platform.
-For the current version of <strong>nanoFramework</strong> this is accomplished in the following ways:</p>
+For the current version of .NET <strong>nanoFramework</strong> this is accomplished in the following ways:</p>
 <ul>
 <li>For targets running with ChibiOS (a CMSIS compliant RTOS) a call to <code>osDelay(10)</code> is sufficient and allows the kernel to run all the other threads with the same (or higher) priority.</li>
 <li>For the ESP32 target - which is running with FreeRTOS - a call to <code>vTaskDelay(0)</code> is sufficient and allows the kernel to run all the other threads with the same (or higher) priority.</li>

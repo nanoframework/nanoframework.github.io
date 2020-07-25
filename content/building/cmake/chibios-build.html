@@ -79,7 +79,7 @@
 
 <p><strong>About this document</strong></p>
 <p>This document describes the purpose and workflow for the CMake configuration files to build ChibiOS from the repository sources.
-Building ChibiOS from sources might be needed when debugging a <strong>nanoFramework</strong> feature that interacts with it.</p>
+Building ChibiOS from sources might be needed when debugging a .NET <strong>nanoFramework</strong> feature that interacts with it.</p>
 <h2 id="purpose">Purpose</h2>
 <p>The purpose of the configuration files collections is to create a CMake package for ChibiOS and build it.</p>
 <h2 id="reasoning">Reasoning</h2>
@@ -88,11 +88,11 @@ When invoking CMake these options are passed specifying <code>RTOS=CHIBIRTOS</co
 <p><em>Note: when specifying the location of a local clone make sure that the correct branch is checked out.</em></p>
 <h2 id="workflow">Workflow</h2>
 <p>ChibiOS HAL is based on <em>boards</em>. The collection of supported boards and the respective configurations live in hal/boards directory.
-<strong>nanoFramework</strong> includes an 'overlay' for ChibiOS were supported boards can be added. This collection is also checked for the target board. The collection of supported boards and the respective configurations implemented in the 'overlay' live in /targets/CMSIS-OS/ChibiOS/nf-overlay/os/hal/boards directory.</p>
-<p>A <strong>nanoFramework</strong> target can also include the ChibiOS board definitions. This is the advisable approach for OEM boards.
+.NET <strong>nanoFramework</strong> includes an 'overlay' for ChibiOS were supported boards can be added. This collection is also checked for the target board. The collection of supported boards and the respective configurations implemented in the 'overlay' live in /targets/CMSIS-OS/ChibiOS/nf-overlay/os/hal/boards directory.</p>
+<p>A .NET <strong>nanoFramework</strong> target can also include the ChibiOS board definitions. This is the advisable approach for OEM boards.
 In this case the board.c and board.h files have to be included right in the target directory.</p>
-<p>Support for each board in <strong>nanoFramework</strong> is required. This is were the configuration details and components/features are specified and/or configured. CMakes checks if the target board is available in the targets collection. The collection of board support is at /targets/CMSIS-OS/ChibiOS.</p>
-<p>After successfully finding the board support in both ChibiOS and <strong>nanoFramework</strong> targets, CMake checks the TARGET_SERIES in the list of supported series in order to figure out the series for later use. Please check the code at <a href="../../CMake/Modules/FindCHIBIOS.cmake">FindCHIBIOS.cmake</a> for details.
+<p>Support for each board in .NET <strong>nanoFramework</strong> is required. This is were the configuration details and components/features are specified and/or configured. CMakes checks if the target board is available in the targets collection. The collection of board support is at /targets/CMSIS-OS/ChibiOS.</p>
+<p>After successfully finding the board support in both ChibiOS and .NET <strong>nanoFramework</strong> targets, CMake checks the TARGET_SERIES in the list of supported series in order to figure out the series for later use. Please check the code at <a href="../../CMake/Modules/FindCHIBIOS.cmake">FindCHIBIOS.cmake</a> for details.
 (NOTE: the current code has been validated for STM boards only)</p>
 <p>The <em>FindCHIBIOS.cmake</em> includes the specifics for the target series and the respective GCC options.
 The file naming logic is:</p>
