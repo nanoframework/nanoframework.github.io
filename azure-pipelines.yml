@@ -96,6 +96,8 @@ steps:
       git clone https://github.com/nanoframework/lib-nanoFramework.System.Net.Http -b develop nanoFramework.System.Net.Http 
 
       git clone https://github.com/nanoframework/lib-nanoFramework.TI.EasyLink -b develop nanoFramework.TI.EasyLink
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.TI -b develop nanoFramework.Hardware.TI
  
   displayName: Clone repos of class libs
 
@@ -287,6 +289,13 @@ steps:
     nugetConfigPath: 'nanoFramework.TI.EasyLink\NuGet.Config'
     verbosityRestore: quiet
 
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Hardware.TI\NuGet.Config'
+    verbosityRestore: quiet
+  
 - task: InstallnFBuildComponents@1
   displayName: Install nanoFramework MSBuild components
 
@@ -455,6 +464,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
