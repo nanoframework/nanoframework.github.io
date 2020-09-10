@@ -55,7 +55,7 @@ steps:
 
       git clone https://github.com/nanoframework/lib-nanoFramework.Runtime.Native.git --depth 100 -b develop nanoFramework.Runtime.Native 
 
-      git clone https://github.com/nanoframework/lib-System.Devices.Dac.git --depth 100 -b develop System.Devices.Dac
+      git clone https://github.com/nanoframework/lib-System.Device.Dac.git --depth 100 -b develop System.Device.Dac
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.Gpio.git --depth 100 -b develop Windows.Devices.Gpio 
 
@@ -142,9 +142,9 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: 'System.Devices.Dac\nanoFramework.System.Devices.Dac.sln'
+    restoreSolution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     feedsToUse: config
-    nugetConfigPath: 'System.Devices.Dac\NuGet.Config'
+    nugetConfigPath: 'System.Device.Dac\NuGet.Config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -325,12 +325,12 @@ steps:
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
-# - task: VSBuild@1
-#   inputs:
-#     solution: 'System.Devices.Dac\nanoFramework.System.Devices.Dac.sln'
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-#   condition: succeeded()
+- task: VSBuild@1
+  inputs:
+    solution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
 
 
 - task: VSBuild@1
