@@ -2,8 +2,10 @@
 
 - [Class Libraries](class-libraries.md)
 - [Date and Time](date-and-time.md)
+- [Floating point calculations](floating-point-calculations.md)
 - [Application deployment](deployment.md)
 - [Thread execution](thread-execution.md)
 - [Native interrupt handlers](native-interrupt-handlers.md)
 - [Wire Protocol](wire-protocol.md)
 - [PE File format](pe-file/index.md)
+
