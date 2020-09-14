@@ -98,6 +98,8 @@ steps:
       git clone https://github.com/nanoframework/lib-nanoFramework.TI.EasyLink -b develop nanoFramework.TI.EasyLink
 
       git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.TI -b develop nanoFramework.Hardware.TI
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.System.Math -b develop nanoFramework.System.Math 
  
   displayName: Clone repos of class libs
 
@@ -294,6 +296,13 @@ steps:
     restoreSolution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.TI\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.System.Math\nanoFramework.System.Math.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.System.Math\NuGet.Config'
     verbosityRestore: quiet
   
 - task: InstallnFBuildComponents@1
