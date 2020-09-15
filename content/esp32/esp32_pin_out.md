@@ -33,10 +33,6 @@ There is no LED PWM on ESP32
 ## ADC
 
 We use "ADC1" for 20 logical channels mapped to ESP32 controllers
-// ESP32 ADC1 channels 0 - 7
-//  "    ADC1 channel  8 - 
-//  "    ADC1 channel  9 - 
-//  "    ADC2 channels 10 - 19
 
 | ADC# | Channel # | GPIO # | Note |
 | --- | --- | --- | --- |
