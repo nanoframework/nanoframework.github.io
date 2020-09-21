@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>.NET nanoFramework Architecture | nanoFramework Documentation </title>
+    <title>Floating-point calculations | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=".NET nanoFramework Architecture | nanoFramework Documentation ">
+    <meta name="title" content="Floating-point calculations | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -75,18 +75,30 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="net-nanoframework-architecture">.NET <strong>nanoFramework</strong> Architecture</h1>
+<h1 id="floating-point-calculations">Floating-point calculations</h1>
 
+<p><strong>About this document</strong></p>
+<p>This document describes the specificities and available implementations of System.Math class library in .NET <strong>nanoFramework</strong>.</p>
+<h2 id="available-apis-and-floating-point-implementations">Available APIs and floating-point implementations</h2>
+<p>The .NET System.Math APIs are available with <code>double</code> parameters. No sweat for the CPUs where the code usually runs.
+When we move to embedded systems that's a totally different story.</p>
+<p>A few more details to properly set context:</p>
 <ul>
-<li><a href="class-libraries.html">Class Libraries</a></li>
-<li><a href="date-and-time.html">Date and Time</a></li>
-<li><a href="floating-point-calculations.md">Floating point calculations</a></li>
-<li><a href="deployment.html">Application deployment</a></li>
-<li><a href="thread-execution.html">Thread execution</a></li>
-<li><a href="native-interrupt-handlers.html">Native interrupt handlers</a></li>
-<li><a href="wire-protocol.html">Wire Protocol</a></li>
-<li><a href="pe-file/index.html">PE File format</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.double"><code>double</code> type</a>: represents a double-precision 64-bit number with values ranging from negative 1.79769313486232e308 to positive 1.79769313486232e308. Precision ~15-17 digits. Size 8 bytes.</li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.single"><code>float</code> type</a>: represents a single-precision 32-bit number with values ranging from negative 3.402823e38 to positive 3.402823e38. Precision ~6-9 digits. Size 4 bytes.</li>
+<li>Comparison of <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">floating-point numeric types</a>.</li>
 </ul>
+<p>There are all sorts of variants and combinations on how to deal with FP and DP in the embedded world. From hardware support on the CPU to libraries that perform those calculations at the expense of more code and execution speed. .NET <strong>nanoFramework</strong> targets 32-bit MCUs, therefore support for 64-bits calculations requires extra code and processing.</p>
+<p>Adding to the above, the extra precision provided by the <code>double</code> type is seldom required on typical embedded application use cases.</p>
+<p>Considering all this and the ongoing quest to save flash space we've decided to provide two <em>flavours</em> for the System.Math API: the standard one with <code>double</code> type parameters and the alternative, lightweight one, with <code>float</code> type parameters.</p>
+<p>This has zero impact on API and code reuse as both coexist. The only difference is on the firmware image. There is a build option (<code>DP_FLOATINGPOINT</code>) to build the image with DP floating point, when that extra precision is required.</p>
+<p>A <code>NotImplementedException</code> will be throw when there is no native support for an API. The remedy is to call the API with the <em>other</em> parameter type.</p>
+<pre><code class="lang-(csharp)">// this is OK when running on a image that has DP floating point support
+Math.Pow(1.01580092094650000000000000, 0.19029495718363400000000000000);
+
+// this is the correct usage when running on a image WITHOUT support for DP floating point
+Math.Pow(1.0158009209465f, 0.190294957183634f);
+</code></pre>
 </article>
           </div>
           
@@ -95,7 +107,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/floating-point-claculations.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
