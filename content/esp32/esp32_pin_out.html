@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>ESP32 specific articles | nanoFramework Documentation </title>
+    <title>ESP32 Pin out | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="ESP32 specific articles | nanoFramework Documentation ">
+    <meta name="title" content="ESP32 Pin out | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -75,12 +75,182 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="esp32-specific-articles">ESP32 specific articles</h1>
+<h1 id="esp32-pin-out">ESP32 Pin out</h1>
 
-<ul>
-<li><a href="build_ESP32_libraries.html">Building ESP32 libraries</a></li>
-<li><a href="esp32_pin_out.html">ESP32 pin out</a></li>
-</ul>
+<p>ESP32 Pin out differ depending of the physical hardware. What is common is the GPIO numbering. So refer to the documentation of your specific board to find out the physical relation.</p>
+<p>You can find all the details in <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/common/Esp32_DeviceMapping.cpp">this file</a></p>
+<h2 id="i2c">I2C</h2>
+<p>There are 2 I2C bus available:
+| I2C# | Data | Clock |
+| --- | --- | ---|
+| I2C1 | GPIO 18 | GPIO 19 |
+| I2C2 | GPIO 25 | GPIO 26 |</p>
+<h2 id="spi">SPI</h2>
+<p>There is only 1 SPI possible configuration:
+| SPI# | MOSI | MISO | Clock |
+| --- | --- | --- | --- |
+| SPI1 | GPIO 23 | GPIO 25 | GPIO 19 |</p>
+<h2 id="serial-ports">Serial ports</h2>
+<p>You have 1 serial port available:
+| COM# | Transfer (Tx) | Reception (Rx) | RTS | CTS |
+| --- | --- | --- | --- | --- |
+| COM1 | GPIO 1 | GPIO 3 | GPIO 19 | GPIO 22 |</p>
+<h2 id="led-pwm">Led PWM</h2>
+<p>There is no LED PWM on ESP32</p>
+<h2 id="adc">ADC</h2>
+<p>We use &quot;ADC1&quot; for 20 logical channels mapped to ESP32 controllers</p>
+<table>
+<thead>
+<tr>
+<th>ADC#</th>
+<th>Channel #</th>
+<th>GPIO #</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADC1</td>
+<td>0</td>
+<td>36</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>1</td>
+<td>37</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>2</td>
+<td>38</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>3</td>
+<td>39</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>4</td>
+<td>32</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>5</td>
+<td>33</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>6</td>
+<td>34</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>7</td>
+<td>35</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>8</td>
+<td>36</td>
+<td>Internal Temperture sensor (VP)</td>
+</tr>
+<tr>
+<td>ADC1</td>
+<td>9</td>
+<td>39</td>
+<td>Internal Hall Sensor (VN)</td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>10</td>
+<td>04</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>11</td>
+<td>00</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>12</td>
+<td>02</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>13</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>14</td>
+<td>13</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>15</td>
+<td>12</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>16</td>
+<td>14</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>17</td>
+<td>27</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>18</td>
+<td>25</td>
+<td></td>
+</tr>
+<tr>
+<td>ADC2</td>
+<td>19</td>
+<td>26</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dac">DAC</h2>
+<p>2 DAC are available on the ESP32:</p>
+<table>
+<thead>
+<tr>
+<th>DAC#</th>
+<th>GPIO #</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAC1</td>
+<td>25</td>
+</tr>
+<tr>
+<td>DAC2</td>
+<td>26</td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           
@@ -89,7 +259,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/esp32/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/esp32/esp32_pin_out.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
