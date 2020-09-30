@@ -29,26 +29,6 @@ If in doubt please ask one of the senior team members.
 
 4. Move into _Branches_ and set `develop` as the default branch.
 
-## Setup the CLA
-
-1. Open a browser window in Private Mode (so you can sign-in as `nfbot` and not loose you personal GitHub session).
-
-2. Navigate to the [CLA Assistant](https://cla-assistant.io/).
-
-3. Sign-in with GitHub `nfbot` account.
-
-4. Click the "Configure CLA" button at the top left.
-
-5. Select the newly created repo on the "Choose a repository" drop-down.
-
-6. Select the "nanoFramework-CLA.md" in the next drop-down.
-
-7. Click the "Link" button and agree with the next step.
-
-8. On the list of the CLAs, find the new one and click on the ellipsis to the right and then 'Edit'.
-
-9. Add `nfbot,*[bot]` into the field "Provide user names, who doesn't need to sign the CLA". Click _Save_.
-
 ## Setup Azure DevOps
 
 1. Open a new browser window on which you are signed in to GitHub as `nfbot`.
@@ -56,17 +36,21 @@ If in doubt please ask one of the senior team members.
 1. Click "Configure" button for Azure Pipelines.
 1. The next step will take you to the [Azure DevOps](https://dev.azure.com/nanoframework) website.
 1. Click on "Create New Project".
-1. Name the project following the GiHub repo name but without the "lib" prefix. Make it _Public_, select _Git_ as the version control and _Agile_ as the work item process.
+1. Name the project following the GiHub repo name but without the "lib" prefix. Select _Public_ for visibility option.
 1. After the project is created a list with GitHub repositories shows. Select the repository that has been just created.
-1. The next step asks for the Pipeline configuration. Choose "Starter Pipeline" to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml and the option to save the file and run the pipeline. Click on "Save and run". This will trigger the very first build.
+1. The next step asks for the Pipeline configuration. Choose "Starter Pipeline" to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml.
+1. Click on "Variables" and add the following ones.
+1. Add `DiscordWebhook` with a value taken from the Azure webhook of the "build-monitor" channel in our Discord server. **Make sure** that the variable is set to `secret` by clicking on the appropriate option.
+1. Add another variable `GitHubToken` with a value taken from the nfbot personal tokens in GitHub. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
+1. Add another variable `NbgvParameters`, leave it empty and check "Let users override this value when running this pipeline".
+1. Add another variable `StartReleaseCandidate`, set the content to `false` and check "Let users override this value when running this pipeline".
+1. Add another variable `UPDATE_DEPENDENTS`, set the content to `false` and check "Let users override this value when running this pipeline".
+1. Click the "Save" button.
+1. Click on "Save and run". This will trigger the very first build.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
 1. Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
-1. Navigate to "Variables" and add `DiscordWebhook` with a value taken from the Azure webhook of the "build-monitor" channel in our Discord server. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
-1. Add another variable `GitHubToken` with a value taken from the nfbot personal tokens in GitHub. **Make sure** that the variable is set to `secret` by clicking on the padlock icon.
-1. Add another variable `NbgvParameters`, leave it empty and check the "Settable at queue time".
-1. Add another variable `StartReleaseCandidate`, set the content to `false` and check the "Settable at queue time".
-1. Add another variable `UPDATE_DEPENDENTS`, set the content to `false` and check the "Settable at queue time".
-1. Click the "Save" button and confirm the operation on the pop-up.
+1. Go to the `General Project` project and navigate to Project Settings - Service Connections.
+1. Open each of the service connections there, click on the 3 vertical dots (again at the top right) and then "Security". Scroll down to "Project permissions", click on the + icon at the right hand side and select the newlly created project. This will add a permission to use this shared service connection.
 1. Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on "Status badge". Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.
 
 ## Prepare the initial commit
@@ -81,9 +65,9 @@ If in doubt please ask one of the senior team members.
     - LICENSE _(no changes required)_
     - README.md
     - template.vssettings _(no changes required)_
-    - source/version.json
-    - source/NuGet.Config
-    - source/readme.txt
+    - version.json
+    - NuGet.Config
+    - readme.txt
 1. Open "azure-pipelines.yml"
     1. Rename the `nugetPackageName` variable with the new name (mind the nanoframework prefix).
     1. Rename the `repoName` variable with the repo name.
@@ -91,18 +75,17 @@ If in doubt please ask one of the senior team members.
     1. Rename the `sonarCloudProject` variable with the repo name.
     1. If there are class libraries that depend on this one, copy the "update dependencies" job from CorLib "azure-pipelines.yml". If there aren't just skip this step.
 1. Open ".github_changelog_generator" and set the _project_ to the repo name.
-1. Open "source\version.json" and set the _version_ to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.
+1. Open "version.json" and set the _version_ to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.
 1. Open "README.md"
     1. Rename the class library name occurrences with the new name.
     2. Rename the package name for the NuGet badges.
     3. Replace the build status badges with the ones that you've copied from Azure DevOps. They'll be the same until there is a second pipeline for the master branch.
-1. Create a "source" folder that will hold the code files, VS Solution and projects along with the nuspec(s) for packaging the NuGet.
-1. Create a folder inside "source" with the name of the new class library.
+1. Create a folder at the root level with the name of the new class library.
 1. Add to the VS Solution the class library project. Again it's better to follow an existing one and ask in doubt.
     1. Make sure you are following the naming pattern.
     1. Make sure you copy the `key.snk` from the initial repo (or from the CorLib repo). **DO NOT** create a new one.
 1. Rename, edit and adjust as required the "nuspec" files to create the NuGet packages.
-1. Edit the "readme.txt" inside the source folder and rename the repository name.
+1. Edit the "readme.txt" inside the root folder and rename the repository name.
 1. Still on"azure-pipelines.yml" _and only_ if there are class libraries that depend on this one.
     1. Adjust the `repositoriesToUpdate` list with the repo names of the class libraries that depend on this new one.
 
