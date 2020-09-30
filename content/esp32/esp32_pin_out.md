@@ -7,6 +7,7 @@ You can find all the details in [this file](https://github.com/nanoframework/nf-
 ## I2C
 
 There are 2 I2C bus available:
+
 | I2C# | Data | Clock |
 | --- | --- | ---|
 | I2C1 | GPIO 18 | GPIO 19 |
@@ -15,6 +16,7 @@ There are 2 I2C bus available:
 ## SPI
 
 There is only 1 SPI possible configuration:
+
 | SPI# | MOSI | MISO | Clock |
 | --- | --- | --- | --- |
 | SPI1 | GPIO 23 | GPIO 25 | GPIO 19 |
@@ -22,6 +24,7 @@ There is only 1 SPI possible configuration:
 ## Serial ports
 
 You have 1 serial port available:
+
 | COM# | Transfer (Tx) | Reception (Rx) | RTS | CTS |
 | --- | --- | --- | --- | --- |
 | COM1 | GPIO 1 | GPIO 3 | GPIO 19 | GPIO 22 |
