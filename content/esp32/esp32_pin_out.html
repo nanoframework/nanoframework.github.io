@@ -78,7 +78,18 @@
 <h1 id="esp32-pin-out">ESP32 Pin out</h1>
 
 <p>ESP32 Pin out differ depending of the physical hardware. What is common is the GPIO numbering. So refer to the documentation of your specific board to find out the physical relation.</p>
-<p>You can find all the details in <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/common/Esp32_DeviceMapping.cpp">this file</a></p>
+<p>You can find all the details for the default mapping in <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/common/Esp32_DeviceMapping.cpp">this file</a></p>
+<p>The default mapping defines how the pins are configured on start up. These pins configurations can be configured/redefined using the nanoFramework.Hardware.Esp32 assembly.</p>
+<h2 id="example-configuration">Example configuration</h2>
+<pre><code>// Define MOSI pin for SPI2 as GPIO 15
+Configuration.SetPinFunction(15, DeviceFunction.SPI2_MOSI);
+// Define LED PWM channel 1 GPIO 16
+Configuration.SetPinFunction(16, DeviceFunction.PWM1);
+// Redefine I2C2 data pin from GPIO 25 to GPIO 17
+Configuration.SetPinFunction(17, DeviceFunction.I2C2_DATA);
+</code></pre>
+<p>#ESP32 Default Mapping</p>
+<p>NP = Pin is undefined at startup</p>
 <h2 id="i2c">I2C</h2>
 <p>There are 2 I2C bus available:
 | I2C# | Data | Clock |
@@ -86,17 +97,21 @@
 | I2C1 | GPIO 18 | GPIO 19 |
 | I2C2 | GPIO 25 | GPIO 26 |</p>
 <h2 id="spi">SPI</h2>
-<p>There is only 1 SPI possible configuration:
+<p>There are 2 SPI possible configurations:
 | SPI# | MOSI | MISO | Clock |
 | --- | --- | --- | --- |
-| SPI1 | GPIO 23 | GPIO 25 | GPIO 19 |</p>
+| SPI1 | GPIO 23 | GPIO 25 | GPIO 19 |
+| SPI2 | NP | NP | NP |</p>
 <h2 id="serial-ports">Serial ports</h2>
-<p>You have 1 serial port available:
+<p>You have 2 serial ports available, COM1 is reserved for debugging when enabled.
 | COM# | Transfer (Tx) | Reception (Rx) | RTS | CTS |
 | --- | --- | --- | --- | --- |
-| COM1 | GPIO 1 | GPIO 3 | GPIO 19 | GPIO 22 |</p>
-<h2 id="led-pwm">Led PWM</h2>
-<p>There is no LED PWM on ESP32</p>
+| COM1 | GPIO 1 | GPIO 3 | GPIO 19 | GPIO 22 |
+| COM2 | NP | NP | NP | NP |
+| COM3 | NP | NP | NP | NP |</p>
+<h2 id="led-pwm-channels">Led PWM channels</h2>
+<p>There are 16 LED PWM channels on ESP32
+For all channels the GPIO pins are undefined at startup.</p>
 <h2 id="adc">ADC</h2>
 <p>We use &quot;ADC1&quot; for 20 logical channels mapped to ESP32 controllers</p>
 <table>
