@@ -7,6 +7,7 @@ You can find all the details for the default mapping in [this file](https://gith
 The default mapping defines how the pins are configured on start up. These pins configurations can be configured/redefined using the nanoFramework.Hardware.Esp32 assembly.
 
 ## Example configuration
+
 ```
 // Define MOSI pin for SPI2 as GPIO 15
 Configuration.SetPinFunction(15, DeviceFunction.SPI2_MOSI);
@@ -23,6 +24,7 @@ NP = Pin is undefined at startup
 ## I2C
 
 There are 2 I2C bus available:
+
 | I2C# | Data | Clock |
 | --- | --- | ---|
 | I2C1 | GPIO 18 | GPIO 19 |
@@ -31,6 +33,7 @@ There are 2 I2C bus available:
 ## SPI
 
 There are 2 SPI possible configurations:
+
 | SPI# | MOSI | MISO | Clock |
 | --- | --- | --- | --- |
 | SPI1 | GPIO 23 | GPIO 25 | GPIO 19 |
@@ -39,6 +42,7 @@ There are 2 SPI possible configurations:
 ## Serial ports
 
 You have 2 serial ports available, COM1 is reserved for debugging when enabled.
+
 | COM# | Transfer (Tx) | Reception (Rx) | RTS | CTS |
 | --- | --- | --- | --- | --- |
 | COM1 | GPIO 1 | GPIO 3 | GPIO 19 | GPIO 22 |
