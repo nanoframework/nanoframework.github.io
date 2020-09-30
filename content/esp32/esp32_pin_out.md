@@ -2,7 +2,23 @@
 
 ESP32 Pin out differ depending of the physical hardware. What is common is the GPIO numbering. So refer to the documentation of your specific board to find out the physical relation. 
 
-You can find all the details in [this file](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/common/Esp32_DeviceMapping.cpp)
+You can find all the details for the default mapping in [this file](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/common/Esp32_DeviceMapping.cpp)
+
+The default mapping defines how the pins are configured on start up. These pins configurations can be configured/redefined using the nanoFramework.Hardware.Esp32 assembly.
+
+## Example configuration
+```
+// Define MOSI pin for SPI2 as GPIO 15
+Configuration.SetPinFunction(15, DeviceFunction.SPI2_MOSI);
+// Define LED PWM channel 1 GPIO 16
+Configuration.SetPinFunction(16, DeviceFunction.PWM1);
+// Redefine I2C2 data pin from GPIO 25 to GPIO 17
+Configuration.SetPinFunction(17, DeviceFunction.I2C2_DATA);
+```
+
+#ESP32 Default Mapping
+
+NP = Pin is undefined at startup
 
 ## I2C
 
@@ -14,21 +30,25 @@ There are 2 I2C bus available:
 
 ## SPI
 
-There is only 1 SPI possible configuration:
+There are 2 SPI possible configurations:
 | SPI# | MOSI | MISO | Clock |
 | --- | --- | --- | --- |
 | SPI1 | GPIO 23 | GPIO 25 | GPIO 19 |
+| SPI2 | NP | NP | NP |
 
 ## Serial ports
 
-You have 1 serial port available:
+You have 2 serial ports available, COM1 is reserved for debugging when enabled.
 | COM# | Transfer (Tx) | Reception (Rx) | RTS | CTS |
 | --- | --- | --- | --- | --- |
 | COM1 | GPIO 1 | GPIO 3 | GPIO 19 | GPIO 22 |
+| COM2 | NP | NP | NP | NP |
+| COM3 | NP | NP | NP | NP |
 
-## Led PWM
+## Led PWM channels
 
-There is no LED PWM on ESP32
+There are 16 LED PWM channels on ESP32
+For all channels the GPIO pins are undefined at startup. 
 
 ## ADC
 
