@@ -22,7 +22,7 @@ The first part is to get Visual Studio (both 2017 and 2019 versions are supporte
 
 The second part is to load the .NET **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher (nanoff)](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
 
-### Note: the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.
+### Note: the [.netcore 3.1 Runtime and .netcore 3.1 SDK](https://dotnet.microsoft.com/download) must be installed, and the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.
 
 1. Install [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher).
 
