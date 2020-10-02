@@ -196,7 +196,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_Dispose.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L285">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L293">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_Dispose_" data-uid="Windows.Devices.Spi.SpiDevice.Dispose*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_Dispose" data-uid="Windows.Devices.Spi.SpiDevice.Dispose">Dispose()</h4>
@@ -211,7 +211,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_Finalize.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L280">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L288">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_Finalize_" data-uid="Windows.Devices.Spi.SpiDevice.Finalize*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_Finalize" data-uid="Windows.Devices.Spi.SpiDevice.Finalize">Finalize()</h4>
@@ -226,7 +226,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_FromId_System_String_Windows_Devices_Spi_SpiConnectionSettings_.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.FromId(System.String%2CWindows.Devices.Spi.SpiConnectionSettings)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L129">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L137">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_FromId_" data-uid="Windows.Devices.Spi.SpiDevice.FromId*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_FromId_System_String_Windows_Devices_Spi_SpiConnectionSettings_" data-uid="Windows.Devices.Spi.SpiDevice.FromId(System.String,Windows.Devices.Spi.SpiConnectionSettings)">FromId(String, SpiConnectionSettings)</h4>
@@ -280,12 +280,43 @@
   <h5 id="Windows_Devices_Spi_SpiDevice_FromId_System_String_Windows_Devices_Spi_SpiConnectionSettings__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method is specific to nanoFramework. The equivalent method in the UWP API is: FromIdAsync.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
+        <td><p>Thrown if the chip select pin is already in use</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown if the maximum number of devices on SPI bus is reached</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p>Thrown if invalid SPI bus</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.SystemException.html">SystemException</a></td>
+        <td><p>Thrown if GPIO pin already in use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_GetBusInfo_System_String_.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.GetBusInfo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L140">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L148">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_GetBusInfo_" data-uid="Windows.Devices.Spi.SpiDevice.GetBusInfo*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_GetBusInfo_System_String_" data-uid="Windows.Devices.Spi.SpiDevice.GetBusInfo(System.String)">GetBusInfo(String)</h4>
@@ -335,7 +366,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_GetDeviceSelector.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.GetDeviceSelector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L236">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L268">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_GetDeviceSelector_" data-uid="Windows.Devices.Spi.SpiDevice.GetDeviceSelector*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_GetDeviceSelector" data-uid="Windows.Devices.Spi.SpiDevice.GetDeviceSelector">GetDeviceSelector()</h4>
@@ -367,7 +398,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_GetDeviceSelector_System_String_.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.GetDeviceSelector(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L150">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L158">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_GetDeviceSelector_" data-uid="Windows.Devices.Spi.SpiDevice.GetDeviceSelector*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_GetDeviceSelector_System_String_" data-uid="Windows.Devices.Spi.SpiDevice.GetDeviceSelector(System.String)">GetDeviceSelector(String)</h4>
@@ -417,7 +448,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_Read_System_Byte___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.Read(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L160">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L168">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_Read_" data-uid="Windows.Devices.Spi.SpiDevice.Read*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_Read_System_Byte___" data-uid="Windows.Devices.Spi.SpiDevice.Read(System.Byte[])">Read(Byte[])</h4>
@@ -451,7 +482,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_Read_System_UInt16___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.Read(System.UInt16%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L169">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L180">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_Read_" data-uid="Windows.Devices.Spi.SpiDevice.Read*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_Read_System_UInt16___" data-uid="Windows.Devices.Spi.SpiDevice.Read(System.UInt16[])">Read(UInt16[])</h4>
@@ -485,7 +516,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_TransferFullDuplex_System_Byte___System_Byte___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.TransferFullDuplex(System.Byte%5B%5D%2CSystem.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L179">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L193">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_TransferFullDuplex_" data-uid="Windows.Devices.Spi.SpiDevice.TransferFullDuplex*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_TransferFullDuplex_System_Byte___System_Byte___" data-uid="Windows.Devices.Spi.SpiDevice.TransferFullDuplex(System.Byte[],System.Byte[])">TransferFullDuplex(Byte[], Byte[])</h4>
@@ -525,7 +556,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_TransferFullDuplex_System_UInt16___System_UInt16___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.TransferFullDuplex(System.UInt16%5B%5D%2CSystem.UInt16%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L189">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L206">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_TransferFullDuplex_" data-uid="Windows.Devices.Spi.SpiDevice.TransferFullDuplex*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_TransferFullDuplex_System_UInt16___System_UInt16___" data-uid="Windows.Devices.Spi.SpiDevice.TransferFullDuplex(System.UInt16[],System.UInt16[])">TransferFullDuplex(UInt16[], UInt16[])</h4>
@@ -565,7 +596,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_TransferSequential_System_Byte___System_Byte___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.TransferSequential(System.Byte%5B%5D%2CSystem.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L199">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L219">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_TransferSequential_" data-uid="Windows.Devices.Spi.SpiDevice.TransferSequential*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_TransferSequential_System_Byte___System_Byte___" data-uid="Windows.Devices.Spi.SpiDevice.TransferSequential(System.Byte[],System.Byte[])">TransferSequential(Byte[], Byte[])</h4>
@@ -605,7 +636,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_TransferSequential_System_UInt16___System_UInt16___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.TransferSequential(System.UInt16%5B%5D%2CSystem.UInt16%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L209">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L232">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_TransferSequential_" data-uid="Windows.Devices.Spi.SpiDevice.TransferSequential*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_TransferSequential_System_UInt16___System_UInt16___" data-uid="Windows.Devices.Spi.SpiDevice.TransferSequential(System.UInt16[],System.UInt16[])">TransferSequential(UInt16[], UInt16[])</h4>
@@ -645,7 +676,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_Write_System_Byte___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.Write(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L218">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L244">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_Write_" data-uid="Windows.Devices.Spi.SpiDevice.Write*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_Write_System_Byte___" data-uid="Windows.Devices.Spi.SpiDevice.Write(System.Byte[])">Write(Byte[])</h4>
@@ -679,7 +710,7 @@
     <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/new/pages-source/apiSpec/new?filename=Windows_Devices_Spi_SpiDevice_Write_System_UInt16___.md&amp;value=---%0Auid%3A%20Windows.Devices.Spi.SpiDevice.Write(System.UInt16%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L227">View Source</a>
+    <a href="https://github.com/nanoframework/lib-Windows.Devices.Spi/blob/develop/Windows.Devices.Spi/SpiDevice.cs/#L256">View Source</a>
   </span>
   <a id="Windows_Devices_Spi_SpiDevice_Write_" data-uid="Windows.Devices.Spi.SpiDevice.Write*"></a>
   <h4 id="Windows_Devices_Spi_SpiDevice_Write_System_UInt16___" data-uid="Windows.Devices.Spi.SpiDevice.Write(System.UInt16[])">Write(UInt16[])</h4>
