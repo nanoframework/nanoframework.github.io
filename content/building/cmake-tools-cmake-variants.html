@@ -179,9 +179,9 @@
 <li>Defines the RTOS that will be used to build nanoFramework. It can be CHIBIOS or FREERTOS_ESP32. Currently ChibiOS is supported for all STM32 targets and FreeRTOS is supported for ESP32 targets.</li>
 </ul>
 </li>
-<li>&quot;CHIBIOS_SOURCE&quot; : &quot;<strong>absolute-path-to-chibios-source-mind-the-forward-slash</strong>&quot;
+<li>&quot;RTOS_SOURCE_FOLDER&quot; : &quot;<strong>absolute-path-to-chosen-rtos-source-mind-the-forward-slash</strong>&quot;
 <ul>
-<li>Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources from the projects ChibiOS repository when needed</li>
+<li>Path to an optional local installation of an RTOS e.g. ChibiOS source files. If no path is given, then CMake will download the sources automatically from the RTOS repository when required.</li>
 </ul>
 </li>
 <li>&quot;CHIBIOS_BOARD&quot; : &quot;<strong>valid-chibios-board-name-from-boards-collection</strong>&quot;
@@ -387,7 +387,7 @@ Note that this API is exclusive of STM32 targets and can't be used with any othe
             &quot;TARGET_CHIP&quot; : &quot;STM32F427VIT&quot;,
 			&quot;TARGET_SERIES&quot; : &quot;STM32F4xx&quot;,
             &quot;RTOS&quot; : &quot;CHIBIOS&quot;, 
-            &quot;CHIBIOS_SOURCE&quot; : &quot;C:/dev/ChibiOS_16.1.7&quot;,
+            &quot;RTOS_SOURCE_FOLDER&quot; : &quot;C:/dev/ChibiOS_16.1.7&quot;,
             &quot;CHIBIOS_BOARD&quot; : &quot;MBN_QUAIL&quot;
 			&quot;NF_FEATURE_DEBUGGER&quot; : &quot;TRUE&quot;,
             &quot;NF_FEATURE_RTC&quot; : &quot;ON&quot;,
