@@ -74,8 +74,8 @@ The following explains each line of the *linkage* section. Text highlighted in *
   - Defines which bases are supported when performing string to value conversions. When ON support for any base is enabled. When OFF (the default) the image will be compiled with support for base 10 and base 16 only.
 - "RTOS" : "**one-of-valid-rtos-options**"
   - Defines the RTOS that will be used to build nanoFramework. It can be CHIBIOS or FREERTOS_ESP32. Currently ChibiOS is supported for all STM32 targets and FreeRTOS is supported for ESP32 targets.
-- "CHIBIOS_SOURCE" : "**absolute-path-to-chibios-source-mind-the-forward-slash**"
-  - Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources from the projects ChibiOS repository when needed
+- "RTOS_SOURCE_FOLDER" : "**absolute-path-to-chosen-rtos-source-mind-the-forward-slash**"
+  - Path to an optional local installation of an RTOS e.g. ChibiOS source files. If no path is given, then CMake will download the sources automatically from the RTOS repository when required.
 - "CHIBIOS_BOARD" : "**valid-chibios-board-name-from-boards-collection**"
   - Name of your board, chosen from the available boards collection that can be found in the \os\hal\boards folder of the ChibiOS installation (or distant repository)
 - "SWO_OUTPUT" : "**OFF**"
@@ -174,7 +174,7 @@ The following linkage section is a real example used to build nanoFramework for 
             "TARGET_CHIP" : "STM32F427VIT",
 			"TARGET_SERIES" : "STM32F4xx",
             "RTOS" : "CHIBIOS", 
-            "CHIBIOS_SOURCE" : "C:/dev/ChibiOS_16.1.7",
+            "RTOS_SOURCE_FOLDER" : "C:/dev/ChibiOS_16.1.7",
             "CHIBIOS_BOARD" : "MBN_QUAIL"
 			"NF_FEATURE_DEBUGGER" : "TRUE",
             "NF_FEATURE_RTC" : "ON",
