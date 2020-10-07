@@ -61,6 +61,8 @@ steps:
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.I2c.git --depth 100 -b develop Windows.Devices.I2c 
 
+      git clone https://github.com/nanoframework/lib-System.Device.I2c.git --depth 100 -b develop System.Device.I2c
+
       git clone https://github.com/nanoframework/lib-Windows.Devices.Pwm.git --depth 100 -b develop Windows.Devices.Pwm 
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.SerialCommunication.git --depth 100 -b develop Windows.Devices.SerialCommunication 
@@ -163,6 +165,13 @@ steps:
     restoreSolution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.I2c\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.I2c\NuGet.Config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -361,6 +370,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
