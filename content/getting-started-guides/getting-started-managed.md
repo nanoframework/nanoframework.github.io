@@ -12,7 +12,7 @@ The first part is to get Visual Studio (both 2017 and 2019 versions are supporte
 
 1. Download Visual Studio. If you already have it installed, you can skip this step. If you don't, please download the free [Visual Studio Community](https://www.visualstudio.com/downloads) edition. Either way, make sure you've selected the .NET desktop workload.
 
-1. **If using the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: https://nanoframework.net/2019/08/21/new-preview-feeds-for-nanoframework.**
+1. **If using the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: https://nanoframework.net/new-preview-feeds-for-nanoframework.**
 
 1. Launch Visual Studio (we'll just refer to it as VS from now on) and install the .NET **nanoFramework** extension. You can do this by going into Tools > Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter _nanoFramework_ in the search box.
 
