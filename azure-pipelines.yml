@@ -57,6 +57,8 @@ steps:
 
       git clone https://github.com/nanoframework/lib-System.Device.Dac.git --depth 100 -b develop System.Device.Dac
 
+      git clone https://github.com/nanoframework/lib-System.Device.Gpio.git --depth 100 -b develop System.Device.Gpio 
+
       git clone https://github.com/nanoframework/lib-Windows.Devices.Gpio.git --depth 100 -b develop Windows.Devices.Gpio 
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.I2c.git --depth 100 -b develop Windows.Devices.I2c 
@@ -151,6 +153,13 @@ steps:
     restoreSolution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Dac\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Gpio\NuGet.Config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -359,6 +368,12 @@ steps:
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
+- task: VSBuild@1
+  inputs:
+    solution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
 
 - task: VSBuild@1
   inputs:
