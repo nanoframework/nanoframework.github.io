@@ -4,18 +4,18 @@
 
 ## Sponsoring .NET **nanoFramework**
 
-Most of the core team members and contributors are embedded systems enthusiasts, passionate about coding and people that like challenges. The work on .NET **nanoFramework** is done mostly on their free time. Some of the core members happen to work on companies that sponsor heavily .NET **nanoFramework** and offer their work hours to the project. If you use .NET **nanoFramework** for serious work or want to support it, please donate. This allow for paying the infrastructure cost and more time to be invested on the project. Besides monetary contributions, there are several other ways to contribute. Please read the documentation about this [here]contributing/index.md).
+Most of the core team members and contributors are embedded systems enthusiasts, passionate about coding and people that like challenges. The work on .NET **nanoFramework** is done mostly in their free time. Some of the core members happen to work for companies that heavily sponsor .NET **nanoFramework** and offer their work hours to move the project forward. If you use .NET **nanoFramework** for as part of your product or just want to support it, please donate. This allows us to pay for the infrastructure costs and more time investment on the project. Besides monetary contributions, there are several other ways to contribute. Please read the documentation about this [here]contributing/index.md).
 
 ### Sponsors
 
-Sponsors will get their logo and link to a website on our GitHub readme and also on our home page.
+Sponsors will get their logo and a link to their website on our GitHub readme and also on our home page.
 
 <a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/sponsor.svg?avatarHeight=80"></a></a>
 <a href="https://www.orgpal.com"><img src="https://www.orgpal.com/orgpallogo.png" height="50" width="114"/></a>
 
 ### Backers
 
-Backers are individuals who contribute with money to help support nanoFramework. Every little bit helps and we appreciate all contributions, even the smallest ones.
+Backers are individuals who contribute money to help support nanoFramework. Every little bit helps and we appreciate all contributions, even the smallest ones.
 
 <a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80"></a>
 
