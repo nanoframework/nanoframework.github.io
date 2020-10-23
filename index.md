@@ -2,6 +2,11 @@
 
 **_Making it easy to write C# code for embedded systems!_**
 
+<div style='vertical-align:middle; display:inline;'>
+.NET nanoFramework is supported by the .NET Foundation.
+</div>
+<img style='vertical-align:middle;' width="100px" src='https://dotnetfoundation.org/img/logo_big.svg'>
+
 ## Sponsoring .NET **nanoFramework**
 
 Most of the core team members and contributors are embedded systems enthusiasts, passionate about coding and people that like challenges. The work on .NET **nanoFramework** is done mostly in their free time. Some of the core members happen to work for companies that heavily sponsor .NET **nanoFramework** and offer their work hours to move the project forward. If you use .NET **nanoFramework** for as part of your product or just want to support it, please donate. This allows us to pay for the infrastructure costs and more time investment on the project. Besides monetary contributions, there are several other ways to contribute. Please read the documentation about this [here](content/contributing/index.md).
