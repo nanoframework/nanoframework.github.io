@@ -12,6 +12,7 @@ These companies and organizations contribute to the develop effort of .NET **nan
 
 These companies and organizations support the community and the project.
 
+- [.NET Foundation](https://dotnetfoundation.org/) hosts the project under the .NET *umbrella*.
 - [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) that provides us with an awesome RTOS that's used in our STM32 targets.
 - [GitHub](https://www.github.com) that hosts our git repositories.
 - [Icons 8](https://icons8.com/) that allows to use their icons on our Visual Studio extension.
