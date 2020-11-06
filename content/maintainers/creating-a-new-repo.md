@@ -46,7 +46,6 @@ If in doubt please ask one of the senior team members.
 1. Add another variable `StartReleaseCandidate`, set the content to `false` and check "Let users override this value when running this pipeline".
 1. Add another variable `UPDATE_DEPENDENTS`, set the content to `false` and check "Let users override this value when running this pipeline".
 1. Click the "Save" button.
-1. Click on "Save and run". This will trigger the very first build.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
 1. Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
 1. Go to the `General Project` project and navigate to Project Settings - Service Connections.
