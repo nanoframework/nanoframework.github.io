@@ -16,3 +16,5 @@ This image _fits_ all EPS32 boards carrying an ESP32-WROOM-32 module, like the E
 | Stable | Preview |
 |---|---|
 | [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images/ESP32_WROOM_32/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images/ESP32_WROOM_32/_latestVersion) | [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/ESP32_WROOM_32/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images-dev/ESP32_WROOM_32/_latestVersion) |
+
+Check the details on the ESP32 pin-out available in nanoFramework [here](../esp32/esp32_pin_out.md).
