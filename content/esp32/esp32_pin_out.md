@@ -17,7 +17,7 @@ Configuration.SetPinFunction(16, DeviceFunction.PWM1);
 Configuration.SetPinFunction(17, DeviceFunction.I2C2_DATA);
 ```
 
-#ESP32 Default Mapping
+## ESP32 Default Mapping
 
 NP = Pin is undefined at startup
 
