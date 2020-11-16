@@ -148,10 +148,10 @@ This has already been done and the libraries can be just be downloaded.
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
-1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work. You can specify the COM port the ESP32 flash programming utility will use (The COM port is easily changed later). If it is not specified, manually edit tasks.json and change instances of `<default-com-port-for-esp32>` to the required port before flashing the ESP32 nanoCLR firmware. (COM22 used in the example bellow)
+1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
 
     ```ps
-    .\Initialize-VSCode.ps1 -COMPort COM22
+    .\Initialize-VSCode.ps1
     ```
     
     - You can force the environment variables to be updated by adding `-Force` to the command line.
