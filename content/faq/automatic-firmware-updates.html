@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Frequently asked questions | nanoFramework Documentation </title>
+    <title>Automatic Firmware Update | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Frequently asked questions | nanoFramework Documentation ">
+    <meta name="title" content="Automatic Firmware Update | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.56.5.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -75,26 +75,15 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="frequently-asked-questions">Frequently asked questions</h1>
+<h1 id="automatic-firmware-update">Automatic Firmware Update</h1>
 
-<p>Despite working with .NET <strong>nanoFramework</strong> being tremendously easy there always moments where one needs a hand or bumps into an award situations. This is a collection of tips, perls of wisdom and answers to frequent situations.
-Please do contribute with your own!</p>
-<ul>
-<li><p><a href="coding-in-csharp.html">Coding in C#</a></p>
-</li>
-<li><p><a href="working-with-esp32-targets.html">Working with ESP32 targets</a></p>
-</li>
-<li><p><a href="working-with-stm32-targets.html">Working with STM32 targets</a></p>
-</li>
-<li><p><a href="working-with-vs-extension.html">Working with Visual Studio extension</a></p>
-</li>
-<li><p><a href="automatic-firmware-updates.html">Automatic Firmware Updates</a></p>
-</li>
-</ul>
-<!-- Coding C/C++ (native firmware) -->
-<!-- Debugging C/C++ (native firmware) -->
-<!-- Working with Visual Studio Code -->
-<!-- Developing Visual Studio extension -->
+<p>Automatic firmware updates are run as part of the build process initiated from the Visual Studio extension for nanoFramework. Please see the following blogpost: <a href="https://www.nanoframework.net/automatic-firmware-updates/">https://www.nanoframework.net/automatic-firmware-updates/</a></p>
+<h2 id="what-targets-are-supported-by-this-automatic-update">What targets are supported by this automatic update?</h2>
+<p>Currently all STM32 targets for both officially supported reference targets and community targets found in our nf-Community-Targets repo.</p>
+<h2 id="can-i-use-this-if-i-have-a-custom-board-running-my-own-firmware">Can I use this if I have a custom board running my own firmware?</h2>
+<p>Not at this time. Currently this feature relies on the Bintray API and nanoframeworks repository where we publish firmware packages. Supporting custom repos would require a standard way to access the packages storage and version querying. If you would like your board to be supported out of the box, feel free to add a PR to nanoframeworks nf-Community-Targets repo.</p>
+<h2 id="how-to-prevent-a-board-from-updating-if-working-on-a-custom-firmware">How to prevent a board from updating if working on a custom firmware?</h2>
+<p>If you are running the build locally, the best approach would be to use the <code>BUILD_VERSION</code> property and sets it to a value which makes it &quot;impossible&quot; to find a better version e.g. <code>99.999.0.0</code>.</p>
 </article>
           </div>
           
@@ -103,7 +92,7 @@ Please do contribute with your own!</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/faq/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/faq/automatic-firmware-updates.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
