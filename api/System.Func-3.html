@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IWebProxy
+    <title>Delegate Func&lt;T1, T2, TResult&gt;
    | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IWebProxy
+    <meta name="title" content="Delegate Func&lt;T1, T2, TResult&gt;
    | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.56.5.0">
     
@@ -76,38 +76,19 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="System.Net.IWebProxy">
+            <article class="content wrap" id="_content" data-uid="System.Func`3">
   
   
-  <h1 id="System_Net_IWebProxy" data-uid="System.Net.IWebProxy" class="text-break">Interface IWebProxy
+  <h1 id="System_Func_3" data-uid="System.Func`3" class="text-break">Delegate Func&lt;T1, T2, TResult&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Provides the base interface for implementing proxy access for the
-<a class="xref" href="System.Net.WebRequest.html">WebRequest</a> class.</p>
+  <div class="markdown level0 summary"><p>Encapsulates a method that has one parameter and returns a value of the type specified by the <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code> parameter.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.Net.html">System.Net</a></h6>
-  <h6><strong>Assembly</strong>: System.Net.Http.dll</h6>
-  <h5 id="System_Net_IWebProxy_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a></h6>
+  <h6><strong>Assembly</strong>: mscorlib.dll</h6>
+  <h5 id="System_Func_3_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IWebProxy</code></pre>
-  </div>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net.Http/new/pages-source/apiSpec/new?filename=System_Net_IWebProxy_GetProxy_System_Uri_.md&amp;value=---%0Auid%3A%20System.Net.IWebProxy.GetProxy(System.Uri)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net.Http/blob/develop/nanoFramework.System.Net.Http/Http/System.Net.iwebproxy.cs/#L24">View Source</a>
-  </span>
-  <a id="System_Net_IWebProxy_GetProxy_" data-uid="System.Net.IWebProxy.GetProxy*"></a>
-  <h4 id="System_Net_IWebProxy_GetProxy_System_Uri_" data-uid="System.Net.IWebProxy.GetProxy(System.Uri)">GetProxy(Uri)</h4>
-  <div class="markdown level1 summary"><p>Returns the URI of a proxy.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Uri GetProxy(Uri destination)</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate TResult Func&lt;in T1, in T2, out TResult&gt;(T1 arg1, T2 arg2);</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -120,9 +101,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Uri.html">Uri</a></td>
-        <td><span class="parametername">destination</span></td>
-        <td><p>The destination URI.</p>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">arg1</span></td>
+        <td><p>The first parameter of the method that this delegate encapsulates.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">arg2</span></td>
+        <td><p>The second parameter of the method that this delegate encapsulates.</p>
 </td>
       </tr>
     </tbody>
@@ -137,62 +124,35 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Uri.html">Uri</a></td>
-        <td><p>A <strong>Uri</strong> instance that contains the URI of the proxy
-used to contact <code data-dev-comment-type="paramref" class="paramref">destination</code>.</p>
+        <td><span class="xref">TResult</span></td>
+        <td><p>The return value of the method that this delegate encapsulates.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net.Http/new/pages-source/apiSpec/new?filename=System_Net_IWebProxy_IsBypassed_System_Uri_.md&amp;value=---%0Auid%3A%20System.Net.IWebProxy.IsBypassed(System.Uri)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net.Http/blob/develop/nanoFramework.System.Net.Http/Http/System.Net.iwebproxy.cs/#L34">View Source</a>
-  </span>
-  <a id="System_Net_IWebProxy_IsBypassed_" data-uid="System.Net.IWebProxy.IsBypassed*"></a>
-  <h4 id="System_Net_IWebProxy_IsBypassed_System_Uri_" data-uid="System.Net.IWebProxy.IsBypassed(System.Uri)">IsBypassed(Uri)</h4>
-  <div class="markdown level1 summary"><p>Indicates whether the proxy should not be used for the specified
-host.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool IsBypassed(Uri host)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Uri.html">Uri</a></td>
-        <td><span class="parametername">host</span></td>
-        <td><p>The host to check, to determine whether the proxy
-is needed to access it.</p>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the parameter of the method that this delegate encapsulates.</p>
 </td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type of the parameter of the method that this delegate encapsulates.</p>
+</td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
-        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
-        <td><p>Whether the proxy should not be used for the specified
-host.</p>
+        <td><span class="parametername">TResult</span></td>
+        <td><p>The type of the return value of the method that this delegate encapsulates.
+This type parameter is covariant.That is, you can use either the type you specified or any type that is more derived.For more information about covariance and contravariance, see <a href="https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance">Covariance and Contravariance in Generics</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -205,10 +165,10 @@ host.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net.Http/new/pages-source/apiSpec/new?filename=System_Net_IWebProxy.md&amp;value=---%0Auid%3A%20System.Net.IWebProxy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/lib-CoreLibrary/new/pages-source/apiSpec/new?filename=System_Func_3.md&amp;value=---%0Auid%3A%20System.Func%603%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nanoframework/lib-nanoFramework.System.Net.Http/blob/develop/nanoFramework.System.Net.Http/Http/System.Net.iwebproxy.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nanoframework/lib-CoreLibrary/blob/develop/nanoFramework.CoreLibrary/System/Action.cs/#L64" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
