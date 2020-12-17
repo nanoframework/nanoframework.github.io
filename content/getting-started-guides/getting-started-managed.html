@@ -8,7 +8,7 @@
     <title>Getting Started Guide for managed code (C#) | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Getting Started Guide for managed code (C#) | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -80,28 +80,43 @@
 <p>.NET <strong>nanoFramework</strong> enables the writing of managed code applications for embedded devices. Doesn't matter if you are a seasoned .NET developer or if you've just arrived here and want to give it a try.</p>
 <p>This getting started guide will walk you through the setup of your development machine to get you coding a nice &quot;Hello World&quot; in no time!</p>
 <p>You can find the video for this guide on our YouTube channel <a href="https://youtu.be/iZdN2GmefXI">here</a>.</p>
-<h2 id="installing-visual-studio">Installing Visual Studio</h2>
-<p>The first part is to get Visual Studio (both 2017 and 2019 versions are supported) and the .NET <strong>nanoFramework</strong> extension installed.</p>
+<h2 id="installing-and-configuring-visual-studio-2019">Installing and configuring Visual Studio 2019</h2>
+<p>The first part is to get Visual Studio 2019 (VS 2017 is also supported) and the .NET <strong>nanoFramework</strong> extension installed.</p>
 <ol>
-<li><p>Download Visual Studio. If you already have it installed, you can skip this step. If you don't, please download the free <a href="https://www.visualstudio.com/downloads">Visual Studio Community</a> edition. Either way, make sure you've selected the .NET desktop workload.</p>
+<li><p><strong>Download Visual Studio</strong><br>
+If you already have it installed, you can skip this step. If you don't, please download the free <a href="https://www.visualstudio.com/downloads">Visual Studio Community</a> edition.
+Make sure to install the <strong>workloads</strong> for <strong>.NET desktop development</strong> and <strong>.NET Core cross-platform development</strong>.</p>
 </li>
-<li><p><strong>If using the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: <a href="https://nanoframework.net/new-preview-feeds-for-nanoframework.">https://nanoframework.net/new-preview-feeds-for-nanoframework.</a></strong></p>
+<li><p><strong>nanoFramework preview</strong><br>
+If you want to use the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: <a href="https://nanoframework.net/new-preview-feeds-for-nanoframework">https://nanoframework.net/new-preview-feeds-for-nanoframework</a>.</p>
 </li>
-<li><p>Launch Visual Studio (we'll just refer to it as VS from now on) and install the .NET <strong>nanoFramework</strong> extension. You can do this by going into Tools &gt; Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter <em>nanoFramework</em> in the search box.</p>
+<li><p><strong>Install the <em>nanoFramework</em> extension for Visual Studio</strong><br>
+Launch Visual Studio (we'll just refer to it as VS from now on) and install the <strong>nanoFramework</strong> extension.<br>
+You can do this by selcting the menu <strong>Extensions &gt; Manage Extensions</strong> which will open the <strong>Manage Extensions</strong> dialog. Select the <strong>Online</strong> feed category on the left-hand and enter <strong><em>nanoFramework</em></strong> in the <strong>search</strong> box.</p>
+<p><img src="../../images/getting-started-guides/vs-nf-extension-search.png" alt="Visual Studio - Manage Extensions Dialog"></p>
 </li>
-<li><p>Now open the Device Explorer window. You can do this by going into View &gt; Other Windows &gt; Device Explorer.</p>
+<li><p>You will be prompted to <strong>restart Visual Studio</strong> to finish installing the extension</p>
+</li>
+<li><p>Now open the <strong>Device Explorer</strong> window, by selecting the menu <strong>View &gt; Other Windows &gt; Device Explorer</strong>.
+<img src="../../images/getting-started-guides/vs-nf-device-explorer.png" alt="Device Explorer"></p>
 </li>
 </ol>
 <h2 id="uploading-the-firmware-to-the-board-using-nanofirmwareflasher">Uploading the firmware to the board using nanoFirmwareFlasher</h2>
 <p>The second part is to load the .NET <strong>nanoFramework</strong> image in the board flash. The best way is to use the <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher (nanoff)</a> tool. This is a .NET Core CLI command tool.</p>
-<h3 id="note-the-netcore-31-runtime-and-netcore-31-sdk-must-be-installed-and-the-vc-2010-x86-redistributable-may-required-installing-on-your-pc-in-certain-circumstances">Note: the <a href="https://dotnet.microsoft.com/download">.netcore 3.1 Runtime and .netcore 3.1 SDK</a> must be installed, and the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<ul>
+<li>The <a href="https://dotnet.microsoft.com/download">.netcore 3.1 Runtime and .netcore 3.1 SDK</a> must be installed</li>
+<li>The VC++ 2010 x86 redistributable may be required in certain circumstances.</li>
+</ul>
+</div>
 <ol>
-<li><p>Install <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a>.</p>
+<li><p><strong>Install <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a></strong></p>
 <pre><code class="lang-console">dotnet tool install -g nanoff
 </code></pre>
 </li>
-<li><p>Perform the update by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
-(The following include the description for targets of several platforms for completeness)</p>
+<li><p><strong>Perform the update</strong> by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.<br>
+(The following includes the description for targets of several platforms for completeness)</p>
 <ul>
 <li><p>To update the firmware of an ESP32 target connected to COM31, to the latest available development version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash...&quot; message)</p>
 <pre><code class="lang-console">nanoff --target ESP32_WROOM_32 --serialport COM31 --update
@@ -117,23 +132,30 @@
 </li>
 </ul>
 </li>
-<li><p>After the upload completes, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET <strong>nanoFramework</strong> by looking into the Device Explorer window in Visual Studio.</p>
+<li><p><strong>After the upload completes</strong>, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET <strong>nanoFramework</strong> by looking into the <strong>Device Explorer</strong> window in <strong>Visual Studio</strong>.</p>
 </li>
 </ol>
 <h2 id="coding-a-hello-world-application">Coding a 'Hello World' application</h2>
 <p>Now you have everything that you need to start coding your first application. Let's go for a good old 'Hello World' in micro-controller mode, which is blinking a LED, shall we?</p>
 <ol>
-<li><p>Go back to VS and click File &gt; New &gt; Project. Make sure you have selected 'Framework 4.6 or above' and choose nanoFramework, on the left hand side tree view. Choose the 'Blank Application' template and a location of your choosing were the project files will be saved. Name your project and hit OK. The program file will be automatically opened for you.</p>
+<li><p>Go back to Visual Studio and select the <strong>File &gt; New &gt; Project</strong> menu, to open the <strong>Create a new project</strong> dialog.</p>
+<ol>
+<li>Enter <strong>nanoFramework</strong> into the <strong>Search for templates</strong> search prompt.</li>
+<li>Choose the <strong>Blank Application (nanoFramework)</strong> template and press the <strong>Next</strong> button.</li>
+<li>Name your project and choose a location of where the project files will be saved, and press the <strong>Create</strong> button.</li>
+<li>The project will be created and opened.<br>
+<img src="../../images/getting-started-guides/vs-nf-new-project.png" alt="Create new project dialog"></li>
+</ol>
 </li>
-<li><p>We'll code a very simple application that enters an infinite loop and turns on and off an LED. We'll skip the details because that's not the aim of this guide. Let's just grab the code from the .NET <strong>nanoFramework</strong> samples repo <a href="https://github.com/nanoframework/Samples/tree/master/samples/Blinky">here</a>. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board.</p>
+<li><p>We'll code a <strong>very simple application</strong> that enters an infinite loop and <strong>turns on and off an LED</strong>. We'll skip the details because that's not the aim of this guide. Let's just grab the <code>Blinky</code> code from the .NET <a href="https://github.com/nanoframework/Samples/tree/master/samples/Blinky"><strong>nanoFramework samples</strong></a> repository. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board.</p>
 </li>
-<li><p>Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on 'References' in the Solution Explorer and click 'Manage NuGet Packages'. On the search box type 'nanoFramework'. Make sure you have the preview checkbox ticked. Find the Windows.Devices.Gpio package and click &quot;Install&quot;. After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.</p>
+<li><p>Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on <strong>References</strong> in the Solution Explorer and click <strong>Manage NuGet Packages</strong>. On the search box type <strong>nanoFramework</strong>. Make sure you have the <strong>preview checkbox ticked</strong>. Find the <code>Windows.Devices.Gpio</code> package and click <strong>Install</strong>. After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.</p>
 </li>
-<li><p>Click &quot;Build Solution&quot; from the Build menu. A success message shows in the Build window.</p>
+<li><p>Click <strong>Build Solution</strong> from the Build menu. A success message shows in the Build window.</p>
 </li>
-<li><p>We are almost there. Go into the Device Explorer window and click on the .NET <strong>nanoFramework</strong> device showing there. Make sure the connection is OK by hitting the &quot;Ping&quot; button. On success, a message shows on the output window.</p>
+<li><p>We are almost there. Go into the <strong>Device Explorer</strong> window and click on the .NET <strong>nanoFramework</strong> device showing there. Make sure the connection is OK by hitting the <strong>Ping</strong> button. On success, a message shows on the output window.</p>
 </li>
-<li><p>Let's deploy the application to the board. In order to do that, right click on the Project name and choose &quot;Deploy&quot;. You'll see the feedback of the several operations that are running on the background in the Output Window. After a successful deployment you need to reset the target and your 'Hello World' blinky application will start running and, <em>voilá</em>, the LED starts blinking! If you want, instead of &quot;just&quot; deploying the application to the target you can choose to start a debug session. To do that hit F5 (as usual) in Visual Studio and watch it run.</p>
+<li><p>Let's deploy the application to the board. In order to do that, right click on the Project name and choose <strong>Deploy</strong>. You'll see the feedback of the several operations that are running on the background in the <strong>Output Window</strong>. After a successful deployment you need to reset the target and your <code>Hello World</code> blinky application will start running and, <em>voilá</em>, the LED starts blinking! If you want, instead of &quot;just&quot; deploying the application to the target you can choose to start a <strong>debug session</strong>. To do that <strong>hit F5</strong> (as usual) in Visual Studio and watch it run.</p>
 </li>
 </ol>
 <h2 id="wrapping-up">Wrapping up</h2>
