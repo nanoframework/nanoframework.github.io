@@ -45,6 +45,7 @@ If in doubt please ask one of the senior team members.
 1. Add another variable `NbgvParameters`, leave it empty and check "Let users override this value when running this pipeline".
 1. Add another variable `StartReleaseCandidate`, set the content to `false` and check "Let users override this value when running this pipeline".
 1. Add another variable `UPDATE_DEPENDENTS`, set the content to `false` and check "Let users override this value when running this pipeline".
+1. Add two more secret variables `SignClientUser` and  `SignClientSecret` and fill in with the credentials for the .NET Foundation signing service. **Make sure** that the variables are set to `secret` by clicking on the appropriate option.
 1. Click the "Save" button.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
 1. Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
@@ -59,14 +60,15 @@ If in doubt please ask one of the senior team members.
     - .github_changelog_generator
     - .gitignore _(no changes required)_
     - azure-pipelines.yml
-    - CODE_OF_CONDUCT.md _(no changes required)_
-    - CONTRIBUTING.md _(no changes required)_
-    - LICENSE _(no changes required)_
+    - LICENSE.md _(no changes required)_
     - README.md
     - template.vssettings _(no changes required)_
     - version.json
     - NuGet.Config
-    - readme.txt
+    - assets\readme.txt
+    - assets\nf-logo.png
+    - config\filelist.txt
+    - config\SignClient.json
 1. Open "azure-pipelines.yml"
     1. Rename the `nugetPackageName` variable with the new name (mind the nanoframework prefix).
     1. Rename the `repoName` variable with the repo name.
@@ -84,7 +86,8 @@ If in doubt please ask one of the senior team members.
     1. Make sure you are following the naming pattern.
     1. Make sure you copy the `key.snk` from the initial repo (or from the CorLib repo). **DO NOT** create a new one.
 1. Rename, edit and adjust as required the "nuspec" files to create the NuGet packages.
-1. Edit the "readme.txt" inside the root folder and rename the repository name.
+1. Edit the "readme.txt" inside the `assets` folder and rename the repository name.
+1. Edit the "files.txt" inside the `config` folder and rename the file pattern.
 1. Still on"azure-pipelines.yml" _and only_ if there are class libraries that depend on this one.
     1. Adjust the `repositoriesToUpdate` list with the repo names of the class libraries that depend on this new one.
 
