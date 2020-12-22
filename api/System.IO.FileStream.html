@@ -1,0 +1,871 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class FileStream
+   | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class FileStream
+   | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="System.IO.FileStream">
+  
+  
+  <h1 id="System_IO_FileStream" data-uid="System.IO.FileStream" class="text-break">Class FileStream
+  </h1>
+  <div class="markdown level0 summary"><p>Provides a Stream for a file, supporting both synchronous and asynchronous read and write operations.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="System.Object.html">Object</a></div>
+    <div class="level1"><a class="xref" href="System.MarshalByRefObject.html">MarshalByRefObject</a></div>
+    <div class="level2"><a class="xref" href="System.IO.Stream.html">Stream</a></div>
+    <div class="level3"><span class="xref">FileStream</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose">Stream.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Finalize">Stream.Finalize()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanTimeout">Stream.CanTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_ReadTimeout">Stream.ReadTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteTimeout">Stream.WriteTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="System.IO.html">System.IO</a></h6>
+  <h6><strong>Assembly</strong>: System.IO.FileSystem.dll</h6>
+  <h5 id="System_IO_FileStream_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FileStream : Stream, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream__ctor_System_String_System_IO_FileMode_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.%23ctor(System.String%2CSystem.IO.FileMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L136">View Source</a>
+  </span>
+  <a id="System_IO_FileStream__ctor_" data-uid="System.IO.FileStream.#ctor*"></a>
+  <h4 id="System_IO_FileStream__ctor_System_String_System_IO_FileMode_" data-uid="System.IO.FileStream.#ctor(System.String,System.IO.FileMode)">FileStream(String, FileMode)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the FileStream class with the specified path and creation mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream(string path, FileMode mode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">String</a></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>A relative or absolute path for the file that the current FileStream object will encapsulate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.IO.FileMode.html">FileMode</a></td>
+        <td><span class="parametername">mode</span></td>
+        <td><p>One of the enumeration values that determines how to open or create the file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream__ctor_System_String_System_IO_FileMode_System_IO_FileAccess_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.%23ctor(System.String%2CSystem.IO.FileMode%2CSystem.IO.FileAccess)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L152">View Source</a>
+  </span>
+  <a id="System_IO_FileStream__ctor_" data-uid="System.IO.FileStream.#ctor*"></a>
+  <h4 id="System_IO_FileStream__ctor_System_String_System_IO_FileMode_System_IO_FileAccess_" data-uid="System.IO.FileStream.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">FileStream(String, FileMode, FileAccess)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the FileStream class with the specified path, creation mode, and read/write permission.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileStream(string path, FileMode mode, FileAccess access)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">String</a></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>A relative or absolute path for the file that the current FileStream object will encapsulate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.IO.FileMode.html">FileMode</a></td>
+        <td><span class="parametername">mode</span></td>
+        <td><p>One of the enumeration values that determines how to open or create the file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.IO.FileAccess.html">FileAccess</a></td>
+        <td><span class="parametername">access</span></td>
+        <td><p>A bitwise combination of the enumeration values that determines how the file can be accessed by the FileStream object. This also determines the values returned by the CanRead and CanWrite properties of the FileStream object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_CanRead.md&amp;value=---%0Auid%3A%20System.IO.FileStream.CanRead%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L36">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_CanRead_" data-uid="System.IO.FileStream.CanRead*"></a>
+  <h4 id="System_IO_FileStream_CanRead" data-uid="System.IO.FileStream.CanRead">CanRead</h4>
+  <div class="markdown level1 summary"><p>Gets a value that indicates whether the current stream supports reading.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanRead { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanRead">Stream.CanRead</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_CanSeek.md&amp;value=---%0Auid%3A%20System.IO.FileStream.CanSeek%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L44">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_CanSeek_" data-uid="System.IO.FileStream.CanSeek*"></a>
+  <h4 id="System_IO_FileStream_CanSeek" data-uid="System.IO.FileStream.CanSeek">CanSeek</h4>
+  <div class="markdown level1 summary"><p>Gets a value that indicates whether the current stream supports seeking.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanSeek { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanSeek">Stream.CanSeek</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_CanWrite.md&amp;value=---%0Auid%3A%20System.IO.FileStream.CanWrite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L52">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_CanWrite_" data-uid="System.IO.FileStream.CanWrite*"></a>
+  <h4 id="System_IO_FileStream_CanWrite" data-uid="System.IO.FileStream.CanWrite">CanWrite</h4>
+  <div class="markdown level1 summary"><p>Gets a value that indicates whether the current stream supports writing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanWrite { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanWrite">Stream.CanWrite</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_FilePath.md&amp;value=---%0Auid%3A%20System.IO.FileStream.FilePath%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L125">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_FilePath_" data-uid="System.IO.FileStream.FilePath*"></a>
+  <h4 id="System_IO_FileStream_FilePath" data-uid="System.IO.FileStream.FilePath">FilePath</h4>
+  <div class="markdown level1 summary"><p>Gets the full file-system path of the current file, if the file has a path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FilePath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Length.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L60">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Length_" data-uid="System.IO.FileStream.Length*"></a>
+  <h4 id="System_IO_FileStream_Length" data-uid="System.IO.FileStream.Length">Length</h4>
+  <div class="markdown level1 summary"><p>Gets the length in bytes of the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override long Length { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int64.html">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Length">Stream.Length</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Name.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L120">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Name_" data-uid="System.IO.FileStream.Name*"></a>
+  <h4 id="System_IO_FileStream_Name" data-uid="System.IO.FileStream.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name of the file including the file name extension.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">String</a></td>
+        <td><p>The name of the file including the file name extension.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Position.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L76">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Position_" data-uid="System.IO.FileStream.Position*"></a>
+  <h4 id="System_IO_FileStream_Position" data-uid="System.IO.FileStream.Position">Position</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the current position of this stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override long Position { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int64.html">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Position">Stream.Position</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Close.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Close%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L314">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Close_" data-uid="System.IO.FileStream.Close*"></a>
+  <h4 id="System_IO_FileStream_Close" data-uid="System.IO.FileStream.Close">Close()</h4>
+  <div class="markdown level1 summary"><p>Closes the current stream and releases any resources associated with the current stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Close()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Close">Stream.Close()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L323">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Dispose_" data-uid="System.IO.FileStream.Dispose*"></a>
+  <h4 id="System_IO_FileStream_Dispose_System_Boolean_" data-uid="System.IO.FileStream.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the FileStream and optionally releases the managed resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose_System_Boolean_">Stream.Dispose(Boolean)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Finalize.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L302">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Finalize_" data-uid="System.IO.FileStream.Finalize*"></a>
+  <h4 id="System_IO_FileStream_Finalize" data-uid="System.IO.FileStream.Finalize">Finalize()</h4>
+  <div class="markdown level1 summary"><p>Destructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Finalize()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Flush.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Flush%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L346">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Flush_" data-uid="System.IO.FileStream.Flush*"></a>
+  <h4 id="System_IO_FileStream_Flush" data-uid="System.IO.FileStream.Flush">Flush()</h4>
+  <div class="markdown level1 summary"><p>Clears buffers for this stream and causes any buffered data to be written to the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Flush()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Flush">Stream.Flush()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Read_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Read(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L358">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Read_" data-uid="System.IO.FileStream.Read*"></a>
+  <h4 id="System_IO_FileStream_Read_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.FileStream.Read(System.Byte[],System.Int32,System.Int32)">Read(Byte[], Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Reads a block of bytes from the stream and writes the data in a given buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Read(byte[] buffer, int offset, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">Byte</a>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>When this method returns, contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><span class="parametername">offset</span></td>
+        <td><p>The byte offset in array at which the read bytes will be placed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The maximum number of bytes to read.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><p>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Read_System_Byte___System_Int32_System_Int32_">Stream.Read(Byte[], Int32, Int32)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_ReadByte.md&amp;value=---%0Auid%3A%20System.IO.FileStream.ReadByte%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L411">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_ReadByte_" data-uid="System.IO.FileStream.ReadByte*"></a>
+  <h4 id="System_IO_FileStream_ReadByte" data-uid="System.IO.FileStream.ReadByte">ReadByte()</h4>
+  <div class="markdown level1 summary"><p>Reads a byte from the file and advances the read position one byte.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int ReadByte()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_ReadByte">Stream.ReadByte()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Seek_System_Int64_System_IO_SeekOrigin_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Seek(System.Int64%2CSystem.IO.SeekOrigin)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L429">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Seek_" data-uid="System.IO.FileStream.Seek*"></a>
+  <h4 id="System_IO_FileStream_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="System.IO.FileStream.Seek(System.Int64,System.IO.SeekOrigin)">Seek(Int64, SeekOrigin)</h4>
+  <div class="markdown level1 summary"><p>Sets the current position of this stream to the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override long Seek(long offset, SeekOrigin origin)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int64.html">Int64</a></td>
+        <td><span class="parametername">offset</span></td>
+        <td><p>The point relative to origin from which to begin seeking.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a></td>
+        <td><span class="parametername">origin</span></td>
+        <td><p>Specifies the beginning, the end, or the current position as a reference point for offset, using a value of type SeekOrigin.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int64.html">Int64</a></td>
+        <td><p>The new position in the stream.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Seek_System_Int64_System_IO_SeekOrigin_">Stream.Seek(Int64, SeekOrigin)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_SetLength_System_Int64_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.SetLength(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L473">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_SetLength_" data-uid="System.IO.FileStream.SetLength*"></a>
+  <h4 id="System_IO_FileStream_SetLength_System_Int64_" data-uid="System.IO.FileStream.SetLength(System.Int64)">SetLength(Int64)</h4>
+  <div class="markdown level1 summary"><p>Sets the length of this stream to the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetLength(long value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int64.html">Int64</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The new length of the stream.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_SetLength_System_Int64_">Stream.SetLength(Int64)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_Write_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.Write(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L484">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_Write_" data-uid="System.IO.FileStream.Write*"></a>
+  <h4 id="System_IO_FileStream_Write_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.FileStream.Write(System.Byte[],System.Int32,System.Int32)">Write(Byte[], Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Writes a block of bytes to the file stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Write(byte[] buffer, int offset, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">Byte</a>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>The buffer containing data to write to the stream.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><span class="parametername">offset</span></td>
+        <td><p>The zero-based byte offset in array from which to begin copying bytes to the stream.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The maximum number of bytes to write.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Write_System_Byte___System_Int32_System_Int32_">Stream.Write(Byte[], Int32, Int32)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream_WriteByte_System_Byte_.md&amp;value=---%0Auid%3A%20System.IO.FileStream.WriteByte(System.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L530">View Source</a>
+  </span>
+  <a id="System_IO_FileStream_WriteByte_" data-uid="System.IO.FileStream.WriteByte*"></a>
+  <h4 id="System_IO_FileStream_WriteByte_System_Byte_" data-uid="System.IO.FileStream.WriteByte(System.Byte)">WriteByte(Byte)</h4>
+  <div class="markdown level1 summary"><p>Writes a byte to the current position in the file stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void WriteByte(byte value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">Byte</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A byte to write to the stream.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteByte_System_Byte_">Stream.WriteByte(Byte)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="System.IDisposable.html">IDisposable</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_FileStream.md&amp;value=---%0Auid%3A%20System.IO.FileStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/nanoframework/lib-System.IO.FileSystem/blob/develop/System.IO.FileSystem/FileStream.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

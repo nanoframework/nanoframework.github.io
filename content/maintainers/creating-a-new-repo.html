@@ -119,6 +119,7 @@ If in doubt please ask one of the senior team members.</p>
 <li>Add another variable <code>NbgvParameters</code>, leave it empty and check &quot;Let users override this value when running this pipeline&quot;.</li>
 <li>Add another variable <code>StartReleaseCandidate</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
 <li>Add another variable <code>UPDATE_DEPENDENTS</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
+<li>Add two more secret variables <code>SignClientUser</code> and  <code>SignClientSecret</code> and fill in with the credentials for the .NET Foundation signing service. <strong>Make sure</strong> that the variables are set to <code>secret</code> by clicking on the appropriate option.</li>
 <li>Click the &quot;Save&quot; button.</li>
 <li>Navigate back to the Pipeline, select it and click &quot;Edit&quot; (at the top right). Then click on the 3 vertical dots (again at the top right) and then &quot;Triggers&quot;.</li>
 <li>Make sure that the option to override YAML is <strong>not</strong> checked for &quot;Continuous integration&quot;. Uncheck the same option for &quot;Pull request validation&quot; and check the &quot;Make secrets available to builds of forks&quot;.</li>
@@ -134,14 +135,15 @@ If in doubt please ask one of the senior team members.</p>
 <li>.github_changelog_generator</li>
 <li>.gitignore <em>(no changes required)</em></li>
 <li>azure-pipelines.yml</li>
-<li>CODE_OF_CONDUCT.md <em>(no changes required)</em></li>
-<li>CONTRIBUTING.md <em>(no changes required)</em></li>
-<li>LICENSE <em>(no changes required)</em></li>
+<li>LICENSE.md <em>(no changes required)</em></li>
 <li>README.md</li>
 <li>template.vssettings <em>(no changes required)</em></li>
 <li>version.json</li>
 <li>NuGet.Config</li>
-<li>readme.txt</li>
+<li>assets\readme.txt</li>
+<li>assets\nf-logo.png</li>
+<li>config\filelist.txt</li>
+<li>config\SignClient.json</li>
 </ul>
 </li>
 <li>Open &quot;azure-pipelines.yml&quot;
@@ -170,7 +172,8 @@ If in doubt please ask one of the senior team members.</p>
 </ol>
 </li>
 <li>Rename, edit and adjust as required the &quot;nuspec&quot; files to create the NuGet packages.</li>
-<li>Edit the &quot;readme.txt&quot; inside the root folder and rename the repository name.</li>
+<li>Edit the &quot;readme.txt&quot; inside the <code>assets</code> folder and rename the repository name.</li>
+<li>Edit the &quot;files.txt&quot; inside the <code>config</code> folder and rename the file pattern.</li>
 <li>Still on&quot;azure-pipelines.yml&quot; <em>and only</em> if there are class libraries that depend on this one.
 <ol>
 <li>Adjust the <code>repositoriesToUpdate</code> list with the repo names of the class libraries that depend on this new one.</li>
