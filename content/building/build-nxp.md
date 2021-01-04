@@ -100,7 +100,8 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 ### Automated Install of the build environment
 
-__The following power shell script is not signed. Run Power Shell as an Administrator and run `set-executionpolicy Unrestricted` to enable execution of the non-signed script.__
+__Run Power Shell as an Administrator and run `set-executionpolicy RemoteSigned` to enable execution of the signed script.
+otherwise if the following power shell script is not signed `set-executionpolicy Unrestricted` to enable execution of the non-signed script.__
 
 On Windows, one may use the `.\install-nf-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download/install CMake, the toolchain, OpenOCD (for JTAG debugging) and Ninja. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives.
 The script will download the zips and installers into the repository `zips` folder and extract them into sub-folders of the nanoFramework tools folder `C:\nftools` or install the tool.
