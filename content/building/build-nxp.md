@@ -176,7 +176,7 @@ The following Environment Variables will be created for the current Windows User
     - `nanoCLR.bin`
     - `nanoCLR.elf`
     - `nanoCLR.hex`
->> Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
+> Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
 In this case deleting the contents of the `build` folder should allow the build to complete once you resolve the issues that cause the original failure.
 
 ### Common Build Issues
@@ -194,7 +194,7 @@ The above may have some errors if:
 1. Connect the Target board to your PC using an USB cable.
 1. Open Visual Studio Code and go to `Debug and Run` (CTRL+SHIFT+D).
 1. Run debug (green rectangle or F5 default shortcut), firstly on nanoBooter then nanoCLR.
-    >>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.
+    >Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.
     
 ## Debugging with Cortex Debug with J-Link (Optional)
 

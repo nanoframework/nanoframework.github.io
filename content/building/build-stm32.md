@@ -139,7 +139,7 @@ The following Environment Variables will be created for the current Windows User
     - `nanoCLR.bin`
     - `nanoCLR.elf`
     - `nanoCLR.hex`
->> Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
+> Note: If there are errors during the build process it is possible to end up with a partial build in the `build` folder, and the `CMake/Ninja` build process declaring a successful build despite the `.bin` targets not being created, and a `CMake clean` not helping.
 In this case deleting the contents of the `build` folder should allow the build to complete once you resolve the issues that cause the original failure.
 
 ### Common Build Issues
@@ -174,7 +174,7 @@ There are two options to flash the nanoBooter & nanoCLR images to a target. The 
 
 1. Stop the debug session.
 
->>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR as it won't be erased.
+>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR as it won't be erased.
 
 
 ### Using STM32 ST-LINK Utility
@@ -190,7 +190,7 @@ There are two options to flash the nanoBooter & nanoCLR images to a target. The 
 1. Open `nanoBooter.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
 
 1. Open `nanoCLR.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking.
->>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.
+>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.
 
 ## Next Steps
 

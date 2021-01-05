@@ -92,13 +92,13 @@ The STM32 builds are most likely to require a shortened build path, so we can us
 
 ### Debugging
 Once the program has been built and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:
-![](VS2019Toolbars.png)
+![](../../../images/getting-started/VS2019Toolbars.png)
 >Note that the launch configuration, here  `ESP32 nanoCLR - Segger JLink`, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!
 
 You can then commence debugging from the top DEBUG menu.
 
 OpenOCD should open in its own console window, connect to the target device, and display something similar to this:
-![](OpenOCDConsole.png)
+![](../../../images/getting-started/OpenOCDConsole.png)
 
 In the VS2019 IDE output Window you should see: 
 ```
@@ -136,7 +136,7 @@ Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_
 =breakpoint-deleted,id="1"
 ```
 The processor has now stopped at the temporary breakpoint inserted by our `launch.vs.json` startup sequence, showing as an Exception at the entry point in the source code window.
-![](VS2019Breakpoint.png)
+![](../../../images/getting-started/VS2019Breakpoint.png)
 You can now step through the code, observe variables, set breakpoints  and so on.
 
 ### Summary
