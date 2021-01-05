@@ -171,13 +171,13 @@ If you have that version installed just comment out the line following the <code
 The STM32 builds are most likely to require a shortened build path, so we can use  <code>&quot;${env.nfRoot}Build/${name}&quot;</code> in our <code>CMakeSettings.json</code> file STM769IDiscovery section. The build will then be done in <code>&quot;B:\Build\STM769IDiscovery&quot;</code>.</p>
 <h3 id="debugging">Debugging</h3>
 <p>Once the program has been built and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:
-<img src="VS2019Toolbars.png" alt=""></p>
+<img src="../../../images/getting-started/VS2019Toolbars.png" alt=""></p>
 <blockquote>
 <p>Note that the launch configuration, here  <code>ESP32 nanoCLR - Segger JLink</code>, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!</p>
 </blockquote>
 <p>You can then commence debugging from the top DEBUG menu.</p>
 <p>OpenOCD should open in its own console window, connect to the target device, and display something similar to this:
-<img src="OpenOCDConsole.png" alt=""></p>
+<img src="../../../images/getting-started/OpenOCDConsole.png" alt=""></p>
 <p>In the VS2019 IDE output Window you should see:</p>
 <pre><code>=thread-group-added,id=&quot;i1&quot;
 GNU gdb (crosstool-NG crosstool-ng-1.22.0-80-g6c4433a5) 7.10
@@ -213,7 +213,7 @@ Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_
 =breakpoint-deleted,id=&quot;1&quot;
 </code></pre>
 <p>The processor has now stopped at the temporary breakpoint inserted by our <code>launch.vs.json</code> startup sequence, showing as an Exception at the entry point in the source code window.
-<img src="VS2019Breakpoint.png" alt="">
+<img src="../../../images/getting-started/VS2019Breakpoint.png" alt="">
 You can now step through the code, observe variables, set breakpoints  and so on.</p>
 <h3 id="summary">Summary</h3>
 <p>This documentation is a work in progress, as is Visual Studio support for this type of project.</p>
