@@ -6,7 +6,7 @@ The MethodRef table contains entries with the following structure:
 |---------------|----------------------|------------  
 | Name          | StringTableIndex     | Index into string table with the name of the type
 | NameSpace     | StringTableIndex     | Index into string table with the name of the namespace containing the type
-| Extends       | TypeRefOrTypeDef     | Index into TypeRef or TypeDef table for the super class of the type
+| Extends       | TypeDefOrRef     | Index into TypeRef or TypeDef table for the super class of the type
 | EnclosingType | TypeDefTableIndex    | Index into the TypeDef table for the enclosing type if this is a nested type
 | Interfaces    | SignatureTableIndex  | Index into signature blob table for the set of interfaces implemented by this type
 | FirstMethod   | MethodDefTableIndex  | Index into MethodDef table for the first method of the type

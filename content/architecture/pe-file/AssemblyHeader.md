@@ -26,7 +26,12 @@ The following sections describe the individual fields of the AssemblyHeader stru
 ### Marker
 
 The assembly marker is an eight character marker consisting of a string non zero terminated ASCII encoded characters.
-This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string. For all released versions of .NET **nanoFramework** this string is 'NFMRK1'.
+This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string. 
+
+| Version  | Marker   | Description
+|----------|----------|------------  
+| 1.0      | 'NFMRK1' | Marker for version 1.0
+| 2.0      | 'NFMRK2' | Marker for version 2.0 (after adding support for generics)
 
 ### Header CRC
 
@@ -60,26 +65,29 @@ The ***Version*** field holds the assembly's version number. (as opposed to the 
 
 ### StartOfTables
 
-Fixed array of offsets to the table data for each of the 16 different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)
+Fixed array of offsets to the table data for each of the different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)
 
-| Name                                         | .NET **nanoFramework** Source Element Name |Description
-|----------------------------------------------|---------------------------|-----------
-| [AssemblyRef](AssemblyRefTableEntry.md)      | CLR_RECORD_ASSEMBLYREF    | Table of Assembly references
-| [TypeRef](TypeRefTableEntry.md)              | CLR_RECORD_TYPEREF        | Reference to a type in another assembly
-| [FieldRef](FieldRefTableEntry.md)            | CLR_RECORD_FIELDREF       | Reference to a field of a type in another assembly
-| [MethodRef](MethodRefTableEntry.md)          | CLR_RECORD_METHODREF      | Reference to a method of a type in another assembly
-| [TypeDef](TypeDefTableEntry.md)              | CLR_RECORD_TYPEDEF        | Type definition for a type in this assembly
-| [FieldDef](FieldDefTableEntry.md)            | CLR_RECORD_FIELDDEF       | Field definition for a type in this assembly
-| [MethodDef](MethodDefTableEntry.md)          | CLR_RECORD_METHODDEF      | Method definition for a type in this assembly
-| [Attributes](AttributesTableEntry.md)        | CLR_RECORD_ATTRIBUTE      | Attribute types defined in this assembly
-| [TypeSpec](TypeSpecTableEntry.md)            | CLR_RECORD_TYPESPEC       | TypeSpecifications (signatures) used in this assembly
-| [Resources](ResourcesTableEntry.md)          | CLR_RECORD_RESOURCE       | Resource items in a resource file bound to this assembly
-| [ResourcesData](ResourcesDataBlob.md)        | \<blob>                   | Blob table data for the resources
-| [Strings](StringsBlob.md)                    | \<blob>                   | Blob table data for the strings
-| [Signatures](SignaturesBlob.md)              | \<blob>                   | Blob table data for the metadata signatures
-| [ByteCode](ByteCodeBlob.md)                  | \<blob>                   | Blob table data for the IL byte code instructions
-| [ResourcesFiles](ResourcesFilesTableEntry.md)| CLR_RECORD_RESOURCE_FILE  | Resource files descriptors for resource files bound to this assembly
-| [EndOfAssembly](EndOfAssembly.md)            | \<N/A>                    | Technically, this is not a table. Instead this entry contains the offset to the end of the assembly, which is useful for finding the next assembly in a DAT region
+| Name                                                         | .NET **nanoFramework** Source Element Name | Description
+|--------------------------------------------------------------|------------------------------|-----------
+| [AssemblyRef](AssemblyRefTableEntry.md)                      | CLR_RECORD_ASSEMBLYREF       | Table of Assembly references
+| [TypeRef](TypeRefTableEntry.md)                              | CLR_RECORD_TYPEREF           | Reference to a type in another assembly
+| [FieldRef](FieldRefTableEntry.md)                            | CLR_RECORD_FIELDREF          | Reference to a field of a type in another assembly
+| [MethodRef](MethodRefTableEntry.md)                          | CLR_RECORD_METHODREF         | Reference to a method of a type in another assembly
+| [TypeDef](TypeDefTableEntry.md)                              | CLR_RECORD_TYPEDEF           | Type definition for a type in this assembly
+| [FieldDef](FieldDefTableEntry.md)                            | CLR_RECORD_FIELDDEF          | Field definition for a type in this assembly
+| [MethodDef](MethodDefTableEntry.md)                          | CLR_RECORD_METHODDEF         | Method definition for a type in this assembly
+| [Attributes](AttributesTableEntry.md)                        | CLR_RECORD_ATTRIBUTE         | Attribute types defined in this assembly
+| [TypeSpec](TypeSpecTableEntry.md)                            | CLR_RECORD_TYPESPEC          | TypeSpecifications (signatures) used in this assembly
+| [GenericParam](GenericParamTableEntry.md)                    | CLR_RECORD_GENERICPARAM      | Generic parameter definition (new in v2.0)
+| [GenericParamConstraint](GenericParamConstraintTableEntry.md)| CLR_RECORD_GENERICPARAMCONST | Generic parameter constrain definition (new in v2.0)
+| [MethodSpec](MethodSpecTableEntry.md)                        | CLR_RECORD_METHODSPECDEF     | Method specification (new in v2.0)
+| [Resources](ResourcesTableEntry.md)                          | CLR_RECORD_RESOURCE          | Resource items in a resource file bound to this assembly
+| [ResourcesData](ResourcesDataBlob.md)                        | \<blob>                      | Blob table data for the resources
+| [Strings](StringsBlob.md)                                    | \<blob>                      | Blob table data for the strings
+| [Signatures](SignaturesBlob.md)                              | \<blob>                      | Blob table data for the metadata signatures
+| [ByteCode](ByteCodeBlob.md)                                  | \<blob>                      | Blob table data for the IL byte code instructions
+| [ResourcesFiles](ResourcesFilesTableEntry.md)                | CLR_RECORD_RESOURCE_FILE     | Resource files descriptors for resource files bound to this assembly
+| [EndOfAssembly](EndOfAssembly.md)                            | \<N/A>                       | Technically, this is not a table. Instead this entry contains the offset to the end of the assembly, which is useful for finding the next assembly in a DAT region
 
 ### PaddingOfTables
 

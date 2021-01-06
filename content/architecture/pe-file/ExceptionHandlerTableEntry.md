@@ -12,7 +12,7 @@ In a future revision of the PE binary format this should be managed by inserting
 | Name          | Type                 | Description  
 |---------------|----------------------|------------  
 | Mode          | ExceptionHandlerMode | Mode for the exception handler
-| ClassToken([1](#Notes)) | TypeRefOrTypeDef | Class token for the handler
+| ClassToken([1](#Notes)) | TypeDefOrRef | Class token for the handler
 | FilterStart   | MetadataOffset       | Offset into the IL ByteCode stream for the filter code
 | TryStart      | MetadataOffset       | Offset into the IL ByteCode stream for the starting range this handler covers
 | TryEnd        | MetadataOffset       | Offset into the IL ByteCode stream for the end of the range this handler covers
