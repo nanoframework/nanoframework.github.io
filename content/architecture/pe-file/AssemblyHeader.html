@@ -150,7 +150,28 @@ runtime. Additionally, the Assembly header contains the location information for
 <p>The following sections describe the individual fields of the AssemblyHeader structure.</p>
 <h3 id="marker">Marker</h3>
 <p>The assembly marker is an eight character marker consisting of a string non zero terminated ASCII encoded characters.
-This is used to clearly identify a .NET <strong>nanoFramework</strong> PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases <strong>MUST</strong> use a new marker string. For all released versions of .NET <strong>nanoFramework</strong> this string is 'NFMRK1'.</p>
+This is used to clearly identify a .NET <strong>nanoFramework</strong> PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases <strong>MUST</strong> use a new marker string.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Marker</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>'NFMRK1'</td>
+<td>Marker for version 1.0</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>'NFMRK2'</td>
+<td>Marker for version 2.0 (after adding support for generics)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="header-crc">Header CRC</h3>
 <p>ANSI X3.66 32 bit CRC for the AssemblyHeader. This is computed assuming the HeaderCRC and AssemblyCRC fields are 0.</p>
 <h3 id="assembly-crc">Assembly CRC</h3>
@@ -168,7 +189,7 @@ of any type with native methods <strong>MUST</strong> generate a distinct checks
 <h3 id="assemblyname">AssemblyName</h3>
 <p><a href="StringTable.md">String Table</a> index for the name of the assembly</p>
 <h3 id="startoftables">StartOfTables</h3>
-<p>Fixed array of offsets to the table data for each of the 16 different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)</p>
+<p>Fixed array of offsets to the table data for each of the different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)</p>
 <table>
 <thead>
 <tr>
@@ -222,6 +243,21 @@ of any type with native methods <strong>MUST</strong> generate a distinct checks
 <td><a href="TypeSpecTableEntry.html">TypeSpec</a></td>
 <td>CLR_RECORD_TYPESPEC</td>
 <td>TypeSpecifications (signatures) used in this assembly</td>
+</tr>
+<tr>
+<td><a href="GenericParamTableEntry.html">GenericParam</a></td>
+<td>CLR_RECORD_GENERICPARAM</td>
+<td>Generic parameter definition (new in v2.0)</td>
+</tr>
+<tr>
+<td><a href="GenericParamConstraintTableEntry.html">GenericParamConstraint</a></td>
+<td>CLR_RECORD_GENERICPARAMCONST</td>
+<td>Generic parameter constrain definition (new in v2.0)</td>
+</tr>
+<tr>
+<td><a href="MethodSpecTableEntry.html">MethodSpec</a></td>
+<td>CLR_RECORD_METHODSPECDEF</td>
+<td>Method specification (new in v2.0)</td>
 </tr>
 <tr>
 <td><a href="ResourcesTableEntry.html">Resources</a></td>

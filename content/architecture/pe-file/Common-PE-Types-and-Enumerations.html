@@ -119,6 +119,21 @@
 <td>unsigned 16 bit integer</td>
 <td>Index into the signature table (see: <a href="SignatureBlobs.md">SignatureBlobs</a> for more details)</td>
 </tr>
+<tr>
+<td>GenericParamTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the generic params table</td>
+</tr>
+<tr>
+<td>GenericParamConstraintTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the generic params constraint table</td>
+</tr>
+<tr>
+<td>MethodSpecTableIndex</td>
+<td>unsigned 16 bit integer</td>
+<td>Index into the method specification table</td>
+</tr>
 </tbody>
 </table>
 <h2 id="emptyindex-constant">EmptyIndex Constant</h2>
@@ -180,43 +195,58 @@
 <td>Type Specification Table</td>
 </tr>
 <tr>
-<td>Resources</td>
+<td>GenericParam</td>
 <td>0x0009</td>
+<td>Generic Parameters Table</td>
+</tr>
+<tr>
+<td>GenericParamConstraint</td>
+<td>0x000A</td>
+<td>Generic Parameters Constraint Table</td>
+</tr>
+<tr>
+<td>MethodSpec</td>
+<td>0x000B</td>
+<td>Method Specification Table</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>0x000C</td>
 <td>Resources Table</td>
 </tr>
 <tr>
 <td>ResourcesData</td>
-<td>0x000A</td>
+<td>0x000D</td>
 <td>Resource Data Blob Table</td>
 </tr>
 <tr>
 <td>Strings</td>
-<td>0x000B</td>
+<td>0x000E</td>
 <td>String Blob table</td>
 </tr>
 <tr>
 <td>Signatures</td>
-<td>0x000C</td>
+<td>0x000F</td>
 <td>Signature Blob table</td>
 </tr>
 <tr>
 <td>ByteCode</td>
-<td>0x000D</td>
+<td>0x0010</td>
 <td>IL Byte Code Stream Blob Table</td>
 </tr>
 <tr>
 <td>ResourcesFiles</td>
-<td>0x000E</td>
+<td>0x0011</td>
 <td>Resource Files Table</td>
 </tr>
 <tr>
 <td>EndOfAssembly</td>
-<td>0x000F</td>
+<td>0x0012</td>
 <td>End of Assembly Table (Used to quickly find the end of the assembly when scanning assemblies)</td>
 </tr>
 <tr>
 <td>Max</td>
-<td>0x0010</td>
+<td>0x0013</td>
 <td>End of enumeration valid enumeration values must be <strong><em>less</em></strong> than this value</td>
 </tr>
 </tbody>
@@ -248,35 +278,98 @@
 <h3 id="metadata-token">Metadata Token</h3>
 <p>A metadata token is an unsigned 32 bit value where the Most significant byte is the table kind and the least significant 16 bits are the table index (In .NET <strong>nanoFramework</strong> PE format a table index is 16bits only thus there are 8 bits of unused data in a MetadataToken)</p>
 <h3 id="binary-token">Binary Token</h3>
-<p>A Binary Token is a compact form of representing an index to one of two possible tables. Binary tokens are 16 but unsigned integers where the most significant bit is used to determine which of two possible tables the remaining 15 bits provide the index for. The following table provides the type name aliases for the various combinations of tables used in .NET <strong>nanoFramework</strong> PE metadata.</p>
+<p>A Binary Token is a compact form of representing an index to one or more tables. .NET <strong>nanoFramework</strong> follows the convention specified by ECMA-335 (I I.24.2.66) for <em>coded index</em>. Because of it's small size only the 2 bytes version is used where the most significant bits are used to determine which of the possible tables, and the remaining bits provide the index of the table entry. The following table provides the type name aliases for the various combinations of tables used in .NET <strong>nanoFramework</strong> PE metadata.</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>MSB==1 Table</th>
-<th>MSB==0 Table</th>
+<th>TypeRefOrAssemblyRef: (1 bit to encode tag)</th>
+<th>Tag</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>TypeRefOrAssemblyRef</td>
-<td>TypeRef</td>
 <td>AssemblyRef</td>
+<td>0</td>
 </tr>
 <tr>
-<td>TypeRefOrTypeDef</td>
 <td>TypeRef</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>TypeDefOrRef: (2 bits to encode tag)</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>TypeDef</td>
+<td>0</td>
 </tr>
 <tr>
-<td>MethodRefOrMethodDef</td>
-<td>MethodRef</td>
+<td>TypeRef</td>
+<td>1</td>
+</tr>
+<tr>
+<td>TypeSpec</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MethodDefOrRef: (1 bit to encode tag)</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>MethodDef</td>
+<td>0</td>
 </tr>
 <tr>
-<td>FieldRefOrFieldDef</td>
-<td>FieldRef</td>
+<td>MemberRef</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>TypeOrMethodDef: (1 bit to encode tag)</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TypeDef</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MethodDef</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>FieldRefOrFieldDef: (1 bit to encode tag)</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>FieldDef</td>
+<td>0</td>
+</tr>
+<tr>
+<td>FieldRef</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
@@ -314,7 +407,7 @@
 </tbody>
 </table>
 <h2 id="datatype">DataType</h2>
-<p>The <code>DataType</code> enumeration corresponds to the ECMA ELEMENT_TYPE_xxxx, however the
+<p>The <code>DataType</code> enumeration corresponds to the ECMA-335 ELEMENT_TYPE_xxxx, however the
 actual numeric values are not the same as the interpreter uses only a reduced
 sub-set of the standard values.</p>
 <table>
@@ -408,6 +501,18 @@ sub-set of the standard values.</p>
 <tr>
 <td>ByRef</td>
 <td>BYREF <code>&lt;type&gt;</code></td>
+</tr>
+<tr>
+<td>Var</td>
+<td>VAR Generic parameter in a generic type definition, represented as number (new in v2.0)</td>
+</tr>
+<tr>
+<td>GenericInst</td>
+<td>GENERICINST Generic type instantiation (new in v2.0)</td>
+</tr>
+<tr>
+<td>MVar</td>
+<td>MVAR Generic parameter in a generic method definition, represented as number (new in v2.0)</td>
 </tr>
 </tbody>
 </table>

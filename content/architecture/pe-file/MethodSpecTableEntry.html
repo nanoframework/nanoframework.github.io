@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>FieldRefTableEntry (CLR_RECORD_FIELDREF) | nanoFramework Documentation </title>
+    <title>MethodSpecTableEntry (CLR_RECORD_METHODSPEC) | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="FieldRefTableEntry (CLR_RECORD_FIELDREF) | nanoFramework Documentation ">
+    <meta name="title" content="MethodSpecTableEntry (CLR_RECORD_METHODSPEC) | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
@@ -75,9 +75,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="fieldreftableentry-clr_record_fieldref">FieldRefTableEntry (CLR_RECORD_FIELDREF)</h1>
+<h1 id="methodspectableentry-clr_record_methodspec">MethodSpecTableEntry (CLR_RECORD_METHODSPEC)</h1>
 
-<p>The FieldRef Table consists of the following columns:</p>
+<p>The MethodSpec Table (new in v2.0) consists of the following columns:</p>
 <table>
 <thead>
 <tr>
@@ -88,24 +88,14 @@
 </thead>
 <tbody>
 <tr>
-<td>Name</td>
-<td>StringTableIndex</td>
-<td>Index into <a href="StringTable.md">string table</a> for the name of the type</td>
+<td>Method</td>
+<td>MethodDefOrRef</td>
+<td>Index into the <a href="MethodDefTableEntry.html">MethodDef table</a> or <a href="MemberRefTableEntry.md">MemberRef table</a>, specifying to which generic method this row refers; that is, which generic method this row is an instantiation of; more precisely, a MethodDefOrRef.</td>
 </tr>
 <tr>
-<td>Container</td>
-<td>TypeRefTableIndex</td>
-<td>Index into <a href="TypeRefTableEntry.html">TypeRef table</a> for the type containing this field</td>
-</tr>
-<tr>
-<td>Sig</td>
-<td>SigTableIndex</td>
-<td>Index into <a href="SignatureTable.md">signature table</a> describing the type of this filed</td>
-</tr>
-<tr>
-<td>padding</td>
-<td>uint16_t</td>
-<td>Unused padding (Must be 0)</td>
+<td>Instantiation</td>
+<td>SignatureTableIndex</td>
+<td>Index into <a href="SignatureTable.md">signature table</a> holding the signature of this instantiation</td>
 </tr>
 </tbody>
 </table>
@@ -117,7 +107,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/FieldRefTableEntry.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/pe-file/MethodSpecTableEntry.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
