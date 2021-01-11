@@ -100,12 +100,12 @@
 <tr>
 <td>Extends</td>
 <td>TypeDefOrRef</td>
-<td>Index into TypeRef or TypeDef table for the super class of the type</td>
+<td>Index into the <a href="TypeDefTableEntry.html">TypeDef table</a>, <a href="TypeRefTableEntry.html">TypeRef table</a>, or <a href="TypeSpecTableEntry.html">TypeSpec table</a> tables, more precisely, a TypeDefOrRef</td>
 </tr>
 <tr>
 <td>EnclosingType</td>
-<td>TypeDefTableIndex</td>
-<td>Index into the TypeDef table for the enclosing type if this is a nested type</td>
+<td>TypeDefOrRef</td>
+<td>Index into the <a href="TypeDefTableEntry.html">TypeDef table</a>, more precisely, a TypeDefOrRef if this is a nested type.</td>
 </tr>
 <tr>
 <td>Interfaces</td>
@@ -115,7 +115,7 @@
 <tr>
 <td>FirstMethod</td>
 <td>MethodDefTableIndex</td>
-<td>Index into MethodDef table for the first method of the type</td>
+<td>Index into <a href="MethodDefTableEntry.html">MethodDef table</a> for the first method of the type</td>
 </tr>
 <tr>
 <td>VirtualMethodCount</td>
@@ -140,12 +140,32 @@
 <tr>
 <td>FirstStaticField</td>
 <td>FieldDefTableIndex</td>
-<td>Index into FiledDef table for the first static field of the type</td>
+<td>Index into <a href="FieldDefTableEntry.md">FieldDef </a> for the first static field of the type</td>
 </tr>
 <tr>
 <td>FirstInstanceField</td>
 <td>FieldDefTableIndex</td>
-<td>Index into FieldDef table for the first instance field of the type</td>
+<td>Index into <a href="FieldDefTableEntry.md">FieldDef </a> for the first instance field of the type</td>
+</tr>
+<tr>
+<td>StaticFieldsCount</td>
+<td>uint8_t</td>
+<td>Count of static fields in the type</td>
+</tr>
+<tr>
+<td>InstanceFieldsCount</td>
+<td>uint8_t</td>
+<td>Count of instance fields in the type</td>
+</tr>
+<tr>
+<td>FirstGenericParam</td>
+<td>GenericParamTableIndex</td>
+<td>Index into <a href="GenericParamTableEntry.html">GenericParam table</a> for the first generic parameter of the type</td>
+</tr>
+<tr>
+<td>GenericParamCount</td>
+<td>uint8_t</td>
+<td>Count of generic parameters in the type</td>
 </tr>
 <tr>
 <td>Flags</td>

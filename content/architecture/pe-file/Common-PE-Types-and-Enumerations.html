@@ -79,7 +79,7 @@
 
 <p>The PE File format is expressed in terms of a number of common types. In code these are generally realized as an enumeration, typedef or type alias of some sort o help ensure both clarity of code and correctness of use. This additional clarity and type safety is preferred over use of raw primitive types directly as they onvey no real meaning beyond their basic ranges making correct use of the code less obvious and more error prone.</p>
 <h2 id="table-index">Table Index</h2>
-<p>Many PE data structures store an index into a particular table index as a field. This table defines the type names used to store the index and which table it is an index into.</p>
+<p>Many PE data structures store Index into a particular table index as a field. This table defines the type names used to store the index and which table it is Index into.</p>
 <table>
 <thead>
 <tr>
@@ -121,13 +121,13 @@
 </tr>
 <tr>
 <td>GenericParamTableIndex</td>
-<td>unsigned 16 bit integer</td>
-<td>Index into the generic params table</td>
+<td>unsigned 8 bit integer</td>
+<td>Index into the generic params table (OK to use 1 byte index because we won't support more than 255 generic parameters)</td>
 </tr>
 <tr>
 <td>GenericParamConstraintTableIndex</td>
-<td>unsigned 16 bit integer</td>
-<td>Index into the generic params constraint table</td>
+<td>unsigned 8 bit integer</td>
+<td>Index into the generic params constraint table  (OK to use 1 byte index because we won't support more than 255 generic parameters)</td>
 </tr>
 <tr>
 <td>MethodSpecTableIndex</td>
@@ -137,9 +137,9 @@
 </tbody>
 </table>
 <h2 id="emptyindex-constant">EmptyIndex Constant</h2>
-<p>Since an index values are used to access members of a table and since (in C, C++, and many other languages) tables are indexed with the first element as index == 0 the value 0 is not useable as a constant to indicate &quot;none&quot; or &quot;null&quot;. Thus a dedicated value is used for .NET <strong>nanoFramework</strong> metadata tables. Any index with the value 0xFFFF is considered the EmptyIndex and this is normally defined as a manifest constant for the entire code base to test against.</p>
-<h2 id="tablekind">TableKind</h2>
-<p>The TableKind enumeration identifies a specific table in the assembly metadata.</p>
+<p>Since Index values are used to access members of a table and since (in C, C++, and many other languages) tables are indexed with the first element as index == 0 the value 0 is not useable as a constant to indicate &quot;none&quot; or &quot;null&quot;. Thus a dedicated value is used for .NET <strong>nanoFramework</strong> metadata tables. Any index with the value 0xFFFF is considered the EmptyIndex and this is normally defined as a manifest constant for the entire code base to test against.</p>
+<h2 id="table-kind">Table Kind</h2>
+<p>The CLR_TABLESENUM enumeration identifies a specific table in the assembly metadata.</p>
 <table>
 <thead>
 <tr>
@@ -185,29 +185,29 @@
 <td>Method Definition Table</td>
 </tr>
 <tr>
-<td>Attributes</td>
-<td>0x0007</td>
-<td>Attribute Table</td>
-</tr>
-<tr>
-<td>TypeSpec</td>
-<td>0x0008</td>
-<td>Type Specification Table</td>
-</tr>
-<tr>
 <td>GenericParam</td>
-<td>0x0009</td>
+<td>0x0007</td>
 <td>Generic Parameters Table</td>
 </tr>
 <tr>
 <td>GenericParamConstraint</td>
-<td>0x000A</td>
+<td>0x0008</td>
 <td>Generic Parameters Constraint Table</td>
 </tr>
 <tr>
 <td>MethodSpec</td>
-<td>0x000B</td>
+<td>0x0009</td>
 <td>Method Specification Table</td>
+</tr>
+<tr>
+<td>Attributes</td>
+<td>0x000A</td>
+<td>Attribute Table</td>
+</tr>
+<tr>
+<td>TypeSpec</td>
+<td>0x000B</td>
+<td>Type Specification Table</td>
 </tr>
 <tr>
 <td>Resources</td>
@@ -274,11 +274,12 @@
 </tbody>
 </table>
 <h2 id="tokens">Tokens</h2>
-<p>Many instructions in IL and fields of data structures contain a token. Tokens in IL Metadata reference some other piece of metadata in the assembly. Tokens contain the table the token refers to along with an index into the table into a single primitive integral value. In .NET <strong>nanoFramework</strong> PE files there are two kinds of tokens MetadataToken and a more compact BinaryToken.</p>
+<p>Many instructions in IL and fields of data structures contain a token. Tokens in IL Metadata reference some other piece of metadata in the assembly. Tokens contain the table the token refers to along with Index into the table into a single primitive integral value. In .NET <strong>nanoFramework</strong> PE files there are two kinds of tokens MetadataToken and a more compact BinaryToken.</p>
 <h3 id="metadata-token">Metadata Token</h3>
 <p>A metadata token is an unsigned 32 bit value where the Most significant byte is the table kind and the least significant 16 bits are the table index (In .NET <strong>nanoFramework</strong> PE format a table index is 16bits only thus there are 8 bits of unused data in a MetadataToken)</p>
 <h3 id="binary-token">Binary Token</h3>
-<p>A Binary Token is a compact form of representing an index to one or more tables. .NET <strong>nanoFramework</strong> follows the convention specified by ECMA-335 (I I.24.2.66) for <em>coded index</em>. Because of it's small size only the 2 bytes version is used where the most significant bits are used to determine which of the possible tables, and the remaining bits provide the index of the table entry. The following table provides the type name aliases for the various combinations of tables used in .NET <strong>nanoFramework</strong> PE metadata.</p>
+<p>A Binary Token is a compact form of representing Index to one or more tables. .NET <strong>nanoFramework</strong> follows the convention specified by ECMA-335 (I I.24.2.66) for <em>coded index</em> where the least significant bits are used to determine which of the possible tables and the remaining bits provide the index of the table entry.
+Except for a few tags that, because of legacy code, use the most significant bits. Because of it's small size only the 2 bytes version is used. The following table provides the type name aliases for the various combinations of tables used in .NET <strong>nanoFramework</strong> PE metadata.</p>
 <table>
 <thead>
 <tr>
@@ -334,6 +335,36 @@
 <tr>
 <td>MemberRef</td>
 <td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MemberRefParent: (3 bits to encode tag)</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TypeDef</td>
+<td>0</td>
+</tr>
+<tr>
+<td>TypeRef</td>
+<td>1</td>
+</tr>
+<tr>
+<td>ModuleRef</td>
+<td>2</td>
+</tr>
+<tr>
+<td>MethodDef</td>
+<td>3</td>
+</tr>
+<tr>
+<td>TypeSpec</td>
+<td>4</td>
 </tr>
 </tbody>
 </table>
