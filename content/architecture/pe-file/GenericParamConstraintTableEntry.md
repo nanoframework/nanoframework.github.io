@@ -1,4 +1,4 @@
-# GenericParamConstraint (CLR_RECORD_GENERICPARAMCONST)
+# GenericParamConstraint (CLR_RECORD_GENERICPARAMCONSTRAINT)
 
 The GenericParamConstraint Table (new in v2.0) consists of the following columns:
 
