@@ -15,7 +15,6 @@ FieldDefTableIndex               | unsigned 16 bit integer | Index into the fiel
 MethodDefTableIndex              | unsigned 16 bit integer | Index into the method definition table
 SigTableIndex                    | unsigned 16 bit integer | Index into the signature table (see: [SignatureBlobs](SignatureBlobs.md) for more details)
 GenericParamTableIndex           | unsigned 8 bit integer | Index into the generic params table (OK to use 1 byte index because we won't support more than 255 generic parameters)
-GenericParamConstraintTableIndex | unsigned 8 bit integer | Index into the generic params constraint table  (OK to use 1 byte index because we won't support more than 255 generic parameters)
 MethodSpecTableIndex             | unsigned 16 bit integer | Index into the method specification table
 
 ## EmptyIndex Constant
@@ -36,18 +35,17 @@ TypeDef                | 0x0004 | Type Definition Table
 FieldDef               | 0x0005 | Field Definition Table
 MethodDef              | 0x0006 | Method Definition Table
 GenericParam           | 0x0007 | Generic Parameters Table
-GenericParamConstraint | 0x0008 | Generic Parameters Constraint Table
-MethodSpec             | 0x0009 | Method Specification Table
-Attributes             | 0x000A | Attribute Table
-TypeSpec               | 0x000B | Type Specification Table
-Resources              | 0x000C | Resources Table
-ResourcesData          | 0x000D | Resource Data Blob Table
-Strings                | 0x000E | String Blob table
-Signatures             | 0x000F | Signature Blob table
-ByteCode               | 0x0010 | IL Byte Code Stream Blob Table
-ResourcesFiles         | 0x0011 | Resource Files Table
-EndOfAssembly          | 0x0012 | End of Assembly Table (Used to quickly find the end of the assembly when scanning assemblies)
-Max                    | 0x0013 | End of enumeration valid enumeration values must be **_less_** than this value
+MethodSpec             | 0x0008 | Method Specification Table
+Attributes             | 0x0009 | Attribute Table
+TypeSpec               | 0x000A | Type Specification Table
+Resources              | 0x000B | Resources Table
+ResourcesData          | 0x000C | Resource Data Blob Table
+Strings                | 0x000D | String Blob table
+Signatures             | 0x000E | Signature Blob table
+ByteCode               | 0x000F | IL Byte Code Stream Blob Table
+ResourcesFiles         | 0x0010 | Resource Files Table
+EndOfAssembly          | 0x0011 | End of Assembly Table (Used to quickly find the end of the assembly when scanning assemblies)
+Max                    | 0x0012 | End of enumeration valid enumeration values must be **_less_** than this value
 
 ## Miscellaneous Types
 

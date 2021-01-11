@@ -70,7 +70,6 @@ Fixed array of offsets to the table data for each of the different tables. The e
 | [FieldDef](FieldDefTableEntry.md)                            | CLR_RECORD_FIELDDEF               | Field definition for a type in this assembly
 | [MethodDef](MethodDefTableEntry.md)                          | CLR_RECORD_METHODDEF              | Method definition for a type in this assembly
 | [GenericParam](GenericParamTableEntry.md)                    | CLR_RECORD_GENERICPARAM           | Generic parameter definition (new in v2.0)
-| [GenericParamConstraint](GenericParamConstraintTableEntry.md)| CLR_RECORD_GENERICPARAMCONSTRAINT | Generic parameter constrain definition (new in v2.0)
 | [MethodSpec](MethodSpecTableEntry.md)                        | CLR_RECORD_METHODSPEC             | Method specification (new in v2.0)
 | [Attributes](AttributesTableEntry.md)                        | CLR_RECORD_ATTRIBUTE              | Attribute types defined in this assembly
 | [TypeSpec](TypeSpecTableEntry.md)                            | CLR_RECORD_TYPESPEC               | TypeSpecifications (signatures) used in this assembly
