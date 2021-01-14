@@ -2,19 +2,19 @@
 
 The MethodRef table contains entries with the following structure
 
-| Name              | Type             | Description  
+| Name | Type | Description  
 |-------------------|------------------|------------  
-| Name              | StringTableIndex | Index into [String table](StringTable.md) for the name of the method
-| RVA               | MetadataOffset   | Offset into the IL byte code blob table for the opcodes of the method
-| Flags             | MethodDefFlags   | Flags to indicate intrinsic attributes and semantics of the method
-| RetVal            | DataType         | DataType of the return value for the method
-| ArgumentsCount    | uint8_t          | Count of arguments to the method
-| LocalsCount       | uint8_t          | Count of local variables for the method
-| GenericParamCount | uint8_t          | Count of generic parameters for the method
-| LengthEvalStack   | uint8_t          | Length of the evaluation stack for the method
-| Locals            | SigTableIndex    | Index into [Signature table](SignatureTable.md) to describe the locals for the method
-| GenericParam      | SigTableIndex    | Index into [Signature table](SignatureTable.md) to describe the generic parameters of the method
-| Signature         | SigTableIndex    | Index into [Signature table](SignatureTable.md) that describes the method itself
+| Name | StringTableIndex | Index into [String table](StringTable.md) for the name of the method
+| RVA | MetadataOffset | Offset into the IL byte code blob table for the opcodes of the method
+| Flags | MethodDefFlags  Flags to indicate intrinsic attributes and semantics of the method
+| RetVal | DataType | DataType of the return value for the method
+| ArgumentsCount | uint8_t | Count of arguments to the method
+| LocalsCount | uint8_t | Count of local variables for the method
+| LengthEvalStack | uint8_t | Length of the evaluation stack for the method
+| Locals | SigTableIndex | Index into [Signature table](SignatureTable.md) to describe the locals for the method
+| FirstGenericParam | GenericParamTableIndex | Index into [GenericParam table](GenericParamTableEntry.md) for the first generic parameter of the method
+| GenericParamCount | uint8_t | Count of generic parameters for the method
+| Signature | SigTableIndex | Index into [Signature table](SignatureTable.md) that describes the method itself
 
 ## Signature Table Usage
 

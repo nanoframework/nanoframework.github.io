@@ -8,7 +8,7 @@ The MethodRef table contains entries with the following structure:
 | NameSpace           | StringTableIndex | Index into string table with the name of the namespace containing the type
 | Extends             | TypeDefOrRef | Index into the [TypeDef table](TypeDefTableEntry.md), [TypeRef table](TypeRefTableEntry.md), or [TypeSpec table](TypeSpecTableEntry.md) tables, more precisely, a TypeDefOrRef
 | EnclosingType       | TypeDefOrRef | Index into the [TypeDef table](TypeDefTableEntry.md), more precisely, a TypeDefOrRef if this is a nested type.
-| Signature           | SignatureTableIndex | Index into signature blob table for this type
+| Interfaces          | SignatureTableIndex | Index into signature blob table for the set of interfaces implemented by this type
 | FirstMethod         | MethodDefTableIndex | Index into [MethodDef table](MethodDefTableEntry.md) for the first method of the type
 | VirtualMethodCount  | uint8_t | Count of virtual methods in the type
 | InstanceMethodCount | uint8_t | Count of instance methods in the type
@@ -17,9 +17,9 @@ The MethodRef table contains entries with the following structure:
 | FirstStaticField    | FieldDefTableIndex | Index into [FieldDef ](FieldDefTableEntry.md) for the first static field of the type
 | FirstInstanceField  | FieldDefTableIndex | Index into [FieldDef ](FieldDefTableEntry.md) for the first instance field of the type
 | StaticFieldsCount   | uint8_t | Count of static fields in the type
-| InstanceFieldsCount | uint8_t | Count of instance fields in the type
-| FirstGenericParam   | GenericParamTableIndex | Index into [GenericParam table](GenericParamTableEntry.md) for the first generic argument of the type
-| GenericParamCount   | uint8_t | Count of generic arguments in the type
+| InstanceFieldsCount | uint8_t | Count of instance fields for the type
+| FirstGenericParam   | GenericParamTableIndex | Index into [GenericParam table](GenericParamTableEntry.md) for the first generic parameter for the type
+| GenericParamCount   | uint8_t | Count of generic parameters for the type
 | Flags               | [TypeDefFlags](#TypeDefFLags) | Flags defining intrinsic attributes and access modifiers for the type
 
 ##### TypeDefFlags
