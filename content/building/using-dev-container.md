@@ -31,7 +31,7 @@ This is illustrating how to do this:
 - **Step 9**: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.
 - **Step 10**: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.
 - **Step 11**: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.
-- **Step 12**: It will be over when you VS Code will give you access to the files and will look like this:
+- **Step 12**: It will be over when your VS Code will give you access to the files and will look like this:
 
 ![Docker steetings](../../images/dev-container-vscode-ok.jpg)
 
