@@ -1,13 +1,13 @@
 # ADC configuration
 
-**About this document**
+## About this document
 
 This document describes how to configure the ADC and respective GPIO pins for a STM32 target board based in ChibiOS HAL/PAL.
 
 ## Assumptions and design
 
 The STM32 parts can have up to 19 multiplexed channels (being 16 from external sources). Those can be grouped for special conversion scenarios that we are not going to use.
-Each ADC channel can be exposed in one or more GPIO pins. Despite this providing more flexibility to a system designer it poses an additional complication at the time of configuring the ADC. 
+Each ADC channel can be exposed in one or more GPIO pins. Despite this providing more flexibility to a system designer it poses an additional complication at the time of configuring the ADC.
 Considering that the heavy-lifting on the ADC configuration and initial setup is performed by ChibiOS, we've tried to make the remaining configuration as simple as possible, which is pretty much mapping the GPIO pins.
 
 For the remaining of this document we'll be using ST STM32F769I_DISCOVERY reference target and will configure the ADC to use the ADC channels exposed through the CN14 connector. From the schematics of the board (mb1225 F769I-DISCO schematic.pdf downloadable from ST web site) one can see that the following channels exposed:
@@ -34,7 +34,7 @@ To fully take advantage of the ADC hardware we are going to enable the internal 
 The configurations are all concentrated in the `target_windows_devices_adc_config.cpp` file in the reference target folder.
 This source file is added to the CMake target only if the `API_Windows.Devices.Adc` option is set to ON. See the target CMakeList.txt.
 
-There is a global `NF_PAL_ADC_PORT_PIN_CHANNEL` array for the ADC controller. On each entry there are the configurations for the ADC block, the GPIO port and pin along with the ADC internal channel reference. 
+There is a global `NF_PAL_ADC_PORT_PIN_CHANNEL` array for the ADC controller. On each entry there are the configurations for the ADC block, the GPIO port and pin along with the ADC internal channel reference.
 Note that for the internal sources channels the GPIO port and pin are to be set to `NULL` and those are only available on ADC1.
 All the naming come from existing ChibiOS defines.
 

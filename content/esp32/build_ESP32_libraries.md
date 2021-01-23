@@ -36,7 +36,7 @@ Run *make* to build blink project
 
 Exit msys2
 
-*Copy the libraries to the Esp32_tools/lib-v3.3.1 directory*
+Copy the libraries to the Esp32_tools/lib-v3.3.1 directory
 
 Copy the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32\CopyLibs.cmd to the  c:\esp32_tools\esp-idf-v3.3.1\examples\get-started\blink directory
 Open windows command in same directory and run batch file.

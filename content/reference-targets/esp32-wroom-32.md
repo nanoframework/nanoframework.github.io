@@ -12,7 +12,6 @@ There are 2 images:
 
 [ESP32-WROVER-KIT Product page](https://www.espressif.com/en/products/hardware/esp-wrover-kit/overview)
 
-
 ## Firmware images (ready to deploy)
 
 | Target | Stable | Preview |

@@ -1,4 +1,4 @@
-## Professional Support
+# Professional Support
 
 Professional support is provided by core team members.
 
@@ -15,7 +15,7 @@ The above will, obviously, contribute to the project continuous growth.
 
 ### Eclo Solutions
 
-<a href="http://www.eclo.solutions"><img src="http://www.eclo.solutions/images/eclo-solutions-logo-tall.svg" height="100" width="151"/></a>
+[![Eclo](http://www.eclo.solutions/images/eclo-solutions-logo-tall.svg](http://www.eclo.solutions)
 
 ### CSA Engineering AG
 

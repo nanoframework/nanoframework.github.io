@@ -1,6 +1,6 @@
 # External memory
 
-**About this document**
+## About this document
 
 This document describes how to use external memory for the managed heap using the ChibiOS FSMC driver from the .NET **nanoFramework** overlay.
 Please refer to the CLR managed heap [documentation](clr-managed-heap.md).

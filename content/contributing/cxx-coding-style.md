@@ -1,6 +1,6 @@
 # C/C++ Coding Style
 
-For C/C++ files (*.c, *.cpp and *.h), we use clang-format (version 3.10) to ensure code styling.
+For C/C++ files (*.c,*.cpp and *.h), we use clang-format (version 3.10) to ensure code styling.
 The rules and config files are included in the nf-interpreter repository.
 
 ## Using Visual Studio Code
@@ -20,7 +20,7 @@ LLVM.org doesn't provide a separate installer for this tool so follows a quick a
 "clang-format.executable" : "C:/Program Files/LLVM/bin/clang-format.exe"
 ```
 
-You might have something slightly different in your setup. 
+You might have something slightly different in your setup.
 Just remember the following: add that setting, the path that you've copied before, change it to have forward slashes and add the **clang-format.exe** at the end.
 
 After following the above steps successfully you can now right click on any C, C++ or H file and hit 'Format Document'. The VS Code extension will take care that the document is properly formatted according to the coding style guidelines.

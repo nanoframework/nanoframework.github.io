@@ -1,6 +1,6 @@
 # Organizations contributing or helping .NET **nanoFramework**
 
-### Organizations contributing to .NET **nanoFramework**
+## Organizations contributing to .NET **nanoFramework**
 
 These companies and organizations contribute to the develop effort of .NET **nanoFramework**.
 
@@ -8,7 +8,7 @@ These companies and organizations contribute to the develop effort of .NET **nan
 - [Global Control 5 Ltd.](https://www.gc5.pl) which has contributed with NXP port and the NXP_MIMXRT1060_EVK reference target.
 - [OrgPal](https://www.orgpal.com/) that has commissioned the development of several .NET **nanoFramework** features.
 
-### Organizations helping .NET **nanoFramework**
+## Organizations helping .NET **nanoFramework**
 
 These companies and organizations support the community and the project.
 
@@ -20,7 +20,7 @@ These companies and organizations support the community and the project.
 - [Microsoft](https://dev.azure.com) through free Azure DevOps that runs our CD & CI infrastructure.
 - [Sonar Cloud](https://sonarcloud.io/about) by providing free access to their Continuous Code Quality analysis tools.
 
-### Projects and communities supporting .NET **nanoFramework**
+## Projects and communities supporting .NET **nanoFramework**
 
 - [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) the awesome AMQP library developed by [Xin Chen](https://github.com/xinchen10).
 - [Nerdbank.GitVersioning](https://github.com/AArnott/Nerdbank.GitVersioning) package from [Andrew Arnott](https://github.com/AArnott) that provides semver-compatible git commit information and that we use on all our class libraries.

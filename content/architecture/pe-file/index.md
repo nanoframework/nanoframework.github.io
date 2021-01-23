@@ -16,19 +16,18 @@ Due to the constraints of the systems .NET **nanoFramework** targets the PE file
 
 The PE file starts with an [Assembly header](AssemblyHeader.md) which is the top level structure of every .NET **nanoFramework** PE file. On disk the AssemblyHeader structure is at offset 0 of the .PE file. On the device the AssemblyHeader is aligned at a 32 bit boundary within a well known ROM/FLASH region (the Deployment region) with the first assembly at offset 0 of the region. Immediately following the assembly header is the metadata table data. Since there are no fixed requirements that an assembly requires all possible tables or what the number of entries in each table will be, the exact size and location of the start of each table's data is entirely described within the header including the end of the assembly, which is used to compute the start location of any subsequent assemblies in memory.
 
-
-```
+```text
 +-----------------+ <--- Aligned to 32 bit boundary in memory
-| AssemblyHeader  |   
+| AssemblyHeader  |
 +-----------------+
 | Metadata        |
 +-----------------+
 | { padding }     |
 +-----------------+ <--- Aligned to 32 bit boundary in memory
-| AssemblyHeader  |   
+| AssemblyHeader  |
 +-----------------+
 | Metadata        |
-+-----------------+ 
++-----------------+
 | { padding }     |
 +-----------------+ <--- Aligned to 32 bit boundary in memory
 |  ...            |

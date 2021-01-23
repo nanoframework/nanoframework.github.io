@@ -15,7 +15,7 @@ The first part is to get Visual Studio 2019 (VS 2017 is also supported) and the 
    Make sure to install the **workloads** for **.NET desktop development** and **.NET Core cross-platform development**.
 
 2. **nanoFramework preview**  
-   If you want to use the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: https://nanoframework.net/new-preview-feeds-for-nanoframework.
+   If you want to use the latest preview (recommended), please make sure you are able to use the [latest extension and NuGet's](https://nanoframework.net/new-preview-feeds-for-nanoframework).
 
 3. **Install the _nanoFramework_ extension for Visual Studio**  
    Launch Visual Studio (we'll just refer to it as VS from now on) and install the **nanoFramework** extension.  

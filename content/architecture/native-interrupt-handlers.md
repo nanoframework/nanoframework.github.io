@@ -1,6 +1,6 @@
 # Thread execution
 
-**About this document**
+## About this document
 
 This document describes how thread execution works with the .NET **nanoFramework** CLR.
 

@@ -1,6 +1,6 @@
 # Date and Time
 
-**About this document**
+## About this document
 
 This document describes how .NET **nanoFramework** handles Date & Time and the available option regarding this matter.
 

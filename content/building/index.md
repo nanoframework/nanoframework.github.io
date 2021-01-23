@@ -5,10 +5,12 @@
 * [CMake variants for CMake tools](cmake-tools-cmake-variants.md)
 * [Building in Visual Studio](build-in-visual-studio.md)
 
-* ### [ChibiOS HAL]
-  * [GCC linker script for ChibiOS boards](chibios-hal/gcc-linker-script.md)
+## [ChibiOS HAL](chibios-hal)
 
-* ### [CMake]
-  * [Building with ChibiOS](cmake/chibios-build.md)
-  * [Building using Ninja](cmake/ninja-build.md)
+* [GCC linker script for ChibiOS boards](chibios-hal/gcc-linker-script.md)
+
+## [CMake](cmake)
+
+* [Building with ChibiOS](cmake/chibios-build.md)
+* [Building using Ninja](cmake/ninja-build.md)
   

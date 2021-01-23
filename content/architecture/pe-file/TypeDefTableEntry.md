@@ -22,10 +22,9 @@ The MethodRef table contains entries with the following structure:
 | GenericParamCount   | uint8_t | Count of generic parameters for the type
 | Flags               | [TypeDefFlags](#TypeDefFLags) | Flags defining intrinsic attributes and access modifiers for the type
 
-##### TypeDefFlags
+## TypeDefFlags
 
 The TypeDefFlags enumeration provides a set of flag values for various instrinsic attributes and accessibility traits of a type definition.
-
 
 | Name               | Value  | Description  
 |--------------------|--------|------------

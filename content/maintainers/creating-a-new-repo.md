@@ -1,6 +1,6 @@
 # Procedure for creating a new repository
 
-**About this document**
+## About this document
 
 This document describes the recipe to create a new GitHub repository. It's meant for class libraries.
 
@@ -11,9 +11,9 @@ If in doubt please ask one of the senior team members.
 
 ## Creating the repository in GitHub
 
-1. This is basically clicking the create new repository button in GitHub. 
+1. This is basically clicking the create new repository button in GitHub.
 
-    Note: The class libraries repositories are following the patter "<strong>lib-</strong><i>namespace</i>" most of the remaining repositories "<strong>nf-</strong><i>some-relevant-name-here</i>". This makes it easier to spot what is what.
+    Note: The class libraries repositories are following the patter "**lib**-*namespace*" most of the remaining repositories "**nf**-*some-relevant-name-here*". This makes it easier to spot what is what.
 
 2. As we are following the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) two branches must be created: `master` and `develop`.
 
@@ -98,7 +98,7 @@ If in doubt please ask one of the senior team members.
       - Enable "Require pull request reviews before merging"
       - Enable "Require status checks to pass before merging" with the options:
         - "Require branches to be up to date before merging"
-        - "Status checks: nanoframework.<i><strong>azure-devops-project-name</strong></i>"
+        - "Status checks: nanoframework.**azure-devops-project-name**"
         - "Status checks: license/cla" (for develop branch)
 
 ## Update the dependency upwards

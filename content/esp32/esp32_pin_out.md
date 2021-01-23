@@ -1,6 +1,6 @@
 # ESP32 Pin out
 
-ESP32 Pin out differ depending of the physical hardware. What is common is the GPIO numbering. So refer to the documentation of your specific board to find out the physical relation. 
+ESP32 Pin out differ depending of the physical hardware. What is common is the GPIO numbering. So refer to the documentation of your specific board to find out the physical relation.
 
 You can find all the details for the default mapping in [this file](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/common/Esp32_DeviceMapping.cpp)
 
@@ -8,7 +8,7 @@ The default mapping defines how the pins are configured on start up. These pins 
 
 ## Example configuration
 
-```
+```csharp
 // Define MOSI pin for SPI2 as GPIO 15
 Configuration.SetPinFunction(15, DeviceFunction.SPI2_MOSI);
 // Define LED PWM channel 1 GPIO 16
@@ -52,7 +52,7 @@ You have 2 serial ports available, COM1 is reserved for debugging when enabled.
 ## Led PWM channels
 
 There are 16 LED PWM channels on ESP32
-For all channels the GPIO pins are undefined at startup. 
+For all channels the GPIO pins are undefined at startup.
 
 ## ADC
 

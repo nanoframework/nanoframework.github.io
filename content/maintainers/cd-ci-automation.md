@@ -1,6 +1,6 @@
 # CD & CI automation
 
-**About this document**
+## About this document
 
 This document describes the CD-CI automation by means of Azure Pipelines and GitHub action.
 
