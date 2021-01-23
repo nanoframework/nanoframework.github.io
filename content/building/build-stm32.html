@@ -89,7 +89,7 @@
 <li><a href="#Flash-the-STM32-target">Flash the STM32 target</a></li>
 <li><a href="#Next-Steps">Next Steps</a></li>
 </ul>
-<p><strong>About this document</strong></p>
+<h2 id="about-this-document">About this document</h2>
 <p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> for STM32 targets.
 The build is based on CMake tool to ease the development in all major platforms.</p>
 <h2 id="prerequisites">Prerequisites</h2>
@@ -147,9 +147,7 @@ The script will download the zips and installers into the repository <code>zips<
 <li>Open Power Shell in the <code>install-scripts</code> folder of the repository and run the script.</li>
 </ol>
 <p>Example Power Shell command line:</p>
-<pre><code>```ps
-.\install-nf-tools.ps1 -TargetSeries STM32
-```
+<pre><code class="lang-ps">.\install-nf-tools.ps1 -TargetSeries STM32
 </code></pre>
 <p>You can force the environment variables to be updated by adding <code>-Force</code> to the command line.</p>
 <p>The script will create the following sub-folders (see manual install below):</p>
@@ -168,35 +166,36 @@ The script will download the zips and installers into the repository <code>zips<
 <li><code>NINJA_PATH = C:\nftools\ninja</code></li>
 </ul>
 <h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
-<ol>
-<li><p>Install the extensions:</p>
+<ul>
+<li><p><strong>Step 1:</strong> Install the extensions:</p>
 <ul>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
 </ul>
 </li>
-<li><p>Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
+<li><p><strong>Step 2:</strong> Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
+</li>
+</ul>
 <pre><code class="lang-ps">.\Initialize-VSCode.ps1
 </code></pre>
 <p>You can force the environment variables to be updated by adding <code>-Force</code> to the command line.
 The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit <code>tasks.json</code>, <code>launch.json</code>, <code>cmake-variants.json</code> and <code>settings.json</code> to replace the relevant paths.</p>
-</li>
-<li><p>Save any open files and exit VS Code.</p>
-</li>
-</ol>
+<ul>
+<li><strong>Step 3:</strong> Save any open files and exit VS Code.</li>
+</ul>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
-<ol>
-<li><p>Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
+<ul>
+<li><p><strong>Step 1:</strong> Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
 </li>
-<li><p>Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
+<li><p><strong>Step 2:</strong> Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
 </li>
-<li><p>In the status bar at the bottom left, click on the <code>CMake:Debug ST_STM32F429I_DISCOVERY: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.</p>
+<li><p><strong>Step 3:</strong> In the status bar at the bottom left, click on the <code>CMake:Debug ST_STM32F429I_DISCOVERY: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.</p>
 </li>
-<li><p>In the status bar click <code>Build</code> or hit F7.</p>
+<li><p><strong>Step 4:</strong> In the status bar click <code>Build</code> or hit F7.</p>
 </li>
-<li><p>Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
+<li><p><strong>Step 5:</strong> Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
 </li>
-<li><p>In the <code>build</code> folder you'll find several files:</p>
+<li><p><strong>Step 6:</strong> In the <code>build</code> folder you'll find several files:</p>
 <ul>
 <li><code>nanoBooter.bin</code></li>
 <li><code>nanoBooter.elf</code></li>
@@ -206,10 +205,12 @@ The PowerShell relies on the environment variables described above to properly s
 <li><code>nanoCLR.hex</code></li>
 </ul>
 </li>
-</ol>
+</ul>
+<blockquote>
 <blockquote>
 <p>Note: If there are errors during the build process it is possible to end up with a partial build in the <code>build</code> folder, and the <code>CMake/Ninja</code> build process declaring a successful build despite the <code>.bin</code> targets not being created, and a <code>CMake clean</code> not helping.
 In this case deleting the contents of the <code>build</code> folder should allow the build to complete once you resolve the issues that cause the original failure.</p>
+</blockquote>
 </blockquote>
 <h3 id="common-build-issues">Common Build Issues</h3>
 <p>The above may have some errors if:</p>
@@ -225,43 +226,32 @@ In this case deleting the contents of the <code>build</code> folder should allow
 <p>There are two options to flash the nanoBooter &amp; nanoCLR images to a target. The first one uses the C/C++ tools in VS Code along with OpenOCD. This is the way to do it if you're planning to debug the code. The second uses a stand alone tool from STM that <em>just</em> flashes the images into the target. Useful if you don't plan to do any debugging.</p>
 <h3 id="starting-a-debug-session-in-vs-code">Starting a debug session in VS Code</h3>
 <ol>
-<li><p>Assuming that you have a valid <code>launch.json</code> configuration for the target that you've build, you can go to the Run section.</p>
-</li>
-<li><p>Choose the launch configuration for nanoBooter corresponding to your target.</p>
-</li>
-<li><p>Click on the <code>Start Debugging</code> (green arrow).
-(this will flash the nanoBooter into the target's flash memory)</p>
-</li>
-<li><p>Stop the debug session.</p>
-</li>
-<li><p>Choose the launch configuration for nanoCLR corresponding to your target.</p>
-</li>
-<li><p>Click on the <code>Start Debugging</code> (green arrow).
-(this will flash the nanoBooter into the target's flash memory)</p>
-</li>
-<li><p>Stop the debug session.</p>
-</li>
+<li>Assuming that you have a valid <code>launch.json</code> configuration for the target that you've build, you can go to the Run section.</li>
+<li>Choose the launch configuration for nanoBooter corresponding to your target.</li>
+<li>Click on the <code>Start Debugging</code> (green arrow).
+(this will flash the nanoBooter into the target's flash memory)</li>
+<li>Stop the debug session.</li>
+<li>Choose the launch configuration for nanoCLR corresponding to your target.</li>
+<li>Click on the <code>Start Debugging</code> (green arrow).
+(this will flash the nanoBooter into the target's flash memory)</li>
+<li>Stop the debug session.</li>
 </ol>
 <blockquote>
 <p>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR as it won't be erased.</p>
 </blockquote>
 <h3 id="using-stm32-st-link-utility">Using STM32 ST-LINK Utility</h3>
 <ol>
-<li><p>Download the <a href="https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">STM32 ST-LINK Utility</a> from ST web site and install it in your development machine.</p>
-</li>
-<li><p>Connect the Target board to your PC using an USB cable.</p>
-</li>
-<li><p>Open STM32 ST-Link Utility. And click on <code>Target &gt; Connect</code>.</p>
-</li>
-<li><p>Next erase the entire chip by clicking on <code>Target &gt; Erase Chip</code>.</p>
-</li>
-<li><p>Open <code>nanoBooter.hex</code> (<code>Open &gt; Open File...</code>) and program and verify (<code>Target &gt; Program &amp; Verify...</code>). Make sure you tick the <code>Reset after programming</code> check box and hit <code>Start</code>. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!</p>
-</li>
-<li><p>Open <code>nanoCLR.hex</code> (<code>Open &gt; Open File...</code>) and program and verify (<code>Target &gt; Program &amp; Verify...</code>). Make sure you tick the <code>Reset after programming</code> check box and hit <code>Start</code>. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking.</p>
-</li>
+<li>Download the <a href="https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html">STM32 ST-LINK Utility</a> from ST web site and install it in your development machine.</li>
+<li>Connect the Target board to your PC using an USB cable.</li>
+<li>Open STM32 ST-Link Utility. And click on <code>Target &gt; Connect</code>.</li>
+<li>Next erase the entire chip by clicking on <code>Target &gt; Erase Chip</code>.</li>
+<li>Open <code>nanoBooter.hex</code> (<code>Open &gt; Open File...</code>) and program and verify (<code>Target &gt; Program &amp; Verify...</code>). Make sure you tick the <code>Reset after programming</code> check box and hit <code>Start</code>. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!</li>
+<li>Open <code>nanoCLR.hex</code> (<code>Open &gt; Open File...</code>) and program and verify (<code>Target &gt; Program &amp; Verify...</code>). Make sure you tick the <code>Reset after programming</code> check box and hit <code>Start</code>. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking.</li>
 </ol>
 <blockquote>
+<blockquote>
 <p>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.</p>
+</blockquote>
 </blockquote>
 <h2 id="next-steps">Next Steps</h2>
 <p>See <a href="http://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html">Getting Started</a> for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.</p>

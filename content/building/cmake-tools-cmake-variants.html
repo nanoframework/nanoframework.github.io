@@ -86,7 +86,7 @@
 <li><a href="#working-example">Working example</a></li>
 <li><a href="#templates">Templates</a></li>
 </ul>
-<p><strong>About this document</strong></p>
+<h2 id="about-this-document">About this document</h2>
 <p>This document describes how to use and modify the <strong>cmake-variants.TEMPLATE.json</strong> file to suit your needs.</p>
 <p><em>Note : the current revision of the document only focuses on using ChibiOS RTOS. Other RTOSes will follow in a future revision.</em></p>
 <h2 id="what-is-it">What is it</h2>
@@ -112,18 +112,18 @@
 <li>Replace this text with a distinctive option name. e.g. <em>&quot;STM32F429_Disco&quot;</em></li>
 </ul>
 </li>
-<li>&quot;short&quot;: &quot;<strong><summary-here></summary-here></strong>&quot;
+<li>&quot;short&quot;: &quot;<strong>summary-here</strong>&quot;
 <ul>
-<li>Replace the <em><summary-here></summary-here></em> text with one word describing shortly your board. e.g. &quot;F429Disco&quot;</li>
+<li>Replace the <em>summary-here</em> text with one word describing shortly your board. e.g. &quot;F429Disco&quot;</li>
 </ul>
 </li>
-<li>&quot;long&quot;: &quot;<strong><description-here></description-here></strong>&quot;
+<li>&quot;long&quot;: &quot;<strong>description-here</strong>&quot;
 <ul>
 <li>This is a more complete description of the configuration</li>
 </ul>
 </li>
 <li>&quot;BUILD_VERSION&quot; : &quot;<strong>version-number-for-the-build-format-is-N.N.N.N</strong>&quot;</li>
-<li>&quot;CMAKE_TOOLCHAIN_FILE&quot; : &quot;<strong>CMake/toolchain.<arm-none-eabi-or-xtensa-esp32-elf>.cmake</arm-none-eabi-or-xtensa-esp32-elf></strong>&quot;
+<li>&quot;CMAKE_TOOLCHAIN_FILE&quot; : &quot;<strong>CMake/toolchain.arm-none-eabi-OR-xtensa-esp32-elf.cmake</strong>&quot;
 <ul>
 <li>This is the toolchain file for the target being built. Currently there we support GNU GCC and Xtensa for ESP32.</li>
 </ul>
@@ -378,21 +378,21 @@ Note that this API is exclusive of STM32 targets and can't be used with any othe
 <h2 id="working-example">Working example</h2>
 <p>The following linkage section is a real example used to build nanoFramework for the MBN Quail board. It is using the minimal mandatory information :</p>
 <pre><code class="lang-json">&quot;MBNQUAIL&quot;:
-	{
-		&quot;oneWordSummary$&quot;: &quot;QUAIL&quot;,
+ {
+  &quot;oneWordSummary$&quot;: &quot;QUAIL&quot;,
         &quot;description$&quot;: &quot;MBN Quail&quot;,
         &quot;settings&quot;:
-		{
+  {
             &quot;TOOLCHAIN_PREFIX&quot; : &quot;C:/Program Files (x86)/GNU Tools ARM Embedded/5.4 2016q3&quot;,
             &quot;TARGET_CHIP&quot; : &quot;STM32F427VIT&quot;,
-			&quot;TARGET_SERIES&quot; : &quot;STM32F4xx&quot;,
-            &quot;RTOS&quot; : &quot;CHIBIOS&quot;, 
+   &quot;TARGET_SERIES&quot; : &quot;STM32F4xx&quot;,
+            &quot;RTOS&quot; : &quot;CHIBIOS&quot;,
             &quot;RTOS_SOURCE_FOLDER&quot; : &quot;C:/dev/ChibiOS_16.1.7&quot;,
             &quot;CHIBIOS_BOARD&quot; : &quot;MBN_QUAIL&quot;
-			&quot;NF_FEATURE_DEBUGGER&quot; : &quot;TRUE&quot;,
+   &quot;NF_FEATURE_DEBUGGER&quot; : &quot;TRUE&quot;,
             &quot;NF_FEATURE_RTC&quot; : &quot;ON&quot;,
-			&quot;NF_FEATURE_USE_APPDOMAINS&quot; : &quot;OFF&quot;,
-			&quot;NF_FEATURE_USE_NETWORKING&quot; : &quot;OFF&quot;,			
+   &quot;NF_FEATURE_USE_APPDOMAINS&quot; : &quot;OFF&quot;,
+   &quot;NF_FEATURE_USE_NETWORKING&quot; : &quot;OFF&quot;,
             &quot;API_Windows.Devices.Gpio&quot; : &quot;ON&quot;
         },
         &quot;buildType&quot;: &quot;Debug&quot;

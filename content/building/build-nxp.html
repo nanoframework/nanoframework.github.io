@@ -89,7 +89,7 @@
 <li><a href="#debugging-with-cortex-debug-with-j-link-optional">Debugging with Cortex Debug with J-Link (Optional)</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
 </ul>
-<p><strong>About this document</strong></p>
+<h2 id="about-this-document">About this document</h2>
 <p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> for NXP targets.
 The build is based on CMake tool to ease the development in all major platforms.</p>
 <h2 id="prerequisites">Prerequisites</h2>
@@ -138,7 +138,7 @@ For best results, run in an elevated command prompt, otherwise setting system en
 <p>The <em>develop</em> branch is the default working branch. When working on a fix or experimenting a new feature you should do it on another branch. See the <a href="../contributing/contributing-workflow.html#suggested-workflow">Contributing guide</a> for specific instructions on the suggested contributing workflow.</p>
 <p>If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> directly from here.</p>
 <p>Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMake does not support filenames in excess of 250 characters.</p>
-<h2 id="setting-up-the-build-environment">Setting up the build environment</h2>
+<h2 id="setting-up-the-build-environment-in-windows">Setting up the build environment in Windows</h2>
 <p>To simplify, this guide we will put all our tools and source in easily accessible folders and not at the default install paths (you do not have to do the same):</p>
 <ol>
 <li><p>Create a directory structure such as the following:</p>
@@ -165,7 +165,7 @@ For best results, run in an elevated command prompt, otherwise setting system en
 <li>Install MCUXpresso IDE.</li>
 <li>Remember to set proper paths while setting up <code>launch.json</code> file in next steps.</li>
 </ol>
-<h2 id="setting-up-the-build-environment-1">Setting up the build environment</h2>
+<h2 id="setting-up-the-build-environment">Setting up the build environment</h2>
 <p>After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.</p>
 <h3 id="automated-install-of-the-build-environment">Automated Install of the build environment</h3>
 <p><strong>Run Power Shell as an Administrator and run <code>set-executionpolicy RemoteSigned</code> to enable execution of the signed script,
@@ -176,9 +176,7 @@ The script will download the zips and installers into the repository <code>zips<
 <li>Open Power Shell in the <code>install-scripts</code> folder of the repository and run the script.</li>
 </ol>
 <p>Example Power Shell command line:</p>
-<pre><code>```ps
-.\install-nf-tools.ps1 -TargetSeries NXP
-```
+<pre><code class="lang-ps">.\install-nf-tools.ps1 -TargetSeries NXP
 </code></pre>
 <p>You can force the environment variables to be updated by adding <code>-Force</code> to the command line.</p>
 <p>The script will create the following sub-folders (see manual install below):</p>
@@ -196,42 +194,44 @@ The script will download the zips and installers into the repository <code>zips<
 <li><code>NINJA_PATH = C:\nftools\ninja</code></li>
 </ul>
 <h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
-<ol>
-<li><p>Install the extensions:</p>
+<ul>
+<li><p><strong>Step1</strong>: Install the extensions:</p>
 <ul>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
 </ul>
 </li>
-<li><p>Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
-<pre><code class="lang-ps">.\Initialize-VSCode.ps1
+<li><p><strong>Step2</strong>: Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
+</li>
+</ul>
+<pre><code class="lang-ps">  .\Initialize-VSCode.ps1
 </code></pre>
 <p>You can force the environment variables to be updated by adding <code>-Force</code> to the command line.
 The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit <code>tasks.json</code>, <code>launch.json</code>, <code>cmake-variants.json</code> and <code>settings.json</code> to replace the relevant paths.</p>
-</li>
-<li><p>If you want to use onboard programmer edit the file named <code>settings.json</code> inside the <code>.vscode</code> folder and paste the following (mind to update the path to your setup):</p>
+<ul>
+<li><strong>Step3</strong>: If you want to use onboard programmer edit the file named <code>settings.json</code> inside the <code>.vscode</code> folder and paste the following (mind to update the path to your setup).</li>
+</ul>
 <pre><code class="lang-json">{
     &quot;cortex-debug.armToolchainPath&quot;: &quot;c:/nftools/GNU_ARM_Toolchain/8 2019-q3-update/bin&quot;,
     &quot;cortex-debug.JLinkGDBServerPath&quot;: &quot;c:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe&quot;
 }
 </code></pre>
-</li>
-<li><p>Save any open files and exit VS Code.</p>
-</li>
-</ol>
+<ul>
+<li><strong>Step4</strong>: Save any open files and exit VS Code.</li>
+</ul>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
-<ol>
-<li><p>Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
+<ul>
+<li><p><strong>Step1</strong>: Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
 </li>
-<li><p>Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
+<li><p><strong>Step2</strong>: Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
 </li>
-<li><p>In the status bar at the bottom left, click on the <code>CMake:Debug NXP_MIMXRT1060_EVK: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.</p>
+<li><p><strong>Step3</strong>: In the status bar at the bottom left, click on the <code>CMake:Debug NXP_MIMXRT1060_EVK: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.</p>
 </li>
-<li><p>In the status bar click <code>Build</code> or hit F7.</p>
+<li><p><strong>Step4</strong>: In the status bar click <code>Build</code> or hit F7.</p>
 </li>
-<li><p>Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
+<li><p><strong>Step5</strong>: Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
 </li>
-<li><p>In the <code>build</code> folder you'll find several files:</p>
+<li><p><strong>Step6</strong>: In the <code>build</code> folder you'll find several files:</p>
 <ul>
 <li><code>nanoBooter.bin</code></li>
 <li><code>nanoBooter.elf</code></li>
@@ -241,10 +241,12 @@ The PowerShell relies on the environment variables described above to properly s
 <li><code>nanoCLR.hex</code></li>
 </ul>
 </li>
-</ol>
+</ul>
+<blockquote>
 <blockquote>
 <p>Note: If there are errors during the build process it is possible to end up with a partial build in the <code>build</code> folder, and the <code>CMake/Ninja</code> build process declaring a successful build despite the <code>.bin</code> targets not being created, and a <code>CMake clean</code> not helping.
 In this case deleting the contents of the <code>build</code> folder should allow the build to complete once you resolve the issues that cause the original failure.</p>
+</blockquote>
 </blockquote>
 <h3 id="common-build-issues">Common Build Issues</h3>
 <p>The above may have some errors if:</p>
@@ -262,7 +264,9 @@ In this case deleting the contents of the <code>build</code> folder should allow
 <li>Open Visual Studio Code and go to <code>Debug and Run</code> (CTRL+SHIFT+D).</li>
 <li>Run debug (green rectangle or F5 default shortcut), firstly on nanoBooter then nanoCLR.
 <blockquote>
+<blockquote>
 <p>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.</p>
+</blockquote>
 </blockquote>
 </li>
 </ol>

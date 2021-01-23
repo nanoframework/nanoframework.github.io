@@ -79,8 +79,8 @@
 
 <p>The Exception Handler table contains entries for the exception handling blocks within a method. If a method has the <code>MethodDefFlags::HasExceptionHandlers</code> flag
 set then the last byte of the ByteCode table for the method is the number of Exception handlers for the method. The exception handlers precede the count in the byte code stream (e.g. with a negative offset from the size).</p>
-<p><strong>NOTE:</strong>
-This means that instances of this structure stored in a PE image may be stored at an address that is <strong>NOT</strong> correctly aligned for the structure. Thus consumers should always copy the data into a properly aligned buffer.</p>
+<h2 id="important-note">Important Note</h2>
+<p>This means that instances of this structure stored in a PE image may be stored at an address that is <strong>NOT</strong> correctly aligned for the structure. Thus consumers should always copy the data into a properly aligned buffer.</p>
 <p><strong><em>REVIEW:</em></strong>
 In a future revision of the PE binary format this should be managed by inserting padding into the ByteCode stream so that copying and dealing with unaligned data isn't needed.</p>
 <table>
@@ -129,7 +129,7 @@ In a future revision of the PE binary format this should be managed by inserting
 </tr>
 </tbody>
 </table>
-<h6 id="notes">Notes</h6>
+<p><strong>Notes</strong>*:</p>
 <ol>
 <li>The Mode, ClassToken and FilterStart form a discriminated union with the mode as the discriminator and the ClassToken and FilterStart sharing the same memory location. That is the ClassToken and FilterStart are representable as a C/C++ anonymous union.</li>
 <li>Start and End offsets are inclusive</li>

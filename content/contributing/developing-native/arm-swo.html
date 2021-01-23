@@ -77,7 +77,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="using-arm-cortex-m-single-wire-output-swo">Using ARM Cortex-M Single Wire Output (SWO)</h1>
 
-<p><strong>About this document</strong></p>
+<h2 id="about-this-document">About this document</h2>
 <p>This document describes how to use Cortex-M SWO to output data from .NET <strong>nanoFramework</strong>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You'll need:</p>
@@ -85,28 +85,26 @@
 <li>Target board with SWO pin free <em>and</em> configured in it's reset state (meaning not used by GPIO or any other peripheral and not configured in any alternate mode).</li>
 <li>If using a stock board it's also convenient to check the schematics if any hardware changes are required.
 <ul>
-<li><a href="../../../images/STM32F429I-DISCOVERY-solder-bridge-for-swo.jpg">STM F429I_DISCOVERY</a> board requires solder bridge SB9 to be soldered</li>
-<li><a href="../../../images/STM32F769I-DISCO-solder-bridge-for-swo.jpg">STM F769I-DISCO</a> board requires a 0 Ohm resistor on R92 (or just soldering the pads toghether)</li>
+<li><a href="../../images/STM32F429I-DISCOVERY-solder-bridge-for-swo.jpg">STM F429I_DISCOVERY</a> board requires solder bridge SB9 to be soldered</li>
+<li><a href="../../images/STM32F769I-DISCO-solder-bridge-for-swo.jpg">STM F769I-DISCO</a> board requires a 0 Ohm resistor on R92 (or just soldering the pads toghether)</li>
 </ul>
 </li>
-<li>Software capable of driving and outputting data from an SWO source. (ST-Link)[http://www.st.com/content/st_com/en/products/embedded-software/development-tool-software/stsw-link004.html] is an excellent tool for this purpose.</li>
+<li>Software capable of driving and outputting data from an SWO source. <a href="http://www.st.com/content/st_com/en/products/embedded-software/development-tool-software/stsw-link004.html">ST-Link</a> is an excellent tool for this purpose.</li>
 <li>Set .NET <strong>nanoFramework</strong> build options to include support for SWO (either setting <code>&quot;SWO_OUTPUT&quot; : &quot;ON&quot;</code> in cmake-variants.json or launching CMake with -DSWO_OUPUT=ON).</li>
 </ul>
 <h2 id="outputting-swo">Outputting SWO</h2>
-<ol>
-<li><p>Load the target flash with a .NET <strong>nanoFramework</strong> image build with SWO option</p>
-</li>
-<li><p>On ST-Link menu choose ST-Link -&gt; Printf via SWO viewer</p>
-</li>
-</ol>
+<ul>
+<li><strong>Step 1</strong>: Load the target flash with a .NET <strong>nanoFramework</strong> image build with SWO option</li>
+<li><strong>Step 2</strong>: On ST-Link menu choose ST-Link -&gt; Printf via SWO viewer</li>
+</ul>
 <p><img src="../../../images/st-link-menu-print-swo.png" alt="st-link-menu-print-swo"></p>
-<ol>
-<li>After SWO viewer windows loads, set the Sytem clock to match the target and the Stimulus port to <code>0</code>.</li>
-</ol>
+<ul>
+<li><strong>Step 3</strong>: After SWO viewer windows loads, set the Sytem clock to match the target and the Stimulus port to <code>0</code>.</li>
+</ul>
 <p><img src="../../../images/st-link-swo-window-settings-01.png" alt="st-link-menu-print-swo"></p>
-<ol>
-<li>Click the Start button and watch the output in the main window area.</li>
-</ol>
+<ul>
+<li><strong>Step 4</strong>: Click the Start button and watch the output in the main window area.</li>
+</ul>
 <p><img src="../../../images/st-link-swo-window-after-boot-01.png" alt="st-link-menu-print-swo"></p>
 </article>
           </div>

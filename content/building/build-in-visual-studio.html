@@ -92,7 +92,6 @@
 <li><p><a href="../getting-started-guides/build-stm32.md">Getting started with <em>VS Code</em> and STM32</a></p>
 </li>
 </ul>
-<br>
 <h3 id="install-visual-studio-2019-community-and-workloads">Install Visual Studio 2019 Community and workloads</h3>
 <p>You should now have the pieces in place to build, deploy and debug the nanoFramework interpreter, and you may have already installed Visual Studio and tried running some of the managed code examples. We now need to hook these pieces up with Visual Studio so we can use it to run the build/deploy/debug process.</p>
 <p>Install the following :</p>
@@ -170,16 +169,16 @@ If you have that version installed just comment out the line following the <code
 <p>We are able to build in separate locations to suit the target type and configuration we are working on. The current layout is to use the <code>Build</code> subdirectory to contain all the separate build types folders, so <code>Build\ESP32</code> for ESP32 vanilla build, <code>Build\ESP32_test</code> for a test build, etc.
 The STM32 builds are most likely to require a shortened build path, so we can use  <code>&quot;${env.nfRoot}Build/${name}&quot;</code> in our <code>CMakeSettings.json</code> file STM769IDiscovery section. The build will then be done in <code>&quot;B:\Build\STM769IDiscovery&quot;</code>.</p>
 <h3 id="debugging">Debugging</h3>
-<p>Once the program has been built and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:
-<img src="../../../images/getting-started/VS2019Toolbars.png" alt=""></p>
+<p>Once the program has been built and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:</p>
+<p><img src="../../../images/getting-started/VS2019Toolbars.png" alt="VS2019 toolbar"></p>
 <blockquote>
 <p>Note that the launch configuration, here  <code>ESP32 nanoCLR - Segger JLink</code>, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!</p>
 </blockquote>
 <p>You can then commence debugging from the top DEBUG menu.</p>
-<p>OpenOCD should open in its own console window, connect to the target device, and display something similar to this:
-<img src="../../../images/getting-started/OpenOCDConsole.png" alt=""></p>
+<p>OpenOCD should open in its own console window, connect to the target device, and display something similar to this:</p>
+<p><img src="../../../images/getting-started/OpenOCDConsole.png" alt="Open ODCconsole"></p>
 <p>In the VS2019 IDE output Window you should see:</p>
-<pre><code>=thread-group-added,id=&quot;i1&quot;
+<pre><code class="lang-text">=thread-group-added,id=&quot;i1&quot;
 GNU gdb (crosstool-NG crosstool-ng-1.22.0-80-g6c4433a5) 7.10
 Copyright (C) 2015 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
@@ -209,29 +208,27 @@ Warning: Debuggee TargetArchitecture not detected, assuming x86_64.
 [Switching to Thread 1073553736]
 
 Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_32/nanoCLR/app_main.c:50
-50	{
+50 {
 =breakpoint-deleted,id=&quot;1&quot;
 </code></pre>
-<p>The processor has now stopped at the temporary breakpoint inserted by our <code>launch.vs.json</code> startup sequence, showing as an Exception at the entry point in the source code window.
-<img src="../../../images/getting-started/VS2019Breakpoint.png" alt="">
-You can now step through the code, observe variables, set breakpoints  and so on.</p>
+<p>The processor has now stopped at the temporary breakpoint inserted by our <code>launch.vs.json</code> startup sequence, showing as an Exception at the entry point in the source code window.</p>
+<p><img src="../../../images/getting-started/VS2019Breakpoint.png" alt="VS2019 Breakpoint"></p>
+<p>You can now step through the code, observe variables, set breakpoints  and so on.</p>
 <h3 id="summary">Summary</h3>
 <p>This documentation is a work in progress, as is Visual Studio support for this type of project.</p>
 <p>Your feedback and contributions are welcome!</p>
 <p><a href="#feedback">Feedback</a></p>
-<br>
 <hr>
 <h2 id="developing-firmware-for-the-nanoframework-using-visual-studio-2017-community-edition">Developing firmware for the nanoframework using Visual Studio 2017 community edition</h2>
 <p><a href="#developing-firmware-for-the-nanoframework-using-visual-studio-2019-community-edition">(See above for VS2019)</a></p>
-<h5 id="the-instructions-for-vs2019-are-more-current-and-can-in-the-most-case-be-used-for-vs2017-as-well">The instructions for VS2019 are more current and can in the most case be used for VS2017 as well</h5>
-<h5 id="-important--the-firmware-build-for-visual-studio-is-under-construction-">🚧 IMPORTANT : The firmware build for Visual Studio is under construction. 🚧</h5>
+<h3 id="the-instructions-for-vs2019-are-more-current-and-can-in-the-most-case-be-used-for-vs2017-as-well">The instructions for VS2019 are more current and can in the most case be used for VS2017 as well</h3>
+<h3 id="-important--the-firmware-build-for-visual-studio-is-under-construction-">🚧 IMPORTANT : The firmware build for Visual Studio is under construction. 🚧</h3>
 <p>Some compromises were required to get this to a working stage.
 I made a decision to put the code at the top level to reduce path length of files which caused warnings of the potential to overflow the command line.</p>
 <blockquote>
 <p>Hard coded paths are used to ensure it works with the current CMake coding and the Microsoft usage of CMake
 There are some issues with the CMakeSettings.json file with path separators.</p>
 </blockquote>
-<br>
 <h3 id="directory-structure-for-the-project">Directory structure for the project</h3>
 <p>Two top level directories have been created to support the development with Visual Studio.</p>
 <ul>
@@ -242,7 +239,7 @@ There are some issues with the CMakeSettings.json file with path separators.</p>
 <ul>
 <li>The nf-interpreter repository is cloned to this directory.</li>
 </ul>
-<h6 id="cnanoframeworknf-interpreterbuild">c:\nanoFramework\nf-interpreter\Build</h6>
+<h5 id="cnanoframeworknf-interpreterbuild">c:\nanoFramework\nf-interpreter\Build</h5>
 <ul>
 <li>This directory contains the build output, the files in here are transient. When the CMake cache is deleted, files in this directory are deleted.
 The files in this directory are only visible when selecting &quot;Show All Files&quot;. These files are not part of the GIT repository.
@@ -252,8 +249,7 @@ At the end of a successful build the build outputs are copied to the <em>\Build<
 <ul>
 <li>Note: It is sometimes necessary to delete the contents of these folders if Visual Studio misbehaves.
 Using Visual Studio with CMake results in what appears to be inconsistencies at times.
-Sometime the CMake server goes away, shutting down Visual Studio and restarting usually fixes the problem.
-<br></li>
+Sometime the CMake server goes away, shutting down Visual Studio and restarting usually fixes the problem.</li>
 <li>Note: After clearing the Cmake cache, on occasions the build/chibios_source directory is left empty or only containing the .git file
 due to some conflict. The current CMakeLists.txt file finds the directory and does not re-copy the code.
 It is necessary to manually delete the directory from file explorer and generate the cache for the copy to run.
@@ -262,45 +258,34 @@ _</li>
 </blockquote>
 <h4 id="cnanoframework_tools">c:\nanoFramework_Tools\</h4>
 <p>Manually create this directory to contain the following folders.</p>
-<h6 id="cnanoframework_toolschibios">c:\nanoFramework_Tools\ChibiOS</h6>
-<ul>
-<li>Copy of the ChibiOS repository cloned from <a href="https://github.com/nanoframework/chibios.git">https://github.com/nanoframework/chibios.git</a></li>
-</ul>
-<h6 id="cnanoframework_toolstoolsopenocd">C:\nanoFramework_Tools\Tools\openocd</h6>
-<ul>
-<li>Copy of the openocd installation <a href="http://www.freddiechopin.info/en/download/category/4-openocd">http://www.freddiechopin.info/en/download/category/4-openocd</a></li>
-<li>
+<h5 id="cnanoframework_toolschibios">c:\nanoFramework_Tools\ChibiOS</h5>
+<p>Copy of the ChibiOS repository cloned from <a href="https://github.com/nanoframework/chibios.git">https://github.com/nanoframework/chibios.git</a></p>
+<h5 id="cnanoframework_toolstoolsopenocd">C:\nanoFramework_Tools\Tools\openocd</h5>
+<p>Copy of the openocd installation <a href="http://www.freddiechopin.info/en/download/category/4-openocd">http://www.freddiechopin.info/en/download/category/4-openocd</a></p>
 <blockquote>
 <p>Currently version 0.10.0</p>
 </blockquote>
-</li>
-</ul>
-<h6 id="cnanoframework_toolstools">C:\nanoFramework_Tools\Tools\</h6>
-<ul>
-<li>Place a copy of the hex2dfu.exe tool here</li>
-</ul>
+<h5 id="cnanoframework_toolstools">C:\nanoFramework_Tools\Tools\</h5>
+<p>Place a copy of the hex2dfu.exe tool here</p>
 <h3 id="example-of-the-directory-structure">Example of the directory structure</h3>
-<p><img src="VSDevDirectoryStructure.png" alt=""></p>
+<p><img src="VSDevDirectoryStructure.png" alt="VS Dev Directory Structure"></p>
 <h3 id="major-configuration-files">Major configuration files</h3>
-<h5 id="cmakesettingsjson-1">CMakeSettings.json</h5>
+<h4 id="main-cmakesettingsjson">Main CMakeSettings.json</h4>
 <blockquote>
 <p>Configuration file used by Visual Studio. This is the standard configuration file for CMake development.
 This file can contain more than one configuration. In addition to setting the compiler
-toolchain, additional variables are defined to select the target hardware and operating system to build.</p>
-<h6 id="note-work-in-progress">Note: Work in progress</h6>
+toolchain, additional variables are defined to select the target hardware and operating system to build.
+<strong>Note</strong>: Work in progress</p>
 </blockquote>
-<br>
-<h5 id="cmakeliststxt">CMakeLists.txt</h5>
+<h4 id="cmakeliststxt">CMakeLists.txt</h4>
 <blockquote>
 <p>This is the standard CMakeLists.txt file for the nf-intepreter</p>
 </blockquote>
-<br>
-<h5 id="launchvsjson-1">launch.vs.json</h5>
+<h4 id="main-launchvsjson">Main launch.vs.json</h4>
 <blockquote>
 <p>Sets up the debugging environment using the gdbserver debugging via configurations.
 The example references the openocd application.</p>
 </blockquote>
-<br>
 <h4 id="setup-and-installation">Setup and Installation</h4>
 <table>
 <thead>
@@ -329,7 +314,7 @@ The example references the openocd application.</p>
 <tr>
 <td style="text-align: left;">GCC Tool Chain - Version 7-2018-q2-update</td>
 <td>GNU Arm Embedded Toolchain</td>
-<td>https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads#</td>
+<td><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads</a>#</td>
 </tr>
 </tbody>
 </table>
@@ -340,27 +325,25 @@ The example references the openocd application.</p>
 <p>The following GCC version has been download, installed and tested.</p>
 <blockquote>
 <p>GNU Arm Embedded Toolchain - Version 7-2018-q2-update
-<a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads#">https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads#</a></p>
+<a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads</a>#</p>
 </blockquote>
 <p>In CMakeSettings.json the following variables determine the build tool.</p>
-<pre><code>    {
-      &quot;name&quot;: &quot;TOOLCHAIN_PREFIX&quot;,
-      &quot;value&quot;: &quot;C:/Program Files (x86)/GNU Tools Arm Embedded/7 2018-q2-update&quot;
-      // &quot;value&quot;: &quot;${env.GCCPATH}&quot;   // Standard Visual Studio Install of GCC 6.3.1 
-    },
+<pre><code class="lang-json">{
+        &quot;name&quot;: &quot;TOOLCHAIN_PREFIX&quot;,
+        &quot;value&quot;: &quot;C:/Program Files (x86)/GNU Tools Arm Embedded/7 2018-q2-update&quot;
+        // &quot;value&quot;: &quot;${env.GCCPATH}&quot;   // Standard Visual Studio Install of GCC 6.3.1
+},
 </code></pre>
 <p>In CMakeSettings.json the VISUAL_STUDIO variable sets up a workaround for a problem with the build system.
 If you use the <code>add_custom_command</code> with <code>POST_BUILD</code> then the build compiles but does not link due to a 'cmd.exe' not recognized'</p>
-<pre><code>    {
-      &quot;name&quot;: &quot;VISUAL_STUDIO&quot;,
-      &quot;value&quot;: &quot;TRUE&quot;
-    },
+<pre><code class="lang-json">{
+        &quot;name&quot;: &quot;VISUAL_STUDIO&quot;,
+        &quot;value&quot;: &quot;TRUE&quot;
+},
 </code></pre>
 <p>To avoid the problem the custom command to copy the build outputs is not run.
-An equivalent of this can be run by executing <code>CopyBuildOutput.cmd</code> manually from the command prompt.
-<br>
-<br></p>
-<h4 id="debugging-1">Debugging</h4>
+An equivalent of this can be run by executing <code>CopyBuildOutput.cmd</code> manually from the command prompt.</p>
+<h4 id="debugging-the-solution">Debugging the solution</h4>
 <p>The launch.vs.json file contains an example configuration for setup to debug the STM32769IDiscovery board.
 Additonal configurations can be added, although the implementation of the options does not seem consistent with
 the VSCODE version and some options do not appear to work properly.
@@ -374,17 +357,17 @@ In Visual Studio select the Command Window Ctrl+Alt+A, and turn on debug logging
 <p><code>debug.midebuglog /Off</code></p>
 <p>This will give you a log of the operation and communications occuring. ( Good luck!)</p>
 <p><strong><em>An example snippet displays error for &quot;Monitor reset halt ( not quite sure why?)</em></strong></p>
-<pre><code>    8: (1976730) -&gt;^done
-    8: (1976730) &lt;-1005-interpreter-exec console  &quot;monitor reset halt&quot;
-    8: (1976730) -&gt;(gdb)`
-    8: (1976741) -&gt;&amp;&quot;\&quot;monitor\&quot; command not supported by this target.\n&quot;
-    8: (1976742) -&gt;1005^error,msg=&quot;\&quot;monitor\&quot; command not supported by this target.&quot;
-    8: (1976742) -&gt;(gdb)
-    8: (1976742) 1005: elapsed time 11
-    8: (1976742) &lt;-1006-interpreter-exec console &quot;monitor reset init&quot;
-    8: (1976742) -&gt;&amp;&quot;\n&quot;
-    8: (1976742) -&gt;^done
-    8: (1976742) -&gt;(gdb)
+<pre><code class="lang-text">        8: (1976730) -&gt;^done
+        8: (1976730) &lt;-1005-interpreter-exec console  &quot;monitor reset halt&quot;
+        8: (1976730) -&gt;(gdb)`
+        8: (1976741) -&gt;&amp;&quot;\&quot;monitor\&quot; command not supported by this target.\n&quot;
+        8: (1976742) -&gt;1005^error,msg=&quot;\&quot;monitor\&quot; command not supported by this target.&quot;
+        8: (1976742) -&gt;(gdb)
+        8: (1976742) 1005: elapsed time 11
+        8: (1976742) &lt;-1006-interpreter-exec console &quot;monitor reset init&quot;
+        8: (1976742) -&gt;&amp;&quot;\n&quot;
+        8: (1976742) -&gt;^done
+        8: (1976742) -&gt;(gdb)
 </code></pre>
 <hr>
 <h4 id="feedback">Feedback</h4>
