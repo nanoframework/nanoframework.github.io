@@ -17,6 +17,12 @@
 This document describes how to build the required images for .NET **nanoFramework** for STM32 targets.
 The build is based on CMake tool to ease the development in all major platforms.
 
+## Using Dev Container
+
+If you want a simple, efficient way, we can recommend you to use [Dev Container](using-dev-container.md) to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!
+
+If you prefer to install all the tools needed on your Windows machine, you should continue this tutorial.
+
 ## Prerequisites
 
 You'll need:
