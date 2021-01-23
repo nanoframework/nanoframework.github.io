@@ -58,6 +58,45 @@ Then you can pick the target you want to build:
 
 > note: some devices use hex2dfu to create dfu files. So far, this is not supported and the build will fail. You will have to install the tool on Windows and run it manually. We're trying to address this temporary issue as fast as possible!
 
+## Tips and tricks
+
+### Some build may fail for size reasons
+
+Build may fail if your image is too big. This is the case sometime when you select `debug`on some devices like the ST Nucleo one. You'll then get a build fail which looks like this:
+
+```text
+[build] Memory region         Used Size  Region Size  %age Used
+[build]           flash0:       18984 B        18 KB    102.99%
+[build]           flash1:          0 GB         0 GB
+[build]           flash2:          0 GB         0 GB
+[build]           flash3:          0 GB         0 GB
+[build]           flash4:          0 GB         0 GB
+[build]           flash5:          0 GB         0 GB
+[build]           flash6:          0 GB         0 GB
+[build]           flash7:          0 GB         0 GB
+[build]           config:          0 GB         0 GB
+[build]       deployment:          0 GB         0 GB
+[build]            ramvt:          0 GB         0 GB
+[build]             ram0:        8528 B      32720 B     26.06%
+[build]             ram1:          0 GB         0 GB
+[build]             ram2:          0 GB         0 GB
+[build]             ram3:          0 GB         0 GB
+[build]             ram4:          0 GB         0 GB
+[build]             ram5:          0 GB         0 GB
+[build]             ram6:          0 GB         0 GB
+[build]             ram7:          0 GB         0 GB
+[build]       bootclpbrd:          48 B         48 B    100.00%
+[build] collect2: error: ld returned 1 exit status
+```
+
+### Making changes in your .vscode\cmake-variants.json file
+
+Every time you make a change in the `.vscode\cmake-variants.json`file, you will have to leave the container bit clicking on the bottom left and then select `Reopen locally` and again select `Reopen in dev container`.
+
+You usually do this operation to adjust what you want to add in your target.
+
+More generally, any change in any of the file from the `.vscode` folder will require to exit and restart the dev container.
+
 ## Advance scenarios
 
 A Dev Container consist of a Dockerfile and a `devcontainer.json` file. You can of course customize both and personalize your environnement. This section will give you couple of hints for this.
