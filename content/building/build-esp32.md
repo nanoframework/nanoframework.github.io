@@ -18,6 +18,12 @@
 This document describes how to build the required images for .NET **nanoFramework** for ESP32 targets.
 The build is based on CMake tool to ease the development in all major platforms.
 
+## Using Dev Container
+
+If you want a simple, efficient way, we can recommend you to use [Dev Container](using-dev-container.md) to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!
+
+If you prefer to install all the tools needed on your Windows machine, you should continue this tutorial.
+
 ## Prerequisites
 
 You'll need:
@@ -150,7 +156,7 @@ This has already been done and the libraries can be just be downloaded.
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
-1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
+1. Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
 
     ```ps
     .\Initialize-VSCode.ps1
