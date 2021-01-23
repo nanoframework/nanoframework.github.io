@@ -2,11 +2,10 @@
 
 The TypeSpec table is used to describe composite types, like an array.
 
-| Name          | Type                 | Description  
-|---------------|----------------------|------------  
-| Sig           | SigTableIndex        | Index into the signature table for the TypeSpec
-| pad           | uint16_t             | Padding for alignment
+| Name | Type                 | Description  
+|------|----------------------|------------  
+| Sig  | SigTableIndex        | Index into [signature table](SignatureTable.md) for the TypeSpec
 
-## Signtature Table Usage
+## Signature Table Usage
 
 (TODO: Define valid signature table sequences for a TypeSpec)

@@ -5,16 +5,9 @@ We provide ready build firmware images for several reference target boards. Thes
 ## Espressif ESP32 boards
 
 - [ESP32 WROOM-32](esp32-wroom-32.md)
+- [ESP WROVER-KIT](esp32-wroom-32.md)
 
-## Mikrobus.Net board
-
-- [MBN_QUAIL](mbn-quail.md)
-
-## Netduino boards
-
-- [NETDUINO3_WIFI](netduino3-wifi.md)
-
-## Orgpal boards
+## OrgPal boards
 
 - [OrgPal PalThree](orgpal-palthree)
 
@@ -32,6 +25,14 @@ We provide ready build firmware images for several reference target boards. Thes
 ## NXP boards
 
 - [NXP i.MX_RT1060_EVK](mimxrt-1060-evk.md)
+
+## Mikrobus.Net board
+
+- [MBN_QUAIL](mbn-quail.md)
+
+## Netduino boards
+
+- [NETDUINO3_WIFI](netduino3-wifi.md)
 
 ## Community target boards
 

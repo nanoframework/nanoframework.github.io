@@ -21,10 +21,10 @@ The Resources table is used to describe the resources bound to an assembly
 
 ## Manifest Constants
 
-| Name       | Value  | Description
-|------------|--------|-----
-| SentinelId | 0x7FFF | Sentinel marker (See [Notes](#Notes) for details)
-| FlagsPaddingMask | 0x03 | Mask for lower two bits of flags to retrieve padding (See [Notes](#Notes) for details)
+| Name | Value | Description
+|------|-------|------------
+| SentinelId       | 0x7FFF | Sentinel marker (See [Notes](#Notes) for details)
+| FlagsPaddingMask | 0x03   | Mask for lower two bits of flags to retrieve padding (See [Notes](#Notes) for details)
 
 ## Notes
 

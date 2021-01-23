@@ -20,12 +20,12 @@ You'll need:
 - **Step 1**: Load the target flash with a .NET **nanoFramework** image build with SWO option
 - **Step 2**: On ST-Link menu choose ST-Link -> Printf via SWO viewer
 
-![st-link-menu-print-swo](../../images/st-link-menu-print-swo.png)
+![st-link-menu-print-swo](../../../images/st-link-menu-print-swo.png)
 
 - **Step 3**: After SWO viewer windows loads, set the Sytem clock to match the target and the Stimulus port to `0`.
 
-![st-link-menu-print-swo](../../images/st-link-swo-window-settings-01.png)
+![st-link-menu-print-swo](../../../images/st-link-swo-window-settings-01.png)
 
 - **Step 4**: Click the Start button and watch the output in the main window area.
 
-![st-link-menu-print-swo](../../images/st-link-swo-window-after-boot-01.png)
+![st-link-menu-print-swo](../../../images/st-link-swo-window-after-boot-01.png)

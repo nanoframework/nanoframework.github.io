@@ -59,7 +59,7 @@ The setup is a lot easier than it seems. The setup scripts do almost everything.
 
 If you intend to change the nanoCLR and create Pull Requests then you will need to fork the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as [Fork](https://fork.dev) or the [GitHub Desktop application](https://desktop.github.com).
 
-The _develop_ branch is the default working branch. When working on a fix or experimenting a new feature you should do it on another branch. See the [Contributing guide](..\..\content\contributing\contributing-workflow.md#suggested-workflow) for specific instructions on the suggested contributing workflow.
+The _develop_ branch is the default working branch. When working on a fix or experimenting a new feature you should do it on another branch. See the [Contributing guide](../contributing/contributing-workflow.md#suggested-workflow) for specific instructions on the suggested contributing workflow.
 
 If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) directly from here.
 
@@ -150,10 +150,10 @@ This has already been done and the libraries can be just be downloaded.
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
-1. Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work. You can specify the COM port the ESP32 flash programming utility will use (The COM port is easily changed later). If it is not specified, manually edit tasks.json and change instances of `<default-com-port-for-esp32>` to the required port before flashing the ESP32 nanoCLR firmware. (COM22 used in the example bellow)
+1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
 
     ```ps
-    .\Initialize-VSCode.ps1 -COMPort COM22
+    .\Initialize-VSCode.ps1
     ```
 
     - You can force the environment variables to be updated by adding `-Force` to the command line.

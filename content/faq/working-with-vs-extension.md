@@ -17,11 +17,12 @@ There is currently no way to point you exactly where the issue is. The best sugg
 This occurs when you are deploying a project that is referencing one (or more) libraries for which the target image doesn't have support or are of a different version.
 Make sure you have your NuGet updated and that the target device is flashed with the appropriate image.
 It could be that you are referencing preview versions of the NuGet packages but the target device is flashed with an older stable image and is "behind".
+For a detailed explanation please check [this blog post](https://www.nanoframework.net/nuget-assembly-and-native-versions/) with the details.
 
 ## I'm having issues with NuGet package manager complaining that it can't resolve dependencies for a package
 
 This is occurring because you're probably referencing a preview version of a NuGet package that is published only on .NET **nanoFramework** development feed. The same can occur if the package is referencing another package that its only available there.
-When working with preview packages, make sure that you register nanoFramework Azure DevOps NuGet feed by adding the package source in Visual Studio. Follow our blog post with instructions [here](https://nanoframework.net/2018/05/16/setup-visual-studio-to-access-preview-versions-feed/).
+When working with preview packages, make sure that you register nanoFramework Azure DevOps NuGet feed by adding the package source in Visual Studio. Follow our blog post with instructions [here](https://nanoframework.net/setup-visual-studio-to-access-preview-versions-feed/).
 
 ## After starting a debug session it end abruptly with a message like `Error: Device stopped after type resolution failure`. What can I do to fix this
 
@@ -29,3 +30,11 @@ This happens when there is a problem with type resolution on the deployed applic
 
 - The firmware image was updated and the deployment wasn't erased. The assemblies in the deployment area are outdated and the required types or versions can't be found on the new image. Fix: erase de deployment area and deploy a new version of the application.
 - One or more NuGet packages where updated and there is a version mismatch between them. This is noticeable by Visual Studio adding an `app.config` file to one or more of the projects to use assembly binding redirect. This is not possible with .NET **nanoFramework**. Fix: erase the `app.config` and work the update of the NuGet packages. The best option is usually to update the one(s) that have more dependencies and the package manager will make sure to update all the other in a cascading manner. If this doesn't work the alternative is to uninstall the NuGet packages and start adding them back again.
+
+## I need to revert the VS extension I have installed to an older version. How can I do that?
+
+You can do that following these steps:
+1. Uninstall the current version from the "Manage Extension" window in Visual Studio.
+1. Go to the [Releases](https://github.com/nanoframework/nf-Visual-Studio-extension/releases) section in the Visual Studio extension repository.
+1. Find the version that you're looking for and expand the 'Assets' listed in the release entry.
+1. Download the '.vsix' package and start the instal.
