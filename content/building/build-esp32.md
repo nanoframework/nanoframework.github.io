@@ -13,7 +13,7 @@
 - [Start with a Hello World C# application](#start-with-a-hello-world-c-application)
 - [Debug the nanoCLR](#debugging-nanoclr)
 
-**About this document**
+## About this document
 
 This document describes how to build the required images for .NET **nanoFramework** for ESP32 targets.
 The build is based on CMake tool to ease the development in all major platforms.
@@ -83,24 +83,25 @@ The script will download the zips and installers into the repository `zips` fold
     ```ps
     .\install-nf-tools.ps1 -TargetSeries ESP32
     ```
+
     You can force the environment variables to be updated by adding `-Force` to the command line.
-        
+
     The script will create the following sub-folders (see manual install below):
-    
+
     - `C:\nftools`
     - `C:\nftools\esp-idf-v3.3.1`
     - `C:\nftools\libs-v3.3.1`
     - `C:\nftools\ninja`  
     - `C:\nftools\openocd-esp32`  
-    
+
     The following Environment Variables will be created for the current Windows User.
-    
+
     - `NF_TOOLS_PATH = C:\nftools`
     - `ESP32_TOOLCHAIN_PATH = C:\nftools\xtensa-esp32-elf`
     - `ESP32_LIBS_PATH = C:\nftools\libs-v3.3.1`
     - `IDF_PATH = C:\nftools\esp-idf-v3.3.1`
     - `NINJA_PATH = C:\nftools\ninja`
-    
+
 ### Manual Install of the build environment
 
 These steps are **not** required if you've used the automated install script as described above.
@@ -135,10 +136,11 @@ This has already been done and the libraries can be just be downloaded.
 1. Download the latest stable version from [here](https://cmake.org/download/) and install it.
 
 1. Install [Python 3.6.5](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) and then install the serial driver for python from the command line:
-    
+
     ```cmd
     python -m pip install pyserial
     ```
+
     Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you installed Python prior to running the script. (It is Ok to run `python -m pip install pyserial` multiple times.)
 
 ## Set up Visual Studio Code
@@ -148,22 +150,22 @@ This has already been done and the libraries can be just be downloaded.
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
-1.  Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work. You can specify the COM port the ESP32 flash programming utility will use (The COM port is easily changed later). If it is not specified, manually edit tasks.json and change instances of `<default-com-port-for-esp32>` to the required port before flashing the ESP32 nanoCLR firmware. (COM22 used in the example bellow)
+1. Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work. You can specify the COM port the ESP32 flash programming utility will use (The COM port is easily changed later). If it is not specified, manually edit tasks.json and change instances of `<default-com-port-for-esp32>` to the required port before flashing the ESP32 nanoCLR firmware. (COM22 used in the example bellow)
 
     ```ps
     .\Initialize-VSCode.ps1 -COMPort COM22
     ```
-    
+
     - You can force the environment variables to be updated by adding `-Force` to the command line.
     - The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json`, `cmake-variants.json` and `settings.json` to replace the relevant paths. **!!mind to always use forward slashes in the paths!!**
     - More info available on the [Tweaking cmake-variants.TEMPLATE.json](../building/cmake-tools-cmake-variants.md) documentation page.
-    
+
 1. Save any open files and **RESTART** VS Code. Have you **RESTARTED** VS Code? You really have to do it otherwise this won't work.
 
 ## Build nanoCLR
 
 1. Launch Visual Studio from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
-Next time VS Code open it should load the workspace automatically. 
+Next time VS Code open it should load the workspace automatically.
 
 1. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 
@@ -184,8 +186,9 @@ In this case deleting the contents of the `build` folder should allow the build 
 ### Common Build Issues
 
 The above may have some errors if:
+
 - CMake is not installed properly, not in the PATH or cannot be found for some reason.
-- Ninja is not recognized: check settings.json or your PATH environment variable and restart Visual Studio Code. 
+- Ninja is not recognized: check settings.json or your PATH environment variable and restart Visual Studio Code.
 - COMPILATION object file not found: check that your paths don't exceed 140 chars. Put the solution folder high enough on drive.
 - Make sure to 'Build all' first time.
 - Reopen VS Code if you have changed anything on the `cmake-variants.json`.
@@ -260,13 +263,13 @@ For more information on JTAG debugging see [Espressif documentation](http://esp-
 ### Debugging nanoCLR without special hardware
 
 If you do not have access to any special hardware required for debug methods mentioned above you still may use some old-school technique: just place some temporary code at interesting places to get the required information. Using steps below you will get that information in Visual Studio's standard debug output window.
-Certainly Visual Studio must be debugging something to have that window in working state. So this hack will work only in cases when 
+Certainly Visual Studio must be debugging something to have that window in working state. So this hack will work only in cases when
 you want to debug a nanoCLR code which can be executed via managed code.
 
-1. Write some managed code which results in a nanoCLR call executing the code you are interested in.
-2. Choose one or more places in nanoCLR code where you want to know something.
+- **Step 1**: Write some managed code which results in a nanoCLR call executing the code you are interested in.
+- **Step 2**: Choose one or more places in nanoCLR code where you want to know something.
    e.g.: What is the value of a variable? Which part of an if-else statement gets executed?
-3. Put the following temporary code there:
+- **Step 3**: Put the following temporary code there:
 
 ```cpp
         {
@@ -275,13 +278,15 @@ you want to debug a nanoCLR code which can be executed via managed code.
             CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
         }
 ```
+
    Or simply:
+
 ```cpp
         CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
 ```
 
-4. The boring part: rebuild and re-flash firmware and your program.
-5. Start debugging in Visual Studio and keep eye on it's debug output window. 
+- **Step 4**: The boring part: rebuild and re-flash firmware and your program.
+- **Step 5**: Start debugging in Visual Studio and keep eye on it's debug output window.
    You will get your messages there when the related temporary code gets executed!
-6. Iterate steps 2-5 till you find out what you were interested in.
-7. Do not forget to remove all those temporary code blocks before you accidentally commit it!
+- **Step 6**: Iterate steps 2-5 till you find out what you were interested in.
+- **Step 7**: Do not forget to remove all those temporary code blocks before you accidentally commit it!

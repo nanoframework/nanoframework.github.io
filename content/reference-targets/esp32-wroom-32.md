@@ -10,9 +10,8 @@ This image _fits_ all EPS32 boards carrying an ESP32-WROOM-32 module, like the E
 
 [ESP32-WROVER-KIT Product page](https://www.espressif.com/en/products/hardware/esp-wrover-kit/overview)
 
-
 ## Firmware images (ready to deploy)
 
 | Stable | Preview |
 |---|---|
-| [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images/ESP32_WROOM_32/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images/ESP32_WROOM_32/_latestVersion) | [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/ESP32_WROOM_32/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images-dev/ESP32_WROOM_32/_latestVersion) |
+| [Download](https://api.bintray.com/packages/nfbot/nanoframework-images/ESP32_WROOM_32/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images/ESP32_WROOM_32/_latestVersion>) | [Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/ESP32_WROOM_32/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images-dev/ESP32_WROOM_32/_latestVersion>) |

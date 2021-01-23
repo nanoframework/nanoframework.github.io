@@ -7,18 +7,10 @@ People contributing to **nanoFramework** do so in the spirit of Open Source, our
 Funding is necessary for us to manage things like infrastructure costs, carry out PR (including advertising the project to the embedded systems industry, hobbyist communities and academia), marketing work, development and maintenance tasks that no one volunteers to do, supporting projects that we depend on, etc... To this end, we have setup an 'Open Collective' to manage our funding in a completely transparent manner.
 To make a donation you can use either Open Collective or GitHub Sponsors. Click on the appropriate button bellow.
 
-<div align="center">
-  <a href="https://opencollective.com/nanoframework/donate" target="_blank">
-    <img src="https://opencollective.com/nanoframework/donate/button@2x.png?color=blue" width=300 />
-  </a>
+[![donate](https://opencollective.com/nanoframework/donate/button@2x.png?color=blue)](https://opencollective.com/nanoframework/donate)
+[![donate](https://img.shields.io/static/v1?style=flat&label=Sponsors&style=social&labelColor=gray&color=violet&&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/nanoframework)
 
-  <a href="https://github.com/sponsors/nanoframework" target="_blank">
-    <img src="https://img.shields.io/static/v1?style=flat&label=Sponsors&style=social&labelColor=gray&color=violet&&message=%E2%9D%A4&logo=GitHub" width="240" />
-  </a>
-
-</div>
-
-## How can I help?
+## How can I help
 
 Anyone can help the project in a number of ways:
 
@@ -72,7 +64,7 @@ Besides financial contributions or coding there is a lot more that you can do to
 Do you maintain a blog? Or do you have a bunch of followers on Twitter or LinkedIn? A post about .NET **nanoFramework** and mentioning [@nanoframework](https://twitter.com/nanoframework) can take the project further.
 
 GitHub stars it's an easy and simple contribution to the project. Please spare a few seconds and head over to our GitHub organization and give them a star. It increases the project visibility and it's an indication on how big it's the community around it.
-Writing a review and classifying our extensions on the Visual Studio marketplace has a positive impact on the project visibility and helps towards increasing the reputation. 
+Writing a review and classifying our extensions on the Visual Studio marketplace has a positive impact on the project visibility and helps towards increasing the reputation.
 
 Providing a testimonial with an endorsement to the project or highlighting a feature or a situation where it has stand out it's another way of contributing to the project. Email, tweet or send a message on Discord. If you want it to be featured on the web site please include your name, title, company and picture.
 

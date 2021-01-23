@@ -1,4 +1,4 @@
-## STM NUCLEO144 F439ZI board
+# STM NUCLEO144 F439ZI board
 
 ![STM NUCLEO144 F439ZI board](../../images/community-targets/nucleo144-f439zi.jpg)
 
@@ -22,7 +22,7 @@ Some basic information abstracted from ST:
 - Flexible power-supply options: ST-LINK USB VBUS or external sources
 - On-board ST-LINK/V2-1 debugger/programmer with USB re-enumeration capability: mass storage, virtual COM port and debug port
 
-### Flashing and debugging
+## Flashing and debugging
 
 This board has two micro USB connectors. One is exposing the embedded ST-Link interface that is used for flashing the nanoFramework firmware and for performing debugging on the nanoCLR code. The second is used to connect the device with Visual Studio allowing to deploy and debug your C# managed applications.
 

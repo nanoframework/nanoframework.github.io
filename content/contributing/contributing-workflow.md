@@ -37,8 +37,8 @@ Typos are embarrassing! We will accept most PRs that fix typos. In order to make
 
 We would like to have .NET **nanoFramework** in full conformance with the style guidelines described here [C/C++ Coding Style](cxx-coding-style.html) and here [C# Coding Style](cs-coding-style.html). We plan to do that with tooling, in a holistic way. In the meantime, please:
 
-* **DO NOT** send PRs for style changes.
-* **DO** give priority to the current style of the project or file you're changing even if it diverges from the general guidelines.
+- **DO NOT** send PRs for style changes.
+- **DO** give priority to the current style of the project or file you're changing even if it diverges from the general guidelines.
 
 ## Commit Messages
 
@@ -75,7 +75,7 @@ The project requires that the name used is your real name. Neither anonymous con
 
 ## Contributor License Agreement
 
-### Why a CLA?
+### Why a CLA
 
 The Contributor License Agreement helps ensure everyone that .NET **nanoFramework** is here to stay.
 Specifically, our Contributor License Agreements (CLAs) grant the contributor and .NET **nanoFramework** joint copyright interest in contributed code. Further, it provides assurance from the contributor that contributions are original work that does not violate any third-party license agreement. The agreement between contributors and project is explicit, so developers and users can be confident in the legal status of the source code and their right to use it.
@@ -109,11 +109,11 @@ When you want to work on an open issue (including _up-for-grabs_) we recommend t
 
 We use and recommend the following workflow:
 
-1. Create an issue for your work. 
+1. Create an issue for your work.
     - You can skip this step for trivial changes.
     - Reuse an existing issue on the topic, if there is one.
     - Get agreement from the team and the community that your proposed change is a good one.
-    - If your change adds a new API, follow the [API Review Process]().
+    - If your change adds a new API, follow the [API Review Process](api-review-process.md).
     - Clearly state that you are going to take on implementing it, if that's the case. You can request that the issue be assigned to you. Note: The issue filer and the implementer don't have to be the same person.
 
 2. Create a personal fork of the repository on GitHub (if you already have one you can jump straight to step 5 bellow).

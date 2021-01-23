@@ -1,6 +1,6 @@
 # CLR Managed heap definition
 
-**About this document**
+## About this document
 
 This document describes how the CLR manged heap is defined as a ChibiOS target.
 

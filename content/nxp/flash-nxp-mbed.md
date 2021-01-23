@@ -14,19 +14,21 @@ You can download it from here: [OpenSDA](https://www.nxp.com/design/microcontrol
 ![rt1060_removable_disk](../../images/nxp/rt1060_disk.png)
 5. Device should automatically program flash and reset itself after short time.
 6. Check if programming was successful by reseting the board while pressing **SW8** button. If a green led starts blinking it means that nanoBooter is working correctly.
-7. Finally reset the board and open Visual Studio. Device should be recognised by Device Explorer nanoFramework plugin.
+7. Finally reset the board and open Visual Studio. Device should be recognized by Device Explorer nanoFramework plugin.
 ![rt1060_device_explorer](../../images/nxp/rt1060_device_explorer.jpg)
 
+## FAQ
 
+- Device is not recognized by Device Explorer.
 
-## FAQ ##
-- Device is not recognised by Device Explorer.
 > Try to restart Visual Studio
 > Check that firmware was properly programmed, try booting to nanoBooter, device should be listed in Devices Explorer
 
 - In FAIL.txt on removable disk error: "The interface firmware FAILED to reset/halt the target MCU"
+
 > Check that jumpers J47, J48, J49 are present and J44 is not
 > Jumper J1 must be in middle position if your not using external power
 
 - Device correctly boots to nanoBooter but is not detected otherwise
-> If you flashed nanoBooter.hex and then nanoCLR.hex, programmer erases memory every flashing procces. If you want to flash them separatly you can use method described [here]()
+
+> If you flashed nanoBooter.hex and then nanoCLR.hex, programmer erases memory every flashing process. If you want to flash them separately you can use method described [here]()

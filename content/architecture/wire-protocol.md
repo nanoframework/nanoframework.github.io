@@ -14,7 +14,7 @@
 - [Debugging Wire Protocol communications](#debugging-wire-protocol-communications)
 - [CRC32 validations](#crc32-validatons)
 
-**About this document**
+## About this document
 
 This document describes the Wire Protocol used by .NET **nanoFramework** for debug and the booter stage.
 The protocol follows the implementation of the .NET Micro Framework Wire Protocol. The intention is to review it later in order to improve and simplify it.
@@ -63,7 +63,7 @@ Follows a high-level description on how the Wire Protocol component works.
 
 ## Wire Protocol Commands
 
-Processing a command is carried in a handler function. 
+Processing a command is carried in a handler function.
 The collection of the commands that are implemented is listed in ```c_Lookup_Request```. This lookup structure is basically an array with the command code along with a pointer to the respective handler. It resides in *WireProtocol_App_Interface.c*.
 The actual command implementation resides in *WireProtocol_Commands.c*.
 

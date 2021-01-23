@@ -16,19 +16,18 @@ Due to the constraints of the systems .NET **nanoFramework** targets the PE file
 
 The PE file starts with an [Assembly header](AssemblyHeader.md) which is the top level structure of every .NET **nanoFramework** PE file. On disk the AssemblyHeader structure is at offset 0 of the .PE file. On the device the AssemblyHeader is aligned at a 32 bit boundary within a well known ROM/FLASH region (the Deployment region) with the first assembly at offset 0 of the region. Immediately following the assembly header is the metadata table data. Since there are no fixed requirements that an assembly requires all possible tables or what the number of entries in each table will be, the exact size and location of the start of each table's data is entirely described within the header including the end of the assembly, which is used to compute the start location of any subsequent assemblies in memory.
 
-
-```
+```text
 +-----------------+ <--- Aligned to 32 bit boundary in memory
-| AssemblyHeader  |   
+| AssemblyHeader  |
 +-----------------+
 | Metadata        |
 +-----------------+
 | { padding }     |
 +-----------------+ <--- Aligned to 32 bit boundary in memory
-| AssemblyHeader  |   
+| AssemblyHeader  |
 +-----------------+
 | Metadata        |
-+-----------------+ 
++-----------------+
 | { padding }     |
 +-----------------+ <--- Aligned to 32 bit boundary in memory
 |  ...            |
@@ -37,15 +36,15 @@ The PE file starts with an [Assembly header](AssemblyHeader.md) which is the top
 ## Structures for the other table entries
 
 - [AssemblyRef Table](AssemblyRefTableEntry.md)
-- [Attribute Table ](AttributeTableEntry.md)
-- [ExceptionHandler Table ](ExceptionHandlerTableEntry.md)
-- [FieldRef Table ](FieldRefTableEntry.md)
-- [MethodDef Table ](MethodDefTableEntry.md)
-- [MethodRef Table ](MethodRefTableEntry.md)
-- [Resources Table ](ResourcesTableEntry.md)
-- [TypeDef Table ](TypeDefTableEntry.md)
-- [TypeRef Table ](TypeRefTableEntry.md)
-- [TypeSpec Table ](TypeSpecTableEntry.md)
+- [Attribute Table](AttributeTableEntry.md)
+- [ExceptionHandler Table](ExceptionHandlerTableEntry.md)
+- [FieldRef Table](FieldRefTableEntry.md)
+- [MethodDef Table](MethodDefTableEntry.md)
+- [MethodRef Table](MethodRefTableEntry.md)
+- [Resources Table](ResourcesTableEntry.md)
+- [TypeDef Table](TypeDefTableEntry.md)
+- [TypeRef Table](TypeRefTableEntry.md)
+- [TypeSpec Table](TypeSpecTableEntry.md)
 - [Common PE Types and Enumerations](Common-PE-Types-and-Enumerations.md)
 
-    > Note: the documentation for the PE file format was taken from the original one at .NET Micro Framework.
+> Note: the documentation for the PE file format was taken from the original one at .NET Micro Framework.

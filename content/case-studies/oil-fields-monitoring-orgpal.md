@@ -1,10 +1,10 @@
 # Oil Fields Monitoring
 
-### Company: [OrgPal Telemetry](https://www.orgpal.com/)
+**Company**: [OrgPal Telemetry](https://www.orgpal.com/)
 
-### Application Industry: Oil Field
+**Application Industry**: Oil Field
 
-### [Product website](https://www.orgpal.com/solutions-tank-level-monitoring)
+**[Product website](https://www.orgpal.com/solutions-tank-level-monitoring)**
 
 Energy field services and operations requires compliance, accurate and frequent monitoring. For oil and gas companies the challenge is finding a cost-effective, reliable system and not all telemetry systems are created equal.
 

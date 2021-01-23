@@ -6,7 +6,7 @@
 - [Preparation](#preparation)
 - [Launch the debug session](#launch-the-debug-session)
 
-**About this document**
+## About this document
 
 This document describes how to debug .NET **nanoFramework** native code using VS Code.
 

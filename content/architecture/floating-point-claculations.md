@@ -1,13 +1,13 @@
 # Floating-point calculations
 
-**About this document**
+## About this document
 
 This document describes the specificities and available implementations of System.Math class library in .NET **nanoFramework**.
 
 ## Available APIs and floating-point implementations
 
 The .NET System.Math APIs are available with `double` parameters. No sweat for the CPUs where the code usually runs.
-When we move to embedded systems that's a totally different story. 
+When we move to embedded systems that's a totally different story.
 
 A few more details to properly set context:
 
@@ -31,4 +31,4 @@ Math.Pow(1.01580092094650000000000000, 0.19029495718363400000000000000);
 
 // this is the correct usage when running on a image WITHOUT support for DP floating point
 Math.Pow(1.0158009209465f, 0.190294957183634f);
-``` 
+```

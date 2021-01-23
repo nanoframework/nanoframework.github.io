@@ -1,8 +1,8 @@
 # TI CC3220SF-LAUNCHXL
 
-![](../../images/reference-targets/cc3220sf-launchxl.jpg)
+![CC3220SF](../../images/reference-targets/cc3220sf-launchxl.jpg)
 
-## [Product page](http://www.ti.com/tool/CC3220SF-LAUNCHXL)
+[Product page](http://www.ti.com/tool/CC3220SF-LAUNCHXL)
 
 ## Features
 
@@ -42,7 +42,7 @@
 ### Launchpad board
 
 - Standalone development platform featuring sensors, LEDs and push-buttons
-- On-board chip antenna with option for U.FL-based testing 
+- On-board chip antenna with option for U.FL-based testing
 - 2x20-pin stackable connectors (BoosterPack headers) to connect to TI LaunchPads and other BoosterPacks
 - Back-channel universal asynchronous receiver/transmitter (UART) through USB to PC
 - XDS110-based JTAG emulation with serial port for flash programming
@@ -57,4 +57,4 @@ The ready to use firmware images provided include support for the class librarie
 
 | Stable | Preview |
 |---|---|
-| [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images/TI_CC3220SF_LAUNCHXL/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images/TI_CC3220SF_LAUNCHXL/_latestVersion) | [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/TI_CC3220SF_LAUNCHXL/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images-dev/TI_CC3220SF_LAUNCHXL/_latestVersion) |
+| [Download](https://api.bintray.com/packages/nfbot/nanoframework-images/TI_CC3220SF_LAUNCHXL/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images/TI_CC3220SF_LAUNCHXL/_latestVersion>) | [Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/TI_CC3220SF_LAUNCHXL/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images-dev/TI_CC3220SF_LAUNCHXL/_latestVersion>) |

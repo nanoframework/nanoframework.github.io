@@ -9,7 +9,7 @@
 - [Working example](#working-example)
 - [Templates](#templates)
 
-**About this document**
+## About this document
 
 This document describes how to use and modify the **cmake-variants.TEMPLATE.json** file to suit your needs.
 
@@ -46,12 +46,12 @@ The following explains each line of the *linkage* section. Text highlighted in *
 
 - "**OPTION1_NAME_HERE**"
   - Replace this text with a distinctive option name. e.g. *"STM32F429_Disco"*
-- "short": "**<summary-here>**"
-  - Replace the *<summary-here>* text with one word describing shortly your board. e.g. "F429Disco"
-- "long": "**<description-here>**"
+- "short": "**summary-here**"
+  - Replace the *summary-here* text with one word describing shortly your board. e.g. "F429Disco"
+- "long": "**description-here**"
   - This is a more complete description of the configuration
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
-- "CMAKE_TOOLCHAIN_FILE" : "**CMake/toolchain.<arm-none-eabi-OR-xtensa-esp32-elf>.cmake**"
+- "CMAKE_TOOLCHAIN_FILE" : "**CMake/toolchain.arm-none-eabi-OR-xtensa-esp32-elf.cmake**"
   - This is the toolchain file for the target being built. Currently there we support GNU GCC and Xtensa for ESP32.
 - "TOOLCHAIN_PREFIX" : "**absolute-to-gcc-toolchain-mind-the-forward-slash**"
   - This is the path to your gcc toolchain compiler. Use forward slashes and do not provide executable name here
@@ -153,7 +153,7 @@ The following explains each line of the *linkage* section. Text highlighted in *
 - "API_Windows.Storage" : "**OFF**"
   - Allows you to specify whether Windows.Storage functions are available to your application. Default is OFF.
 - "API_Hardware.Esp32" : "**OFF**"
-  - Allows you to specify whether Hardware.Esp32 functions are available to your application. Default is OFF. 
+  - Allows you to specify whether Hardware.Esp32 functions are available to your application. Default is OFF.
   Note that this API is exclusive of ESP32 targets and can't be used with any other.
 - "API_Hardware.Stm32" : "**OFF**"
   - Allows you to specify whether Hardware.Stm32 functions are available to your application. Default is OFF.
@@ -165,21 +165,21 @@ The following linkage section is a real example used to build nanoFramework for 
 
 ```json
 "MBNQUAIL":
-	{
-		"oneWordSummary$": "QUAIL",
+ {
+  "oneWordSummary$": "QUAIL",
         "description$": "MBN Quail",
         "settings":
-		{
+  {
             "TOOLCHAIN_PREFIX" : "C:/Program Files (x86)/GNU Tools ARM Embedded/5.4 2016q3",
             "TARGET_CHIP" : "STM32F427VIT",
-			"TARGET_SERIES" : "STM32F4xx",
-            "RTOS" : "CHIBIOS", 
+   "TARGET_SERIES" : "STM32F4xx",
+            "RTOS" : "CHIBIOS",
             "RTOS_SOURCE_FOLDER" : "C:/dev/ChibiOS_16.1.7",
             "CHIBIOS_BOARD" : "MBN_QUAIL"
-			"NF_FEATURE_DEBUGGER" : "TRUE",
+   "NF_FEATURE_DEBUGGER" : "TRUE",
             "NF_FEATURE_RTC" : "ON",
-			"NF_FEATURE_USE_APPDOMAINS" : "OFF",
-			"NF_FEATURE_USE_NETWORKING" : "OFF",			
+   "NF_FEATURE_USE_APPDOMAINS" : "OFF",
+   "NF_FEATURE_USE_NETWORKING" : "OFF",
             "API_Windows.Devices.Gpio" : "ON"
         },
         "buildType": "Debug"

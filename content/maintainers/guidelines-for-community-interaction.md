@@ -1,6 +1,6 @@
 # Guidelines for community interaction
 
-**About this document**
+## About this document
 
 This document provides guidelines for maintainers on how to interact with the community.
 

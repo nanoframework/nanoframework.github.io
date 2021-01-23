@@ -12,7 +12,7 @@ The first part is to get Visual Studio (both 2017 and 2019 versions are supporte
 
 1. Download Visual Studio. If you already have it installed, you can skip this step. If you don't, please download the free [Visual Studio Community](https://www.visualstudio.com/downloads) edition. Either way, make sure you've selected the .NET desktop workload.
 
-1. **If using the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: https://nanoframework.net/2019/08/21/new-preview-feeds-for-nanoframework.**
+1. **If using the latest preview (recommended), please make sure you are able to use the latest extension and NuGet's: <https://nanoframework.net/2019/08/21/new-preview-feeds-for-nanoframework>.**
 
 1. Launch Visual Studio (we'll just refer to it as VS from now on) and install the .NET **nanoFramework** extension. You can do this by going into Tools > Extensions and Updates. Make sure you've switched the left-hand tree view to the Online branch and enter _nanoFramework_ in the search box.
 
@@ -22,7 +22,7 @@ The first part is to get Visual Studio (both 2017 and 2019 versions are supporte
 
 The second part is to load the .NET **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher (nanoff)](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
 
-### Note: the [.netcore 3.1 Runtime and .netcore 3.1 SDK](https://dotnet.microsoft.com/download) must be installed, and the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances.
+### Note: the [.netcore 3.1 Runtime and .netcore 3.1 SDK](https://dotnet.microsoft.com/download) must be installed, and the VC++ 2010 x86 redistributable may required installing on your PC in certain circumstances
 
 1. Install [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher).
 
@@ -33,7 +33,7 @@ The second part is to load the .NET **nanoFramework** image in the board flash. 
 1. Perform the update by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
 (The following include the description for targets of several platforms for completeness)
 
-    - To update the firmware of an ESP32 target connected to COM31, to the latest available development version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash..." message) 
+    - To update the firmware of an ESP32 target connected to COM31, to the latest available development version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash..." message)
 
         ```console
         nanoff --target ESP32_WROOM_32 --serialport COM31 --update

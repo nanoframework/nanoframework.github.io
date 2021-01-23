@@ -18,10 +18,9 @@ The MethodRef table contains entries with the following structure:
 | FirstInstanceField | FieldDefTableIndex | Index into FieldDef table for the first instance field of the type
 | Flags         | [TypeDefFlags](#TypeDefFLags) | Flags defining intrinsic attributes and access modifiers for the type
 
-##### TypeDefFlags
+## TypeDefFlags
 
 The TypeDefFlags enumeration provides a set of flag values for various instrinsic attributes and accessibility traits of a type definition.
-
 
 | Name               | Value  | Description  
 |--------------------|--------|------------

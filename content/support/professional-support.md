@@ -1,4 +1,4 @@
-## Professional Support
+# Professional Support
 
 Professional support is provided by core team members.
 
@@ -13,6 +13,6 @@ The following companies offer their engineering services, tools, training, softw
 
 ## Eclo Solutions
 
-<a href="http://www.eclo.solutions"><img src="http://www.eclo.solutions/images/eclo-solutions-logo-tall.svg" height="100" width="151"/></a>
+[![Eclo](http://www.eclo.solutions/images/eclo-solutions-logo-tall.svg](http://www.eclo.solutions)
 
 Looking for [community help](community-help.md)?

@@ -1,6 +1,6 @@
 # Class Libraries
 
-**About this document**
+## About this document
 
 This document describes the design and organization of .NET **nanoFramework** Class Libraries, offers some explanation on the choices that were made and how to add a new Class Library. The examples bellow are related with ChibiOS (which is the currently reference implementation for .NET **nanoFramework**).
 
@@ -66,8 +66,8 @@ The next step would be to copy the stubs to a folder with the assembly name insi
 For Windows.Devices.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
 In contrast, for the Windows.Devices.Spi, the SPI subsystem has to be enabled at the _halconf.h_ file and also (at driver level) in _mcuconf.h_ the SPI peripherals have to be individually enabled (e.g. `#define STM32_SPI_USE_SPI1 TRUE`).
 
-    > Note: To ease the overall configuration of an API and related hardware (and when it makes sense) the API option (API_Windows.Devices.Gpio) can be _extended_ to automatically enable the HAL subsystem. This happens with the Windows.Devices.Spi API. The CMake option is mirrored in the general [CMakeLists.txt](https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt) in order to be used in CMakes and headers. This mirror property is `HAL_USE_SPI_OPTION`. It's being defined here and not in the individual _halconf.h_ files as usual. To make this work the CMake property has to be added to the CMake template file of the platform [target_platform.h.in](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/target_platform.h.in).
-    
+    > Note: To ease the overall configuration of an API and related hardware (and when it makes sense) the API option (API_Windows.Devices.Gpio) can be_extended_to automatically enable the HAL subsystem. This happens with the Windows.Devices.Spi API. The CMake option is mirrored in the general [CMakeLists.txt](https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt) in order to be used in CMakes and headers. This mirror property is `HAL_USE_SPI_OPTION`. It's being defined here and not in the individual_halconf.h_ files as usual. To make this work the CMake property has to be added to the CMake template file of the platform [target_platform.h.in](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/target_platform.h.in).
+
 1. When adding/enabling new APIs and depending on how the drivers and the library are coded, some static variables will be added to the BSS RAM area. Because of that extra space that is taken by those variables the Managed Heap size may have to be adjusted to make room for those. To do this find the `__clr_managed_heap_size__` in the general CMakeLists.txt of that target and decrease the value there as required.
 
 1. Some APIs depend of others. This happens for example with Windows.Devices.Gpio that requires nanoFramework.Runtime.Events in order to generate the interrupts for the changed pin values. To make this happen the option to include the required API(s) has to be enabled in the main [CMakeLists.txt](https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt) inside the if clause of the dependent API. Just like if the option was enabled at the CMake command line. Check this by searching for `API_nanoFramework.Runtime.Events` inside the `if(API_Windows.Devices.Gpio)`.
