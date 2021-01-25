@@ -6,6 +6,7 @@ These boards are NOT maintained by the core team and any related questions or is
 
 ## STMicroelectronics boards
 
+- [ESP32 ULX3S](esp32-ULX3S.md)
 - [GHI FEZ Cerb40](GHI_FEZ_CERB40_NF.md)
 - [Ingenuity Micro Electron](I2M_ELECTRON_NF.md)
 - [Ingenuity Micro Oxygen](I2M_OXYGEN_NF.md)
