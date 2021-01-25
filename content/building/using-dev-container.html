@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using Dev Container to build targets | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using Dev Container to build targets | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="using-dev-container-to-build-targets">Using Dev Container to build targets</h1>
+
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Container</a> is a way to use VS Code with a separated container. This allows to work on a separated environment than your normal Windows/Linux/Mac. This has the advantage of being isolated from the application installed, so you don't have to &quot;pollute&quot; your own environment with tools you may not need for other purpose. The other advantage is the ability to be pre setup, build at first request, pulling all the needed tools, repository, documents and settings that you'll need in your development.</p>
+<p>We offer the possibility to use such a Dev Container to build any of the supported target in a very simple and straight forward way.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong>Step 0</strong>: Make sure your have cloned <a href="https://github.com/nanoframework/nf-interpreter">nf-interpreter</a> nanoFramework directory. The stable branch is <code>develop</code>.</li>
+<li><strong>Step 1</strong>: Make sure you have <a href="https://code.visualstudio.com/Download">VS Code</a> installed.</li>
+<li><strong>Step 2</strong>: Make sure you have <a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a> installed.</li>
+<li><strong>Step 3</strong>: Optional but strongly recommended for performance reasons: activate <a href="https://docs.microsoft.com/windows/wsl/install-win10">Windows Subsystem for Linux 2</a> on your Windows host machine.</li>
+</ul>
+<blockquote>
+<p>note: that may require a reboot</p>
+</blockquote>
+<ul>
+<li><strong>Step 4</strong>: Check Docker configuration and make sure you are signed in. In the bellow picture, the top right corner should have you Docker account. If you are not signed in, you'll get an error. And if you're using WSL2 (recommended), the checkbox for the WSL2 support should be checked.</li>
+</ul>
+<p><img src="../../images/dev-container-docker.jpg" alt="Docker steetings"></p>
+<ul>
+<li><strong>Step 5</strong>: Make sure you have the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> extension installed.</li>
+<li><strong>Step 6</strong>: copy the file in <code>.\vscode\cmake-variants-DEVCONTAINER.json</code>to <code>.\vscode\cmake-variants.json</code></li>
+<li><strong>Step 7</strong>: Open the full <code>nf-interpreter</code>directory with VS Code.</li>
+<li><strong>Step 8</strong>: Once prompted or thru the menu, open the dev container.</li>
+</ul>
+<p>This is illustrating how to do this:</p>
+<p><img src="" alt="https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif"></p>
+<blockquote>
+<p>note: in our case, the dev container is called <code>nanoFramework</code>.</p>
+</blockquote>
+<ul>
+<li><strong>Step 9</strong>: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.</li>
+<li><strong>Step 10</strong>: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.</li>
+<li><strong>Step 11</strong>: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.</li>
+<li><strong>Step 12</strong>: It will be over when your VS Code will give you access to the files and will look like this:</li>
+</ul>
+<p><img src="../../images/dev-container-vscode-ok.jpg" alt="Docker steetings"></p>
+<ul>
+<li><strong>Step 13</strong>: Select the target you want to build, click on <code>CMake: [Unknown]: Ready</code></li>
+</ul>
+<p><img src="../../images/dev-container-selecttarget.jpg" alt="cmakr select"></p>
+<p>The first time you'll do this, you will be asked to select a kit, choose the <code>unspecified</code>one:</p>
+<p><img src="../../images/dev-container-selectkit.jpg" alt="select kit unspecified"></p>
+<p>Then you can pick the target you want to build:</p>
+<p><img src="../../images/dev-container-target.jpg" alt="target to build"></p>
+<ul>
+<li><strong>Step 14</strong>: This will actually prepare all what is needed in the <code>build</code>folder.</li>
+</ul>
+<blockquote>
+<p><strong>Important</strong>: this may take up to 1h or more depending on the target and the performance of your machine. So be patient! While the project will be in preparation, you'll get the small window on the right:</p>
+</blockquote>
+<p><img src="../../images/dev-container-prepare.jpg" alt="configuration the project"></p>
+<ul>
+<li><strong>Step 15</strong>: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.</li>
+<li><strong>Step 16</strong>: Hit <code>F7</code> this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: <code>[build] Build finished with exit code 0</code></li>
+</ul>
+<blockquote>
+<p>note: some devices use hex2dfu to create dfu files. So far, this is not supported and the build will fail. You will have to install the tool on Windows and run it manually. We're trying to address this temporary issue as fast as possible!</p>
+</blockquote>
+<h2 id="tips-and-tricks">Tips and tricks</h2>
+<h3 id="some-build-may-fail-for-size-reasons">Some build may fail for size reasons</h3>
+<p>Build may fail if your image is too big. This is the case sometime when you select <code>debug</code>on some devices like the ST Nucleo one. You'll then get a build fail which looks like this:</p>
+<pre><code class="lang-text">[build] Memory region         Used Size  Region Size  %age Used
+[build]           flash0:       18984 B        18 KB    102.99%
+[build]           flash1:          0 GB         0 GB
+[build]           flash2:          0 GB         0 GB
+[build]           flash3:          0 GB         0 GB
+[build]           flash4:          0 GB         0 GB
+[build]           flash5:          0 GB         0 GB
+[build]           flash6:          0 GB         0 GB
+[build]           flash7:          0 GB         0 GB
+[build]           config:          0 GB         0 GB
+[build]       deployment:          0 GB         0 GB
+[build]            ramvt:          0 GB         0 GB
+[build]             ram0:        8528 B      32720 B     26.06%
+[build]             ram1:          0 GB         0 GB
+[build]             ram2:          0 GB         0 GB
+[build]             ram3:          0 GB         0 GB
+[build]             ram4:          0 GB         0 GB
+[build]             ram5:          0 GB         0 GB
+[build]             ram6:          0 GB         0 GB
+[build]             ram7:          0 GB         0 GB
+[build]       bootclpbrd:          48 B         48 B    100.00%
+[build] collect2: error: ld returned 1 exit status
+</code></pre>
+<h3 id="making-changes-in-your-vscodecmake-variantsjson-file">Making changes in your .vscode\cmake-variants.json file</h3>
+<p>Every time you make a change in the <code>.vscode\cmake-variants.json</code>file, you will have to leave the container bit clicking on the bottom left and then select <code>Reopen locally</code> and again select <code>Reopen in dev container</code>.</p>
+<p>You usually do this operation to adjust what you want to add in your target.</p>
+<p>More generally, any change in any of the file from the <code>.vscode</code> folder will require to exit and restart the dev container.</p>
+<h2 id="advance-scenarios">Advance scenarios</h2>
+<p>A Dev Container consist of a Dockerfile and a <code>devcontainer.json</code> file. You can of course customize both and personalize your environnement. This section will give you couple of hints for this.</p>
+<h3 id="customize-your-devcontainerjson-file">Customize your devcontainer.json file</h3>
+<p>There are quite some elements you can customize, one of them is the mounting folders you want to be able to access in your container. For example, we've couple of usual folders where you can for example store your bash history or mount more folders:</p>
+<pre><code class="lang-json">&quot;mounts&quot;: [
+    &quot;source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind&quot;,
+    // Mount .azure folder for seamless az cli auth
+    &quot;source=${env:HOME}${env:USERPROFILE}/.azure,target=/home/vscode/.azure,type=bind&quot;,
+    // Keep command history
+    &quot;source=nano-bashhistory,target=/home/vscode/commandhistory,type=volume&quot;,
+]
+</code></pre>
+<p>You have quite a large number of elements you can customize including the extension that will be installed:</p>
+<pre><code class="lang-json">// Add the IDs of extensions you want installed when the container is created.
+&quot;extensions&quot;: [
+    &quot;ms-vsliveshare.vsliveshare-pack&quot;,
+    &quot;streetsidesoftware.code-spell-checker&quot;,
+    &quot;twxs.cmake&quot;,
+    &quot;ms-vscode.cmake-tools&quot;
+]
+</code></pre>
+<h3 id="restricting-the-platforms-you-want-to-download">Restricting the platforms you want to download</h3>
+<p>The <code>Dockerfile</code> contains all the elements needed to build any of the target. If you have a limited bandwidth or you are only interested in a limited number of targets, you can restrict what is cloned and installed.</p>
+<p>Everything is commented, so if for example, you are sure you'll never target any TI boards, you can comment what is related to TI. In this example, you'll comment all this:</p>
+<pre><code class="lang-dockerfile">#RUN git clone --branch 4.10.00.07 https://github.com/nanoframework/SimpleLink_CC32xx_SDK.git ./sources/SimpleLinkCC32 \
+    # &amp;&amp; git clone --branch 3.61.00.16 https://github.com/nanoframework/TI_XDCTools.git ./sources/TI_XDCTools \
+#    &amp;&amp; git clone --branch 4.20.01.04 https://github.com/nanoframework/SimpleLink_CC13x2_26x2_SDK.git ./sources/SimpleLinkCC13 \
+#    &amp;&amp; git clone --branch 1.5.0 https://github.com/nanoframework/TI_SysConfig.git ./sources/TI_SysConfig
+</code></pre>
+<p>You will note as well that you have 2 images, one for downloading and expending the tools, the other ones where the core tools are installed and the elements downloaded from the download image are copied. You could of course optimize both images to reduce to the strict minimum you require.</p>
+<p>This is recommended for advance users only having a minimum of understanding of the required components.</p>
+<h3 id="non-root-user">Non root user</h3>
+<p>The default Dev Container is running with root privileges. While this is ok in a context of a simple usage where you are just using it for this task once time to time, if you start using more regularly, you may want to lower the privileges and run thru a standard user.</p>
+<p>For this, you'll have to uncomment the last line:</p>
+<pre><code class="lang-json">// Uncomment to connect as a non-root user. See https: //aka.ms/vscode-remote/containers/non-root.
+,&quot;remoteUser&quot;: &quot;vscode&quot;
+</code></pre>
+<p>in the main Dockerfile, uncomment the files and add the script <code>non-toot-user.sh</code>:</p>
+<pre><code class="lang-dockerfile">ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/building/using-dev-container.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
