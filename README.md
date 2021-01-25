@@ -1,10 +1,10 @@
+# Welcome to the .NET **nanoFramework** documentation source repository
+
 [![Discord](https://img.shields.io/discord/478725473862549535.svg)](https://discord.gg/gCyBu8T)
 
 ![nanoFramework logo](https://github.com/nanoframework/Home/blob/master/resources/logo/nanoFramework-repo-logo.png)
 
 -----
-
-### Welcome to the .NET **nanoFramework** documentation source repository!
 
 This repo contains the sources that generate the .NET **nanoFramework** documentation website.
 

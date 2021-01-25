@@ -1,25 +1,32 @@
+# .NET **nanoFramework**
+
 ![nanoFramework logo](../images/nanoFramework-repo-logo.png)
 
 **_Making it easy to write C# code for embedded systems!_**
 
+<div style='vertical-align:middle; display:inline;'>
+.NET nanoFramework is supported by the .NET Foundation.
+</div>
+<img style='vertical-align:middle;' width="100px" src='https://dotnetfoundation.org/img/logo_big.svg'>
+
 ## Sponsoring .NET **nanoFramework**
 
-Most of the core team members and contributors are embedded systems enthusiasts, passionate about coding and people that like challenges. The work on .NET **nanoFramework** is done mostly on their free time. Some of the core members happen to work on companies that sponsor heavily .NET **nanoFramework** and offer their work hours to the project. If you use .NET **nanoFramework** for serious work or want to support it, please donate. This allow for paying the infrastructure cost and more time to be invested on the project. Besides monetary contributions, there are several other ways to contribute. Please read the documentation about this [here]contributing/index.md).
+Most of the core team members and contributors are embedded systems enthusiasts, passionate about coding and people that like challenges. The work on .NET **nanoFramework** is done mostly in their free time. Some of the core members happen to work for companies that heavily sponsor .NET **nanoFramework** and offer their work hours to move the project forward. If you use .NET **nanoFramework** for as part of your product or just want to support it, please donate. This allows us to pay for the infrastructure costs and more time investment on the project. Besides monetary contributions, there are several other ways to contribute. Please read the documentation about this [here](content/contributing/index.md).
 
 ### Sponsors
 
-Sponsors will get their logo and link to a website on our GitHub readme and also on our home page.
+Sponsors will get their logo and a link to their website on our GitHub readme and also on our home page.
 
-<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/sponsor.svg?avatarHeight=80"></a></a>
-<a href="https://www.orgpal.com"><img src="https://www.orgpal.com/orgpallogo.png" height="50" width="114"/></a>
+[![donate](https://opencollective.com/nanoframework/tiers/sponsor.svg?avatarHeight=80)](https://opencollective.com/nanoframework#support)
+[![donate](https://www.orgpal.com/orgpallogo.png)](https://www.orgpal.com)
 
 ### Backers
 
-Backers are individuals who contribute with money to help support nanoFramework. Every little bit helps and we appreciate all contributions, even the smallest ones.
+Backers are individuals who contribute money to help support nanoFramework. Every little bit helps and we appreciate all contributions, even the smallest ones.
 
-<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80"></a>
+[![backers](https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80)](https://opencollective.com/nanoframework#support)
 
-## What is .NET **nanoFramework**?
+## What is .NET **nanoFramework**
 
 .NET **nanoFramework** is a free and [Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software) platform that enables the writing of managed code applications for constrained [embedded devices](https://en.wikipedia.org/wiki/Embedded_system). It is suitable for many types of projects including IoT sensors, wearables, academic proof of concept, robotics, hobbyist/makers creations or even complex industrial equipment. It makes the development for such platforms easier, faster and less costly by giving embedded developers access to modern technologies and tools used by desktop application developers.
 

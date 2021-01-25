@@ -1,9 +1,10 @@
 # NXP i.MXRT1060 evalboard
 
-Board featuring 600 MHz ARM Cortex-M7 core without internal flash. But it has support for both QSPI and HyperFlash. 
+Board featuring 600 MHz ARM Cortex-M7 core without internal flash. But it has support for both QSPI and HyperFlash.
 Can be powered from usb. It has onboard LPC-Link programmer.
 
 Technical and Functional Specifications:
+
 - Memory
   - 256 Mb SDRAM memory
   - 512 Mb Hyper Flash
@@ -23,8 +24,6 @@ Technical and Functional Specifications:
   - CAN transceiver
   - Arduino® interface
 
-
-
 ![mimxrt1060-evk](../../images/reference-targets/mimxrt1060_evk.jpg)
 
 >Specification acquired from NXP [product page](https://www.nxp.com/design/development-boards/i.mx-evaluation-and-development-boards/mimxrt1060-evk-i.mx-rt1060-evaluation-kit:MIMXRT1060-EVK)
@@ -39,10 +38,10 @@ The ready to use firmware images provided include support for the class librarie
 
 | Stable | Preview |
 |---|---|
-|  [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images/NXP_MIMXRT1060_EVK/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images/NXP_MIMXRT1060_EVK/_latestVersion) | [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/NXP_MIMXRT1060_EVK/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images-dev/NXP_MIMXRT1060_EVK/_latestVersion) |
+|  [Download](https://api.bintray.com/packages/nfbot/nanoframework-images/NXP_MIMXRT1060_EVK/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images/NXP_MIMXRT1060_EVK/_latestVersion>) | [Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/NXP_MIMXRT1060_EVK/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images-dev/NXP_MIMXRT1060_EVK/_latestVersion>) |
 
-# J-Link
+## J-Link
 
 If you want to use dedicated J-Link programmer instead of onboard one, please refer to SEGGER [wiki](https://wiki.segger.com/i.MXRT1060). It describes how to configure J-Link to work with i.MXRT1060 microcontroller.
 
-To setup J-Link in Visual Studio Core refer to [this](https://wiki.segger.com/J-Link:Visual_Studio_Code) guide. 
+To setup J-Link in Visual Studio Core refer to [this](https://wiki.segger.com/J-Link:Visual_Studio_Code) guide.

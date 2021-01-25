@@ -1,6 +1,6 @@
 # Publish Workflow and Strategy
 
-**About this document**
+## About this document
 
 This document describes the workflow and strategy adopted by .NET **nanoFramework** to handle the merging, branching and release publishing.
 

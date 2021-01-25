@@ -4,12 +4,12 @@ For non code files (xml etc) our current best guidance is consistency. When edit
 
 The general rule we follow is "use Visual Studio defaults". For details check the [Naming Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines) of .NET guide.
 
-1. We use [Allman style](http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, where each brace begins on a new line. A single line statement block can go without braces but the block must be properly indented on its own line and it must not be nested in other statement blocks that use braces. 
+1. We use [Allman style](http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, where each brace begins on a new line. A single line statement block can go without braces but the block must be properly indented on its own line and it must not be nested in other statement blocks that use braces.
 2. We use four spaces of indentation (no tabs).
 3. We use `_camelCase` for internal and private fields and use `readonly` where possible. Prefix static fields with `s_` and thread static fields with `t_`. When used on static fields, `readonly` should come after `static` (i.e. `static readonly` not `readonly static`).
-4. We avoid `this.` unless absolutely necessary. 
+4. We avoid `this.` unless absolutely necessary.
 5. We always specify the visibility, even if it's the default (i.e.
-   `private string _foo` not `string _foo`). Visibility should be the first modifier (i.e. 
+   `private string _foo` not `string _foo`). Visibility should be the first modifier (i.e.
    `public abstract` not `abstract public`).
 6. Namespace imports should be specified at the top of the file, *outside* of
    `namespace` declarations and should be sorted alphabetically.
@@ -28,7 +28,7 @@ The general rule we follow is "use Visual Studio defaults". For details check th
 
 We have provided a Visual Studio 2013 vssettings file `nnnnn.vssettings` at the root of each repository, enabling C# auto-formatting conforming to the above guidelines. Note that rules 7 and 8 are not covered by the vssettings, since these are not rules currently supported by VS formatting.
 
-### Example File:
+## Example File
 
 ``ObservableLinkedList`1.cs:``
 
@@ -66,7 +66,7 @@ namespace System.Collections.Generic
             get { return _count; }
         }
 
-        public ObservableLinkedListNode AddLast(T value) 
+        public ObservableLinkedListNode AddLast(T value)
         {
             var newNode = new LinkedListNode<T>(this, value);
 
@@ -86,7 +86,7 @@ namespace System.Collections.Generic
         {
            ...
         }
-        
+
         ...
     }
 }
@@ -113,7 +113,7 @@ namespace System.Collections.Generics
                 _parent = parent;
                 _value = value;
             }
-            
+
             public T Value
             {
                get { return _value; }

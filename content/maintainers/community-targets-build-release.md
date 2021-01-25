@@ -1,6 +1,6 @@
 # Community targets build and publishing
 
-**About this document**
+## About this document
 
 This document describes the recipe to setup the build and publish of new Community targets.
 
@@ -25,7 +25,7 @@ Community target images are distributed through .NET **nanoFramework** JFrog Bin
 1. Sign-in with .NET **nanoFramework** Bintray account.
 2. Go to nanoframework-images-community-targets repository [here](https://bintray.com/nfbot/nanoframework-images-community-targets)
 
-3. Add a new package inside that repository. 
+3. Add a new package inside that repository.
    - The package name must be **exactly** the same as the target name otherwise the publish step will fail.
    - The remaining details are to be copied from one of the other existing targets. Mind the description field to update the target name and possibly the manufacturer.
 
@@ -38,4 +38,4 @@ When merging a PR make sure to add to the commit message the token(s) for the ta
 It's possible to manually start a build _and_ specify that it should build all targets. This is most handy, for example, after a number of changes in the nf-interpreter repo to build new images for the Community targets. Another situation is when one forgets to add the build token in the PR merge and needs to trigger a build afterwards.
 
 To do this, go to the Builds page in the project Azure Pipelines and hit the 'Queue' button. When the pop-up shows, change the BUILD_ALL variable to 'true'. Like this:
-![](../images/docs-trigger-build-all-community-targets.png)
+![build community targets](../images/docs-trigger-build-all-community-targets.png)

@@ -1,11 +1,11 @@
 # Guidelines for debugging .NET **nanoFramework** class libraries native code
 
-**About this document**
+## About this document
 
 This document provides guidelines useful when debugging class libraries native code.
 It doesn't care if the developer is using VS Code or other IDE.
 
-## How does an assembly load successfully?
+## How does an assembly load successfully
 
 The assemblies with the class libraries and the managed application are loaded at startup from the deployment area in the FLASH memory.
 When the `LoadDeploymentAssemblies()` is called the deployment area is sweep and all 'candidate' assemblies are validated. The validation steps are basically checking the start token, a valid header and the CRC32 of the full assembly. Only the ones that pass the complete set of validation make it to the assembly collection.

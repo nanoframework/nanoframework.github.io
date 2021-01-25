@@ -5,10 +5,17 @@
 * [CMake variants for CMake tools](cmake-tools-cmake-variants.md)
 * [Building in Visual Studio](build-in-visual-studio.md)
 
-* ### [ChibiOS HAL](chibios-hal)
-  * [GCC linker script for ChibiOS boards](chibios-hal/gcc-linker-script.md)
+## [ChibiOS HAL](chibios-hal)
 
-* ### [CMake](cmake)
-  * [Building with ChibiOS](cmake/chibios-build.md)
-  * [Building using Ninja](cmake/ninja-build.md)
+* [GCC linker script for ChibiOS boards](chibios-hal/gcc-linker-script.md)
+
+## [CMake](cmake)
+
+* [Building with ChibiOS](cmake/chibios-build.md)
+* [Building using Ninja](cmake/ninja-build.md)
+
+## Using Dev Container
+
+If you want a simple, efficient way, we can recommend you to use [Dev Container](using-dev-container.md) to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!
+
   

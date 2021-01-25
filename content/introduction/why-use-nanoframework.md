@@ -1,4 +1,4 @@
-## Why use .NET **nanoFramework**?
+# Why use .NET **nanoFramework**
 
 .NET **nanoFramework** is the perfect enabler for developing software that works on embedded devices. Start with a low cost and readily available development board, then use .NET **nanoFramework** to write, debug and deploy your code.
 

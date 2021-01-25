@@ -5,6 +5,7 @@
 - [STM32](build-stm32.md)
 - [ESP32](build-esp32.md)
 - [NXP](build-nxp.md)
+- [Using Dev Container](using-dev-container.md)
 
 - [Prerequisites](#prerequisites)
 - [Pre
@@ -12,10 +13,16 @@ paration](#preparation)
 - [Build a .NET **nanoFramework** image](#build-a-nanoframework-image)
 - [.NET **nanoFramework** build deliverables](#nanoframework-build-deliverables)
 
-**About this document**
+## About this document
 
 This document describes how to build the required images for .NET **nanoFramework** to be flashed in a SoC or MCU.
 The build is based on CMake tool to ease the development in all major platforms.
+
+## Using Dev Container
+
+If you want a simple, efficient way, we can recommend you to use [Dev Container](using-dev-container.md) to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!
+
+If you prefer to install all the tools needed on your Windows machine, you should continue this tutorial.
 
 ## Prerequisites
 
@@ -24,8 +31,8 @@ You'll need:
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - [CMake](https://cmake.org/) (Minimum required version is 3.7)
 - A build system for CMake to generate the build files to.
-  + If you have Visual Studio (full version) you can use the included NMake.
-  + A nice alternative is [Ninja](https://github.com/ninja-build/ninja). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build .NET **nanoFramework**.
+  - If you have Visual Studio (full version) you can use the included NMake.
+  - A nice alternative is [Ninja](https://github.com/ninja-build/ninja). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](cmake/ninja-build.md) how to setup Ninja to build .NET **nanoFramework**.
 
 If you are using VS Code as your development platform we suggest that you use the CMake Tools extension. This will allow you to run the builds without leaving VS Code.
 
@@ -59,7 +66,7 @@ For more information on this check CMake documentation [here](https://cmake.org/
 
 ## Building from the command prompt
 
-If you are building from the command prompt, just go to your *build* directory and run CMake from there with the appropriate parameters. 
+If you are building from the command prompt, just go to your *build* directory and run CMake from there with the appropriate parameters.
 The following is a working example:
 
 ```dotnetcli
@@ -117,7 +124,7 @@ After a successful build you can find the .NET **nanoFramework** image files in 
   - nanoBooter.hex (Intel hex format)
   - nanoBooter.s19 (Motorola S-record format, equivalent to srec)
   - nanoBooter.lst (source code listing intermixed with disassembly)
-  - nanoBooter.map (image map) 
+  - nanoBooter.map (image map)
 
 - nanoCLR image:
 

@@ -13,10 +13,10 @@ Technical writers that want to get experience, gain knowledge on a new platform 
 
 Designers, video editors, web designers and people with marketing and PR skills. Basically the project can benefit from good communication, presenting good and nice looking materials, provide great and engaging training materials.
 
-### Code of conduct
+## Code of conduct
 
 This project has adopted the code of conduct defined by the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct) to clarify expected behavior in our community.
 
-### Contributing guide
+## Contributing guide
 
 Please read our [Contribution Workflow](contributing-workflow.md) to get an idea on the matter and hopefully get you started on your first Pull Request! ;)

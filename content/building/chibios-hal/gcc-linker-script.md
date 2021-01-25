@@ -1,6 +1,6 @@
 # GCC linker script for ChibiOS boards
 
-**About this document**
+## About this document
 
 This document describes the GCC linker script for .NET **nanoFramework** boards using ChibiOS HAL/PAL and some explanations on how to customize and adapt it to a new target board.
 

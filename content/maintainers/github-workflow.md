@@ -1,6 +1,6 @@
 # GitHub workflow procedures
 
-**About this document**
+## About this document
 
 This document describes the GitHub workflow and "procedures" that should be followed by maintainers.
 

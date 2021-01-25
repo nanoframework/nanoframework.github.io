@@ -1,8 +1,8 @@
 # OrgPal PalThree
 
-![](../../images/reference-targets/orgpal-palthree.jpg)
+![orgpal](../../images/reference-targets/orgpal-palthree.jpg)
 
-## [Product page](https://www.orgpal.com/palthree-iot-azure)
+[Product page](https://www.orgpal.com/palthree-iot-azure)
 
 ## Features
 
@@ -11,7 +11,6 @@
 - Powerful 216-MHz Arm® Cortex®-M7
 - 2 Mbytes Flash, and 1 MB External SDRAM
 
-    
 ### PalThree Board
 
 - Versatile board for many applications with integrated sensor protocol support
@@ -27,7 +26,7 @@
 - DSI LCD Connector with I2C (Raspberry Pi LCD connector)
 - Peripherals and Sensor Protocols:
   - RS 485
-  - 4-20mA 
+  - 4-20mA
   - 1 Relay (optically isolated)
   - 1 Flow/Pulse count
   - Digital and Analog GPIOs
@@ -39,7 +38,7 @@
   - Speaker (buzzer)
   - Integrated temperature and battery monitor
 - 2 30 pin Expansion Ports
-- JTAG 10 pin ARM Micro connector 
+- JTAG 10 pin ARM Micro connector
 - Low power design, power use as low as 0.4mA in auto off mode
 - 9-24V power input range with reverse polarity protection
 

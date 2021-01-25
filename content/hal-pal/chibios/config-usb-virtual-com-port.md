@@ -1,6 +1,6 @@
 # USB configuration of Virtual COM port (CDC)
 
-**About this document**
+## About this document
 
 This document describes the available settings/options to configure the USB Virtual COM port provided by ChibiOS HAL.
 All these settings/options are exposed in the _usbcfg.c_ file, located in the _common_ folder of the reference boards that expose an USB device connector.
@@ -27,7 +27,7 @@ In this setting it's defined the string that will show as the serial number of t
 This serial number will be part of the instance path of the device that helps the OS to identify and address the USB device like in \\USB\\VID_0483&PID_5740\\NANO_3267335D3333.
 Adjust the string to whatever is to show there. Mind the L prefix, **DO NOT** remove it.
 
-_Note 1: nanoFramework ANT tool uses this serial number as a helper to identify nanoFramework devices relying that this string starts with_ **NANO_**_ (that is upper case NANO followed by an underscore)._
+_Note 1: nanoFramework ANT tool uses this serial number as a helper to identify nanoFramework devices relying that this string starts with_ **NANO_**_(that is upper case NANO followed by an underscore)._
 
 _Note 2: For STMicroelectronics reference boards the serial number is completed with the silicon unique ID available on their STM32 parts. Check the series manual for details._
 

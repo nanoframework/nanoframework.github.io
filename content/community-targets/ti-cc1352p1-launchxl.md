@@ -1,8 +1,8 @@
 # TI CC1352P1-LAUNCHXL
 
-![](../../images/community-targets/ti_cc1352p1_shield.jpg)
+![TI CC1352P1](../../images/community-targets/ti_cc1352p1_shield.jpg)
 
-## [Product page](http://www.ti.com/tool/LAUNCHXL-CC1352P)
+[Product page](http://www.ti.com/tool/LAUNCHXL-CC1352P)
 
 ## Features
 
@@ -38,7 +38,7 @@
 - Radio section
   - Multi-band sub-1 GHz and 2.4 GHz RF transceiver compatible with Bluetooth 5 Low Energy and IEEE 802.15.4 PHY and MAC
   - Excellent receiver sensitivity:
-  - –121 dBm for SimpleLink long-range mode 
+  - –121 dBm for SimpleLink long-range mode
   - –110 dBm at 50 kbps, –105 dBm for Bluetooth 125-kbps (LE Coded PHY)
   - Output power up to +14 dBm (Sub-1 GHz) and +5 dBm (2.4 GHz) with temperature compensation
   - Suitable for systems targeting compliance with worldwide radio frequency regulations
@@ -60,7 +60,7 @@
   - proprietary systems
   - SimpleLink™ TI 15.4-Stack (Sub-1 GHz)
   - Dynamic Multiprotocol Manager (DMM)
-    
+
 ### Launchpad board
 
 - LaunchPad with 2.4GHz and Sub-1GHz radio for wireless applications with integrated PCB trace antenna
@@ -80,4 +80,4 @@ The ready to use firmware images provided include support for the class librarie
 
 | Stable | Preview |
 |---|---|
-| []() | [ ![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/TI_CC1352P1_LAUNCHXL/images/download.svg) ](https://bintray.com/nfbot/nanoframework-images-dev/TI_CC1352P1_LAUNCHXL/_latestVersion) |
+| | ![[Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/TI_CC1352P1_LAUNCHXL/images/download.svg)](https://bintray.com/nfbot/nanoframework-images-dev/TI_CC1352P1_LAUNCHXL/_latestVersion) |

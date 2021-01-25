@@ -1,6 +1,6 @@
 # CMake file for building ChibiOS from sources
 
-**About this document**
+## About this document
 
 This document describes the purpose and workflow for the CMake configuration files to build ChibiOS from the repository sources.
 Building ChibiOS from sources might be needed when debugging a .NET **nanoFramework** feature that interacts with it.
@@ -21,7 +21,7 @@ _Note: when specifying the location of a local clone make sure that the correct 
 ChibiOS HAL is based on _boards_. The collection of supported boards and the respective configurations live in hal/boards directory.
 .NET **nanoFramework** includes an 'overlay' for ChibiOS were supported boards can be added. This collection is also checked for the target board. The collection of supported boards and the respective configurations implemented in the 'overlay' live in /targets/CMSIS-OS/ChibiOS/nf-overlay/os/hal/boards directory.
 
-A .NET **nanoFramework** target can also include the ChibiOS board definitions. This is the advisable approach for OEM boards. 
+A .NET **nanoFramework** target can also include the ChibiOS board definitions. This is the advisable approach for OEM boards.
 In this case the board.c and board.h files have to be included right in the target directory.
 
 Support for each board in .NET **nanoFramework** is required. This is were the configuration details and components/features are specified and/or configured. CMakes checks if the target board is available in the targets collection. The collection of board support is at /targets/CMSIS-OS/ChibiOS.

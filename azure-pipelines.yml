@@ -55,11 +55,19 @@ steps:
 
       git clone https://github.com/nanoframework/lib-nanoFramework.Runtime.Native.git --depth 100 -b develop nanoFramework.Runtime.Native 
 
+      git clone https://github.com/nanoframework/lib-nanoFramework.WebServer --depth 100 -b develop nanoFramework.WebServer 
+
       git clone https://github.com/nanoframework/lib-System.Device.Dac.git --depth 100 -b develop System.Device.Dac
+
+      git clone https://github.com/nanoframework/lib-System.Device.Gpio.git --depth 100 -b develop System.Device.Gpio 
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.Gpio.git --depth 100 -b develop Windows.Devices.Gpio 
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.I2c.git --depth 100 -b develop Windows.Devices.I2c 
+
+      git clone https://github.com/nanoframework/lib-System.Device.I2c.git --depth 100 -b develop System.Device.I2c
+
+      git clone https://github.com/nanoframework/lib-System.IO.FileSystem.git --depth 100 -b develop System.IO.FileSystem
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.Pwm.git --depth 100 -b develop Windows.Devices.Pwm 
 
@@ -74,6 +82,8 @@ steps:
       git clone https://github.com/nanoframework/lib-Windows.Devices.Adc.git --depth 100 -b develop Windows.Devices.Adc 
 
       git clone https://github.com/nanoframework/lib-Windows.Devices.WiFi.git --depth 100 -b develop Windows.Devices.WiFi 
+
+      git clone https://github.com/nanoframework/lib-nanoFramework.Graphics -b develop nanoFramework.Graphics 
 
       git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.Esp32 -b develop nanoFramework.Hardware.Esp32
 
@@ -100,6 +110,7 @@ steps:
       git clone https://github.com/nanoframework/lib-nanoFramework.Hardware.TI -b develop nanoFramework.Hardware.TI
 
       git clone https://github.com/nanoframework/lib-nanoFramework.System.Math -b develop nanoFramework.System.Math 
+
  
   displayName: Clone repos of class libs
 
@@ -146,9 +157,23 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
+    restoreSolution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.WebServer\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
     restoreSolution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Dac\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Gpio\NuGet.Config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -163,6 +188,20 @@ steps:
     restoreSolution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.I2c\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.I2c\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.IO.FileSystem\NuGet.Config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -212,6 +251,13 @@ steps:
     restoreSolution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.WiFi\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Graphics\NuGet.Config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -345,11 +391,24 @@ steps:
 
 - task: VSBuild@1
   inputs:
+    solution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
     solution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
+- task: VSBuild@1
+  inputs:
+    solution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
 
 - task: VSBuild@1
   inputs:
@@ -361,6 +420,20 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
@@ -410,6 +483,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
