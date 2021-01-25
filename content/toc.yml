@@ -34,13 +34,13 @@ items:
   - name: Developing native
     href: contributing/developing-native/arm-swo.md
     items:
-    - name: Using ARM Cortex M Single Wire Output SWO
+    - name: ARM Cortex-M Single Wire Output (SWO)
       href: contributing/developing-native/arm-swo.md
-    - name: Guidelines for debugging .NET nanoFramework class libraries native code
+    - name: Debugging nanoFramework class libraries
       href: contributing/developing-native/debugging-class-libraries.md
-    - name: Instructions for debugging .NET nanoFramework native code in VS Code
+    - name: Debugging nanoFramework native code in VS Code
       href: contributing/developing-native/vscode-debug-instructions.md
-  - name: NanoFramework Individual Contributor License Agreement 
+  - name: CLA
     href: contributing/cla.md
   - name: Labels
     href: contributing/labels.md
@@ -55,37 +55,39 @@ items:
 - name: Getting started guides
   href: getting-started-guides/getting-started-managed.md
   items:
-  - name: Getting Started Guide for managed code C
+  - name: Getting Started Guide - Managed (C#)
     href: getting-started-guides/getting-started-managed.md
 - name: Reference targets
   href: reference-targets/esp32-wroom-32.md
   items:
-  - name: Espressif ESP32 WROOM 32 & ESP WROVER KIT
+  - name: ESP32 WROOM-32
     href: reference-targets/esp32-wroom-32.md
-  - name: STMicroelectronics NUCLEO F091RC
+  - name: ESP-WROVER-KIT
+    href: reference-targets/esp32-wroom-32.md
+  - name: STM32NUCLEO-F091RC
     href: reference-targets/st-nucleo64-f091rc.md
-  - name: STMicroelectronics 32F429IDISCOVERY
+  - name: STM32F429IDISCOVERY
     href: reference-targets/stm32f429i-discovery.md
-  - name: STMicroelectronics 32F769IDISCOVERY
+  - name: STM32F769IDISCOVERY
     href: reference-targets/stm32f769i-discovery.md
   - name: OrgPal PalThree
     href: reference-targets/orgpal-palthree.md
-  - name: TI CC1352R1 LAUNCHXL
+  - name: CC1352R1_LAUNCHXL
     href: reference-targets/ti-cc1352r1-launchxl.md
-  - name: TI CC3220SF LAUNCHXL
+  - name: CC3220SF_LAUNCHXL
     href: reference-targets/ti-cc3220sf-launchxl.md
-  - name: NXP i.MXRT1060 evalboard
+  - name: MIMXRT1060 Evalboard
     href: reference-targets/mimxrt-1060-evk.md
-  - name: Wilderness Labs Netduino N3 WiFi
+  - name: Netduino N3 WiFi
     href: reference-targets/netduino3-wifi.md
-  - name: Mikrobus Net QUAIL
-    href: reference-targets/mbn-quail.md
 - name: Community targets
   href: community-targets/st-nucleo144-f746zg.md
   items:
-  - name: STMicroelectronics NUCLEO144 F746ZG
+  - name: ESP32 ULX3S
+    href: community-targets/esp32-ULX3S.md
+  - name: STM32NUCLEO144-F746ZG
     href: community-targets/st-nucleo144-f746zg.md
-  - name: STMicroelectronics STM32F4DISCOVERY
+  - name: STM32F4DISCOVERY
     href: community-targets/stm32f4-discovery.md
   - name: TI CC1352P1 LAUNCHXL
     href: community-targets/ti-cc1352p1-launchxl.md
@@ -103,6 +105,8 @@ items:
     href: community-targets/ST_NUCLEO64_F411RE_NF.md
   - name: STM NUCLEO144 F439ZI board
     href: community-targets/st_nucleo144_f439zi.md
+  - name: QUAIL
+    href: reference-targets/mbn-quail.md
 - name: Esp32
   href: esp32/build_ESP32_libraries.md
   items:
@@ -110,7 +114,7 @@ items:
     href: esp32/build_ESP32_libraries.md
   - name: ESP32 Pin out
     href: esp32/esp32_pin_out.md
-- name: Stm32
+- name: STM32 specific articles
   href: stm32/flash-stlink.md
   items:
   - name: How To Flash a target usign ST Link utility
@@ -119,68 +123,37 @@ items:
     href: stm32/flash-dfuse.md
   - name: How To Create a .dfu file
     href: stm32/create-dfu-file.md
-- name: Ti simplelink
+- name: TI specific articles
   href: ti-simplelink/flash-nanoclr-cc13x2_26x2.md
   items:
-  - name: Flash a nanoCLR image in TI CC13x2/CC6x2 boards
+  - name: How To Flash nanoCLR in CC13x2
     href: ti-simplelink/flash-nanoclr-cc13x2_26x2.md
-  - name: Flash a nanoCLR image in a TI CC32xx board
+  - name: How To Flash nanoCLR in CC32xx
     href: ti-simplelink/flash-nanoclr-cc32xx.md
-- name: Nxp
+- name: NXP specific articles
   href: nxp/flash-nxp-mbed.md
   items:
-  - name: Flash a nanoCLR image/nanoBooter in a NXP MIMXRT1060 EVAL board
+  - name: How To Flash nanoCLR in MIMXRT1060_eval
     href: nxp/flash-nxp-mbed.md
 - name: Architecture
   href: architecture/class-libraries.md
   items:
   - name: Class Libraries
     href: architecture/class-libraries.md
-  - name: Date and Time
+  - name: Date and time
     href: architecture/date-and-time.md
   - name: Floating point calculations
     href: architecture/floating-point-calculations.md
-  - name: Application deployment
+  - name: Deployment
     href: architecture/deployment.md
-  - name: Memory Map Structure
-    href: architecture/memory-map-structure.md
-  - name: Thread execution
+  - name: HAL
+    href: architecture/hal.md
+  - name: Memory map structure
+    href: architecture/memory-map-sructure.md
+  - name: Native interrupt handlers
     href: architecture/native-interrupt-handlers.md
-  - name: Pe file
+  - name: PE file format
     href: architecture/pe-file/AssemblyHeader.md
-    items:
-    - name: AssemblyHeader CLR RECORD ASSEMBLY
-      href: architecture/pe-file/AssemblyHeader.md
-    - name: AssemblyRefTableEntry CLR RECORD ASSEMBLYREF
-      href: architecture/pe-file/AssemblyRefTableEntry.md
-    - name: AttributeTableEntry CLR RECORD ATTRIBUTE
-      href: architecture/pe-file/AttributeTableEntry.md
-    - name: ExceptionHandlerTableEntry CLR RECORD EH
-      href: architecture/pe-file/ExceptionHandlerTableEntry.md
-    - name: FieldRefTableEntry CLR RECORD FIELDREF
-      href: architecture/pe-file/FieldRefTableEntry.md
-    - name: GenericParamTableEntry CLR RECORD GENERICPARAM
-      href: architecture/pe-file/GenericParamTableEntry.md
-    - name: MethodDefTableEntry CLR RECORD METHODDEF
-      href: architecture/pe-file/MethodDefTableEntry.md
-    - name: MethodRefTableEntry CLR RECORD METHODREF
-      href: architecture/pe-file/MethodRefTableEntry.md
-    - name: MethodSpecTableEntry CLR RECORD METHODSPEC
-      href: architecture/pe-file/MethodSpecTableEntry.md
-    - name: Philosophy
-      href: architecture/pe-file/Common-PE-Types-and-Enumerations.md
-    - name: ResourcesTableEntry CLR RECORD RESOURCE
-      href: architecture/pe-file/ResourcesTableEntry.md
-    - name: SignatureTable
-      href: architecture/pe-file/SignatureTable.md
-    - name: StringTable
-      href: architecture/pe-file/StringTable.md
-    - name: TypeDefTableEntry CLR RECORD TYPEDEF
-      href: architecture/pe-file/TypeDefTableEntry.md
-    - name: TypeRefTableEntry CLR RECORD TYPEREF
-      href: architecture/pe-file/TypeRefTableEntry.md
-    - name: TypeSpecTableEntry CLR RECORD TYPESPEC
-      href: architecture/pe-file/TypeSpecTableEntry.md
   - name: Thread execution in nanoFramework
     href: architecture/thread-execution.md
   - name: Wire Protocol
@@ -192,33 +165,33 @@ items:
   items:
   - name: Using Dev Container to build targets
     href: building/using-dev-container.md
-  - name: Chibios hal
+  - name: GCC linker script for ChibiOS boards
     href: building/chibios-hal/gcc-linker-script.md
   - name: Cmake
     href: building/cmake/chibios-build.md
     items:
-    - name: CMake file for building ChibiOS from sources
+    - name: Building ChibiOS from sources
       href: building/cmake/chibios-build.md
-    - name: Using Ninja to build .NET nanoFramework
+    - name: Using Ninja
       href: building/cmake/ninja-build.md
   - name: Building .NET nanoFramework
     href: building/build-instructions.md
-  - name: How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code
+  - name: Building .NET nanoFramework - STM32
     href: building/build-stm32.md
-  - name: How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code
+  - name: Building .NET nanoFramework - ESP32
     href: building/build-esp32.md
-  - name: How to Build, Flash and Debug the NXP nanoBooter and nanoCLR on Windows using Visual Studio Code
+  - name: Building .NET nanoFramework - NXP
     href: building/build-nxp.md
-  - name: Building .NET nanoFramework with local RTOS source vs RTOS source from repository
+  - name: Build using local source for RTOS
     href: building/rtos-source-for-build.md
-  - name: Tweaking cmake variants.TEMPLATE.json
+  - name: CMake variants for CMake tools
     href: building/cmake-tools-cmake-variants.md
   - name: Building .NET nanoFramework in Visual Studio
     href: building/build-in-visual-studio.md
-- name: Hal pal
+- name: HAL and PAL
   href: hal-pal/chibios
   items:
-  - name: Chibios
+  - name: ChibiOS
     href: hal-pal/chibios/adc-configuration.md
     items:
     - name: ADC configuration
@@ -241,7 +214,7 @@ items:
     href: support/community-help.md
   - name: Professional Support
     href: support/professional-support.md
-- name: Maintainers
+- name: Documentation for maintainers
   href: maintainers/cd-ci-automation.md
   items:
   - name: CD & CI automation
@@ -258,10 +231,10 @@ items:
     href: maintainers/publish-workflow.md
   - name: Semantic Versioning
     href: maintainers/semantic-versioning.md
-- name: Faq
+- name: FAQ
   href: faq/coding-in-csharp.md
   items:
-  - name: Coding in C
+  - name: Coding in C#
     href: faq/coding-in-csharp.md
   - name: Working with ESP32 targets
     href: faq/working-with-esp32-targets.md
@@ -271,5 +244,4 @@ items:
     href: faq/working-with-vs-extension.md
   - name: Automatic Firmware Update
     href: faq/automatic-firmware-updates.md
-- name: ULX3S
-  href: ULX3S/index.md
+    
