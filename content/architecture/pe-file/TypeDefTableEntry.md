@@ -24,12 +24,12 @@ The MethodRef table contains entries with the following structure:
 
 ## TypeDefFlags
 
-The TypeDefFlags enumeration provides a set of flag values for various instrinsic attributes and accessibility traits of a type definition.
+The TypeDefFlags enumeration provides a set of flag values for various intrinsic attributes and accessibility traits of a type definition.
 
 | Name               | Value  | Description  
 |--------------------|--------|------------
 |               None | 0      | No special attributes or semantics
-|          ScopeMask | 0x0007 | Mask to extract the accesibility scope values
+|          ScopeMask | 0x0007 | Mask to extract the accessibility scope values
 |          NotPublic | 0x0000 | Class is not public scope.
 |             Public | 0x0001 | Class is public scope.
 |       NestedPublic | 0x0002 | Class is nested with public visibility.
@@ -38,12 +38,12 @@ The TypeDefFlags enumeration provides a set of flag values for various instrinsi
 |     NestedAssembly | 0x0005 | Class is nested with assembly visibility.
 |  NestedFamANDAssem | 0x0006 | Class is nested with family and assembly visibility.
 |   NestedFamORAssem | 0x0007 | Class is nested with family or assembly visibility.
-|       Serializable | 0x0008 | Type is serializeable
+|       Serializable | 0x0008 | Type is serializable
 |      SemanticsMask | 0x0030 | Mask to extract the bits pertaining to type semantics
 |              Class | 0x0000 | Class Semantics (in particular the value of this field is that bits 4 and 5 are 0)
 |          ValueType | 0x0010 | Value type semantics
 |          Interface | 0x0020 | Interface semantics
-|               Enum | 0x0030 | Enume semantics
+|               Enum | 0x0030 | Enum semantics
 |           Abstract | 0x0040 | Type is abstract
 |             Sealed | 0x0080 | Type is sealed
 |        SpecialName | 0x0100 | Type is a well known special name
