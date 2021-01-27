@@ -4,8 +4,14 @@
 Funding is necessary for us to manage things like infrastructure costs, carry out PR (including advertising the project to the embedded systems industry, hobbyist communities and academia), marketing work, development and maintenance tasks that no one volunteers to do, supporting projects that we depend on, etc... To this end, we have setup an 'Open Collective' to manage our funding in a completely transparent manner.
 To make a donation you can use either Open Collective or GitHub Sponsors. Click on the appropriate button bellow.
 
-[![donate](https://opencollective.com/nanoframework/donate/button@2x.png?color=blue)](https://opencollective.com/nanoframework/donate)
-[![donate](https://img.shields.io/static/v1?style=flat&label=Sponsors&style=social&labelColor=gray&color=violet&&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/nanoframework)
+<div align="center">
+  <a href="https://opencollective.com/nanoframework/donate" target="_blank">
+    <img src="https://opencollective.com/nanoframework/donate/button@2x.png?color=blue" width=300 />
+  </a>
+  <a href="https://github.com/sponsors/nanoframework" target="_blank">
+    <img src="https://img.shields.io/static/v1?style=flat&label=Sponsors&style=social&labelColor=gray&color=violet&&message=%E2%9D%A4&logo=GitHub" width="240" />
+  </a>
+</div>
 
 ## Sponsors
 
