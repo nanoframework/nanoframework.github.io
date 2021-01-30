@@ -1,18 +1,5 @@
 # How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code
 
-## Table of contents
-
-- [Prerequisites](#prerequisites)
-- [Overview](#overview)
-- [nanoFramework Github Repo](#**nanoFramework**-GitHub-repo)
-- [Setting up the build environment](#setting-up-the-build-environment)
-- [Set up Visual Studio Code](#set-up-visual-studio-code)
-- [Build nanoCLR](#build-nanoclr)
-- [Common Build Issues](#common-build-issues)
-- [Flash nanoCLR to ESP32](#flash-nanoclr-into-esp32)
-- [Start with a Hello World C# application](#start-with-a-hello-world-c-application)
-- [Debug the nanoCLR](#debugging-nanoclr)
-
 ## About this document
 
 This document describes how to build the required images for .NET **nanoFramework** for ESP32 targets.

@@ -1,17 +1,5 @@
 # How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code
 
-## Table of contents
-
-- [Prerequisites](#prerequisites)
-- [Setting up the build environment for STM32](#Setting-up-the-build-environment-for-STM32)
-- [Overview](##Overview)
-- [nanoFramework Github Repo](#.NET **nanoFramework**-GitHub-repo)
-- [Setting up the build environment](#setting-up-the-build-environment)
-- [Set up Visual Studio Code](#Set-up-Visual-Studio-Code)
-- [Build nanoCLR](#build-nanoclr)
-- [Flash the STM32 target](#Flash-the-STM32-target)
-- [Next Steps](#Next-Steps)
-
 ## About this document
 
 This document describes how to build the required images for .NET **nanoFramework** for STM32 targets.

@@ -2,19 +2,6 @@
 
 You can contribute to .NET **nanoFramework** with issues and PRs. Simply filing issues for problems you encounter is a great way to contribute. Contributing implementations is greatly appreciated.
 
-## Table of contents
-
-- [Getting Started](#getting-started)
-- [Making a change](#making-a-change)
-- [Typos](#typos)
-- [Coding Style Changes](#coding-style-changes)
-- [Commit Messages](#commit-messages)
-- [Contributor License Agreement](#contributor-license-agreement)
-- [PR Feedback](#pr-feedback)
-- [Working on an open issue](#working-on-an-open-issue)
-- [Suggested Workflow](#suggested-workflow)
-- [General git resources](#general-git-resources)
-
 ## Getting Started
 
 If you are looking at getting your feet wet with some simple (but still beneficial) changes, check out [_up-for-grabs_](https://github.com/nanoframework/Home/issues?q=is%3Aissue+is%3Aopen+label%3Aup-for-grabs) issues on the [.NET **nanoFramework** Home](https://github.com/nanoframework/Home) repo.

@@ -24,7 +24,7 @@ We offer the possibility to use such a Dev Container to build any of the support
 
 This is illustrating how to do this:
 
-![https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif]()
+![remote container animation](https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif)
 
 > note: in our case, the dev container is called `nanoFramework`.
 
@@ -155,7 +155,7 @@ For this, you'll have to uncomment the last line:
 ,"remoteUser": "vscode"
 ```
 
-in the main Dockerfile, uncomment the files and add the script `non-toot-user.sh`:
+in the main Dockerfile, uncomment the files and add the script `non-root-user.sh`:
 
 ```dockerfile
 ARG USERNAME=vscode

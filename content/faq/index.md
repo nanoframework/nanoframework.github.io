@@ -4,19 +4,7 @@ Despite working with .NET **nanoFramework** being tremendously easy there always
 Please do contribute with your own!
 
 - [Coding in C#](coding-in-csharp.md)
-
 - [Working with ESP32 targets](working-with-esp32-targets.md)
-
 - [Working with STM32 targets](working-with-stm32-targets.md)
-
 - [Working with Visual Studio extension](working-with-vs-extension.md)
-
 - [Automatic Firmware Updates](automatic-firmware-updates.md)
-
-<!-- Coding C/C++ (native firmware) -->
-
-<!-- Debugging C/C++ (native firmware) -->
-
-<!-- Working with Visual Studio Code -->
-
-<!-- Developing Visual Studio extension -->

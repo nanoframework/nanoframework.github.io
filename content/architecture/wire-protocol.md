@@ -1,19 +1,5 @@
 # Wire Protocol
 
-## Table of contents
-
-- `Wire Protocol Message](#wire-protocol-message)
-- [Data channels](#data-channels)
-- [Receiving and transmitting data](#receiving-and-transmitting-data)
-- [Receiver workflow](#receiver-workflow)
-- `Wire Protocol Commands](#wire-protocol-commands)
-- [How to add support for a new command](#how-to-add-support-for-a-new-command)
-- [How to add support for new channels](#how-to-add-support-for-new-channels)
-- [HAL interface](#hal-interface)
-- [Application interface](#application-interface)
-- [Debugging Wire Protocol communications](#debugging-wire-protocol-communications)
-- [CRC32 validations](#crc32-validatons)
-
 ## About this document
 
 This document describes the Wire Protocol used by .NET **nanoFramework** for debug and the booter stage.

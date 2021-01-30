@@ -1,11 +1,5 @@
 # Instructions for debugging .NET **nanoFramework** native code in VS Code
 
-## Table of contents
-
-- [Prerequisites](#prerequisites)
-- [Preparation](#preparation)
-- [Launch the debug session](#launch-the-debug-session)
-
 ## About this document
 
 This document describes how to debug .NET **nanoFramework** native code using VS Code.
