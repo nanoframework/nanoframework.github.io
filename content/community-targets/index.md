@@ -17,3 +17,4 @@ These boards are NOT maintained by the core team and any related questions or is
 - [ST_NUCLEO64_F411RE_NF](ST_NUCLEO64_F411RE_NF.md)
 - [ST_STM32F4_DISCOVERY](stm32f4-discovery.md)
 - [TI CC1352P1_LAUNCHXL](ti-cc1352p1-launchxl.md)
+- [QUAIL](mbn-quail.md)

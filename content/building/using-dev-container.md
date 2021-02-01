@@ -24,7 +24,7 @@ We offer the possibility to use such a Dev Container to build any of the support
 
 This is illustrating how to do this:
 
-![https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif]()
+![remote container animation](https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif)
 
 > note: in our case, the dev container is called `nanoFramework`.
 
@@ -55,8 +55,6 @@ Then you can pick the target you want to build:
 
 - **Step 15**: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.
 - **Step 16**: Hit `F7` this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: `[build] Build finished with exit code 0`
-
-> note: some devices use hex2dfu to create dfu files. So far, this is not supported and the build will fail. You will have to install the tool on Windows and run it manually. We're trying to address this temporary issue as fast as possible!
 
 ## Tips and tricks
 
@@ -155,7 +153,7 @@ For this, you'll have to uncomment the last line:
 ,"remoteUser": "vscode"
 ```
 
-in the main Dockerfile, uncomment the files and add the script `non-toot-user.sh`:
+in the main Dockerfile, uncomment the files and add the script `non-root-user.sh`:
 
 ```dockerfile
 ARG USERNAME=vscode

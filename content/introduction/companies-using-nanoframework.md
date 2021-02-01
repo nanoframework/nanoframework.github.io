@@ -7,4 +7,4 @@ If you are using .NET **nanoFramework** in a commercial product we would love to
 | --- | --- | --- | --- |
 |[![Eclo Solutions](http://www.eclo.solutions/images/eclo-solutions-logo-tall.svg)](http://www.eclo.solutions)|&#127991; Eclo Solutions|Monitoring systems|&#127757; Portugal|
 |[![Global Control 5 Ltd.](https://www.gc5.pl/src/img/logo_color.svg)](https://www.gc5.pl)|&#127991; Global Control 5 Ltd.|Building automation|&#127757; Poland|
-|[![OrgPal](https://www.orgpal.com/orgpallogo.png)](https://www.orgpal.com)|OrgPal|&#127991; Automation systems|&#127757; U.S.A.|
+|[![OrgPal](https://www.orgpal.com/orgpallogo.png)](https://www.orgpal.com)|&#127991; OrgPal|Automation systems|&#127757; U.S.A.|

@@ -1,4 +1,4 @@
-# Contributing individuals
+# Individuals contributing or helping .NET **nanoFramework**
 
 .NET **nanoFramework** was started from individual contributions and keeps growing based on those.
 That's very important for the project and we sure would love to have you onboard!

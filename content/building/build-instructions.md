@@ -7,12 +7,6 @@
 - [NXP](build-nxp.md)
 - [Using Dev Container](using-dev-container.md)
 
-- [Prerequisites](#prerequisites)
-- [Pre
-paration](#preparation)
-- [Build a .NET **nanoFramework** image](#build-a-nanoframework-image)
-- [.NET **nanoFramework** build deliverables](#nanoframework-build-deliverables)
-
 ## About this document
 
 This document describes how to build the required images for .NET **nanoFramework** to be flashed in a SoC or MCU.

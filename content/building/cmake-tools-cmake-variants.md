@@ -1,13 +1,4 @@
-# Tweaking cmake-variants.TEMPLATE.json
-
-## Table of contents
-
-- [What is it](#what-is-it)
-- [How to use it](#how-to-use-it)
-- [Brief description](#brief-description)
-- [Content explained](#content-explained)
-- [Working example](#working-example)
-- [Templates](#templates)
+# CMake variants for CMake tools
 
 ## About this document
 
@@ -191,19 +182,11 @@ The following linkage section is a real example used to build nanoFramework for 
 To make your life easier, we provide templates with pre-configured cmake-variants.json for the various reference targets. Just grab them from our Gist.
 
 - [ST_STM32F4_DISCOVERY](https://gist.github.com/nfbot/d4dbea239069146fe30d0869463507a8)
-
 - [ST_STM32F429I_DISCOVERY](https://gist.github.com/nfbot/a5e04d750ff67d7b377f6aea74514208)
-
 - [ST_NUCLEO_F091RC](https://gist.github.com/nfbot/cf7f6cfeb6f776ba068985bc44c005f0)
-
 - [ST_NUCLEO144_F746ZG](https://gist.github.com/nfbot/6de229c9e6e64d5c48b729e077af7153)
-
 - [ST_STM32F769I_DISCOVERY](https://gist.github.com/nfbot/efd47b5cfffdc7e54e388c37f1cb7a9c)
-
 - [MBN_QUAIL](https://gist.github.com/nfbot/06723075c41d4e8f66ba511a4ce46e3f)
-
 - [NETDUINO3_WIFI](https://gist.github.com/nfbot/dae2411ba9d2251c45d302ea1cac135a)
-
 - [ESP32_WROOM_32](https://gist.github.com/nfbot/627051a2f9f459d3c8f17752ca4985be)
-
 - [TI_CC3220SF_LAUNCHXL](https://gist.github.com/nfbot/557af962f3e6e8047925c36a99e19fc9)

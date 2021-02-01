@@ -1,17 +1,5 @@
 # How to Build, Flash and Debug the NXP nanoBooter and nanoCLR on Windows using Visual Studio Code
 
-## Table of contents
-
-- [Prerequisites](#prerequisites)
-- [Setting up the build environment for NXP](#setting-up-the-build-environment-for-nxp)
-- [Set up MCUXpresso IDE](#set-up-mcuxpresso-ide)
-- [nanoFramework GitHub repo](#nanoframework-github-repo)
-- [Set up Visual Studio Code](#set-up-visual-studio-code)
-- [Build nanoBooter and nanoCLR](#build-nanobooter-and-nanoclr)
-- [Flash the NXP target](#flash-the-nxp-target)
-- [Debugging with Cortex Debug with J-Link (Optional)](#debugging-with-cortex-debug-with-j-link-optional)
-- [Next Steps](#next-steps)
-
 ## About this document
 
 This document describes how to build the required images for .NET **nanoFramework** for NXP targets.
