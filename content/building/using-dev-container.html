@@ -100,7 +100,7 @@
 <li><strong>Step 8</strong>: Once prompted or thru the menu, open the dev container.</li>
 </ul>
 <p>This is illustrating how to do this:</p>
-<p><img src="" alt="https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif"></p>
+<p><img src="https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif" alt="remote container animation"></p>
 <blockquote>
 <p>note: in our case, the dev container is called <code>nanoFramework</code>.</p>
 </blockquote>
@@ -130,9 +130,6 @@
 <li><strong>Step 15</strong>: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.</li>
 <li><strong>Step 16</strong>: Hit <code>F7</code> this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: <code>[build] Build finished with exit code 0</code></li>
 </ul>
-<blockquote>
-<p>note: some devices use hex2dfu to create dfu files. So far, this is not supported and the build will fail. You will have to install the tool on Windows and run it manually. We're trying to address this temporary issue as fast as possible!</p>
-</blockquote>
 <h2 id="tips-and-tricks">Tips and tricks</h2>
 <h3 id="some-build-may-fail-for-size-reasons">Some build may fail for size reasons</h3>
 <p>Build may fail if your image is too big. This is the case sometime when you select <code>debug</code>on some devices like the ST Nucleo one. You'll then get a build fail which looks like this:</p>
@@ -200,7 +197,7 @@
 <pre><code class="lang-json">// Uncomment to connect as a non-root user. See https: //aka.ms/vscode-remote/containers/non-root.
 ,&quot;remoteUser&quot;: &quot;vscode&quot;
 </code></pre>
-<p>in the main Dockerfile, uncomment the files and add the script <code>non-toot-user.sh</code>:</p>
+<p>in the main Dockerfile, uncomment the files and add the script <code>non-root-user.sh</code>:</p>
 <pre><code class="lang-dockerfile">ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
