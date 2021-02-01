@@ -56,8 +56,6 @@ Then you can pick the target you want to build:
 - **Step 15**: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.
 - **Step 16**: Hit `F7` this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: `[build] Build finished with exit code 0`
 
-> note: some devices use hex2dfu to create dfu files. So far, this is not supported and the build will fail. You will have to install the tool on Windows and run it manually. We're trying to address this temporary issue as fast as possible!
-
 ## Tips and tricks
 
 ### Some build may fail for size reasons
