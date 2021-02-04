@@ -17,14 +17,14 @@ Most of the core team members and contributors are embedded systems enthusiasts,
 
 Sponsors will get their logo and a link to their website on our GitHub readme and also on our home page.
 
-[![donate](https://opencollective.com/nanoframework/tiers/sponsor.svg?avatarHeight=80)](https://opencollective.com/nanoframework#support)
-[![donate](https://www.orgpal.com/orgpallogo.png)](https://www.orgpal.com)
+<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/sponsor.svg?avatarHeight=80"></a></a>
+<a href="https://www.orgpal.com"><img src="https://www.orgpal.com/orgpallogo.png" height="50" width="114"/></a>
 
 ### Backers
 
 Backers are individuals who contribute money to help support nanoFramework. Every little bit helps and we appreciate all contributions, even the smallest ones.
 
-[![backers](https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80)](https://opencollective.com/nanoframework#support)
+<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80"></a>
 
 ## What is .NET **nanoFramework**
 
