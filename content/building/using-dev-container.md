@@ -171,6 +171,7 @@ document pages here wont work.
 You can flash the compiled nanoCLR.bin file with [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool.
 
 Example:
-```cmd
+```console
 nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
 ```
+
