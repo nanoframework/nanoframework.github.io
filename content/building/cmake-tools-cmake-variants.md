@@ -42,7 +42,7 @@ The following explains each line of the *linkage* section. Text highlighted in *
 - "long": "**description-here**"
   - This is a more complete description of the configuration
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
-  - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.html#how-to-prevent-a-board-from-updating-if-working-on-a-custom-firmware)
+  - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md#how-to-prevent-a-board-from-updating-if-working-on-a-custom-firmware)
   - This can be used to workaround [Found assemblies mismatches when checking for deployment pre-check](build-instructions.md#build_version-matching) error during deployment.
 - "CMAKE_TOOLCHAIN_FILE" : "**CMake/toolchain.arm-none-eabi-OR-xtensa-esp32-elf.cmake**"
   - This is the toolchain file for the target being built. Currently there we support GNU GCC and Xtensa for ESP32.
