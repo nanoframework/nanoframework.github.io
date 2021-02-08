@@ -184,6 +184,20 @@ You'll also need to set the use of CMake Server to true, like this: <code>&quot;
 </ul>
 </li>
 </ul>
+<h2 id="build_version-matching">BUILD_VERSION matching</h2>
+<p>When working with self built nanoCLR you may get the following message while deploying a new app:</p>
+<pre><code>Found assemblies mismatches when checking for deployment pre-check.
+</code></pre>
+<p>This is because the BUILD_VERSION value of your custom built nanoCLR doesn't match the one nanoframework.CoreLibrary expects.
+BUILD_VERSION can be set cmake-variants.json. The value defaults to <code>&quot;0.9.99.999&quot;</code>.
+Change that to the one you need at the moment, like <code>&quot;1.6.1.28&quot;</code>.</p>
+<p>Don't forget to:</p>
+<ul>
+<li>make this change under appropriate target block, as described <a href="cmake-tools-cmake-variants.html">here</a></li>
+<li>make sure you understood that VSCode have to be reloaded to these json changes have effect.</li>
+<li>make sure you understood that the build folder have to be removed to these changes have effect.</li>
+<li>re-select the CMake target (VSCode bottom line) to reconfigure the build.</li>
+</ul>
 </article>
           </div>
           
