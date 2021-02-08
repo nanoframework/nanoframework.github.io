@@ -217,7 +217,7 @@ The above may have some errors if:
 
     it will ask you for the COM port where it's connected
 
-1. An other alternative using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool:
+1. An alternative using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool:
 
     ```console
     nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
