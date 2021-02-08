@@ -137,8 +137,8 @@ Found assemblies mismatches when checking for deployment pre-check.
 ```
 
 This is because the BUILD_VERSION value of your custom built nanoCLR doesn't match the one nanoframework.CoreLibrary expects.
-BUILD_VERSION can be set cmake-variants.json. The value defaults to '"0.9.99.999"'.
-Change that to the one you need at the moment, like '"1.6.1.28"'.
+BUILD_VERSION can be set cmake-variants.json. The value defaults to `"0.9.99.999"`.
+Change that to the one you need at the moment, like `"1.6.1.28"`.
 
 Don't forget to:
 - make this change under appropriate target block, as described [here](cmake-tools-cmake-variants.md)
