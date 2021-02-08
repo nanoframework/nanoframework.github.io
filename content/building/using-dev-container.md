@@ -160,3 +160,17 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ```
+
+### Flashing image
+
+Using Docker Desktop from Windows 10 you cannot flash compiled image to your device directly
+because of the limitations of serial port exposal to container. 
+The instructions about "Terminal" -> "Run Task" -> "Flash nanoCRL ..."  available on other
+document pages here wont work.
+
+You can flash the compiled nanoCLR.bin file with [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool.
+
+Example:
+```cmd
+nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
+```
