@@ -14,6 +14,26 @@ The nanoFramework Unit Test platform is available thru a nuget and comes with al
 
 ![add test nuget](../../images/test-nuget-test-framework.jpg)
 
+Make sure you create in the main directory of your sln file or in the same directory as your nfproj a `.runsettings` and the minium elements you need are:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+   <!-- Configurations that affect the Test Framework -->
+   <RunConfiguration>
+       <MaxCpuCount>1</MaxCpuCount>
+       <ResultsDirectory>.\TestResults</ResultsDirectory><!-- Path relative to solution directory -->
+       <TestSessionTimeout>120000</TestSessionTimeout><!-- Milliseconds -->
+       <TargetFrameworkVersion>Framework40</TargetFrameworkVersion>
+   </RunConfiguration>
+   <nanoFrameworkAdapter>
+    <Logging>None</Logging>
+   </nanoFrameworkAdapter>
+</RunSettings>
+```
+
+The most important part is the `<TargetFrameworkVersion>Framework40</TargetFrameworkVersion>` as this is what trigger the discovery of the tests.
+
 ## Discover the tests
 
 Once you'll build your project, the tests will be discovered automatically:

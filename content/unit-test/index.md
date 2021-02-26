@@ -43,3 +43,5 @@ You can as well simply create a new Visual Studio NFUnitTest project that will a
 ## Detailed usage
 
 You will find the [detailed usage](using-test-platform.md), [how to run the tests](running-tests.md) and the [constraints/limitations](constraints-limitations.md) of the platform in the other documents.
+
+If you are interested into the architecture, please check out [this detailed page](../architecture/unit-test.md).
