@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using the nanoFramework.TestPlatform | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using the nanoFramework.TestPlatform | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="using-the-nanoframeworktestplatform">Using the nanoFramework.TestPlatform</h1>
+
+<p>The core component to prepare your test is <code>nanoFramework.TestPlatform</code>.</p>
+<h2 id="the-attributes">The attributes</h2>
+<p>The classes and tests methods are recognized using attributes. You'll find the following ones:</p>
+<ul>
+<li><code>[TestClass]</code>: this attribute is used on a class, without this attribute on the calls, the class won't be considered as a a valid Unit Test and the test methods inside will be ignored. You can have as many classes as you want with this attribute. Each class can then contain as many tests methods, setup and cleanup as you want.</li>
+<li><code>[TestMethod]</code>: this attribute is used on any method where you'll have tests running inside. You can have as many methods with this attribute as you want.</li>
+<li><code>[Setup]</code>: this attribute is used on any method. This test will be called first. While you technically have as many of those functions per class, it is recommended to only use 1 per class. Typical usage is to setup hardware you'll need to have running for all the tests methods.</li>
+<li><code>[Cleanup]</code>: this attribute is used on any method. This test will be called last, after the all the tests methods. While you technically have as many of those functions per class, it is recommended to only use 1 per class.</li>
+</ul>
+<h2 id="attributes-usage">Attributes usage</h2>
+<p>Here is a typical example of how you can use the attributes:</p>
+<pre><code class="lang-csharp">namespace nanoFramework.TestFramework.Test
+{
+    [TestClass]
+    public class TestOfTest
+    {
+        [TestMethod]
+        public void TestRaisesException()
+        {
+            Debug.WriteLine(&quot;Test will raise exception&quot;);
+            Assert.Trows(typeof(Exception), ThrowMe);
+        }
+
+        private void ThrowMe()
+        {
+            throw new Exception(&quot;Test failed and it's a shame&quot;);
+        }
+
+        [Setup]
+        public void RunSetup()
+        {
+            Debug.WriteLine(&quot;Setup&quot;);
+        }
+
+        [TestMethod]
+        public void TestStringComparison()
+        {
+            Debug.WriteLine(&quot;Test string, Contains, EndsWith, StartWith&quot;);
+            // Arrange
+            string tocontains = &quot;this text contains and end with contains&quot;;
+            string startcontains = &quot;contains start this text&quot;;
+            string contains = &quot;contains&quot;;
+            string doesnotcontains = &quot;this is totally something else&quot;;
+            string empty = string.Empty;
+            string stringnull = null;
+            // Assert
+            Assert.Contains(contains, tocontains);
+            Assert.DoesNotContains(contains, doesnotcontains);
+            Assert.DoesNotContains(contains, empty);
+            Assert.DoesNotContains(contains, stringnull);
+            Assert.StartsWith(contains, startcontains);
+            Assert.EndsWith(contains, tocontains);
+        }
+
+        public void Nothing()
+        {
+            Debug.WriteLine(&quot;Nothing and should not be called&quot;);
+        }
+
+        [Cleanup]
+        public void Cleanup()
+        {
+            Debug.WriteLine(&quot;Cleanup&quot;);
+        }
+    }
+}
+</code></pre>
+<p>As you can see in this example, you just use the attributes to decorate the class and the functions.</p>
+<p>Functions should be <code>void</code> type and take <strong>no</strong> argument at all.</p>
+<p>The test <em>pass</em> if there is <strong>no</strong> exception happening in the function. If any exception happens in the function, it is considered as <em>failed</em>.</p>
+<h2 id="asserting-in-the-test-functions">Asserting in the test functions</h2>
+<p>As for most of the famous .NET Unit Test platform, the concept of <code>Assert</code> is present as well in nanoFramework. You can see in the previous example some of those <code>Assert</code> functions. They take one or two arguments and are straight forward to use.</p>
+<p>If there is an issue in those Assert function, an exception is raised.</p>
+<h3 id="assertthrows">Assert.Throws</h3>
+<p>This check is a specific function will throw. Usage:</p>
+<pre><code class="lang-csharp">Assert.Trows(typeof(ExceptionTypeToCatch), AFunctionToCall);
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><code>ExceptionTypeToCatch</code> has to be a type of Exception. Typical example is to check if the function you're trying to call rases a <code>ArgumentException</code> for example.</li>
+<li><code>AFunctionToCall</code> is an <code>Action</code>, so a function you can call to check if an exception is raised.</li>
+</ul>
+<p>See the pattern in the previous example.</p>
+<h3 id="asserttrue-and-assertfalse">Assert.True and Assert.False</h3>
+<p>Simply check if something is True or False</p>
+<pre><code class="lang-csharp">bool boola = true;
+Assert.True(boola);
+</code></pre>
+<h3 id="assertequal-and-assetnotequal">Assert.Equal and Asset.NotEqual</h3>
+<p><code>Assert.Equal</code> is  collection of functions that takes all the native Value Types as well as Array and check if the elements in the array are equals (if value) or same object (for non value types).</p>
+<pre><code class="lang-csharp">Assert.Equal(elementa, elementb);
+</code></pre>
+<p>Same behavior for <code>Assert.NotEqual</code> but checking that the 2 elements are not equal.</p>
+<pre><code class="lang-csharp">Assert.NotEqual(elementa, elementb);
+</code></pre>
+<h3 id="assertnull-and-assertnotnull">Assert.Null and Assert.NotNull</h3>
+<p>Those functions check that an element is null or not null.</p>
+<pre><code class="lang-csharp">object objnull = null;
+object objnotnull = new object();
+Assert.Null(objnull);
+Assert.NotNull(objnotnull);
+</code></pre>
+<h3 id="assertistype-and-assertisnottype">Assert.IsType and Assert.IsNotType</h3>
+<p>Those functions allows to check that an element is a specific type or not a specific type.</p>
+<pre><code class="lang-csharp">Type typea = typeof(int);
+Type typeb = typeof(int);
+Type typec = typeof(long);
+Assert.IsType(typea, typeb);
+Assert.IsNotType(typea, typec);
+</code></pre>
+<h3 id="assertempty-and-assertnotempty">Assert.Empty and Assert.NotEmpty</h3>
+<h3 id="assertsame-and-assertnotsame">Assert.Same and Assert.NotSame</h3>
+<p>Functions to check that objects are the same or different.</p>
+<pre><code class="lang-csharp">object obja = new object();
+object objb = new object();
+Assert.NotSame(obja, objb);
+objb = obja;
+Assert.Same(obja, objb);
+</code></pre>
+<h3 id="assert-for-string-checking">Assert for String checking</h3>
+<p>A set of functions to help checking strings is available. They allow most of the common scenarios, checking that a string contains specific elements, start with, end with as well as not containing some elements.</p>
+<pre><code class="lang-csharp">// Arrange
+string tocontains = &quot;this text contains and end with contains&quot;;
+string startcontains = &quot;contains start this text&quot;;
+string contains = &quot;contains&quot;;
+string doesnotcontains = &quot;this is totally something else&quot;;
+string empty = string.Empty;
+string stringnull = null;
+// Assert
+Assert.Contains(contains, tocontains);
+Assert.DoesNotContains(contains, doesnotcontains);
+Assert.DoesNotContains(contains, empty);
+Assert.DoesNotContains(contains, stringnull);
+Assert.StartsWith(contains, startcontains);
+Assert.EndsWith(contains, tocontains);
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/unit-test/using-test-platform.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

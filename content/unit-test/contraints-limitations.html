@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Constraints and limitation of nanoFramework.TestPlatform | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Constraints and limitation of nanoFramework.TestPlatform | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="constraints-and-limitation-of-nanoframeworktestplatform">Constraints and limitation of nanoFramework.TestPlatform</h1>
+
+<p>There are currently few limitations on the framework, the mains ones are so far:</p>
+<ul>
+<li>The Unit Test integration will only run on Windows, you can technically run them in the device and you'll get in the debug window the result but it won't be integrated. See the section below.</li>
+<li>The assembly name containing all your tests has to be <code>NFUnitTest</code>. It's a limitation we're working on to remove. You can have as many classes and have as many test projects as you want. You just so far, need to have the assembly being named <code>NFUnitTest</code>. The Unit Test project template has this setup so, if start from the template, you don't have to change anything.</li>
+<li>The built elements for the test assembly has to be in the sub folders of the <code>nfproj</code> project. Typically <code>/directory_where_nfproj/bin/Debug/your.dll</code>. So do not adjust the default settings, they'll work perfectly for our use cases.</li>
+<li>The current running time for the functions is not implemented on the Windows test platform. You'll get the running time if the tests are run on a real hardware. It's a limitation that we're working on to fix.</li>
+</ul>
+<h2 id="running-the-unit-test-on-a-device">Running the Unit Test on a device</h2>
+<p>This scenario is absolutely possible but you won't get the integration with Visual Studio and the results integrated.</p>
+<p>You will have to deploy on your device, the following elements:</p>
+<ul>
+<li><code>mscorlib</code></li>
+<li><code>nanoFramework.UnitTestLauncher</code>, if you recompile it and deploy it, it <strong>must</strong> be in <code>Debug</code> mode</li>
+<li><code>nanoFramework.TestPlatform</code></li>
+<li>Your own test assembly names <code>Test</code>, it can be compiled either in <code>Debug</code> or <code>Release</code></li>
+</ul>
+<p>You'll have to run the tests, you have to catch the results from the debug window. Results will look like that:</p>
+<pre><code class="lang-text">Ready.
+Hello from nanoFrmaework UnitTestLauncher!
+Setup
+Test passed: RunSetup, 20
+Test will raise exception
+    ++++ Exception System.Exception - 0x00000000 (1) ++++
+    ++++ Message: Test failed and it's a shame
+    ++++ nanoFramework.TestFramework.Test.TestOfTest::ThrowMe [IP: 0007] ++++
+    ++++ nanoFramework.TestFramework.Test.TestOfTest::TestRaisesException [IP: 001b] ++++
+    ++++ System.Reflection.MethodBase::Invoke [IP: 0000] ++++
+    ++++ nanoFramework.TestFramework.UnitTestLauncher::RunTest [IP: 004d] ++++
+    ++++ nanoFramework.TestFramework.UnitTestLauncher::Main [IP: 0081] ++++
+Test passed: TestRaisesException, 50
+Test will check that all the Equal are actually equal
+Test passed: TestCheckAllEqual, 100
+Test will check that all the NotEqual are actually equal
+Test passed: TestCheckAllNotEqual, 152
+Test null, not null, types
+Test passed: TestNullEmpty, 42
+Test string, Contains, EndsWith, StartWith
+Test passed: TestStringComparison, 53
+    ++++ Exception System.Exception - 0x00000000 (1) ++++
+    ++++ Message: Test failed and it's a shame
+    ++++ nanoFramework.TestFramework.Test.TestOfTest::ThrowMe [IP: 0007] ++++
+    ++++ nanoFramework.TestFramework.Test.TestOfTest::TestRaisesException [IP: 001b] ++++
+    ++++ System.Reflection.MethodBase::Invoke [IP: 0000] ++++
+    ++++ nanoFramework.TestFramework.UnitTestLauncher::RunTest [IP: 004d] ++++
+    ++++ nanoFramework.TestFramework.UnitTestLauncher::Main [IP: 0081] ++++
+Test failed: SuperTest, This test was intended to fail!
+Cleanup
+Test passed: Cleanup, 55
+Done.
+Exiting.
+</code></pre>
+<p>From the debug output, you can extract successful tests and failed test. The format is the following:</p>
+<ul>
+<li><code>Test passed: MethodName, #</code> where <code>MethodName</code> is the method name and <code>#</code> the number of ticks that has passed during the test.</li>
+<li><code>Test failed: MethodName, Exception message</code> where <code>MethodName</code> is the method name and then you have the exception message.</li>
+</ul>
+<p>The rest of the text is what is output from your own code and the exception raised plus the nanoFramework own logging like <code>Ready.</code>, <code>Done.</code> and <code>Exiting.</code>. You can exploit those output.</p>
+<p><strong>Important</strong>: Please make sure you're <strong>not</strong> using the same pattern as <code>Test passed</code> and <code>Test failed</code> to log your own information. This may break the test platform.</p>
+<p>It is plan to properly integrate Unit Test on real hardware as well in the future.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/unit-test/contraints-limitations.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
