@@ -14,7 +14,7 @@ The nanoFramework Unit Test platform is available thru a nuget and comes with al
 
 ![add test nuget](../../images/test-nuget-test-framework.jpg)
 
-Make sure you create in the main directory of your sln file or in the same directory as your nfproj a `.runsettings` and the minium elements you need are:
+Make sure you have in the main directory of your sln file or in the same directory as your nfproj a `.runsettings` and the minium elements you need are:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -28,6 +28,7 @@ Make sure you create in the main directory of your sln file or in the same direc
    </RunConfiguration>
    <nanoFrameworkAdapter>
     <Logging>None</Logging>
+    <IsRealHardware>False</IsRealHardware>
    </nanoFrameworkAdapter>
 </RunSettings>
 ```
@@ -41,6 +42,16 @@ Once you'll build your project, the tests will be discovered automatically:
 ![test discover](../../images/test-discovered.jpg)
 
 This is automatic and you just need to build. If any issue, you can try the `Rebuild` option, it will force a rediscovery of the tests.
+
+## Running the tests on a real hardware
+
+You'll have to adjust the `.runsettings` file entry `IsRealHardware` to true:
+
+```xml
+<IsRealHardware>True</IsRealHardware>
+```
+
+Once you'll run the rests, they will be deployed into the device attached to your machine.
 
 ## Running the tests
 
@@ -65,3 +76,9 @@ In case of failure, you'll get the same:
 ## Running the tests in a pipeline
 
 The tests can be run in a pipeline using `vstest.Console.exe`. The adapter to use is `nanoFramework.TestAdapter.dll`. You'll find all this into the nuget package.
+
+## Updating the nuget
+
+When you are updating the nuget if you've done changes into your `.runsettings` file, you will be prompt to replace the file, depending on the choices you have done, you may want to save your choices and merge them into the new file. We do recommend to use the new file and adjust it.
+
+![replace nuget](../../images/test-replace-runsettings.jpg)
