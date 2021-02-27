@@ -79,6 +79,10 @@ Functions should be `void` type and take **no** argument at all.
 
 The test *pass* if there is **no** exception happening in the function. If any exception happens in the function, it is considered as *failed*.
 
+## Function visibility
+
+All functions with attributes for testing must be `public void`, if you set them as private or internal, they won't be discovered.
+
 ## Asserting in the test functions
 
 As for most of the famous .NET Unit Test platform, the concept of `Assert` is present as well in nanoFramework. You can see in the previous example some of those `Assert` functions. They take one or two arguments and are straight forward to use.
