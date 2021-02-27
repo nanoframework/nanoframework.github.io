@@ -84,7 +84,7 @@
 <h3 id="setting-up-unit-test-through-nuget">Setting up Unit Test through nuget</h3>
 <p>The nanoFramework Unit Test platform is available thru a nuget and comes with all the needed element. The only thing you need to do it to add it to your nanoFramework project:</p>
 <p><img src="../../images/test-nuget-test-framework.jpg" alt="add test nuget"></p>
-<p>Make sure you create in the main directory of your sln file or in the same directory as your nfproj a <code>.runsettings</code> and the minium elements you need are:</p>
+<p>Make sure you have in the main directory of your sln file or in the same directory as your nfproj a <code>.runsettings</code> and the minium elements you need are:</p>
 <pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;RunSettings&gt;
    &lt;!-- Configurations that affect the Test Framework --&gt;
@@ -96,6 +96,7 @@
    &lt;/RunConfiguration&gt;
    &lt;nanoFrameworkAdapter&gt;
     &lt;Logging&gt;None&lt;/Logging&gt;
+    &lt;IsRealHardware&gt;False&lt;/IsRealHardware&gt;
    &lt;/nanoFrameworkAdapter&gt;
 &lt;/RunSettings&gt;
 </code></pre>
@@ -104,6 +105,11 @@
 <p>Once you'll build your project, the tests will be discovered automatically:</p>
 <p><img src="../../images/test-discovered.jpg" alt="test discover"></p>
 <p>This is automatic and you just need to build. If any issue, you can try the <code>Rebuild</code> option, it will force a rediscovery of the tests.</p>
+<h2 id="running-the-tests-on-a-real-hardware">Running the tests on a real hardware</h2>
+<p>You'll have to adjust the <code>.runsettings</code> file entry <code>IsRealHardware</code> to true:</p>
+<pre><code class="lang-xml">&lt;IsRealHardware&gt;True&lt;/IsRealHardware&gt;
+</code></pre>
+<p>Once you'll run the rests, they will be deployed into the device attached to your machine.</p>
 <h2 id="running-the-tests">Running the tests</h2>
 <p>Simply press the play button for all the tests or just the test you want to run. In case of success, you'll see something like this:</p>
 <p><img src="../../imagestest-success.jpg" alt="test success"></p>
@@ -116,6 +122,9 @@
 <p><img src="../../images/test-integration-vs-failed.jpg" alt="test failed"></p>
 <h2 id="running-the-tests-in-a-pipeline">Running the tests in a pipeline</h2>
 <p>The tests can be run in a pipeline using <code>vstest.Console.exe</code>. The adapter to use is <code>nanoFramework.TestAdapter.dll</code>. You'll find all this into the nuget package.</p>
+<h2 id="updating-the-nuget">Updating the nuget</h2>
+<p>When you are updating the nuget if you've done changes into your <code>.runsettings</code> file, you will be prompt to replace the file, depending on the choices you have done, you may want to save your choices and merge them into the new file. We do recommend to use the new file and adjust it.</p>
+<p><img src="../../images/test-replace-runsettings.jpg" alt="replace nuget"></p>
 </article>
           </div>
           
