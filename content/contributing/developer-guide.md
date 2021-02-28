@@ -3,6 +3,7 @@
 We're working on it! Stay tuned! Raise PR and that will help us finding good recommendations.
 
 Till then here follows some unsorted tips.
+Neither are a full reference but they give some clue where to look next.
 
 ## How to call native code from managed code
 
@@ -108,5 +109,18 @@ char * ret;
 
 // use helper methods to set return value
 NANOCLR_SET_AND_LEAVE(stack.SetResult_String(ret));
+```
+
+## Returning with an Exception
+
+```
+// see other CLR_E_* defined values
+NANOCLR_SET_AND_LEAVE(CLR_E_FAIL);
+```
+
+Not sure on differences, but there is a ```NotImplementedStub``` helper on ```CLR_RT_StackFrame &stack``` parameter may be used too:
+
+```
+NANOCLR_SET_AND_LEAVE(stack.NotImplementedStub());
 ```
 
