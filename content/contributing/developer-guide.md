@@ -40,4 +40,58 @@ HRESULT Library_corlib_native_System_Number::
 
 7. Now you can implement your function.
 
+## How to handle in C++ parameter values received from C# call
 
+Lets see the example method discussed in (#How-to-call-native-code-from-managed-code) tip. The generated (by lib-CoreLibrary solution build, where you declared your needs as an ```extern``` function) C++ stub will have a ```CLR_RT_StackFrame &stack``` parameter.
+The values can be accessed as follows:
+
+### ```object value```
+
+```
+// get ref to value container
+CLR_RT_HeapBlock *value;
+value = &(stack.Arg0());
+
+// perform unboxing operation if necessary
+CLR_RT_TypeDescriptor desc;
+NANOCLR_CHECK_HRESULT(desc.InitializeFromObject(*value));
+NANOCLR_CHECK_HRESULT(value->PerformUnboxing(desc.m_handlerCls));
+
+// get the CLR_DataType of the value in container, like DATATYPE_U1 for a Byte or DATATYPE_R8 for Double
+CLR_DataType dataType = value->DataType();
+
+// retrieving the real value depends on dataType above
+int32_t int32Value = value->NumericByRef().s4;
+```
+
+### ```bool isInteger```
+
+```
+// get value
+bool isInteger;
+isInteger = (bool)stack.Arg1().NumericByRef().u1;
+```
+
+### ```String format```
+
+```
+// get value
+char *format;
+format = (char *)stack.Arg2().RecoverString();
+```
+
+### ```int[] numberGroupSizes```
+
+```
+// get ref to value container
+CLR_RT_HeapBlock_Array *numberGroupSizes;
+numberGroupSizes = stack.Arg6().DereferenceArray();
+
+// get number of elements
+CLR_UINT32 numOfElements = numberGroupSizes->m_numOfElements;
+
+// get the 5th element
+// cast necessary, because GetElement declared as CLR_INT8*, 
+// but the C# code call placed items of Int32 type into array.
+int the5thEelement = *((CLR_INT32 *)numberGroupSizes->GetElement(5));
+```
