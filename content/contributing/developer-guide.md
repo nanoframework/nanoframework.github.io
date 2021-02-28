@@ -126,8 +126,19 @@ NANOCLR_SET_AND_LEAVE(stack.NotImplementedStub());
 
 # Example managed-native development cycle
 
-This is just a suggestion I found helpful for me during development of a feature crossing the managed-native border.
-It saved me some time.
+The managed-native border crossing development cycle could have significant time penalty.
+Without any shortcuts the required steps are:
+
+1. The native code changes should be compiled
+2. The native code changes should be downloaded to the device
+3. The managed code should be compiled
+4. The managed code should be downloaded to the device
+5. The code should be executed.
+
+So two builds, two downloads required and two development environments involved.
+
+Below you can find a suggestion which can be used in cases when the physical device's capabilities (lik GPIO ports, etc.) not affected by the development, only it's execution of the nanoCLR (like the number ToString() implementation) required.
+It saved me a lot of time.
 
 1. Write you managed code which requires native code support (see (#How-to-call-native-code-from-managed-code)) but DO NOT declare native part as an ```extern``` method. Just declare it as a "normal" private method. Add some simple implementation what supports the actual development state of your managed code, like return a constant what the currently implemented managed feature would expect from native call. Finish your managed coding agains this stub. You can either write tests for your code too because you have an "emulated" native behaviour. No need to leave the managed code development environment meanwhile.
 2. Replace the stub with the correct ```extern``` declaration. Rebuild solution to get the appropriate corlib changes as described in (#How-to-call-native-code-from-managed-code).
