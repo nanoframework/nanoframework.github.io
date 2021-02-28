@@ -1,9 +1,9 @@
-# Developer Guideline
+# Developer Guidelines
 
 We're working on it! Stay tuned! Raise PR and that will help us finding good recommendations.
 
-Till then here follows some unsorted tips.
-Neither are a full reference but they give some clue where to look next.
+Until then, here follows some unsorted tips.
+These are not a full reference, but they give some clues on where to look next.
 
 ## How to call native code from managed code
 
@@ -30,8 +30,8 @@ private static extern String FormatNative(
 4. Compare the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder's actual state with the saved one. The files which should have changed:
 - ```corlib_native.cpp```
 - ```corlib_native.h```
-- your class's C++ counterpart, ```corlib_native_System_Number.cpp``` in the my example
-5. Apply the changes you found to same files under ```nf-interpreter/src/CLR/CorLib```. DO NOT overwrite the files there! The files under nf-interpreter may have additional declarations, etc. Copy over the diff meaningfully!
+- your class's C++ counterpart, ```corlib_native_System_Number.cpp``` in the example
+5. Apply the changes you found to the same files under ```nf-interpreter/src/CLR/CorLib```. DO NOT overwrite the files there! The files under nf-interpreter may have additional declarations, etc. Copy over the diff meaningfully!
 6. You will find that a stub for the function you declared above will be generated with this signature:
 
 ```
@@ -41,9 +41,9 @@ HRESULT Library_corlib_native_System_Number::
 
 7. Now you can implement your function.
 
-## How to handle in C++ parameter values received from C# call
+## How to handle the C++ parameter values received from a C# call
 
-Lets see the example method discussed in (#How-to-call-native-code-from-managed-code) tip. The generated (by lib-CoreLibrary solution build, where you declared your needs as an ```extern``` function) C++ stub will have a ```CLR_RT_StackFrame &stack``` parameter.
+Lets see the example method discussed in the (#How-to-call-native-code-from-managed-code) tip. The generated (by lib-CoreLibrary solution build, where you declared your needs as an ```extern``` function) C++ stub will have a ```CLR_RT_StackFrame &stack``` parameter.
 The values can be accessed as follows:
 
 ### ```object value```
@@ -118,7 +118,7 @@ NANOCLR_SET_AND_LEAVE(stack.SetResult_String(ret));
 NANOCLR_SET_AND_LEAVE(CLR_E_FAIL);
 ```
 
-Not sure on differences, but there is a ```NotImplementedStub``` helper on ```CLR_RT_StackFrame &stack``` parameter may be used too:
+Not sure on the differences, but there is a ```NotImplementedStub``` helper on ```CLR_RT_StackFrame &stack``` parameter may be used too:
 
 ```
 NANOCLR_SET_AND_LEAVE(stack.NotImplementedStub());
