@@ -95,3 +95,18 @@ CLR_UINT32 numOfElements = numberGroupSizes->m_numOfElements;
 // but the C# code call placed items of Int32 type into array.
 int the5thEelement = *((CLR_INT32 *)numberGroupSizes->GetElement(5));
 ```
+
+## Returning from C++ function for C# code
+
+Values should be returned via the ```CLR_RT_StackFrame &stack``` parameter.
+
+### String
+
+```
+char * ret;
+// ... assign value to ret ...
+
+// use helper methods to set return value
+NANOCLR_SET_AND_LEAVE(stack.SetResult_String(ret));
+```
+
