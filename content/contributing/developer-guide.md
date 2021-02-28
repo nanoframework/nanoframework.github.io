@@ -124,3 +124,14 @@ Not sure on differences, but there is a ```NotImplementedStub``` helper on ```CL
 NANOCLR_SET_AND_LEAVE(stack.NotImplementedStub());
 ```
 
+# Example managed-native development cycle
+
+This is just a suggestion I found helpful for me during development of a feature crossing the managed-native border.
+It saved me some time.
+
+1. Write you managed code which requires native code support (see (#How-to-call-native-code-from-managed-code)) but DO NOT declare native part as an ```extern``` method. Just declare it as a "normal" private method. Add some simple implementation what supports the actual development state of your managed code, like return a constant what the currently implemented managed feature would expect from native call. Finish your managed coding agains this stub. You can either write tests for your code too because you have an "emulated" native behaviour. No need to leave the managed code development environment meanwhile.
+2. Replace the stub with the correct ```extern``` declaration. Rebuild solution to get the appropriate corlib changes as described in (#How-to-call-native-code-from-managed-code).
+3. Switch to native code development environment.
+4. Add minimal implementation to the ```extern``` counterpart C++ function: just extract parameters from their CLR form to C++ form (see (#How to handle in C++ parameter values received from C# call)). The goal is: convert the managed-call-specific things into native C++. Forward call with the extracted parameters to a private func with same logical signature. Now you have a "clean" C++ function without any CLR specific parameter handling logic.
+5. [Debug once](../building/build-esp32.md#debugging-nanoclr-without-special-hardware). Check that your "clean" C++ func receives all the parameters appropriatelly from managed call.
+6. Implement the body of "clean" C++ function. At this moment you are not depending on managed call so you can write anywhere and with any development method, using tests to call your function without any need to setup extensive CLR objects just to test the code you are just developing. E.g. you can write and debug your code on https://www.onlinegdb.com/.
