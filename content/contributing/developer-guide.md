@@ -28,7 +28,9 @@ Assuming you want to call from nanoframework's mscorlib (source can be found in 
 
 1. Add code which calls the function above as you wish.
 1. If you change the assembly signature (via adding or modifying an ```extern``` function) you should bump the assembly version in the ```AssemblyInfo.cs``` file:
-   ```[assembly: AssemblyNativeVersion("100.5.0.5")]```
+   ```
+   [assembly: AssemblyNativeVersion("100.5.0.5")]
+   ```
 1. Build the solution.
 1. Compare the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder's actual state with the saved one. The files which should have changed:
    - ```corlib_native.cpp```
