@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Developer Guideline | nanoFramework Documentation </title>
+    <title>Developer Guidelines | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Developer Guideline | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="title" content="Developer Guidelines | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -75,9 +75,127 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="developer-guideline">Developer Guideline</h1>
+<h1 id="developer-guidelines">Developer Guidelines</h1>
 
 <p>We're working on it! Stay tuned! Raise PR and that will help us finding good recommendations.</p>
+<p>Until then, here follows some unsorted tips.
+These are not a full reference, but they give some clues on where to look next.</p>
+<h2 id="how-to-call-native-code-from-managed-code">How to call native code from managed code</h2>
+<p>Assuming you want to call from nanoframework's mscorlib (source can be found in lib-CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:</p>
+<ol>
+<li>Build the nf-CoreLibrary solution without making any changes.</li>
+<li>Copy the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> folder somewhere for later use.</li>
+<li>Declare your C++ function in your C# class:</li>
+</ol>
+<pre><code>[MethodImpl(MethodImplOptions.InternalCall)]
+private static extern String FormatNative(
+   Object value,
+   bool isInteger,
+   String format,
+   String numberDecimalSeparator,
+   String negativeSign,
+   String numberGroupSeparator,
+   int[] numberGroupSizes);
+</code></pre>
+<ol start="2">
+<li>Add code which calls the function above as you wish.</li>
+<li>Build the solution.</li>
+<li>Compare the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> folder's actual state with the saved one. The files which should have changed:</li>
+</ol>
+<ul>
+<li><code>corlib_native.cpp</code></li>
+<li><code>corlib_native.h</code></li>
+<li>your class's C++ counterpart, <code>corlib_native_System_Number.cpp</code> in the example</li>
+</ul>
+<ol start="5">
+<li>Apply the changes you found to the same files under <code>nf-interpreter/src/CLR/CorLib</code>. DO NOT overwrite the files there! The files under nf-interpreter may have additional declarations, etc. Copy over the diff meaningfully!</li>
+<li>You will find that a stub for the function you declared above will be generated with this signature:</li>
+</ol>
+<pre><code>HRESULT Library_corlib_native_System_Number::
+    FormatNative___STATIC__STRING__OBJECT__BOOLEAN__STRING__STRING__STRING__STRING__SZARRAY_I4(CLR_RT_StackFrame &amp;stack)
+</code></pre>
+<ol start="7">
+<li>Now you can implement your function.</li>
+</ol>
+<h2 id="how-to-handle-the-c-parameter-values-received-from-a-c-call">How to handle the C++ parameter values received from a C# call</h2>
+<p>Lets see the example method discussed in the (#How-to-call-native-code-from-managed-code) tip. The generated (by lib-CoreLibrary solution build, where you declared your needs as an <code>extern</code> function) C++ stub will have a <code>CLR_RT_StackFrame &amp;stack</code> parameter.
+The values can be accessed as follows:</p>
+<h3 id="object-value"><code>object value</code></h3>
+<pre><code>// get ref to value container
+CLR_RT_HeapBlock *value;
+value = &amp;(stack.Arg0());
+
+// perform unboxing operation if necessary
+CLR_RT_TypeDescriptor desc;
+NANOCLR_CHECK_HRESULT(desc.InitializeFromObject(*value));
+NANOCLR_CHECK_HRESULT(value-&gt;PerformUnboxing(desc.m_handlerCls));
+
+// get the CLR_DataType of the value in container, like DATATYPE_U1 for a Byte or DATATYPE_R8 for Double
+CLR_DataType dataType = value-&gt;DataType();
+
+// retrieving the real value depends on dataType above
+int32_t int32Value = value-&gt;NumericByRef().s4;
+</code></pre>
+<h3 id="bool-isinteger"><code>bool isInteger</code></h3>
+<pre><code>// get value
+bool isInteger;
+isInteger = (bool)stack.Arg1().NumericByRef().u1;
+</code></pre>
+<h3 id="string-format"><code>String format</code></h3>
+<pre><code>// get value
+char *format;
+format = (char *)stack.Arg2().RecoverString();
+</code></pre>
+<h3 id="int-numbergroupsizes"><code>int[] numberGroupSizes</code></h3>
+<pre><code>// get ref to value container
+CLR_RT_HeapBlock_Array *numberGroupSizes;
+numberGroupSizes = stack.Arg6().DereferenceArray();
+
+// get number of elements
+CLR_UINT32 numOfElements = numberGroupSizes-&gt;m_numOfElements;
+
+// get the 5th element
+// cast necessary, because GetElement declared as CLR_INT8*, 
+// but the C# code call placed items of Int32 type into array.
+int the5thEelement = *((CLR_INT32 *)numberGroupSizes-&gt;GetElement(5));
+</code></pre>
+<h2 id="returning-from-c-function-for-c-code">Returning from C++ function for C# code</h2>
+<p>Values should be returned via the <code>CLR_RT_StackFrame &amp;stack</code> parameter.</p>
+<h3 id="string">String</h3>
+<pre><code>char * ret;
+// ... assign value to ret ...
+
+// use helper methods to set return value
+NANOCLR_SET_AND_LEAVE(stack.SetResult_String(ret));
+</code></pre>
+<h2 id="returning-with-an-exception">Returning with an Exception</h2>
+<pre><code>// see other CLR_E_* defined values
+NANOCLR_SET_AND_LEAVE(CLR_E_FAIL);
+</code></pre>
+<p>Not sure on the differences, but there is a <code>NotImplementedStub</code> helper on <code>CLR_RT_StackFrame &amp;stack</code> parameter may be used too:</p>
+<pre><code>NANOCLR_SET_AND_LEAVE(stack.NotImplementedStub());
+</code></pre>
+<h1 id="example-managed-native-development-cycle">Example managed-native development cycle</h1>
+<p>The managed-native border crossing development cycle could have significant time penalty.
+Without any shortcuts the required steps are:</p>
+<ol>
+<li>The native code changes should be compiled</li>
+<li>The native code changes should be downloaded to the device</li>
+<li>The managed code should be compiled</li>
+<li>The managed code should be downloaded to the device</li>
+<li>The code should be executed.</li>
+</ol>
+<p>So two builds, two downloads required and two development environments involved.</p>
+<p>Below you can find a suggestion which can be used in cases when the physical device's capabilities (lik GPIO ports, etc.) not affected by the development, only it's execution of the nanoCLR (like the number ToString() implementation) required.
+It saved me a lot of time.</p>
+<ol>
+<li>Write you managed code which requires native code support (see (#How-to-call-native-code-from-managed-code)) but DO NOT declare native part as an <code>extern</code> method. Just declare it as a &quot;normal&quot; private method. Add some simple implementation what supports the actual development state of your managed code, like return a constant what the currently implemented managed feature would expect from native call. Finish your managed coding agains this stub. You can either write tests for your code too because you have an &quot;emulated&quot; native behaviour. No need to leave the managed code development environment meanwhile.</li>
+<li>Replace the stub with the correct <code>extern</code> declaration. Rebuild solution to get the appropriate corlib changes as described in (#How-to-call-native-code-from-managed-code).</li>
+<li>Switch to native code development environment.</li>
+<li>Add minimal implementation to the <code>extern</code> counterpart C++ function: just extract parameters from their CLR form to C++ form (see (#How to handle in C++ parameter values received from C# call)). The goal is: convert the managed-call-specific things into native C++. Forward call with the extracted parameters to a private func with same logical signature. Now you have a &quot;clean&quot; C++ function without any CLR specific parameter handling logic.</li>
+<li><a href="../building/build-esp32.html#debugging-nanoclr-without-special-hardware">Debug once</a>. Check that your &quot;clean&quot; C++ func receives all the parameters appropriatelly from managed call.</li>
+<li>Implement the body of &quot;clean&quot; C++ function. At this moment you are not depending on managed call so you can write anywhere and with any development method, using tests to call your function without any need to setup extensive CLR objects just to test the code you are just developing. E.g. you can write and debug your code on <a href="https://www.onlinegdb.com/">https://www.onlinegdb.com/</a>.</li>
+</ol>
 </article>
           </div>
           
