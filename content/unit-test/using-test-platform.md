@@ -85,7 +85,7 @@ All functions with attributes for testing must be `public void`, if you set them
 
 ## Asserting in the test functions
 
-As for most of the famous .NET Unit Test platform, the concept of `Assert` is present as well in nanoFramework. You can see in the previous example some of those `Assert` functions. They take one or two arguments and are straight forward to use.
+As for most of the famous .NET Unit Test platform, the concept of `Assert` is present as well in .NET **nanoFramework**. You can see in the previous example some of those `Assert` functions. They take one or two arguments and are straight forward to use.
 
 If there is an issue in those Assert function, an exception is raised.
 
