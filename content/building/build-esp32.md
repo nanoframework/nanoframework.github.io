@@ -195,34 +195,40 @@ The above may have some errors if:
 
 1. Some ESP32 boards require to be put into "download mode". Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.
 
-1. In Visual Studio Code go to menu "Terminal" -> "Run Task" and select "Flash nanoCLR to ESP32 from the list.
+1. Download the image to device.
+    - In Visual Studio Code go to menu "Terminal" -> "Run Task" and select "Flash nanoCLR to ESP32 from the list.
 
-1. As an alternative enter the command in command palette:
+    - As an alternative enter the command in command palette:
 
-    ```cmd
-    Tasks: Run task
-    ```
+       ```cmd
+       Tasks: Run task
+       ```
 
-    and if you flash the board for the first time
+       and if you flash the board for the first time
 
-    ```cmd
-    Erase ESP32
-    ```
+       ```cmd
+       Erase ESP32
+       ```
 
-    and then
+       and then
 
-    ```cmd
-    Flash nanoCLR to ESP32
-    ```
+       ```cmd
+       Flash nanoCLR to ESP32
+       ```
 
-    it will ask you for the COM port where it's connected
+       It will ask you for the COM port where it's connected.
 
-1. An alternative using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool:
+    - An other alternative is using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool: 
+     
+       ```console
+       nanoff --platform esp32 --serialport <YourCOMPort> --image nanoCLR.bin --address 0x00010000
+       ```
+  
+    - An other alternative would be to use Espressif's own [esptool.py](https://github.com/espressif/esptool) tool:
 
-    ```console
-    nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
-    ```
-
+        ```console
+        esptool.py --chip esp32 --port <YourCOMPort> --baud 1500000 --before "default_reset" --after "hard_reset" write_flash -z --flash_mode "dio" --flash_freq "40m" --flash_size detect 0x1000 <YourPathTo>/nftools/libs-v3.3.1/bootloader.bin 0x10000 <YourPathTo>/nf-interpreter/build/nanoCLR.bin 0x8000 <YourPathTo>/nf-interpreter/build/<PartitionFilePassingToYourBoard>.bin
+        ```
 
 ## Start with a 'Hello World' C# application
 
