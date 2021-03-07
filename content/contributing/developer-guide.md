@@ -10,36 +10,48 @@ These are not a full reference, but they give some clues on where to look next.
 Assuming you want to call from nanoframework's mscorlib (source can be found in lib-CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:
 
 1. Build the nf-CoreLibrary solution without making any changes.
-2. Copy the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder somewhere for later use.
-3. Declare your C++ function in your C# class:
+1. Copy these folders somewhere for later use:
+   - ```nanoFramework.CoreLibrary\bin\Debug\Stubs```
+   - ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` 
+1. Declare your C++ function in your C# class:
+   ```lang
+   [MethodImpl(MethodImplOptions.InternalCall)]
+   private static extern String FormatNative(
+      Object value,
+      bool isInteger,
+      String format,
+      String numberDecimalSeparator,
+      String negativeSign,
+      String numberGroupSeparator,
+      int[] numberGroupSizes);
+   ```
 
-```
-[MethodImpl(MethodImplOptions.InternalCall)]
-private static extern String FormatNative(
-   Object value,
-   bool isInteger,
-   String format,
-   String numberDecimalSeparator,
-   String negativeSign,
-   String numberGroupSeparator,
-   int[] numberGroupSizes);
-```
+1. Add code which calls the function above as you wish.
+1. If you change the assembly signature (via adding or modifying an ```extern``` function) you should bump the assembly version in the ```AssemblyInfo.cs``` file:
+   ```
+   [assembly: AssemblyNativeVersion("100.5.0.5")]
+   ```
+1. Build the solution.
+1. Compare the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder's actual state with the saved one. The files which should have changed:
+   - ```corlib_native.cpp```
+   - ```corlib_native.h```
+   - your class's C++ counterpart, ```corlib_native_System_Number.cpp``` in the example
 
-2. Add code which calls the function above as you wish.
-3. Build the solution.
-4. Compare the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder's actual state with the saved one. The files which should have changed:
-- ```corlib_native.cpp```
-- ```corlib_native.h```
-- your class's C++ counterpart, ```corlib_native_System_Number.cpp``` in the example
-5. Apply the changes you found to the same files under ```nf-interpreter/src/CLR/CorLib```. DO NOT overwrite the files there! The files under nf-interpreter may have additional declarations, etc. Copy over the diff meaningfully!
-6. You will find that a stub for the function you declared above will be generated with this signature:
+   Do the same with ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` too.
+1. Apply the changes you found to the same files under ```nf-interpreter/src/CLR/CorLib```. 
 
-```
-HRESULT Library_corlib_native_System_Number::
-    FormatNative___STATIC__STRING__OBJECT__BOOLEAN__STRING__STRING__STRING__STRING__SZARRAY_I4(CLR_RT_StackFrame &stack)
-```
+   **DO NOT** overwrite the files there! The files under nf-interpreter may have additional declarations, etc. 
+   Open the file and look for ```#if (NANOCLR_REFLECTION ==``` lines. There could be more of them. 
+   Copy over the diff meaningfully: 
+   - changes from the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` are going inside the ```NANOCLR_REFLECTION == TRUE``` blocks 
+   - changes from the ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` are going inside the ```NANOCLR_REFLECTION == FALSE``` blocks.
+1. You will find that a stub for the function you declared above will be generated with this signature:
+   ```
+   HRESULT Library_corlib_native_System_Number::
+       FormatNative___STATIC__STRING__OBJECT__BOOLEAN__STRING__STRING__STRING__STRING__SZARRAY_I4(CLR_RT_StackFrame &stack)
+   ```
 
-7. Now you can implement your function.
+1. Now you can implement your function.
 
 ## How to handle the C++ parameter values received from a C# call
 
