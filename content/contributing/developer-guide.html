@@ -83,11 +83,16 @@ These are not a full reference, but they give some clues on where to look next.<
 <h2 id="how-to-call-native-code-from-managed-code">How to call native code from managed code</h2>
 <p>Assuming you want to call from nanoframework's mscorlib (source can be found in lib-CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:</p>
 <ol>
-<li>Build the nf-CoreLibrary solution without making any changes.</li>
-<li>Copy the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> folder somewhere for later use.</li>
-<li>Declare your C++ function in your C# class:</li>
-</ol>
-<pre><code>[MethodImpl(MethodImplOptions.InternalCall)]
+<li><p>Build the nf-CoreLibrary solution without making any changes.</p>
+</li>
+<li><p>Copy these folders somewhere for later use:</p>
+<ul>
+<li><code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code></li>
+<li><code>nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs</code></li>
+</ul>
+</li>
+<li><p>Declare your C++ function in your C# class:</p>
+<pre><code class="lang-lang">[MethodImpl(MethodImplOptions.InternalCall)]
 private static extern String FormatNative(
    Object value,
    bool isInteger,
@@ -97,25 +102,39 @@ private static extern String FormatNative(
    String numberGroupSeparator,
    int[] numberGroupSizes);
 </code></pre>
-<ol start="2">
-<li>Add code which calls the function above as you wish.</li>
-<li>Build the solution.</li>
-<li>Compare the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> folder's actual state with the saved one. The files which should have changed:</li>
-</ol>
+</li>
+<li><p>Add code which calls the function above as you wish.</p>
+</li>
+<li><p>If you change the assembly signature (via adding or modifying an <code>extern</code> function) you should bump the assembly version in the <code>AssemblyInfo.cs</code> file:</p>
+<pre><code>[assembly: AssemblyNativeVersion(&quot;100.5.0.5&quot;)]
+</code></pre>
+</li>
+<li><p>Build the solution.</p>
+</li>
+<li><p>Compare the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> folder's actual state with the saved one. The files which should have changed:</p>
 <ul>
 <li><code>corlib_native.cpp</code></li>
 <li><code>corlib_native.h</code></li>
 <li>your class's C++ counterpart, <code>corlib_native_System_Number.cpp</code> in the example</li>
 </ul>
-<ol start="5">
-<li>Apply the changes you found to the same files under <code>nf-interpreter/src/CLR/CorLib</code>. DO NOT overwrite the files there! The files under nf-interpreter may have additional declarations, etc. Copy over the diff meaningfully!</li>
-<li>You will find that a stub for the function you declared above will be generated with this signature:</li>
-</ol>
+<p>Do the same with <code>nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs</code> too.</p>
+</li>
+<li><p>Apply the changes you found to the same files under <code>nf-interpreter/src/CLR/CorLib</code>.</p>
+<p><strong>DO NOT</strong> overwrite the files there! The files under nf-interpreter may have additional declarations, etc.
+Open the file and look for <code>#if (NANOCLR_REFLECTION ==</code> lines. There could be more of them.
+Copy over the diff meaningfully:</p>
+<ul>
+<li>changes from the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> are going inside the <code>NANOCLR_REFLECTION == TRUE</code> blocks</li>
+<li>changes from the <code>nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs</code> are going inside the <code>NANOCLR_REFLECTION == FALSE</code> blocks.</li>
+</ul>
+</li>
+<li><p>You will find that a stub for the function you declared above will be generated with this signature:</p>
 <pre><code>HRESULT Library_corlib_native_System_Number::
     FormatNative___STATIC__STRING__OBJECT__BOOLEAN__STRING__STRING__STRING__STRING__SZARRAY_I4(CLR_RT_StackFrame &amp;stack)
 </code></pre>
-<ol start="7">
-<li>Now you can implement your function.</li>
+</li>
+<li><p>Now you can implement your function.</p>
+</li>
 </ol>
 <h2 id="how-to-handle-the-c-parameter-values-received-from-a-c-call">How to handle the C++ parameter values received from a C# call</h2>
 <p>Lets see the example method discussed in the (#How-to-call-native-code-from-managed-code) tip. The generated (by lib-CoreLibrary solution build, where you declared your needs as an <code>extern</code> function) C++ stub will have a <code>CLR_RT_StackFrame &amp;stack</code> parameter.

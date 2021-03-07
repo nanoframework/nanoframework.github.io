@@ -266,6 +266,8 @@ In this case deleting the contents of the <code>build</code> folder should allow
 </li>
 <li><p>Some ESP32 boards require to be put into &quot;download mode&quot;. Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.</p>
 </li>
+<li><p>Download the image to device.</p>
+<ul>
 <li><p>In Visual Studio Code go to menu &quot;Terminal&quot; -&gt; &quot;Run Task&quot; and select &quot;Flash nanoCLR to ESP32 from the list.</p>
 </li>
 <li><p>As an alternative enter the command in command palette:</p>
@@ -277,11 +279,17 @@ In this case deleting the contents of the <code>build</code> folder should allow
 <p>and then</p>
 <pre><code class="lang-cmd">Flash nanoCLR to ESP32
 </code></pre>
-<p>it will ask you for the COM port where it's connected</p>
+<p>It will ask you for the COM port where it's connected.</p>
 </li>
-<li><p>An alternative using <a href="../getting-started-guides/getting-started-managed.html#uploading-the-firmware-to-the-board-using-nanofirmwareflasher">nanoff</a> tool:</p>
-<pre><code class="lang-console">nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
+<li><p>An other alternative is using <a href="../getting-started-guides/getting-started-managed.html#uploading-the-firmware-to-the-board-using-nanofirmwareflasher">nanoff</a> tool:</p>
+<pre><code class="lang-console">nanoff --platform esp32 --serialport &lt;YourCOMPort&gt; --image nanoCLR.bin --address 0x00010000
 </code></pre>
+</li>
+<li><p>An other alternative would be to use Espressif's own <a href="https://github.com/espressif/esptool">esptool.py</a> tool:</p>
+<pre><code class="lang-console">esptool.py --chip esp32 --port &lt;YourCOMPort&gt; --baud 1500000 --before &quot;default_reset&quot; --after &quot;hard_reset&quot; write_flash -z --flash_mode &quot;dio&quot; --flash_freq &quot;40m&quot; --flash_size detect 0x1000 &lt;YourPathTo&gt;/nftools/libs-v3.3.1/bootloader.bin 0x10000 &lt;YourPathTo&gt;/nf-interpreter/build/nanoCLR.bin 0x8000 &lt;YourPathTo&gt;/nf-interpreter/build/&lt;PartitionFilePassingToYourBoard&gt;.bin
+</code></pre>
+</li>
+</ul>
 </li>
 </ol>
 <h2 id="start-with-a-hello-world-c-application">Start with a 'Hello World' C# application</h2>
