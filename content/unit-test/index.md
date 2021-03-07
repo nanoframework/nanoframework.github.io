@@ -1,12 +1,12 @@
-# nanoFramework Unit Tests platform
+# .NET **nanoFramework** Unit Tests platform
 
 nanoFramework offers a complete Unit Tests platform called `nanoFramework.TestPlatform`
 
 ## What is nanoFramework.TestPlatform
 
-nanoFramework.TestPlatform is a Unit Test platform dedicated to nanoFramework! It has all the benefits of what you're used to when using Microsoft Test platform for .NET or XUnit or any other!
+nanoFramework.TestPlatform is a Unit Test platform dedicated to .NET **nanoFramework**! It has all the benefits of what you're used to when using Microsoft Test platform for .NET or XUnit or any other!
 
-The framework includes multiple elements that are including in a single nuget!
+The framework includes multiple elements that are including in a single NuGet!
 
 - `nanoFramework.TestPlatform` which contains the attributes to decorate your code and the `Assert` classes to check that you're code is properly doing what's expected.
 - `nanoFramework.UnitTestLauncher` which is the engine launching and managing the Unit Tests.
@@ -22,9 +22,9 @@ And the integration will point you up to your code for successful or failed test
 
 ## Usage of nanoFramework.TestPlatform
 
-Simply add the `nanoFramework.TestPlatform` nuget to your project and you're good to go!
+Simply add the `nanoFramework.TestPlatform` NuGet to your project and you're good to go!
 
-![test nuget](../../images/test-nuget-test-framework.jpg)
+![test NuGet](../../images/test-nuget-test-framework.jpg)
 
 Once you'll build your project, the tests will be automatically discovered:
 

@@ -1,6 +1,6 @@
-# Running Unit Tests on nanoFramework
+# Running Unit Tests on .NET **nanoFramework**
 
-You first need to setup your nanoFramework Unit Test project. For this, you have 2 options, either you create a `NFUnitTest` project from Visual Studio, either you add a the nanoFramework.TestFramework nuget to your class library project.
+You first need to setup your .NET **nanoFramework** Unit Test project. For this, you have 2 options, either you create a `NFUnitTest` project from Visual Studio, either you add a the nanoFramework.TestFramework NuGet to your class library project.
 
 ## Setting up through Visual Studio project template
 
@@ -8,11 +8,11 @@ You can as well simply create a new Visual Studio NFUnitTest project that will a
 
 ![test VS project](../../images/test-project-template.png)
 
-### Setting up Unit Test through nuget
+### Setting up Unit Test through NuGet
 
-The nanoFramework Unit Test platform is available thru a nuget and comes with all the needed element. The only thing you need to do it to add it to your nanoFramework project:
+The .NET **nanoFramework** Unit Test platform is available thru a NuGet and comes with all the needed element. The only thing you need to do it to add it to your .NET **nanoFramework** project:
 
-![add test nuget](../../images/test-nuget-test-framework.jpg)
+![add test NuGet](../../images/test-nuget-test-framework.jpg)
 
 Make sure you have in the main directory of your sln file or in the same directory as your nfproj a `.runsettings` and the minium elements you need are:
 
@@ -75,10 +75,10 @@ In case of failure, you'll get the same:
 
 ## Running the tests in a pipeline
 
-The tests can be run in a pipeline using `vstest.Console.exe`. The adapter to use is `nanoFramework.TestAdapter.dll`. You'll find all this into the nuget package.
+The tests can be run in a pipeline using `vstest.Console.exe`. The adapter to use is `nanoFramework.TestAdapter.dll`. You'll find all this into the NuGet package.
 
-## Updating the nuget
+## Updating the NuGet
 
-When you are updating the nuget if you've done changes into your `.runsettings` file, you will be prompt to replace the file, depending on the choices you have done, you may want to save your choices and merge them into the new file. We do recommend to use the new file and adjust it.
+When you are updating the NuGet if you've done changes into your `.runsettings` file, you will be prompt to replace the file, depending on the choices you have done, you may want to save your choices and merge them into the new file. We do recommend to use the new file and adjust it.
 
-![replace nuget](../../images/test-replace-runsettings.jpg)
+![replace NuGet](../../images/test-replace-runsettings.jpg)
