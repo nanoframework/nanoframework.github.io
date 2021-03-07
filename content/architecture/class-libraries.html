@@ -176,7 +176,7 @@
 <p>To ease the burden of distributing and updating the class libraries we've choose to use Nuget to handle all this. It has the added benefit of dealing with the dependency management, version and such.</p>
 <p>So, for each class library, there is a Nuget package that includes the assembly and documentation files. The Nuget package takes care of making sure that the required dependency(ies) and correct version(s) are added to a managed (C#) project, making a developer's life much easier.</p>
 <h2 id="how-to-add-a-new-class-library">How to add a new class library</h2>
-<p>Follows the procedure to add a new class library to a .NET <strong>nanoFramework</strong> target image.</p>
+<p>Follow the procedure to add a new class library to a .NET <strong>nanoFramework</strong> target image.</p>
 <p>The example is for adding Windows.Devices.Gpio library.</p>
 <ol>
 <li><p>In VS2017 start a new project for a .NET <strong>nanoFramework</strong> C# Class library. Source code <a href="https://github.com/nanoframework/lib-Windows.Devices.Gpio">here</a></p>
@@ -187,13 +187,18 @@
 </li>
 <li><p>Upon a successfully build of the managed project the skeleton with the stubs should be available in the respective folder. Because .NET <strong>nanoFramework</strong> aims to be target independent, the native implementation of a class library can be split in two parts:</p>
 <ul>
-<li>Declaration and common code bits (these always exist) inside the <code>src</code> folder.</li>
-<li>The specific implementation bits that are platform dependent and that will live 'inside' each platform RTOS folder.
-The next step would be to copy the stubs to a folder with the assembly name inside the <code>src</code> folder. Following the example above, these are:
-- Common <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/src/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.
-- ChibiOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.
-- ESP32 FreeRTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.
-- TI-RTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/TI-SimpleLink/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
+<li>Declaration and common code bits (these always exist) inside the <code>src</code> folder. This is the place where the stubs must be placed:
+<ul>
+<li>Common <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/src/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
+</ul>
+</li>
+<li>The specific implementation bits that are platform dependent and that will live 'inside' each platform RTOS folder:
+<ul>
+<li>ChibiOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
+<li>ESP32 FreeRTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
+<li>TI-RTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/TI-SimpleLink/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>Add the CMake as a module to the modules folder <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules">here</a>. The name of the module should follow the assembly name (Find<strong>Windows.Devices.Gpio</strong>.cmake). Mind the CMake rules for the naming: start with <em>Find</em> followed by the module name and <em>cmake</em> extension. The CMake for the Windows.Devices.Gpio module is <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/FindWindows.Devices.Gpio.cmake">here</a>.</p>
