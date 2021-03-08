@@ -46,3 +46,7 @@ If the vstest.console.exe is used, the executor will be just a list of dll and e
 NuGet is our best friend! We've package all what you need in there! The Win32 nanoCLR executable, the mscorelib and of course the Unit Test launcher and the test Framework. If you add it to your project, you'll just need to add a `.runsettings` file into your project directory with the elements described in the previous section.
 
 We've been building a Unit Test nanoFramewok project as well in Visual Studio, that's the easiest way! It will add automatically the NuGet and the .runsettings to the project.
+
+## Where to look next
+
+The current status and information about usage is available under [Unit Test](/content/unit-test/index.md) main menu entry.
