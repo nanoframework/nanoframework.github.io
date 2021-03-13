@@ -124,7 +124,7 @@
             string stringnull = null;
             // Assert
             Assert.Contains(contains, tocontains);
-            Assert.DoesNotContains(contains, doesnotcontains);
+            Assert.DoesNotContains(contains, doesnotcontains, &quot;Your own error message&quot;);
             Assert.DoesNotContains(contains, empty);
             Assert.DoesNotContains(contains, stringnull);
             Assert.StartsWith(contains, startcontains);
@@ -152,6 +152,7 @@
 <h2 id="asserting-in-the-test-functions">Asserting in the test functions</h2>
 <p>As for most of the famous .NET Unit Test platform, the concept of <code>Assert</code> is present as well in .NET <strong>nanoFramework</strong>. You can see in the previous example some of those <code>Assert</code> functions. They take one or two arguments and are straight forward to use.</p>
 <p>If there is an issue in those Assert function, an exception is raised.</p>
+<p>Note that all the <code>Assert</code> functions can pass a custom message. For example: <code>Assert.Equal(42, 43, &quot;My custom message saying that 42 is not equal to 43&quot;);</code></p>
 <h3 id="assertthrows">Assert.Throws</h3>
 <p>This check is a specific function will throw. Usage:</p>
 <pre><code class="lang-csharp">Assert.Trows(typeof(ExceptionTypeToCatch), AFunctionToCall);
