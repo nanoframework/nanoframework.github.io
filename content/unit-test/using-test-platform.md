@@ -52,7 +52,7 @@ namespace nanoFramework.TestFramework.Test
             string stringnull = null;
             // Assert
             Assert.Contains(contains, tocontains);
-            Assert.DoesNotContains(contains, doesnotcontains);
+            Assert.DoesNotContains(contains, doesnotcontains, "Your own error message");
             Assert.DoesNotContains(contains, empty);
             Assert.DoesNotContains(contains, stringnull);
             Assert.StartsWith(contains, startcontains);
@@ -88,6 +88,8 @@ All functions with attributes for testing must be `public void`, if you set them
 As for most of the famous .NET Unit Test platform, the concept of `Assert` is present as well in .NET **nanoFramework**. You can see in the previous example some of those `Assert` functions. They take one or two arguments and are straight forward to use.
 
 If there is an issue in those Assert function, an exception is raised.
+
+Note that all the `Assert` functions can pass a custom message. For example: `Assert.Equal(42, 43, "My custom message saying that 42 is not equal to 43");`
 
 ### Assert.Throws
 
