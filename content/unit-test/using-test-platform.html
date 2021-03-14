@@ -97,7 +97,7 @@
         public void TestRaisesException()
         {
             Debug.WriteLine(&quot;Test will raise exception&quot;);
-            Assert.Trows(typeof(Exception), ThrowMe);
+            Assert.Throws(typeof(Exception), ThrowMe);
         }
 
         private void ThrowMe()
@@ -131,6 +131,21 @@
             Assert.EndsWith(contains, tocontains);
         }
 
+        [TestMethod]
+        public void MethodWillSkippIfFloatingPointSupportNotOK()
+        {
+            var sysInfoFloat = SystemInfo.FloatingPointSupport;
+            if ((sysInfoFloat != FloatingPoint.DoublePrecisionHardware) &amp;&amp; (sysInfoFloat != FloatingPoint.DoublePrecisionSoftware))
+            {
+                Assert.SkipTest(&quot;Double floating point not supported, skipping the Assert.Double test&quot;);
+            }
+
+            double on42 = 42.1;
+            double maxDouble = double.MaxValue;
+            Assert.Equal(42.1, on42);
+            Assert.Equal(double.MaxValue, maxDouble);
+        }
+
         public void Nothing()
         {
             Debug.WriteLine(&quot;Nothing and should not be called&quot;);
@@ -155,7 +170,7 @@
 <p>Note that all the <code>Assert</code> functions can pass a custom message. For example: <code>Assert.Equal(42, 43, &quot;My custom message saying that 42 is not equal to 43&quot;);</code></p>
 <h3 id="assertthrows">Assert.Throws</h3>
 <p>This check is a specific function will throw. Usage:</p>
-<pre><code class="lang-csharp">Assert.Trows(typeof(ExceptionTypeToCatch), AFunctionToCall);
+<pre><code class="lang-csharp">Assert.Throws(typeof(ExceptionTypeToCatch), AFunctionToCall);
 </code></pre>
 <p>Where:</p>
 <ul>
@@ -216,6 +231,11 @@ Assert.DoesNotContains(contains, stringnull);
 Assert.StartsWith(contains, startcontains);
 Assert.EndsWith(contains, tocontains);
 </code></pre>
+<h3 id="skipping-a-test">Skipping a test</h3>
+<p>You can skip a test by using <code>Assert.SkipTest</code>. You can place an explanation like this:</p>
+<pre><code class="lang-csharp">Assert.SkipTest(&quot;Double floating point not supported, skipping the Assert.Double test&quot;);
+</code></pre>
+<p><strong>Important</strong>: if you skip the <code>Setup</code> test, all the class <code>TestMethod</code> will be skipped as well. This is a convenient way to skip some specific hardware tests if the current hardware does not support them for example. This will allow to build different classes for different hardware for example and having only the right tests being executed.</p>
 </article>
           </div>
           
