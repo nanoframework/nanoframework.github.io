@@ -34,6 +34,10 @@ You can then run all the tests and you'll get the result:
 
 ![test success](../../images/test-success.jpg)
 
+Some tests may be skipped, they will appear like this:
+
+![test skipped](../../images/test-skipped.jpg)
+
 ## Creating a new Visual Studio NFUnitTest project
 
 You can as well simply create a new Visual Studio NFUnitTest project that will already contains all the needed elements.

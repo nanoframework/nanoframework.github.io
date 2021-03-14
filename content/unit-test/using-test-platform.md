@@ -25,7 +25,7 @@ namespace nanoFramework.TestFramework.Test
         public void TestRaisesException()
         {
             Debug.WriteLine("Test will raise exception");
-            Assert.Trows(typeof(Exception), ThrowMe);
+            Assert.Throws(typeof(Exception), ThrowMe);
         }
 
         private void ThrowMe()
@@ -57,6 +57,21 @@ namespace nanoFramework.TestFramework.Test
             Assert.DoesNotContains(contains, stringnull);
             Assert.StartsWith(contains, startcontains);
             Assert.EndsWith(contains, tocontains);
+        }
+
+        [TestMethod]
+        public void MethodWillSkippIfFloatingPointSupportNotOK()
+        {
+            var sysInfoFloat = SystemInfo.FloatingPointSupport;
+            if ((sysInfoFloat != FloatingPoint.DoublePrecisionHardware) && (sysInfoFloat != FloatingPoint.DoublePrecisionSoftware))
+            {
+                Assert.SkipTest("Double floating point not supported, skipping the Assert.Double test");
+            }
+
+            double on42 = 42.1;
+            double maxDouble = double.MaxValue;
+            Assert.Equal(42.1, on42);
+            Assert.Equal(double.MaxValue, maxDouble);
         }
 
         public void Nothing()
@@ -96,7 +111,7 @@ Note that all the `Assert` functions can pass a custom message. For example: `As
 This check is a specific function will throw. Usage:
 
 ```csharp
-Assert.Trows(typeof(ExceptionTypeToCatch), AFunctionToCall);
+Assert.Throws(typeof(ExceptionTypeToCatch), AFunctionToCall);
 ```
 
 Where:
@@ -186,3 +201,13 @@ Assert.DoesNotContains(contains, stringnull);
 Assert.StartsWith(contains, startcontains);
 Assert.EndsWith(contains, tocontains);
 ```
+
+### Skipping a test
+
+You can skip a test by using `Assert.SkipTest`. You can place an explanation like this:
+
+```csharp
+Assert.SkipTest("Double floating point not supported, skipping the Assert.Double test");
+```
+
+**Important**: if you skip the `Setup` test, all the class `TestMethod` will be skipped as well. This is a convenient way to skip some specific hardware tests if the current hardware does not support them for example. This will allow to build different classes for different hardware for example and having only the right tests being executed.
