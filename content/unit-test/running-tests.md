@@ -63,6 +63,10 @@ In case one of your test will fail, you'll see this:
 
 ![test failed](../../images/test-failed.jpg)
 
+Some tests may be skipped, they will appear like this:
+
+![test skipped](../../images/test-skipped.jpg)
+
 ## Test coverage and code highlighting
 
 As you can expect in your code, you'll get the covered tests on the tests methods but as well on the methods that have been called:
