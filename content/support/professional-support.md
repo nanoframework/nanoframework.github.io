@@ -15,7 +15,7 @@ The above will, obviously, contribute to the project continuous growth.
 
 ### Eclo Solutions
 
-[![Eclo](http://www.eclo.solutions/images/eclo-solutions-logo-tall.svg](http://www.eclo.solutions)
+<a href="http://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" height="100" width="151"/></a>
 
 ### CSA Engineering AG
 
