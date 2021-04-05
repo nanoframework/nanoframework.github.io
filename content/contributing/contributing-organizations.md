@@ -16,7 +16,7 @@ These companies and organizations support the community and the project.
 - [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) that provides us with an awesome RTOS that's used in our STM32 targets.
 - [GitHub](https://www.github.com) that hosts our git repositories.
 - [Icons 8](https://icons8.com/) that allows to use their icons on our Visual Studio extension.
-- [JFrog](https://bintray.com/) which provides us free hosting and distribution for our firmware images and other utils used in the build process.
+- [Cloudsmith](https://cloudsmith.com/) provides us free hosting and distribution for our firmware images and other utils used in the build process. Cloudsmith is a fully hosted, cloud-native, universal package management solution, that enables your organization to create, store and share packages in any format, to any place, with total confidence.
 - [Microsoft](https://dev.azure.com) through free Azure DevOps that runs our CD & CI infrastructure.
 - [Sonar Cloud](https://sonarcloud.io/about) by providing free access to their Continuous Code Quality analysis tools.
 
