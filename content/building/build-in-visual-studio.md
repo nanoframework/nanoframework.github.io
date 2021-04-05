@@ -14,9 +14,9 @@ While it is possible to set up a successful build and debug environment using VS
 
 Follow along with one of the guides here:
 
-- [Getting started with *VS Code* and ESP32](../getting-started-guides/build-esp32.md)
+- [Getting started with *VS Code* and ESP32](build-esp32.md)
 
-- [Getting started with *VS Code* and STM32](../getting-started-guides/build-stm32.md)
+- [Getting started with *VS Code* and STM32](build-stm32.md)
 
 ### Install Visual Studio 2019 Community and workloads
 
