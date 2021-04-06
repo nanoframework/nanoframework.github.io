@@ -13,9 +13,9 @@ If in doubt please ask one of the senior team members.
 
 1. This is basically clicking the create new repository button in GitHub.
 
-    Note: The class libraries repositories are following the patter "**lib**-*namespace*" most of the remaining repositories "**nf**-*some-relevant-name-here*". This makes it easier to spot what is what.
+    Note: The class libraries repositories are usually named with the prefix "*nanoFramework*.*namespace*" most of the remaining repositories "**nf**-*some-relevant-name-here*".
 
-2. As we are following the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) two branches must be created: `master` and `develop`.
+2. As we are following the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) two branches must be created: `main` and `develop`.
 
 3. Make sure to create an empty readme.md to make it easier to fork and clone the new repo.
 
@@ -36,7 +36,7 @@ If in doubt please ask one of the senior team members.
 1. Click "Configure" button for Azure Pipelines.
 1. The next step will take you to the [Azure DevOps](https://dev.azure.com/nanoframework) website.
 1. Click on "Create New Project".
-1. Name the project following the GiHub repo name but without the "lib" prefix. Select _Public_ for visibility option.
+1. Name the project following the GitHub repo name. Select _Public_ for visibility option.
 1. After the project is created a list with GitHub repositories shows. Select the repository that has been just created.
 1. The next step asks for the Pipeline configuration. Choose "Starter Pipeline" to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml.
 1. Click on "Variables" and add the following ones.
@@ -103,7 +103,7 @@ If in doubt please ask one of the senior team members.
 
 ## Update the dependency upwards
 
-As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the [`azure-pipelines.yml`](https://github.com/nanoframework/lib-CoreLibrary/blob/develop/azure-pipelines.yml) file there and add this new repo to the `repositoriesToUpdate` list.
+As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the [`azure-pipelines.yml`](https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml) file there and add this new repo to the `repositoriesToUpdate` list.
 Now, if it depends on others, you have to figure out which one of those is _at the end_ of the dependency chain and add this new repo to _that_ `azure-pipelines.yml` file. For example, `Windows.Devices.Gpio` depends on `CoreLibrary` and `Runtime.Events` (which, in turn, depends on `CoreLibrary`). Updating it's dependencies has to the triggered at `Runtime.Events` not on `CoreLibrary` because of the chained dependency.
 
 ## Add the class library to the documentation project
