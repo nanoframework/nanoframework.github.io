@@ -85,9 +85,9 @@ If in doubt please ask one of the senior team members.</p>
 <h2 id="creating-the-repository-in-github">Creating the repository in GitHub</h2>
 <ol>
 <li><p>This is basically clicking the create new repository button in GitHub.</p>
-<p>Note: The class libraries repositories are following the patter &quot;<strong>lib</strong>-<em>namespace</em>&quot; most of the remaining repositories &quot;<strong>nf</strong>-<em>some-relevant-name-here</em>&quot;. This makes it easier to spot what is what.</p>
+<p>Note: The class libraries repositories are usually named with the prefix &quot;<em>nanoFramework</em>.<em>namespace</em>&quot; most of the remaining repositories &quot;<strong>nf</strong>-<em>some-relevant-name-here</em>&quot;.</p>
 </li>
-<li><p>As we are following the <a href="http://nvie.com/posts/a-successful-git-branching-model/">GitFlow branching model</a> two branches must be created: <code>master</code> and <code>develop</code>.</p>
+<li><p>As we are following the <a href="http://nvie.com/posts/a-successful-git-branching-model/">GitFlow branching model</a> two branches must be created: <code>main</code> and <code>develop</code>.</p>
 </li>
 <li><p>Make sure to create an empty readme.md to make it easier to fork and clone the new repo.</p>
 </li>
@@ -110,7 +110,7 @@ If in doubt please ask one of the senior team members.</p>
 <li>Click &quot;Configure&quot; button for Azure Pipelines.</li>
 <li>The next step will take you to the <a href="https://dev.azure.com/nanoframework">Azure DevOps</a> website.</li>
 <li>Click on &quot;Create New Project&quot;.</li>
-<li>Name the project following the GiHub repo name but without the &quot;lib&quot; prefix. Select <em>Public</em> for visibility option.</li>
+<li>Name the project following the GitHub repo name. Select <em>Public</em> for visibility option.</li>
 <li>After the project is created a list with GitHub repositories shows. Select the repository that has been just created.</li>
 <li>The next step asks for the Pipeline configuration. Choose &quot;Starter Pipeline&quot; to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml.</li>
 <li>Click on &quot;Variables&quot; and add the following ones.</li>
@@ -197,7 +197,7 @@ If in doubt please ask one of the senior team members.</p>
 </li>
 </ol>
 <h2 id="update-the-dependency-upwards">Update the dependency upwards</h2>
-<p>As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the <a href="https://github.com/nanoframework/lib-CoreLibrary/blob/develop/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> file there and add this new repo to the <code>repositoriesToUpdate</code> list.
+<p>As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> file there and add this new repo to the <code>repositoriesToUpdate</code> list.
 Now, if it depends on others, you have to figure out which one of those is <em>at the end</em> of the dependency chain and add this new repo to <em>that</em> <code>azure-pipelines.yml</code> file. For example, <code>Windows.Devices.Gpio</code> depends on <code>CoreLibrary</code> and <code>Runtime.Events</code> (which, in turn, depends on <code>CoreLibrary</code>). Updating it's dependencies has to the triggered at <code>Runtime.Events</code> not on <code>CoreLibrary</code> because of the chained dependency.</p>
 <h2 id="add-the-class-library-to-the-documentation-project">Add the class library to the documentation project</h2>
 <p>If this class library has documentation that has to be published as part of nanoFramework documentation (which is most likely) it needs to be referenced in the documentation project.
