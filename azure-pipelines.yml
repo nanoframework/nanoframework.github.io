@@ -111,6 +111,8 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.System.Math -b develop nanoFramework.System.Math 
 
+      git clone https://github.com/nanoframework/nanoFramework.Logging -b develop nanoFramework.Logging
+
  
   displayName: Clone repos of class libs
 
@@ -350,6 +352,13 @@ steps:
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Math\NuGet.Config'
     verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Logging\NuGet.Config'
+    verbosityRestore: quiet
   
 - task: InstallnFBuildComponents@1
   displayName: Install nanoFramework MSBuild components
@@ -560,6 +569,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
