@@ -7,8 +7,8 @@ These are not a full reference, but they give some clues on where to look next.
 
 ## Quick note about compatibility between managed and native parts
 
-In nanoframework the firmware relies on managed lib. During the build of managed lib a checksum value generated and placed in the also generated stub files.
-If the firmware changes, the managed lib continues to work, but if the managed lib changes, then the firmware requires updating.
+There is an interface mechanism between the managed libraries and the firmware. This interface is structured around the methods decorated with the `MethodImpl(MethodImplOptions.InternalCall)` attribute. During the build of a managed library a checksum value generated taking into account the methods name, parameters and return types. That checksum, is used to characterize the library interface and it's stored in stub files.
+Changes can happen at both ends without any compatibility issues, as long as the interface does change.
 
 More details about checksum value can be found in [NativeMethodsChecksum](../architecture/pe-file/AssemblyHeader.md#nativemethodschecksum) `AssemblyHeader` field description.
 
@@ -16,7 +16,7 @@ More details about whole versioning can be found in [NuGet, assembly and native 
 
 ## How to call native code from managed code
 
-Assuming you want to call from nanoframework's mscorlib (source can be found in lib-CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:
+Assuming you want to call from nanoframework's mscorlib (source can be found in CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:
 
 1. Build the nf-CoreLibrary solution without making any changes.
 1. Copy these folders somewhere for later use:
