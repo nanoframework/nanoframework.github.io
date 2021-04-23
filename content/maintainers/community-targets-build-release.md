@@ -8,7 +8,7 @@ This document describes the recipe to setup the build and publish of new Communi
 
 The build of each of the Community targets is a job in Azure Pipelines yaml.
 
-The build of each target is triggered by adding to the commit message (or PR description) a _token_ (or more than one) or `#ALL#`. The _token_ is the board name enclosed in '#', e.g. `#ST_STM32F4_DISCOVERY#`. Note that it's possible to add more than one token to the commit message to trigger the build for the specific targets.
+The build of each target is triggered by checking the respective tick box in the PR description (comming from the PR template) or checking `[] ALL`. Note that it's possible to check more than one token to be build.
 
 ## Setup the build for a new target
 
@@ -16,7 +16,9 @@ Update the [azure-pipelines.yml](https://github.com/nanoframework/nf-Community-T
 
 1. Start by adding a new job to the collection. Preferably copy/paste from a similar target.
 
-2. Make sure to use the target name at the various places where it shows, namely: job name, condition expression and variables.
+1. Make sure to use the target name at the various places where it shows, namely: job name, condition expression and variables.
+
+1. Update the PR template by adding the new target name in the checklist.
 
 ## Setup the image publishing
 
