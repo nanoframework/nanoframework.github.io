@@ -78,6 +78,4 @@ The ready to use firmware images provided include support for the class librarie
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | :heavy_check_mark: |  |  |  |  | |  | |  | | |
 
-| Stable | Preview |
-|---|---|
-| | ![[Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/TI_CC1352P1_LAUNCHXL/images/download.svg)](https://bintray.com/nfbot/nanoframework-images-dev/TI_CC1352P1_LAUNCHXL/_latestVersion) |
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/TI_CC1352P1_LAUNCHXL_868/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/TI_CC1352P1_LAUNCHXL_868/latest/)

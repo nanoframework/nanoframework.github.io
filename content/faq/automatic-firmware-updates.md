@@ -8,7 +8,7 @@ Currently all STM32 targets for both officially supported reference targets and 
 
 ## Can I use this if I have a custom board running my own firmware?
 
-Not at this time. Currently this feature relies on the Bintray API and nanoframeworks repository where we publish firmware packages. Supporting custom repos would require a standard way to access the packages storage and version querying. If you would like your board to be supported out of the box, feel free to add a PR to nanoframeworks nf-Community-Targets repo.
+Not at this time. Currently this feature relies on the Cloudsmith API together with our repositories there, where we publish firmware packages. Supporting custom repos would require a standard way to access the packages storage and version querying. If you would like your board to be supported out of the box, feel free to add a PR to .NET nanoFramework nf-Community-Targets repo.
 
 ## How to prevent a board from updating if working on a custom firmware?
 

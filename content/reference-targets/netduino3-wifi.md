@@ -8,4 +8,4 @@
 
 | Stable | Preview |
 |---|---|
-|  [Download](https://api.bintray.com/packages/nfbot/nanoframework-images/NETDUINO3_WIFI/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images/NETDUINO3_WIFI/_latestVersion>) | [Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/NETDUINO3_WIFI/images/download.svg) ](<https://bintray.com/nfbot/nanoframework-images-dev/NETDUINO3_WIFI/_latestVersion>) |
+|  [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/NETDUINO3_WIFI/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/NETDUINO3_WIFI/latest/) | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-dev/raw/NETDUINO3_WIFI/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-dev/packages/detail/raw/NETDUINO3_WIFI/latest/) |
