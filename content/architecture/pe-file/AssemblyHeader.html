@@ -8,7 +8,7 @@
     <title>AssemblyHeader (CLR_RECORD_ASSEMBLY) | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="AssemblyHeader (CLR_RECORD_ASSEMBLY) | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.56.7.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -114,6 +114,11 @@
 <td>Native Method Checksum</td>
 </tr>
 <tr>
+<td><a href="#nativemethodsoffset">NativeMethodsOffset</a></td>
+<td><code>uint32_t</code></td>
+<td>Native Methods Offset</td>
+</tr>
+<tr>
 <td><a href="#version">Version</a></td>
 <td><code>VersionInfo</code></td>
 <td>Version information data structure for this assembly</td>
@@ -124,9 +129,19 @@
 <td>String table index for the Assembly's name</td>
 </tr>
 <tr>
+<td><a href="#stringtableversion">StringTableVersion</a></td>
+<td><code>uint16_t</code></td>
+<td>String table version</td>
+</tr>
+<tr>
 <td><a href="#startoftables">StartOfTables</a></td>
 <td><code>uint32_t[16]</code></td>
 <td>Array of offsets into the PE file for the metadata tables</td>
+</tr>
+<tr>
+<td>NumberOfPatchedMethods</td>
+<td><code>uint32_t</code></td>
+<td>Number of patched methods</td>
 </tr>
 <tr>
 <td><a href="#paddingoftables">PaddingOfTables</a></td>
@@ -161,11 +176,10 @@ This is used to clearly identify a .NET <strong>nanoFramework</strong> PE file o
 </tr>
 </tbody>
 </table>
-<h3 id="header-crc">Header CRC</h3>
-<p>ANSI X3.66 32 bit CRC for the AssemblyHeader. This is computed assuming the HeaderCRC and AssemblyCRC fields are 0.</p>
-<h3 id="assembly-crc">Assembly CRC</h3>
-<p>ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data. This is computed assuming the HeaderCRC and AssemblyCRC fields
-are 0.</p>
+<h3 id="headercrc">HeaderCRC</h3>
+<p>ANSI X3.66 32 bit CRC for the AssemblyHeader. This is computed assuming the HeaderCRC is 0.</p>
+<h3 id="assemblycrc">AssemblyCRC</h3>
+<p>ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data starting from <a href="#paddingoftables">PaddingOfTables</a></p>
 <h3 id="flags">Flags</h3>
 <p>The flags property are meant to contain a bit flags value. They are not used in .NET <strong>nanoFramework</strong> and were kept for historical reasons and structure compatibility.</p>
 <h3 id="nativemethodschecksum">NativeMethodsChecksum</h3>
@@ -175,6 +189,8 @@ of any type with native methods <strong>MUST</strong> generate a distinct checks
 <p>The <em><strong>Version</strong></em> field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the debugger for version checks at deployment time. The runtime itself doesn't use versions to resolve references, as only one version of an assembly can be loaded at a time. Thus assembly references in the PE format don't include a version.</p>
 <h3 id="assemblyname">AssemblyName</h3>
 <p><a href="StringTable.html">String Table</a> index for the name of the assembly</p>
+<h3 id="stringtableversion">StringTableVersion</h3>
+<p>Should be equal to 1</p>
 <h3 id="startoftables">StartOfTables</h3>
 <p>Fixed array of offsets to the table data for each of the different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)</p>
 <table>
@@ -278,6 +294,8 @@ of any type with native methods <strong>MUST</strong> generate a distinct checks
 </tr>
 </tbody>
 </table>
+<h3 id="numberofpatchedmethods">NumberOfPatchedMethods</h3>
+<p>Should be equal to 0. Not supported in .NET nanoFramework</p>
 <h3 id="paddingoftables">PaddingOfTables</h3>
 <p>For every table, a number of bytes that were padded to the end of the table to align the next table to a 32bit boundary. The start of each table is aligned to a 32bit boundary, and ends at a 32bit boundary.
 Some of these tables will, therefore, have no padding, and all will have values in the range [0-3]. This isn't the most compact form to hold this information, but it only costs 16 bytes/assembly. Trying to only align some of the tables is just much more hassle than it's worth. This field itself must also be aligned on a 32 bit boundary. This padding is used to compute the size of a given table (including the blob data) using the following formula:</p>

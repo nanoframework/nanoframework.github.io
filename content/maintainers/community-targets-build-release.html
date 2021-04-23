@@ -8,7 +8,7 @@
     <title>Community targets build and publishing | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Community targets build and publishing | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.56.7.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -81,7 +81,7 @@
 <p>This document describes the recipe to setup the build and publish of new Community targets.</p>
 <h2 id="introduction">Introduction</h2>
 <p>The build of each of the Community targets is a job in Azure Pipelines yaml.</p>
-<p>The build of each target is triggered by adding to the commit message (or PR description) a <em>token</em> (or more than one) or <code>#ALL#</code>. The <em>token</em> is the board name enclosed in '#', e.g. <code>#ST_STM32F4_DISCOVERY#</code>. Note that it's possible to add more than one token to the commit message to trigger the build for the specific targets.</p>
+<p>The build of each target is triggered by checking the respective tick box in the PR description (comming from the PR template) or checking <code>[] ALL</code>. Note that it's possible to check more than one token to be build.</p>
 <h2 id="setup-the-build-for-a-new-target">Setup the build for a new target</h2>
 <p>Update the <a href="https://github.com/nanoframework/nf-Community-Targets/blob/master/azure-pipelines.yml">azure-pipelines.yml</a> in the Community repository as follows:</p>
 <ol>
@@ -89,21 +89,15 @@
 </li>
 <li><p>Make sure to use the target name at the various places where it shows, namely: job name, condition expression and variables.</p>
 </li>
+<li><p>Update the PR template by adding the new target name in the checklist.</p>
+</li>
 </ol>
 <h2 id="setup-the-image-publishing">Setup the image publishing</h2>
-<p>Community target images are distributed through .NET <strong>nanoFramework</strong> JFrog Bintray <a href="https://bintray.com/nfbot/nanoframework-images-community-targets">repository</a>.</p>
+<p>Community target images are distributed through our Cloudsmith <a href="https://cloudsmith.io/%7Enet-nanoframework/repos/nanoframework-images-community-targets/packages/">repository</a>.</p>
 <ol>
-<li><p>Sign-in with .NET <strong>nanoFramework</strong> Bintray account.</p>
+<li><p>The 1st build that generates the package has to happen so that it's actually created in the repository.</p>
 </li>
-<li><p>Go to nanoframework-images-community-targets repository <a href="https://bintray.com/nfbot/nanoframework-images-community-targets">here</a></p>
-</li>
-<li><p>Add a new package inside that repository.</p>
-<ul>
-<li>The package name must be <strong>exactly</strong> the same as the target name otherwise the publish step will fail.</li>
-<li>The remaining details are to be copied from one of the other existing targets. Mind the description field to update the target name and possibly the manufacturer.</li>
-</ul>
-</li>
-<li><p>Go to the package main page of the recently created package and grab the markdown from the &quot;Latest Version Badge&quot; link there and past it in the Community targets list in the readme.</p>
+<li><p>Go to the package page of the recently created package and grab the markdown from the &quot;Badges&quot; tab (make sure to grab the one for the <strong>latest</strong> version) and paste it in the targets list at the readme file.</p>
 </li>
 </ol>
 <h2 id="prs-and-manual-builds">PRs and manual builds</h2>
