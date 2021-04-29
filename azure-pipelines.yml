@@ -75,6 +75,8 @@ steps:
 
       git clone https://github.com/nanoframework/Windows.Devices.Spi.git --depth 100 -b develop Windows.Devices.Spi 
 
+      git clone https://github.com/nanoframework/System.Device.Spi.git --depth 100 -b develop System.Device.Spi
+
       git clone https://github.com/nanoframework/Windows.Storage.git --depth 100 -b develop Windows.Storage 
 
       git clone https://github.com/nanoframework/Windows.Storage.Streams.git --depth 100 -b develop Windows.Storage.Streams 
@@ -225,6 +227,13 @@ steps:
     restoreSolution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Spi\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'System.Device.Spi\System.Devices.Spi.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Spi\NuGet.Config'
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
@@ -464,6 +473,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  inputs:
+    solution: 'System.Device.Spi\System.Device.Spi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
