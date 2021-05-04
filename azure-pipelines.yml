@@ -21,7 +21,7 @@ resources:
       endpoint: nanoframework
 
 pool:
-  vmImage: 'VS2017-Win2016'
+  vmImage: 'windows-2019'
 
 variables:
   solution: '**/*.sln'
@@ -75,6 +75,8 @@ steps:
 
       git clone https://github.com/nanoframework/Windows.Devices.Spi.git --depth 100 -b develop Windows.Devices.Spi 
 
+      git clone https://github.com/nanoframework/System.Device.Spi.git --depth 100 -b develop System.Device.Spi
+
       git clone https://github.com/nanoframework/Windows.Storage.git --depth 100 -b develop Windows.Storage 
 
       git clone https://github.com/nanoframework/Windows.Storage.Streams.git --depth 100 -b develop Windows.Storage.Streams 
@@ -123,6 +125,7 @@ steps:
 - task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
+  displayName: NuGet restore CoreLibrary
   inputs:
     restoreSolution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     feedsToUse: config
@@ -130,6 +133,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Devices.Can
   inputs:
     restoreSolution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
     feedsToUse: config
@@ -137,6 +141,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Devices.OneWire
   inputs:
     restoreSolution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
     feedsToUse: config
@@ -144,6 +149,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Runtime.Events
   inputs:
     restoreSolution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln'
     feedsToUse: config
@@ -151,6 +157,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Runtime.Native
   inputs:
     restoreSolution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     feedsToUse: config
@@ -158,6 +165,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.WebServer
   inputs:
     restoreSolution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     feedsToUse: config
@@ -165,6 +173,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Dac
   inputs:
     restoreSolution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     feedsToUse: config
@@ -172,6 +181,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Gpio
   inputs:
     restoreSolution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     feedsToUse: config
@@ -179,6 +189,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Gpio
   inputs:
     restoreSolution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     feedsToUse: config
@@ -186,6 +197,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.I2c
   inputs:
     restoreSolution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     feedsToUse: config
@@ -193,6 +205,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.I2c
   inputs:
     restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     feedsToUse: config
@@ -200,6 +213,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.IO.FileSystem
   inputs:
     restoreSolution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     feedsToUse: config
@@ -207,6 +221,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Pwm
   inputs:
     restoreSolution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     feedsToUse: config
@@ -214,6 +229,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.SerialCommunication
   inputs:
     restoreSolution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     feedsToUse: config
@@ -221,6 +237,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Spi
   inputs:
     restoreSolution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     feedsToUse: config
@@ -228,6 +245,15 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Spi
+  inputs:
+    restoreSolution: 'System.Device.Spi\System.Device.Spi.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Spi\NuGet.Config'
+    verbosityRestore: quiet
+
+- task: NuGetCommand@2
+  displayName: NuGet restore Windows.Storage
   inputs:
     restoreSolution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     feedsToUse: config
@@ -235,6 +261,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Storage.Streams
   inputs:
     restoreSolution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     feedsToUse: config
@@ -242,6 +269,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Adc
   inputs:
     restoreSolution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     feedsToUse: config
@@ -249,6 +277,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.WiFi
   inputs:
     restoreSolution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     feedsToUse: config
@@ -256,6 +285,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Graphics
   inputs:
     restoreSolution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     feedsToUse: config
@@ -263,6 +293,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.Esp32
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     feedsToUse: config
@@ -270,6 +301,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.Esp32.Rmt
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     feedsToUse: config
@@ -277,6 +309,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Json
   inputs:
     restoreSolution: 'nanoFramework.Json\nanoFramework.Json.sln'
     feedsToUse: config
@@ -284,6 +317,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.Stm32
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     feedsToUse: config
@@ -291,6 +325,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.ResourceManager
   inputs:
     restoreSolution: 'nanoFramework.ResourceManager\nanoFramework.ResourceManager.sln'
     feedsToUse: config
@@ -298,6 +333,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Networking.Sntp
   inputs:
     restoreSolution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     feedsToUse: config
@@ -305,6 +341,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.System.Collections
   inputs:
     restoreSolution: 'nanoFramework.System.Collections\nanoFramework.System.Collections.sln'
     feedsToUse: config
@@ -312,6 +349,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.System.Text
   inputs:
     restoreSolution: 'nanoFramework.System.Text\nanoFramework.System.Text.sln'
     feedsToUse: config
@@ -319,6 +357,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.System.Net
   inputs:
     restoreSolution: 'nanoFramework.System.Net\nanoFramework.System.Net.sln'
     feedsToUse: config
@@ -326,6 +365,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.System.Net.Http
   inputs:
     restoreSolution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
     feedsToUse: config
@@ -333,6 +373,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.TI.EasyLink
   inputs:
     restoreSolution: 'nanoFramework.TI.EasyLink\nanoFramework.TI.EasyLink.sln'
     feedsToUse: config
@@ -340,6 +381,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.TI
   inputs:
     restoreSolution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     feedsToUse: config
@@ -347,6 +389,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.System.Math
   inputs:
     restoreSolution: 'nanoFramework.System.Math\nanoFramework.System.Math.sln'
     feedsToUse: config
@@ -354,6 +397,7 @@ steps:
     verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Logging
   inputs:
     restoreSolution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     feedsToUse: config
@@ -364,6 +408,7 @@ steps:
   displayName: Install nanoFramework MSBuild components
 
 - task: VSBuild@1
+  displayName: Build CoreLibrary
   inputs:
     solution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     platform: '$(buildPlatform)'
@@ -371,6 +416,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Devices.Can
   inputs:
     solution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
     platform: '$(buildPlatform)'
@@ -378,6 +424,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Devices.OneWire
   inputs:
     solution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
     platform: '$(buildPlatform)'
@@ -385,6 +432,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Runtime.Events
   inputs:
     solution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln '
     platform: '$(buildPlatform)'
@@ -392,6 +440,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Runtime.Native
   inputs:
     solution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     platform: '$(buildPlatform)'
@@ -399,6 +448,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.WebServer
   inputs:
     solution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     platform: '$(buildPlatform)'
@@ -406,6 +456,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.Dac
   inputs:
     solution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     platform: '$(buildPlatform)'
@@ -413,6 +464,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.Gpio
   inputs:
     solution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     platform: '$(buildPlatform)'
@@ -420,6 +472,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Gpio
   inputs:
     solution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     platform: '$(buildPlatform)'
@@ -427,6 +480,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.I2c
   inputs:
     solution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     platform: '$(buildPlatform)'
@@ -434,6 +488,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.I2c
   inputs:
     solution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     platform: '$(buildPlatform)'
@@ -441,6 +496,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.IO.FileSystem
   inputs:
     solution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     platform: '$(buildPlatform)'
@@ -448,6 +504,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Pwm
   inputs:
     solution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     platform: '$(buildPlatform)'
@@ -455,6 +512,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.SerialCommunication
   inputs:
     solution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     platform: '$(buildPlatform)'
@@ -462,6 +520,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Spi
   inputs:
     solution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     platform: '$(buildPlatform)'
@@ -469,6 +528,15 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.Spi
+  inputs:
+    solution: 'System.Device.Spi\System.Device.Spi.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build Windows.Storage
   inputs:
     solution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     platform: '$(buildPlatform)'
@@ -476,6 +544,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Storage.Streams
   inputs:
     solution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     platform: '$(buildPlatform)'
@@ -483,6 +552,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Adc
   inputs:
     solution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     platform: '$(buildPlatform)'
@@ -490,6 +560,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.WiFi
   inputs:
     solution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     platform: '$(buildPlatform)'
@@ -497,6 +568,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Graphics
   inputs:
     solution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     platform: '$(buildPlatform)'
@@ -504,6 +576,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.Esp32
   inputs:
     solution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     platform: '$(buildPlatform)'
@@ -511,6 +584,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.Esp32.Rmt
   inputs:
     solution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     platform: '$(buildPlatform)'
@@ -518,6 +592,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Json
   inputs:
     solution: 'nanoFramework.Json\nanoFramework.Json.sln'
     platform: '$(buildPlatform)'
@@ -525,6 +600,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.Stm32
   inputs:
     solution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     platform: '$(buildPlatform)'
@@ -532,6 +608,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Networking.Sntp
   inputs:
     solution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     platform: '$(buildPlatform)'
@@ -539,6 +616,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.System.Collections
   inputs:
     solution: 'nanoFramework.System.Collections\nanoFramework.System.Collections.sln'
     platform: '$(buildPlatform)'
@@ -546,6 +624,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.System.Text
   inputs:
     solution: 'nanoFramework.System.Text\nanoFramework.System.Text.sln'
     platform: '$(buildPlatform)'
@@ -553,6 +632,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.System.Net
   inputs:
     solution: 'nanoFramework.System.Net\nanoFramework.System.Net.sln'
     platform: '$(buildPlatform)'
@@ -560,6 +640,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.System.Net.Http
   inputs:
     solution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
     platform: '$(buildPlatform)'
@@ -567,6 +648,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.TI
   inputs:
     solution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     platform: '$(buildPlatform)'
@@ -574,6 +656,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Logging
   inputs:
     solution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     platform: '$(buildPlatform)'

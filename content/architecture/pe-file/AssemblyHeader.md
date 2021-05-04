@@ -11,9 +11,12 @@ The Structure of the AssemblyHeader is as follows:
 | [AssemblyCRC](#assemblycrc)                     | `uint32_t`            | CRC32 of the complete assembly
 | [Flags](#flags)                                 | [AssemblyHeaderFlags](#flags) | Flags for the assembly
 | [NativeMethodsChecksum](#nativemethodschecksum) | `uint32_t`            | Native Method Checksum
+| [NativeMethodsOffset](#nativemethodsoffset)     | `uint32_t`            | Native Methods Offset
 | [Version](#version)                             | `VersionInfo`         | Version information data structure for this assembly
 | [AssemblyName](#assemblyname)                   | `uint16_t`            | String table index for the Assembly's name
+| [StringTableVersion](#stringtableversion)       | `uint16_t`            | String table version
 | [StartOfTables](#startoftables)                 | `uint32_t[16]`        | Array of offsets into the PE file for the metadata tables
+| NumberOfPatchedMethods                          | `uint32_t`            | Number of patched methods
 | [PaddingOfTables](#paddingoftables)             | `uint8_t[16]`         | amount of alignment padding for each metadata table
 
 ## Field Details
@@ -30,14 +33,13 @@ This is used to clearly identify a .NET **nanoFramework** PE file on disk and in
 | 1.0      | 'NFMRK1' | Marker for version 1.0
 | 2.0      | 'NFMRK2' | Marker for version 2.0 (after adding support for generics)
 
-### Header CRC
+### HeaderCRC
 
-ANSI X3.66 32 bit CRC for the AssemblyHeader. This is computed assuming the HeaderCRC and AssemblyCRC fields are 0.
+ANSI X3.66 32 bit CRC for the AssemblyHeader. This is computed assuming the HeaderCRC is 0.
 
-### Assembly CRC
+### AssemblyCRC
 
-ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data. This is computed assuming the HeaderCRC and AssemblyCRC fields
-are 0.
+ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data starting from [PaddingOfTables](#paddingoftables) 
 
 ### Flags
 
@@ -55,6 +57,10 @@ The ***Version*** field holds the assembly's version number. (as opposed to the 
 ### AssemblyName
 
 [String Table](StringTable.md) index for the name of the assembly
+
+### StringTableVersion
+
+Should be equal to 1
 
 ### StartOfTables
 
@@ -80,6 +86,10 @@ Fixed array of offsets to the table data for each of the different tables. The e
 | [ByteCode](ByteCodeBlob.md)                                  | \<blob>                           | Blob table data for the IL byte code instructions
 | [ResourcesFiles](ResourcesFilesTableEntry.md)                | CLR_RECORD_RESOURCE_FILE          | Resource files descriptors for resource files bound to this assembly
 | [EndOfAssembly](EndOfAssembly.md)                            | \<N/A>                            | Technically, this is not a table. Instead this entry contains the offset to the end of the assembly, which is useful for finding the next assembly in a DAT region
+
+### NumberOfPatchedMethods
+
+Should be equal to 0. Not supported in .NET nanoFramework
 
 ### PaddingOfTables
 

@@ -8,7 +8,7 @@ This document describes the recipe to setup the build and publish of new Communi
 
 The build of each of the Community targets is a job in Azure Pipelines yaml.
 
-The build of each target is triggered by adding to the commit message (or PR description) a _token_ (or more than one) or `#ALL#`. The _token_ is the board name enclosed in '#', e.g. `#ST_STM32F4_DISCOVERY#`. Note that it's possible to add more than one token to the commit message to trigger the build for the specific targets.
+The build of each target is triggered by checking the respective tick box in the PR description (comming from the PR template) or checking `[] ALL`. Note that it's possible to check more than one token to be build.
 
 ## Setup the build for a new target
 
@@ -16,20 +16,17 @@ Update the [azure-pipelines.yml](https://github.com/nanoframework/nf-Community-T
 
 1. Start by adding a new job to the collection. Preferably copy/paste from a similar target.
 
-2. Make sure to use the target name at the various places where it shows, namely: job name, condition expression and variables.
+1. Make sure to use the target name at the various places where it shows, namely: job name, condition expression and variables.
+
+1. Update the PR template by adding the new target name in the checklist.
 
 ## Setup the image publishing
 
-Community target images are distributed through .NET **nanoFramework** JFrog Bintray [repository](https://bintray.com/nfbot/nanoframework-images-community-targets).
+Community target images are distributed through our Cloudsmith [repository](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/).
 
-1. Sign-in with .NET **nanoFramework** Bintray account.
-2. Go to nanoframework-images-community-targets repository [here](https://bintray.com/nfbot/nanoframework-images-community-targets)
+1. The 1st build that generates the package has to happen so that it's actually created in the repository.
 
-3. Add a new package inside that repository.
-   - The package name must be **exactly** the same as the target name otherwise the publish step will fail.
-   - The remaining details are to be copied from one of the other existing targets. Mind the description field to update the target name and possibly the manufacturer.
-
-4. Go to the package main page of the recently created package and grab the markdown from the "Latest Version Badge" link there and past it in the Community targets list in the readme.
+1. Go to the package page of the recently created package and grab the markdown from the "Badges" tab (make sure to grab the one for the **latest** version) and paste it in the targets list at the readme file.
 
 ## PRs and manual builds
 

@@ -3,7 +3,7 @@
 ## Is the ESP32 Dev Kit C the ONLY board version that will work with nanoFramework
 
 There are available several different versions including: ESP32-WROOM-32, ESP32-WROOM-32D, ESP32-WROOM-32U, ESP32-SOLO-1, ESP32-WROVER-B, ESP32-WROVER-IB, etc.
-The current ESP32 Dev Kit C image that we provide works on all ESP32 boards that use the ESP32-Wroom-32x or ESP32-WROVER modules. The ESP32-WROVER modules also have PSRAM which we currently don't support but will in the future.  The SOLO modules have only one core which currently won't work as we start the nanoCLR on the 2nd core.
+The current ESP32 Dev Kit C image that we provide works on all ESP32 boards that use the ESP32-Wroom-32x or ESP32-WROVER modules. The SOLO modules have only one core which currently won't work as we start the nanoCLR on the 2nd core.
 
 ## Can I use Smart Config to configure my ESP32 devices
 

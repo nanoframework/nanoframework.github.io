@@ -107,7 +107,7 @@ This has already been done and the libraries can be just be downloaded.
    - `C:\nftools`
    - `C:\nftools\libs-v3.3.1`
 
-1. Download the pre-built libs zip from [here](https://bintray.com/nfbot/internal-build-tools/download_file?file_path=IDF_libs-v3.3.1.zip) and extract it into `C:\nftools\libs-v3.3.1`.
+1. Download the pre-built libs zip from [here](https://dl.cloudsmith.io/public/net-nanoframework/internal-build-tools/raw/names/IDF_libs/versions/v3.3.1/IDF_libs-v3.3.1.zip) and extract it into `C:\nftools\libs-v3.3.1`.
 
 1. Download the v3.3.1 IDF source zip file from [here](https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.1.zip) and extract it into `C:\nftools` so you get `C:\nftools\esp-idf-v3.3\components` etc.
 

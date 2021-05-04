@@ -6,6 +6,4 @@
 
 ## Firmware images (ready to deploy)
 
-| Stable | Preview |
-|---|---|
-| |  [![Download](https://api.bintray.com/packages/nfbot/nanoframework-images-dev/ST_STM32F4_DISCOVERY/images/download.svg)](https://bintray.com/nfbot/nanoframework-images-dev/ST_STM32F4_DISCOVERY/_latestVersion) |
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_STM32F4_DISCOVERY/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_STM32F4_DISCOVERY/latest/)
