@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>.NET nanoFramework Architecture | nanoFramework Documentation </title>
+    <title>Simplifications and trade-offs in .NET nanoFramework | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=".NET nanoFramework Architecture | nanoFramework Documentation ">
+    <meta name="title" content="Simplifications and trade-offs in .NET nanoFramework | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.57.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -75,23 +75,20 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="net-nanoframework-architecture">.NET <strong>nanoFramework</strong> Architecture</h1>
+<h1 id="simplifications-and-trade-offs-in-net-nanoframework">Simplifications and trade-offs in .NET <strong>nanoFramework</strong></h1>
 
+<h2 id="about-this-document">About this document</h2>
+<p>This document describes the simplifications and trade-offs introduced in .NET <strong>nanoFramework</strong> when comparing it to the full framework.</p>
+<h2 id="enums">Enums</h2>
+<p>We are oversimplifying <code>enums</code>. They are special classes which basically contain fields which are constants.
+ECMA-335 allows several simplifications that our CLR takes advantage of. That's made perfectly clear in the standard by this statement in II.14.3 &quot;These restrictions allow a very efficient implementation of enums.&quot;</p>
+<p>Since there is no real value in storing the value names and the constants they represent we choose not to do it. This saves an entry in the Fields table and the corresponding ones in the signatures table and also in the strings table (for the value name). At minimum, this would cost 8 + 2 + (n) bytes in the PE file. Mostly depending on the size of the string with the names.</p>
+<p>Because of this, we don't have support for <code>Enum.GetNames()</code>, <code>Enum.GetValues()</code> and <code>Enum.IsDefined()</code>.</p>
+<p>Notes:</p>
 <ul>
-<li><a href="simplifications-and-trade-offs.html">Simplifications and trade-offs</a></li>
-<li><a href="class-libraries.html">Class Libraries</a></li>
-<li><a href="date-and-time.html">Date and Time</a></li>
-<li><a href="floating-point-calculations.html">Floating point calculations</a></li>
-<li><a href="deployment.html">Application deployment</a></li>
-<li><a href="thread-execution.html">Thread execution</a></li>
-<li><a href="native-interrupt-handlers.html">Native interrupt handlers</a></li>
-<li><a href="wire-protocol.html">Wire Protocol</a></li>
-<li><a href="pe-file/index.html">PE File format</a></li>
+<li>These could be made available, at the expense of increasing the PE size.</li>
+<li>For <code>Enum.IsDefined()</code> you can always use a switch instruction in your code to create something similar depending on your use case.</li>
 </ul>
-<p>As a summary, we can represent the nanoFramework architecture like this:</p>
-<p><img src="../../images/architecture.png" alt="architecture"></p>
-<p>nanoFramework is build on an Hardware Abstraction Layer (HAL). The HAL allow to access the hardware in a consistant and standard way. This allow to have a set of functions that are exposed the same way to the Platform Abstraction Layer (PAL) and specific drivers.</p>
-<p>The CLR is built on the PAL and offers multiple libraries. The one which is always used is mscorlib (System and few other namespaces). The modularity of nanoFramework allows to add as many namespaces, classes as you want. They'll all be linked to the CLR.</p>
 </article>
           </div>
           
@@ -100,7 +97,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/simplifications-and-trade-offs.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

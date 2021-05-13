@@ -80,8 +80,13 @@
 <p>We're working on it! Stay tuned! Raise PR and that will help us finding good recommendations.</p>
 <p>Until then, here follows some unsorted tips.
 These are not a full reference, but they give some clues on where to look next.</p>
+<h2 id="quick-note-about-compatibility-between-managed-and-native-parts">Quick note about compatibility between managed and native parts</h2>
+<p>There is an interface mechanism between the managed libraries and the firmware. This interface is structured around the methods decorated with the <code>MethodImpl(MethodImplOptions.InternalCall)</code> attribute. During the build of a managed library a checksum value generated taking into account the methods name, parameters and return types. That checksum, is used to characterize the library interface and it's stored in stub files.
+Changes can happen at both ends without any compatibility issues, as long as the interface does change.</p>
+<p>More details about checksum value can be found in <a href="../architecture/pe-file/AssemblyHeader.html#nativemethodschecksum">NativeMethodsChecksum</a> <code>AssemblyHeader</code> field description.</p>
+<p>More details about whole versioning can be found in <a href="https://www.nanoframework.net/nuget-assembly-and-native-versions/">NuGet, assembly and native versions</a> blog post.</p>
 <h2 id="how-to-call-native-code-from-managed-code">How to call native code from managed code</h2>
-<p>Assuming you want to call from nanoframework's mscorlib (source can be found in lib-CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:</p>
+<p>Assuming you want to call from nanoframework's mscorlib (source can be found in CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:</p>
 <ol>
 <li><p>Build the nf-CoreLibrary solution without making any changes.</p>
 </li>
