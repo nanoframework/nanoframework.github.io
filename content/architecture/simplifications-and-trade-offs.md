@@ -12,5 +12,5 @@ Because there is no real value in storing the value names and the constants they
 Because of this, we don't have support for `Enum.GetNames()`, `Enum.GetValues()` and `Enum.IsDefined()`.
 Notes:
 
-- That these could be made available, at the expense of increasing the PE size.
-- You can always use a switch instruction in your code to create something similar depending on your use case.
+- These could be made available, at the expense of increasing the PE size.
+- For `Enum.IsDefined()` you can always use a switch instruction in your code to create something similar depending on your use case.
