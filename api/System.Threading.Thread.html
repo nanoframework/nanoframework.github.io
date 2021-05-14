@@ -493,6 +493,39 @@ The system clock ticks at a specific rate called the clock resolution. The actua
 </div>
   
   
+  <a id="System_Threading_Thread_SpinWait_" data-uid="System.Threading.Thread.SpinWait*"></a>
+  <h4 id="System_Threading_Thread_SpinWait_System_Int32_" data-uid="System.Threading.Thread.SpinWait(System.Int32)">SpinWait(Int32)</h4>
+  <div class="markdown level1 summary"><p>Causes a thread to wait the number of times defined by the <code data-dev-comment-type="paramref" class="paramref">iterations</code> parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SpinWait(int iterations)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><span class="parametername">iterations</span></td>
+        <td><p>A 32-bit signed integer that defines how long a thread is to wait.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_Thread_SpinWait_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The <a class="xref" href="System.Threading.Thread.html#System_Threading_Thread_SpinWait_System_Int32_">SpinWait(Int32)</a> method is useful for implementing locks. Classes in the .NET Framework, such as <a class="xref" href="System.Threading.Monitor.html">Monitor</a> use this method internally. <a class="xref" href="System.Threading.Thread.html#System_Threading_Thread_SpinWait_System_Int32_">SpinWait(Int32)</a> essentially puts the processor into a very tight loop, with the loop count specified by the <code data-dev-comment-type="paramref" class="paramref">iterations</code> parameter. The duration of the wait therefore depends on the speed of the processor.
+Contrast this with the <a class="xref" href="System.Threading.Thread.html#System_Threading_Thread_Sleep_System_Int32_">Sleep(Int32)</a> method. A thread that calls <a class="xref" href="System.Threading.Thread.html#System_Threading_Thread_Sleep_System_Int32_">Sleep(Int32)</a> yields the rest of its current slice of processor time, even if the specified interval is zero. Specifying a non-zero interval for <a class="xref" href="System.Threading.Thread.html#System_Threading_Thread_Sleep_System_Int32_">Sleep(Int32)</a> removes the thread from consideration by the thread scheduler until the time interval has elapsed.</p>
+</div>
+  
+  
   <a id="System_Threading_Thread_Start_" data-uid="System.Threading.Thread.Start*"></a>
   <h4 id="System_Threading_Thread_Start" data-uid="System.Threading.Thread.Start">Start()</h4>
   <div class="markdown level1 summary"><p>Causes the operating system to change the state of the current instance to ThreadState.Running.</p>

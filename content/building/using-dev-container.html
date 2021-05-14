@@ -97,7 +97,23 @@
 <li><strong>Step 5</strong>: Make sure you have the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> extension installed.</li>
 <li><strong>Step 6</strong>: copy the file in <code>.\vscode\cmake-variants-DEVCONTAINER.json</code>to <code>.\vscode\cmake-variants.json</code></li>
 <li><strong>Step 7</strong>: Open the full <code>nf-interpreter</code>directory with VS Code.</li>
-<li><strong>Step 8</strong>: Once prompted or thru the menu, open the dev container.</li>
+<li><strong>Step 8</strong>: Chose your container.</li>
+</ul>
+<p>Go to the file <code>.devcontainer/devcontainer.json</code> and choose the container you want. You will find the details in the file itself:</p>
+<pre><code class="lang-json">	// Adjust this file to chose the platform you want using the prebuild containers
+	// - Dockerfile.All = you can build anything but it's a very large container
+	// - Dockerfile.AzureRTOS = for AzureRTOS targets
+	// - Dockerfile.ChibiOS = for ChibiOS based targets (ex: STM32, Netduino, Orgpal)
+	// - Dockerfile.ESP32 = for ESP32 targets
+	// - Dockerfile.TI = for TI targets
+	// If you prefer, you can use the source files and adjust them they are located, with the same names in ./sources. This will alow you to customize them and add anything you may need on top.
+	&quot;dockerFile&quot;: &quot;Dockerfile.ChibiOS&quot;,
+</code></pre>
+<blockquote>
+<p>Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the <code>./sources</code> subdirectory. So the file name will be for example <code>./source/Dockerfile.All</code> to use the container containing everything and build it from the source.</p>
+</blockquote>
+<ul>
+<li><strong>Step 9</strong>: Once prompted or thru the menu, open the dev container.</li>
 </ul>
 <p>This is illustrating how to do this:</p>
 <p><img src="https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif" alt="remote container animation"></p>
@@ -105,14 +121,14 @@
 <p>note: in our case, the dev container is called <code>nanoFramework</code>.</p>
 </blockquote>
 <ul>
-<li><strong>Step 9</strong>: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.</li>
-<li><strong>Step 10</strong>: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.</li>
-<li><strong>Step 11</strong>: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.</li>
-<li><strong>Step 12</strong>: It will be over when your VS Code will give you access to the files and will look like this:</li>
+<li><strong>Step 10</strong>: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.</li>
+<li><strong>Step 11</strong>: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.</li>
+<li><strong>Step 12</strong>: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.</li>
+<li><strong>Step 13</strong>: It will be over when your VS Code will give you access to the files and will look like this:</li>
 </ul>
 <p><img src="../../images/dev-container-vscode-ok.jpg" alt="Docker steetings"></p>
 <ul>
-<li><strong>Step 13</strong>: Select the target you want to build, click on <code>CMake: [Unknown]: Ready</code></li>
+<li><strong>Step 14</strong>: Select the target you want to build, click on <code>CMake: [Unknown]: Ready</code></li>
 </ul>
 <p><img src="../../images/dev-container-selecttarget.jpg" alt="cmakr select"></p>
 <p>The first time you'll do this, you will be asked to select a kit, choose the <code>unspecified</code>one:</p>
@@ -120,15 +136,15 @@
 <p>Then you can pick the target you want to build:</p>
 <p><img src="../../images/dev-container-target.jpg" alt="target to build"></p>
 <ul>
-<li><strong>Step 14</strong>: This will actually prepare all what is needed in the <code>build</code>folder.</li>
+<li><strong>Step 15</strong>: This will actually prepare all what is needed in the <code>build</code>folder.</li>
 </ul>
 <blockquote>
 <p><strong>Important</strong>: this may take up to 1h or more depending on the target and the performance of your machine. So be patient! While the project will be in preparation, you'll get the small window on the right:</p>
 </blockquote>
 <p><img src="../../images/dev-container-prepare.jpg" alt="configuration the project"></p>
 <ul>
-<li><strong>Step 15</strong>: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.</li>
-<li><strong>Step 16</strong>: Hit <code>F7</code> this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: <code>[build] Build finished with exit code 0</code></li>
+<li><strong>Step 16</strong>: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.</li>
+<li><strong>Step 17</strong>: Hit <code>F7</code> this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: <code>[build] Build finished with exit code 0</code></li>
 </ul>
 <h2 id="tips-and-tricks">Tips and tricks</h2>
 <h3 id="some-build-may-fail-for-size-reasons">Some build may fail for size reasons</h3>
