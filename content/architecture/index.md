@@ -1,5 +1,6 @@
 # .NET **nanoFramework** Architecture
 
+- [Simplifications and trade-offs](simplifications-and-trade-offs.md)
 - [Class Libraries](class-libraries.md)
 - [Date and Time](date-and-time.md)
 - [Floating point calculations](floating-point-calculations.md)

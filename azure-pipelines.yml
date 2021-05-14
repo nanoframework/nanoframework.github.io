@@ -123,6 +123,9 @@ steps:
   displayName: Install docfx
 
 - task: NuGetToolInstaller@0
+  displayName: 'Install specifc version of NuGet'
+  inputs:
+    versionSpec: '5.9.0'
 
 - task: NuGetCommand@2
   displayName: NuGet restore CoreLibrary
@@ -130,7 +133,6 @@ steps:
     restoreSolution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     feedsToUse: config
     nugetConfigPath: 'CoreLibrary\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Devices.Can
@@ -138,7 +140,6 @@ steps:
     restoreSolution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Devices.Can\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Devices.OneWire
@@ -146,7 +147,6 @@ steps:
     restoreSolution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Devices.OneWire\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Runtime.Events
@@ -154,7 +154,6 @@ steps:
     restoreSolution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Runtime.Events\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Runtime.Native
@@ -162,7 +161,6 @@ steps:
     restoreSolution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Runtime.Native\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.WebServer
@@ -170,7 +168,6 @@ steps:
     restoreSolution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.WebServer\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Dac
@@ -178,7 +175,6 @@ steps:
     restoreSolution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Dac\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Gpio
@@ -186,7 +182,6 @@ steps:
     restoreSolution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Gpio\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Gpio
@@ -194,7 +189,6 @@ steps:
     restoreSolution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Gpio\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.I2c
@@ -202,7 +196,6 @@ steps:
     restoreSolution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.I2c\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.I2c
@@ -210,7 +203,6 @@ steps:
     restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.I2c\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.IO.FileSystem
@@ -218,7 +210,6 @@ steps:
     restoreSolution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     feedsToUse: config
     nugetConfigPath: 'System.IO.FileSystem\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Pwm
@@ -226,7 +217,6 @@ steps:
     restoreSolution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Pwm\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.SerialCommunication
@@ -234,7 +224,6 @@ steps:
     restoreSolution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.SerialCommunication\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Spi
@@ -242,7 +231,6 @@ steps:
     restoreSolution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Spi\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Spi
@@ -250,7 +238,6 @@ steps:
     restoreSolution: 'System.Device.Spi\System.Device.Spi.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Spi\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Storage
@@ -258,7 +245,6 @@ steps:
     restoreSolution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Storage\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Storage.Streams
@@ -266,7 +252,6 @@ steps:
     restoreSolution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Storage.Streams\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Adc
@@ -274,7 +259,6 @@ steps:
     restoreSolution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Adc\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.WiFi
@@ -282,7 +266,6 @@ steps:
     restoreSolution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.WiFi\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Graphics
@@ -290,7 +273,6 @@ steps:
     restoreSolution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Graphics\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.Esp32
@@ -298,7 +280,6 @@ steps:
     restoreSolution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Esp32\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.Esp32.Rmt
@@ -306,7 +287,6 @@ steps:
     restoreSolution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Esp32.Rmt\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Json
@@ -314,7 +294,6 @@ steps:
     restoreSolution: 'nanoFramework.Json\nanoFramework.Json.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Json\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.Stm32
@@ -322,7 +301,6 @@ steps:
     restoreSolution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Stm32\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.ResourceManager
@@ -330,7 +308,6 @@ steps:
     restoreSolution: 'nanoFramework.ResourceManager\nanoFramework.ResourceManager.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.ResourceManager\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Networking.Sntp
@@ -338,7 +315,6 @@ steps:
     restoreSolution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Networking.Sntp\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.System.Collections
@@ -346,7 +322,6 @@ steps:
     restoreSolution: 'nanoFramework.System.Collections\nanoFramework.System.Collections.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Collections\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.System.Text
@@ -354,7 +329,6 @@ steps:
     restoreSolution: 'nanoFramework.System.Text\nanoFramework.System.Text.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Text\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.System.Net
@@ -362,7 +336,6 @@ steps:
     restoreSolution: 'nanoFramework.System.Net\nanoFramework.System.Net.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Net\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.System.Net.Http
@@ -370,7 +343,6 @@ steps:
     restoreSolution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Net.Http\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.TI.EasyLink
@@ -378,7 +350,6 @@ steps:
     restoreSolution: 'nanoFramework.TI.EasyLink\nanoFramework.TI.EasyLink.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.TI.EasyLink\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.TI
@@ -386,7 +357,6 @@ steps:
     restoreSolution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.TI\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.System.Math
@@ -394,7 +364,6 @@ steps:
     restoreSolution: 'nanoFramework.System.Math\nanoFramework.System.Math.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.System.Math\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Logging
@@ -402,7 +371,6 @@ steps:
     restoreSolution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Logging\NuGet.Config'
-    verbosityRestore: quiet
   
 - task: InstallnFBuildComponents@1
   displayName: Install nanoFramework MSBuild components
