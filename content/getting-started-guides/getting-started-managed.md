@@ -75,15 +75,17 @@ Now you have everything that you need to start coding your first application. Le
    4. The project will be created and opened.  
    ![Create new project dialog](../../images/getting-started-guides/vs-nf-new-project.png)
 
-2. We'll code a **very simple application** that enters an infinite loop and **turns on and off an LED**. We'll skip the details because that's not the aim of this guide. Let's just grab the `Blinky` code from the .NET [**nanoFramework samples**](https://github.com/nanoframework/Samples/tree/master/samples/Blinky) repository. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board.
+2. We'll code a **very simple application** that enters an infinite loop and **turns on and off an LED**. We'll skip the details because that's not the aim of this guide. Let's just grab the `Blinky` code from the .NET [**nanoFramework samples**](https://github.com/nanoframework/Samples/tree/master/samples/Blinky) repository. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board. If you don't know which pin to use, just enter something like "ESP32 led pin number" in your preferred search engine - assuming you are using an ESP32 device. If not, change ESP32 with the name of the devide you have
 
 3. Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the search box type **nanoFramework**. Make sure you have the **preview checkbox ticked**. Find the `Windows.Devices.Gpio` package and click **Install**. After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.
 
-4. Click **Build Solution** from the Build menu. A success message shows in the Build window.
+4.  You should also make sure to update the `mscorlib` package before you move to the next step. To update this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the top of the window, click on **Updates** and make sure you check the **Include Prerelease** checkbox. Then click on **Select All** and do the update.
 
-4. We are almost there. Go into the **Device Explorer** window and click on the .NET **nanoFramework** device showing there. Make sure the connection is OK by hitting the **Ping** button. On success, a message shows on the output window.
+5. Click **Build Solution** from the Build menu. A success message shows in the Build window.
 
-5. Let's deploy the application to the board. In order to do that, right click on the Project name and choose **Deploy**. You'll see the feedback of the several operations that are running on the background in the **Output Window**. After a successful deployment you need to reset the target and your `Hello World` blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a **debug session**. To do that **hit F5** (as usual) in Visual Studio and watch it run.
+6. We are almost there. Go into the **Device Explorer** window and click on the .NET **nanoFramework** device showing there. Make sure the connection is OK by hitting the **Ping** button. On success, a message shows on the output window.
+
+7. Let's deploy the application to the board. In order to do that, right click on the Project name and choose **Deploy**. You'll see the feedback of the several operations that are running on the background in the **Output Window**. After a successful deployment you need to reset the target and your `Hello World` blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a **debug session**. To do that **hit F5** (as usual) in Visual Studio and watch it run.
 
 ## Wrapping up
 
