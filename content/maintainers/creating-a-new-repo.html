@@ -85,7 +85,7 @@ If in doubt please ask one of the senior team members.</p>
 <h2 id="creating-the-repository-in-github">Creating the repository in GitHub</h2>
 <ol>
 <li><p>This is basically clicking the create new repository button in GitHub.</p>
-<p>Note: The class libraries repositories are usually named with the prefix &quot;<em>nanoFramework</em>.<em>namespace</em>&quot; most of the remaining repositories &quot;<strong>nf</strong>-<em>some-relevant-name-here</em>&quot;.</p>
+<p>Note: The class libraries repositories are usually named with the prefix &quot;<em>nanoFramework</em>.<em>namespace</em>&quot; most of the remaining repositories are &quot;<strong>nf</strong>-<em>some-relevant-name-here</em>&quot;.</p>
 </li>
 <li><p>As we are following the <a href="http://nvie.com/posts/a-successful-git-branching-model/">GitFlow branching model</a> two branches must be created: <code>main</code> and <code>develop</code>.</p>
 </li>
@@ -198,10 +198,10 @@ If in doubt please ask one of the senior team members.</p>
 </ol>
 <h2 id="update-the-dependency-upwards">Update the dependency upwards</h2>
 <p>As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> file there and add this new repo to the <code>repositoriesToUpdate</code> list.
-Now, if it depends on others, you have to figure out which one of those is <em>at the end</em> of the dependency chain and add this new repo to <em>that</em> <code>azure-pipelines.yml</code> file. For example, <code>Windows.Devices.Gpio</code> depends on <code>CoreLibrary</code> and <code>Runtime.Events</code> (which, in turn, depends on <code>CoreLibrary</code>). Updating it's dependencies has to the triggered at <code>Runtime.Events</code> not on <code>CoreLibrary</code> because of the chained dependency.</p>
+Now, if it depends on others, you have to figure out which one of those is <em>at the end</em> of the dependency chain and add this new repo to <em>that</em> <code>azure-pipelines.yml</code> file. For example, <code>System.Device.Gpio</code> depends on <code>CoreLibrary</code> and <code>Runtime.Events</code> (which, in turn, depends on <code>CoreLibrary</code>). Updating it's dependencies has to the triggered at <code>Runtime.Events</code> not on <code>CoreLibrary</code> because of the chained dependency.</p>
 <h2 id="add-the-class-library-to-the-documentation-project">Add the class library to the documentation project</h2>
 <p>If this class library has documentation that has to be published as part of nanoFramework documentation (which is most likely) it needs to be referenced in the documentation project.
-Edit the documentation repo <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> and add entries for this new repo on the clone, restore and build steps.</p>
+Edit the documentation repo <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> and add entries for this new repo at steps: <code>clone</code>, <code>restore</code> and <code>build</code>. Just follow one of the others already there.</p>
 </article>
           </div>
           

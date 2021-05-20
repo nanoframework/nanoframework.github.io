@@ -83,12 +83,15 @@
 <p>We are oversimplifying <code>enums</code>. They are special classes which basically contain fields which are constants.
 ECMA-335 allows several simplifications that our CLR takes advantage of. That's made perfectly clear in the standard by this statement in II.14.3 &quot;These restrictions allow a very efficient implementation of enums.&quot;</p>
 <p>Since there is no real value in storing the value names and the constants they represent we choose not to do it. This saves an entry in the Fields table and the corresponding ones in the signatures table and also in the strings table (for the value name). At minimum, this would cost 8 + 2 + (n) bytes in the PE file. Mostly depending on the size of the string with the names.</p>
-<p>Because of this, we don't have support for <code>Enum.GetNames()</code>, <code>Enum.GetValues()</code> and <code>Enum.IsDefined()</code>.</p>
+<p>Because of this, we don't have support for <code>Enum.GetNames()</code>, <code>Enum.GetValues()</code> and <code>Enum.IsDefined()</code>.
+But we have <code>HasFlag()</code>!</p>
 <p>Notes:</p>
 <ul>
 <li>These could be made available, at the expense of increasing the PE size.</li>
 <li>For <code>Enum.IsDefined()</code> you can always use a switch instruction in your code to create something similar depending on your use case.</li>
 </ul>
+<h2 id="multidimensional-arrays">Multidimensional arrays</h2>
+<p>Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only [jagged arrays}(https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.</p>
 </article>
           </div>
           
