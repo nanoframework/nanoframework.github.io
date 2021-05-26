@@ -115,6 +115,8 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.Logging -b develop nanoFramework.Logging
 
+      git clone https://github.com/nanoframework/System.IO.Ports.git --depth 100 -b develop System.IO.Ports
+
  
   displayName: Clone repos of class libs
 
@@ -372,6 +374,13 @@ steps:
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Logging\NuGet.Config'
   
+- task: NuGetCommand@2
+  displayName: NuGet restore System.IO.Ports
+  inputs:
+    restoreSolution: 'System.IO.Ports\System.IO.Ports.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.IO.Ports\NuGet.Config'
+
 - task: InstallnFBuildComponents@1
   displayName: Install nanoFramework MSBuild components
 
@@ -627,6 +636,14 @@ steps:
   displayName: Build nanoFramework.Logging
   inputs:
     solution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build System.IO.Ports
+  inputs:
+    solution: 'System.IO.Ports\System.IO.Ports.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
