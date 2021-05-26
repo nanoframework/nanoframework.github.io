@@ -99,19 +99,19 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.Networking.Sntp -b develop nanoFramework.Networking.Sntp 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Collections -b develop nanoFramework.System.Collections 
+      git clone https://github.com/nanoframework/System.Collections -b develop System.Collections 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Text -b develop nanoFramework.System.Text 
+      git clone https://github.com/nanoframework/System.Text -b develop System.Text 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Net -b develop nanoFramework.System.Net 
+      git clone https://github.com/nanoframework/System.Net -b develop System.Net 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Net.Http -b develop nanoFramework.System.Net.Http 
+      git clone https://github.com/nanoframework/System.Net.Http -b develop System.Net.Http 
 
       git clone https://github.com/nanoframework/nanoFramework.TI.EasyLink -b develop nanoFramework.TI.EasyLink
 
       git clone https://github.com/nanoframework/nanoFramework.Hardware.TI -b develop nanoFramework.Hardware.TI
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Math -b develop nanoFramework.System.Math 
+      git clone https://github.com/nanoframework/System.Math -b develop System.Math 
 
       git clone https://github.com/nanoframework/nanoFramework.Logging -b develop nanoFramework.Logging
 
@@ -319,32 +319,32 @@ steps:
     nugetConfigPath: 'nanoFramework.Networking.Sntp\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.System.Collections
+  displayName: NuGet restore System.Collections
   inputs:
-    restoreSolution: 'nanoFramework.System.Collections\nanoFramework.System.Collections.sln'
+    restoreSolution: 'System.Collections\nanoFramework.System.Collections.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Collections\NuGet.Config'
+    nugetConfigPath: 'System.Collections\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.System.Text
+  displayName: NuGet restore System.Text
   inputs:
-    restoreSolution: 'nanoFramework.System.Text\nanoFramework.System.Text.sln'
+    restoreSolution: 'System.Text\nanoFramework.System.Text.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Text\NuGet.Config'
+    nugetConfigPath: 'System.Text\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.System.Net
+  displayName: NuGet restore System.Net
   inputs:
-    restoreSolution: 'nanoFramework.System.Net\nanoFramework.System.Net.sln'
+    restoreSolution: 'System.Net\nanoFramework.System.Net.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Net\NuGet.Config'
+    nugetConfigPath: 'System.Net\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.System.Net.Http
+  displayName: NuGet restore System.Net.Http
   inputs:
-    restoreSolution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
+    restoreSolution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Net.Http\NuGet.Config'
+    nugetConfigPath: 'System.Net.Http\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.TI.EasyLink
@@ -361,11 +361,11 @@ steps:
     nugetConfigPath: 'nanoFramework.Hardware.TI\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.System.Math
+  displayName: NuGet restore System.Math
   inputs:
-    restoreSolution: 'nanoFramework.System.Math\nanoFramework.System.Math.sln'
+    restoreSolution: 'System.Math\nanoFramework.System.Math.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Math\NuGet.Config'
+    nugetConfigPath: 'System.Math\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Logging
@@ -593,33 +593,33 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
-  displayName: Build nanoFramework.System.Collections
+  displayName: Build System.Collections
   inputs:
-    solution: 'nanoFramework.System.Collections\nanoFramework.System.Collections.sln'
+    solution: 'System.Collections\nanoFramework.System.Collections.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
 - task: VSBuild@1
-  displayName: Build nanoFramework.System.Text
+  displayName: Build System.Text
   inputs:
-    solution: 'nanoFramework.System.Text\nanoFramework.System.Text.sln'
+    solution: 'System.Text\nanoFramework.System.Text.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
 - task: VSBuild@1
-  displayName: Build nanoFramework.System.Net
+  displayName: Build System.Net
   inputs:
-    solution: 'nanoFramework.System.Net\nanoFramework.System.Net.sln'
+    solution: 'System.Net\nanoFramework.System.Net.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
 - task: VSBuild@1
-  displayName: Build nanoFramework.System.Net.Http
+  displayName: Build System.Net.Http
   inputs:
-    solution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
+    solution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
@@ -628,6 +628,14 @@ steps:
   displayName: Build nanoFramework.Hardware.TI
   inputs:
     solution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build System.Math
+  inputs:
+    solution: 'System.Math\nanoFramework.System.Math.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
