@@ -1,16 +1,11 @@
 trigger:
   branches:
-    include:
-    - pages-source
+    include: [pages-source]
   paths:
-    exclude:
-    - /*.md
-    - .gitignore
+    exclude: [README.md, LICENSE.md, .gitignore]
 
+# PR always trigger build   
 pr:
-  branches:
-    include:
-    - pages-source
   autoCancel: true
 
 resources:
@@ -124,10 +119,7 @@ steps:
 - powershell: choco install docfx -y
   displayName: Install docfx
 
-- task: NuGetToolInstaller@0
-  displayName: 'Install specifc version of NuGet'
-  inputs:
-    versionSpec: '5.9.0'
+- template: azure-pipelines-templates/install-nuget.yml@templates
 
 - task: NuGetCommand@2
   displayName: NuGet restore CoreLibrary
