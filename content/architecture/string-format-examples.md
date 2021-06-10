@@ -26,7 +26,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      -1234 D6       n/a -001234 -001234 -001234  n/a    n/a    n/a    n/a
      -1234 d6       n/a -001234 -001234 -001234  n/a    n/a    n/a    n/a
 
-## <a id="fixed">F-Fixed</a>
+## <a id="fixed">F-Fixed-point</a>
 
          Value Format   SByte        Int16        Int32        Int64     Byte      UInt16      UInt32      UInt64       Single       Double
            123 F       123.00       123.00       123.00       123.00   123.00      123.00      123.00      123.00       123.00       123.00

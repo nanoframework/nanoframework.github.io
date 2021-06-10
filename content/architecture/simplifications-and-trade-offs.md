@@ -25,7 +25,11 @@ Because of the underlying complexity and memory usage, multidimensional arrays a
 
 ## String.Format and numeric.ToString Functions
 nanoFramework supports a subset of the [Standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings). It does NOT support any of the [Custom numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings).  The following format specifiers are supported:
+
 | Specifier | Samples |
 | --------- | ------------- | ------- |
-| [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Unit test output](string-format-examples.md#decimal)
-| [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Unit test output](string-format-examples.md#fixed)
+| [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#decimal)
+| [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Fixed-point unit test output](string-format-examples.md#fixed)
+| [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString) | [General unit test output](string-format-examples.md#general)
+| [N-Number](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString) | [Number unit test output](string-format-examples.md#number)
+| [X-Hexadecimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString) | [Hexadecimal unit test output](string-format-examples.md#hexadecimal)
