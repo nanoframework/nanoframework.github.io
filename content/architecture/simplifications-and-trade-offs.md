@@ -21,4 +21,10 @@ Notes:
 
 ## Multidimensional arrays
 
-Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only [jagged arrays}(https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.
+Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only [jagged arrays](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.
+
+## String.Format and numeric.ToString Functions
+nanoFramework supports a subset of the [Standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings). It does NOT support any of the [Custom numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings).  The following format specifiers are supported:
+|Specifier|Samples|
+|---------|-------------|-------|
+|[D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString)|[Unit test output](.\string-format-examples.md#decimal)
