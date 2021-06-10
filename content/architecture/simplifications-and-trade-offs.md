@@ -24,9 +24,11 @@ Notes:
 Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only [jagged arrays](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.
 
 ## String.Format and numeric.ToString Functions
-nanoFramework supports a subset of the [Standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings). It does NOT support any of the [Custom numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings).  The following format specifiers are supported:
 
-| Specifier | Samples |
+nanoFramework supports a subset of the [Standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) (D/F/G/N/X) and [Composite formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting) (left and right alignment). It does NOT support any of the [Custom numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings). Strings in **nanoFramework** are all constrained to UTF-8, so there are limits to the characters that can be displayed. The following format specifiers are supported:
+
+
+| Specifier | Examples |
 | --------- | ------- |
 | [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#decimal) |
 | [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Fixed-point unit test output](string-format-examples.md#fixed) |
