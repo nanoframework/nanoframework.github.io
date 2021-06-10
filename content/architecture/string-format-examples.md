@@ -58,7 +58,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      1234.8999 F3         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a     1234.900     1234.900
      1234.8999 f3         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a     1234.900     1234.900
 
-## <a id="fixed">G-General</a>
+## <a id="general">G-General</a>
 
          Value Format    SByte    Int16    Int32    Int64 Byte  UInt16  UInt32  UInt64    Single    Double
            123 G           123      123      123      123  123     123     123     123       123       123
@@ -103,7 +103,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      -1234.901 g7          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a -1234.901 -1234.901
 
 
-## <a id="fixed">N-Number</a>
+## <a id="number">N-Number</a>
 
             Value Format   SByte         Int16         Int32         Int64     Byte       UInt16       UInt32       UInt64        Single        Double
               123 N       123.00        123.00        123.00        123.00   123.00       123.00       123.00       123.00        123.00        123.00
@@ -138,7 +138,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      1234567.1210 n2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a  1,234,567.12  1,234,567.12
 
 
-## <a id="fixed">X-Hexadecimal</a>
+## <a id="hexadecimal">X-Hexadecimal</a>
 
      Value Format SByte  Int16    Int32            Int64 Byte UInt16 UInt32 UInt64
          0 X2        00     00       00               00   00     00     00     00
