@@ -27,7 +27,7 @@ Because of the underlying complexity and memory usage, multidimensional arrays a
 nanoFramework supports a subset of the [Standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings). It does NOT support any of the [Custom numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings).  The following format specifiers are supported:
 
 | Specifier | Samples |
-| --------- | ------------- | ------- |
+| --------- | ------- |
 | [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#decimal) |
 | [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Fixed-point unit test output](string-format-examples.md#fixed) |
 | [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString) | [General unit test output](string-format-examples.md#general) |
