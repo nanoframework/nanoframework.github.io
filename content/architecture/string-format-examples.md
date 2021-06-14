@@ -182,4 +182,3 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      -1234 X6       n/a 00FB2E FFFFFB2E FFFFFFFFFFFFFB2E  n/a    n/a    n/a    n/a
      -1234 x6       n/a 00fb2e fffffb2e fffffffffffffb2e  n/a    n/a    n/a    n/a
 
-
