@@ -91,7 +91,39 @@ But we have <code>HasFlag()</code>!</p>
 <li>For <code>Enum.IsDefined()</code> you can always use a switch instruction in your code to create something similar depending on your use case.</li>
 </ul>
 <h2 id="multidimensional-arrays">Multidimensional arrays</h2>
-<p>Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only [jagged arrays}(https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.</p>
+<p>Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays">jagged arrays</a>. At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.</p>
+<h2 id="stringformat-and-numerictostring-functions">String.Format and numeric.ToString Functions</h2>
+<p>.Net <strong>nanoFramework</strong> supports a subset of the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings">Standard numeric format strings</a> (D/F/G/N/X) and <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting">Composite formatting</a> (left and right alignment). It does NOT support any of the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings">Custom numeric format strings</a>. Strings in <strong>nanoFramework</strong> are all constrained to UTF-8, so there are limits to the characters that can be displayed. The following format specifiers are supported:</p>
+<table>
+<thead>
+<tr>
+<th>Specifier</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString">D-Decimal</a></td>
+<td><a href="string-format-examples.html#decimal">Decimal unit test output</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString">F-Fixed-point</a></td>
+<td><a href="string-format-examples.html#fixed">Fixed-point unit test output</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString">G-General</a></td>
+<td><a href="string-format-examples.html#general">General unit test output</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString">N-Number</a></td>
+<td><a href="string-format-examples.html#number">Number unit test output</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString">X-Hexadecimal</a></td>
+<td><a href="string-format-examples.html#hexadecimal">Hexadecimal unit test output</a></td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           
