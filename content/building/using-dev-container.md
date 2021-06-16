@@ -20,7 +20,24 @@ We offer the possibility to use such a Dev Container to build any of the support
 - **Step 5**: Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed.
 - **Step 6**: copy the file in `.\vscode\cmake-variants-DEVCONTAINER.json`to `.\vscode\cmake-variants.json`
 - **Step 7**: Open the full `nf-interpreter`directory with VS Code.
-- **Step 8**: Once prompted or thru the menu, open the dev container.
+- **Step 8**: Chose your container.
+
+Go to the file `.devcontainer/devcontainer.json` and choose the container you want. You will find the details in the file itself:
+
+```json
+	// Adjust this file to chose the platform you want using the prebuild containers
+	// - Dockerfile.All = you can build anything but it's a very large container
+	// - Dockerfile.AzureRTOS = for AzureRTOS targets
+	// - Dockerfile.ChibiOS = for ChibiOS based targets (ex: STM32, Netduino, Orgpal)
+	// - Dockerfile.ESP32 = for ESP32 targets
+	// - Dockerfile.TI = for TI targets
+	// If you prefer, you can use the source files and adjust them they are located, with the same names in ./sources. This will alow you to customize them and add anything you may need on top.
+	"dockerFile": "Dockerfile.ChibiOS",
+```
+
+> Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the `./sources` subdirectory. So the file name will be for example `./source/Dockerfile.All` to use the container containing everything and build it from the source.
+
+- **Step 9**: Once prompted or thru the menu, open the dev container.
 
 This is illustrating how to do this:
 
@@ -28,14 +45,14 @@ This is illustrating how to do this:
 
 > note: in our case, the dev container is called `nanoFramework`.
 
-- **Step 9**: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.
-- **Step 10**: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.
-- **Step 11**: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.
-- **Step 12**: It will be over when your VS Code will give you access to the files and will look like this:
+- **Step 10**: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.
+- **Step 11**: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.
+- **Step 12**: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.
+- **Step 13**: It will be over when your VS Code will give you access to the files and will look like this:
 
 ![Docker steetings](../../images/dev-container-vscode-ok.jpg)
 
-- **Step 13**: Select the target you want to build, click on `CMake: [Unknown]: Ready`
+- **Step 14**: Select the target you want to build, click on `CMake: [Unknown]: Ready`
 
 ![cmakr select](../../images/dev-container-selecttarget.jpg)
 
@@ -47,14 +64,14 @@ Then you can pick the target you want to build:
 
 ![target to build](../../images/dev-container-target.jpg)
 
-- **Step 14**: This will actually prepare all what is needed in the `build`folder.
+- **Step 15**: This will actually prepare all what is needed in the `build`folder.
 
 > **Important**: this may take up to 1h or more depending on the target and the performance of your machine. So be patient! While the project will be in preparation, you'll get the small window on the right:
 
 ![configuration the project](../../images/dev-container-prepare.jpg)
 
-- **Step 15**: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.
-- **Step 16**: Hit `F7` this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: `[build] Build finished with exit code 0`
+- **Step 16**: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.
+- **Step 17**: Hit `F7` this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: `[build] Build finished with exit code 0`
 
 ## Tips and tricks
 

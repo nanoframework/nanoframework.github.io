@@ -1,16 +1,11 @@
 trigger:
   branches:
-    include:
-    - pages-source
+    include: [pages-source]
   paths:
-    exclude:
-    - /*.md
-    - .gitignore
+    exclude: [README.md, LICENSE.md, .gitignore]
 
+# PR always trigger build   
 pr:
-  branches:
-    include:
-    - pages-source
   autoCancel: true
 
 resources:
@@ -55,7 +50,7 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.Runtime.Native.git --depth 100 -b develop nanoFramework.Runtime.Native 
 
-      git clone https://github.com/nanoframework/nanoFramework.WebServer --depth 100 -b develop nanoFramework.WebServer 
+      git clone https://github.com/nanoframework/nanoFramework.WebServer -b develop nanoFramework.WebServer 
 
       git clone https://github.com/nanoframework/System.Device.Dac.git --depth 100 -b develop System.Device.Dac
 
@@ -71,9 +66,11 @@ steps:
 
       git clone https://github.com/nanoframework/Windows.Devices.Pwm.git --depth 100 -b develop Windows.Devices.Pwm 
 
-      git clone https://github.com/nanoframework/Windows.Devices.SerialCommunication.git --depth 100 -b develop Windows.Devices.SerialCommunication 
+      git clone https://github.com/nanoframework/Windows.Devices.SerialCommunication.git -b develop Windows.Devices.SerialCommunication 
 
       git clone https://github.com/nanoframework/Windows.Devices.Spi.git --depth 100 -b develop Windows.Devices.Spi 
+
+      git clone https://github.com/nanoframework/System.Device.Spi.git --depth 100 -b develop System.Device.Spi
 
       git clone https://github.com/nanoframework/Windows.Storage.git --depth 100 -b develop Windows.Storage 
 
@@ -97,21 +94,23 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.Networking.Sntp -b develop nanoFramework.Networking.Sntp 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Collections -b develop nanoFramework.System.Collections 
+      git clone https://github.com/nanoframework/System.Collections -b develop System.Collections 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Text -b develop nanoFramework.System.Text 
+      git clone https://github.com/nanoframework/System.Text -b develop System.Text 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Net -b develop nanoFramework.System.Net 
+      git clone https://github.com/nanoframework/System.Net -b develop System.Net 
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Net.Http -b develop nanoFramework.System.Net.Http 
+      git clone https://github.com/nanoframework/System.Net.Http -b develop System.Net.Http 
 
       git clone https://github.com/nanoframework/nanoFramework.TI.EasyLink -b develop nanoFramework.TI.EasyLink
 
       git clone https://github.com/nanoframework/nanoFramework.Hardware.TI -b develop nanoFramework.Hardware.TI
 
-      git clone https://github.com/nanoframework/nanoFramework.System.Math -b develop nanoFramework.System.Math 
+      git clone https://github.com/nanoframework/System.Math -b develop System.Math 
 
       git clone https://github.com/nanoframework/nanoFramework.Logging -b develop nanoFramework.Logging
+
+      git clone https://github.com/nanoframework/System.IO.Ports.git --depth 100 -b develop System.IO.Ports
 
  
   displayName: Clone repos of class libs
@@ -120,250 +119,265 @@ steps:
 - powershell: choco install docfx -y
   displayName: Install docfx
 
-- task: NuGetToolInstaller@0
+- template: azure-pipelines-templates/install-nuget.yml@templates
 
 - task: NuGetCommand@2
+  displayName: NuGet restore CoreLibrary
   inputs:
     restoreSolution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     feedsToUse: config
     nugetConfigPath: 'CoreLibrary\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Devices.Can
   inputs:
     restoreSolution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Devices.Can\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Devices.OneWire
   inputs:
     restoreSolution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Devices.OneWire\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Runtime.Events
   inputs:
     restoreSolution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Runtime.Events\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Runtime.Native
   inputs:
     restoreSolution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Runtime.Native\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.WebServer
   inputs:
     restoreSolution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.WebServer\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Dac
   inputs:
     restoreSolution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Dac\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Gpio
   inputs:
     restoreSolution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Gpio\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Gpio
   inputs:
     restoreSolution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Gpio\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.I2c
   inputs:
     restoreSolution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.I2c\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.I2c
   inputs:
     restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.I2c\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.IO.FileSystem
   inputs:
     restoreSolution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     feedsToUse: config
     nugetConfigPath: 'System.IO.FileSystem\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Pwm
   inputs:
     restoreSolution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Pwm\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.SerialCommunication
   inputs:
     restoreSolution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.SerialCommunication\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Spi
   inputs:
     restoreSolution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Spi\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Spi
+  inputs:
+    restoreSolution: 'System.Device.Spi\System.Device.Spi.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Spi\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore Windows.Storage
   inputs:
     restoreSolution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Storage\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Storage.Streams
   inputs:
     restoreSolution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Storage.Streams\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.Adc
   inputs:
     restoreSolution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Adc\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore Windows.Devices.WiFi
   inputs:
     restoreSolution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.WiFi\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Graphics
   inputs:
     restoreSolution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Graphics\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.Esp32
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Esp32\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.Esp32.Rmt
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Esp32.Rmt\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Json
   inputs:
     restoreSolution: 'nanoFramework.Json\nanoFramework.Json.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Json\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.Stm32
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.Stm32\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.ResourceManager
   inputs:
     restoreSolution: 'nanoFramework.ResourceManager\nanoFramework.ResourceManager.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.ResourceManager\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Networking.Sntp
   inputs:
     restoreSolution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Networking.Sntp\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Collections
   inputs:
-    restoreSolution: 'nanoFramework.System.Collections\nanoFramework.System.Collections.sln'
+    restoreSolution: 'System.Collections\nanoFramework.System.Collections.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Collections\NuGet.Config'
-    verbosityRestore: quiet
+    nugetConfigPath: 'System.Collections\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Text
   inputs:
-    restoreSolution: 'nanoFramework.System.Text\nanoFramework.System.Text.sln'
+    restoreSolution: 'System.Text\nanoFramework.System.Text.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Text\NuGet.Config'
-    verbosityRestore: quiet
+    nugetConfigPath: 'System.Text\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Net
   inputs:
-    restoreSolution: 'nanoFramework.System.Net\nanoFramework.System.Net.sln'
+    restoreSolution: 'System.Net\nanoFramework.System.Net.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Net\NuGet.Config'
-    verbosityRestore: quiet
+    nugetConfigPath: 'System.Net\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Net.Http
   inputs:
-    restoreSolution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
+    restoreSolution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Net.Http\NuGet.Config'
-    verbosityRestore: quiet
+    nugetConfigPath: 'System.Net.Http\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.TI.EasyLink
   inputs:
     restoreSolution: 'nanoFramework.TI.EasyLink\nanoFramework.TI.EasyLink.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.TI.EasyLink\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hardware.TI
   inputs:
     restoreSolution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Hardware.TI\NuGet.Config'
-    verbosityRestore: quiet
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Math
   inputs:
-    restoreSolution: 'nanoFramework.System.Math\nanoFramework.System.Math.sln'
+    restoreSolution: 'System.Math\nanoFramework.System.Math.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.System.Math\NuGet.Config'
-    verbosityRestore: quiet
+    nugetConfigPath: 'System.Math\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Logging
   inputs:
     restoreSolution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Logging\NuGet.Config'
-    verbosityRestore: quiet
   
+- task: NuGetCommand@2
+  displayName: NuGet restore System.IO.Ports
+  inputs:
+    restoreSolution: 'System.IO.Ports\System.IO.Ports.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.IO.Ports\NuGet.Config'
+
 - task: InstallnFBuildComponents@1
   displayName: Install nanoFramework MSBuild components
 
 - task: VSBuild@1
+  displayName: Build CoreLibrary
   inputs:
     solution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     platform: '$(buildPlatform)'
@@ -371,6 +385,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Devices.Can
   inputs:
     solution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
     platform: '$(buildPlatform)'
@@ -378,6 +393,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Devices.OneWire
   inputs:
     solution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
     platform: '$(buildPlatform)'
@@ -385,6 +401,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Runtime.Events
   inputs:
     solution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln '
     platform: '$(buildPlatform)'
@@ -392,6 +409,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Runtime.Native
   inputs:
     solution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     platform: '$(buildPlatform)'
@@ -399,6 +417,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.WebServer
   inputs:
     solution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     platform: '$(buildPlatform)'
@@ -406,6 +425,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.Dac
   inputs:
     solution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     platform: '$(buildPlatform)'
@@ -413,6 +433,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.Gpio
   inputs:
     solution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     platform: '$(buildPlatform)'
@@ -420,6 +441,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Gpio
   inputs:
     solution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     platform: '$(buildPlatform)'
@@ -427,6 +449,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.I2c
   inputs:
     solution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     platform: '$(buildPlatform)'
@@ -434,6 +457,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.I2c
   inputs:
     solution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     platform: '$(buildPlatform)'
@@ -441,6 +465,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.IO.FileSystem
   inputs:
     solution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     platform: '$(buildPlatform)'
@@ -448,6 +473,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Pwm
   inputs:
     solution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     platform: '$(buildPlatform)'
@@ -455,6 +481,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.SerialCommunication
   inputs:
     solution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     platform: '$(buildPlatform)'
@@ -462,6 +489,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Spi
   inputs:
     solution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     platform: '$(buildPlatform)'
@@ -469,6 +497,15 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Device.Spi
+  inputs:
+    solution: 'System.Device.Spi\System.Device.Spi.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build Windows.Storage
   inputs:
     solution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     platform: '$(buildPlatform)'
@@ -476,6 +513,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Storage.Streams
   inputs:
     solution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     platform: '$(buildPlatform)'
@@ -483,6 +521,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.Adc
   inputs:
     solution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     platform: '$(buildPlatform)'
@@ -490,6 +529,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build Windows.Devices.WiFi
   inputs:
     solution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     platform: '$(buildPlatform)'
@@ -497,6 +537,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Graphics
   inputs:
     solution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     platform: '$(buildPlatform)'
@@ -504,6 +545,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.Esp32
   inputs:
     solution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     platform: '$(buildPlatform)'
@@ -511,6 +553,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.Esp32.Rmt
   inputs:
     solution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     platform: '$(buildPlatform)'
@@ -518,6 +561,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Json
   inputs:
     solution: 'nanoFramework.Json\nanoFramework.Json.sln'
     platform: '$(buildPlatform)'
@@ -525,6 +569,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.Stm32
   inputs:
     solution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     platform: '$(buildPlatform)'
@@ -532,6 +577,7 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Networking.Sntp
   inputs:
     solution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     platform: '$(buildPlatform)'
@@ -539,34 +585,39 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Collections
   inputs:
-    solution: 'nanoFramework.System.Collections\nanoFramework.System.Collections.sln'
+    solution: 'System.Collections\nanoFramework.System.Collections.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Text
   inputs:
-    solution: 'nanoFramework.System.Text\nanoFramework.System.Text.sln'
+    solution: 'System.Text\nanoFramework.System.Text.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Net
   inputs:
-    solution: 'nanoFramework.System.Net\nanoFramework.System.Net.sln'
+    solution: 'System.Net\nanoFramework.System.Net.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Net.Http
   inputs:
-    solution: 'nanoFramework.System.Net.Http\nanoFramework.System.Net.Http.sln'
+    solution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.Hardware.TI
   inputs:
     solution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     platform: '$(buildPlatform)'
@@ -574,8 +625,25 @@ steps:
   condition: succeeded()
 
 - task: VSBuild@1
+  displayName: Build System.Math
+  inputs:
+    solution: 'System.Math\nanoFramework.System.Math.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.Logging
   inputs:
     solution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build System.IO.Ports
+  inputs:
+    solution: 'System.IO.Ports\System.IO.Ports.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()

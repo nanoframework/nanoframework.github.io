@@ -54,7 +54,7 @@ copy the updated build/include/sdkconfig.h to the nf-interpreter\targets\FreeRTO
 
 In the nf-interpreter repo check/update the following files:
 
-- azure-pipelines-templates\build-esp32.ymlAppveyor.yml
+- azure-pipelines-templates\build-esp32.yml
 - azure-pipelines-templates\download-install-esp32-build-components.yml
 - install-scripts\install-esp32-idf.ps1
 - install-scripts\install_esp32-libs.ps1
