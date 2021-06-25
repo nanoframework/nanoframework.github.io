@@ -35,3 +35,8 @@ Because of the underlying complexity and memory usage, multidimensional arrays a
 | [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString) | [General unit test output](string-format-examples.md#general) |
 | [N-Number](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString) | [Number unit test output](string-format-examples.md#number) |
 | [X-Hexadecimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString) | [Hexadecimal unit test output](string-format-examples.md#hexadecimal) |
+
+## Generics
+
+.NET nanoFramework doesn't support generics. We are actively working on it! (You can track the progress by following [this](https://github.com/nanoframework/Home/issues/782) GitHub issue)
+This is something that can easily go unnoticed as there are already some classes in mscorlib to support this. And, for the vast majority of the code, there will be no compiler error.
