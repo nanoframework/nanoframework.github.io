@@ -8,7 +8,7 @@ PLEASE NOTE: You **DO NOT** have to build the firmware images to get started wit
 
 - [Getting started guide](getting-started-managed.md)
 - [Getting started trouble shooting guide](trouble-shooting-guide.md)
-- [Getting started with package and assembly versions and checksums](guide-versions-checksums.md)
+- [Getting started with package and assembly versions and checksums](guide-version-checksums.md)
 
 ## Build instructions
 
