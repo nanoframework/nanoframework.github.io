@@ -29,7 +29,7 @@ The first part is to get Visual Studio 2019 (VS 2017 is also supported) and the 
 
 The second part is to load the .NET **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher (nanoff)](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
 
-> [!NOTE]
+> NOTE
 > - The [.NET 5.0 Runtime (or .NET 5.0 SDK)](https://dotnet.microsoft.com/download) must be installed
 
 1. **Install [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher)**
@@ -38,7 +38,7 @@ The second part is to load the .NET **nanoFramework** image in the board flash. 
     dotnet tool install -g nanoff
     ```
 
-2. **Perform the update** by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected. 
+1. **Perform the update** by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected. 
 (The following includes the description for targets of several platforms for completeness) 
 
     - To update the firmware of an ESP32 target connected to COM31, to the latest available preview version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash..." message) 
@@ -72,17 +72,21 @@ Now you have everything that you need to start coding your first application. Le
    4. The project will be created and opened.  
    ![Create new project dialog](../../images/getting-started-guides/vs-nf-new-project.png)
 
-2. We'll code a **very simple application** that enters an infinite loop and **turns on and off an LED**. We'll skip the details because that's not the aim of this guide. Let's just grab the `Blinky` code from the .NET [**nanoFramework** samples](https://github.com/nanoframework/Samples/tree/master/samples/Blinky) repository. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board. If you don't know which pin to use, just enter something like "ESP32 led pin number" in your preferred search engine - assuming you are using an ESP32 device. If not, change ESP32 with the name of the device you have
+1. We'll code a **very simple application** that enters an infinite loop and **turns on and off an LED**. We'll skip the details because that's not the aim of this guide. Let's just grab the `Blinky` code from the .NET [**nanoFramework** samples](https://github.com/nanoframework/Samples/tree/master/samples/Blinky) repository. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board. If you don't know which pin to use, just enter something like "ESP32 led pin number" in your preferred search engine - assuming you are using an ESP32 device. If not, change ESP32 with the name of the device you have
 
-3. Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the search box type **nanoFramework**. Make sure you have the **preview checkbox ticked**. Find the `Windows.Devices.Gpio` package and click **Install**. After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.
+1. Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the search box type **nanoFramework**. Make sure you have the **preview checkbox ticked**. Find the `Windows.Devices.Gpio` package and click **Install**. After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.
 
-4.  You should also make sure to update the `mscorlib` package before you move to the next step. To update this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the top of the window, click on **Updates** and make sure you check the **Include Prerelease** checkbox. Then click on **Select All** and do the update.
+1.  You should also make sure to update the `mscorlib` package before you move to the next step. To update this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the top of the window, click on **Updates** and make sure you check the **Include Prerelease** checkbox. Then click on **Select All** and do the update.
 
-5. Click **Build Solution** from the Build menu. A success message shows in the Build window.
+1. Click **Build Solution** from the Build menu. A success message shows in the Build window.
 
-6. We are almost there. Go into the **Device Explorer** window and click on the .NET **nanoFramework** device showing there. Make sure the connection is OK by hitting the **Ping** button. On success, a message shows on the output window.
+1. We are almost there. Go into the **Device Explorer** window and click on the .NET **nanoFramework** device showing there. Make sure the connection is OK by hitting the **Ping** button. On success, a message shows on the output window. <BR/><BR/>
+For some STM32 devices you may need two USB cables.  For example, the STM32429I-Discovery has a mini-USB connector that is labeled USB-STLINK that powers the device and provides the USB interface for flashing the firmware and/or running the JTAG debugger for debugging native C++ code (in VSCode or other C++ IDE).  The micro-USB connector is labeled USB-USER and provides the COM/Serial interface used by the **Visual Studio nanoFramework Extension** for debugging your C# application code and for **Device Explorer**.  For that device BOTH cables must be plugged into USB ports on your computer.
 
-7. Let's deploy the application to the board. In order to do that, right click on the Project name and choose **Deploy**. You'll see the feedback of the several operations that are running on the background in the **Output Window**. After a successful deployment you need to reset the target and your `Hello World` blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a **debug session**. To do that **hit F5** (as usual) in Visual Studio and watch it run.
+1. Let's deploy the application to the board. In order to do that, right click on the Project name and choose **Deploy**. You'll see the feedback of the several operations that are running on the background in the **Output Window**. After a successful deployment you need to reset the target and your `Hello World` blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a **debug session**. To do that **hit F5** (as usual) in Visual Studio and watch it run.
+
+## Trouble shooting
+See this guide for solutions to some common problems: [Getting Started Trouble Shooting Guide](trouble-shooting-guide.md)
 
 ## Wrapping up
 
