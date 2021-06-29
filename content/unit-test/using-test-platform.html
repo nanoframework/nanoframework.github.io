@@ -8,7 +8,7 @@
     <title>Using the nanoFramework.TestPlatform | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Using the nanoFramework.TestPlatform | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -230,6 +230,12 @@ Assert.DoesNotContains(contains, empty);
 Assert.DoesNotContains(contains, stringnull);
 Assert.StartsWith(contains, startcontains);
 Assert.EndsWith(contains, tocontains);
+</code></pre>
+<h3 id="outputting-messages-from-the-tests">Outputting messages from the tests</h3>
+<p>It's possible to output messages from the Unit Tests using <code>OutputHelper.Write</code> and <code>OutputHelper.WriteLine</code>. These work exactly as <code>Debug.Write</code> and <code>Debug.WriteLine</code> so simple or formatted output is available.</p>
+<pre><code class="lang-csharp">OutputHelper.WriteLine(&quot;This is a message from Unit Test XYZ!&quot;);
+</code></pre>
+<pre><code class="lang-csharp">OutputHelper.WriteLine($&quot;This is another message from Unit Test XYZ, showing that {someVariable.Length} can be output too.&quot;);
 </code></pre>
 <h3 id="skipping-a-test">Skipping a test</h3>
 <p>You can skip a test by using <code>Assert.SkipTest</code>. You can place an explanation like this:</p>

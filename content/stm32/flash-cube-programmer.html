@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How To Flash a target using STM32 Cube Programmer | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How To Flash a target using STM32 Cube Programmer | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.58.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-flash-a-target-using-stm32-cube-programmer">How To Flash a target using STM32 Cube Programmer</h1>
+
+<p>This is a guide on how to manually flash the firmware using STM32CubeProgrammer utility.  This utility replaces the ST-Link utility and may be required for some Windows 10 machines.</p>
+<p>You will need to use this utility to replace the boot loader on the STM32 chip.  Once replaced, you can do all further firmware maintentance using the nanoFramework Firmware Flash tool (nanoff.exe).</p>
+<h2 id="install-the-tool">Install the tool</h2>
+<ol>
+<li>Download the appropriate <a href="https://www.st.com/en/development-tools/stm32cubeprog.html">STM32 Cube Programmer</a> from ST web site and install it in your development machine.</li>
+</ol>
+<h2 id="flash-a-jtag-connected-board">Flash a JTAG connected board</h2>
+<p>There are two images to be flashed in the target, one for nanoBooter and another one for nanoCLR.</p>
+<ol>
+<li><p>Download a ZIP file with the firmware for the board from our web site <a href="https://github.com/nanoframework/nf-interpreter#firmware-for-reference-boards">here</a> by clicking on the appropriate badge. This will take you to our Cloudsmith repository that holds the packages with pre-build images for several target boards. After downloading it, unzip the package contents.</p>
+</li>
+<li><p>Connect the target board to your PC using an USB cable. Note that on most ST development boards there are two micro USB connectors. To follow this guide you'll want to use the one that's providing the JTAG connection through the ST-Link debugger. In doubt, check the PCB for the correct one or the board schematic.</p>
+</li>
+<li><p>Launch the STM32 Cube Programmer that you've just installed and connect to the ST board.</p>
+</li>
+<li><p>Select &quot;USB&quot; in the interface options.</p>
+<blockquote>
+<p><img src="../../images/stm32/stm32-cube-programmer-select-stlink.jpg" alt="USB interface"></p>
+</blockquote>
+</li>
+<li><p>Navigate to the &quot;Erasing and Programming&quot; view.</p>
+<blockquote>
+<p><img src="../../images/stm32/stm32-cube-programmer-programing-menu.jpg" alt="Erasing and Programming"></p>
+</blockquote>
+</li>
+<li><p>Perform a &quot;full chip erase&quot; to clear the flash.</p>
+<blockquote>
+<p><img src="../../images/stm32/stm32-cube-programmer-full-chip-erase.jpg" alt="Full chip erase"></p>
+</blockquote>
+</li>
+<li><p>Load the <code>nanoBooter.hex</code> file from the package by clicking the &quot;Browse&quot; button. Make sure you tick the &quot;Run after programming&quot; and &quot;Skip flash erase before programming&quot; check boxes and hit &quot;Start Program...&quot; button. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!</p>
+<blockquote>
+<p><img src="../../images/stm32/stm32-cube-programmer-load-nanobooter.png" alt="STM32CubeProgrammer load nanobooter"></p>
+</blockquote>
+</li>
+<li><p>Next, load the <code>nanoCLR.hex</code> file from the extracted package folder by clicking the &quot;Browse&quot; button. Make sure you tick the &quot;Run after programming&quot; and &quot;Skip flash erase before programming&quot; check boxes and hit &quot;Start Program...&quot; button. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking. You can check if the board is properly running .NET <strong>nanoFramework</strong> by looking into the Device Explorer window in VS. You may have to click the &quot;Rescan nanoDevices&quot; button (the magnifying glass icon).</p>
+</li>
+</ol>
+<h2 id="flash-a-dfu-connected-board">Flash a DFU connected board</h2>
+<ol>
+<li><p>Put your device in bootloader mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.</p>
+</li>
+<li><p>Launch the STM32 Cube Programmer that you've just installed and connect to the ST board.</p>
+</li>
+<li><p>Select &quot;USB&quot; in the interface options.</p>
+<blockquote>
+<p><img src="../../images/stm32/stm32-cube-programmer-select-usb.jpg" alt="USB interface"></p>
+</blockquote>
+</li>
+<li><p>Load the <code>nnnn.dfu</code> file by clicking the &quot;Browse&quot; button. Make sure you tick the &quot;Run after programming&quot; check box and hit &quot;Start Program...&quot; button. After the upload completes, the MCU is reset and the nanoCLR image runs.You can check if the board is properly running .NET <strong>nanoFramework</strong> by looking into the Device Explorer window in VS. You may have to click the &quot;Rescan nanoDevices&quot; button (the magnifying glass icon).</p>
+</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/stm32/flash-cube-programmer.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

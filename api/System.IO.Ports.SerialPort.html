@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SerialPort
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -121,7 +121,7 @@
   <h6><strong>Assembly</strong>: System.IO.Ports.dll</h6>
   <h5 id="System_IO_Ports_SerialPort_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SerialPort : IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SerialPort : IDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -130,11 +130,11 @@
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort__ctor_System_String_System_Int32_System_IO_Ports_Parity_System_Int32_System_IO_Ports_StopBits_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.%23ctor(System.String%2CSystem.Int32%2CSystem.IO.Ports.Parity%2CSystem.Int32%2CSystem.IO.Ports.StopBits)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L59">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L72">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort__ctor_" data-uid="System.IO.Ports.SerialPort.#ctor*"></a>
   <h4 id="System_IO_Ports_SerialPort__ctor_System_String_System_Int32_System_IO_Ports_Parity_System_Int32_System_IO_Ports_StopBits_" data-uid="System.IO.Ports.SerialPort.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)">SerialPort(String, Int32, Parity, Int32, StopBits)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the System.IO.Ports.SerialPort class using the
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a> class using the
 specified port name, baud rate, parity bit, data bits, and stop bit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -167,7 +167,7 @@ specified port name, baud rate, parity bit, data bits, and stop bit.</p>
       <tr>
         <td><a class="xref" href="System.IO.Ports.Parity.html">Parity</a></td>
         <td><span class="parametername">parity</span></td>
-        <td><p>One of the System.IO.Ports.SerialPort.Parity values.</p>
+        <td><p>One of the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_Parity">Parity</a> values.</p>
 </td>
       </tr>
       <tr>
@@ -179,7 +179,7 @@ specified port name, baud rate, parity bit, data bits, and stop bit.</p>
       <tr>
         <td><a class="xref" href="System.IO.Ports.StopBits.html">StopBits</a></td>
         <td><span class="parametername">stopBits</span></td>
-        <td><p>One of the System.IO.Ports.SerialPort.StopBits values.</p>
+        <td><p>One of the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_StopBits">StopBits</a> values.</p>
 </td>
       </tr>
     </tbody>
@@ -196,6 +196,11 @@ specified port name, baud rate, parity bit, data bits, and stop bit.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The specified port could not be found or opened.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p>The specified port could as aleready been opened.</p>
 </td>
       </tr>
     </tbody>
@@ -269,11 +274,11 @@ specified port name, baud rate, parity bit, data bits, and stop bit.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_BaseStream.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.BaseStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L447">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L482">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_BaseStream_" data-uid="System.IO.Ports.SerialPort.BaseStream*"></a>
   <h4 id="System_IO_Ports_SerialPort_BaseStream" data-uid="System.IO.Ports.SerialPort.BaseStream">BaseStream</h4>
-  <div class="markdown level1 summary"><p>Gets the underlying System.IO.Stream object for a System.IO.Ports.SerialPort
+  <div class="markdown level1 summary"><p>Gets the underlying System.IO.Stream object for a <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -307,8 +312,8 @@ object.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>The stream is closed. This can occur because the System.IO.Ports.SerialPort.Open
-method has not been called or the System.IO.Ports.SerialPort.Close method has
+        <td><p>The stream is closed. This can occur because the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_Open">Open()</a>
+method has not been called or the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_Close">Close()</a> method has
 been called.</p>
 </td>
       </tr>
@@ -319,7 +324,7 @@ been called.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_BaudRate.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.BaudRate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L163">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L171">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_BaudRate_" data-uid="System.IO.Ports.SerialPort.BaudRate*"></a>
   <h4 id="System_IO_Ports_SerialPort_BaudRate" data-uid="System.IO.Ports.SerialPort.BaudRate">BaudRate</h4>
@@ -363,19 +368,14 @@ maximum allowable baud rate for the device.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_BytesToRead.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.BytesToRead%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L454">View Source</a>
-  </span>
+  
+  
   <a id="System_IO_Ports_SerialPort_BytesToRead_" data-uid="System.IO.Ports.SerialPort.BytesToRead*"></a>
   <h4 id="System_IO_Ports_SerialPort_BytesToRead" data-uid="System.IO.Ports.SerialPort.BytesToRead">BytesToRead</h4>
   <div class="markdown level1 summary"><p>Gets the number of bytes of data in the receive buffer.</p>
@@ -422,7 +422,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_DataBits.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.DataBits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L210">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L230">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_DataBits_" data-uid="System.IO.Ports.SerialPort.DataBits*"></a>
   <h4 id="System_IO_Ports_SerialPort_DataBits" data-uid="System.IO.Ports.SerialPort.DataBits">DataBits</h4>
@@ -460,7 +460,7 @@ object were invalid.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
@@ -476,7 +476,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Encoding.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Encoding%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L345">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L368">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Encoding_" data-uid="System.IO.Ports.SerialPort.Encoding*"></a>
   <h4 id="System_IO_Ports_SerialPort_Encoding" data-uid="System.IO.Ports.SerialPort.Encoding">Encoding</h4>
@@ -502,6 +502,9 @@ object were invalid.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="System_IO_Ports_SerialPort_Encoding_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>.NET nanoFrameowrk implementation of serial port only supports <a class="xref" href="System.Text.UTF8Encoding.html">UTF8Encoding</a>.</p>
+</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -513,15 +516,13 @@ object were invalid.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.Encoding property was set to null.</p>
+        <td><p>The <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_Encoding">Encoding</a> property was set to null.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.Encoding property was set to an encoding that
-is not System.Text.ASCIIEncoding, System.Text.UTF8Encoding, System.Text.UTF32Encoding,
-System.Text.UnicodeEncoding, one of the Windows single byte encodings, or one
-of the Windows double byte encodings.</p>
+        <td><p>The <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_Encoding">Encoding</a> property was set to an encoding that
+is not <a class="xref" href="System.Text.UTF8Encoding.html">UTF8Encoding</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -531,12 +532,12 @@ of the Windows double byte encodings.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Handshake.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Handshake%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L189">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L203">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Handshake_" data-uid="System.IO.Ports.SerialPort.Handshake*"></a>
   <h4 id="System_IO_Ports_SerialPort_Handshake" data-uid="System.IO.Ports.SerialPort.Handshake">Handshake</h4>
   <div class="markdown level1 summary"><p>Gets or sets the handshaking protocol for serial port transmission of data using
-a value from System.IO.Ports.Handshake.</p>
+a value from <a class="xref" href="System.IO.Ports.Handshake.html">Handshake</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -570,13 +571,13 @@ a value from System.IO.Ports.Handshake.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The value passed is not a valid value in the System.IO.Ports.Handshake enumeration.</p>
+        <td><p>The value passed is not a valid value in the <a class="xref" href="System.IO.Ports.Handshake.html">Handshake</a> enumeration.</p>
 </td>
       </tr>
     </tbody>
@@ -586,11 +587,11 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_IsOpen.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.IsOpen%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L354">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L385">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_IsOpen_" data-uid="System.IO.Ports.SerialPort.IsOpen*"></a>
   <h4 id="System_IO_Ports_SerialPort_IsOpen" data-uid="System.IO.Ports.SerialPort.IsOpen">IsOpen</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating the open or closed status of the System.IO.Ports.SerialPort
+  <div class="markdown level1 summary"><p>Gets a value indicating the open or closed status of the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -624,12 +625,12 @@ object.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.IsOpen value passed is null.</p>
+        <td><p>The <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_IsOpen">IsOpen</a> value passed is null.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.IsOpen value passed is an empty string (&quot;&quot;).</p>
+        <td><p>The <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_IsOpen">IsOpen</a> value passed is an empty string (&quot;&quot;).</p>
 </td>
       </tr>
     </tbody>
@@ -639,7 +640,7 @@ object.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Mode.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Mode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L245">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L277">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Mode_" data-uid="System.IO.Ports.SerialPort.Mode*"></a>
   <h4 id="System_IO_Ports_SerialPort_Mode" data-uid="System.IO.Ports.SerialPort.Mode">Mode</h4>
@@ -666,19 +667,19 @@ object.</p>
     </tbody>
   </table>
   <h5 id="System_IO_Ports_SerialPort_Mode_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This is a .NET nanoFrmaework property only</p>
+  <div class="markdown level1 remarks"><p>This is a .NET nanoFramework property only.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_NewLine.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.NewLine%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L361">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L392">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_NewLine_" data-uid="System.IO.Ports.SerialPort.NewLine*"></a>
   <h4 id="System_IO_Ports_SerialPort_NewLine" data-uid="System.IO.Ports.SerialPort.NewLine">NewLine</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the value used to interpret the end of a call to the System.IO.Ports.SerialPort.ReadLine
-and System.IO.Ports.SerialPort.WriteLine(System.String) methods.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the value used to interpret the end of a call to the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_ReadLine">ReadLine()</a>
+and <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_WriteLine_System_String_">WriteLine(String)</a>(System.String) methods.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -721,7 +722,7 @@ and System.IO.Ports.SerialPort.WriteLine(System.String) methods.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Parity.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Parity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L231">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L257">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Parity_" data-uid="System.IO.Ports.SerialPort.Parity*"></a>
   <h4 id="System_IO_Ports_SerialPort_Parity" data-uid="System.IO.Ports.SerialPort.Parity">Parity</h4>
@@ -759,7 +760,7 @@ and System.IO.Ports.SerialPort.WriteLine(System.String) methods.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
@@ -770,17 +771,16 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_PortName.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.PortName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L282">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L321">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_PortName_" data-uid="System.IO.Ports.SerialPort.PortName*"></a>
   <h4 id="System_IO_Ports_SerialPort_PortName" data-uid="System.IO.Ports.SerialPort.PortName">PortName</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the port for communications, including but not limited to all available
-COM ports.</p>
+  <div class="markdown level1 summary"><p>Gets the port for communications.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PortName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string PortName { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -797,40 +797,15 @@ COM ports.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.PortName property was set to a value with a length
-of zero. -or- The System.IO.Ports.SerialPort.PortName property was set to a value
-that starts with &quot;\&quot;. -or- The port name was not valid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.PortName property was set to null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>The specified port is open.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 id="System_IO_Ports_SerialPort_PortName_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>.NET nanoFramework doesn't support changing the port.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_ReadTimeout.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.ReadTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L383">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L415">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_ReadTimeout_" data-uid="System.IO.Ports.SerialPort.ReadTimeout*"></a>
   <h4 id="System_IO_Ports_SerialPort_ReadTimeout" data-uid="System.IO.Ports.SerialPort.ReadTimeout">ReadTimeout</h4>
@@ -869,13 +844,13 @@ operation does not finish.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The read time-out value is less than zero and not equal to System.IO.Ports.SerialPort.InfiniteTimeout.</p>
+        <td><p>The read time-out value is less than zero and not equal to <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_InfiniteTimeout">InfiniteTimeout</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -885,11 +860,11 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_ReceivedBytesThreshold.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.ReceivedBytesThreshold%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L426">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L460">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_ReceivedBytesThreshold_" data-uid="System.IO.Ports.SerialPort.ReceivedBytesThreshold*"></a>
   <h4 id="System_IO_Ports_SerialPort_ReceivedBytesThreshold" data-uid="System.IO.Ports.SerialPort.ReceivedBytesThreshold">ReceivedBytesThreshold</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the number of bytes in the internal input buffer before a System.IO.Ports.SerialPort.DataReceived
+  <div class="markdown level1 summary"><p>Gets or sets the number of bytes in the internal input buffer before a <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_DataReceived">DataReceived</a>
 event occurs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -923,7 +898,7 @@ event occurs.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.ReceivedBytesThreshold value is less than or equal
+        <td><p>The <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_ReceivedBytesThreshold">ReceivedBytesThreshold</a> value is less than or equal
 to zero.</p>
 </td>
       </tr>
@@ -934,7 +909,7 @@ to zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_StopBits.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.StopBits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L263">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L299">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_StopBits_" data-uid="System.IO.Ports.SerialPort.StopBits*"></a>
   <h4 id="System_IO_Ports_SerialPort_StopBits" data-uid="System.IO.Ports.SerialPort.StopBits">StopBits</h4>
@@ -972,7 +947,7 @@ to zero.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
@@ -983,7 +958,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_WatchChar.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.WatchChar%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L326">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L337">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_WatchChar_" data-uid="System.IO.Ports.SerialPort.WatchChar*"></a>
   <h4 id="System_IO_Ports_SerialPort_WatchChar" data-uid="System.IO.Ports.SerialPort.WatchChar">WatchChar</h4>
@@ -992,7 +967,7 @@ object were invalid.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public char WatchChar { set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public char WatchChar { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1010,7 +985,7 @@ object were invalid.</p>
     </tbody>
   </table>
   <h5 id="System_IO_Ports_SerialPort_WatchChar_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This property is specific to nanoFramework. There is no equivalent in the SerialPort API.
+  <div class="markdown level1 remarks"><p>This property is specific to .NET nanoFramework. There is no equivalent in the System.IO.Ports API.
 When calling any of the Read function with a buffer, no matter if the requested quantity of bytes hasn't been read, only the specific amount of data will be returned up to the character.
 Also if this character is received in the incoming data stream, an event is fired with it's <a class="xref" href="System.IO.Ports.SerialData.html">SerialData</a> parameter set to <a class="xref" href="System.IO.Ports.SerialData.html#System_IO_Ports_SerialData_WatchChar">WatchChar</a>.</p>
 </div>
@@ -1019,7 +994,7 @@ Also if this character is received in the incoming data stream, an event is fire
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_WriteTimeout.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.WriteTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L406">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L439">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_WriteTimeout_" data-uid="System.IO.Ports.SerialPort.WriteTimeout*"></a>
   <h4 id="System_IO_Ports_SerialPort_WriteTimeout" data-uid="System.IO.Ports.SerialPort.WriteTimeout">WriteTimeout</h4>
@@ -1058,14 +1033,14 @@ operation does not finish.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.WriteTimeout value is less than zero and not equal
-to System.IO.Ports.SerialPort.InfiniteTimeout.</p>
+        <td><p>The <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_WriteTimeout">WriteTimeout</a> value is less than zero and not equal
+to <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_InfiniteTimeout">InfiniteTimeout</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1077,12 +1052,12 @@ to System.IO.Ports.SerialPort.InfiniteTimeout.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Close.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Close%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L122">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L137">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Close_" data-uid="System.IO.Ports.SerialPort.Close*"></a>
   <h4 id="System_IO_Ports_SerialPort_Close" data-uid="System.IO.Ports.SerialPort.Close">Close()</h4>
-  <div class="markdown level1 summary"><p>Closes the port connection, sets the System.IO.Ports.SerialPort.IsOpen property
-to false, and disposes of the internal System.IO.Stream object.</p>
+  <div class="markdown level1 summary"><p>Closes the port connection, sets the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_IsOpen">IsOpen</a> property
+to false, and disposes of the internal <a class="xref" href="System.IO.Stream.html">Stream</a> object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1101,7 +1076,7 @@ to false, and disposes of the internal System.IO.Stream object.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
@@ -1112,7 +1087,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Dispose.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L847">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L903">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Dispose_" data-uid="System.IO.Ports.SerialPort.Dispose*"></a>
   <h4 id="System_IO_Ports_SerialPort_Dispose" data-uid="System.IO.Ports.SerialPort.Dispose">Dispose()</h4>
@@ -1128,11 +1103,11 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L826">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L873">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Dispose_" data-uid="System.IO.Ports.SerialPort.Dispose*"></a>
   <h4 id="System_IO_Ports_SerialPort_Dispose_System_Boolean_" data-uid="System.IO.Ports.SerialPort.Dispose(System.Boolean)">Dispose(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the System.IO.Ports.SerialPort and optionally
+  <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a> and optionally
 releases the managed resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1171,7 +1146,7 @@ resources.</p>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
         <td><p>The port is in an invalid state. -or- An attempt to set the state of the underlying
-port failed. For example, the parameters passed from this System.IO.Ports.SerialPort
+port failed. For example, the parameters passed from this <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object were invalid.</p>
 </td>
       </tr>
@@ -1182,7 +1157,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_GetPortNames.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.GetPortNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L148">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L156">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_GetPortNames_" data-uid="System.IO.Ports.SerialPort.GetPortNames*"></a>
   <h4 id="System_IO_Ports_SerialPort_GetPortNames" data-uid="System.IO.Ports.SerialPort.GetPortNames">GetPortNames()</h4>
@@ -1214,7 +1189,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Open.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Open%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L89">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L109">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Open_" data-uid="System.IO.Ports.SerialPort.Open*"></a>
   <h4 id="System_IO_Ports_SerialPort_Open" data-uid="System.IO.Ports.SerialPort.Open">Open()</h4>
@@ -1236,7 +1211,7 @@ object were invalid.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>The specified port on the current instance of the System.IO.Ports.SerialPort
+        <td><p>The specified port on the current instance of the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>.
 is already open.</p>
 </td>
       </tr>
@@ -1247,11 +1222,11 @@ is already open.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Read_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Read(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L554">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L588">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Read_" data-uid="System.IO.Ports.SerialPort.Read*"></a>
   <h4 id="System_IO_Ports_SerialPort_Read_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.Ports.SerialPort.Read(System.Byte[],System.Int32,System.Int32)">Read(Byte[], Int32, Int32)</h4>
-  <div class="markdown level1 summary"><p>Reads a number of bytes from the System.IO.Ports.SerialPort input buffer and
+  <div class="markdown level1 summary"><p>Reads a number of bytes from the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a> input buffer and
 writes those bytes into a byte array at the specified offset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1348,11 +1323,11 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_ReadByte.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.ReadByte%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L586">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L620">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_ReadByte_" data-uid="System.IO.Ports.SerialPort.ReadByte*"></a>
   <h4 id="System_IO_Ports_SerialPort_ReadByte" data-uid="System.IO.Ports.SerialPort.ReadByte">ReadByte()</h4>
-  <div class="markdown level1 summary"><p>Synchronously reads one byte from the System.IO.Ports.SerialPort input buffer.</p>
+  <div class="markdown level1 summary"><p>Synchronously reads one byte from the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a> input buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1370,7 +1345,7 @@ passed. Either offset or count is less than zero.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Int32.html">Int32</a></td>
-        <td><p>The byte, cast to an System.Int32, or -1 if the end of the stream has been read.</p>
+        <td><p>The byte, cast to an <a class="xref" href="System.Int32.html">Int32</a>, or -1 if the end of the stream has been read.</p>
 </td>
       </tr>
     </tbody>
@@ -1389,6 +1364,12 @@ passed. Either offset or count is less than zero.</p>
         <td><p>The specified port is not open.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="System.TimeoutException.html">TimeoutException</a></td>
+        <td><p>The operation did not complete before the time-out period ended. -or- No byte
+was read.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
@@ -1396,12 +1377,12 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_ReadExisting.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.ReadExisting%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L605">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L641">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_ReadExisting_" data-uid="System.IO.Ports.SerialPort.ReadExisting*"></a>
   <h4 id="System_IO_Ports_SerialPort_ReadExisting" data-uid="System.IO.Ports.SerialPort.ReadExisting">ReadExisting()</h4>
   <div class="markdown level1 summary"><p>Reads all immediately available bytes, based on the encoding, in both the stream
-and the input buffer of the System.IO.Ports.SerialPort object.</p>
+and the input buffer of the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a> object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1419,7 +1400,7 @@ and the input buffer of the System.IO.Ports.SerialPort object.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">String</a></td>
-        <td><p>The contents of the stream and the input buffer of the System.IO.Ports.SerialPort
+        <td><p>The contents of the stream and the input buffer of the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object.</p>
 </td>
       </tr>
@@ -1446,11 +1427,11 @@ object.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_ReadLine.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.ReadLine%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L631">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L669">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_ReadLine_" data-uid="System.IO.Ports.SerialPort.ReadLine*"></a>
   <h4 id="System_IO_Ports_SerialPort_ReadLine" data-uid="System.IO.Ports.SerialPort.ReadLine">ReadLine()</h4>
-  <div class="markdown level1 summary"><p>Reads up to the System.IO.Ports.SerialPort.NewLine value in the input buffer.</p>
+  <div class="markdown level1 summary"><p>Reads up to the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_NewLine">NewLine</a> value in the input buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1468,7 +1449,7 @@ object.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">String</a></td>
-        <td><p>The contents of the input buffer up to the first occurrence of a System.IO.Ports.SerialPort.NewLine
+        <td><p>The contents of the input buffer up to the first occurrence of a <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_NewLine">NewLine</a>
 value.</p>
 </td>
       </tr>
@@ -1501,7 +1482,7 @@ were read.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Write_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Write(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L697">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L740">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Write_" data-uid="System.IO.Ports.SerialPort.Write*"></a>
   <h4 id="System_IO_Ports_SerialPort_Write_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.Ports.SerialPort.Write(System.Byte[],System.Int32,System.Int32)">Write(Byte[], Int32, Int32)</h4>
@@ -1585,7 +1566,7 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Write_System_Char___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Write(System.Char%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L766">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L811">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Write_" data-uid="System.IO.Ports.SerialPort.Write*"></a>
   <h4 id="System_IO_Ports_SerialPort_Write_System_Char___System_Int32_System_Int32_" data-uid="System.IO.Ports.SerialPort.Write(System.Char[],System.Int32,System.Int32)">Write(Char[], Int32, Int32)</h4>
@@ -1670,7 +1651,7 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Write_System_String_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Write(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L730">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L773">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Write_" data-uid="System.IO.Ports.SerialPort.Write*"></a>
   <h4 id="System_IO_Ports_SerialPort_Write_System_String_" data-uid="System.IO.Ports.SerialPort.Write(System.String)">Write(String)</h4>
@@ -1730,11 +1711,11 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_WriteLine_System_String_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.WriteLine(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L802">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L849">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_WriteLine_" data-uid="System.IO.Ports.SerialPort.WriteLine*"></a>
   <h4 id="System_IO_Ports_SerialPort_WriteLine_System_String_" data-uid="System.IO.Ports.SerialPort.WriteLine(System.String)">WriteLine(String)</h4>
-  <div class="markdown level1 summary"><p>Writes the specified string and the System.IO.Ports.SerialPort.NewLine value
+  <div class="markdown level1 summary"><p>Writes the specified string and the <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_NewLine">NewLine</a> value
 to the output buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1781,7 +1762,7 @@ to the output buffer.</p>
       </tr>
       <tr>
         <td><a class="xref" href="System.TimeoutException.html">TimeoutException</a></td>
-        <td><p>The System.IO.Ports.SerialPort.WriteLine(System.String) method could not write
+        <td><p>The <a class="xref" href="System.IO.Ports.SerialPort.html#System_IO_Ports_SerialPort_WriteLine_System_String_">WriteLine(String)</a>(System.String) method could not write
 to the stream.</p>
 </td>
       </tr>
@@ -1794,10 +1775,10 @@ to the stream.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_DataReceived.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.DataReceived%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L466">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L501">View Source</a>
   </span>
   <h4 id="System_IO_Ports_SerialPort_DataReceived" data-uid="System.IO.Ports.SerialPort.DataReceived">DataReceived</h4>
-  <div class="markdown level1 summary"><p>Indicates that data has been received through a port represented by the System.IO.Ports.SerialPort
+  <div class="markdown level1 summary"><p>Indicates that data has been received through a port represented by the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>
 object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
