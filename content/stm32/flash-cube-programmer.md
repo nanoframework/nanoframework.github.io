@@ -1,10 +1,12 @@
 # How To Flash a target using STM32 Cube Programmer
 
-This is a guide on how to manually flash the firmware using STM32 Cube Programmer.
+This is a guide on how to manually flash the firmware using STM32CubeProgrammer utility.  This utility replaces the ST-Link utility and may be required for some Windows 10 machines.
+
+You will need to use this utility to replace the boot loader on the STM32 chip.  Once replaced, you can do all further firmware maintentance using the nanoFramework Firmware Flash tool (nanoff.exe).
 
 ## Install the tool
 
-1. Download the [STM32 Cube Programmer](https://www.st.com/en/development-tools/stm32cubeprog.html) from ST web site and install it in your development machine.
+1. Download the appropriate [STM32 Cube Programmer](https://www.st.com/en/development-tools/stm32cubeprog.html) from ST web site and install it in your development machine.
 
 
 ## Flash a JTAG connected board
@@ -18,15 +20,16 @@ There are two images to be flashed in the target, one for nanoBooter and another
 1. Launch the STM32 Cube Programmer that you've just installed and connect to the ST board.
 
 1. Select "USB" in the interface options.
-![USB interface](../../images/stm32/stm32-cube-programmer-select-stlink.jpg)
+    >![USB interface](../../images/stm32/stm32-cube-programmer-select-stlink.jpg)
 
 1. Navigate to the "Erasing and Programming" view.
-![Erasing and Programming](../../images/stm32/stm32-cube-programmer-programing-menu.jpg)
+    >![Erasing and Programming](../../images/stm32/stm32-cube-programmer-programing-menu.jpg)
 
 1. Perform a "full chip erase" to clear the flash.
-![Full chip erase](../../images/stm32/stm32-cube-programmer-full-chip-erase.jpg)
+    >![Full chip erase](../../images/stm32/stm32-cube-programmer-full-chip-erase.jpg)
 
 1. Load the `nanoBooter.hex` file from the package by clicking the "Browse" button. Make sure you tick the "Run after programming" and "Skip flash erase before programming" check boxes and hit "Start Program..." button. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
+    >![STM32CubeProgrammer load nanobooter](../../images/stm32/stm32-cube-programmer-load-nanobooter.png)
 
 1. Next, load the `nanoCLR.hex` file from the extracted package folder by clicking the "Browse" button. Make sure you tick the "Run after programming" and "Skip flash erase before programming" check boxes and hit "Start Program..." button. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking. You can check if the board is properly running .NET **nanoFramework** by looking into the Device Explorer window in VS. You may have to click the "Rescan nanoDevices" button (the magnifying glass icon).
 
@@ -37,6 +40,6 @@ There are two images to be flashed in the target, one for nanoBooter and another
 1. Launch the STM32 Cube Programmer that you've just installed and connect to the ST board.
 
 1. Select "USB" in the interface options.
-![USB interface](../../images/stm32/stm32-cube-programmer-select-usb.jpg)
+    >![USB interface](../../images/stm32/stm32-cube-programmer-select-usb.jpg)
 
 1. Load the `nnnn.dfu` file by clicking the "Browse" button. Make sure you tick the "Run after programming" check box and hit "Start Program..." button. After the upload completes, the MCU is reset and the nanoCLR image runs.You can check if the board is properly running .NET **nanoFramework** by looking into the Device Explorer window in VS. You may have to click the "Rescan nanoDevices" button (the magnifying glass icon).
