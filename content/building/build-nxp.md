@@ -24,9 +24,7 @@ You'll need:
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
-- OpenOCD (any working distribution will work, some suggestions follow)\
-  . [xPack OpenOCD](https://xpack.github.io/openocd/install/#manual-install)
-  . [OpenOCD – Open On-Chip Debugger](https://sourceforge.net/projects/openocd/)
+- OpenOCD. Suggest the [xPack OpenOCD](https://github.com/xpack-dev-tools/openocd-xpack/releases) that kindly maintains a Windows distribution.
 - [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `cmake-variants.json` (more info [here](#Set-up-Visual-Studio-Code)).
 
 All the above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries NXP` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).

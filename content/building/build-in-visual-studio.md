@@ -214,8 +214,7 @@ Copy of the ChibiOS repository cloned from <https://github.com/nanoframework/chi
 
 ##### C:\nanoFramework_Tools\Tools\openocd
 
-Copy of the openocd installation <http://www.freddiechopin.info/en/download/category/4-openocd>
-> Currently version 0.10.0
+Copy of the OpenOCD installation <https://github.com/xpack-dev-tools/openocd-xpack/releases>
 
 ##### C:\nanoFramework_Tools\Tools\
 
