@@ -1,58 +1,67 @@
 # Build the ESP32 IDF Libraries
 
-Using the instructions on the Espressif [website](https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html).
+With the latest IDF v3.3.5 we are now building 3 different versions of the libraries. This is due to the IRAM memory section overflowing when BLE is added. The main reason for this is due to the PSRAM fixes that are used with the ESP32 Version 1 chips. Version 0 doesn't support PSRAM and Version 3 has the PSRAM problems fixed.
 
-Download the complete Msys2 enviroment and toolchain and unzip to c:\msys2
+- Generic - Same as previous versions of library, the default library. All versions of ESP32
+- BLE - This includes support for Bluetooth but due to memory constraints removes PSRAM support. All versions of ESP32
+- V3 - Includes all support, PSRAM and BLE but only useable on ESP32 version 3 chips. 
 
-Download the required [ESP IDF](https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.5.zip) into the nanoClr build default location c:\Esp32_tools\esp-idf-v3.3.5
+## Initial Setup
 
-Set up your Windows environment with the IDF_PATH=c:\Esp32_tools\esp-idf-v3.3.5
+- Using the instructions on the Espressif [website](https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html).
 
-From the targets\FreeRTOS_ESP32\ESP32_WROOM_32 directory
-Copy file *Sdkconfig* to c:\Esp32_tools\esp-idf-v3.3.5\examples\get-started/blink/
-Copy file *CopyLibs.cmd* to c:\Esp32_tools\esp-idf-v3.3.5\examples\get-started/blink/
-Copy file *ffconf.h* to C:\ESP32_TOOLS\esp-idf-v3.3.5\components\fatfs\src
+- Download the complete Msys2 environment and toolchain and unzip to c:\msys2
+
+- Download the required [ESP IDF](https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.5.zip) into the nanoClr build default location c:\Esp32_tools\esp-idf-v3.3.5
+
+- Set up your Windows environment with the IDF_PATH=c:\Esp32_tools\esp-idf-v3.3.5
+
+## Setup projects for each library
+
+Create 3 directories, one for each project where ever you like called:-
+
+- Wroom32
+- Wroom32BLE
+- Wroom32V3
+
+If you only need 1 library for your project then just do the needed one.
+
+Into each of the project directories copy the the blink project from the IDF:-
+c:\Esp32_tools\esp-idf-v3.3.5\example\get-started/blink/
+
+Now copy the *Sdkconfig* & *Copylibs.cmd* from the latest nf-interpreter repo.
+There is a different version for each of the different libraries under target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libraries.
+
+As we are not able to configure all the FatFs parameters in the SDKCONFIG we need to update IDF version.
+
+Copy file *ffconf.h* from target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libraries to C:\ESP32_TOOLS\esp-idf-v3.3.5\components\fatfs\src
+
+## Building Libraries
 
 Start Msys command shell C:\msys32\mingw32.exe
 
-```cmd
- cd /c/esp32_tools/esp-idf-v3.3.5/examples/get-started/blink/
-```
+From the command shell change to each of the projects directories you build and make the project.
+For example if project is under IDF examples dir then:- 
 
-run:
-
-```cmd
-make menuconfig
-```
-
-Change the following options:
-
-- Esp32 specific/Cpu frquency 240Mhz
-- Esp32 specific/Initialize Task Watchdog Timer in startup = OFF
-- Esp32 specific/Main XTAL frequency = Autodetect
-- LWIP SO RCVbuf
-- Component config/Bluetooth Nimble enable
-- FatFS Long filename support(Heap)
-- Psram autodetect 32bit or 64bit
-
-Save and Exit
-
-Run *make* to build blink project
+cd /c/esp32_tools/esp-idf-v3.3.5/examples/Wroom32
+make
 
 Exit msys2
 
-Copy the libraries to the Esp32_tools/lib-v3.3.5 directory
+## Copy libraries
 
-Copy the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32\CopyLibs.cmd to the  c:\esp32_tools\esp-idf-v3.3.5\examples\get-started\blink directory
-Open windows command in same directory and run batch file.
+Under a normal windows command prompt change to each of the project directories and run the CopyLibs command.
+These will create the library directories c:\esp32_tools \ for each of the projects
 
-This will create and copy all the libraries plus the bootloader.bin to the c:\esp32_tools\libs-v3.3.5 directory
+- libs-v3.3.5
+- libs-v3.3.5_BLE
+- libs-v3.3.5_V3
 
-copy the updated build/include/sdkconfig.h to the nf-interpreter\targets\FreeRTOS_ESP32\ESP32_WROOM_32 directory
+This is in the format the that the build system expects so don't rename.
 
 ## Check/update build files
 
-In the nf-interpreter repo check/update the following files:
+In the nf-interpreter repo check/update the following files if IDF versions have changed:
 
 - azure-pipelines-templates\build-esp32.yml
 - azure-pipelines-templates\download-install-esp32-build-components.yml
