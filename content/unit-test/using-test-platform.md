@@ -202,6 +202,18 @@ Assert.StartsWith(contains, startcontains);
 Assert.EndsWith(contains, tocontains);
 ```
 
+### Outputting messages from the tests
+
+It's possible to output messages from the Unit Tests using `OutputHelper.Write` and `OutputHelper.WriteLine`. These work exactly as `Debug.Write` and `Debug.WriteLine` so simple or formatted output is available.
+
+```csharp
+OutputHelper.WriteLine("This is a message from Unit Test XYZ!");
+```
+
+```csharp
+OutputHelper.WriteLine($"This is another message from Unit Test XYZ, showing that {someVariable.Length} can be output too.");
+```
+
 ### Skipping a test
 
 You can skip a test by using `Assert.SkipTest`. You can place an explanation like this:

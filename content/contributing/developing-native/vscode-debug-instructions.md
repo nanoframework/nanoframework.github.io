@@ -11,10 +11,7 @@ You'll need:
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - [Visual Studio Code](http://code.visualstudio.com/)
 - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-- OpenOCD (any working distribution will work, follow some suggestions)
-  - [Freddie Chopin OpenOCD (development)](http://www.freddiechopin.info/en/download/category/10-openocd-dev)
-  - [OpenOCD – Open On-Chip Debugger](https://sourceforge.net/projects/openocd/)
-  - [GNU ARM Eclipse OpenOCD](https://github.com/gnuarmeclipse/openocd)
+- OpenOCD. Suggest the [xPack OpenOCD](https://github.com/xpack-dev-tools/openocd-xpack/releases) that kindly maintains a Windows distribution.
 
 ## Preparation
 
