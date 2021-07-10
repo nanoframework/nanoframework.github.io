@@ -1,9 +1,12 @@
 # Build the ESP32 IDF Libraries
 
-With the latest IDF v3.3.5 we are now building 3 different versions of the libraries. This is due to the IRAM memory section overflowing when BLE is added. The main reason for this is due to the PSRAM fixes that are used with the ESP32 Version 1 chips. Version 0 doesn't support PSRAM and Version 3 has the PSRAM problems fixed.
+With the latest IDF v3.3.5 we are now building 3 different versions of the libraries. This is due to the IRAM memory section overflowing when BLE is added. 
 
-- Generic - Same as previous versions of library, the default library. All versions of ESP32
-- BLE - This includes support for Bluetooth but due to memory constraints removes PSRAM support. All versions of ESP32
+The main reason for this is due to the PSRAM fixes that are used with the ESP32 Version 1 chips. ESP32 Version 0 doesn't support PSRAM and Version 3 chips have the PSRAM problems fixed.
+
+Library variants
+- Default - This is the default version of and supports everything except Bluetooth.
+- BLE - This includes support for Bluetooth but due to memory constraints removes PSRAM support. 
 - V3 - Includes all support, PSRAM and BLE but only useable on ESP32 version 3 chips. 
 
 ## Initial Setup
@@ -18,19 +21,19 @@ With the latest IDF v3.3.5 we are now building 3 different versions of the libra
 
 ## Setup projects for each library
 
-Create 3 directories, one for each project where ever you like called:-
+Create 3 directories, one for each library variant, wherever you like, called:-
 
 - Wroom32
 - Wroom32BLE
 - Wroom32V3
 
-If you only need 1 library for your project then just do the needed one.
+If you only need 1 library for your project then just create the needed one.
 
 Into each of the project directories copy the the blink project from the IDF:-
 c:\Esp32_tools\esp-idf-v3.3.5\example\get-started/blink/
 
-Now copy the *Sdkconfig* & *Copylibs.cmd* from the latest nf-interpreter repo.
-There is a different version for each of the different libraries under target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libraries.
+Now copy the *SDKCONFIG* & *Copylibs.cmd* from the latest nf-interpreter repo.
+There is a different version for each of the different library variants under target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libraries.
 
 As we are not able to configure all the FatFs parameters in the SDKCONFIG we need to update IDF version.
 
@@ -40,7 +43,7 @@ Copy file *ffconf.h* from target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libra
 
 Start Msys command shell C:\msys32\mingw32.exe
 
-From the command shell change to each of the projects directories you build and make the project.
+From the command shell change to each of the projects directories you created and make the project.
 For example if project is under IDF examples dir then:- 
 
 cd /c/esp32_tools/esp-idf-v3.3.5/examples/Wroom32
@@ -57,7 +60,7 @@ These will create the library directories c:\esp32_tools \ for each of the proje
 - libs-v3.3.5_BLE
 - libs-v3.3.5_V3
 
-This is in the format the that the build system expects so don't rename.
+These names are in the format that the build system expects so don't rename them.
 
 ## Check/update build files
 
