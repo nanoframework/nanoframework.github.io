@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Build the ESP32 IDF Libraries | nanoFramework Documentation </title>
+    <title>ESP32 Firmware versions | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Build the ESP32 IDF Libraries | nanoFramework Documentation ">
+    <meta name="title" content="ESP32 Firmware versions | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -75,65 +75,25 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="build-the-esp32-idf-libraries">Build the ESP32 IDF Libraries</h1>
+<h1 id="esp32-firmware-versions">ESP32 Firmware versions</h1>
 
-<p>With the latest IDF v3.3.5 we are now building 3 different versions of the libraries. This is due to the IRAM memory section overflowing when BLE is added.</p>
-<p>The main reason for this is due to the PSRAM fixes that are used with the ESP32 Version 1 chips. ESP32 Version 0 doesn't support PSRAM and Version 3 chips have the PSRAM problems fixed.</p>
-<p>Library variants</p>
-<ul>
-<li>Default - This is the default version of and supports everything except Bluetooth.</li>
-<li>BLE - This includes support for Bluetooth but due to memory constraints removes PSRAM support.</li>
-<li>V3 - Includes all support, PSRAM and BLE but only useable on ESP32 version 3 chips.</li>
-</ul>
-<h2 id="initial-setup">Initial Setup</h2>
-<ul>
-<li><p>Using the instructions on the Espressif <a href="https://esp-idf.readthedocs.io/en/latest/get-started/windows-setup.html">website</a>.</p>
-</li>
-<li><p>Download the complete Msys2 environment and toolchain and unzip to c:\msys2</p>
-</li>
-<li><p>Download the required <a href="https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.5.zip">ESP IDF</a> into the nanoClr build default location c:\Esp32_tools\esp-idf-v3.3.5</p>
-</li>
-<li><p>Set up your Windows environment with the IDF_PATH=c:\Esp32_tools\esp-idf-v3.3.5</p>
-</li>
-</ul>
-<h2 id="setup-projects-for-each-library">Setup projects for each library</h2>
-<p>Create 3 directories, one for each library variant, wherever you like, called:-</p>
-<ul>
-<li>Wroom32</li>
-<li>Wroom32BLE</li>
-<li>Wroom32V3</li>
-</ul>
-<p>If you only need 1 library for your project then just create the needed one.</p>
-<p>Into each of the project directories copy the the blink project from the IDF:-
-c:\Esp32_tools\esp-idf-v3.3.5\example\get-started/blink/</p>
-<p>Now copy the <em>SDKCONFIG</em> &amp; <em>Copylibs.cmd</em> from the latest nf-interpreter repo.
-There is a different version for each of the different library variants under target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libraries.</p>
-<p>As we are not able to configure all the FatFs parameters in the SDKCONFIG we need to update IDF version.</p>
-<p>Copy file <em>ffconf.h</em> from target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libraries to C:\ESP32_TOOLS\esp-idf-v3.3.5\components\fatfs\src</p>
-<h2 id="building-libraries">Building Libraries</h2>
-<p>Start Msys command shell C:\msys32\mingw32.exe</p>
-<p>From the command shell change to each of the projects directories you created and make the project.
-For example if project is under IDF examples dir then:-</p>
-<p>cd /c/esp32_tools/esp-idf-v3.3.5/examples/Wroom32
-make</p>
-<p>Exit msys2</p>
-<h2 id="copy-libraries">Copy libraries</h2>
-<p>Under a normal windows command prompt change to each of the project directories and run the CopyLibs command.
-These will create the library directories c:\esp32_tools \ for each of the projects</p>
-<ul>
-<li>libs-v3.3.5</li>
-<li>libs-v3.3.5_BLE</li>
-<li>libs-v3.3.5_V3</li>
-</ul>
-<p>These names are in the format that the build system expects so don't rename them.</p>
-<h2 id="checkupdate-build-files">Check/update build files</h2>
-<p>In the nf-interpreter repo check/update the following files if IDF versions have changed:</p>
-<ul>
-<li>azure-pipelines-templates\build-esp32.yml</li>
-<li>azure-pipelines-templates\download-install-esp32-build-components.yml</li>
-<li>install-scripts\install-esp32-idf.ps1</li>
-<li>install-scripts\install_esp32-libs.ps1</li>
-</ul>
+<p>The firmware versions are:-</p>
+<p>| Firmware name   | WiFi               | Ethernet           | Bluetooth          | PSRAM(Large heap)  | ESP32 version |
+| WROOM_32        | ✔️ |                    |                    | ✔️ | 0 -&gt; 3 |
+| WROOM_32_BLE    | ✔️ |                    | ✔️ |                    | 0 -&gt; 3 |
+| WROOM_32_V3_BLE | Version 3 Only     |                    | ✔️ | ✔️ | 3 only |
+| ESP_WROVER_KIT  | ✔️ |                    |                    | ✔️ | 0 -&gt; 3 || EP32_PICO       | ✔️ |                    | ✔️ |                    | 0 -&gt; 3 |
+| ESP32_LILYGO    | ✔️ | ✔️ | ✔️ |                    | 0 -&gt; 3 |</p>
+<h2 id="wroom_32">WROOM_32</h2>
+<p>Default version which supports all ESP32 versions but doesn't support Bluetooth BLE due to memory constraints in the IRAM section caused by PSRAM fixes for version 1 chips.</p>
+<h2 id="wroom_32_ble">WROOM_32_BLE</h2>
+<p>Same as the WROOM32 but drops PSRAM support to include Bluetooth BLE</p>
+<h2 id="wroom_32_v3_bl">WROOM_32_V3_BL</h2>
+<p>This version is specific to ESP32 V3 and includes all support including PSRAM and Bluetooth.</p>
+<h2 id="esp32_pico">ESP32_PICO</h2>
+<p>Specific to ESP32 Pico. Same as WROOM_32_BLE but with a direct serial link speed.</p>
+<h1 id="esp32_lilygo">ESP32_LILYGO</h1>
+<p>Specific to LILYGO and OLIMEX POE boards. Same as WROOM32_BLE but also includes Ethernet support.</p>
 </article>
           </div>
           
@@ -142,7 +102,7 @@ These will create the library directories c:\esp32_tools \ for each of the proje
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/esp32/build_ESP32_libraries.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/esp32/esp32_firmware_versions.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
