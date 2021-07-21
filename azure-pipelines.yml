@@ -718,6 +718,16 @@ steps:
     configuration: '$(buildConfiguration)'
   continueOnError: true
 
+# Clean what's not needed from IoT.Device
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\devices_generated
+      Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\nanoFramework.IoT.Device.CodeConverter
+  displayName: Delete generated device folder from IoT.Device
+  condition: succeeded()
+
 # rename project files (need this to trick docfx)
 - powershell: Get-ChildItem -Filter "*.nfproj" -Recurse | Rename-Item -NewName { $_.name -replace 'nfproj','csproj' }
   displayName: Rename nfproj files
