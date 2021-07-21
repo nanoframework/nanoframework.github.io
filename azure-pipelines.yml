@@ -725,6 +725,16 @@ steps:
     script: |
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\devices_generated
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\nanoFramework.IoT.Device.CodeConverter
+      cd nanoFramework.IoT.Device\devices
+      $Nerdbank = '<package id="Nerdbank.GitVersioning"'
+      $Files = Get-ChildItem -Filter "packages.config" -Recurse
+      foreach ($File in $Files) {
+        $FullPath = $File | % { $_.FullName }
+        $ToReplace = Get-Content $FullPath
+        $Replaced = $ToReplace `
+        | Where-Object { $_ -notmatch $Nerdbank }
+        Set-Content -path $FullPath -Value $Replaced
+      }
   displayName: Delete generated device folder from IoT.Device
   condition: succeeded()
 
