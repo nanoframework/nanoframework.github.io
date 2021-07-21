@@ -379,7 +379,36 @@ steps:
     restoreSolution: 'System.IO.Ports\System.IO.Ports.sln'
     feedsToUse: config
     nugetConfigPath: 'System.IO.Ports\NuGet.Config'
+  
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.M2Mqtt
+  inputs:
+    restoreSolution: 'nanoFramework.M2Mqtt\nanoFramework.M2Mqtt.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.M2Mqtt\NuGet.Config'
+      
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Text.RegularExpressions
+  inputs:
+    restoreSolution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Text.RegularExpressions\NuGet.Config'
+      
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Azure.Devices
+  inputs:
+    restoreSolution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Azure.Devices\NuGet.Config'
+      
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.IoT.Device
+  inputs:
+    restoreSolution: 'nanoFramework.IoT.Device\devices\**\*.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.IoT.Device\devices\**\NuGet.Config'
 
+# Build part
 - task: InstallnFBuildComponents@1
   displayName: Install nanoFramework MSBuild components
 
