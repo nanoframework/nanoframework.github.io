@@ -112,7 +112,14 @@ steps:
 
       git clone https://github.com/nanoframework/System.IO.Ports.git --depth 100 -b develop System.IO.Ports
 
- 
+      git clone https://github.com/nanoframework/nanoFramework.m2mqtt.git --depth 100 -b develop nanoFramework.M2Mqtt
+
+      git clone https://github.com/nanoframework/System.Text.RegularExpressions.git --depth 100 -b develop System.Text.RegularExpressions
+
+      git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git --depth 100 -b develop nanoFramework.Azure.Devices
+
+      git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git --depth 100 -b develop nanoFramework.IoT.Device
+
   displayName: Clone repos of class libs
 
 # install docfx
@@ -647,6 +654,39 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.M2Mqtt
+  inputs:
+    solution: 'nanoFramework.M2Mqtt\nanoFramework.M2Mqtt.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build System.Text.RegularExpressions
+  inputs:
+    solution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.Azure.Devices
+  inputs:
+    solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+# This shouold build all the bindings in nanoFramework.IoT.Device in the devices directory
+- task: VSBuild@1
+  displayName: Build nanoFramework.IoT.Device
+  inputs:
+    solution: 'nanoFramework.IoT.Device\devices\**\*.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  continueOnError: true
 
 # rename project files (need this to trick docfx)
 - powershell: Get-ChildItem -Filter "*.nfproj" -Recurse | Rename-Item -NewName { $_.name -replace 'nfproj','csproj' }
