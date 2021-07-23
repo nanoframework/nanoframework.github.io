@@ -11,12 +11,33 @@
             "_site/**",
             "**/Tests/**",
             "**/Test/**",
-            "**/**.Test*"
+            "**/**.Test*",
+            "nanoFramework.IoT.Device/**"
           ]
         }
       ],
       "filter": "api-filter.yml",
       "dest": "api",
+      "disableGitFeatures": false
+    },
+    {
+      "src": [
+        {
+          "files": [
+            "nanoFramework.IoT.Device/**/*.csproj"
+          ],
+          "exclude": [
+            "**/obj/**",
+            "_site/**",
+            "**/Tests/**",
+            "**/Test/**",
+            "**/**.Test*",
+            "**/samples/**"
+          ]
+        }
+      ],
+      "filter": "api-filter.yml",
+      "dest": "devices",
       "disableGitFeatures": false
     }
   ],
@@ -25,7 +46,9 @@
       {
         "files": [
           "api/**.yml",
-          "api/index.md"
+          "api/index.md",
+          "devices/**.yml",
+          "devices/index.md"
         ]
       },
       {
@@ -89,3 +112,5 @@
     }
   }
 }
+
+
