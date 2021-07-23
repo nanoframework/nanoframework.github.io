@@ -112,7 +112,14 @@ steps:
 
       git clone https://github.com/nanoframework/System.IO.Ports.git --depth 100 -b develop System.IO.Ports
 
- 
+      git clone https://github.com/nanoframework/nanoFramework.m2mqtt.git --depth 100 -b develop nanoFramework.M2Mqtt
+
+      git clone https://github.com/nanoframework/System.Text.RegularExpressions.git --depth 100 -b develop System.Text.RegularExpressions
+
+      git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git --depth 100 -b develop nanoFramework.Azure.Devices
+
+      git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
+
   displayName: Clone repos of class libs
 
 # install docfx
@@ -373,6 +380,36 @@ steps:
     feedsToUse: config
     nugetConfigPath: 'System.IO.Ports\NuGet.Config'
 
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.M2Mqtt
+  inputs:
+    restoreSolution: 'nanoFramework.M2Mqtt\nanoFramework.M2Mqtt.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.M2Mqtt\NuGet.Config'
+      
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Text.RegularExpressions
+  inputs:
+    restoreSolution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Text.RegularExpressions\NuGet.Config'
+      
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Azure.Devices
+  inputs:
+    restoreSolution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Azure.Devices\NuGet.Config'
+
+# we only need to reference the main nuget.config 
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.IoT.Device
+  inputs:
+    restoreSolution: 'nanoFramework.IoT.Device\devices\**\*.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.IoT.Device\NuGet.Config'
+
+# Build part
 - task: InstallnFBuildComponents@1
   displayName: Install nanoFramework MSBuild components
 
@@ -646,6 +683,59 @@ steps:
     solution: 'System.IO.Ports\System.IO.Ports.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.M2Mqtt
+  inputs:
+    solution: 'nanoFramework.M2Mqtt\nanoFramework.M2Mqtt.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build System.Text.RegularExpressions
+  inputs:
+    solution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.Azure.Devices
+  inputs:
+    solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  condition: succeeded()
+
+# This shouold build all the bindings in nanoFramework.IoT.Device in the devices directory
+- task: VSBuild@1
+  displayName: Build nanoFramework.IoT.Device
+  inputs:
+    solution: 'nanoFramework.IoT.Device\devices\**\*.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+  continueOnError: true
+
+# Clean what's not needed from IoT.Device and adjust the nugets to remove nerdbank to help build
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\devices_generated
+      Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\nanoFramework.IoT.Device.CodeConverter
+      cd nanoFramework.IoT.Device\devices
+      $Nerdbank = '<package id="Nerdbank.GitVersioning"'
+      $Files = Get-ChildItem -Filter "packages.config" -Recurse
+      foreach ($File in $Files) {
+        $FullPath = $File | % { $_.FullName }
+        $ToReplace = Get-Content $FullPath
+        $Replaced = $ToReplace `
+        | Where-Object { $_ -notmatch $Nerdbank }
+        Set-Content -path $FullPath -Value $Replaced
+      }
+  displayName: Delete generated device folder from IoT.Device and clean references
   condition: succeeded()
 
 # rename project files (need this to trick docfx)
