@@ -7,7 +7,8 @@ The firmware versions are:-
 | WROOM_32        | :heavy_check_mark: |                    |                    | :heavy_check_mark: | 0 -> 3 |
 | WROOM_32_BLE    | :heavy_check_mark: |                    | :heavy_check_mark: |                    | 0 -> 3 |
 | WROOM_32_V3_BLE | :heavy_check_mark: |                    | :heavy_check_mark: | :heavy_check_mark: | version 3 only |
-| ESP_WROVER_KIT  | :heavy_check_mark: |                    |                    | :heavy_check_mark: 2Mb heap + Graphics | 0 -> 3 || EP32_PICO       | :heavy_check_mark: |                    | :heavy_check_mark: |                    | 0 -> 3 |
+| ESP_WROVER_KIT  | :heavy_check_mark: |                    |                    | :heavy_check_mark: 2Mb heap + Graphics | 0 -> 3 |
+| EP32_PICO       | :heavy_check_mark: |                    | :heavy_check_mark: |                    | 0 -> 3 |
 | ESP32_LILYGO    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | 0 -> 3 |
 
 ## WROOM_32
