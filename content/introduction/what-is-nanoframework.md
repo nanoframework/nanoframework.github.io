@@ -10,3 +10,7 @@ Using Microsoft Visual Studio, a developer can deploy and debug the code directl
 The .NET **nanoFramework** platform picks up where [.NET Micro Framework](https://en.wikipedia.org/wiki/.NET_Micro_Framework) left off and uses some of its building blocks. Many of the original components were completely rewritten, others improved and some simply reused. A lot of code cleansing and improvements took place to make .NET **nanoFramework** fit for the future!
 
 Read along and find out [why use nanoFramework?](why-use-nanoframework.md)
+
+You can watch this video from the Microsoft [IoT Show](https://aka.ms/iotshow) featuring .NET nanoFramework connected to Azure IoT Hub, measuring a [BMP280 sensors](../../devices/Iot.Device.Bmxx80.Bmp280.html) and using the unique deep sleep feature from MCU. A real life example with .NET nanoFramework:
+
+[![IoT Show](https://img.youtube.com/vi/TLYqRdmmj5k/0.jpg)](https://youtu.be/TLYqRdmmj5k)
