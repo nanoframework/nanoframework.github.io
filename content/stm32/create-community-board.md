@@ -291,7 +291,7 @@ Here is how it looks like to add SPI1:
 SPI_CONFIG_PINS(1, GPIOA, 5, GPIOB, 4, GPIOA, 7, 5)
 ```
 
-You will have as well the `nanoCLR\mcuconf.h` file to adjust as well. Find the SPI section and put any channel you want to expose to TRUE:
+You will have as well the `mcuconf.h` files to adjust as well. Find the SPI section and put any channel you want to expose to TRUE:
 
 ```cpp
 /*
@@ -334,7 +334,7 @@ I2C_CONFIG_PINS(1, GPIOB, GPIOB, 8, 9, 4)
 I2C_CONFIG_PINS(2, GPIOB, GPIOB, 10, 3, 9)
 ```
 
-Make sure as well the channels are TRUE in the `nanoCLR\mcuconf.h` file. Here is an example with 2 I2C:
+Make sure as well the channels are TRUE in the `mcuconf.h` files. Here is an example with 2 I2C:
 
 ```cpp
 /*
