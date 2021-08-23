@@ -120,11 +120,13 @@ you have then **2 files** to adjust with the exact same settings. `nanoCLR/mcuco
 
 Build your target and deploy it. See [how to flash a target using STM 32 Cube Programmer](./flash-cube-programmer.md) (you'll have to install the tool).
 
-Note: even if you get an error message about not being able to start the program, disconnect and reconnect your board, if it does show up in Visual Studio in the Device Explorer nanoFramework extension, it means all went well. Some DFU may have been reflashed compared to the original and may have a weird behavior.
+> Note: even if you get an error message about not being able to start the program, disconnect and reconnect your board, if it does show up in Visual Studio in the Device Explorer nanoFramework extension, it means all went well. Some DFU may have been reflashed compared to the original and may have a weird behavior.
 
 If you get a deployment error, try the deployment again.
 
 If the device shows up, it means you are successful, the most complicated part is done!
+
+> Note: moving forward the most important file to adjust from both is `nanoCLR/mcuconf.h`. You can add more if you're adding anything into your nanoBooter.
 
 ## Adjust the default pin behavior and setup all pin behaviors
 
