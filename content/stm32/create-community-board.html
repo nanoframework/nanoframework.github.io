@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to create an STM32 based community board | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to create an STM32 based community board | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.58.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-create-an-stm32-based-community-board">How to create an STM32 based community board</h1>
+
+<p>This article will explain what needs to be adjusted to create a community board for STM32 based processors.</p>
+<h2 id="start-with-a-similar-board">Start with a similar board</h2>
+<p>Find a board that is close to your board. Check both the official boards and the community boards.</p>
+<p>It is important to find the same MCU or a close one. Once done, copy/paste the folder in your cloned <a href="https://github.com/nanoframework/nf-interpreter">nf-interpreter</a> repo. and rename the folder. Note that it is recommended to create a new branch so you won't mix it up with anything else. You can as well clone the repository in a temporary place just for the occasion. In all cases, make sure you have the latest up to date <code>develop</code> branch.</p>
+<blockquote>
+<p>Tip: keep the folder into the target folder in nf-interpreter the time of your development. You will be able to move it later on to the <code>nf-Community-Targets</code> one and do a proper PR.</p>
+</blockquote>
+<h2 id="create-your-project-in-cmake-variantsjson">Create your project in cmake-variants.json</h2>
+<p>Create a proper section in your <code>cmake-variants.json</code>. Reuse the one from the board you're starting. Use the exact same settings as the recommended ones to build it. Just to make sure all is OK, build it with the exact same settings as the board you have cloned. This will ensure you're starting with a clean state.</p>
+<blockquote>
+<p>Tip: you can use the <a href="../building/using-dev-container.html">dev containers</a> to avoid having to clone all the source repositories and build in a safe always working environment.</p>
+</blockquote>
+<h2 id="adjust-the-clock-settings">Adjust the clock settings</h2>
+<p>This is the very first step and one of the most important one. And this is where things can be a bit tricky. You will need to understand what is the clock source and how it is connected to the MCU. For this you need to make sure you find the schematics of your board.</p>
+<blockquote>
+<p>To make the math, install and use <a href="https://www.st.com/en/development-tools/stm32cubemx.html">STM32CubeMX</a>. You will need this software later on for the pin settings.</p>
+</blockquote>
+<p>This is the example of using an STM32F411RET MCU:</p>
+<p><img src="../../images/stm32-community-processor.jpg" alt="Processor choice"></p>
+<p>In most of the cases, you'll have to use an external clock. In this case, you'll need to activate the RCC element:</p>
+<p><img src="../../images/stm32-community-external-clock.jpg" alt="External clock"></p>
+<p>Then it's time to resolve external clock by enabling USB OTG:</p>
+<p><img src="../../images/stm32-community-usb-otg.jpg" alt="USB OTG"></p>
+<blockquote>
+<p>Note: Those screen captures include already some more elements setup for this project. The more you'll setup elements and the more you'll see in the menu green entrees, warnings and red elements. It will help you to understand if your configuration and the pin setup are correctly done. You should not get any impossible case at all.</p>
+</blockquote>
+<p>The clock adjustment is the most difficult. You need to understand which clock settings to select from the documentation of your board. Here is an example:</p>
+<p><img src="../../images/stm32-community-adjust-clock.jpg" alt="Clock settings"></p>
+<blockquote>
+<p>Tip: The tool offers a resolver but it may not be the best regarding your setup. After a first try, you may have to come back and adjust more of those elements. You may have to do a few trial errors if the documentation or schema is not the best.</p>
+</blockquote>
+<h2 id="build-it-and-deploy-it">Build it and deploy it</h2>
+<p>Once you are at this stage, the best is to adjust the core elements of the clock, build, deploy and check those core part are working.</p>
+<h3 id="boardh">board.h</h3>
+<p>The file <code>board\board.h</code> is one of the most important one. You'll have to adjust quite some elements in this one.</p>
+<p>To start with, the name of your board as well as the frequency and setup elements found in the clock setting. To follow the example, you'll adjust all this:</p>
+<pre><code class="lang-cpp">/*
+ * Board identifier.
+ */
+#define BOARD_PYBSTICK2X
+#define BOARD_NAME                  &quot;PYBStick standard 26&quot;
+
+/*
+ * USB OTG Force
+ */
+#define BOARD_OTG_NOVBUSSENS
+
+/*
+ * Completely wacko definition of a flash sector here
+ */
+#define FLASH_SECTOR_11    ((uint32_t)11U)
+
+/*
+ * Board oscillators-related settings.
+ * NOTE: LSE is fitted and is of course 32768.
+ * NOTE: HSE is fitted and set to a 16 MHz one.
+ */
+#if !defined(STM32_LSECLK)
+#define STM32_LSECLK                32768U
+#endif
+
+#if !defined(STM32_HSECLK)
+#define STM32_HSECLK                16000000U
+#endif
+</code></pre>
+<h3 id="mcuconfh-in-nanoclr-and-nanobooter">mcuconf.h in nanoCLR and nanoBooter</h3>
+<p>you have then <strong>2 files</strong> to adjust with the exact same settings. <code>nanoCLR/mcuconf.h</code> and <code>nanoBooter/mcuconf.h</code>. Both need to be adjusted with the second set of constants you've determined in the clock settings. Here is the example of the example project:</p>
+<pre><code class="lang-cpp">#define STM32_NO_INIT                       FALSE
+#define STM32_HSI_ENABLED                   TRUE
+#define STM32_LSI_ENABLED                   TRUE
+#define STM32_HSE_ENABLED                   TRUE
+#define STM32_LSE_ENABLED                   TRUE
+#define STM32_CLOCK48_REQUIRED              TRUE
+#define STM32_SW                            STM32_SW_PLL
+#define STM32_PLLSRC                        STM32_PLLSRC_HSE
+#define STM32_PLLM_VALUE                    16
+#define STM32_PLLN_VALUE                    192
+#define STM32_PLLP_VALUE                    2
+#define STM32_PLLQ_VALUE                    4
+
+#define STM32_HPRE                          STM32_HPRE_DIV1
+#define STM32_PPRE1                         STM32_PPRE1_DIV2
+#define STM32_PPRE2                         STM32_PPRE2_DIV2
+#define STM32_RTCSEL                        STM32_RTCSEL_LSE
+#define STM32_RTCPRE_VALUE                  8
+#define STM32_MCO1SEL                       STM32_MCO1SEL_HSE
+#define STM32_MCO1PRE                       STM32_MCO1PRE_DIV1
+#define STM32_MCO2SEL                       STM32_MCO2SEL_SYSCLK
+#define STM32_MCO2PRE                       STM32_MCO2PRE_DIV1
+#define STM32_I2SSRC                        STM32_I2SSRC_CKIN
+#define STM32_PLLI2SN_VALUE                 192
+#define STM32_PLLI2SR_VALUE                 2
+#define STM32_PVD_ENABLE                    FALSE
+#define STM32_PLS                           STM32_PLS_LEV0
+#define STM32_BKPRAM_ENABLE                 FALSE
+</code></pre>
+<p>Build your target and deploy it. See <a href="flash-cube-programmer.html">how to flash a target using STM 32 Cube Programmer</a> (you'll have to install the tool).</p>
+<blockquote>
+<p>Note: even if you get an error message about not being able to start the program, disconnect and reconnect your board, if it does show up in Visual Studio in the Device Explorer nanoFramework extension, it means all went well. Some DFU may have been reflashed compared to the original and may have a weird behavior.</p>
+</blockquote>
+<p>If you get a deployment error, try the deployment again.</p>
+<p>If the device shows up, it means you are successful, the most complicated part is done!</p>
+<blockquote>
+<p>Note: moving forward the most important file to adjust from both is <code>nanoCLR/mcuconf.h</code>. You can add more if you're adding anything into your nanoBooter.</p>
+</blockquote>
+<h2 id="adjust-the-default-pin-behavior-and-setup-all-pin-behaviors">Adjust the default pin behavior and setup all pin behaviors</h2>
+<p>You will now have to adjust the default behavior of the pins when the board is booted up. But also create all the SPI, I2C, UART configurations.</p>
+<p>We will use the STM32 Cube program installed before. This will help setup your pins, make sure all is coherent and reduces the number of potential errors. All the setup is done thru the <code>Connectivity</code> and <code>Analog</code> sub menu:</p>
+<p><img src="../../images/stm32-community-default-pins.jpg" alt="uart, spi, i2c settings"></p>
+<p><img src="../../images/stm32-community-analog.jpg" alt="analog"></p>
+<p>Check you board schema and start using the tool to setup the tool.  This is how you MCU will look like with a real configuration:</p>
+<p><img src="../../images/stm32-community-processor-setup.jpg" alt="analog"></p>
+<blockquote>
+<p>Tip: if you start making non possible configuration, you'll know it quickly as you'll get red elements or the non possibility to setup more elements. The screen captures above shows you that IC3 and SPI5 can't be setup any more for example. Which is the case in this board example. If you arrive to a situation when you get an error where you should not, then double check, you may have an issue somewhere!</p>
+</blockquote>
+<blockquote>
+<p>Note: sometimes some pins may have multiple functions. <strong>BUT</strong> you can't use all those functions at the same time. While setting up all the pins, make sure you select the primary function of those pins rather than trying to make all the combinations possible.</p>
+</blockquote>
+<p>Now, it's time to ask the tool to build the source, click on <code>Generate Code</code>, you won't need the SDK so you can answer <code>No</code> to the various questions. We only need the generated project to check the Alternate pin configuration.</p>
+<p>Then you need to adjust the <code>board\board.h</code> file. Find the pin name and rename them to reflect your board. Here is a real example:</p>
+<pre><code class="lang-cpp">/*
+ * IO pins assignments.
+ */
+#define GPIOA_ADC1_0                0U
+#define GPIOA_PIN1                  1U
+#define GPIOA_ADC1_2                2U
+#define GPIOA_ADC1_3                3U
+#define GPIOA_PIN4                  4U
+#define GPIOA_SPI1_CLK              5U
+#define GPIOA_SD_CMD                6U
+#define GPIOA_SPI1_MOSI             7U
+#define GPIOA_SD_D1                 8U
+#define GPIOA_SD_D2                 9U
+#define GPIOA_UART1_RX              10U
+#define GPIOA_OTG_FS_DM             11U
+#define GPIOA_OTG_FS_DP             12U
+#define GPIOA_LED_RED               13U
+#define GPIOA_LED_GREEN             14U
+#define GPIOA_UART1_TX              15U
+</code></pre>
+<blockquote>
+<p>Tip: Rename all the pins you are using, this will help to make is easier to find and reduces mistakes. To rename use global replace in the file, the name of the pin are present multiple times.</p>
+</blockquote>
+<p>Once the rename is done, you will have to adjust the pins initial values. This is done in the various <code>MODER, OTYPER, OSPEEDR, PUPDR, ODR, AFRL, AFRH</code> defines. Please make sure to refer to the docs or the generated code if you have a doubt. The below explanation is here just to help.</p>
+<h3 id="moder">MODER</h3>
+<p>Here are the values to use:</p>
+<ul>
+<li>PIN_MODE_ANALOG for any ADC pin.</li>
+<li>PIN_MODE_OUTPUT for leds and other known output pins.</li>
+<li>PIN_MODE_ALTERNATE for any SPI, I2C, UART elements.</li>
+<li>PIN_MODE_INPUT for anything else.</li>
+</ul>
+<h3 id="otyper">OTYPER</h3>
+<p>Here are the values to use:</p>
+<ul>
+<li>PIN_OTYPE_OPENDRAIN for I2C.</li>
+<li>PIN_OTYPE_PUSHPULL for anything else.</li>
+</ul>
+<h3 id="ospeedr">OSPEEDR</h3>
+<ul>
+<li>PIN_OSPEED_MEDIUM for the Leds.</li>
+<li>PIN_OSPEED_HIGH for anything else.</li>
+</ul>
+<h3 id="pupdr">PUPDR</h3>
+<ul>
+<li>PIN_PUPDR_FLOATING for anything that is output or I2C, SPI, UART or defined like clock.</li>
+<li>PIN_PUPDR_PULLUP for the rest which should be only normal GPIO, non yet defined PWM or equivalent.</li>
+</ul>
+<h3 id="odr">ODR</h3>
+<p>This is the initial state of the pin:</p>
+<ul>
+<li>PIN_ODR_LOW for leds, ADC and other elements like that.</li>
+<li>PIN_ODR_HIGH for the rest.</li>
+</ul>
+<blockquote>
+<p>Tip: Any unused pin should be input pull-up high</p>
+</blockquote>
+<h3 id="afrl-and-afrh">AFRL and AFRH</h3>
+<p>This is where you can define the alternate configuration to use. This must be done properly for all the SPI, I2C, UART, SD Card configurations.</p>
+<p>A configuration for a pin will look like that:</p>
+<pre><code class="lang-cpp">PIN_AFIO_AF(GPIOA_SPI1_MOSI, 5U)
+</code></pre>
+<p>In this case, <code>5U</code> means alternate 5.</p>
+<blockquote>
+<p>Tip: In the generated files from STM32 Cube, you will find the alternate with AFx where x is the number
+Here is an example of what you need to adjust:
+Tip: From the tool, you can get access to your processor datasheet configuration file. This file contains all the possible configuration and alternate as well.</p>
+</blockquote>
+<p>Now you have adjusted your pins, you will have to add the proper CPP files relates to the various API.
+As for the original device cloned you have made, copy/paste a file from another device and adjust.</p>
+<h3 id="the-line-section">The LINE section</h3>
+<p>The LINE section will create GPIO for internal native level usage. For example if you have an SD Card reader with an insert detection, you'll have to have a line setup for that. Here is an example of setup including the OTG nines and the Leds:</p>
+<pre><code class="lang-cpp">/*
+ * IO lines assignments.
+ */
+#define LINE_LED_GREEN              PAL_LINE(GPIOA, 14U)
+#define LINE_LED_BLUE               PAL_LINE(GPIOB, 1U)
+#define LINE_LED_YELLOW             PAL_LINE(GPIOB, 0U)
+#define LINE_LED_RED                PAL_LINE(GPIOA, 13U)
+#define LINE_OTG_FS_DM              PAL_LINE(GPIOA, 11U)
+#define LINE_OTG_FS_DP              PAL_LINE(GPIOA, 12U)
+#define LINE_SD_DETECT              PAL_LINE(GPIOB, 14U)
+</code></pre>
+<h2 id="adc">ADC</h2>
+<p>The file to add or adjust is <code>target_windows_devices_adc_config.cpp</code>.</p>
+<p>For ADC, those are indexed based. You can add as many channels as available, just make sure you document them properly as they won't match the channel number. As you'll see in the example below, the order is not necessary related to the available ADC, it is your own choice.</p>
+<p>Also for ADC, for STM32  devices you have 3 additional channels which you can add at the end, those are respectively the board temperature (which is kot accurate in absolute but OK when relative measure is done), the reference voltage at 1.21V and the battery voltage. What you will measure for those is, like for any other channel the raw value. By convention, those 3 additional sensors are always at the end of the first ADC.</p>
+<p>The file look like that:</p>
+<pre><code class="lang-cpp">const NF_PAL_ADC_PORT_PIN_CHANNEL AdcPortPinConfig[] = {
+
+    // ADC1
+    {1, GPIOA, 2, ADC_CHANNEL_IN2},
+    {1, GPIOA, 3, ADC_CHANNEL_IN3},
+    {1, GPIOA, 0, ADC_CHANNEL_IN0},
+    {1, GPIOA, 4, ADC_CHANNEL_IN4},
+    {1, GPIOA, 5, ADC_CHANNEL_IN5},
+    {1, GPIOA, 7, ADC_CHANNEL_IN7},
+
+    // these are the internal sources, available only at ADC1
+    {1, NULL, 0, ADC_CHANNEL_SENSOR},
+    {1, NULL, 0, ADC_CHANNEL_VREFINT},
+    {1, NULL, 0, ADC_CHANNEL_VBAT},
+};
+
+const int AdcChannelCount = ARRAYSIZE(AdcPortPinConfig);
+</code></pre>
+<h2 id="spi">SPI</h2>
+<p>Make sure you add your SPI channels in the file <code>target_windows_devices_spi_config.cpp</code>.</p>
+<p>Here is how it looks like to add SPI1:</p>
+<pre><code class="lang-cpp">// pin configuration for SPI1
+// port for SCK pin is: 5 SPI1_SCLK
+// port for MISO pin is: 4 SPI1_MISO
+// port for MOSI pin is: 7 SPI1_MOSI
+
+// GPIO alternate pin function is 5 (see alternate function mapping table in device datasheet)
+SPI_CONFIG_PINS(1, GPIOA, 5, GPIOB, 4, GPIOA, 7, 5)
+</code></pre>
+<p>You will have as well the <code>mcuconf.h</code> files to adjust as well. Find the SPI section and put any channel you want to expose to TRUE:</p>
+<pre><code class="lang-cpp">/*
+ * SPI driver system settings.
+ */
+#define STM32_SPI_USE_SPI1                  TRUE
+#define STM32_SPI_USE_SPI2                  FALSE
+#define STM32_SPI_USE_SPI3                  FALSE
+</code></pre>
+<p>If the MCU  you're using is the same as one of the existing board, then the rest of the SPI configuration should be good. Otherwise, please adjust with the documentation.</p>
+<h2 id="i2c">I2C</h2>
+<p>The process is the same as for SPI. The file to add or adjust is <code>target_windows_devices_i2c_config.cpp</code>. Here is an example with 2 I2C channels:</p>
+<pre><code class="lang-cpp">//////////
+// I2C1 //
+//////////
+
+// pin configuration for I2C1
+// port for SCL pin is: GPIOB
+// port for SDA pin is: GPIOB
+// SCL pin: is GPIOB_8
+// SDA pin: is GPIOB_9
+// GPIO alternate pin function is 4 (see alternate function mapping table in device datasheet)
+I2C_CONFIG_PINS(1, GPIOB, GPIOB, 8, 9, 4)
+
+//////////
+// I2C1 //
+//////////
+
+// pin configuration for I2C1
+// port for SCL pin is: GPIOB
+// port for SDA pin is: GPIOB
+// SCL pin: is GPIOB_10
+// SDA pin: is GPIOB_3
+// GPIO alternate pin function is 9 (see alternate function mapping table in device datasheet)
+I2C_CONFIG_PINS(2, GPIOB, GPIOB, 10, 3, 9)
+</code></pre>
+<p>Make sure as well the channels are TRUE in the <code>mcuconf.h</code> files. Here is an example with 2 I2C:</p>
+<pre><code class="lang-cpp">/*
+ * I2C driver system settings.
+ */
+#define STM32_I2C_USE_I2C1                  TRUE
+#define STM32_I2C_USE_I2C2                  TRUE
+#define STM32_I2C_USE_I2C3                  FALSE
+</code></pre>
+<h2 id="uart">UART</h2>
+<p>The same principle exist for UART. Both <code>target_windows_devices_serialcommunication_config.h</code> and <code>target_windows_devices_serialcommunication_config.cpp</code> need to be adjusted.</p>
+<p>This is how to add UART2 in the header file:</p>
+<pre><code class="lang-cpp">// enable USART2
+#define NF_SERIAL_COMM_STM32_UART_USE_USART2   TRUE
+</code></pre>
+<p>And in the CPP file:</p>
+<pre><code class="lang-cpp">///////////
+// UART2 //
+///////////
+
+// pin configuration for UART2
+// port: GPIOA
+// TX pin: is GPIOA 15
+// RX pin: is GPIOA 10
+// GPIO alternate pin function is 7 (see &quot;Table 9. Alternate function mapping&quot; in STM32F411xC and STM32F411xE datasheet)
+UART_CONFIG_PINS(2, GPIOA, GPIOA, 2, 3, 7)
+
+// buffers
+// buffers that are R/W by DMA are recommended to be aligned with 32 bytes cache page size boundary
+// because of issues with cache coherency and DMA (this is particularly important with Cortex-M7 because of cache)
+#if defined(__GNUC__)
+__attribute__((aligned (32)))
+#endif
+uint8_t Uart2_TxBuffer[UART2_TX_SIZE];
+#if defined(__GNUC__)
+__attribute__((aligned (32)))
+#endif
+uint8_t Uart2_RxBuffer[UART2_RX_SIZE];
+
+// initialization for UART2
+UART_INIT(2, UART2_TX_SIZE, UART2_RX_SIZE)
+
+// un-initialization for UART2
+UART_UNINIT(2)
+</code></pre>
+<p>The specificity is that you cannot use UART1. All others can be used. Make sure do document this properly for your users.</p>
+<blockquote>
+<p>Tip: you can add more than 1 additional UART, in most cases for STM32, either UART2 or 6 are used. They'll show up as COM2, COM6 on the managed side.</p>
+</blockquote>
+<h2 id="sd-card">SD Card</h2>
+<p>Add or adjust the existing file <code>target_windows_storage_config.h</code>. You'll have to add the line detect:</p>
+<pre><code class="lang-cpp">// maps the SD Card driver
+#define SD_CARD_DRIVER      SDCD1
+
+// maps the SD Card detect GPIO definition (in Target_Windows_Storage.c) to board GPIO line (in board.h)
+#define SDCARD_LINE_DETECT  LINE_SD_DETECT
+
+// includes SPIFFS in storage
+#define USE_SPIFFS_FOR_STORAGE  FALSE
+</code></pre>
+<p>The LINE <strong>must</strong> exist and be properly setup in the board.h file.</p>
+<p>Add a file <code>ff.conf</code>, copy/paste it from another STM32 board. All the settings in this file should be fine.</p>
+<p>If the section does not exist, add it in file <code>nanoCLR\mcuconf.h</code>:</p>
+<pre><code class="lang-cpp">/*
+ * SDC driver system settings.
+ */
+#define STM32_SDC_SDIO_DMA_PRIORITY         3
+#define STM32_SDC_SDIO_IRQ_PRIORITY         9
+#define STM32_SDC_WRITE_TIMEOUT_MS          250
+#define STM32_SDC_READ_TIMEOUT_MS           25
+#define STM32_SDC_CLOCK_ACTIVATION_DELAY    10
+#define STM32_SDC_SDIO_UNALIGNED_SUPPORT    TRUE
+#define STM32_SDC_SDIO_DMA_STREAM           STM32_DMA_STREAM_ID(2, 3)
+</code></pre>
+<h2 id="adjust-your-variant-accordingly">adjust your variant accordingly</h2>
+<p>For the various API make sure you have the proper API. You need some special one for the card.</p>
+<p>Before <code>Windows.Devices</code> namespaces will be removed you need both the <code>Windows.Devices</code> <strong>and</strong> <code>System.Devive</code> namespaces.</p>
+<blockquote>
+<p>Tip: do not try to adjust everything at the same time, make baby steps if it's your first board. Add SPI then I2C then UART and finish wby the SD Card. Test the image at every build, adjust any error at every stage.</p>
+</blockquote>
+<h2 id="create-an-extension-for-your-board">Create an extension for your board</h2>
+<p>Make it easy for your user to create an SPI device or I2C or anything else. Also create a mapping with the board pin, the names. Make it easy for ADC. Use enums if you want. Place your code in the folder <code>managed_helpers</code>. Add a nuspec file. You can find a great example <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/ChibiOS/ST_STM32F769I_DISCOVERY/managed_helpers/package.nuspec">here</a>.</p>
+<p>He is an extract of of function definition for a board extension class:</p>
+<pre><code class="lang-csharp">namespace nanoFramework.Targets.Community.PybStick2x
+{
+    /// &lt;summary&gt;
+    /// This extension class will help opening the right pins
+    /// &lt;/summary&gt;
+    public static class Board
+    {
+        /// &lt;summary&gt;
+        /// Creates a default SPI Device on SPI1 with Chip Select A4.
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public static SpiDevice Create() =&gt; Create(PinNumber('A', 4));
+
+        /// &lt;summary&gt;
+        /// Creates a default SPI Device on SPI1 with a custom Chip Select
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;chipSelect&quot;&gt;&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+
+        public static SpiDevice Create(int chipSelect) =&gt; SpiDevice.Create(new SpiConnectionSettings(1, chipSelect));
+
+        /// &lt;summary&gt;
+        /// Gets the pin number based on port and pin. Example A5
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;port&quot;&gt;The port&lt;/param&gt;
+        /// &lt;param name=&quot;pin&quot;&gt;The port pin&lt;/param&gt;
+        /// &lt;returns&gt;The pin number&lt;/returns&gt;
+        public static int PinNumber(char port, byte pin)
+        {
+            if (port &lt; 'A' || port &gt; 'J')
+                throw new ArgumentException();
+
+            return ((port - 'A') * 16) + pin;
+        }
+
+        /// &lt;summary&gt;
+        /// Get the pin number for the board pin. Example: S5 will be 5
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;num&quot;&gt;The board pin number&lt;/param&gt;
+        /// &lt;returns&gt;The pin number&lt;/returns&gt;
+        public static int PinFromBoardNumber(int num)
+        {
+            switch (num)
+            {
+                case 3:
+                    return PinNumber('B', 9);
+                case 5:
+                    return PinNumber('B', 8);
+                case 7:
+                    return PinNumber('B', 6);
+                case 8:
+                    return PinNumber('A', 2);
+                case 10:
+                    return PinNumber('A', 3);
+                // More code and more cases
+            }
+        }
+
+        // More functions like this to help
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/stm32/create-community-board.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
