@@ -16,5 +16,8 @@ These boards are NOT maintained by the core team and any related questions or is
 - [ST_NUCLEO64_F401RE_NF](ST_NUCLEO64_F401RE_NF.md)
 - [ST_NUCLEO64_F411RE_NF](ST_NUCLEO64_F411RE_NF.md)
 - [ST_STM32F4_DISCOVERY](stm32f4-discovery.md)
+- [ST_STM32F411_DISCOVERY](stm32f411-discovery.md)
 - [TI CC1352P1_LAUNCHXL](ti-cc1352p1-launchxl.md)
+- [PYBStick Standard 26](pybstick2x.md)
+- [BrainPad2](brainpad2.md)
 - [QUAIL](mbn-quail.md)

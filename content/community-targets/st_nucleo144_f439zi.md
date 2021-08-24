@@ -30,3 +30,7 @@ This board has two micro USB connectors. One is exposing the embedded ST-Link in
 
 The current build is set to add support for single-precision floating point.
 Meaning that `System.Math` API supports only the `float` overloads. The `double` ones will throw a `NotImplementedException`.
+
+## Managed helpers
+
+Checkout the [C# managed helpers](https://github.com/nanoframework/nf-Community-Targets/tree/main/ChibiOS/ST_NUCLEO144_F439ZI/managed_helpers) available for this board.
