@@ -79,8 +79,37 @@
 
 <p><img src="../../images/community-targets/nucleo144-f746zg.jpg" alt="nucleo144"></p>
 <p><a href="http://www.st.com/en/evaluation-tools/nucleo-f746zg.html">Product page</a></p>
+<p>The board used in this community contribution is the NUCLEO144 F746ZG board from STM. The board can be purchased from various sources and should be about 23 euros. Further information on this board and links for the user and programming manuals can be found at the product page in ST <a href="http://www.st.com/en/evaluation-tools/nucleo-f746zg.html">website</a>.</p>
+<p>Some basic information abstracted from ST:</p>
+<ul>
+<li>STM32 microcontroller in LQFP144 package</li>
+<li>External SMPS to generate Vcore logic supply (only available on '-P' suffixed boards)</li>
+<li>Ethernet compliant with IEEE-802.3-2002 (depending on STM32 support)</li>
+<li>USB OTG or full-speed device (depending on STM32 support)</li>
+<li>3 user LEDs
+-2 user and reset push-buttons</li>
+<li>32.768 kHz crystal oscillator</li>
+<li>Board connectors:
+<ul>
+<li>USB with Micro-AB</li>
+<li>SWD</li>
+<li>Ethernet RJ45 (depending on STM32 support)</li>
+<li>ST Zio connector including Arduino™ Uno V3</li>
+<li>ST morpho</li>
+</ul>
+</li>
+<li>Flexible power-supply options: ST-LINK USB VBUS or external sources</li>
+<li>On-board ST-LINK/V2-1 debugger/programmer with USB re-enumeration capability: mass storage, virtual COM port and debug port</li>
+</ul>
+<h2 id="flashing-and-debugging">Flashing and debugging</h2>
+<p>This board has two micro USB connectors. One is exposing the embedded ST-Link interface that is used for flashing the nanoFramework firmware and for performing debugging on the nanoCLR code. The second is used to connect the device with Visual Studio allowing to deploy and debug your C# managed applications.</p>
+<h2 id="floating-point">Floating point</h2>
+<p>The current build is set to add support for single-precision floating point.
+Meaning that <code>System.Math</code> API supports only the <code>float</code> overloads. The <code>double</code> ones will throw a <code>NotImplementedException</code>.</p>
 <h2 id="firmware-images-ready-to-deploy">Firmware images (ready to deploy)</h2>
 <p><a href="https://cloudsmith.io/%7Enet-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_NUCLEO144_F746ZG/latest/"><img src="https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_NUCLEO144_F746ZG/latest/x/?render=true" alt="Latest Version @ Cloudsmith"></a></p>
+<h2 id="managed-helpers">Managed helpers</h2>
+<p>Checkout the <a href="https://github.com/nanoframework/nf-Community-Targets/tree/main/ChibiOS/ST_NUCLEO144_F746ZG/managed_helpers">C# managed helpers</a> available for this board.</p>
 </article>
           </div>
           

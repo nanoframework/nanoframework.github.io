@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>ST Nucleo 64_f401re_nf | nanoFramework Documentation </title>
+    <title>ST Nucleo 64 F401RE NF | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="ST Nucleo 64_f401re_nf | nanoFramework Documentation ">
+    <meta name="title" content="ST Nucleo 64 F401RE NF | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -75,9 +75,37 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="st-nucleo-64_f401re_nf">ST Nucleo 64_f401re_nf</h1>
+<h1 id="st-nucleo-64-f401re-nf">ST Nucleo 64 F401RE NF</h1>
 
-<p>Help us filling this file!</p>
+<p><img src="https://www.st.com/bin/ecommerce/api/image.PF260000.en.feature-description-include-personalized-no-cpn-medium.jpg" alt="ST Nucleo 64_F401RE NF"></p>
+<p>The board used in this community contribution is the NUCLEO64_F401RE board from ST. The board can be purchased from various sources and should be about 20 euros. Further information on the Nucleo64 boards can be found in the user manual UM1724 on the ST side (<a href="http://www.st.com">www.st.com</a>). The board used here is of revision c as can be found on the board's lower backside sticker. The board MB1136 C-02 is configured to use ST-LINK MCO as clock input for HSE so we have an HSE of 8 MHz. Plus X2 is mounted so we do have an LSE as well. This is reflected in the mcuconf.h in both nanoBooter and nanoCLR paths. If it is chosen to activate LSE as this is a for more accurate clock for RTC, the board.h file needs to be adjusted accordingly to use 32768 frequency for LSE.</p>
+<p>I prepared a custom made a 4-wire jumper to USB cable by cutting off one end (Type A part) and figuring out the required D+, D-, 5V and GND. These need to be connected as follows:</p>
+<p>USB V5  -&gt;  Can be ignored
+USB GND -&gt;  GND on CN7
+USB D-  -&gt;  PA11 on CN10 (outer row 7th pin from top)
+USB D+  -&gt;  PA12 on CN10 (outer row 6th pin from top)</p>
+<p>Once these are connected and nanoFramework is flashed using the STM32 ST-LINK Utility the device should be visible in the Printf via SWO viewer function in the ST-LINK utility. Please set the frequency to match to what has been set in mcuconf.h (for the STM32F401RE it is 84MHz) and the Stimulus port to 0 and than hit start. If the board doesn't show then a reset (Black button on board) should do it.</p>
+<p>We can now fire up Visual Studio and view the Device explorer window the board should be visible there as well. Select the board (if not done already) and hit the device capabilities button. The board specifics can than be seen in the output window.</p>
+<p>Now you can start your adventure in the nanoFramework world and use one of the samples and adjust to the board specific features. Try to make a sample of yourself and publish it on f.e. <a href="http://www.hackster.io">www.hackster.io</a> to show your achievement.</p>
+<p>For your convenience I've listed below the features and on what pins they can be found to help you out for an easy start.</p>
+<h1 id="arduino-header-pins">Arduino header pins:</h1>
+<p>D0 = COM2 RX</p>
+<p>D1 = COM2 TX</p>
+<p>D2 - D9  can be used for an intermix of GPIO and PWM</p>
+<p>D14 = I2C1 SDA</p>
+<p>D15 = I2C1 SCL</p>
+<p>A0 - A5 for Analog signal, please be aware the MCU has only one 12-bit ADC.</p>
+<h1 id="connector-cn7">Connector CN7:</h1>
+<p>1 = SPI3 SCK</p>
+<p>2 = SPI3 MISO</p>
+<p>3 = SPI3 MOSI</p>
+<h1 id="connector-cn10">Connector CN10:</h1>
+<p>26 = SPI2 MOSI</p>
+<p>28 = SPI2 MISO</p>
+<p>30 = SPI2 SCK</p>
+<p><strong>NOTE: This configuration was successfully tested on a NUCLEO64_F401RE board.</strong></p>
+<h2 id="managed-helpers">Managed helpers</h2>
+<p>Checkout the <a href="https://github.com/nanoframework/nf-Community-Targets/tree/main/ChibiOS/ST_NUCLEO64_F401RE_NF/managed_helpers">C# managed helpers</a> available for this board.</p>
 </article>
           </div>
           
