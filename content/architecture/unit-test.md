@@ -49,4 +49,4 @@ We've been building a Unit Test nanoFramewok project as well in Visual Studio, t
 
 ## Where to look next
 
-The current status and information about usage is available under [Unit Test](/content/unit-test/index.md) main menu entry.
+The current status and information about usage is available under [Unit Test](~/content/unit-test/index.md) main menu entry.
