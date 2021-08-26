@@ -8,7 +8,7 @@
     <title>Class Libraries | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Libraries | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.58.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -80,12 +80,14 @@
 <h2 id="about-this-document">About this document</h2>
 <p>This document describes the design and organization of .NET <strong>nanoFramework</strong> Class Libraries, offers some explanation on the choices that were made and how to add a new Class Library. The examples bellow are related with ChibiOS (which is the currently reference implementation for .NET <strong>nanoFramework</strong>).</p>
 <h2 id="libraries">Libraries</h2>
-<p>Follow the list of the existing libraries, respective Nuget package and CMake enable option:</p>
+<p>Follow the list of the existing libraries, respective NuGet package and CMake enable option:</p>
 <table>
 <thead>
 <tr>
 <th>Class Library</th>
-<th>Nuget package name</th>
+<th>NuGet package name</th>
+<th>Stable</th>
+<th>Preview</th>
 <th>CMake option</th>
 </tr>
 </thead>
@@ -93,82 +95,342 @@
 <tr>
 <td>Base Class Library (also know as mscorlib)</td>
 <td>nanoFramework.CoreLibrary</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.CoreLibrary/"><img src="https://img.shields.io/nuget/v/nanoFramework.CoreLibrary.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.CoreLibrary/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.CoreLibrary.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>(always included)</td>
+</tr>
+<tr>
+<td>Base Class Library (without Reflection)</td>
+<td>nanoFramework.CoreLibrary</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.CoreLibrary.NoReflection/"><img src="https://img.shields.io/nuget/v/nanoFramework.CoreLibrary.NoReflection.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.CoreLibrary.NoReflection/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.CoreLibrary.NoReflection.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>(always included, -DNF_FEATURE_SUPPORT_REFLECTION=OFF)</td>
+</tr>
+<tr>
+<td>nanoFramework.Devices.Can</td>
+<td>nanoFramework.Devices.Can</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Devices.Can/"><img src="https://img.shields.io/nuget/v/nanoFramework.Devices.Can.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Devices.Can/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Devices.Can.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_nanoFramework.Devices.Can=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.Devices.OneWire</td>
+<td>nanoFramework.Devices.OneWire</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Devices.OneWire/"><img src="https://img.shields.io/nuget/v/nanoFramework.Devices.OneWire.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Devices.OneWire/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Devices.OneWire.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_nanoFramework.Devices.OneWire=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.Graphics</td>
+<td>nanoFramework.Graphics</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Graphics/"><img src="https://img.shields.io/nuget/v/nanoFramework.Graphics.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Graphics/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Graphics.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_nanoFramework.Graphics=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.M5Stack</td>
+<td>nanoFramework.M5Stack</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.M5Stack/"><img src="https://img.shields.io/nuget/v/nanoFramework.M5Stack.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.M5Stack/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.M5Stack.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_nanoFramework.M5Stack=ON</td>
 </tr>
 <tr>
 <td>nanoFramework.Hardware.Esp32</td>
 <td>nanoFramework.Hardware.Esp32</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.Esp32/"><img src="https://img.shields.io/nuget/v/nanoFramework.Hardware.Esp32.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.Esp32/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Hardware.Esp32.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Hardware.Esp32=ON</td>
 </tr>
 <tr>
+<td>nanoFramework.Hardware.Esp32.Rmt</td>
+<td>nanoFramework.Hardware.Esp32.Rmt</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.Esp32.Rmt/"><img src="https://img.shields.io/nuget/v/nanoFramework.Hardware.Esp32.Rmt.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.Esp32.Rmt/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Hardware.Esp32.Rmt.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_Hardware.Esp32.Rmt=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.Hardware.Stm32</td>
+<td>nanoFramework.Hardware.Stm32</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.Stm32/"><img src="https://img.shields.io/nuget/v/nanoFramework.Hardware.Stm32.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.Stm32/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Hardware.Stm32.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_Hardware.Stm32=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.Hardware.TI</td>
+<td>nanoFramework.Hardware.TI</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.TI/"><img src="https://img.shields.io/nuget/v/nanoFramework.Hardware.TI.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.TI/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Hardware.TI.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_Hardware.TI=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.ResourceManager</td>
+<td>nanoFramework.ResourceManager</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.ResourceManager/"><img src="https://img.shields.io/nuget/v/nanoFramework.ResourceManager.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.ResourceManager/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.ResourceManager.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_nanoFramework.ResourceManager=ON</td>
+</tr>
+<tr>
 <td>nanoFramework.Runtime.Events</td>
 <td>nanoFramework.Runtime.Events</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Runtime.Events/"><img src="https://img.shields.io/nuget/v/nanoFramework.Runtime.Events.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Runtime.Events/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Runtime.Events.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>(always included)</td>
 </tr>
 <tr>
 <td>nanoFramework.Runtime.Native</td>
 <td>nanoFramework.Runtime.Native</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Runtime.Native/"><img src="https://img.shields.io/nuget/v/nanoFramework.Runtime.Native.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Runtime.Native/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Runtime.Native.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>(always included)</td>
 </tr>
 <tr>
-<td>nanoFramework.Runtime.Sntp</td>
-<td>nanoFramework.Runtime.Sntp</td>
+<td>nanoFramework.Networking.Sntp</td>
+<td>nanoFramework.Networking.Sntp</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Networking.Sntp/"><img src="https://img.shields.io/nuget/v/nanoFramework.Networking.Sntp.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Networking.Sntp/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Networking.Sntp.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>(included when network option is ON)</td>
+</tr>
+<tr>
+<td>nanoFramework.TI.EasyLink</td>
+<td>nanoFramework.TI.EasyLink</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.TI.EasyLink/"><img src="https://img.shields.io/nuget/v/nanoFramework.TI.EasyLink.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.TI.EasyLink/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.TI.EasyLink.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_nanoFramework.TI.EasyLink=ON</td>
 </tr>
 <tr>
 <td>Windows.Devices.Adc</td>
 <td>nanoFramework.Windows.Devices.Adc</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Adc/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.Adc.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Adc/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.Adc.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Windows.Devices.Adc=ON</td>
+</tr>
+<tr>
+<td>System.Device.Dac</td>
+<td>nanoFramework.System.Device.Dac</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.Dac/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.Dac.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.Dac/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Device.Dac.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.Device.Dac=ON</td>
+</tr>
+<tr>
+<td>System.Device.I2c</td>
+<td>nanoFramework.System.Device.I2c</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.I2c/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.I2c.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.I2c/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Device.I2c.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.Device.I2c=ON</td>
 </tr>
 <tr>
 <td>Windows.Devices.I2c</td>
 <td>nanoFramework.Windows.Devices.I2c</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.I2c/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.I2c.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.I2c/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.I2c.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Windows.Devices.I2c=ON</td>
+</tr>
+<tr>
+<td>System.Device.Gpio</td>
+<td>nanoFramework.System.Device.Gpio</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.Gpio/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.Gpio.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.Gpio/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Device.Gpio.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.Device.Gpio=ON</td>
 </tr>
 <tr>
 <td>Windows.Device.Gpio</td>
 <td>nanoFramework.Windows.Devices.Gpio</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Gpio/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.Gpio.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Gpio/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.Gpio.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Windows.Devices.Gpio=ON</td>
 </tr>
 <tr>
 <td>Windows.Devices.Pwm</td>
 <td>nanoFramework.Windows.Devices.Pwm</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Pwm/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.Pwm.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Pwm/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.Pwm.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Windows.Devices.Pwm=ON</td>
+</tr>
+<tr>
+<td>System.IO.Ports</td>
+<td>nanoFramework.System.IO.Ports</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.IO.Ports/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.IO.Ports.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.IO.Ports/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.IO.Ports.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.IO.Ports=ON</td>
 </tr>
 <tr>
 <td>Windows.Devices.SerialCommunication</td>
 <td>nanoFramework.Windows.Devices.SerialCommunication</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.SerialCommunication.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.SerialCommunication/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.SerialCommunication.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Windows.Devices.SerialCommunication=ON</td>
+</tr>
+<tr>
+<td>System.Device.Spi</td>
+<td>nanoFramework.System.Device.Spi</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.Spi/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.Spi.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.Spi/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Device.Spi.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.Device.Spi=ON</td>
 </tr>
 <tr>
 <td>Windows.Devices.Spi</td>
 <td>nanoFramework.Windows.Devices.Spi</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Spi/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.Spi.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.Spi/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.Spi.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Windows.Devices.Spi=ON</td>
 </tr>
 <tr>
 <td>Windows.Devices.WiFi</td>
 <td>nanoFramework.Windows.Devices.WiFi</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.WiFi/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.WiFi.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Devices.WiFi/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.WiFi.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Windows.Devices.WiFi=ON</td>
-</tr>
-<tr>
-<td>Windows.Networking.Sockets</td>
-<td>nanoFramework.Windows.Networking.Sockets</td>
-<td>-DAPI_Windows.Networking.Sockets=ON</td>
 </tr>
 <tr>
 <td>Windows.Storage</td>
 <td>nanoFramework.Windows.Storage</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Storage/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Storage.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Storage/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Storage.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DNF_FEATURE_HAS_SDCARD=ON and/or -DNF_FEATURE_HAS_USB_MSD=ON</td>
 </tr>
 <tr>
 <td>Windows.Storage.Streams</td>
 <td>nanoFramework.Windows.Storage.Streams</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Storage.Streams/"><img src="https://img.shields.io/nuget/v/nanoFramework.Windows.Storage.Streams.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Windows.Storage.Streams/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Windows.Storage.Streams.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_=ON</td>
 </tr>
 <tr>
+<td>System.IO.FileSystem</td>
+<td>nanoFramework.System.IO.FileSystem</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.IO.FileSystem/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.IO.FileSystem.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.IO.FileSystem/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.IO.FileSystem.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.IO.FileSystem=ON</td>
+</tr>
+<tr>
+<td>System.Collections</td>
+<td>nanoFramework.System.Collections</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Collections/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Collections.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Collections/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Collections.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+<tr>
+<td>System.Math</td>
+<td>nanoFramework.System.Math</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Math/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Math.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Math/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Math.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.Math=ON</td>
+</tr>
+<tr>
 <td>System.Net</td>
-<td>nanoFramework.Windows.System.Net</td>
+<td>nanoFramework.System.Net</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Net.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Net.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_System.Net=ON</td>
+</tr>
+<tr>
+<td>System.Net.Http</td>
+<td>nanoFramework.System.Net.Http</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net.Http/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Net.Http.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net.Http/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Net.Http.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+<tr>
+<td>System.Net.Http.Client</td>
+<td>nanoFramework.System.Net.Http.Client</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net.Http.Client/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Net.Http.Client.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net.Http.Client/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Net.Http.Client.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+<tr>
+<td>System.Net.Http.Server</td>
+<td>nanoFramework.System.Net.Http.Server</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net.Http.Server/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Net.Http.Server.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Net.Http.Server/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Net.Http.Server.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+<tr>
+<td>System.Text</td>
+<td>nanoFramework.System.Text</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Text/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Text.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Text/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Text.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+<tr>
+<td>System.Text.RegularExpressions</td>
+<td>nanoFramework.System.Text.RegularExpressions</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Text.RegularExpressions/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Text.RegularExpressions.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Text.RegularExpressions/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Text.RegularExpressions.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+<tr>
+<td>System.Threading</td>
+<td>nanoFramework.System.Threading</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Threading/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Threading.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Threading/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.System.Threading.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+</tbody>
+</table>
+<h2 id="other-libraries">Other libraries</h2>
+<table>
+<thead>
+<tr>
+<th>Class Library</th>
+<th>NuGet package name</th>
+<th>Stable</th>
+<th>Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AMQP Net Lite</td>
+<td>AMQPNetLite.nanoFramework</td>
+<td><a href="https://www.nuget.org/packages/AMQPNetLite.nanoFramework/"><img src="https://img.shields.io/nuget/v/AMQPNetLite.nanoFramework.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/AMQPNetLite.nanoFramework/"><img src="https://img.shields.io/nuget/vpre/AMQPNetLite.nanoFramework.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>AMQP Net Lite (micro)</td>
+<td>AMQPNetMicro.nanoFramework</td>
+<td><a href="https://www.nuget.org/packages/AMQPNetMicro.nanoFramework/"><img src="https://img.shields.io/nuget/v/AMQPNetMicro.nanoFramework.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/AMQPNetMicro.nanoFramework/"><img src="https://img.shields.io/nuget/vpre/AMQPNetMicro.nanoFramework.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.Azure.Devices</td>
+<td>nanoFramework.Azure.Devices.Client</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Azure.Devices.Client/"><img src="https://img.shields.io/nuget/v/nanoFramework.Azure.Devices.Client.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Azure.Devices.Client/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Azure.Devices.Client.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.Logging</td>
+<td>nanoFramework.Logging</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Logging/"><img src="https://img.shields.io/nuget/v/nanoFramework.Logging.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Logging/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Logging.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.Json</td>
+<td>nanoFramework.Json</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Json/"><img src="https://img.shields.io/nuget/v/nanoFramework.Json.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Json/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.Json.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.m2mqtt</td>
+<td>nanoFramework.m2mqtt</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.m2mqtt/"><img src="https://img.shields.io/nuget/v/nanoFramework.m2mqtt.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.m2mqtt/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.m2mqtt.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.NetWorkHelper</td>
+<td>nanoFramework.NetWorkHelper</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.NetWorkHelper/"><img src="https://img.shields.io/nuget/v/nanoFramework.NetWorkHelper.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.NetWorkHelper/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.NetWorkHelper.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.TestFramework</td>
+<td>nanoFramework.TestFramework</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.TestFramework/"><img src="https://img.shields.io/nuget/v/nanoFramework.TestFramework.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.TestFramework/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.TestFramework.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.WebServer</td>
+<td>nanoFramework.WebServer</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.WebServer/"><img src="https://img.shields.io/nuget/v/nanoFramework.WebServer.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.WebServer/"><img src="https://img.shields.io/nuget/vpre/nanoFramework.WebServer.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 </tr>
 </tbody>
 </table>
@@ -177,52 +439,52 @@
 <p>So, for each class library, there is a Nuget package that includes the assembly and documentation files. The Nuget package takes care of making sure that the required dependency(ies) and correct version(s) are added to a managed (C#) project, making a developer's life much easier.</p>
 <h2 id="how-to-add-a-new-class-library">How to add a new class library</h2>
 <p>Follow the procedure to add a new class library to a .NET <strong>nanoFramework</strong> target image.</p>
-<p>The example is for adding Windows.Devices.Gpio library.</p>
+<p>The example is for adding System.Device.Gpio library.</p>
 <ol>
-<li><p>In VS2017 start a new project for a .NET <strong>nanoFramework</strong> C# Class library. Source code <a href="https://github.com/nanoframework/lib-Windows.Devices.Gpio">here</a></p>
+<li><p>In Visual Studio start a new project for a .NET <strong>nanoFramework</strong> C# Class library. Source code <a href="https://github.com/nanoframework/System.Device.Gpio">here</a></p>
 </li>
 <li><p>Implement all the required methods, enums, properties in that project. It's recommended that you add XML comments there (and enable the automated documentation generation in the project properties).</p>
 </li>
-<li><p>Add the Nuget packaging project to distribute the managed assembly and documentation. We have a second Nuget package that includes all the build artifacts, generated stubs, dump files and such. This is to be used in automated testing and distribution of followup projects or build steps.</p>
+<li><p>Add the NuGet packaging project to distribute the managed assembly and documentation. We have a second NuGet package that includes all the build artefacts, generated stubs, dump files and such. This is to be used in automated testing and distribution of follow-up projects or build steps.</p>
 </li>
 <li><p>Upon a successfully build of the managed project the skeleton with the stubs should be available in the respective folder. Because .NET <strong>nanoFramework</strong> aims to be target independent, the native implementation of a class library can be split in two parts:</p>
 <ul>
 <li>Declaration and common code bits (these always exist) inside the <code>src</code> folder. This is the place where the stubs must be placed:
 <ul>
-<li>Common <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/src/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
+<li>Common <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/src/System.Device.Gpio">System.Device.Gpio</a>.</li>
 </ul>
 </li>
 <li>The specific implementation bits that are platform dependent and that will live 'inside' each platform RTOS folder:
 <ul>
-<li>ChibiOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
-<li>ESP32 FreeRTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
-<li>TI-RTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/TI-SimpleLink/nanoCLR/Windows.Devices.Gpio">Windows.Devices.Gpio</a>.</li>
+<li>ChibiOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/ChibiOS/nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
+<li>ESP32 FreeRTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/FreeRTOS_ESP32/ESP32_WROOM_32/nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
+<li>TI-RTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/targets/TI_SimpleLink/nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Add the CMake as a module to the modules folder <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules">here</a>. The name of the module should follow the assembly name (Find<strong>Windows.Devices.Gpio</strong>.cmake). Mind the CMake rules for the naming: start with <em>Find</em> followed by the module name and <em>cmake</em> extension. The CMake for the Windows.Devices.Gpio module is <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/FindWindows.Devices.Gpio.cmake">here</a>.</p>
+<li><p>Add the CMake as a module to the modules folder <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules">here</a>. The name of the module should follow the assembly name (Find<strong>System.Device.Gpio</strong>.cmake). Mind the CMake rules for the naming: start with <em>Find</em> followed by the module name and <em>cmake</em> extension. The CMake for the System.Device.Gpio module is <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/FindSystem.Device.Gpio.cmake">here</a>.</p>
 </li>
-<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> add an option for the API. The option name must follow the pattern API_<strong>namespace</strong>. The option for Windows.Devices.Gpio is API_Windows.Devices.Gpio.</p>
+<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> add an option for the API. The option name must follow the pattern API_<strong>namespace</strong>. The option for System.Device.Gpio is API_System.Device.Gpio.</p>
 </li>
 <li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> find the macro <code>ParseApiOptions</code> and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.</p>
 </li>
-<li><p>Update the template file for the CMake variants <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/cmake-variants.TEMPLATE.json">here</a> to include the respective option. For the Windows.Devices.Gpio example you would add to the <em>OPTION1...</em> and <em>OPTION2...</em> (under <em>linkage</em>) the following line: &quot;API_Windows.Devices.Gpio&quot; : &quot;OFF&quot;</p>
+<li><p>Update the template file for the CMake variants <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/cmake-variants.TEMPLATE.json">here</a> to include the respective option. For the System.Device.Gpio example you would add to the <em>OPTION1...</em> and <em>OPTION2...</em> (under <em>linkage</em>) the following line: &quot;API_System.Device.Gpio&quot; : &quot;OFF&quot;</p>
 </li>
 <li><p>If the API requires enabling hardware or SoC peripherals in the target HAL/PAL make the required changes to the appropriate files.
-For Windows.Devices.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
-In contrast, for the Windows.Devices.Spi, the SPI subsystem has to be enabled at the <em>halconf.h</em> file and also (at driver level) in <em>mcuconf.h</em> the SPI peripherals have to be individually enabled (e.g. <code>#define STM32_SPI_USE_SPI1 TRUE</code>).</p>
+For System.Device.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
+In contrast, for the System.Device.Spi, the SPI subsystem has to be enabled at the <em>halconf.h</em> file and also (at driver level) in <em>mcuconf.h</em> the SPI peripherals have to be individually enabled (e.g. <code>#define STM32_SPI_USE_SPI1 TRUE</code>).</p>
 <blockquote>
-<p>Note: To ease the overall configuration of an API and related hardware (and when it makes sense) the API option (API_Windows.Devices.Gpio) can be <em>extended</em> to automatically enable the HAL subsystem. This happens with the Windows.Devices.Spi API. The CMake option is mirrored in the general <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt">CMakeLists.txt</a> in order to be used in CMakes and headers. This mirror property is <code>HAL_USE_SPI_OPTION</code>. It's being defined here and not in the individual <em>halconf.h</em> files as usual. To make this work the CMake property has to be added to the CMake template file of the platform <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/nanoCLR/target_platform.h.in">target_platform.h.in</a>.</p>
+<p>Note: To ease the overall configuration of an API and related hardware (and when it makes sense) the API option (API_System.Device.Gpio) can be <em>extended</em> to automatically enable the HAL subsystem. This happens with the Windows.Devices.Spi API. The CMake option is mirrored in the general <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt">CMakeLists.txt</a> in order to be used in CMakes and headers. This mirror property is <code>HAL_USE_SPI_OPTION</code>. It's being defined here and not in the individual <em>halconf.h</em> files as usual. To make this work the CMake property has to be added to the CMake template file of the platform <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/targets/ChibiOS/nanoCLR/target_platform.h.in">target_platform.h.in</a>.</p>
 </blockquote>
 </li>
 <li><p>When adding/enabling new APIs and depending on how the drivers and the library are coded, some static variables will be added to the BSS RAM area. Because of that extra space that is taken by those variables the Managed Heap size may have to be adjusted to make room for those. To do this find the <code>__clr_managed_heap_size__</code> in the general CMakeLists.txt of that target and decrease the value there as required.</p>
 </li>
-<li><p>Some APIs depend of others. This happens for example with Windows.Devices.Gpio that requires nanoFramework.Runtime.Events in order to generate the interrupts for the changed pin values. To make this happen the option to include the required API(s) has to be enabled in the main <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt">CMakeLists.txt</a> inside the if clause of the dependent API. Just like if the option was enabled at the CMake command line. Check this by searching for <code>API_nanoFramework.Runtime.Events</code> inside the <code>if(API_Windows.Devices.Gpio)</code>.</p>
+<li><p>Some APIs depend of others. This happens for example with System.Device.Gpio that requires nanoFramework.Runtime.Events in order to generate the interrupts for the changed pin values. To make this happen the option to include the required API(s) has to be enabled in the main <a href="https://github.com/nanoframework/nf-interpreter/blob/develop/CMakeLists.txt">CMakeLists.txt</a> inside the if clause of the dependent API. Just like if the option was enabled at the CMake command line. Check this by searching for <code>API_nanoFramework.Runtime.Events</code> inside the <code>if(API_System.Device.Gpio)</code>.</p>
 </li>
 </ol>
 <h2 id="how-to-include-a-class-library-in-the-build">How to include a class library in the build</h2>
-<p>To include a class library in the build for a target image you have to add to the CMake an option for the API. For the Windows.Devices.Gpio example the option would be <code>-DAPI_Windows.Devices.Gpio=ON</code>.
+<p>To include a class library in the build for a target image you have to add to the CMake an option for the API. For the System.Device.Gpio example the option would be <code>-DAPI_System.Device.Gpio=ON</code>.
 You can also add this to your own cmake-variants.json file.
 To exclude a class library just set the option to OFF or simply don't include it in the command.</p>
 </article>
