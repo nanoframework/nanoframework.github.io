@@ -16,15 +16,13 @@ This USB connection will also power the board. Alternatively, it supports PoE, s
 To access the board, ST Link utility from here (it will also install USB drivers):
 https://www.st.com/en/development-tools/stsw-link004.html#get-software
 
-Unfortunately, ST requires registration to download them. Fortunately, you can use any 10-minute email service to overcome that. For example, https://10minutemail.com/
-
 ## Flashing initial nanoFramework firmware
 
 Before you can code in C#, nanoFramework runtime has to be flashed in. This is done by `nanoff` utility, which you installed in the Getting Started guide. Run this command in the Command Prompt:
 
 `nanoff --target ST_STM32F769I_DISCOVERY --update`
 
-This command will download the latest stable FW revision, detect the COM port and flash the board.
+This command will download the latest stable FW revision, detect the the board and flash it.
 
 If it complains like this, disregard it:
 ![image](https://user-images.githubusercontent.com/71982803/132205447-64ad0120-7477-4a49-8a03-feefce789a57.png)
@@ -35,7 +33,7 @@ You are now ready to upload C# programs.
 
 The are three LEDs available for the user, marked LD0-LD3. Their pins are:
 
-|Marking|STM pin|nF pin number|Alternative function|
+|Marking|MCU port&pin|nF pin number|Alternative function|
 |---|---|---|---|
 |LD0|PJ13|157|-|
 |LD1|PJ5|149|-|
@@ -46,13 +44,11 @@ The are three LEDs available for the user, marked LD0-LD3. Their pins are:
 
 **Note**: LD2 is also tied to the Arduino header pin D13.
 
-nF pin number is calculated like so: `portNumber * 16 + pinNumber`. For STMs, ports are numbered alphabetically, so PA=0, PB=1, PC=2 and so on. For example, PD4 corresponds to nF pin number 52, because `3 * 16 + 4 = 52`.
-
 ## Arduino headers pinout
 
 CN11 (power delivery):
 
-|Marking|STM pin|nF pin number|Alternative function|
+|Marking|MCU port&pin|nF pin number|Alternative function|
 |---|---|---|---|
 |NC|-|-|-|
 |IOREF|-|-|-|
@@ -65,7 +61,7 @@ CN11 (power delivery):
 
 CN14 (analog functions):
 
-|Marking|STM pin|nF pin number|Alternative function|
+|Marking|MCU port&pin|nF pin number|Alternative function|
 |---|---|---|---|
 |A0|PA6|6|Analog channel 0|
 |A1|PA4|4|Analog channel 1|
@@ -76,7 +72,7 @@ CN14 (analog functions):
 
 CN9 (digital functions):
 
-|Marking|STM pin|nF pin number|Alternative function|
+|Marking|MCU port&pin|nF pin number|Alternative function|
 |---|---|---|---|
 |D15|PB8|24|I2C1_SCL|
 |D14|PB9|25|I2C1_SDA|
@@ -91,7 +87,7 @@ CN9 (digital functions):
 
 CN13 (digital functions):
 
-|Marking|STM pin|nF pin number|Alternative function|
+|Marking|MCU port&pin|nF pin number|Alternative function|
 |---|---|---|---|
 |D7|PJ3|147|-|
 |D6|PF7|87|-|
