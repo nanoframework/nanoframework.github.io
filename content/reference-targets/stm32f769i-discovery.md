@@ -33,14 +33,20 @@ You are now ready to upload C# programs.
 
 ## User LEDs
 
-The are three LEDs available for the user, marked LD0-LD2. They pins are:
+The are three LEDs available for the user, marked LD0-LD3. Their pins are:
 
 |Marking|STM pin|nF pin number|Alternative function|
 |---|---|---|---|
-|LD0|PJ13|-|-|
-|LD1|PJ5|-|-|
-|LD2|PA12|-|-|
+|LD0|PJ13|157|-|
+|LD1|PJ5|149|-|
+|LD2|PA12|12|-|
+|LD3|PD4|52|-|
 
+**Note**: LD3 levels are inverted compared to LD0-LD2.
+
+**Note**: LD2 is also tied to the Arduino header pin D13.
+
+nF pin number is calculated like so: `portNumber * 16 + pinNumber`. For STMs, ports are numbered alphabetically, so PA=0, PB=1, PC=2 and so on. For example, PD4 corresponds to nF pin number 52, because `3 * 16 + 4 = 52`.
 
 ## Arduino headers pinout
 
@@ -61,40 +67,40 @@ CN14 (analog functions):
 
 |Marking|STM pin|nF pin number|Alternative function|
 |---|---|---|---|
-|A0|PA6|?|-|
-|A1|PA4|?|-|
-|A2|PC2|?|-|
-|A3|PF10|?|-|
-|A4|PB9|?|I2C1_SDA1|
-|A5|PB8|?|I2C1_SCL1|
+|A0|PA6|6|Analog channel 0|
+|A1|PA4|4|Analog channel 1|
+|A2|PC2|34|Analog channel 2|
+|A3|PF10|90|-|
+|A4|PF8|88|Analog channel 4|
+|A5|PF9|89|-|
 
 CN9 (digital functions):
 
 |Marking|STM pin|nF pin number|Alternative function|
 |---|---|---|---|
-|D15|?|||
-|D14|?|||
-|AVDD||||
+|D15|PB8|24|I2C1_SCL|
+|D14|PB9|25|I2C1_SDA|
+|AVDD|-|-|-|
 |GND|-|-|-|
-|D13|PA12||SPI2_SCK|
-|D12|PB14||SPI2_MISO|
-|D11|PB15||SPI2_MOSI|
-|D10|PA11||SPI2_CS|
-|D9|PH6|||
-|D8|PJ4|||
+|D13|PA12|12|SPI2_SCK|
+|D12|PB14|30|SPI2_MISO|
+|D11|PB15|31|SPI2_MOSI|
+|D10|PA11|11|SPI2_CS|
+|D9|PH6|118|-|
+|D8|PJ4|148|-|
 
 CN13 (digital functions):
 
 |Marking|STM pin|nF pin number|Alternative function|
 |---|---|---|---|
-|D7|PJ3|||
-|D6|PF7|||
-|D5|PC8|||
-|D4|PJ0|||
-|D3|PF6|||
-|D2|PJ1|||
-|D1|PC6|||
-|D0|PC7|||
+|D7|PJ3|147|-|
+|D6|PF7|87|-|
+|D5|PC8|56|-|
+|D4|PJ0|144|-|
+|D3|PF6|86|-|
+|D2|PJ1|145|-|
+|D1|PC6|38|USART6_TX|
+|D0|PC7|39|USART6_RX|
 
 ## Firmware images (ready to deploy)
 
