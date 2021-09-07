@@ -44,6 +44,8 @@ The are three LEDs available for the user, marked LD0-LD3. Their pins are:
 
 **Note**: LD2 is also tied to the Arduino header pin D13.
 
+If you want to know, how MCU pin name is converted to nF pin number, [see the FAQ here](https://docs.nanoframework.net/content/faq/working-with-stm32-targets.html).
+
 ## Arduino headers pinout
 
 CN11 (power delivery):
