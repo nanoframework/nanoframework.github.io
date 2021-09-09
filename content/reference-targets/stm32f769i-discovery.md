@@ -29,9 +29,9 @@ If it complains like this, disregard it:
 
 You are now ready to upload C# programs.
 
-## User LEDs
+## User LEDs and buttons
 
-The are three LEDs available for the user, marked LD0-LD3. Their pins are:
+The are three LEDs available for the user, marked LD0-LD3, and also a button USER. Their pins are:
 
 |Marking|MCU port&pin|nF pin number|Alternative function|
 |---|---|---|---|
@@ -39,6 +39,7 @@ The are three LEDs available for the user, marked LD0-LD3. Their pins are:
 |LD1|PJ5|149|-|
 |LD2|PA12|12|-|
 |LD3|PD4|52|-|
+|USER|PA0|0|-|
 
 **Note**: LD3 levels are inverted compared to LD0-LD2.
 
