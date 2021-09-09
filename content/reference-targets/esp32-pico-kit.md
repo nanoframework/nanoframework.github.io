@@ -55,10 +55,10 @@ Markings are different on top and bottom of the board. Tables below references m
 |IO9|GPIO9|9|-||
 |RXD0|GPIO3|3|-|Connected to USB-serial bridge. Do not use.|
 |TXD0|GPIO1|1|-|Connected to USB-serial bridge. Do not use.|
-|IO35|-|-|-|Input-only|
-|IO34|-|-|-|Input-only|
-|IO38|GPIO38|38|-|Input-only|
-|IO37|GPIO37|37|-|Input-only|
+|IO35|-|-|Analog channel 7|Input-only|
+|IO34|-|-|Analog channel 6|Input-only|
+|IO38|GPIO38|38|Analog channel 2|Input-only|
+|IO37|GPIO37|37|Analog channel 1|Input-only|
 |EN|CHIP_PU|-|-||
 |GND|-|-|-||
 |3V3|-|-||
@@ -68,20 +68,20 @@ Markings are different on top and bottom of the board. Tables below references m
 |F_CS|-|-|-|Connected to internal flash. Do not use.|
 |F_SD0|-|-|-|Connected to internal flash. Do not use.|
 |F_SD2|-|-|-|Connected to internal flash. Do not use.|
-|SVP|GPIO36|36?|-|Input-only|
-|SVN|GPIO39|39?|-|Input-only|
-|IO25|GPIO25|25|-||
-|IO26|GPIO26|26|-||
-|IO32|?|?|-||
-|IO33|?|?|-||
-|IO27|GPIO27|27|-||
-|IO14|?||-||
-|IO12|?||-||
-|IO13|?||-||
-|IO15|?||-||
-|IO2|?||-||
-|IO4|?||-||
-|IO0|?||-||
+|SVP|SENSOR_VP|-|Analog channel 8|Input-only|
+|SVN|SENSOR_VN|-|Analog channel 9|Input-only|
+|IO25|GPIO25|25|Analog channel 18||
+|IO26|GPIO26|26|Analog channel 19||
+|IO32|?|?|Analog channel 4||
+|IO33|?|?|Analog channel 5||
+|IO27|GPIO27|27|Analog channel 17||
+|IO14|?||Analog channel 16||
+|IO12|?||Analog channel 15||
+|IO13|?||Analog channel 14||
+|IO15|?||Analog channel 13||
+|IO2|?||Analog channel 12||
+|IO4|?||Analog channel 10||
+|IO0|?||Analog channel 11||
 |3V3|-|-||
 |GND|-|-|-||
 |5V|-|-|-||
