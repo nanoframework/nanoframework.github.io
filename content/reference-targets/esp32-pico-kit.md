@@ -63,7 +63,31 @@ Markings are different on top and bottom of the board. Tables below references m
 |GND|-|-|-||
 |3V3|-|-||
 
+|Marking|MCU port&pin|nF pin number|Alternative function|Note|
+|---|---|---|---|---|
+|F_CS|-|-|-|Connected to internal flash. Do not use.|
+|F_SD0|-|-|-|Connected to internal flash. Do not use.|
+|F_SD2|-|-|-|Connected to internal flash. Do not use.|
+|SVP|GPIO36|36?|-|Input-only|
+|SVN|GPIO39|39?|-|Input-only|
+|IO25|GPIO25|25|-||
+|IO26|GPIO26|26|-||
+|IO32|?|?|-||
+|IO33|?|?|-||
+|IO27|GPIO27|27|-||
+|IO14|?||-||
+|IO12|?||-||
+|IO13|?||-||
+|IO15|?||-||
+|IO2|?||-||
+|IO4|?||-||
+|IO0|?||-||
+|3V3|-|-||
+|GND|-|-|-||
+|5V|-|-|-||
 
-|IO|GPIO||-|
+## Firmware images (ready to deploy)
 
-
+| Stable | Preview |
+|---|---|
+| [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_PICO/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_PICO/latest/) | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-dev/raw/ESP32_PICO/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-dev/packages/detail/raw/ESP32_PICO/latest/) |
