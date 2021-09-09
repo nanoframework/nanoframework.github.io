@@ -11,10 +11,9 @@ There are two USB ports on the board. For firmware flashing and debugging, use t
 
 This USB connection will also power the board. Alternatively, it supports PoE, so it may be handy when deploying in the field (although you will not be able to upload new program that way). **To enable PoE, install an appropriate jumper on CN3 header**.
 
-## Installing drivers and ST Link
+## Installing drivers and STM32 Cube Programmer
 
-To access the board, ST Link utility from here (it will also install USB drivers):
-https://www.st.com/en/development-tools/stsw-link004.html#get-software
+Download the appropriate [STM32 Cube Programmer](https://www.st.com/en/development-tools/stm32cubeprog.html) version from ST web site and install it in your development machine. (it will also install USB drivers)
 
 ## Flashing initial nanoFramework firmware
 
