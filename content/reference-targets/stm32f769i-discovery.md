@@ -30,7 +30,7 @@ You are now ready to upload C# programs.
 
 ## User LEDs and buttons
 
-The are three LEDs available for the user, marked LD1-LD4, and also a button USER. Their pins are:
+The are four LEDs available for the user, marked LD1-LD4, and also a button USER. Their pins are:
 
 |Marking|MCU port&pin|nF pin number|
 |---|---|---|
