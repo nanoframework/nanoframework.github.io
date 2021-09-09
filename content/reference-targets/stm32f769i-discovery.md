@@ -6,10 +6,10 @@
 
 ## Connecting and powering the board
 
-There are two USB ports on the board. For firmware flashing and debugging, use the one named "USB ST_LINK"
+There are two USB ports on the board. For firmware flashing and debugging, use the one named "USB ST_LINK":
 ![image](https://user-images.githubusercontent.com/71982803/132203876-38002367-37d2-49e0-b6c4-d417352cd6a6.png)
 
-This USB connection will also power the board. Alternatively, it supports PoE, so it may be handy when deploying in the field (although you will not be able to upload new program that way). **To enable PoE, install an appropriate jumper on CN3 header**.
+>Note: This USB connection will also power the board. Alternatively, it supports PoE, so it may be handy when deploying in the field (although you will not be able to upload new program that way). To enable PoE, install an appropriate jumper on CN3 header.
 
 ## Installing drivers and STM32 Cube Programmer
 
