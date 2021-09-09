@@ -30,18 +30,19 @@ You are now ready to upload C# programs.
 
 ## User LEDs and buttons
 
-The are three LEDs available for the user, marked LD1-LD3, and also a button USER. Their pins are:
+The are three LEDs available for the user, marked LD1-LD4, and also a button USER. Their pins are:
 
 |Marking|MCU port&pin|nF pin number|
 |---|---|---|
 |LD1|PJ13|157|
 |LD2|PJ5|149|
 |LD3|PA12|12|
+|LD4|PD4|52|
 |USER|PA0|0|
 
-**Note**: LD3 levels are inverted compared to LD0-LD2.
+**Note**: LD4 levels are inverted compared to LD1-LD3.
 
-**Note**: LD2 is also tied to the Arduino header pin D13.
+**Note**: LD3 is also tied to the Arduino header pin D13.
 
 If you want to know, how MCU pin name is converted to nF pin number, [see the FAQ here](https://docs.nanoframework.net/content/faq/working-with-stm32-targets.html).
 
