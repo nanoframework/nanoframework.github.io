@@ -30,15 +30,14 @@ You are now ready to upload C# programs.
 
 ## User LEDs and buttons
 
-The are three LEDs available for the user, marked LD0-LD3, and also a button USER. Their pins are:
+The are three LEDs available for the user, marked LD1-LD3, and also a button USER. Their pins are:
 
-|Marking|MCU port&pin|nF pin number|Alternative function|
-|---|---|---|---|
-|LD0|PJ13|157|-|
-|LD1|PJ5|149|-|
-|LD2|PA12|12|-|
-|LD3|PD4|52|-|
-|USER|PA0|0|-|
+|Marking|MCU port&pin|nF pin number|
+|---|---|---|
+|LD1|PJ13|157|
+|LD2|PJ5|149|
+|LD3|PA12|12|
+|USER|PA0|0|
 
 **Note**: LD3 levels are inverted compared to LD0-LD2.
 
@@ -50,16 +49,16 @@ If you want to know, how MCU pin name is converted to nF pin number, [see the FA
 
 CN11 (power delivery):
 
-|Marking|MCU port&pin|nF pin number|Alternative function|
-|---|---|---|---|
-|NC|-|-|-|
-|IOREF|-|-|-|
-|RESET|NRST|-|-|
-|+3V3|-|-|-|
-|5V|-|-|-|
-|GND|-|-|-|
-|GND|-|-|-|
-|VIN|-|-|-|
+|Marking|MCU port&pin|nF pin number|
+|---|---|---|
+|NC|-|-|
+|IOREF|-|-|
+|RESET|NRST|-|
+|+3V3|-|-|
+|5V|-|-|
+|GND|-|-|
+|GND|-|-|
+|VIN|-|-|
 
 CN14 (analog functions):
 
