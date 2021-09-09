@@ -6,6 +6,7 @@ We provide ready build firmware images for several reference target boards. Thes
 
 - [ESP32 WROOM-32](esp32-wroom-32.md)
 - [ESP WROVER-KIT](esp32-wroom-32.md)
+- [ESP32 Pico Kit](esp32-pico-kit.md)
 
 ## OrgPal boards
 
