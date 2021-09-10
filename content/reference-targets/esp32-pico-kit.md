@@ -51,8 +51,8 @@ Markings are different on top and bottom of the board. Tables below references m
 |IO23|GPIO23|23|-||
 |IO18|GPIO18|18|-||
 |IO5|GPIO5|5|-||
-|IO10|GPIO10|10|-||
-|IO9|GPIO9|9|-||
+|IO10|GPIO10|10|-|GPO no open GPI no open|
+|IO9|GPIO9|9|-|GPO no open GPI no open|
 |RXD0|GPIO3|3|-|Connected to USB-serial bridge. Do not use.|
 |TXD0|GPIO1|1|-|Connected to USB-serial bridge. Do not use.|
 |IO35|-|-|Analog channel 7|Input-only|
@@ -70,18 +70,18 @@ Markings are different on top and bottom of the board. Tables below references m
 |F_SD2|-|-|-|Connected to internal flash. Do not use.|
 |SVP|SENSOR_VP|-|Analog channel 8|Input-only|
 |SVN|SENSOR_VN|-|Analog channel 9|Input-only|
-|IO25|GPIO25|25|Analog channel 18||
-|IO26|GPIO26|26|Analog channel 19||
-|IO32|?|?|Analog channel 4||
-|IO33|?|?|Analog channel 5||
-|IO27|GPIO27|27|Analog channel 17||
-|IO14|?||Analog channel 16||
-|IO12|?||Analog channel 15||
-|IO13|?||Analog channel 14||
-|IO15|?||Analog channel 13||
-|IO2|?||Analog channel 12||
-|IO4|?||Analog channel 10||
-|IO0|?||Analog channel 11||
+|IO25|GPIO25|25|Analog channel 18|ADC no open|
+|IO26|GPIO26|26|Analog channel 19|ADC no open|
+|IO32|GPIO32?|32|Analog channel 4||
+|IO33|GPIO33?|33|Analog channel 5||
+|IO27|GPIO27|27|Analog channel 17|ADC no open|
+|IO14|?||Analog channel 16|ADC no open|
+|IO12|?||Analog channel 15|ADC no open|
+|IO13|?||Analog channel 14|ADC no open|
+|IO15|?||Analog channel 13|ADC no open|
+|IO2|?||Analog channel 12|ADC no open|
+|IO4|?||Analog channel 10|ADC no open|
+|IO0|?||Analog channel 11|ADC no open|
 |3V3|-|-||
 |GND|-|-|-||
 |5V|-|-|-||
