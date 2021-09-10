@@ -39,6 +39,10 @@ The .NET **nanoFramework** platform picks up where [.NET Micro Framework](https:
 
 Read along and find out [why use .NET nanoFramework?](content/introduction/why-use-nanoframework.md)
 
+You can watch this video from the Microsoft [IoT Show](https://aka.ms/iotshow) featuring .NET nanoFramework connected to Azure IoT Hub, measuring a [BMP280 sensors](devices/Iot.Device.Bmxx80.Bmp280.html) and using the unique deep sleep feature from MCU. A real life example with .NET nanoFramework:
+
+[![IoT Show](https://img.youtube.com/vi/TLYqRdmmj5k/0.jpg)](https://youtu.be/TLYqRdmmj5k)
+
 ## Documentation
 
 Explore our knowledge base, API documentation, samples, guides and tutorials.

@@ -109,4 +109,6 @@ Now, if it depends on others, you have to figure out which one of those is _at t
 ## Add the class library to the documentation project
 
 If this class library has documentation that has to be published as part of nanoFramework documentation (which is most likely) it needs to be referenced in the documentation project.
-Edit the documentation repo [`azure-pipelines.yml`](https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/azure-pipelines.yml) and add entries for this new repo at steps: `clone`, `restore` and `build`. Just follow one of the others already there.
+
+1. Edit the documentation repo [`azure-pipelines.yml`](https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/azure-pipelines.yml) and add entries for this new repo at steps: `clone`, `restore` and `build`. Just follow one of the others already there.
+1. Edit the class library documentation [document](../architecture/class-libraries.md) and add an entry for the new class library in the appropriate table, following the pattern and format being used there.
