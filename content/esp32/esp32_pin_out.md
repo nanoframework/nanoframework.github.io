@@ -56,9 +56,15 @@ For all channels the GPIO pins are undefined at startup.
 
 ## ADC
 
-We use "ADC1" for 20 logical channels mapped to ESP32 controllers
+We use "ADC1" with 20 logical channels mapped to the ESP32 internal controllers ADC1 and ADC2
+There are the 18 available ESP32 channels plus the internal Temperature and Hall sensors making the 20 logical channels.
 
-| ADC# | Channel # | GPIO # | Note |
+Restrictions:-
+- Channels 10 to 19 can not be used while the WiFi is enabled. (exception CLR_E_PIN_UNAVAILABLE)
+- Hall sensor and Temperature sensor can not be used at same time as Channels 0 and 3.
+- Gpio 0, 2, 15 are strapping pins and can not be freely used ( Channels 11, 12, 13 )
+
+| ESP32 ADC# | Channel # | GPIO # | Note |
 | --- | --- | --- | --- |
 | ADC1 | 0 | 36 | |
 | ADC1 | 1 | 37 | |
@@ -71,9 +77,9 @@ We use "ADC1" for 20 logical channels mapped to ESP32 controllers
 | ADC1 | 8 | 36 | Internal Temperture sensor (VP) |
 | ADC1 | 9 | 39 | Internal Hall Sensor (VN) |
 | ADC2 | 10 | 04 | |
-| ADC2 | 11 | 00 | |
-| ADC2 | 12 | 02 | |
-| ADC2 | 13 | 15 | |
+| ADC2 | 11 | 00 | Strapping pin |
+| ADC2 | 12 | 02 | Strapping pin |
+| ADC2 | 13 | 15 | Strapping pin |
 | ADC2 | 14 | 13 | |
 | ADC2 | 15 | 12 | |
 | ADC2 | 16 | 14 | |
