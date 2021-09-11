@@ -66,16 +66,16 @@ Restrictions:-
 
 | ESP32 ADC# | Channel # | GPIO # | Note |
 | --- | --- | --- | --- |
-| ADC1 | 0 | 36 | See restricions|
+| ADC1 | 0 | 36 | See restrictions|
 | ADC1 | 1 | 37 | |
 | ADC1 | 2 | 38 | |
-| ADC1 | 3 | 39 | See restricions |
+| ADC1 | 3 | 39 | See restrictions |
 | ADC1 | 4 | 32 | |
 | ADC1 | 5 | 33 | |
 | ADC1 | 6 | 34 | |
 | ADC1 | 7 | 35 | |
-| ADC1 | 8 | 36 | Internal Temperture sensor (VP), See restricions |
-| ADC1 | 9 | 39 | Internal Hall Sensor (VN), See restricions |
+| ADC1 | 8 | 36 | Internal Temperture sensor (VP), See restrictions |
+| ADC1 | 9 | 39 | Internal Hall Sensor (VN), See restrictions |
 | ADC2 | 10 | 04 | |
 | ADC2 | 11 | 00 | Strapping pin |
 | ADC2 | 12 | 02 | Strapping pin |
