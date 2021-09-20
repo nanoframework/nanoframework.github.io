@@ -1,19 +1,21 @@
 # Compare nanoFramework with .NET Core IoT
 
-This documentation is for comparing .NET nanoFramework and .NET Core IoT platforms. Same sample application with an identical scenario is created on both platforms.
+This documentation is for comparing .NET nanoFramework and .NET Core IoT platforms. For this documentation a same sample application with an identical scenario is created on both platforms.
 
 The sample application includes a scenario on both platforms: Every 3 seconds application reads temperature value from BMP280 sensor and turns on LED after reading the value. Then this temperature value is pushed to IoT Hub with device name and after every successful push LED will blink and turn off. Data will be handled by IoT Hub message routing and will be pushed to blob storage to store.
 
-| .NET Core Iot                | .NET nanoFramework |
+| .NET Core IoT               | .NET nanoFramework |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | ![Raspberry Pi with .Net Core IoT](../../images/getting-started-guides/compare-RP-BMP280_bb.png) | ![M5Stack with .NET nanoFramework](../../images/getting-started-guides/compare-ESP32-BMP280_bb.png) |
 | [Raspberry Pi with .Net Core IoT sample project](https://github.com/dotnet/iot/tree/main/samples) | [M5Stack with .NET nanoFramework sample project](https://github.com/nanoframework/Samples/tree/main/samples/AzureSDK/AzureSDKSensorCertificate) |
 
 ## Certificate
 
-In these samples device certificates are used. Certificates provide handshake between your device and Azure IoT Hub, and samples explain how to use certificates on both .NET Core IoT and .NET nanoFramework platforms.
+Device certificates are used in these samples. Certificates provide handshake between your device and Azure IoT Hub, and samples explain how to use certificates on both .NET Core IoT and .NET nanoFramework platforms.
 
 If you don't have any certificate, you can learn how to create certificates following [Create test certificate using OpenSSL and Azure IoT Hub](https://github.com/nanoframework/Samples/blob/main/samples/AzureSDK/AzureSDKSensorCertificate/create-certificate.md) documentation.
+
+You can check differences of using these certificates below.
 
 ## Quick Tips & Differences
 
@@ -30,9 +32,9 @@ If you don't have any certificate, you can learn how to create certificates foll
 
 ## Code Comparison
 
-With this comparisation we use exactly the same scenario for .NET Core IoT and .NET nanoFramework platforms. We're controlling BMP280 temperature & pressure sensor and LED via GPIO pins, connecting to wifi and accessing Azure IoT Hub via client specific Azure SDKs. We're using certificates to identify devices on Azure IoT Hub and grant access based on certificates.
+With this comparison we use exactly the same scenario for .NET Core IoT and .NET nanoFramework platforms. We're controlling BMP280 temperature & pressure sensor and LED via GPIO pins, connecting to wifi and accessing Azure IoT Hub via client specific Azure SDKs. We're using certificates to identify devices on Azure IoT Hub and grant access based on certificates.
 
-Code may change due to access some platform specific resources and SDKs, but majority of the code lines are identically same in these samples. Let's compare what are the differences on different platforms.
+Code may change due to access some platform specific resources and SDKs, but majority of the code lines are identically same in these samples. Let's compare what are the differences on these platforms.
 
 ![Compare .NET Core IoT vs .NET nanoFramework](../../images/getting-started-guides/compare-dotnet-iot-and-nanoframework-code.jpeg)
 
