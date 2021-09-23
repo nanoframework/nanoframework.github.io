@@ -19,7 +19,7 @@ HRESULT Library_sys_dev_pwm_native_System_Device_Pwm_PwmChannel::NativeInit___VO
 }
 ```
 
-Every native code that is surfaced with the managed C# code will be generated with pre setup `NANOCLR` macros. They call all be found in `src\CLR\Include\nanoCLR_Interop.h`. With all the elements below, you will be able to understand how to best use them.
+Every native code that is surfaced with the managed C# code will be generated with pre setup `NANOCLR` macros. They call all be found in [`src\CLR\Include\nanoCLR_Interop.h`](https://github.com/nanoframework/nf-interpreter/blob/f5d026224116bd671f42d5c482701447b1bf6e70/src/CLR/Include/nanoCLR_Interop.h). With all the elements below, you will be able to understand how to best use them.
 
 ### NANOCLR_HEADER
 
