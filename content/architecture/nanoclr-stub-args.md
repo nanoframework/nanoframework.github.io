@@ -47,7 +47,7 @@ The variation with `CLEANUP_END` is here to just return hr, it's as well one tha
 
 ### NANOCLR_SET_AND_LEAVE, NANOCLR_CHECK_HRESULT and NANOCLR_EXIT_ON_SUCCESS
 
-Those `NANOCLR_CHECK_HRESULT` and `NANOCLR_EXIT_ON_SUCCESS` macros allow you to check if a function or an expressing is a failure or success and then as we've seen previously go to `nanoCLR_Cleanup`. This is used a lot when you are calling other similar function returning as well an `HRESULT`.
+Those `NANOCLR_CHECK_HRESULT` and `NANOCLR_EXIT_ON_SUCCESS` macros allow you to check if a call to a function or an expression has failed or succeeded and then, as we've seen previously, go to `nanoCLR_Cleanup`. This is used a lot when you are calling other similar function returning as well an `HRESULT`.
 
 ```cpp
 #define NANOCLR_CHECK_HRESULT(expr)					{ if(FAILED(hr = (expr))) NANOCLR_LEAVE(); }
@@ -57,7 +57,7 @@ Those `NANOCLR_CHECK_HRESULT` and `NANOCLR_EXIT_ON_SUCCESS` macros allow you to 
 
 The `NANOCLR_SET_AND_LEAVE` function will just set the `HRESULT` and go to `nanoCLR_Cleanup`.
 
-You will find a detailed list of typical HRESULT in the `src\CLR\Include\nf_errors_exceptions.h` file. FAILED and SUCCEEDED are defined like this:
+You will find a detailed list of typical HRESULT in the [`src\CLR\Include\nf_errors_exceptions.h`](https://github.com/nanoframework/nf-interpreter/blob/f5d026224116bd671f42d5c482701447b1bf6e70/src/CLR/Include/nf_errors_exceptions.h) file. FAILED and SUCCEEDED are defined like this:
 
 ```cpp
 #define SUCCEEDED(Status) ((HRESULT)(Status) >= 0)
@@ -81,7 +81,7 @@ At every call to one of those native functions, the stack is passed thru a struc
 
 ### If your function is in a static class
 
-In, this case you **won't** have the class stack available. Stack class is only available for non static class.
+In, this case, the stack class that you'll get it's is the "static instance" of the C# class. The pointer to the class instance is only available for non static calls. The reason for this is that the execution engine adds a pointer to the class instance to the IL stack, when there is an instance of it.
 
 ### Getting and checking the stack in a non static class
 
@@ -105,13 +105,13 @@ You can use those macro for arguments too. We will see this in one of the follow
 
 ### Getting any exposed field from the stack
 
-Once the stack is valid, you can get any exposed field. Here is a typical example:
+Once you've checked that the stack is valid, you can get a pointer to any of the class fields. Here is a typical example:
 
 ```cpp
 int pinNumber = (int)(pThis[Library_sys_dev_pwm_native_System_Device_Pwm_PwmChannel::FIELD___pinNumber].NumericByRef().u4);
 ```
 
-The stack is a `CLR_RT_HeapBlock`. This type is the core type that allows you get access to the stack.
+The stack is a `CLR_RT_HeapBlock`. This type is the core type that allows you get access to a Heap Block, which are the objects that are placed in the IL stack.
 
 The pattern to use is the array one: `pthis[the_field_to_get]` where you have to make sure the field does exist. To avoid any issue, it is recommended to use the long names like `Library_sys_dev_pwm_native_System_Device_Pwm_PwmChannel::FIELD___pinNumber`.
 
@@ -125,11 +125,11 @@ Helpers functions available to access the arguments. We will look at this in thi
 
 ### Static class
 
-In a static class, the `stack.Arg0()` represent the first argument. As explained before do **not** use `CLR_RT_HeapBlock* pThis = stack.This();` as this is not defined.
+In a static class, the `stack.Arg0()` points the first Heap Block passed on the IL stack. As explained before, do **not** use `CLR_RT_HeapBlock* pThis = stack.This();` because that won't be a pointer to a class instance (again: this is a call to a static method, therefore there is no instance of the class).
 
 ### Non static class
 
-In a non static class, `stack.Arg0()` is equivalent to `stack.This()`. It does mean that the first argument can be accessed with Arg1().
+In a non static class, `stack.Arg0()` is equivalent to `stack.This()`. The first parameter passed from the C# method can be accessed with Arg1() and the following ones with equivalent calls that have the same index as the parameter.
 
 #### Dereferencing an array
 
