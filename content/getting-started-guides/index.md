@@ -9,6 +9,7 @@ PLEASE NOTE: You **DO NOT** have to build the firmware images to get started wit
 - [Getting started guide](getting-started-managed.md)
 - [Getting started trouble shooting guide](trouble-shooting-guide.md)
 - [Getting started with package and assembly versions and checksums](guide-version-checksums.md)
+- [Compare .NET nanoFramework with .NET IoT](dotnet-iot-core-vs-nanoframework.md)
 
 ## Build instructions
 
