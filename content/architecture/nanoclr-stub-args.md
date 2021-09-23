@@ -50,9 +50,9 @@ The variation with `CLEANUP_END` is here to just return hr, it's as well one tha
 Those `NANOCLR_CHECK_HRESULT` and `NANOCLR_EXIT_ON_SUCCESS` macros allow you to check if a call to a function or an expression has failed or succeeded and then, as we've seen previously, go to `nanoCLR_Cleanup`. This is used a lot when you are calling other similar function returning as well an `HRESULT`.
 
 ```cpp
-#define NANOCLR_CHECK_HRESULT(expr)					{ if(FAILED(hr = (expr))) NANOCLR_LEAVE(); }
-#define NANOCLR_EXIT_ON_SUCCESS(expr)				{ if(SUCCEEDED(hr = (expr))) NANOCLR_LEAVE(); }
-#define NANOCLR_SET_AND_LEAVE(expr)					{ hr = (expr); NANOCLR_LEAVE(); }
+#define NANOCLR_CHECK_HRESULT(expr)   { if(FAILED(hr = (expr))) NANOCLR_LEAVE(); }
+#define NANOCLR_EXIT_ON_SUCCESS(expr) { if(SUCCEEDED(hr = (expr))) NANOCLR_LEAVE(); }
+#define NANOCLR_SET_AND_LEAVE(expr)   { hr = (expr); NANOCLR_LEAVE(); }
 ```
 
 The `NANOCLR_SET_AND_LEAVE` function will just set the `HRESULT` and go to `nanoCLR_Cleanup`.
@@ -97,8 +97,8 @@ FAULT_ON_NULL(pThis);
 The definition can be found in `src\CLR\Include\nanoCLR_Interop.h`.
 
 ```cpp
-#define FAULT_ON_NULL(ptr)							if(!(ptr)) NANOCLR_SET_AND_LEAVE(CLR_E_NULL_REFERENCE)
-#define FAULT_ON_NULL_ARG(ptr)						if(!(ptr)) NANOCLR_SET_AND_LEAVE(CLR_E_ARGUMENT_NULL)
+#define FAULT_ON_NULL(ptr)     if(!(ptr)) NANOCLR_SET_AND_LEAVE(CLR_E_NULL_REFERENCE)
+#define FAULT_ON_NULL_ARG(ptr) if(!(ptr)) NANOCLR_SET_AND_LEAVE(CLR_E_ARGUMENT_NULL)
 ```
 
 You can use those macro for arguments too. We will see this in one of the following section.
