@@ -33,10 +33,10 @@ the `CLEANUP` family includes 4 declinations and few more elements:
 #define NANOCLR_LEAVE()  goto nanoCLR_Cleanup // Note: this is a bit simplified version when Debug is not used
 #define NANOCLR_RETURN() return hr
 
-#define NANOCLR_CLEANUP()							hr = S_OK; nanoCLR_Cleanup:
-#define NANOCLR_CLEANUP_END()						NANOCLR_RETURN()
-#define NANOCLR_NOCLEANUP()							NANOCLR_CLEANUP(); NANOCLR_CLEANUP_END()
-#define NANOCLR_NOCLEANUP_NOLABEL()					hr = S_OK; NANOCLR_RETURN()
+#define NANOCLR_CLEANUP()     hr = S_OK; nanoCLR_Cleanup:
+#define NANOCLR_CLEANUP_END() NANOCLR_RETURN()
+#define NANOCLR_NOCLEANUP()   NANOCLR_CLEANUP(); NANOCLR_CLEANUP_END()
+#define NANOCLR_NOCLEANUP_NOLABEL() hr = S_OK; NANOCLR_RETURN()
 ```
 
 So to demystify and understand which one to use, the `NANOCLR_NOCLEANUP_NOLABEL();` is equivalent to: `hr = S_OK; return hr;`. So if you don't have to clean anything, that your code is straight forward, that's the general case you can use.
@@ -113,7 +113,7 @@ int pinNumber = (int)(pThis[Library_sys_dev_pwm_native_System_Device_Pwm_PwmChan
 
 The stack is a `CLR_RT_HeapBlock`. This type is the core type that allows you get access to a Heap Block, which are the objects that are placed in the IL stack.
 
-The pattern to use is the array one: `pthis[the_field_to_get]` where you have to make sure the field does exist. To avoid any issue, it is recommended to use the long names like `Library_sys_dev_pwm_native_System_Device_Pwm_PwmChannel::FIELD___pinNumber`.
+The pattern to use is the array one: `pthis[the_field_to_get]` where you have to make sure the field does exist. To avoid any issue, it is recommended to use the long names like `Library_sys_dev_pwm_native_System_Device_Pwm_PwmChannel::FIELD___pinNumber`. But if it's in the same class, you don't need the long naming, `pThis[FIELD___pinNumber]` will just work as well.
 
 Then the `NumericByRef()` allows you to get a numerical number and `u4` to convert it as a `uint32`. For numerics, you have as well `NumericByRefConst()` allowing to convert as a constant. Then you have `u` for non signed, 1, 2, 4 and 8 for the number of bytes. `i` for signed, `r4` for `float` and `r8` for `double`.
 
