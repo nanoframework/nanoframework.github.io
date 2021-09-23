@@ -1,6 +1,7 @@
 # .NET **nanoFramework** Architecture
 
 - [Simplifications and trade-offs](simplifications-and-trade-offs.md)
+- [Generating stubs for a native project, NANOCLR macros, Arguments and return types](nanoclr-stub-args.md)
 - [Class Libraries](class-libraries.md)
 - [Date and Time](date-and-time.md)
 - [Floating point calculations](floating-point-calculations.md)
