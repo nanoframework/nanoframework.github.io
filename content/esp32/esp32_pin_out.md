@@ -49,10 +49,14 @@ You have 2 serial ports available, COM1 is reserved for debugging when enabled.
 | COM2 | NP | NP | NP | NP |
 | COM3 | NP | NP | NP | NP |
 
-## Led PWM channels
+## PWM channels
 
-There are 16 LED PWM channels on ESP32
+There are 16 PWM channels on ESP32
 For all channels the GPIO pins are undefined at startup.
+
+The first 8 PWM (PWM0 to PWM7) are using a low precision timer, the last 8 ones (PWM8 to PWM15) a high resolution timer. You should setup the pin to select the timer resolution you need.
+
+Note that PWM goes in pair. So PWM0 and PWM1 (2 and 3, and so on) will share the same frequency. If you need PWM with different frequencies, you'll have to select compatible PWM pins.
 
 ## ADC
 
