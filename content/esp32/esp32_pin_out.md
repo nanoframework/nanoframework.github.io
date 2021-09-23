@@ -60,30 +60,36 @@ Note that PWM goes in pair. So PWM0 and PWM1 (2 and 3, and so on) will share the
 
 ## ADC
 
-We use "ADC1" for 20 logical channels mapped to ESP32 controllers
+We use "ADC1" with 20 logical channels mapped to the ESP32 internal controllers ADC1 and ADC2
+There are the 18 available ESP32 channels plus the internal Temperature and Hall sensors making the 20 logical channels.
 
-| ADC# | Channel # | GPIO # | Note |
+Restrictions:-
+- Channels 10 to 19 can not be used while the WiFi is enabled. (exception CLR_E_PIN_UNAVAILABLE)
+- Hall sensor and Temperature sensor can not be used at same time as Channels 0 and 3.
+- Gpio 0, 2, 15 are strapping pins and can not be freely used ( Channels 11, 12, 13 ), check board schematics.
+
+| Logical channel # | Internal ADC# | GPIO # | Note |
 | --- | --- | --- | --- |
-| ADC1 | 0 | 36 | |
-| ADC1 | 1 | 37 | |
-| ADC1 | 2 | 38 | |
-| ADC1 | 3 | 39 | |
-| ADC1 | 4 | 32 | |
-| ADC1 | 5 | 33 | |
-| ADC1 | 6 | 34 | |
-| ADC1 | 7 | 35 | |
-| ADC1 | 8 | 36 | Internal Temperture sensor (VP) |
-| ADC1 | 9 | 39 | Internal Hall Sensor (VN) |
-| ADC2 | 10 | 04 | |
-| ADC2 | 11 | 00 | |
-| ADC2 | 12 | 02 | |
-| ADC2 | 13 | 15 | |
-| ADC2 | 14 | 13 | |
-| ADC2 | 15 | 12 | |
-| ADC2 | 16 | 14 | |
-| ADC2 | 17 | 27 | |
-| ADC2 | 18 | 25 | |
-| ADC2 | 19 | 26 | |
+| 0 | ADC1 | 36 | See restrictions|
+| 1 | ADC1 | 37 | |
+| 2 | ADC1 | 38 | |
+| 3 | ADC1 | 39 | See restrictions |
+| 4 | ADC1 | 32 | |
+| 5 | ADC1 | 33 | |
+| 6 | ADC1 | 34 | |
+| 7 | ADC1 | 35 | |
+| 8 | ADC1 | 36 | Internal Temperture sensor (VP), See restrictions |
+| 9 | ADC1 | 39 | Internal Hall Sensor (VN), See restrictions |
+| 10 | ADC2 | 04 | |
+| 11 | ADC2 | 00 | Strapping pin |
+| 12 | ADC2 | 02 | Strapping pin |
+| 13 | ADC2 | 15 | Strapping pin |
+| 14 | ADC2 | 13 | |
+| 15 | ADC2 | 12 | |
+| 16 | ADC2 | 14 | |
+| 17 | ADC2 | 27 | |
+| 18 | ADC2 | 25 | |
+| 19 | ADC2 | 26 | |
 
 ## DAC
 

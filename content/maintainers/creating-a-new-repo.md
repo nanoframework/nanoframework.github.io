@@ -49,6 +49,7 @@ If in doubt please ask one of the senior team members.
 1. Click the "Save" button.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
 1. Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
+1. Click "Save" in the toolbar (NOT "Save & Queue").
 1. Go to the `General Project` project and navigate to Project Settings - Service Connections.
 1. Open each of the service connections there, click on the 3 vertical dots (again at the top right) and then "Security". Scroll down to "Project permissions", click on the + icon at the right hand side and select the newlly created project. This will add a permission to use this shared service connection.
 1. Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on "Status badge". Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.
@@ -109,4 +110,6 @@ Now, if it depends on others, you have to figure out which one of those is _at t
 ## Add the class library to the documentation project
 
 If this class library has documentation that has to be published as part of nanoFramework documentation (which is most likely) it needs to be referenced in the documentation project.
-Edit the documentation repo [`azure-pipelines.yml`](https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/azure-pipelines.yml) and add entries for this new repo at steps: `clone`, `restore` and `build`. Just follow one of the others already there.
+
+1. Edit the documentation repo [`azure-pipelines.yml`](https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/azure-pipelines.yml) and add entries for this new repo at steps: `clone`, `restore` and `build`. Just follow one of the others already there.
+1. Edit the class library documentation [document](../architecture/class-libraries.md) and add an entry for the new class library in the appropriate table, following the pattern and format being used there.
