@@ -24,6 +24,27 @@ Just remember the following: add that setting, the path that you've copied befor
 
 After following the above steps successfully you can now right click on any C, C++ or H file and hit 'Format Document'. The VS Code extension will take care that the document is properly formatted according to the coding style guidelines.
 
+When you have the extension installed, you can request VS Code to automatically format a file on save by adding the following to your vscode settings.json file:
+```json
+{
+    "editor.formatOnSave": true
+}
+```
+>**WARNING**: you need to avoid automatic formating on 3rd party .h files as the foramatting can introduce many changes that add no value and make it very difficult to subsequintly compare the .h file with the orginal or with a template file when the external 3rd party software is updated.
+
+You can turn clang auto format 'off' and 'on' around code you don't what reformatted.
+
+Typically at the top of the file below the Copright notice turn off clang-formating with:
+
+```c
+// clang-format off
+```
+and  at the end of the file remember to turn it back on with: 
+
+```c
+// clang-format on
+```
+
 ## Using Visual Studio
 
 If you are using Visual Studio we suggest that you install the [ClangFormat extension](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.ClangFormat).
