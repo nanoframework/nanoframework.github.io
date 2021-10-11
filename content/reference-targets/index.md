@@ -4,8 +4,10 @@ We provide ready build firmware images for several reference target boards. Thes
 
 ## Espressif ESP32 boards
 
-- [ESP32 WROOM-32](esp32-wroom-32.md)
-- [ESP WROVER-KIT](esp32-wroom-32.md)
+- [ESP32 REV1 familly](esp32.md)
+- [ESP32 REV3 familly](esp32.md)
+- [ESP WROVER-KIT](esp32.md)
+- [ESP32 PICO familly](esp32.md)
 
 ## OrgPal boards
 
