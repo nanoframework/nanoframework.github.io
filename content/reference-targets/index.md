@@ -2,10 +2,10 @@
 
 We provide ready build firmware images for several reference target boards. These can be used for either initial testing and start feeling how cool is to work with .NET **nanoFramework** or as the base for system designers to develop their own custom boards and firmware.
 
-## Espressif ESP32 boards
+## Espressif ESP32 series
 
-- [ESP32 REV1 familly](esp32.md)
-- [ESP32 REV3 familly](esp32.md)
+- [ESP32 (revision 1](esp32.md)
+- [ESP32 (revision 3)](esp32.md)
 - [ESP WROVER-KIT](esp32.md)
 - [ESP32 PICO familly](esp32.md)
 

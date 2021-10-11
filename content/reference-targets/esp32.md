@@ -1,9 +1,13 @@
 # Espressif ESP32 Series
 
-There are 2 main images: 
+These are the main images: 
 
-- One that _fits_ all ESP32 boards carrying an ESP32-REV3 module, like the ESP32-DevKitC.
-- One that _fits_ all ESP32 boards carrying an ESP32-REV3 module. The REV3 modules are recent ones.
+- ESP32_REV1 that _fits_ all ESP32 boards carrying an ESP32 chip with PSRAM support, like the ESP32-DevKitC, ESP32-WROOM and ESP32-WROVER. You can check the non-exhaustive module and chip list [here](https://products.espressif.com/#/product-selector?names=&filter={%22Products%22:[%22Module%22,%22SoC%22],%22Series%22:[%22ESP32%22]}).
+- ESP_WROVER_KIT specific for the ESP WROVER KIT. This one includes the UI features and driver for the ILI9341.
+- ESP32_PICO that _fits_ all ESP32 boards carrying an ESP32 without PSRAM, like the ESP32_PICO and M5Stack ATOM.  You can check the non-exhaustive module and chip list [here](https://products.espressif.com/#/product-selector?names=&filter={%22Products%22:[%22Module%22,%22SoC%22],%22Series%22:[%22ESP32%22]}).
+- ESP32_REV3 that _fits_ all ESP32 boards carrying an ESP32 chip **revision 3** with PSRAM support. You can check the non-exhaustive module and chip list [here](https://products.espressif.com/#/product-selector?names=&filter={%22Products%22:[%22Module%22,%22SoC%22],%22Series%22:[%22ESP32%22]}). 
+
+> NOTE: Revision 3 chips are the most recent ones. (nanoff reports the revision of the chip right after connecting to the device). An image built for revision 1 wil run perfectly on a revision 3 chip. The other way around won't work.
 
 Al other images are built out of those 2 core images. Variants then exist with or without BLE, with or without screens.
 
@@ -17,7 +21,7 @@ We do have a specific case is the ESP32-WROVER-KIT that include UI features (dri
 
 [ESP32-WROVER-KIT Product page](https://www.espressif.com/en/products/hardware/esp-wrover-kit/overview)
 
-All M5Stack boards are ESP32 boards based as well, some REV1, some REV3, some PICO, checkout the [official documentation](https://docs.m5stack.com/en/products?id=core) to understand which one is based on which chip.
+All M5Stack boards carry ESP32 chips. Some are revion 1, others 3, and others PICO. Please checkout the [official documentation](https://docs.m5stack.com/en/products?id=core) to understand which one is based on which chip.
 
 ![M5 Stack](../../images/reference-targets/M5Stack.jpg)
 
@@ -39,7 +43,7 @@ All M5Stack boards are ESP32 boards based as well, some REV1, some REV3, some PI
 > Note: You will find additional ESP32 based targets including screen driver names like:
 
 - ESP32_REV1_ILI9342 (driver for M5Stack)
-- ESP32-WROVER-KIT (this is the one containing the ILI9341 driver)
+- ESP32_WROVER_KIT (this is the one containing the ILI9341 driver)
 - ESP32_PICO_ST7735S (driver for M5Stick)
 - ESP32_PICO_ST7789V (driver for M5Stick C Plus)
 - ESP32_REV3_ILI9342
