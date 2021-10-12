@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>nRF24L01 - Single Chip 2.4 GHz Transceiver | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="nRF24L01 - Single Chip 2.4 GHz Transceiver | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="nrf24l01---single-chip-24-ghz-transceiver">nRF24L01 - Single Chip 2.4 GHz Transceiver</h1>
+
+<p>The nRF24L01 is a single chip radio transceiver for the world wide 2.4 - 2.5 GHz ISM band.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>The bindging datasheet can be found <a href="https://cdn.datasheetspdf.com/pdf-down/N/R/F/NRF24L01-Nordic.pdf">here</a></li>
+</ul>
+<h2 id="board">Board</h2>
+<p><img src="../../devicesimages/Nrf24l01/sensor.jpg" alt="Sensor picture"></p>
+<p>Note: the following diagram uses a Raspberry Pi. This can be achieved with any MCU having 2 available SPI.</p>
+<p><img src="../../devicesimages/Nrf24l01/NRF_circuit_bb.jpg" alt="Connection Diagram"></p>
+<h2 id="usage">Usage</h2>
+<h3 id="hardware-required">Hardware Required</h3>
+<ul>
+<li>nRF24L01 × 2</li>
+<li>Male/Female Jumper Wires</li>
+</ul>
+<h3 id="connection-for-nrf1">Connection for nRF1</h3>
+<ul>
+<li>VCC - 3.3V (Best)</li>
+<li>GND - GND</li>
+<li>MOSI - SPI0 MOSI (GPIO 10)</li>
+<li>MISO - SPI0 MISO (GPIO 9)</li>
+<li>SCK - SPI0 SCLK (GPIO 11)</li>
+<li>CSN - SPI0 CS0 (GPIO 8)</li>
+<li>CE - GPIO 23</li>
+<li>IRQ - GPIO 24</li>
+</ul>
+<h3 id="connection-for-nrf2">Connection for nRF2</h3>
+<ul>
+<li>VCC - 3.3V (Best)</li>
+<li>GND - GND</li>
+<li>MOSI - SPI1 MOSI (GPIO 20)</li>
+<li>MISO - SPI1 MISO (GPIO 19)</li>
+<li>SCK - SPI1 SCLK (GPIO 21)</li>
+<li>CSN - SPI1 CS0 (GPIO 16)</li>
+<li>CE - GPIO 5</li>
+<li>IRQ - GPIO 6</li>
+</ul>
+<h3 id="code">Code</h3>
+<p><strong>Important</strong>: make sure you properly setup the SPI pins especially for ESP32 before creating the <code>SpiDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the SPI GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.SPI1_MOSI);
+Configuration.SetPinFunction(22, DeviceFunction.SPI1_MISO);
+Configuration.SetPinFunction(23, DeviceFunction.SPI1_CLOCK);
+// Make sure as well you are using the right chip select
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the SPI bus you want to use. The chip select can as well be pre setup.</p>
+<pre><code class="lang-csharp">
+SpiConnectionSettings senderSettings = new SpiConnectionSettings(1, 42)
+{
+    ClockFrequency = Nrf24l01.SpiClockFrequency,
+    Mode = Nrf24l01.SpiMode
+};
+
+SpiConnectionSettings receiverSettings = new SpiConnectionSettings(2, 44)
+{
+    ClockFrequency = Nrf24l01.SpiClockFrequency,
+    Mode = Nrf24l01.SpiMode
+};
+var senderDevice = SpiDevice.Create(senderSettings);
+var receiverDevice = SpiDevice.Create(receiverSettings);
+
+// SPI Device, CE Pin, IRQ Pin, Receive Packet Size
+using (Nrf24l01 sender = new Nrf24l01(senderDevice, 23, 24, 20))
+{
+    using (Nrf24l01 receiver = new Nrf24l01(receiverDevice, 5, 6, 20))
+    {
+        // Set sender send address, receiver pipe0 address (Optional)
+        byte[] receiverAddress = Encoding.UTF8.GetBytes(&quot;NRF24&quot;);
+        sender.Address = receiverAddress;
+        receiver.Pipe0.Address = receiverAddress;
+
+        // Binding DataReceived event
+        receiver.DataReceived += Receiver_ReceivedData;
+
+        // Loop
+        while (true)
+        {
+            sender.Send(Encoding.UTF8.GetBytes(&quot;Hello! .NET Core IoT&quot;));
+
+            Thread.Sleep(2000);
+        }
+    }
+}
+
+private static void Receiver_ReceivedData(object sender, DataReceivedEventArgs e)
+{
+    var raw = e.Data;
+    var msg = Encoding.UTF8.GetString(raw);
+
+    Debug.Write(&quot;Received Raw Data: &quot;);
+    foreach (var item in raw)
+    {
+        Debug.Write($&quot;{item} &quot;);
+    }
+    Debug.WriteLine();
+
+    Debug.WriteLine($&quot;Message: {msg}&quot;);
+    Debug.WriteLine();
+}
+</code></pre>
+<h3 id="result">Result</h3>
+<p><img src="../../devicesimages/Nrf24l01/RunningResult.jpg" alt="Sample result"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Nrf24l01/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

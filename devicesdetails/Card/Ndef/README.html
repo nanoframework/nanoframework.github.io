@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Data Exchange Format (NDEF) read and write support for NFC cards | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Data Exchange Format (NDEF) read and write support for NFC cards | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="data-exchange-format-ndef-read-and-write-support-for-nfc-cards">Data Exchange Format (NDEF) read and write support for NFC cards</h1>
+
+<p>This library supports <a href="https://nfc-forum.org/product/nfc-data-exchange-format-ndef-technical-specification/">NDEF messages</a>. NDEF is composed of a message with records in it. Every record can be a know type or a specific type. This library fully support all root type of messages.</p>
+<p>NDEF messages are used on Mifare Cards and is included into this library as well. You have a full example using 23 different NFC readers <a href="../../Mfrc522">MFRC522</a>, <a href="../../Pn532/README.html">PN532</a> and <a href="../../Pn1850/README.md">PN1850</a> build in.</p>
+<h2 id="reading-ndef-from-a-card">Reading NDEF from a card</h2>
+<p>This operation only require a valid NFC reader which implement <code>CardTransceiver</code>, see <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Card/CardTransceiver.cs">the class</a>.</p>
+<p>From the code below, the transceiver is a PN532 used with a serial port on Windows. This is just for convenience, it can be any supported reader connected on any interface and any OS.</p>
+<p>This is a complete example from initializing the reader, detecting the card, extracting the message and displaying the detailed messages.</p>
+<p><strong>Important</strong>: NDEF is supported for both <a href="../Mifare">Mifare</a> and <a href="../Ultralight">Ultralight</a> cards.</p>
+<pre><code class="lang-csharp">// Create a PN532
+var pn532 = new Pn532(&quot;COM4&quot;, debugLevel);
+byte[]? retData = null;
+while (true)
+{
+    retData = pn532.ListPassiveTarget(MaxTarget.One, TargetBaudRate.B106kbpsTypeA);
+    if (retData is object)
+    {
+        break;
+    }
+
+    // Give time to PN532 to process
+    Thread.Sleep(200);
+}
+
+if (retData is null)
+{
+    return;
+}
+
+Debug.WriteLine();
+
+// Check if it is a valid card
+var card = pn532.TryDecode106kbpsTypeA(retData.AsSpan().Slice(1));
+if (card is not object)
+{
+    Debug.WriteLine(&quot;Can't read properly the card&quot;);
+    return;
+}
+
+// Create the Mifare card
+MifareCard mifareCard = new MifareCard(pn532, card.TargetNumber) { BlockNumber = 0, Command = MifareCardCommand.AuthenticationA };
+mifareCard.SetCapacity(card.Atqa, card.Sak);
+mifareCard.SerialNumber = card.NfcId;
+// Read an extract the NDEF message
+// This is where you can write as well, format the card, check the card see next sections
+mifareCard.TryReadNdefMessage(out NdefMessage message);
+
+if (message.Records.Count == 0)
+{
+    Debug.WriteLine(&quot;Sorry, there is no NDEF message in this card or I can't find them&quot;);
+}
+
+// Display the messages
+foreach (NdefRecord msg in message.Records)
+{
+    Debug.WriteLine(&quot;Record header:&quot;);
+    Debug.WriteLine($&quot;  Is first message: {msg.Header.IsFirstMessage}, is last message: {msg.Header.IsLastMessage}&quot;);
+    Debug.Write($&quot;  Type name format: {msg.Header.TypeNameFormat}&quot;);
+    if (msg.Header.PayloadType is object)
+    {
+        Debug.WriteLine($&quot;, Payload type: {BitConverter.ToString(msg.Header.PayloadType)}&quot;);
+    }
+    else
+    {
+        Debug.WriteLine(&quot;&quot;);
+    }
+
+    Debug.WriteLine($&quot;  Is composed: {msg.Header.IsComposedMessage}, is Id present: {msg.Header.MessageFlag.HasFlag(MessageFlag.IdLength)}, Id Length value: {msg.Header.IdLength}&quot;);
+    Debug.WriteLine($&quot;  Payload Length: {msg.Payload?.Length}, is short message= {msg.Header.MessageFlag.HasFlag(MessageFlag.ShortRecord)}&quot;);
+
+    if (msg.Payload is object)
+    {
+        Debug.WriteLine($&quot;Payload: {BitConverter.ToString(msg.Payload)}&quot;);
+    }
+    else
+    {
+        Debug.WriteLine(&quot;No payload&quot;);
+    }
+
+    if (UriRecord.IsUriRecord(msg))
+    {
+        var urirec = new UriRecord(msg);
+        Debug.WriteLine($&quot;  Type {nameof(UriRecord)}, Uri Type: {urirec.UriType}, Uri: {urirec.Uri}, Full URI: {urirec.FullUri}&quot;);
+    }
+
+    if (TextRecord.IsTextRecord(msg))
+    {
+        var txtrec = new TextRecord(msg);
+        Debug.WriteLine($&quot;  Type: {nameof(TextRecord)}, Encoding: {txtrec.Encoding}, Language: {txtrec.LanguageCode}, Text: {txtrec.Text}&quot;);
+    }
+
+    if (GeoRecord.IsGeoRecord(msg))
+    {
+        var geo = new GeoRecord(msg);
+        Debug.WriteLine($&quot;  Type: {nameof(GeoRecord)}, Lat: {geo.Latitude}, Long: {geo.Longitude}&quot;);
+    }
+
+    if (MediaRecord.IsMediaRecord(msg))
+    {
+        var media = new MediaRecord(msg);
+        Debug.WriteLine($&quot;  Type: {nameof(MediaRecord)}, Payload Type = {media.PayloadType}&quot;);
+        if (media.IsTextType)
+        {
+            var ret = media.TryGetPayloadAsText(out string payloadAsText);
+            if (ret)
+            {
+                Debug.WriteLine($&quot;    Payload as Text:&quot;);
+                Debug.WriteLine($&quot;{payloadAsText}&quot;);
+            }
+            else
+            {
+                Debug.WriteLine($&quot;Can't convert the payload as a text&quot;);
+            }
+        }
+    }
+
+    Debug.WriteLine(&quot;&quot;);
+}
+</code></pre>
+<h2 id="writing-ndef-to-a-card">Writing NDEF to a card</h2>
+<p>From the previous example, you will still need to get a card. From there, to create and write messages, it's quite straight forward:</p>
+<pre><code class="lang-csharp">// Create the NDEF message
+NdefMessage message = new();
+// Create a Text record
+TextRecord recordText = new(&quot;I ❤ .NET nanoFramework&quot;, &quot;en&quot;, Encoding.UTF8);
+// Add the record to the message
+message.Records.Add(recordText);
+// Create a Geo message
+GeoRecord geoRecord = new(2.1234, -1.2345);
+// Add the record to the message
+message.Records.Add(geoRecord);
+// Write the message, by using the default Key A
+var res = mifareCard.WriteNdefMessage(message);
+if (res)
+{
+    Debug.WriteLine($&quot;Writing successful&quot;);
+}
+else
+{
+    Debug.WriteLine($&quot;Error writing to the card&quot;);
+}
+</code></pre>
+<p>Note that if you want to set specific permission and have read only with the default NDEF Keys, you can authenticate and write the NDEF  message with the Key B:</p>
+<pre><code class="lang-csharp">// Your secret Key B (here the default one)
+mifareCard.KeyB = new byte[6] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+// This will write using this secret key B
+var res = mifareCard.WriteNdefMessage(message, false);
+</code></pre>
+<h2 id="format-a-card-to-ndef">Format a card to NDEF</h2>
+<p>You can format a card, this will be done using Key B, by default it will use the Default Key B. You can pass as well the Key B in the parameters.</p>
+<pre><code class="lang-csharp">var ret = mifareCard.FormatNdef();
+string msg = ret ? &quot;Formatting successful.&quot; : &quot;Error formatting card.&quot;;
+Debug.WriteLine(msg);
+</code></pre>
+<h2 id="check-if-the-card-is-ndef-formatted">Check if the card is NDEF formatted</h2>
+<p>You can as well check is properly NDEF formatted:</p>
+<pre><code class="lang-csharp">var ret = mifareCard.IsFormattedNdef();
+var isForm = ret ? string.Empty : &quot; not&quot;;
+Debug.WriteLine($&quot;This card is{isForm} NDEF formatted&quot;);
+</code></pre>
+<h2 id="card-type-supported">Card type supported</h2>
+<p>NDEF per se is fully independent of cards, so the class can be used independently. A Mifare implementation has been done. All Mifare 1K, 2K and 4K are supported. The Mifare 300 are not.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Card/Ndef/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
