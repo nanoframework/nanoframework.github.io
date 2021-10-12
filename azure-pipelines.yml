@@ -135,14 +135,14 @@ steps:
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\devices -m $(System.DefaultWorkingDirectory)\images\devices -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\content\devicesdetails -m $(System.DefaultWorkingDirectory)\content\images\devices -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
 
 - task: DotNetCoreCLI@2
   displayName: 'Building automatically toc.yml'
   inputs:
     command: 'run'
     projects: 'DocFxCompanion/src/TocDocFxCreation'
-    arguments: '-d $(System.DefaultWorkingDirectory)\devices -si'
+    arguments: '-d $(System.DefaultWorkingDirectory)\content\devicesdetails -si'
 
 # build all libs
 - template: azure-pipelines-templates/install-nuget.yml@templates
