@@ -135,14 +135,14 @@ steps:
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\devices -m $(System.DefaultWorkingDirectory)\images\devices -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
 
 - task: DotNetCoreCLI@2
   displayName: 'Building automatically toc.yml'
   inputs:
     command: 'run'
     projects: 'DocFxCompanion/src/TocDocFxCreation'
-    arguments: '-d $(System.DefaultWorkingDirectory)\devices -si'
+    arguments: '-d $(System.DefaultWorkingDirectory)\devicesdetails -si'
 
 # build all libs
 - template: azure-pipelines-templates/install-nuget.yml@templates
@@ -728,7 +728,7 @@ steps:
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
-# This shouold build all the bindings in nanoFramework.IoT.Device in the devices directory
+# This should build all the bindings in nanoFramework.IoT.Device in the devices directory
 - task: VSBuild@1
   displayName: Build nanoFramework.IoT.Device
   inputs:
@@ -745,6 +745,7 @@ steps:
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\devices_generated
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\nanoFramework.IoT.Device.CodeConverter
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\GenerateDocFxStructure
+      Remove-Item -Recurse -Force DocFxCompanion
       cd nanoFramework.IoT.Device\devices
       $Nerdbank = '<package id="Nerdbank.GitVersioning"'
       $Files = Get-ChildItem -Filter "packages.config" -Recurse
@@ -780,6 +781,25 @@ steps:
       }
   condition: succeeded()
   displayName: Run docfx
+
+# Make an artifact for debug purpose
+- task: ArchiveFiles@2
+  condition: succeeded()
+  displayName: Zipping _site directory
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)\_site' 
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/site.zip' 
+    replaceExistingArchive: true 
+
+- task: PublishBuildArtifacts@1
+  condition: succeeded()
+  displayName: Publish deployable artifacts
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: site
+    ArtifactType: Container
 
 # commit changes
 - powershell: |
