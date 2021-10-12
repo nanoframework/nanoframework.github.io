@@ -135,14 +135,14 @@ steps:
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\content\devicesdetails -m $(System.DefaultWorkingDirectory)\content\images\devices -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesdetails\images -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
 
 - task: DotNetCoreCLI@2
   displayName: 'Building automatically toc.yml'
   inputs:
     command: 'run'
     projects: 'DocFxCompanion/src/TocDocFxCreation'
-    arguments: '-d $(System.DefaultWorkingDirectory)\content\devicesdetails -si'
+    arguments: '-d $(System.DefaultWorkingDirectory)\devicesdetails -si'
 
 # build all libs
 - template: azure-pipelines-templates/install-nuget.yml@templates
@@ -782,15 +782,15 @@ steps:
   displayName: Run docfx
 
 # Make an artifact for debug purpose
-- task: CopyFiles@1
+- task: ArchiveFiles@2
   condition: succeeded()
-  displayName: Collecting all the generated elements
+  displayName: Zipping _site directory
   inputs:
-    sourceFolder: $(Build.SourcesDirectory)\_site
-    Contents: |
-      **
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    flattenFolders: false
+    rootFolderOrFile: '$(Build.SourcesDirectory)\_site' 
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/site.zip' 
+    replaceExistingArchive: true 
 
 - task: PublishBuildArtifacts@1
   condition: succeeded()
