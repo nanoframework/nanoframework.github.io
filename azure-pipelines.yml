@@ -120,12 +120,31 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
 
+      git clone https://github.com/Ellerbach/docfx-companion-tools.git -b main DocFxCompanion
+
   displayName: Clone repos of class libs
 
 # install docfx
 - powershell: choco install docfx -y
   displayName: Install docfx
 
+# Create the README in /devices folder with all IoT.Device bindings
+# Run the Generator to physically move the files first
+- task: DotNetCoreCLI@2
+  displayName: 'Generate all the devices README files'
+  inputs:
+    command: 'run'
+    projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\devices -m $(System.DefaultWorkingDirectory)\images\devices -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Building automatically toc.yml'
+  inputs:
+    command: 'run'
+    projects: 'DocFxCompanion/src/TocDocFxCreation'
+    arguments: '-d $(System.DefaultWorkingDirectory)\devices -si'
+
+# build all libs
 - template: azure-pipelines-templates/install-nuget.yml@templates
 
 - task: NuGetCommand@2
@@ -725,6 +744,7 @@ steps:
     script: |
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\devices_generated
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\nanoFramework.IoT.Device.CodeConverter
+      Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\GenerateDocFxStructure
       cd nanoFramework.IoT.Device\devices
       $Nerdbank = '<package id="Nerdbank.GitVersioning"'
       $Files = Get-ChildItem -Filter "packages.config" -Recurse
