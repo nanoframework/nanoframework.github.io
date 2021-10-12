@@ -728,7 +728,7 @@ steps:
     configuration: '$(buildConfiguration)'
   condition: succeeded()
 
-# This shouold build all the bindings in nanoFramework.IoT.Device in the devices directory
+# This should build all the bindings in nanoFramework.IoT.Device in the devices directory
 - task: VSBuild@1
   displayName: Build nanoFramework.IoT.Device
   inputs:
@@ -780,6 +780,25 @@ steps:
       }
   condition: succeeded()
   displayName: Run docfx
+
+# Make an artifact for debug purpose
+- task: CopyFiles@1
+  condition: succeeded()
+  displayName: Collecting all the generated elements
+  inputs:
+    sourceFolder: $(Build.SourcesDirectory)\_site
+    Contents: |
+      **
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: false
+
+- task: PublishBuildArtifacts@1
+  condition: succeeded()
+  displayName: Publish deployable artifacts
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: site
+    ArtifactType: Container
 
 # commit changes
 - powershell: |
