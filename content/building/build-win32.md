@@ -1,4 +1,4 @@
-## .NET nanoFramework nanoCLR WIN32 version
+# Building .NET nanoFramework - WIN32
 
 The WIN32 version meant to be used for high level debugging, feature testing and Unit Testing for other projects.
 It's a VC++ solution which can be build using Visual Studio.

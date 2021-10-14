@@ -1,7 +1,8 @@
 # Frequently asked questions
 
-Despite working with .NET **nanoFramework** being tremendously easy there always moments where one needs a hand or bumps into an award situations. This is a collection of tips, perls of wisdom and answers to frequent situations.
-Please do contribute with your own!
+Despite working with .NET **nanoFramework** being tremendously easy there are always moments where one needs a hand or bumps into an award situation. This is a collection of tips, perls of wisdom and answers to frequent situations.
+
+Please do contribute with your own contribution!
 
 - [Coding in C#](coding-in-csharp.md)
 - [Working with ESP32 targets](working-with-esp32-targets.md)
