@@ -170,9 +170,6 @@ steps:
   condition: succeeded()
   displayName: Adjust TOC to add main index
 
-# write all lines back to file
-$fileContents | Set-Content $filePath
-
 # build all libs
 - template: azure-pipelines-templates/install-nuget.yml@templates
 
