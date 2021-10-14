@@ -161,8 +161,8 @@ steps:
 
     $textToAdd = "items:
     - name: Home
-    href: ../index.md"
-    $fileContents.Replace("items:", $textToAdd)
+      href: ../index.md"
+    $fileContents[2].Replace("items:", $textToAdd)
     
     # write all lines back to file
     $fileContents | Set-Content $filePath
