@@ -158,11 +158,10 @@ steps:
     $fileContents = Get-Content $filePath 
 
     # append text to desired line
-
-    $textToAdd = "
+    $textToAdd = "items:
     - name: Home
       href: ../index.md"
-    $fileContents.Insert($fileContents.IndexOf("items:") + 6, $textToAdd)
+    $fileContents[1] = $fileContents[1].Replace("items:", $textToAdd)
     
     # write all lines back to file
     $fileContents | Set-Content $filePath
