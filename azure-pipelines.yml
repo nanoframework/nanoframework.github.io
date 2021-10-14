@@ -151,6 +151,28 @@ steps:
     projects: 'DocFxCompanion/src/TocDocFxCreation'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\content -s -r -g'
 
+# we then need to add the root index page to the toc
+- powershell: |
+    # read all lines into `$fileContents`
+    $filePath = $(System.DefaultWorkingDirectory)
+    $filePath += "\content\toc.yml"
+    $fileContents = Get-Content $filePath 
+
+    # append text to desired line
+
+    $textToAdd = "items:
+    - name: Home
+    href: ../index.md"
+    $fileContents.Replace("items:", $textToAdd)
+    
+    # write all lines back to file
+    $fileContents | Set-Content $filePath
+  condition: succeeded()
+  displayName: Adjust TOC to add main index
+
+# write all lines back to file
+$fileContents | Set-Content $filePath
+
 # build all libs
 - template: azure-pipelines-templates/install-nuget.yml@templates
 
