@@ -20,33 +20,25 @@ You'll need:
   - Ensure the Windows default app to open `.py` files is Python.
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
-- [OpenOCD](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180418/openocd-esp32-win32-0.10.0-esp32-20180418.zip) For on chip debugging of the nanoCLR.
+- [ESP-IDF Tools](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html).
 - Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers:
   - [CP210x USB to UART Bridge VCP Drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) used in the standard ESP32 DevKitC.
   - [FTDI Virtual COM Port Drivers](https://www.ftdichip.com/Drivers/VCP.htm).
 
-All the above can be installed using the Power Shell script `.\install-nf-tools.ps1 -TargetSeries ESP32` from the `install-scripts` folder within the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it [manually](#Manual-Install-of-the-build-environment-for-ESP32) (NOT RECOMMENDED for obvious reasons).
-
 ## Overview
-
-To simplify: this guide we will put all our tools and source in easily accessible folders and not at the default install paths (you do not have to do the same).
 
 1. Create a directory structure such as the following:
 
-   - `C:\nftools`
    - `C:\nanoFramework`
 
 1. Download and install [Visual Studio Code](http://code.visualstudio.com).
 
 1. Clone [`nf-interpreter`](https://github.com/nanoframework/nf-interpreter) repository into `C:\nanoFramework\nf-interpreter`. See next section for more info.
 
-1. Run the PowerShell script that's on the `install-scripts` folder that will download and install all the required tools.
-  `.\install-nf-tools.ps1 -TargetSeries ESP32 -Path 'C:\nftools'`
-   For best results, run in an elevated command prompt, otherwise setting system environnement variables will fail.
+1. Install ESP-IDF Tools by using the installer provided by Espressif.
+
 1. Review and adjust several JSON files to match your environment (as documented below)
 1. Restart Visual Studio Code (due to json changes)
-
-The setup is a lot easier than it seems. The setup scripts do almost everything.
 
 ## .NET **nanoFramework** GitHub repo
 
@@ -64,77 +56,9 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 ### Automated Install of the build environment
 
-__Run Power Shell as an Administrator and run `set-executionpolicy RemoteSigned` to enable execution of the signed script.__
+(If you already have installed ESP-IDF Tools you can skip this step.)
 
-On Windows, one may use the `.\install-nf-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download/install CMake, the ESP32 IDF Source, toolchain, prebuilt libraries, OpenOCD (for JTAG debugging) and Ninja. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives.
-The script will download the zips and installers into the repository `zips` folder and extract them into sub-folders of the nanoFramework tools folder `C:\nftools` or install the tool [manually](#Manual-Install-of-the-build-environment-for-ESP32).
-
-1. Open Power Shell in the `install-scripts` folder of the repository.
-
-    Example Power Shell command line:
-
-    ```ps
-    .\install-nf-tools.ps1 -TargetSeries ESP32
-    ```
-
-    You can force the environment variables to be updated by adding `-Force` to the command line.
-
-    The script will create the following sub-folders (see manual install below):
-
-    - `C:\nftools`
-    - `C:\nftools\esp-idf-v3.3.1`
-    - `C:\nftools\libs-v3.3.1`
-    - `C:\nftools\ninja`  
-    - `C:\nftools\openocd-esp32`  
-
-    The following Environment Variables will be created for the current Windows User.
-
-    - `NF_TOOLS_PATH = C:\nftools`
-    - `ESP32_TOOLCHAIN_PATH = C:\nftools\xtensa-esp32-elf`
-    - `ESP32_LIBS_PATH = C:\nftools\libs-v3.3.1`
-    - `IDF_PATH = C:\nftools\esp-idf-v3.3.1`
-    - `NINJA_PATH = C:\nftools\ninja`
-
-### Manual Install of the build environment
-
-These steps are **not** required if you've used the automated install script as described above.
-
-To save time on building the nanoCLR and to avoid having to create a CMakeLists.txt project for the ESP32 IDF files, the ESP32 IDF libraries are prebuilt using the Esp32 Msys32 environment then used for linking in the CMake build of nanoCLR.
-This has already been done and the libraries can be just be downloaded.
-
-1. Create a directory such as the following:
-
-   - `C:\nftools`
-   - `C:\nftools\libs-v3.3.1`
-
-1. Download the pre-built libs zip from [here](https://dl.cloudsmith.io/public/net-nanoframework/internal-build-tools/raw/names/IDF_libs/versions/v3.3.1/IDF_libs-v3.3.1.zip) and extract it into `C:\nftools\libs-v3.3.1`.
-
-1. Download the v3.3.1 IDF source zip file from [here](https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v3.3.1.zip) and extract it into `C:\nftools` so you get `C:\nftools\esp-idf-v3.3\components` etc.
-
-1. Download the Esp32 toolchain from [here](https://dl.espressif.com/dl/xtensa-esp32-elf-win32-1.22.0-80-g6c4433a-5.2.0.zip) and extract it into `C:\nftools` so you get `C:\nftools\xtensa-esp32-elf`.
-
-1. For on chip debugging of the nanoCLR, download OpenOCD from [here](https://github.com/espressif/openocd-esp32/releases/download/v0.10.0-esp32-20180724/openocd-esp32-win32-0.10.0-esp32-20180724.zip) and extract OpenOCD into `C:\nftools` so you get `C:\nftools\openocd-esp32`.
-
-1. Download the light weight build system Ninja for CMake to generate the build files from [here](https://github.com/ninja-build/ninja/releases/). This is lightweight build system, designed for speed and it works on Windows and Linux machines. See [here](../building/cmake/ninja-build.md) how to setup Ninja to build .NET **nanoFramework**.
-  
-1. Define the environment variables to match the install locations. Default locations are:
-   - `ESP32_TOOLS_PATH = C:\nftools`
-   - `ESP32_TOOLCHAIN_PATH = C:\nftools\xtensa-esp32-elf`
-   - `ESP32_LIBS_PATH = C:\nftools\libs-v3.3.1`
-   - `IDF_PATH = C:\nftools\esp-idf-v3.3.1`
-   - `NINJA_PATH = C:\nftools\ninja`
-
-1. Add Ninja to the PATH (i.e. `C:\nftools\ninja`)
-
-1. Download the latest stable version from [here](https://cmake.org/download/) and install it.
-
-1. Install [Python 3.6.5](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) and then install the serial driver for python from the command line:
-
-    ```cmd
-    python -m pip install pyserial
-    ```
-
-    Note that `.\install-esp32-tools.ps1` will install `pyserial` for you if you installed Python prior to running the script. (It is Ok to run `python -m pip install pyserial` multiple times.)
+1. Install ESP-IDF Tools by using the installer provided by Espressif [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer). The installer includes all the pre-requisites.
 
 ## Set up Visual Studio Code
 
@@ -162,7 +86,7 @@ Next time VS Code open it should load the workspace automatically.
 
 1. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 
-1. In the status bar at the bottom left, click on the `CMake:Debug ESP32_WROOM_32: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.
+1. In the status bar at the bottom left, click on the `CMake:Debug ESP32_PSRAM_REV0: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets [here](../reference-targets\esp32.md).
 
 1. In the status bar click `Build` or hit F7.
 
@@ -189,7 +113,7 @@ The above may have some errors if:
 
 ## Flash nanoCLR into ESP32
 
-1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `C:/nftools/libs-v3.3.1/bootloader.bin` if the automated install script is used.
+1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `build/bootloader/bootloader.bin` after a successful build.
 
 1. Connect your development board.
 
@@ -221,13 +145,13 @@ The above may have some errors if:
     - An other alternative is using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool: 
      
        ```console
-       nanoff --platform esp32 --serialport <YourCOMPort> --image nanoCLR.bin --address 0x00010000
+       nanoff --target ESP32_PSRAM_REV0 --serialport <YourCOMPort> --image nanoCLR.bin --address 0x00010000
        ```
   
     - An other alternative would be to use Espressif's own [esptool.py](https://github.com/espressif/esptool) tool:
 
         ```console
-        esptool.py --chip esp32 --port <YourCOMPort> --baud 1500000 --before "default_reset" --after "hard_reset" write_flash -z --flash_mode "dio" --flash_freq "40m" --flash_size detect 0x1000 <YourPathTo>/nftools/libs-v3.3.1/bootloader.bin 0x10000 <YourPathTo>/nf-interpreter/build/nanoCLR.bin 0x8000 <YourPathTo>/nf-interpreter/build/<PartitionFilePassingToYourBoard>.bin
+        esptool.py --chip auto --port <YourCOMPort> --baud 1500000 --before "default_reset" --after "hard_reset" write_flash -z --flash_mode "dio" --flash_freq "40m" --flash_size detect 0x1000 <YourPathTo>/nf-interpreter/build/bootloader/bootloader.bin 0x10000 <YourPathTo>/nf-interpreter/build/nanoCLR.bin 0x8000 <YourPathTo>/nf-interpreter/build/<PartitionFilePassingToYourBoard>.bin
         ```
 
 ## Start with a 'Hello World' C# application
@@ -260,9 +184,7 @@ esptool.py v2.1
 Connecting........_____....._____...
 ```
 
-The Esp32 only has 2 hardware breakpoints.
-
-As code is dynamically loaded unless the method has an `IRAM_ATTR` attribute any breakpoints set up at the start will cause an error when you try to debug (Unable to set breakpoint). When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
+You may have to add the `IRAM_ATTR` attribute to a function that you want to debug, so it can be loaded in RAM. When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
 
 For more information on JTAG debugging see [Espressif documentation](http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/).
 
