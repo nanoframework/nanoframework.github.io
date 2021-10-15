@@ -44,7 +44,7 @@ The second part is to load the .NET **nanoFramework** image in the board flash. 
     - To update the firmware of an ESP32 target connected to COM31, to the latest available preview version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash..." message) 
 
         ```console
-        nanoff --target ESP32_WROOM_32 --serialport COM31 --update --preview
+        nanoff --target ESP32_REV0 --serialport COM31 --update --preview
         ```
 
     - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available preview version.
