@@ -23,11 +23,40 @@ If in doubt please ask one of the senior team members.
 
 1. Go to the repository **Settings** and move into _Options_.
 
-2. In the _Features_ section disable Wikis, Issues and Projects.
+1. In the _Features_ section disable Wikis, Issues and Projects.
 
-3. On the _Merge Button_ section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.
+1. On the _Merge Button_ section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.
 
-4. Move into _Branches_ and set `develop` as the default branch.
+1. Move into _Branches_ and set `develop` as the default branch.
+
+## Setup Sonarcloud project
+
+For class libraries projects a Sonarcloud project has to be setup in order to run and process the project analysis.
+
+You have to have installed on your machine:
+- [SonarScanner for .NET (.NET Framework 4.6+))](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/)
+- Java Script SDK.
+
+After installing the above, it's required to run locally the analysis tool for the very first analysis.
+
+1. Open a VS developer command prompt at the project folder.
+1. Run the preparation step with 
+
+```console
+PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe begin /k:"nanoframework_WHATEVER_CLASS_NAME" /o:nanoframework /d:sonar.login=TOKEN_FOR_SONARCLOUD
+```
+
+1. Build the solution 
+
+```console
+msbuild  nanoFramework.WHATEVER_CLASS_NAME.sln /t:Rebuild /p:platform="Any CPU" /p:configuration="Release" 
+```
+
+1. Run the analysis tool and upload files
+
+```console
+PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TOKEN_FOR_SONARCLOUD
+```
 
 ## Setup Azure DevOps
 
