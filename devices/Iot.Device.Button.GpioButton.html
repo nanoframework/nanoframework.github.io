@@ -128,6 +128,9 @@ Inherits from ButtonBase.</p>
       <a class="xref" href="Iot.Device.Button.ButtonBase.html#Iot_Device_Button_ButtonBase_HandleButtonReleased">ButtonBase.HandleButtonReleased()</a>
     </div>
     <div>
+      <a class="xref" href="Iot.Device.Button.ButtonBase.html#Iot_Device_Button_ButtonBase_Dispose">ButtonBase.Dispose()</a>
+    </div>
+    <div>
       <a class="xref" href="../api/System.Object.html#System_Object_ToString">Object.ToString()</a>
     </div>
     <div>
@@ -159,19 +162,19 @@ Inherits from ButtonBase.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/new/pages-source/apiSpec/new?filename=Iot_Device_Button_GpioButton__ctor_System_Int32_System_Boolean_System_Device_Gpio_GpioController_System_Boolean_.md&amp;value=---%0Auid%3A%20Iot.Device.Button.GpioButton.%23ctor(System.Int32%2CSystem.Boolean%2CSystem.Device.Gpio.GpioController%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/new/pages-source/apiSpec/new?filename=Iot_Device_Button_GpioButton__ctor_System_Int32_System_Device_Gpio_GpioController_System_Boolean_System_Device_Gpio_PinMode_.md&amp;value=---%0Auid%3A%20Iot.Device.Button.GpioButton.%23ctor(System.Int32%2CSystem.Device.Gpio.GpioController%2CSystem.Boolean%2CSystem.Device.Gpio.PinMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Button/GpioButton.cs/#L29">View Source</a>
+    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Button/GpioButton.cs/#L30">View Source</a>
   </span>
   <a id="Iot_Device_Button_GpioButton__ctor_" data-uid="Iot.Device.Button.GpioButton.#ctor*"></a>
-  <h4 id="Iot_Device_Button_GpioButton__ctor_System_Int32_System_Boolean_System_Device_Gpio_GpioController_System_Boolean_" data-uid="Iot.Device.Button.GpioButton.#ctor(System.Int32,System.Boolean,System.Device.Gpio.GpioController,System.Boolean)">GpioButton(Int32, Boolean, GpioController, Boolean)</h4>
+  <h4 id="Iot_Device_Button_GpioButton__ctor_System_Int32_System_Device_Gpio_GpioController_System_Boolean_System_Device_Gpio_PinMode_" data-uid="Iot.Device.Button.GpioButton.#ctor(System.Int32,System.Device.Gpio.GpioController,System.Boolean,System.Device.Gpio.PinMode)">GpioButton(Int32, GpioController, Boolean, PinMode)</h4>
   <div class="markdown level1 summary"><p>Initialization of the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GpioButton(int buttonPin, bool pullUp = true, GpioController gpio = null, bool shouldDispose = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public GpioButton(int buttonPin, GpioController gpio = null, bool shouldDispose = true, PinMode pinMode = PinMode.InputPullUp)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -187,12 +190,6 @@ Inherits from ButtonBase.</p>
         <td><a class="xref" href="../api/System.Int32.html">Int32</a></td>
         <td><span class="parametername">buttonPin</span></td>
         <td><p>GPIO pin of the button.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">Boolean</a></td>
-        <td><span class="parametername">pullUp</span></td>
-        <td><p>If the system is pullup (false = pulldown).</p>
 </td>
       </tr>
       <tr>
@@ -207,23 +204,29 @@ Inherits from ButtonBase.</p>
         <td><p>True to dispose the GpioController.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></td>
+        <td><span class="parametername">pinMode</span></td>
+        <td><p>Pin mode of the system.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/new/pages-source/apiSpec/new?filename=Iot_Device_Button_GpioButton__ctor_System_Int32_System_Boolean_System_TimeSpan_System_TimeSpan_System_Device_Gpio_GpioController_System_Boolean_.md&amp;value=---%0Auid%3A%20Iot.Device.Button.GpioButton.%23ctor(System.Int32%2CSystem.Boolean%2CSystem.TimeSpan%2CSystem.TimeSpan%2CSystem.Device.Gpio.GpioController%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/new/pages-source/apiSpec/new?filename=Iot_Device_Button_GpioButton__ctor_System_Int32_System_TimeSpan_System_TimeSpan_System_Device_Gpio_GpioController_System_Boolean_System_Device_Gpio_PinMode_.md&amp;value=---%0Auid%3A%20Iot.Device.Button.GpioButton.%23ctor(System.Int32%2CSystem.TimeSpan%2CSystem.TimeSpan%2CSystem.Device.Gpio.GpioController%2CSystem.Boolean%2CSystem.Device.Gpio.PinMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Button/GpioButton.cs/#L42">View Source</a>
+    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Button/GpioButton.cs/#L44">View Source</a>
   </span>
   <a id="Iot_Device_Button_GpioButton__ctor_" data-uid="Iot.Device.Button.GpioButton.#ctor*"></a>
-  <h4 id="Iot_Device_Button_GpioButton__ctor_System_Int32_System_Boolean_System_TimeSpan_System_TimeSpan_System_Device_Gpio_GpioController_System_Boolean_" data-uid="Iot.Device.Button.GpioButton.#ctor(System.Int32,System.Boolean,System.TimeSpan,System.TimeSpan,System.Device.Gpio.GpioController,System.Boolean)">GpioButton(Int32, Boolean, TimeSpan, TimeSpan, GpioController, Boolean)</h4>
+  <h4 id="Iot_Device_Button_GpioButton__ctor_System_Int32_System_TimeSpan_System_TimeSpan_System_Device_Gpio_GpioController_System_Boolean_System_Device_Gpio_PinMode_" data-uid="Iot.Device.Button.GpioButton.#ctor(System.Int32,System.TimeSpan,System.TimeSpan,System.Device.Gpio.GpioController,System.Boolean,System.Device.Gpio.PinMode)">GpioButton(Int32, TimeSpan, TimeSpan, GpioController, Boolean, PinMode)</h4>
   <div class="markdown level1 summary"><p>Initialization of the button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GpioButton(int buttonPin, bool pullUp, TimeSpan doublePress, TimeSpan holding, GpioController gpio = null, bool shouldDispose = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public GpioButton(int buttonPin, TimeSpan doublePress, TimeSpan holding, GpioController gpio = null, bool shouldDispose = true, PinMode pinMode = PinMode.InputPullUp)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -239,12 +242,6 @@ Inherits from ButtonBase.</p>
         <td><a class="xref" href="../api/System.Int32.html">Int32</a></td>
         <td><span class="parametername">buttonPin</span></td>
         <td><p>GPIO pin of the button.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">Boolean</a></td>
-        <td><span class="parametername">pullUp</span></td>
-        <td><p>If the system is pullup (false = pulldown).</p>
 </td>
       </tr>
       <tr>
@@ -271,32 +268,22 @@ Inherits from ButtonBase.</p>
         <td><p>True to dispose the GpioController.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></td>
+        <td><span class="parametername">pinMode</span></td>
+        <td><p>Pin mode of the system.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/new/pages-source/apiSpec/new?filename=Iot_Device_Button_GpioButton_Dispose.md&amp;value=---%0Auid%3A%20Iot.Device.Button.GpioButton.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Button/GpioButton.cs/#L91">View Source</a>
-  </span>
-  <a id="Iot_Device_Button_GpioButton_Dispose_" data-uid="Iot.Device.Button.GpioButton.Dispose*"></a>
-  <h4 id="Iot_Device_Button_GpioButton_Dispose" data-uid="Iot.Device.Button.GpioButton.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"><p>Cleanup.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/new/pages-source/apiSpec/new?filename=Iot_Device_Button_GpioButton_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20Iot.Device.Button.GpioButton.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Button/GpioButton.cs/#L100">View Source</a>
+    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Button/GpioButton.cs/#L101">View Source</a>
   </span>
   <a id="Iot_Device_Button_GpioButton_Dispose_" data-uid="Iot.Device.Button.GpioButton.Dispose*"></a>
   <h4 id="Iot_Device_Button_GpioButton_Dispose_System_Boolean_" data-uid="Iot.Device.Button.GpioButton.Dispose(System.Boolean)">Dispose(Boolean)</h4>
