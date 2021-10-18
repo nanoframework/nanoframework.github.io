@@ -1,8 +1,8 @@
 # .NET **nanoFramework**
 
-![nanoFramework logo](../images/nanoFramework-repo-logo.png)
+Our mantra is about **making it easy to write C# code for embedded systems!** And all what we're doing here is about that. This free and Open Source platform that enables the writing of managed code applications for constrained embedded devices. As a developer, you can use your powerful and familiar tools like Microsoft Visual Studio IDE and your .NET C# skills to write code on a microcontroller.
 
-**_Making it easy to write C# code for embedded systems!_**
+![nanoFramework logo](../images/nanoFramework-repo-logo.png)
 
 <div style='vertical-align:middle; display:inline;'>
 .NET nanoFramework is supported by the .NET Foundation.
@@ -32,7 +32,7 @@ Backers are individuals who contribute money to help support nanoFramework. Ever
 
 Developers can harness the powerful and familiar [Microsoft Visual Studio IDE](https://www.visualstudio.com/vs/) and their [.NET C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) knowledge to quickly write code without having to worry about the low-level hardware intricacies of a microcontroller. Desktop .NET developers will feel "at home" and are able to use their skills in embedded systems development, enlarging the pool of qualified embedded developers.
 
-It includes a reduced version of the .NET [Common Language Runtime](https://en.wikipedia.org/wiki/Common_Language_Runtime) (CLR) and features a subset of the .NET base class libraries along with the most common APIs included in the [Universal Windows Platform](https://docs.microsoft.com/en-us/uwp/api/) (UWP) allowing code reuse from desktop applications, IoT Core applications, thousands of code examples and open source projects.
+It includes a reduced version of the .NET [Common Language Runtime](https://en.wikipedia.org/wiki/Common_Language_Runtime) (CLR) and features a subset of the .NET base class libraries along with the most common APIs included in [.NET IoT](https://github.com/dotnet/iot) allowing code reuse from .NET IoT applications, thousands of code examples and open source projects.
 Using Microsoft Visual Studio, a developer can deploy and debug the code directly on real hardware.
 
 The .NET **nanoFramework** platform picks up where [.NET Micro Framework](https://en.wikipedia.org/wiki/.NET_Micro_Framework) left off and uses some of its building blocks. Many of the original components were completely rewritten, others improved and some simply reused. A lot of code cleansing and improvements took place to make .NET **nanoFramework** fit for the future!
