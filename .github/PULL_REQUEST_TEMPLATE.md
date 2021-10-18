@@ -10,7 +10,7 @@
 
 ## Types of changes
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
-- [ ] Improvement (correction, content improvement, typoe fix, formating)
+- [ ] Improvement (correction, content improvement, typo fix, formatting)
 - [ ] New Article (new document for docs website)
 - [ ] Config and build (change in the configuration and build system, has no impact on code or features)
 
