@@ -1,6 +1,6 @@
 # .NET **nanoFramework**
 
-![nanoFramework logo](../images/nanoFramework-repo-logo.png)
+![nanoFramework logo](../images/nanoFramework-repo-logo.jpg)
 
 **_Making it easy to write C# code for embedded systems!_**
 
