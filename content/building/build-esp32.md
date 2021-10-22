@@ -16,12 +16,12 @@ If you prefer to install all the tools needed on your Windows machine, you shoul
 You'll need:
 
 - [Visual Studio Code](http://code.visualstudio.com/). Additional extensions and setup steps follow below. [Set up Visual Code](#Set-up-Visual-Code)
-- [Python 3.6.5](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) Required for uploading the nanoCLR to the ESP32.
+- [Python 3.6.8](https://www.python.org/downloads/release/python-368) Required for uploading the nanoCLR to the ESP32.
   - Ensure the Windows default app to open `.py` files is Python.
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [ESP-IDF Tools](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html).
-- Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers:
+- Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers (all these are available along with ESP-IDF tools installer):
   - [CP210x USB to UART Bridge VCP Drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) used in the standard ESP32 DevKitC.
   - [FTDI Virtual COM Port Drivers](https://www.ftdichip.com/Drivers/VCP.htm).
 
@@ -60,6 +60,37 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 1. Install ESP-IDF Tools by using the installer provided by Espressif [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer). The installer includes all the pre-requisites.
 
+2. After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.
+
+3. Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.
+
+![idf repo location](../../images/building/esp32/install-esp-idf-tools-repo-location.png)
+
+4. Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.
+
+![idf tools location](../../images/building/esp32/install-esp-idf-tools-location.png)
+
+5. At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.
+
+![options](../../images/building/esp32/install-esp-idf-tools-options.png)
+
+6. The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...
+
+7. After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script `install`. This will *hopefully* install all the requirements and prerequisites. 
+
+8. Now execute the script `export`. This will *hopefully* update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable. 
+
+9. Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.
+
+![updated path](../../images/building/esp32/install-esp-idf-tools-path.png)
+
+1. Also worth checking if the following environment variables have also been setup:
+- `IDF_PATH`: must point to the location where the ESP-IDF repo was cloned (see step 3. above).
+- `IDF_PYTHON_ENV_PATH`: must point to Python install location.
+- `IDF_TOOLS_PATH`: must point to the location where the ESP-IDF tools where installed (see step 3. above).
+
+:warning: **Having the path property setup it's absolutely mandatory in order to be able to build.** :warning: 
+
 ## Set up Visual Studio Code
 
 1. Install the extensions:
@@ -86,7 +117,8 @@ Next time VS Code open it should load the workspace automatically.
 
 1. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 
-1. In the status bar at the bottom left, click on the `CMake:Debug ESP32_PSRAM_REV0: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets [here](../reference-targets\esp32.md).
+1. In the status bar at the bottom left, click on the `CMake:Debug ESP32_PSRAM_REV0: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets [here](../reference-targets\esp32.md).  
+![updated path](../../images/building/esp32/kit-selection.png)
 
 1. In the status bar click `Build` or hit F7.
 
