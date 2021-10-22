@@ -18,14 +18,12 @@ You'll need:
 - [Visual Studio Code](http://code.visualstudio.com/)
 - Visual Studio Code Extensions
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
-  . [CMake](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - language support for Visual Studio Code (by Microsoft)
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
   . [Cortex Debug](https://marcelball.ca/projects/cortex-debug/) - Debug tool made explicity for ARM Cortex-M cores (needed for J-Link), if you're using on board programmer you don't need it.
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - OpenOCD. Suggest the [xPack OpenOCD](https://github.com/xpack-dev-tools/openocd-xpack/releases) that kindly maintains a Windows distribution.
-- [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `cmake-variants.json` (more info [here](#Set-up-Visual-Studio-Code)).
 
 All the above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries NXP` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).
 
@@ -151,7 +149,7 @@ The PowerShell relies on the environment variables described above to properly s
 
 ## Build nanoCLR
 
-- **Step1**: Launch Visual Studio from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
+- **Step1**: Launch Visual Studio Code from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 
 - **Step2**: Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 

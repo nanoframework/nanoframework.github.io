@@ -18,7 +18,6 @@ You'll need:
 - [Visual Studio Code](http://code.visualstudio.com/)
 - Visual Studio Code Extensions
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
-  . [CMake](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - language support for Visual Studio Code (by Microsoft)
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
@@ -113,7 +112,7 @@ The PowerShell relies on the environment variables described above to properly s
 
 ## Build nanoCLR
 
-- **Step 1:** Launch Visual Studio from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
+- **Step 1:** Launch Visual Studio Code from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 
 - **Step 2:** Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 
@@ -163,16 +162,9 @@ There are two options to flash the nanoBooter & nanoCLR images to a target. The 
 
 >Note: You don't have to re-flash nanoBooter every time you flash nanoCLR as it won't be erased.
 
-### Using STM32 ST-LINK Utility
+### Using STM32CubeProgrammer Utility
 
-1. Download the [STM32 ST-LINK Utility](https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link004.html) from ST web site and install it in your development machine.
-2. Connect the Target board to your PC using an USB cable.
-3. Open STM32 ST-Link Utility. And click on `Target > Connect`.
-4. Next erase the entire chip by clicking on `Target > Erase Chip`.
-5. Open `nanoBooter.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
-6. Open `nanoCLR.hex` (`Open > Open File...`) and program and verify (`Target > Program & Verify...`). Make sure you tick the `Reset after programming` check box and hit `Start`. After the upload completes, the MCU is reset and the nanoCLR image will run. This time and if all goes as expected, there will be no LED blinking.
-
->>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.
+Follow the instructions [here](../../..//stm32/flash-cube-programmer.md.md) to install STM32CubeProgrammer and flash `nanoBooter.hex` and `nanoCLR.hex` images to the board. Also this is not mandatory as all this can be handled by VS Code.
 
 ## Next Steps
 
