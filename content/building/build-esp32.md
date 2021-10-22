@@ -15,10 +15,13 @@ If you prefer to install all the tools needed on your Windows machine, you shoul
 
 You'll need:
 
-- [Visual Studio Code](http://code.visualstudio.com/). Additional extensions and setup steps follow below. [Set up Visual Code](#Set-up-Visual-Code)
+- [Visual Studio Code](http://code.visualstudio.com/).Additional extensions and setup steps follow below. [Set up Visual Code](#Set-up-Visual-Code)
+- Visual Studio Code Extensions
+  . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
+  . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
+- [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
 - [Python 3.6.8](https://www.python.org/downloads/release/python-368) Required for uploading the nanoCLR to the ESP32.
   - Ensure the Windows default app to open `.py` files is Python.
-- [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [ESP-IDF Tools](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html).
 - Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers (all these are available along with ESP-IDF tools installer):
