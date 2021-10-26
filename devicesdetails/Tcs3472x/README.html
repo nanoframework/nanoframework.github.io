@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TCS3472x Sensors | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="TCS3472x Sensors | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.58.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="tcs3472x-sensors">TCS3472x Sensors</h1>
+
+<p>TCS3472x sensors are color I2C sensors.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Device Family contains TCS34721, TCS34723, TCS34725 and TCS34727.</p>
+<ul>
+<li>TCS3472x <a href="https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf">datasheet</a></li>
+</ul>
+<p>You will find this device as  <a href="https://www.adafruit.com/product/1334">&quot;RGB Color Sensor with IR filter and White LED - TCS34725&quot;</a></p>
+<p>Note: TCS34721 and TCS34723 have a default I2C address which is 0x39 while TCS34725 and TCS34727 have 0x29.</p>
+<h2 id="board">Board</h2>
+<p><img src="../../devicesimages/Tcs3472x/Tcs34725Fitzing.png" alt="image"></p>
+<h2 id="usage">Usage</h2>
+<p>Create a <code>Tcs3472xSensor</code> class and pass the I2C device. Please see above for the default address depending on the chip you are using. The default one provided in the class is for the most popular ones so TCS34725 and TCS34727.</p>
+<pre><code class="lang-csharp">var i2cSettings = new I2cConnectionSettings(1, Tcs3472xSensor.DefaultAddress);
+I2cDevice i2cDevice = I2cDevice.Create(i2cSettings);
+Tcs3472xSensor tcs3472X = new Tcs3472xSensor(i2cDevice);
+while(!Console.KeyAvailable)
+{
+    Console.WriteLine($&quot;ID: {tcs3472X.ChipId} Gain: {tcs3472X.Gain} Time to wait: {tcs3472X.IntegrationTime}&quot;);
+    var col = tcs3472X.GetColor();
+    Console.WriteLine($&quot;R: {col.R} G: {col.G} B: {col.B} A: {col.A} Color: {col.Name}&quot;);
+    Console.WriteLine($&quot;Valid data: {tcs3472X.IsValidData} Clear Interrupt: {tcs3472X.IsClearInterrupt}&quot;);
+    Thread.Sleep(1000);
+}
+</code></pre>
+<p>You can as well adjust the time for integration, so the time needed to read the data either in the constructor either later one. Minimum time is 0.0024 seconds and maximum time is 7.4 seconds. This is not a linear function and it will be set to the closest lower value supported by the chip.</p>
+<p>when calling <code>tcs3472X.GetColor()</code> you get a <code>Color</code> type with RGB as the normal RGB. A contains the <em>Clear</em> value of the sensor.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Tcs3472x/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
