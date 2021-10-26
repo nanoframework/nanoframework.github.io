@@ -89,14 +89,12 @@ The build is based on CMake tool to ease the development in all major platforms.
 <li><a href="http://code.visualstudio.com/">Visual Studio Code</a></li>
 <li>Visual Studio Code Extensions
 . <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
-. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake</a> - language support for Visual Studio Code (by Microsoft)
 . <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by Microsoft)
 . <a href="https://marcelball.ca/projects/cortex-debug/">Cortex Debug</a> - Debug tool made explicity for ARM Cortex-M cores (needed for J-Link), if you're using on board programmer you don't need it.</li>
 <li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.15)</li>
 <li>A build system for CMake to generate the build files to. We recommend <a href="https://github.com/ninja-build/ninja/releases">Ninja</a>.</li>
 <li><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU ARM Embedded Toolchain</a></li>
 <li>OpenOCD. Suggest the <a href="https://github.com/xpack-dev-tools/openocd-xpack/releases">xPack OpenOCD</a> that kindly maintains a Windows distribution.</li>
-<li><a href="http://www.chibios.org/dokuwiki/doku.php">ChibiOS</a> - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the <code>cmake-variants.json</code> (more info <a href="#Set-up-Visual-Studio-Code">here</a>).</li>
 </ul>
 <p>All the above can be installed by the Power Shell script <code>.\install-nf-tools.ps1 -TargetSeries NXP</code> from the <code>install-scripts</code> folder within the <a href="https://github.com/nanoFramework/nf-interpreter"><code>nf-interpreter</code></a> project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).</p>
 <h2 id="overview">Overview</h2>
@@ -209,7 +207,7 @@ The PowerShell relies on the environment variables described above to properly s
 </ul>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
 <ul>
-<li><p><strong>Step1</strong>: Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
+<li><p><strong>Step1</strong>: Launch Visual Studio Code from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
 </li>
 <li><p><strong>Step2</strong>: Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
 </li>

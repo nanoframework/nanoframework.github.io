@@ -86,16 +86,19 @@ The build is based on CMake tool to ease the development in all major platforms.
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You'll need:</p>
 <ul>
-<li><a href="http://code.visualstudio.com/">Visual Studio Code</a>. Additional extensions and setup steps follow below. <a href="#Set-up-Visual-Code">Set up Visual Code</a></li>
-<li><a href="https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe">Python 3.6.5</a> Required for uploading the nanoCLR to the ESP32.
+<li><a href="http://code.visualstudio.com/">Visual Studio Code</a>.Additional extensions and setup steps follow below. <a href="#Set-up-Visual-Code">Set up Visual Code</a></li>
+<li>Visual Studio Code Extensions
+. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
+. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by Microsoft)</li>
+<li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.15)</li>
+<li><a href="https://www.python.org/downloads/release/python-368">Python 3.6.8</a> Required for uploading the nanoCLR to the ESP32.
 <ul>
 <li>Ensure the Windows default app to open <code>.py</code> files is Python.</li>
 </ul>
 </li>
-<li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.15)</li>
 <li>A build system for CMake to generate the build files to. We recommend <a href="https://github.com/ninja-build/ninja/releases">Ninja</a>.</li>
 <li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html">ESP-IDF Tools</a>.</li>
-<li>Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers:
+<li>Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers (all these are available along with ESP-IDF tools installer):
 <ul>
 <li><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">CP210x USB to UART Bridge VCP Drivers</a> used in the standard ESP32 DevKitC.</li>
 <li><a href="https://www.ftdichip.com/Drivers/VCP.htm">FTDI Virtual COM Port Drivers</a>.</li>
@@ -130,8 +133,42 @@ The build is based on CMake tool to ease the development in all major platforms.
 <h3 id="automated-install-of-the-build-environment">Automated Install of the build environment</h3>
 <p>(If you already have installed ESP-IDF Tools you can skip this step.)</p>
 <ol>
-<li>Install ESP-IDF Tools by using the installer provided by Espressif <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer">here</a>. The installer includes all the pre-requisites.</li>
+<li><p>Install ESP-IDF Tools by using the installer provided by Espressif <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer">here</a>. The installer includes all the pre-requisites.</p>
+</li>
+<li><p>After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.</p>
+</li>
+<li><p>Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.</p>
+</li>
 </ol>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-repo-location.png" alt="idf repo location"></p>
+<ol start="4">
+<li>Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.</li>
+</ol>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-location.png" alt="idf tools location"></p>
+<ol start="5">
+<li>At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.</li>
+</ol>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-options.png" alt="options"></p>
+<ol start="6">
+<li><p>The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...</p>
+</li>
+<li><p>After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script <code>install</code>. This will <em>hopefully</em> install all the requirements and prerequisites.</p>
+</li>
+<li><p>Now execute the script <code>export</code>. This will <em>hopefully</em> update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.</p>
+</li>
+<li><p>Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.</p>
+</li>
+</ol>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-path.png" alt="updated path"></p>
+<ol>
+<li>Also worth checking if the following environment variables have also been setup:</li>
+</ol>
+<ul>
+<li><code>IDF_PATH</code>: must point to the location where the ESP-IDF repo was cloned (see step 3. above).</li>
+<li><code>IDF_PYTHON_ENV_PATH</code>: must point to Python install location.</li>
+<li><code>IDF_TOOLS_PATH</code>: must point to the location where the ESP-IDF tools where installed (see step 3. above).</li>
+</ul>
+<p>⚠️ <strong>Having the path property setup it's absolutely mandatory in order to be able to build.</strong> ⚠️</p>
 <h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
 <ol>
 <li><p>Install the extensions:</p>
@@ -159,7 +196,8 @@ Next time VS Code open it should load the workspace automatically.</p>
 </li>
 <li><p>In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
 </li>
-<li><p>In the status bar at the bottom left, click on the <code>CMake:Debug ESP32_PSRAM_REV0: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets <a href="../reference-targets%5Cesp32.md">here</a>.</p>
+<li><p>In the status bar at the bottom left, click on the <code>CMake:Debug ESP32_PSRAM_REV0: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets <a href="../reference-targets%5Cesp32.md">here</a>.<br>
+<img src="../../images/building/esp32/kit-selection.png" alt="updated path"></p>
 </li>
 <li><p>In the status bar click <code>Build</code> or hit F7.</p>
 </li>

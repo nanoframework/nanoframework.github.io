@@ -103,6 +103,30 @@ If in doubt please ask one of the senior team members.</p>
 <li><p>Move into <em>Branches</em> and set <code>develop</code> as the default branch.</p>
 </li>
 </ol>
+<h2 id="setup-sonarcloud-project">Setup Sonarcloud project</h2>
+<p>For class libraries projects a Sonarcloud project has to be setup in order to run and process the project analysis.</p>
+<p>You have to have installed on your machine:</p>
+<ul>
+<li><a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/">SonarScanner for .NET (.NET Framework 4.6+))</a></li>
+<li>Java SDK. <a href="https://code.visualstudio.com/docs/languages/java">Recommended</a></li>
+</ul>
+<p>After installing the above, it's required to run locally the analysis tool for the very first analysis.</p>
+<ol>
+<li>Open a VS developer command prompt at the project folder.</li>
+<li>Run the preparation step with</li>
+</ol>
+<pre><code class="lang-console">PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe begin /k:&quot;nanoframework.WHATEVER.CLASS.NAME&quot; /o:nanoframework /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=TOKEN_FOR_SONARCLOUD
+</code></pre>
+<ol>
+<li>Build the solution</li>
+</ol>
+<pre><code class="lang-console">msbuild  nanoFramework.WHATEVER.CLASS.NAME.sln /t:Rebuild /p:platform=&quot;Any CPU&quot; /p:configuration=&quot;Release&quot; 
+</code></pre>
+<ol>
+<li>Run the analysis tool and upload files</li>
+</ol>
+<pre><code class="lang-console">PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TOKEN_FOR_SONARCLOUD
+</code></pre>
 <h2 id="setup-azure-devops">Setup Azure DevOps</h2>
 <ol>
 <li>Open a new browser window on which you are signed in to GitHub as <code>nfbot</code>.</li>
