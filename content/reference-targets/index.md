@@ -5,6 +5,7 @@ We provide ready build firmware images for several reference target boards. Thes
 ## Espressif ESP32 series
 
 - [Espressif ESP32 series](esp32.md)
+- [Espressif ESP32-S2 series](esp32-s2.md)
 
 ## OrgPal boards
 
