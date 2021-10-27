@@ -75,7 +75,7 @@ The ready to use firmware images provided include support for the class librarie
 
 | Gpio | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| :heavy_check_mark: |  |  |  |  | |  | |  | | |
+| :heavy_check_mark: |  |  |  |  | |  | |  | |
 
 | Stable | Preview |
 |---|---|
