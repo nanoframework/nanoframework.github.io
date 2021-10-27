@@ -37,6 +37,79 @@ steps:
     git config --global core.autocrlf true
   displayName: Setup git identity
 
+# get commit message
+- powershell: |
+
+    #####################
+    # grab commit message
+    if($env:System_PullRequest_PullRequestId -ne $null)
+    {
+        # PR build, get PR message
+        $prUrl = "https://api.github.com/repos/$env:Build_Repository_Name/pulls/$env:System_PullRequest_PullRequestNumber"
+
+        $commit = Invoke-RestMethod -Uri $prUrl -ContentType "application/json" -Method GET
+
+        $commitMessage = $commit.body
+    }
+    else
+    {
+        # not a PR, get subject and commit message for commit
+        $commitMessage = git log --format='%B' -1
+    }
+
+    # need to flatten message by removing new lines
+    $commitMessage = $commitMessage.Replace("`r`n", " ")
+
+    "Commit message is: '$commitMessage'" | Write-Host
+
+    # set variable to foward to jobs
+    echo "##vso[task.setvariable variable=COMMIT_MESSAGE;isOutput=true]$commitMessage"
+
+    ###########################
+    # get list of changed files
+    if($env:System_PullRequest_PullRequestId -ne $null)
+    {
+        # get files changed in PR
+        $commit = Invoke-RestMethod -Uri "https://api.github.com/repos/$env:Build_Repository_Name/pulls/$env:System_PullRequest_PullRequestNumber/files" -Header @{"Authorization"="$auth"} -ContentType "application/json" -Method GET
+
+        # filter removed files              
+        $files = $commit.where{$_.status -ne 'removed'}
+
+        # get file names only
+        $files = $files | % {$_.filename}
+
+        Write-host "Files changed:"
+        $files | % { Write-host $_ }
+        Write-host ""
+
+        if( 
+          (($files.where{$_.Contains('/')}).Count -eq 0) -Or
+          (($files.where{$_.StartsWith('x-cross')}).Count -gt 0)
+        )
+        {
+            # files at:
+            # - repo root
+            # - x-cross folder
+
+            echo "##vso[task.setvariable variable=BUILD_ALL;isOutput=true]true"
+            
+            Write-host "Building ALL"
+        }
+        else
+        {
+            echo "##vso[task.setvariable variable=BUILD_ALL;isOutput=true]false"
+            Write-host "Only content files changed, skipping build"
+        }
+    }
+    else
+    {
+        # this is not a PR, need to build everything
+        echo "##vso[task.setvariable variable=BUILD_ALL;isOutput=true]true"
+    }
+
+  name: BuildOptions
+  displayName: Grab commit message
+
 # clone class libs repos
 # fetch only the last 100 commits to be (reasonaly) sure that we have the history up to the last tag
 - powershell: |
@@ -123,15 +196,18 @@ steps:
       git clone https://github.com/Ellerbach/docfx-companion-tools.git -b main DocFxCompanion
 
   displayName: Clone repos of class libs
+  condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
 
 # install docfx
 - powershell: choco install docfx -y
   displayName: Install docfx
+  condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
 
 # Create the README in /devices folder with all IoT.Device bindings
 # Run the Generator to physically move the files first
 - task: DotNetCoreCLI@2
   displayName: 'Generate all the devices README files'
+  condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
@@ -139,6 +215,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'Building automatically toc.yml for devices'
+  condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
   inputs:
     command: 'run'
     projects: 'DocFxCompanion/src/TocDocFxCreation'
@@ -146,6 +223,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'Building automatically toc.yml for main content'
+  condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
   inputs:
     command: 'run'
     projects: 'DocFxCompanion/src/TocDocFxCreation'
@@ -165,7 +243,7 @@ steps:
     
     # write all lines back to file
     $fileContents | Set-Content $filePath
-  condition: succeeded()
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   displayName: Adjust TOC to add main index
 
 # build all libs
@@ -173,6 +251,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore CoreLibrary
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     feedsToUse: config
@@ -180,6 +259,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Devices.Can
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
     feedsToUse: config
@@ -187,6 +267,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Devices.OneWire
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
     feedsToUse: config
@@ -194,6 +275,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Runtime.Events
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln'
     feedsToUse: config
@@ -201,6 +283,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Runtime.Native
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     feedsToUse: config
@@ -208,6 +291,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.WebServer
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     feedsToUse: config
@@ -215,6 +299,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Dac
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     feedsToUse: config
@@ -222,6 +307,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Gpio
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     feedsToUse: config
@@ -229,6 +315,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Gpio
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     feedsToUse: config
@@ -236,6 +323,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.I2c
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     feedsToUse: config
@@ -243,6 +331,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.I2c
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     feedsToUse: config
@@ -250,6 +339,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.IO.FileSystem
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     feedsToUse: config
@@ -257,6 +347,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Pwm
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     feedsToUse: config
@@ -264,6 +355,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.SerialCommunication
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     feedsToUse: config
@@ -271,6 +363,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Spi
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     feedsToUse: config
@@ -278,6 +371,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Spi
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Device.Spi\System.Device.Spi.sln'
     feedsToUse: config
@@ -285,6 +379,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Storage
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     feedsToUse: config
@@ -292,6 +387,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Storage.Streams
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     feedsToUse: config
@@ -299,6 +395,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Adc
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     feedsToUse: config
@@ -306,6 +403,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.WiFi
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     feedsToUse: config
@@ -313,6 +411,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Graphics
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     feedsToUse: config
@@ -320,6 +419,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.Esp32
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     feedsToUse: config
@@ -327,6 +427,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.Esp32.Rmt
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     feedsToUse: config
@@ -334,6 +435,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Json
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Json\nanoFramework.Json.sln'
     feedsToUse: config
@@ -341,6 +443,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.Stm32
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     feedsToUse: config
@@ -348,6 +451,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.ResourceManager
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.ResourceManager\nanoFramework.ResourceManager.sln'
     feedsToUse: config
@@ -355,6 +459,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Networking.Sntp
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     feedsToUse: config
@@ -362,6 +467,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Collections
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Collections\nanoFramework.System.Collections.sln'
     feedsToUse: config
@@ -369,6 +475,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Text
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Text\nanoFramework.System.Text.sln'
     feedsToUse: config
@@ -376,6 +483,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Net
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Net\nanoFramework.System.Net.sln'
     feedsToUse: config
@@ -383,6 +491,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Net.Http
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
     feedsToUse: config
@@ -390,6 +499,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.TI.EasyLink
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.TI.EasyLink\nanoFramework.TI.EasyLink.sln'
     feedsToUse: config
@@ -397,6 +507,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Hardware.TI
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     feedsToUse: config
@@ -404,6 +515,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Math
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Math\nanoFramework.System.Math.sln'
     feedsToUse: config
@@ -411,6 +523,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Logging
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     feedsToUse: config
@@ -418,6 +531,7 @@ steps:
   
 - task: NuGetCommand@2
   displayName: NuGet restore System.IO.Ports
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.IO.Ports\System.IO.Ports.sln'
     feedsToUse: config
@@ -425,6 +539,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.M2Mqtt
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.M2Mqtt\nanoFramework.M2Mqtt.sln'
     feedsToUse: config
@@ -432,6 +547,7 @@ steps:
       
 - task: NuGetCommand@2
   displayName: NuGet restore System.Text.RegularExpressions
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
     feedsToUse: config
@@ -439,6 +555,7 @@ steps:
       
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Azure.Devices
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
     feedsToUse: config
@@ -447,6 +564,7 @@ steps:
 # we only need to reference the main nuget.config 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.IoT.Device
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     restoreSolution: 'nanoFramework.IoT.Device\devices\**\*.sln'
     feedsToUse: config
@@ -454,307 +572,309 @@ steps:
 
 # Build part
 - task: InstallnFBuildComponents@1
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   displayName: Install nanoFramework MSBuild components
 
 - task: VSBuild@1
   displayName: Build CoreLibrary
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Devices.Can
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Devices.OneWire
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Runtime.Events
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln '
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Runtime.Native
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.WebServer
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
-
+  
 - task: VSBuild@1
   displayName: Build System.Device.Dac
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Device.Gpio
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Gpio
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.I2c
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Device.I2c
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.IO.FileSystem
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Pwm
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.SerialCommunication
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Spi
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Device.Spi
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Device.Spi\System.Device.Spi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Storage
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Storage.Streams
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Adc
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.WiFi
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Graphics
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.Esp32
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.Esp32.Rmt
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Json
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Json\nanoFramework.Json.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.Stm32
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Networking.Sntp
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Collections
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Collections\nanoFramework.System.Collections.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Text
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Text\nanoFramework.System.Text.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Net
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Net\nanoFramework.System.Net.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Net.Http
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.TI
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Math
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Math\nanoFramework.System.Math.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Logging
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.IO.Ports
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.IO.Ports\System.IO.Ports.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.M2Mqtt
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.M2Mqtt\nanoFramework.M2Mqtt.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build System.Text.RegularExpressions
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Azure.Devices
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-  condition: succeeded()
 
 # This should build all the bindings in nanoFramework.IoT.Device in the devices directory
 - task: VSBuild@1
   displayName: Build nanoFramework.IoT.Device
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.IoT.Device\devices\**\*.sln'
     platform: '$(buildPlatform)'
@@ -763,6 +883,8 @@ steps:
 
 # Clean what's not needed from IoT.Device and adjust the nugets to remove nerdbank to help build
 - task: PowerShell@2
+  displayName: Delete generated device folder from IoT.Device and clean references
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     targetType: 'inline'
     script: |
@@ -780,13 +902,11 @@ steps:
         | Where-Object { $_ -notmatch $Nerdbank }
         Set-Content -path $FullPath -Value $Replaced
       }
-  displayName: Delete generated device folder from IoT.Device and clean references
-  condition: succeeded()
 
 # rename project files (need this to trick docfx)
 - powershell: Get-ChildItem -Filter "*.nfproj" -Recurse | Rename-Item -NewName { $_.name -replace 'nfproj','csproj' }
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   displayName: Rename nfproj files
-  condition: succeeded()
 
 # run docfx
 - powershell: |
@@ -803,13 +923,13 @@ steps:
       {
         throw [System.Exception] "docfx build failed with exit code $lastexitcode."
       }
-  condition: succeeded()
   displayName: Run docfx
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
 
 # Make an artifact for debug purpose
 - task: ArchiveFiles@2
-  condition: succeeded()
   displayName: Zipping _site directory
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)\_site' 
     includeRootFolder: true
@@ -818,8 +938,8 @@ steps:
     replaceExistingArchive: true 
 
 - task: PublishBuildArtifacts@1
-  condition: succeeded()
   displayName: Publish deployable artifacts
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: site
@@ -839,7 +959,7 @@ steps:
         git -c http.extraheader="AUTHORIZATION: $auth" push origin master -q > $null
   failOnStderr: false
   ignoreLASTEXITCODE: true
-  condition: and( succeeded(), ne(variables['Build.Reason'], 'PullRequest') )
+  condition: and(succeeded(), eq(variables['System.PullRequest.PullRequestId'], ''), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   displayName: Commit changes
 
 # step from template @ nf-tools repo
