@@ -229,6 +229,14 @@ steps:
     projects: 'DocFxCompanion/src/TocDocFxCreation'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\content -s -r -g'
 
+- task: DotNetCoreCLI@2
+  displayName: 'Check internal links in the core repo'
+  condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
+  inputs:
+    command: 'run'
+    projects: 'DocFxCompanion/src/DocLinkChecker'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\content -t'
+
 # we then need to add the root index page to the toc
 - powershell: |
     # read all lines into `$fileContents`
