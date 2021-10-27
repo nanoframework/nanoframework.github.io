@@ -42,4 +42,4 @@ static void WaitIP()
 
 ## Can I debug nanoCLR code on ESP32 using Visual Studio without any special hardware
 
-Yes you can! Follow the old-school steps described [here](../getting-started-guides/build-esp32.md#debugging-nanoclr-without-special-hardware).
+Yes you can! Follow the old-school steps described [here](../building/build-esp32.md#debugging-nanoclr-without-special-hardware).

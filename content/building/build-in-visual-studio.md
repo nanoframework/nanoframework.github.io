@@ -25,10 +25,10 @@ You should now have the pieces in place to build, deploy and debug the nanoFrame
 Install the following :
 
 | Software | Workload/Component |
-|:-|---|
+|:---|---|
 | Visual Studio 2019 community edition |Linux development with C++|
-|option|C++ CMake tools for Windows and Linux
-|option|Embedded and IoT Development tools
+|option|C++ CMake tools for Windows and Linux|
+|option|Embedded and IoT Development tools|
 
 ### Configuration Files
 
@@ -103,7 +103,7 @@ The STM32 builds are most likely to require a shortened build path, so we can us
 
 Once the program has been built and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:
 
-![VS2019 toolbar](../../../images/getting-started/VS2019Toolbars.png)
+![VS2019 toolbar](../../images/getting-started/VS2019Toolbars.png)
 
 >Note that the launch configuration, here  `ESP32 nanoCLR - Segger JLink`, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!
 
@@ -111,7 +111,7 @@ You can then commence debugging from the top DEBUG menu.
 
 OpenOCD should open in its own console window, connect to the target device, and display something similar to this:
 
-![Open ODCconsole](../../../images/getting-started/OpenOCDConsole.png)
+![Open ODCconsole](../../images/getting-started/OpenOCDConsole.png)
 
 In the VS2019 IDE output Window you should see:
 
@@ -152,7 +152,7 @@ Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_
 
 The processor has now stopped at the temporary breakpoint inserted by our `launch.vs.json` startup sequence, showing as an Exception at the entry point in the source code window.
 
-![VS2019 Breakpoint](../../../images/getting-started/VS2019Breakpoint.png)
+![VS2019 Breakpoint](../../images/getting-started/VS2019Breakpoint.png)
 
 You can now step through the code, observe variables, set breakpoints  and so on.
 
@@ -241,11 +241,11 @@ Place a copy of the hex2dfu.exe tool here
 #### Setup and Installation
 
 | Software Component | Notes | Link |
-|:-|---|---|
-| Visual Studio 2017 community edition |Linux development with C++|
-|option|Visual C++ tools for Cmake and Linux
-|option|Embedded and IoT Development|GCC version 6.3.1. December/2018
-|GCC Tool Chain - Version 7-2018-q2-update|GNU Arm Embedded Toolchain|<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>#
+|:---|---|---|
+| Visual Studio 2017 community edition |Linux development with C++||
+|option|Visual C++ tools for Cmake and Linux||
+|option|Embedded and IoT Development|GCC version 6.3.1. December/2018|
+|GCC Tool Chain - Version 7-2018-q2-update|GNU Arm Embedded Toolchain|<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>|
 
 #### GCC Toolchain NOTES
 

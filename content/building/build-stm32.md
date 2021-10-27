@@ -164,7 +164,7 @@ There are two options to flash the nanoBooter & nanoCLR images to a target. The 
 
 ### Using STM32CubeProgrammer Utility
 
-Follow the instructions [here](../../../stm32/flash-cube-programmer.md) to install STM32CubeProgrammer and flash `nanoBooter.hex` and `nanoCLR.hex` images to the board. Also this is not mandatory as all this can be handled by VS Code.
+Follow the instructions [here](../stm32/flash-cube-programmer.md) to install STM32CubeProgrammer and flash `nanoBooter.hex` and `nanoCLR.hex` images to the board. Also this is not mandatory as all this can be handled by VS Code.
 
 ## Next Steps
 

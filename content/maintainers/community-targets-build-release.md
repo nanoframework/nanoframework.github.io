@@ -35,4 +35,5 @@ When merging a PR make sure to add to the commit message the token(s) for the ta
 It's possible to manually start a build _and_ specify that it should build all targets. This is most handy, for example, after a number of changes in the nf-interpreter repo to build new images for the Community targets. Another situation is when one forgets to add the build token in the PR merge and needs to trigger a build afterwards.
 
 To do this, go to the Builds page in the project Azure Pipelines and hit the 'Queue' button. When the pop-up shows, change the BUILD_ALL variable to 'true'. Like this:
-![build community targets](../images/docs-trigger-build-all-community-targets.png)
+
+![build community targets](../../images/docs-trigger-build-all-community-targets.png)

@@ -13,7 +13,7 @@ Considering that the heavy-lifting on the ADC configuration and initial setup is
 For the remaining of this document we'll be using ST STM32F769I_DISCOVERY reference target and will configure the ADC to use the ADC channels exposed through the CN14 connector. From the schematics of the board (mb1225 F769I-DISCO schematic.pdf downloadable from ST web site) one can see that the following channels exposed:
 
 | pad | GPIO pin | ADC channel |
-|:-:|:-:|:-:|
+|:---:|:---:|:---:|
 | A0 | PA6 | ADC1_IN6 |
 | A1 | PA4 | ADC1_IN4 |
 | A2 | PC2 | ADC1_IN12 |
@@ -24,7 +24,7 @@ For the remaining of this document we'll be using ST STM32F769I_DISCOVERY refere
 To fully take advantage of the ADC hardware we are going to enable the internal ADC sources. These ones have to be mapped to ADC1.
 
 | pad | GPIO pin | ADC channel |
-|:-:|:-:|:-:|
+|:---:|:---:|:---:|
 | N.A. | N.A. | ADC1_TEMP_SENSOR |
 | N.A. | N.A. | ADC1_VREFINT |
 | N.A. | N.A. | ADC1_VBAT |

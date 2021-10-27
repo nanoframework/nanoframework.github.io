@@ -7,7 +7,7 @@ This document describes how the CLR manged heap is defined as a ChibiOS target.
 For STM32 based devices:
 The configurations are chained by linker files:
 
-- the target linker file provided for the nanoCLR in the target board folder, e.g. [STM32F091xC.ld](../../targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoCLR/STM32F091xC.ld) and from within calls rules.ld **except** the F7 series which calls rules_clr.ld, rules_code.ld, rules_data.ld and rules_stacks.ld directly.
+- the target linker file provided for the nanoCLR in the target board folder, e.g. [STM32F091xC.ld](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoCLR/STM32F091xC.ld) and from within calls rules.ld **except** the F7 series which calls rules_clr.ld, rules_code.ld, rules_data.ld and rules_stacks.ld directly.
 - [rules.ld](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/common/rules.ld) (which is common to all STM32 based ChibiOS targets and calls the next set of linker files)
 - [rules_clr.ld](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/common/rules_clr.ld), [rules_code.ld](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/common/rules_code.ld), [rules_data.ld](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/common/rules_data.ld) and [rules_stacks.ld](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/common/rules_stacks.ld)
 

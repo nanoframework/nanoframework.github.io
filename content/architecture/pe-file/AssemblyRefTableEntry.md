@@ -4,7 +4,7 @@ The assembly Reference table contains references to other assemblies. The runtim
 
 The format of the AssemblyRefTableEntry is as follows:
 
-| Name      | Type                  | Description  
-|-----------|-----------------------|------------  
-| Name      | StringTableIndex      | index into the string table blob for the name of the referenced assembly
-| Version   | VersionInfo           | VersionInfo structure for the version of the assembly (Checked at runtime for an EXACT match)
+| Name      | Type                  | Description  |
+|-----------|-----------------------|------------  |
+| Name      | StringTableIndex      | index into the string table blob for the name of the referenced assembly|
+| Version   | VersionInfo           | VersionInfo structure for the version of the assembly (Checked at runtime for an EXACT match)|
