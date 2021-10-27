@@ -6,7 +6,7 @@ The MethodRef table contains entries with the following structure
 |-------------------|------------------|------------  |
 | Name | StringTableIndex | Index into [String table](StringTable.md) for the name of the method|
 | RVA | MetadataOffset | Offset into the IL byte code blob table for the opcodes of the method|
-| Flags | MethodDefFlags  Flags to indicate intrinsic attributes and semantics of the method|
+| Flags | MethodDefFlags | Flags to indicate intrinsic attributes and semantics of the method|
 | RetVal | DataType | DataType of the return value for the method|
 | ArgumentsCount | uint8_t | Count of arguments to the method|
 | LocalsCount | uint8_t | Count of local variables for the method|

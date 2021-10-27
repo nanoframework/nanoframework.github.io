@@ -22,7 +22,7 @@ Typos are embarrassing! We will accept most PRs that fix typos. In order to make
 
 ## Coding Style Changes
 
-We would like to have .NET **nanoFramework** in full conformance with the style guidelines described here [C/C++ Coding Style](cxx-coding-style.html) and here [C# Coding Style](cs-coding-style.html). We plan to do that with tooling, in a holistic way. In the meantime, please:
+We would like to have .NET **nanoFramework** in full conformance with the style guidelines described here [C/C++ Coding Style](cxx-coding-style.md) and here [C# Coding Style](cs-coding-style.md). We plan to do that with tooling, in a holistic way. In the meantime, please:
 
 - **DO NOT** send PRs for style changes.
 - **DO** give priority to the current style of the project or file you're changing even if it diverges from the general guidelines.

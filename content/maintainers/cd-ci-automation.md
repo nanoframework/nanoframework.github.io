@@ -15,7 +15,7 @@ The command syntax is: `@nfbot comand <argument(s)>`.
 Available commands:
 
 | Command | Argument | Description |
-|:-|:-|:-|
+|:---|:---|:---|
 | updatedependents | - | Update the libraries that depend on this library |
 | updatedependencies | - | Check if there are updated versions of the referenced libraries and update if needed |
 | startrelease | - | Kick a release candidate workflow for this library |

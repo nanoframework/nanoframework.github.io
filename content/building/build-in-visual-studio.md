@@ -27,8 +27,8 @@ Install the following :
 | Software | Workload/Component |
 |:---|---|
 | Visual Studio 2019 community edition |Linux development with C++|
-|option|C++ CMake tools for Windows and Linux
-|option|Embedded and IoT Development tools
+|option|C++ CMake tools for Windows and Linux|
+|option|Embedded and IoT Development tools|
 
 ### Configuration Files
 
@@ -242,10 +242,10 @@ Place a copy of the hex2dfu.exe tool here
 
 | Software Component | Notes | Link |
 |:---|---|---|
-| Visual Studio 2017 community edition |Linux development with C++|
-|option|Visual C++ tools for Cmake and Linux
-|option|Embedded and IoT Development|GCC version 6.3.1. December/2018
-|GCC Tool Chain - Version 7-2018-q2-update|GNU Arm Embedded Toolchain|<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>#
+| Visual Studio 2017 community edition |Linux development with C++||
+|option|Visual C++ tools for Cmake and Linux||
+|option|Embedded and IoT Development|GCC version 6.3.1. December/2018|
+|GCC Tool Chain - Version 7-2018-q2-update|GNU Arm Embedded Toolchain|<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>|
 
 #### GCC Toolchain NOTES
 

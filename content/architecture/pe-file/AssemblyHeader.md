@@ -4,20 +4,20 @@ The AssemblyHeader structure contains a number of verification markers and CRCs 
 
 The Structure of the AssemblyHeader is as follows:
 
-| Name                                            | Type                  | Description  
-|-------------------------------------------------|-----------------------|------------  
-| [Marker](#marker)                               | `uint8_t[8]`          | Id marker for an assembly  
-| [HeaderCRC](#headercrc)                         | `uint32_t`            | CRC32 of the AssemblyHeader structure itself
-| [AssemblyCRC](#assemblycrc)                     | `uint32_t`            | CRC32 of the complete assembly
-| [Flags](#flags)                                 | [AssemblyHeaderFlags](#flags) | Flags for the assembly
-| [NativeMethodsChecksum](#nativemethodschecksum) | `uint32_t`            | Native Method Checksum
-| [NativeMethodsOffset](#nativemethodsoffset)     | `uint32_t`            | Native Methods Offset
-| [Version](#version)                             | `VersionInfo`         | Version information data structure for this assembly
-| [AssemblyName](#assemblyname)                   | `uint16_t`            | String table index for the Assembly's name
-| [StringTableVersion](#stringtableversion)       | `uint16_t`            | String table version
-| [StartOfTables](#startoftables)                 | `uint32_t[16]`        | Array of offsets into the PE file for the metadata tables
-| NumberOfPatchedMethods                          | `uint32_t`            | Number of patched methods
-| [PaddingOfTables](#paddingoftables)             | `uint8_t[16]`         | amount of alignment padding for each metadata table
+| Name                                            | Type                  | Description  |
+|-------------------------------------------------|-----------------------|------------  |
+| [Marker](#marker)                               | `uint8_t[8]`          | Id marker for an assembly  |
+| [HeaderCRC](#headercrc)                         | `uint32_t`            | CRC32 of the AssemblyHeader structure itself|
+| [AssemblyCRC](#assemblycrc)                     | `uint32_t`            | CRC32 of the complete assembly|
+| [Flags](#flags)                                 | [AssemblyHeaderFlags](#flags) | Flags for the assembly|
+| [NativeMethodsChecksum](#nativemethodschecksum) | `uint32_t`            | Native Method Checksum|
+| [NativeMethodsOffset](#nativemethodsoffset)     | `uint32_t`            | Native Methods Offset|
+| [Version](#version)                             | `VersionInfo`         | Version information data structure for this assembly|
+| [AssemblyName](#assemblyname)                   | `uint16_t`            | String table index for the Assembly's name|
+| [StringTableVersion](#stringtableversion)       | `uint16_t`            | String table version|
+| [StartOfTables](#startoftables)                 | `uint32_t[16]`        | Array of offsets into the PE file for the metadata tables|
+| NumberOfPatchedMethods                          | `uint32_t`            | Number of patched methods|
+| [PaddingOfTables](#paddingoftables)             | `uint8_t[16]`         | amount of alignment padding for each metadata table|
 
 ## Field Details
 
@@ -28,10 +28,10 @@ The following sections describe the individual fields of the AssemblyHeader stru
 The assembly marker is an eight character marker consisting of a string non zero terminated ASCII encoded characters.
 This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string. 
 
-| Version  | Marker   | Description
-|----------|----------|------------  
-| 1.0      | 'NFMRK1' | Marker for version 1.0
-| 2.0      | 'NFMRK2' | Marker for version 2.0 (after adding support for generics)
+| Version  | Marker   | Description|
+|----------|----------|------------  |
+| 1.0      | 'NFMRK1' | Marker for version 1.0|
+| 2.0      | 'NFMRK2' | Marker for version 2.0 (after adding support for generics)|
 
 ### HeaderCRC
 
@@ -81,10 +81,10 @@ Fixed array of offsets to the table data for each of the different tables. The e
 | [TypeSpec](TypeSpecTableEntry.md)                            | CLR_RECORD_TYPESPEC               | TypeSpecifications (signatures) used in this assembly|
 | [Resources](ResourcesTableEntry.md)                          | CLR_RECORD_RESOURCE               | Resource items in a resource file bound to this assembly|
 | [ResourcesData](ResourcesTableEntry.md)                        | \<blob>                           | Blob table data for the resources|
-| [Strings](StringsTable.md)                                    | \<blob>                           | Blob table data for the strings|
-| [Signatures](SignaturesTable.md)                              | \<blob>                           | Blob table data for the metadata signatures|
+| [Strings](StringTable.md)                                    | \<blob>                           | Blob table data for the strings|
+| [Signatures](SignatureTable.md)                              | \<blob>                           | Blob table data for the metadata signatures|
 | [ByteCode](Common-PE-Types-and-Enumerations.md)                                  | \<blob>                           | Blob table data for the IL byte code instructions|
-| [ResourcesFiles](ResourcesFilesTableEntry.md)                | CLR_RECORD_RESOURCE_FILE          | Resource files descriptors for resource files bound to this assembly|
+| [ResourcesFiles](ResourcesTableEntry.md)                | CLR_RECORD_RESOURCE_FILE          | Resource files descriptors for resource files bound to this assembly|
 | [EndOfAssembly](Common-PE-Types-and-Enumerations.md)                            | \<N/A>                            | Technically, this is not a table. Instead this entry contains the offset to the end of the assembly, which is useful for finding the next assembly in a DAT region|
 
 ### NumberOfPatchedMethods

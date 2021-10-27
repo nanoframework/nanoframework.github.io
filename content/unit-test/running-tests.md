@@ -57,7 +57,7 @@ Once you'll run the rests, they will be deployed into the device attached to you
 
 Simply press the play button for all the tests or just the test you want to run. In case of success, you'll see something like this:
 
-![test success](../../imagestest-success.jpg)
+![test success](../../images/test-success.jpg)
 
 In case one of your test will fail, you'll see this:
 
