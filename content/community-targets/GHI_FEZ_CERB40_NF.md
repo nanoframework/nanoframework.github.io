@@ -53,7 +53,7 @@ The available pins have been set as can be read in the board.h file and it is th
 | 39 | PC9 | | | |
 | 40 | USB | | | |
 
-For more information on the board specifics you can have a look at the [GHI Electronics Cerb40 page](http://old.ghielectronics.com/catalog/product/353)
+For more information on the board specifics you can have a look at the [GHI Electronics Cerb40 page](https://docs.ghielectronics.com/hardware/breakout/fez-cerb40.html)
 
 **NOTE: this configuration was successfully tested in a GHI_FEZ_CERB40_NF board using the Serial over USB connection on USB port 1 that creates a virtual COM port.**
 

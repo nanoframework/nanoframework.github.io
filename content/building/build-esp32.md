@@ -120,7 +120,7 @@ Next time VS Code open it should load the workspace automatically.
 
 1. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 
-1. In the status bar at the bottom left, click on the `CMake:Debug ESP32_PSRAM_REV0: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets [here](../reference-targets\esp32.md).  
+1. In the status bar at the bottom left, click on the `CMake:Debug ESP32_PSRAM_REV0: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets [here](../reference-targets/esp32.md).  
 ![updated path](../../images/building/esp32/kit-selection.png)
 
 1. In the status bar click `Build` or hit F7.

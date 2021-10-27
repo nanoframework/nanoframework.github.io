@@ -53,7 +53,7 @@ Explore our knowledge base, API documentation, samples, guides and tutorials.
 - [Community provided target boards](content/community-targets/index.md)
 - [ESP32 specific content](content/esp32/index.md)
 - [STM32 specific content](content/stm32/index.md)
-- [TI specific content](content/ti-cc32xx/index.md)
+- [TI specific content](content/ti-simplelink/index.md)
 
 Know how to contribute to .NET **nanoFramework** project.
 

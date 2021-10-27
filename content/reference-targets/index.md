@@ -26,10 +26,6 @@ We provide ready build firmware images for several reference target boards. Thes
 
 - [NXP i.MX_RT1060_EVK](mimxrt-1060-evk.md)
 
-## Mikrobus.Net board
-
-- [MBN_QUAIL](mbn-quail.md)
-
 ## Netduino boards
 
 - [NETDUINO3_WIFI](netduino3-wifi.md)
