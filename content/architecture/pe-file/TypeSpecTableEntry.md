@@ -2,9 +2,9 @@
 
 The TypeSpec table is used to describe composite types, like an array.
 
-| Name | Type                 | Description  
-|------|----------------------|------------  
-| Sig  | SigTableIndex        | Index into [signature table](SignatureTable.md) for the TypeSpec
+| Name | Type                 | Description  |
+|------|----------------------|------------  |
+| Sig  | SigTableIndex        | Index into [signature table](SignatureTable.md) for the TypeSpec|
 
 ## Signature Table Usage
 

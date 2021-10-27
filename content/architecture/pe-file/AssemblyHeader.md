@@ -66,26 +66,26 @@ Should be equal to 1
 
 Fixed array of offsets to the table data for each of the different tables. The entries in this array are offsets from the start of the assembly header itself (e.g. the file seek offset if the PE image is from a file)
 
-| Name                                                         | .NET **nanoFramework** Source Element Name | Description
-|--------------------------------------------------------------|-----------------------------------|-----------
-| [AssemblyRef](AssemblyRefTableEntry.md)                      | CLR_RECORD_ASSEMBLYREF            | Table of Assembly references
-| [TypeRef](TypeRefTableEntry.md)                              | CLR_RECORD_TYPEREF                | Reference to a type in another assembly
-| [FieldRef](FieldRefTableEntry.md)                            | CLR_RECORD_FIELDREF               | Reference to a field of a type in another assembly
-| [MethodRef](MethodRefTableEntry.md)                          | CLR_RECORD_METHODREF              | Reference to a method of a type in another assembly
-| [TypeDef](TypeDefTableEntry.md)                              | CLR_RECORD_TYPEDEF                | Type definition for a type in this assembly
-| [FieldDef](FieldDefTableEntry.md)                            | CLR_RECORD_FIELDDEF               | Field definition for a type in this assembly
-| [MethodDef](MethodDefTableEntry.md)                          | CLR_RECORD_METHODDEF              | Method definition for a type in this assembly
-| [GenericParam](GenericParamTableEntry.md)                    | CLR_RECORD_GENERICPARAM           | Generic parameter definition (new in v2.0)
-| [MethodSpec](MethodSpecTableEntry.md)                        | CLR_RECORD_METHODSPEC             | Method specification (new in v2.0)
-| [Attributes](AttributesTableEntry.md)                        | CLR_RECORD_ATTRIBUTE              | Attribute types defined in this assembly
-| [TypeSpec](TypeSpecTableEntry.md)                            | CLR_RECORD_TYPESPEC               | TypeSpecifications (signatures) used in this assembly
-| [Resources](ResourcesTableEntry.md)                          | CLR_RECORD_RESOURCE               | Resource items in a resource file bound to this assembly
-| [ResourcesData](ResourcesDataBlob.md)                        | \<blob>                           | Blob table data for the resources
-| [Strings](StringsBlob.md)                                    | \<blob>                           | Blob table data for the strings
-| [Signatures](SignaturesBlob.md)                              | \<blob>                           | Blob table data for the metadata signatures
-| [ByteCode](ByteCodeBlob.md)                                  | \<blob>                           | Blob table data for the IL byte code instructions
-| [ResourcesFiles](ResourcesFilesTableEntry.md)                | CLR_RECORD_RESOURCE_FILE          | Resource files descriptors for resource files bound to this assembly
-| [EndOfAssembly](EndOfAssembly.md)                            | \<N/A>                            | Technically, this is not a table. Instead this entry contains the offset to the end of the assembly, which is useful for finding the next assembly in a DAT region
+| Name                                                         | .NET **nanoFramework** Source Element Name | Description |
+|--------------------------------------------------------------|-----------------------------------|-----------|
+| [AssemblyRef](AssemblyRefTableEntry.md)                      | CLR_RECORD_ASSEMBLYREF            | Table of Assembly references|
+| [TypeRef](TypeRefTableEntry.md)                              | CLR_RECORD_TYPEREF                | Reference to a type in another assembly|
+| [FieldRef](FieldRefTableEntry.md)                            | CLR_RECORD_FIELDREF               | Reference to a field of a type in another assembly|
+| [MethodRef](MethodRefTableEntry.md)                          | CLR_RECORD_METHODREF              | Reference to a method of a type in another assembly|
+| [TypeDef](TypeDefTableEntry.md)                              | CLR_RECORD_TYPEDEF                | Type definition for a type in this assembly|
+| [FieldDef](FieldDefTableEntry.md)                            | CLR_RECORD_FIELDDEF               | Field definition for a type in this assembly|
+| [MethodDef](MethodDefTableEntry.md)                          | CLR_RECORD_METHODDEF              | Method definition for a type in this assembly|
+| [GenericParam](GenericParamTableEntry.md)                    | CLR_RECORD_GENERICPARAM           | Generic parameter definition (new in v2.0)|
+| [MethodSpec](MethodSpecTableEntry.md)                        | CLR_RECORD_METHODSPEC             | Method specification (new in v2.0)|
+| [Attributes](AttributeTableEntry.md)                        | CLR_RECORD_ATTRIBUTE              | Attribute types defined in this assembly|
+| [TypeSpec](TypeSpecTableEntry.md)                            | CLR_RECORD_TYPESPEC               | TypeSpecifications (signatures) used in this assembly|
+| [Resources](ResourcesTableEntry.md)                          | CLR_RECORD_RESOURCE               | Resource items in a resource file bound to this assembly|
+| [ResourcesData](ResourcesTableEntry.md)                        | \<blob>                           | Blob table data for the resources|
+| [Strings](StringsTable.md)                                    | \<blob>                           | Blob table data for the strings|
+| [Signatures](SignaturesTable.md)                              | \<blob>                           | Blob table data for the metadata signatures|
+| [ByteCode](Common-PE-Types-and-Enumerations.md)                                  | \<blob>                           | Blob table data for the IL byte code instructions|
+| [ResourcesFiles](ResourcesFilesTableEntry.md)                | CLR_RECORD_RESOURCE_FILE          | Resource files descriptors for resource files bound to this assembly|
+| [EndOfAssembly](Common-PE-Types-and-Enumerations.md)                            | \<N/A>                            | Technically, this is not a table. Instead this entry contains the offset to the end of the assembly, which is useful for finding the next assembly in a DAT region|
 
 ### NumberOfPatchedMethods
 
