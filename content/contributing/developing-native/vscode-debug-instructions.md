@@ -17,7 +17,7 @@ You'll need:
 
 You'll need a binary image with debug information to be loaded in the SoC or MCU.
 Assuming you are using VS Code to launch your builds, you'll have this image ready to be loaded in the MCU.
-(see [Build instructions documentation](build-instructions.md))
+(see [Build instructions documentation](../../building/build-instructions.md))
 
 In order to launch the debug session you'll need to setup the *launch.json* file, located in the .vscode folder.
 We've provided a template file `launch.TEMPLATE.json` (inside .vscode folder on the repository) to get you started with this. Just copy it and rename to *launch.json*.

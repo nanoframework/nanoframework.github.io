@@ -220,10 +220,6 @@ Copy of the OpenOCD installation <https://github.com/xpack-dev-tools/openocd-xpa
 
 Place a copy of the hex2dfu.exe tool here
 
-### Example of the directory structure
-
-![VS Dev Directory Structure](VSDevDirectoryStructure.png)
-
 ### Major configuration files
 
 #### Main CMakeSettings.json

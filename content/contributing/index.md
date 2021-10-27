@@ -84,7 +84,7 @@ Providing a testimonial with an endorsement to the project or highlighting a fea
   - [GitHub Labels](labels.md)
   - [Project priorities](project-priorities.md)
   - [Contribution License Agreement](cla.md)
-  - [Developing native code](developing-native/)
+  - Developing native code
     - [Debug with VS Code](developing-native/vscode-debug-instructions.md)
     - [Debug class libraries and startup](developing-native/debugging-class-libraries.md)
     - [Use a viewer to watch output from Cortex-M SWO](developing-native/arm-swo.md)

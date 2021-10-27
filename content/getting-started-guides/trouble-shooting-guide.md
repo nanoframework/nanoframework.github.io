@@ -21,7 +21,7 @@ Here are solutions to some common problems when getting started.
 - The C++ assembly version is determined by nanoff and the version of the firmware you selected.  `mscorlib` is the most common problem in matching since it tends to get resolved early.
 - When loading firmware with nanoff if you are using preview/prerelease NuGet packages then use the `-preview` option when updating firmware.
 - The description of the NuGet package will contain the version and checksum of the native assembly that is required.
-- See [Guide for package and assembly versions and checksums](guide-versions-checksums.md) for more info.
+- See [Guide for package and assembly versions and checksums](guide-version-checksums.md) for more info.
 - Use the **Device Capabilities** button ![Device Capabilities](../../images/getting-started-guides/device-capabilities.png) on the **Device Explorer** to see what assembly versions and checksums are installed on the device as part of the firmware. 
 - If you are changing a nanoFramework component and you change the interface/contract of either the C# code or the C++ code, you will get a checksum mismatch error instead of a version mismatch error.  This is the mechanism that prevents developers from breaking the contract without generating new versions and checksums.
 

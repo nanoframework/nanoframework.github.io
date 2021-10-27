@@ -74,7 +74,7 @@ Basic peripherals available in nanoFramework:
 
 *Please note that I2C1, SPI1 and I2S3 are used by the on board sensors, audio DAC and can not be used for generic use therefore I2C3 and SPI2 have been made available.*
 
-For more details on what pins the on board sensors can be addressed please refer to the board's [user manual](http://www.st.com/resource/en/user_manual/dm00148985.pdf) and the previous mentioned [header file](board.h) or the corresponding configuration file in the board's root folder.
+For more details on what pins the on board sensors can be addressed please refer to the board's [user manual](http://www.st.com/resource/en/user_manual/dm00148985.pdf) and the previous mentioned [header file](https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/ST_STM32F411_DISCOVERY/board.h) or the corresponding configuration file in the board's root folder.
 
 ## MCU Clock usage
 

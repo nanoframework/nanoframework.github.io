@@ -72,7 +72,7 @@ The following explains each line of the *linkage* section. Text highlighted in *
 - "CHIBIOS_BOARD" : "**valid-chibios-board-name-from-boards-collection**"
   - Name of your board, chosen from the available boards collection that can be found in the \os\hal\boards folder of the ChibiOS installation (or distant repository)
 - "SWO_OUTPUT" : "**OFF**"
-  - Allows specifying whether to include, or not, support for Cortex-M Single Wire Output (SWO). Default is OFF. Check the documentation [here](arm-swo.md) for more details on how to use SWO.
+  - Allows specifying whether to include, or not, support for Cortex-M Single Wire Output (SWO). Default is OFF. Check the documentation [here](../contributing/developing-native/arm-swo.md) for more details on how to use SWO.
 - "NF_BUILD_RTM" : "**OFF**"
   - Sets if the build is of **R**eady **T**o **M**arket type. Meaning that all debug helpers and code blocks will be removed from compilation and the build will be compiled and linked with all possible code reducing options enabled.
 - "NF_WP_TRACE_ERRORS" : "**OFF**"
