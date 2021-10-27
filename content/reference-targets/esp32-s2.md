@@ -2,7 +2,7 @@
 
 These are the firmware images:
 
-- FEATHER_S2 that _fits_ all ESP32-S2 boards. These can be FeatherS2, TinyS2, or ESP32-S2-Saola-1 variants. 
+- FEATHER_S2 that _fits_ all ESP32-S2 boards exposing the embedded USB CDC through GPIO19 and GPIO20. These can be FeatherS2, TinyS2 or any other similar hardware with or without PSRAM. 
 - KALUGA_1 specific for the ESP32-S2-Kaluga-1 Kit. This one includes the UI features and driver for the ILI9341.
 
 You can check Espressif [Product Selector](https://products.espressif.com/#/product-selector?names=&filter={%22Series%22:[%22ESP32-S2%22]}) for details on all the existing variants, chips, modules and respective development kits.
@@ -31,3 +31,5 @@ You can check Espressif [Product Selector](https://products.espressif.com/#/prod
 |:-|---|---|
 | FEATHER_S2 | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/FEATHER_S2/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/FEATHER_S2/latest/) | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-dev/raw/FEATHER_S2/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-dev/packages/detail/raw/FEATHER_S2/latest/) |
 | KALUGA_1 | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/KALUGA_1/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/KALUGA_1/latest/) | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-dev/raw/KALUGA_1/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-dev/packages/detail/raw/KALUGA_1/latest/) |
+
+:warning: To update FeatherS2 and TinyS2 with [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher) the boards need to put in _download mode_ by holding [BOOT], clicking [RESET] and then releasing [BOOT].
