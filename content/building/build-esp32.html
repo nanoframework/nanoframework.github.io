@@ -106,23 +106,14 @@ The build is based on CMake tool to ease the development in all major platforms.
 </li>
 </ul>
 <h2 id="overview">Overview</h2>
-<ol>
-<li><p>Create a directory structure such as the following:</p>
-<ul>
-<li><code>C:\nanoFramework</code></li>
-</ul>
-</li>
-<li><p>Download and install <a href="http://code.visualstudio.com">Visual Studio Code</a>.</p>
-</li>
-<li><p>Clone <a href="https://github.com/nanoframework/nf-interpreter"><code>nf-interpreter</code></a> repository into <code>C:\nanoFramework\nf-interpreter</code>. See next section for more info.</p>
-</li>
-<li><p>Install ESP-IDF Tools by using the installer provided by Espressif.</p>
-</li>
-<li><p>Review and adjust several JSON files to match your environment (as documented below)</p>
-</li>
-<li><p>Restart Visual Studio Code (due to json changes)</p>
-</li>
-</ol>
+<p>-<strong>Step 1</strong>: Create a directory structure such as the following:</p>
+<pre><code>  `C:\nanoFramework`
+</code></pre>
+<p>-<strong>Step 2</strong>: Download and install <a href="http://code.visualstudio.com">Visual Studio Code</a>.</p>
+<p>-<strong>Step 3</strong>: Clone <a href="https://github.com/nanoframework/nf-interpreter"><code>nf-interpreter</code></a> repository into <code>C:\nanoFramework\nf-interpreter</code>. See next section for more info.</p>
+<p>-<strong>Step 4</strong>: Install ESP-IDF Tools by using the installer provided by Espressif.</p>
+<p>-<strong>Step 5</strong>: Review and adjust several JSON files to match your environment (as documented below)</p>
+<p>-<strong>Step 6</strong>: Restart Visual Studio Code (due to json changes)</p>
 <h2 id="net-nanoframework-github-repo">.NET <strong>nanoFramework</strong> GitHub repo</h2>
 <p>If you intend to change the nanoCLR and create Pull Requests then you will need to fork the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as <a href="https://fork.dev">Fork</a> or the <a href="https://desktop.github.com">GitHub Desktop application</a>.</p>
 <p>The <em>develop</em> branch is the default working branch. When working on a fix or experimenting a new feature you should do it on another branch. See the <a href="../contributing/contributing-workflow.html#suggested-workflow">Contributing guide</a> for specific instructions on the suggested contributing workflow.</p>
@@ -130,87 +121,55 @@ The build is based on CMake tool to ease the development in all major platforms.
 <p>Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMake does not support filenames in excess of 250 characters.</p>
 <h2 id="setting-up-the-build-environment">Setting up the build environment</h2>
 <p>After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.</p>
-<h3 id="automated-install-of-the-build-environment">Automated Install of the build environment</h3>
+<h3 id="manual-install-of-the-build-environment">Manual install of the build environment</h3>
 <p>(If you already have installed ESP-IDF Tools you can skip this step.)</p>
-<ol>
-<li><p>Install ESP-IDF Tools by using the installer provided by Espressif <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer">here</a>. The installer includes all the pre-requisites.</p>
-</li>
-<li><p>After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.</p>
-</li>
-<li><p>Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.</p>
-</li>
-</ol>
+<p>-<strong>Step 1</strong>: Install ESP-IDF Tools by using the installer provided by Espressif <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer">here</a>. The installer includes all the pre-requisites.</p>
+<p>-<strong>Step 2</strong>: After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.</p>
+<p>-<strong>Step 3</strong>: Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-repo-location.png" alt="idf repo location"></p>
-<ol>
-<li>Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.</li>
-</ol>
+<p>-<strong>Step 4</strong>: Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-location.png" alt="idf tools location"></p>
-<ol>
-<li>At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.</li>
-</ol>
+<p>-<strong>Step 5</strong>: At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-options.png" alt="options"></p>
-<ol>
-<li><p>The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...</p>
-</li>
-<li><p>After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script <code>install</code>. This will <em>hopefully</em> install all the requirements and prerequisites.</p>
-</li>
-<li><p>Now execute the script <code>export</code>. This will <em>hopefully</em> update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.</p>
-</li>
-<li><p>Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.</p>
-</li>
-</ol>
+<p>-<strong>Step 6</strong>: The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...</p>
+<p>-<strong>Step 7</strong>: After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script <code>install</code>. This will <em>hopefully</em> install all the requirements and prerequisites.</p>
+<p>-<strong>Step 8</strong>: Now execute the script <code>export</code>. This will <em>hopefully</em> update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.</p>
+<p>-<strong>Step 9</strong>: Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-path.png" alt="updated path"></p>
-<ol>
-<li>Also worth checking if the following environment variables have also been setup:</li>
-</ol>
+<p>-<strong>Step 10</strong>: Also worth checking if the following environment variables have also been setup:</p>
 <ul>
 <li><code>IDF_PATH</code>: must point to the location where the ESP-IDF repo was cloned (see step 3. above).</li>
 <li><code>IDF_PYTHON_ENV_PATH</code>: must point to Python install location.</li>
 <li><code>IDF_TOOLS_PATH</code>: must point to the location where the ESP-IDF tools where installed (see step 3. above).</li>
 </ul>
-<p>⚠️ <strong>Having the path property setup it's absolutely mandatory in order to be able to build.</strong> ⚠️</p>
+<p>⚠️ <strong>Having the path properly setup it's absolutely mandatory in order to be able to build.</strong> ⚠️</p>
 <h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
-<ol>
-<li><p>Install the extensions:</p>
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
-</ul>
-</li>
-<li><p>Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
-<pre><code class="lang-ps">.\Initialize-VSCode.ps1
+<p>-<strong>Step 1</strong>: Install the extensions:</p>
+<pre><code>- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 </code></pre>
-<ul>
-<li>You can force the environment variables to be updated by adding <code>-Force</code> to the command line.</li>
-<li>The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit <code>tasks.json</code>, <code>launch.json</code>, <code>cmake-variants.json</code> and <code>settings.json</code> to replace the relevant paths. <strong>!!mind to always use forward slashes in the paths!!</strong></li>
-<li>More info available on the <a href="cmake-tools-cmake-variants.html">Tweaking cmake-variants.TEMPLATE.json</a> documentation page.</li>
-</ul>
-</li>
-<li><p>Save any open files and <strong>RESTART</strong> VS Code. Have you <strong>RESTARTED</strong> VS Code? You really have to do it otherwise this won't work.</p>
-</li>
-</ol>
+<p>-<strong>Step 2</strong>: Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
+<pre><code>```ps
+.\Initialize-VSCode.ps1
+```
+
+- You can force the environment variables to be updated by adding `-Force` to the command line.
+- The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json`, `cmake-variants.json` and `settings.json` to replace the relevant paths. **!!mind to always use forward slashes in the paths!!**
+- More info available on the [Tweaking cmake-variants.TEMPLATE.json](../building/cmake-tools-cmake-variants.md) documentation page.
+</code></pre>
+<p>-<strong>Step 3</strong>: Save any open files and <strong>RESTART</strong> VS Code. Have you <strong>RESTARTED</strong> VS Code? You really have to do it otherwise this won't work.</p>
 <h2 id="build-nanoclr">Build nanoCLR</h2>
-<ol>
-<li><p>Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.
+<p>-<strong>Step 1</strong>: Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.
 Next time VS Code open it should load the workspace automatically.</p>
-</li>
-<li><p>In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
-</li>
-<li><p>In the status bar at the bottom left, click on the <code>CMake:Debug ESP32_PSRAM_REV0: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets <a href="../reference-targets/esp32.html">here</a>.<br>
+<p>-<strong>Step 2</strong>: In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
+<p>-<strong>Step 3</strong>: In the status bar at the bottom left, click on the <code>CMake:Debug ESP32_PSRAM_REV0: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets <a href="../reference-targets/esp32.html">here</a>.<br>
 <img src="../../images/building/esp32/kit-selection.png" alt="updated path"></p>
-</li>
-<li><p>In the status bar click <code>Build</code> or hit F7.</p>
-</li>
-<li><p>Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
-</li>
-<li><p>In the <code>build</code> folder you'll find several files:</p>
-<ul>
-<li><code>nanoCLR.bin</code></li>
-<li><code>nanoCLR.elf</code></li>
-<li><code>partitions_4mb.elf</code></li>
-</ul>
-</li>
-</ol>
+<p>-<strong>Step 4</strong>: In the status bar click <code>Build</code> or hit F7.</p>
+<p>-<strong>Step 5</strong>: Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
+<p>-<strong>Step 6</strong>: In the <code>build</code> folder you'll find several files:
+- <code>nanoCLR.bin</code>
+- <code>nanoCLR.elf</code>
+- <code>partitions_4mb.elf</code></p>
 <blockquote>
 <blockquote>
 <p>Note: If there are errors during the build process it is possible to end up with a partial build in the <code>build</code> folder, and the <code>CMake/Ninja</code> build process declaring a successful build despite the <code>.bin</code> targets not being created, and a <code>CMake clean</code> not helping.
@@ -228,39 +187,43 @@ In this case deleting the contents of the <code>build</code> folder should allow
 <li>Clean the build folder by deleting it's contents and restart VS Code.</li>
 </ul>
 <h2 id="flash-nanoclr-into-esp32">Flash nanoCLR into ESP32</h2>
-<ol>
-<li><p>The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>build/bootloader/bootloader.bin</code> after a successful build.</p>
-</li>
-<li><p>Connect your development board.</p>
-</li>
-<li><p>Some ESP32 boards require to be put into &quot;download mode&quot;. Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.</p>
-</li>
-<li><p>Download the image to device.</p>
-<ul>
-<li><p>In Visual Studio Code go to menu &quot;Terminal&quot; -&gt; &quot;Run Task&quot; and select &quot;Flash nanoCLR to ESP32 from the list.</p>
-</li>
-<li><p>As an alternative enter the command in command palette:</p>
-<pre><code class="lang-cmd">Tasks: Run task
+<p>-<strong>Step 1</strong>: The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>build/bootloader/bootloader.bin</code> after a successful build.</p>
+<p>-<strong>Step 2</strong>: Connect your development board.</p>
+<p>-<strong>Step 3</strong>: Some ESP32 boards require to be put into &quot;download mode&quot;. Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.</p>
+<p>-<strong>Step 4</strong>: Download the image to device.
+- In Visual Studio Code go to menu &quot;Terminal&quot; -&gt; &quot;Run Task&quot; and select &quot;Flash nanoCLR to ESP32 from the list.</p>
+<pre><code>- As an alternative enter the command in command palette:
+
+   ```cmd
+   Tasks: Run task
+   ```
+
+   and if you flash the board for the first time
+
+   ```cmd
+   Erase ESP32
+   ```
+
+   and then
+
+   ```cmd
+   Flash nanoCLR to ESP32
+   ```
+
+   It will ask you for the COM port where it's connected.
+
+- An other alternative is using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool:
+
+   ```console
+   nanoff --target ESP32_PSRAM_REV0 --serialport &lt;YourCOMPort&gt; --image nanoCLR.bin --address 0x00010000
+   ```
+
+- An other alternative would be to use Espressif's own [esptool.py](https://github.com/espressif/esptool) tool:
+
+    ```console
+    esptool.py --chip auto --port &lt;YourCOMPort&gt; --baud 1500000 --before &quot;default_reset&quot; --after &quot;hard_reset&quot; write_flash -z --flash_mode &quot;dio&quot; --flash_freq &quot;40m&quot; --flash_size detect 0x1000 &lt;YourPathTo&gt;/nf-interpreter/build/bootloader/bootloader.bin 0x10000 &lt;YourPathTo&gt;/nf-interpreter/build/nanoCLR.bin 0x8000 &lt;YourPathTo&gt;/nf-interpreter/build/&lt;PartitionFilePassingToYourBoard&gt;.bin
+    ```
 </code></pre>
-<p>and if you flash the board for the first time</p>
-<pre><code class="lang-cmd">Erase ESP32
-</code></pre>
-<p>and then</p>
-<pre><code class="lang-cmd">Flash nanoCLR to ESP32
-</code></pre>
-<p>It will ask you for the COM port where it's connected.</p>
-</li>
-<li><p>An other alternative is using <a href="../getting-started-guides/getting-started-managed.html#uploading-the-firmware-to-the-board-using-nanofirmwareflasher">nanoff</a> tool:</p>
-<pre><code class="lang-console">nanoff --target ESP32_PSRAM_REV0 --serialport &lt;YourCOMPort&gt; --image nanoCLR.bin --address 0x00010000
-</code></pre>
-</li>
-<li><p>An other alternative would be to use Espressif's own <a href="https://github.com/espressif/esptool">esptool.py</a> tool:</p>
-<pre><code class="lang-console">esptool.py --chip auto --port &lt;YourCOMPort&gt; --baud 1500000 --before &quot;default_reset&quot; --after &quot;hard_reset&quot; write_flash -z --flash_mode &quot;dio&quot; --flash_freq &quot;40m&quot; --flash_size detect 0x1000 &lt;YourPathTo&gt;/nf-interpreter/build/bootloader/bootloader.bin 0x10000 &lt;YourPathTo&gt;/nf-interpreter/build/nanoCLR.bin 0x8000 &lt;YourPathTo&gt;/nf-interpreter/build/&lt;PartitionFilePassingToYourBoard&gt;.bin
-</code></pre>
-</li>
-</ul>
-</li>
-</ol>
 <h2 id="start-with-a-hello-world-c-application">Start with a 'Hello World' C# application</h2>
 <p>Watch the video tutorial <a href="https://youtu.be/iZdN2GmefXI">here</a> and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.</p>
 <h2 id="debugging-nanoclr">Debugging nanoCLR</h2>
@@ -278,8 +241,10 @@ In this case deleting the contents of the <code>build</code> folder should allow
 </ul>
 <p>See Gojimmypi for description of JTAG connections <a href="https://gojimmypi.blogspot.com/2017/03/jtag-debugging-for-esp32.html">here</a>.</p>
 <p>If flashing nanoCLR via a COM port (default), then be aware that you need to disconnect the JTAG to avoid it preventing the bootloader from running, and therefore being unable to reprogram the ESP23. e.g. if you see the following pattern repeating, unplug the USB-OCD-H, and then the programming will proceed.</p>
-<pre><code class="lang-txt">esptool.py v2.1
-Connecting........_____....._____...
+<pre><code>  ```txt
+     esptool.py v2.1
+     Connecting........_____....._____...
+  ```
 </code></pre>
 <p>You may have to add the <code>IRAM_ATTR</code> attribute to a function that you want to debug, so it can be loaded in RAM. When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.</p>
 <p>For more information on JTAG debugging see <a href="http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/">Espressif documentation</a>.</p>
@@ -288,26 +253,35 @@ Connecting........_____....._____...
 Certainly Visual Studio must be debugging something to have that window in working state. So this hack will work only in cases when
 you want to debug a nanoCLR code which can be executed via managed code.</p>
 <ul>
-<li><strong>Step 1</strong>: Write some managed code which results in a nanoCLR call executing the code you are interested in.</li>
-<li><strong>Step 2</strong>: Choose one or more places in nanoCLR code where you want to know something.
-e.g.: What is the value of a variable? Which part of an if-else statement gets executed?</li>
-<li><strong>Step 3</strong>: Put the following temporary code there:</li>
-</ul>
-<pre><code class="lang-cpp">        {
-            char temporaryStringBuffer[64];
-            int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), &quot;interestingValue: %d\r\n&quot;, interestingValue);
-            CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
-        }
+<li><p><strong>Step 1</strong>: Write some managed code which results in a nanoCLR call executing the code you are interested in.</p>
+</li>
+<li><p><strong>Step 2</strong>: Choose one or more places in nanoCLR code where you want to know something.
+e.g.: What is the value of a variable? Which part of an if-else statement gets executed?</p>
+</li>
+<li><p><strong>Step 3</strong>: Put the following temporary code there:</p>
+<pre><code>```cpp
+{
+      char temporaryStringBuffer[64];
+      int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), &quot;interestingValue: %d\r\n&quot;, interestingValue);
+      CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+}
+```
 </code></pre>
 <p>Or simply:</p>
-<pre><code class="lang-cpp">        CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, &quot;Hello World!&quot;, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+<pre><code>```cpp
+   CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, &quot;Hello World!&quot;, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+```
 </code></pre>
-<ul>
-<li><strong>Step 4</strong>: The boring part: rebuild and re-flash firmware and your program.</li>
-<li><strong>Step 5</strong>: Start debugging in Visual Studio and keep eye on it's debug output window.
-You will get your messages there when the related temporary code gets executed!</li>
-<li><strong>Step 6</strong>: Iterate steps 2-5 till you find out what you were interested in.</li>
-<li><strong>Step 7</strong>: Do not forget to remove all those temporary code blocks before you accidentally commit it!</li>
+</li>
+<li><p><strong>Step 4</strong>: The boring part: rebuild and re-flash firmware and your program.</p>
+</li>
+<li><p><strong>Step 5</strong>: Start debugging in Visual Studio and keep eye on it's debug output window.
+You will get your messages there when the related temporary code gets executed!</p>
+</li>
+<li><p><strong>Step 6</strong>: Iterate steps 2-5 till you find out what you were interested in.</p>
+</li>
+<li><p><strong>Step 7</strong>: Do not forget to remove all those temporary code blocks before you accidentally commit it!</p>
+</li>
 </ul>
 </article>
           </div>
