@@ -61,7 +61,7 @@ You will find a detailed list of typical HRESULT in the [`src\CLR\Include\nf_err
 
 ```cpp
 #define SUCCEEDED(Status) ((HRESULT)(Status) >= 0)
-#define FAILED(Status) ((HRESULT)(Status)<0)
+#define FAILED(Status)    ((HRESULT)(Status)<0)
 ```
 
 ### NANOCLR_MSG_SET_AND_LEAVE and NANOCLR_MSG1_SET_AND_LEAVE
@@ -69,7 +69,7 @@ You will find a detailed list of typical HRESULT in the [`src\CLR\Include\nf_err
 Those 2 macros are defined like this:
 
 ```cpp
-#define NANOCLR_MSG_SET_AND_LEAVE(expr, msg)  { hr = (expr); NANOCLR_LEAVE(); }
+#define NANOCLR_MSG_SET_AND_LEAVE(expr, msg)       { hr = (expr); NANOCLR_LEAVE(); }
 #define NANOCLR_MSG1_SET_AND_LEAVE(expr, msg, arg) { hr = (expr); NANOCLR_LEAVE(); }
 ```
 
