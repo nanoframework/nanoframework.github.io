@@ -6,7 +6,7 @@ Markdown is a lightweight markup language that you can use to add formatting ele
 
 Markdown files are text based. If you want to learn about possibilities (headers, lists, tables, code and such) this cheat sheet is always helpful: [Markdown Cheatsheet · adam-p/markdown-here Wiki · GitHub](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). There are a number of them.
 
-Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different.
+Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different. That said, as explained in the [section below](#preview-in-vs-code), you can have a nice preview when you open the repository with VS Code.
 
 You can find more information, a full documentation [here](https://www.markdownguide.org/).
 
@@ -120,10 +120,6 @@ The documentation is built automatically using DocFX. DocFX companion tools will
 Please make sure you respect as well the rules for tables. You need to have a `|` at the beginning and end of each column. The second line should contains at least 3 dashes, so `---` per column. You can have more and you can use the `:` pattern to align the column as you'd like. The [DockLinkChecker](https://github.com/nanoframework/nanoframework.github.io/blob/538b9fee8631ec30a11805da24c3bc23ef030e4f/azure-pipelines.yml#L236) will check that your tables are properly formed as well during a PR.
 
 ## Markdownlint
-
-### Why using a linter
-
-Markdown has specific way of being formatted. It is important to respect this formatting otherwise some interpreter which are strict won't display properly the document. The Azure DevOps interpreter forgive a lot of mistakes and always try to present the document properly. But it's far to be the case for all of them. Linter are often use to help developers properly creating document in any language or markup language.
 
 To help developers and anyone who needs to create Markdown, we propose to use [Markedownlint](https://github.com/DavidAnson/markdownlint) which is easy and the most used linter for Markdown documents. [Markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) is an easy to use cli based out of Markdownlint.
 
