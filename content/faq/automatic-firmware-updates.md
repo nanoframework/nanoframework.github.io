@@ -1,6 +1,6 @@
 # Automatic Firmware Update
 
-Automatic firmware updates are run as part of the build process initiated from the Visual Studio extension for nanoFramework. Please see the following blogpost: https://www.nanoframework.net/automatic-firmware-updates/
+Automatic firmware updates are run as part of the build process initiated from the Visual Studio extension for nanoFramework. Please see the following blogpost: <https://www.nanoframework.net/automatic-firmware-updates/>
 
 ## What targets are supported by this automatic update?
 

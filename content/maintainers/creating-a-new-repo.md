@@ -34,19 +34,20 @@ If in doubt please ask one of the senior team members.
 For class libraries projects a Sonarcloud project has to be setup in order to run and process the project analysis.
 
 You have to have installed on your machine:
+
 - [SonarScanner for .NET (.NET Framework 4.6+))](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/)
 - Java SDK. [Recommended](https://code.visualstudio.com/docs/languages/java)
 
 After installing the above, it's required to run locally the analysis tool for the very first analysis.
 
 1. Open a VS developer command prompt at the project folder.
-1. Run the preparation step with 
+1. Run the preparation step with
 
 ```console
 PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe begin /k:"nanoframework.WHATEVER.CLASS.NAME" /o:nanoframework /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=TOKEN_FOR_SONARCLOUD
 ```
 
-1. Build the solution 
+1. Build the solution
 
 ```console
 msbuild  nanoFramework.WHATEVER.CLASS.NAME.sln /t:Rebuild /p:platform="Any CPU" /p:configuration="Release" 

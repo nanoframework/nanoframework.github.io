@@ -193,10 +193,13 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
 
-      git clone https://github.com/Ellerbach/docfx-companion-tools.git -b main DocFxCompanion
-
   displayName: Clone repos of class libs
   condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
+
+- powershell: |
+      git clone https://github.com/Ellerbach/docfx-companion-tools.git -b main DocFxCompanion
+  displayName: Clone the docfx helpers
+  condition: succeeded()
 
 # install docfx
 - powershell: choco install docfx -y
@@ -237,6 +240,12 @@ steps:
     command: 'run'
     projects: 'DocFxCompanion/src/DocLinkChecker'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\content -t'
+
+# Scan markdown files on style consistency
+- powershell: |
+    npm install -g markdownlint-cli
+    markdownlint -c  $(System.DefaultWorkingDirectory)/.markdownlint.json $(System.DefaultWorkingDirectory)/content
+  displayName: 'Execute Markdownlint'
 
 # we then need to add the root index page to the toc
 - powershell: |

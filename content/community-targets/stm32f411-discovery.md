@@ -13,11 +13,11 @@ The STM32F411 Discovery board offers the following features:
 * MP45DT02, ST MEMS audio sensor, omnidirectional digital microphone
 * CS43L22, audio DAC with integrated class D speaker driver
 * Eight LEDs:
-  - LD1 (red/green) for USB communication
-  - LD2 (red) for 3.3 V power on
+  * LD1 (red/green) for USB communication
+  * LD2 (red) for 3.3 V power on
 * Four user LEDs:
-  - LD3 (orange), LD4 (green), LD5 (red) and LD6 (blue)
-  - Two USB OTG LEDs:
+  * LD3 (orange), LD4 (green), LD5 (red) and LD6 (blue)
+  * Two USB OTG LEDs:
 * LD7 (green) VBus and LD8 (red) over-current
 * Two pushbuttons (user and reset)
 * USB OTG with micro-AB connector
@@ -64,10 +64,10 @@ Basic peripherals available in nanoFramework:
 * SPI1, SPI2
 * 5 ADC channels
 * I2S3
-* OTG 
+* OTG
 * User Button
 * 4 User LEDs
-* Gyroscope 
+* Gyroscope
 * Acceleration sensor
 * Magnetic sensor
 * Audio DAC
@@ -78,11 +78,11 @@ For more details on what pins the on board sensors can be addressed please refer
 
 ## MCU Clock usage
 
-On this board there is no LSE (Low Speed External) XTal fitted. When looking at the board's picture you'll see that there is no X3 (right side and above the main MCU). In case an LSE is soldered do not forget to reflect that in the mcuconf.h files. 
+On this board there is no LSE (Low Speed External) XTal fitted. When looking at the board's picture you'll see that there is no X3 (right side and above the main MCU). In case an LSE is soldered do not forget to reflect that in the mcuconf.h files.
 
 ## Serial port
 
-There is no VCP support for the on board ST-Link/V2. That's why a seperate UART-2-USB adapter/converter has to be connected in order to communicate with Visual Studio. This is done thru nanoFramework's wire protocol which is assigned to USART2. Pins PA2, PA3 and a GND pin are needed to establish a serial connection between the discovery board and Visual Studio. 
+There is no VCP support for the on board ST-Link/V2. That's why a seperate UART-2-USB adapter/converter has to be connected in order to communicate with Visual Studio. This is done thru nanoFramework's wire protocol which is assigned to USART2. Pins PA2, PA3 and a GND pin are needed to establish a serial connection between the discovery board and Visual Studio.
 
 ## Managed helpers
 

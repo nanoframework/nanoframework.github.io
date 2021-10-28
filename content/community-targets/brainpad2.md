@@ -2,7 +2,7 @@
 
 ![BrainPad2](https://www.brainpad.com/wp-content/uploads/2021/06/PulseScreenAnimated.gif)
 
-The board used in this community contribution is a STM32F401RE based board from GHI Electronics called BrainPad. 
+The board used in this community contribution is a STM32F401RE based board from GHI Electronics called BrainPad.
 
 These pins can be used for:
 

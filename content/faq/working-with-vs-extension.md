@@ -34,6 +34,7 @@ This happens when there is a problem with type resolution on the deployed applic
 ## I need to revert the VS extension I have installed to an older version. How can I do that?
 
 You can do that following these steps:
+
 1. Uninstall the current version from the "Manage Extension" window in Visual Studio.
 1. Go to the [Releases](https://github.com/nanoframework/nf-Visual-Studio-extension/releases) section in the Visual Studio extension repository.
 1. Find the version that you're looking for and expand the 'Assets' listed in the release entry.

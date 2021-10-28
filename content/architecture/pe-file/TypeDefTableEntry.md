@@ -14,8 +14,8 @@ The MethodRef table contains entries with the following structure:
 | InstanceMethodCount | uint8_t | Count of instance methods in the type|
 | StaticMethodCount   | uint8_t | Count of static methods in the type|
 | DataType            | DataType | Data type identity for the type|
-| FirstStaticField    | FieldDefTableIndex | Index into [FieldDef ](FieldDefTableEntry.md) for the first static field of the type|
-| FirstInstanceField  | FieldDefTableIndex | Index into [FieldDef ](FieldDefTableEntry.md) for the first instance field of the type|
+| FirstStaticField    | FieldDefTableIndex | Index into [FieldDef](FieldDefTableEntry.md) for the first static field of the type|
+| FirstInstanceField  | FieldDefTableIndex | Index into [FieldDef](FieldDefTableEntry.md) for the first instance field of the type|
 | StaticFieldsCount   | uint8_t | Count of static fields in the type|
 | InstanceFieldsCount | uint8_t | Count of instance fields for the type|
 | FirstGenericParam   | GenericParamTableIndex | Index into [GenericParam table](GenericParamTableEntry.md) for the first generic parameter for the type|

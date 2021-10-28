@@ -8,7 +8,7 @@ The board used in this community contribution is the NUCLEO144 F746ZG board from
 
 Some basic information abstracted from ST:
 
-- STM32 microcontroller in LQFP144 package 
+- STM32 microcontroller in LQFP144 package
 - External SMPS to generate Vcore logic supply (only available on '-P' suffixed boards)
 - Ethernet compliant with IEEE-802.3-2002 (depending on STM32 support)
 - USB OTG or full-speed device (depending on STM32 support)
@@ -36,6 +36,7 @@ Meaning that `System.Math` API supports only the `float` overloads. The `double`
 ## Firmware images (ready to deploy)
 
 [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_NUCLEO144_F746ZG/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_NUCLEO144_F746ZG/latest/)
+
 ## Managed helpers
 
 Checkout the [C# managed helpers](https://github.com/nanoframework/nf-Community-Targets/tree/main/ChibiOS/ST_NUCLEO144_F746ZG/managed_helpers) available for this board.

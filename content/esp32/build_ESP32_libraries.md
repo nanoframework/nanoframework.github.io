@@ -1,13 +1,14 @@
 # Build the ESP32 IDF Libraries
 
-With the latest IDF v3.3.5 we are now building 3 different versions of the libraries. This is due to the IRAM memory section overflowing when BLE is added. 
+With the latest IDF v3.3.5 we are now building 3 different versions of the libraries. This is due to the IRAM memory section overflowing when BLE is added.
 
 The main reason for this is due to the PSRAM fixes that are used with the ESP32 Version 1 chips. ESP32 Version 0 doesn't support PSRAM and Version 3 chips have the PSRAM problems fixed.
 
 Library variants
+
 - Default - This is the default version of and supports everything except Bluetooth.
-- BLE - This includes support for Bluetooth but due to memory constraints removes PSRAM support. 
-- V3 - Includes all support, PSRAM and BLE but only useable on ESP32 version 3 chips. 
+- BLE - This includes support for Bluetooth but due to memory constraints removes PSRAM support.
+- V3 - Includes all support, PSRAM and BLE but only useable on ESP32 version 3 chips.
 
 ## Initial Setup
 
@@ -44,7 +45,7 @@ Copy file *ffconf.h* from target/targets\FreeRTOS_ESP32\ESP32_WROOM_32\IDF\Libra
 Start Msys command shell C:\msys32\mingw32.exe
 
 From the command shell change to each of the projects directories you created and make the project.
-For example if project is under IDF examples dir then:- 
+For example if project is under IDF examples dir then:-
 
 cd /c/esp32_tools/esp-idf-v3.3.5/examples/Wroom32
 make

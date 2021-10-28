@@ -19,7 +19,7 @@ Many PE data structures store Index into a particular table index as a field. Th
 
 ## EmptyIndex Constant
 
-Since Index values are used to access members of a table and since (in C, C++, and many other languages) tables are indexed with the first element as index == 0 the value 0 is not useable as a constant to indicate "none" or "null". Thus a dedicated value is used for .NET **nanoFramework** metadata tables. Any index with the value 0xFFFF is considered the EmptyIndex and this is normally defined as a manifest constant for the entire code base to test against. 
+Since Index values are used to access members of a table and since (in C, C++, and many other languages) tables are indexed with the first element as index == 0 the value 0 is not useable as a constant to indicate "none" or "null". Thus a dedicated value is used for .NET **nanoFramework** metadata tables. Any index with the value 0xFFFF is considered the EmptyIndex and this is normally defined as a manifest constant for the entire code base to test against.
 
 ## Table Kind
 

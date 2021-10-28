@@ -4,8 +4,8 @@
 
 This document provides examples of numeric formatting in the **nanoFramework** CLR. The examples are part of the Unit Test Framework and can be found in the [CoreLibrary repository](https://github.com/nanoframework/CoreLibrary) as part of the [Arithmetic unit tests](https://github.com/nanoframework/CoreLibrary/blob/develop/Tests/NFUnitTestArithmetic/UnitTestFormat.cs).  When running the unit test for a specifier the example data is gathered and displayed in the Test Output after a successful test run. Each format specifier is attempted for the signed integers (SByte, Int16, Int32, Int64), unsigned integers (Byte, UInt16, UInt32, UInt64) and floating-point (Single/Double) number types.  Negative numbers are not attempted for unsigned integer types (n/a will appear), and the value must be within the range of the integer type (i.e. must be between -128 and +128 for SByte) otherwise n/a will appear.  The Decimal and Hexadecimal types ONLY support integer number types.  For all of the examples both upper and lower case versions of the specifier are tested, however only lower case g and x have any effect on the output.
 
-
 ## <a id="decimal">D-Decimal</a>
+
 [Decimal Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString)
 
      Value Format SByte   Int16   Int32   Int64 Byte UInt16 UInt32 UInt64
@@ -31,6 +31,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      -1234 d6       n/a -001234 -001234 -001234  n/a    n/a    n/a    n/a
 
 ## <a id="fixed">F-Fixed-point</a>
+
 [Fixed-point Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString)
 
          Value Format   SByte        Int16        Int32        Int64     Byte      UInt16      UInt32      UInt64       Single       Double
@@ -64,6 +65,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      1234.8999 f3         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a     1234.900     1234.900
 
 ## <a id="general">G-General</a>
+
 [General Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString)
 
          Value Format    SByte    Int16    Int32    Int64 Byte  UInt16  UInt32  UInt64    Single    Double
@@ -108,8 +110,8 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      -1234.901 G7          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a -1234.901 -1234.901
      -1234.901 g7          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a -1234.901 -1234.901
 
-
 ## <a id="number">N-Number</a>
+
 [Number Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString)
 
             Value Format   SByte         Int16         Int32         Int64     Byte       UInt16       UInt32       UInt64        Single        Double
@@ -144,8 +146,8 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      1234567.1210 N2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a  1,234,567.12  1,234,567.12
      1234567.1210 n2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a  1,234,567.12  1,234,567.12
 
-
 ## <a id="hexadecimal">X-Hexadecimal</a>
+
 [Hexadecimal Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString)
 
      Value Format SByte  Int16    Int32            Int64 Byte UInt16 UInt32 UInt64
@@ -181,4 +183,3 @@ This document provides examples of numeric formatting in the **nanoFramework** C
      -1234 x        n/a   fb2e fffffb2e fffffffffffffb2e  n/a    n/a    n/a    n/a
      -1234 X6       n/a 00FB2E FFFFFB2E FFFFFFFFFFFFFB2E  n/a    n/a    n/a    n/a
      -1234 x6       n/a 00fb2e fffffb2e fffffffffffffb2e  n/a    n/a    n/a    n/a
-

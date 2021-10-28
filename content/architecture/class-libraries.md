@@ -64,7 +64,6 @@ Follow the list of the existing libraries, respective NuGet package and CMake en
 | nanoFramework.TestFramework | nanoFramework.TestFramework | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.TestFramework.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.TestFramework/) | [![NuGet](https://img.shields.io/nuget/vpre/nanoFramework.TestFramework.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.TestFramework/) |
 | nanoFramework.WebServer | nanoFramework.WebServer | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.WebServer.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.WebServer/) | [![NuGet](https://img.shields.io/nuget/vpre/nanoFramework.WebServer.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.WebServer/) |
 
-
 ## Distribution strategy
 
 To ease the burden of distributing and updating the class libraries we've choose to use Nuget to handle all this. It has the added benefit of dealing with the dependency management, version and such.

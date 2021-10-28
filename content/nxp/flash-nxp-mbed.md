@@ -31,4 +31,4 @@ You can download it from here: [OpenSDA](https://www.nxp.com/design/microcontrol
 
 - Device correctly boots to nanoBooter but is not detected otherwise
 
-> If you flashed nanoBooter.hex and then nanoCLR.hex, programmer erases memory every flashing process. If you want to flash them separately you can use method described [here]()
+> If you flashed nanoBooter.hex and then nanoCLR.hex, programmer erases memory every flashing process.

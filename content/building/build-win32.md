@@ -3,7 +3,7 @@
 The WIN32 version meant to be used for high level debugging, feature testing and Unit Testing for other projects.
 It's a VC++ solution which can be build using Visual Studio.
 
-### Building
+## Building
 
 1. Clone the `nf-interpreter` repository.
 1. Open `targets\win32\nanoCLR.sln` solution with VS.

@@ -8,7 +8,6 @@ You will need to use this utility to replace the boot loader on the STM32 chip. 
 
 1. Download the appropriate [STM32 Cube Programmer](https://www.st.com/en/development-tools/stm32cubeprog.html) from ST web site and install it in your development machine.
 
-
 ## Flash a JTAG connected board
 
 There are two images to be flashed in the target, one for nanoBooter and another one for nanoCLR.

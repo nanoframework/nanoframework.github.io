@@ -36,7 +36,7 @@ The PE file starts with an [Assembly header](pe-file/AssemblyHeader.md) which is
 ## Structures for the other table entries
 
 - [AssemblyRef Table](pe-file/AssemblyRefTableEntry.md)
-- [Attribute Table ](pe-file/AttributeTableEntry.md)
+- [Attribute Table](pe-file/AttributeTableEntry.md)
 - [ExceptionHandler Table](pe-file/ExceptionHandlerTableEntry.md)
 - [FieldRef Table](pe-file/FieldRefTableEntry.md)
 - [MethodDef Table](pe-file/MethodDefTableEntry.md)

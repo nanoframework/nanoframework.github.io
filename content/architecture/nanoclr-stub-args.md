@@ -43,7 +43,7 @@ So to demystify and understand which one to use, the `NANOCLR_NOCLEANUP_NOLABEL(
 
 Looking at the `NANOCLR_NOCLEANUP` one, you'll have something added in the equivalent, a label: `hr = S_OK; nanoCLR_Cleanup:; return hr;`. As you see the label has been added and looking at few more definition, the `NANOCLR_LEAVE` macro is `goto nanoCLR_Cleanup` meaning, anything that needs some check and may leave earlier than a straight forward way will need to have the label version used.
 
-The variation with `CLEANUP_END` is here to just return hr, it's as well one that can be used when you have nothing to check. While the  `NANOCLR_CLEANUP` one sets the hr to ok and place the label. It can't be used alone, the `NANOCLR_LEAVE` will have to be used after. 
+The variation with `CLEANUP_END` is here to just return hr, it's as well one that can be used when you have nothing to check. While the  `NANOCLR_CLEANUP` one sets the hr to ok and place the label. It can't be used alone, the `NANOCLR_LEAVE` will have to be used after.
 
 ### NANOCLR_SET_AND_LEAVE, NANOCLR_CHECK_HRESULT and NANOCLR_EXIT_ON_SUCCESS
 
@@ -61,7 +61,7 @@ You will find a detailed list of typical HRESULT in the [`src\CLR\Include\nf_err
 
 ```cpp
 #define SUCCEEDED(Status) ((HRESULT)(Status) >= 0)
-#define FAILED(Status) ((HRESULT)(Status)<0)
+#define FAILED(Status)    ((HRESULT)(Status)<0)
 ```
 
 ### NANOCLR_MSG_SET_AND_LEAVE and NANOCLR_MSG1_SET_AND_LEAVE
@@ -69,8 +69,8 @@ You will find a detailed list of typical HRESULT in the [`src\CLR\Include\nf_err
 Those 2 macros are defined like this:
 
 ```cpp
-#define NANOCLR_MSG_SET_AND_LEAVE(expr, msg)		{ hr = (expr); NANOCLR_LEAVE(); }
-#define NANOCLR_MSG1_SET_AND_LEAVE(expr, msg, arg)	{ hr = (expr); NANOCLR_LEAVE(); }
+#define NANOCLR_MSG_SET_AND_LEAVE(expr, msg)       { hr = (expr); NANOCLR_LEAVE(); }
+#define NANOCLR_MSG1_SET_AND_LEAVE(expr, msg, arg) { hr = (expr); NANOCLR_LEAVE(); }
 ```
 
 So they allow you to setup the return element and leave. Those are so far used only in the `src\CLR\Core\TypeSystem.cpp` file. That said, nothing prevent you to use them as well.

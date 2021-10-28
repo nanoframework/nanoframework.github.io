@@ -9,9 +9,7 @@ Aimed at commercial users developing .NET **nanoFramework** based projects has t
 
 The above will, obviously, contribute to the project continuous growth.
 
-
-### The following companies offer their engineering services, tools, training, software components and support services.
-
+## The following companies offer their engineering services, tools, training, software components and support services
 
 ### Eclo Solutions
 

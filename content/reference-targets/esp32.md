@@ -2,11 +2,11 @@
 
 These are the firmware images:
 
-- ESP32_PSRAM_REV0 that _fits_ all ESP32 boards carrying an ESP32 chip *with* PSRAM support. These can be ESP32-DevKitC, ESP32-WROOM and ESP32-WROVER variants *with* PSRAM. 
-- ESP32_REV0 that _fits_ all ESP32 boards carrying an ESP32 chip *without* PSRAM support. These can be ESP32-DevKitC, ESP32-WROOM and ESP32-WROVER variants *without* PSRAM. 
+- ESP32_PSRAM_REV0 that *fits* all ESP32 boards carrying an ESP32 chip *with* PSRAM support. These can be ESP32-DevKitC, ESP32-WROOM and ESP32-WROVER variants *with* PSRAM.
+- ESP32_REV0 that *fits* all ESP32 boards carrying an ESP32 chip *without* PSRAM support. These can be ESP32-DevKitC, ESP32-WROOM and ESP32-WROVER variants *without* PSRAM.
 - ESP_WROVER_KIT specific for the ESP WROVER KIT. This one includes the UI features, support for PSRAM and driver for the ILI9341.
-- ESP32_PICO that _fits_ all ESP32 boards carrying an ESP32 PICO without support for PSRAM, like the ESP32-PICO-KIT and the M5Stack ATOM.
-- ESP32_PSRAM_REV3 that _fits_ all ESP32 boards carrying an ESP32 chip **revision 3** *with* PSRAM support.
+- ESP32_PICO that *fits* all ESP32 boards carrying an ESP32 PICO without support for PSRAM, like the ESP32-PICO-KIT and the M5Stack ATOM.
+- ESP32_PSRAM_REV3 that *fits* all ESP32 boards carrying an ESP32 chip **revision 3** *with* PSRAM support.
 - ESP32_LILYGO specific for the LilyGO ESP32 board which includes support for Ethernet PHY.
 
 You can check Espressif [Product Selector](https://products.espressif.com/#/product-selector?names=&filter={%22Series%22:[%22ESP32%22]}) for details on all the existing variants, chips, modules and respective development kits.
@@ -30,7 +30,6 @@ All M5Stack boards carry ESP32 chips. Some are revision 1, others 3, and others 
 ![M5 Stick](../../images/reference-targets/M5Stick.jpg)
 
 ![ATOM](../../images/reference-targets/m5stack_atom.jpg)
-
 
 ## Firmware images (ready to deploy)
 
