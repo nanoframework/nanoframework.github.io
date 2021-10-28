@@ -2,7 +2,7 @@
 
 These are the firmware images:
 
-- FEATHER_S2 that _fits_ all ESP32-S2 boards exposing the embedded USB CDC through GPIO19 and GPIO20. These can be FeatherS2, TinyS2 or any other similar hardware with or without PSRAM. 
+- FEATHER_S2 that_fits_ all ESP32-S2 boards exposing the embedded USB CDC through GPIO19 and GPIO20. These can be FeatherS2, TinyS2 or any other similar hardware with or without PSRAM.
 - KALUGA_1 specific for the ESP32-S2-Kaluga-1 Kit. This one includes the UI features and driver for the ILI9341.
 
 You can check Espressif [Product Selector](https://products.espressif.com/#/product-selector?names=&filter={%22Series%22:[%22ESP32-S2%22]}) for details on all the existing variants, chips, modules and respective development kits.

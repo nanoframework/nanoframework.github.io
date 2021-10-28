@@ -143,7 +143,6 @@ Check you board schema and start using the tool to setup the tool.  This is how 
 ![analog](../../images/stm32-community-processor-setup.jpg)
 
 > Tip: if you start making non possible configuration, you'll know it quickly as you'll get red elements or the non possibility to setup more elements. The screen captures above shows you that IC3 and SPI5 can't be setup any more for example. Which is the case in this board example. If you arrive to a situation when you get an error where you should not, then double check, you may have an issue somewhere!
-
 > Note: sometimes some pins may have multiple functions. **BUT** you can't use all those functions at the same time. While setting up all the pins, make sure you select the primary function of those pins rather than trying to make all the combinations possible.
 
 Now, it's time to ask the tool to build the source, click on `Generate Code`, you won't need the SDK so you can answer `No` to the various questions. We only need the generated project to check the Alternate pin configuration.
@@ -209,7 +208,7 @@ This is the initial state of the pin:
 - PIN_ODR_LOW for leds, ADC and other elements like that.
 - PIN_ODR_HIGH for the rest.
 
-> Tip: Any unused pin should be input pull-up high 
+> Tip: Any unused pin should be input pull-up high
 
 ### AFRL and AFRH
 
@@ -221,7 +220,7 @@ A configuration for a pin will look like that:
 PIN_AFIO_AF(GPIOA_SPI1_MOSI, 5U)
 ```
 
-In this case, `5U` means alternate 5. 
+In this case, `5U` means alternate 5.
 
 > Tip: In the generated files from STM32 Cube, you will find the alternate with AFx where x is the number
 Here is an example of what you need to adjust:
@@ -429,9 +428,9 @@ If the section does not exist, add it in file `nanoCLR\mcuconf.h`:
 #define STM32_SDC_SDIO_DMA_STREAM           STM32_DMA_STREAM_ID(2, 3)
 ```
 
-## adjust your variant accordingly 
+## adjust your variant accordingly
 
-For the various API make sure you have the proper API. You need some special one for the card. 
+For the various API make sure you have the proper API. You need some special one for the card.
 
 Before `Windows.Devices` namespaces will be removed you need both the `Windows.Devices` **and** `System.Devive` namespaces.
 
@@ -506,4 +505,3 @@ namespace nanoFramework.Targets.Community.PybStick2x
     }
 }
 ```
-

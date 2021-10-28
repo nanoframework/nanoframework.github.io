@@ -6,12 +6,12 @@ There is an interop framework that assists in handling the interface between C# 
 
 ## How the checksum is generated
 
-As with all of dotnet the nfproj file is actually a MSBuild XML configuration file. Part of the nanoFramework is the `meta-data-processor` (MDP) which is invoked as a post-build task in the MSBuild of the nfproj.   
+As with all of dotnet the nfproj file is actually a MSBuild XML configuration file. Part of the nanoFramework is the `meta-data-processor` (MDP) which is invoked as a post-build task in the MSBuild of the nfproj.
 
 During the post-build the MDP creates stub C++ files for any interfaces that are declared as `InternalCall`.  The stub files are located at bin\debug\stubs\\[assembly-name].  The calculated checksum is found in the corlib_native.cpp file. The MDP also emits the checksum as an environmental variable and later that is used to embed the checksum in the Portable Executable (PE) file that the nanoFramework actually runs. Below is a screen print taken from a stub of mscorlib with a checksum of 0x132BDB6F, and required native assembly version of 100.5.0.12:
 >![mscorlib corlib_native.cpp declaration](../../images/getting-started-guides/mscorlib-corlib-native_cpp_declaration.png)
 
-## How the required native version is defined.
+## How the required native version is defined
 
 The required native version is set manually by a developer in the AssemblyInfo.cs file for the assembly.  The MDP will copy that information and also place it in the stub file corlib_native.cpp.  Here is a screen print of the CoreLibrary AssemblyInfo.cs file:
 >![mscorlib AssemblyInfo.cs declaration](../../images/getting-started-guides/assemblyinfo-cs.png)
@@ -25,7 +25,7 @@ Each native assembly has a corlib_native.cpp (and .h) file.  A developer manuall
 The assemblies in the nanoFramework use the nerdBank GitVersion NuGet component to manage NuGet versions.  There is a version.json file in the GIT repository root - here is a screen print for CoreLibrary:
 >![mscorlib AssemblyInfo.cs declaration](../../images/getting-started-guides/mscorlib-version-json.png)
 
-The {height} placeholder is filled out by the nerdBank component.  It is the number of commits since the last time the version.json file was changed to a new version number.  Note that the number will always increment, but it is not like a build number in that you may not start at 1, and it may not increment by 1.  But the version number will always be numeric and greater than the previous version.  Changing the version info in the file will cause the counter to start back around 1 - this depends on how many commits are in the first build after updating the version info. 
+The {height} placeholder is filled out by the nerdBank component.  It is the number of commits since the last time the version.json file was changed to a new version number.  Note that the number will always increment, but it is not like a build number in that you may not start at 1, and it may not increment by 1.  But the version number will always be numeric and greater than the previous version.  Changing the version info in the file will cause the counter to start back around 1 - this depends on how many commits are in the first build after updating the version info.
 
 The developer manually updates the NuGet package version prefix when there are breaking changes to the interface and a new checksum is needed.  In the preceding example the developer changed the prefix from 1.10.4 to 1.10.5.  Code changes that do not change the contract (and the checksum) will just get a new "height" as changes are committed and built.
 
@@ -35,7 +35,7 @@ The checksum and required native version are included in the description for the
 
 ## Firmware versions and native assembly versions
 
-Firmware is built automatically for a standard set of device targets.  The firmware version is independent from the assembly versions, but the latest firmware always uses the latest native assembly versions and will work with the latest NuGet package versions of a component. Here is a screen shot of nanoff installing the latest preview version of the firmware from the Cloudsmith.io repository: 
+Firmware is built automatically for a standard set of device targets.  The firmware version is independent from the assembly versions, but the latest firmware always uses the latest native assembly versions and will work with the latest NuGet package versions of a component. Here is a screen shot of nanoff installing the latest preview version of the firmware from the Cloudsmith.io repository:
 
 >![nanoff Flash latest preview](../../images/getting-started-guides/nanoff-flash-latest-preview.png)
 
@@ -43,10 +43,3 @@ Here are two screen shots from using the **Device Capabilities** of the **Device
 
 >![device capabilities firmware version](../../images/getting-started-guides/device-capabilities-firmware-version.png)
 >![device capabilities native assembly versions](../../images/getting-started-guides/native-assembly-versions.png)
-
-
-
-
-
-
-

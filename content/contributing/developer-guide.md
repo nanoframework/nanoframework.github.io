@@ -21,9 +21,10 @@ Assuming you want to call from nanoframework's mscorlib (source can be found in 
 1. Build the nf-CoreLibrary solution without making any changes.
 1. Copy these folders somewhere for later use:
    - ```nanoFramework.CoreLibrary\bin\Debug\Stubs```
-   - ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` 
+   - ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs```
 1. Declare your C++ function in your C# class:
-   ```lang
+
+   ```csharp
    [MethodImpl(MethodImplOptions.InternalCall)]
    private static extern String FormatNative(
       Object value,
@@ -37,9 +38,11 @@ Assuming you want to call from nanoframework's mscorlib (source can be found in 
 
 1. Add code which calls the function above as you wish.
 1. If you change the assembly signature (via adding or modifying an ```extern``` function) you should bump the assembly version in the ```AssemblyInfo.cs``` file:
-   ```
+
+   ```csharp
    [assembly: AssemblyNativeVersion("100.5.0.5")]
    ```
+
 1. Build the solution.
 1. Compare the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder's actual state with the saved one. The files which should have changed:
    - ```corlib_native.cpp```
@@ -47,15 +50,16 @@ Assuming you want to call from nanoframework's mscorlib (source can be found in 
    - your class's C++ counterpart, ```corlib_native_System_Number.cpp``` in the example
 
    Do the same with ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` too.
-1. Apply the changes you found to the same files under ```nf-interpreter/src/CLR/CorLib```. 
+1. Apply the changes you found to the same files under ```nf-interpreter/src/CLR/CorLib```.
 
-   **DO NOT** overwrite the files there! The files under nf-interpreter may have additional declarations, etc. 
-   Open the file and look for ```#if (NANOCLR_REFLECTION ==``` lines. There could be more of them. 
-   Copy over the diff meaningfully: 
-   - changes from the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` are going inside the ```NANOCLR_REFLECTION == TRUE``` blocks 
+   **DO NOT** overwrite the files there! The files under nf-interpreter may have additional declarations, etc.
+   Open the file and look for ```#if (NANOCLR_REFLECTION ==``` lines. There could be more of them.
+   Copy over the diff meaningfully:
+   - changes from the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` are going inside the ```NANOCLR_REFLECTION == TRUE``` blocks
    - changes from the ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` are going inside the ```NANOCLR_REFLECTION == FALSE``` blocks.
 1. You will find that a stub for the function you declared above will be generated with this signature:
-   ```
+
+   ```cpp
    HRESULT Library_corlib_native_System_Number::
        FormatNative___STATIC__STRING__OBJECT__BOOLEAN__STRING__STRING__STRING__STRING__SZARRAY_I4(CLR_RT_StackFrame &stack)
    ```
@@ -69,7 +73,7 @@ The values can be accessed as follows:
 
 ### ```object value```
 
-```
+```cpp
 // get ref to value container
 CLR_RT_HeapBlock *value;
 value = &(stack.Arg0());
@@ -88,7 +92,7 @@ int32_t int32Value = value->NumericByRef().s4;
 
 ### ```bool isInteger```
 
-```
+```cpp
 // get value
 bool isInteger;
 isInteger = (bool)stack.Arg1().NumericByRef().u1;
@@ -96,7 +100,7 @@ isInteger = (bool)stack.Arg1().NumericByRef().u1;
 
 ### ```String format```
 
-```
+```cpp
 // get value
 char *format;
 format = (char *)stack.Arg2().RecoverString();
@@ -104,7 +108,7 @@ format = (char *)stack.Arg2().RecoverString();
 
 ### ```int[] numberGroupSizes```
 
-```
+```cpp
 // get ref to value container
 CLR_RT_HeapBlock_Array *numberGroupSizes;
 numberGroupSizes = stack.Arg6().DereferenceArray();
@@ -124,7 +128,7 @@ Values should be returned via the ```CLR_RT_StackFrame &stack``` parameter.
 
 ### String
 
-```
+```cpp
 char * ret;
 // ... assign value to ret ...
 
@@ -134,18 +138,18 @@ NANOCLR_SET_AND_LEAVE(stack.SetResult_String(ret));
 
 ## Returning with an Exception
 
-```
+```cpp
 // see other CLR_E_* defined values
 NANOCLR_SET_AND_LEAVE(CLR_E_FAIL);
 ```
 
 Not sure on the differences, but there is a ```NotImplementedStub``` helper on ```CLR_RT_StackFrame &stack``` parameter may be used too:
 
-```
+```cpp
 NANOCLR_SET_AND_LEAVE(stack.NotImplementedStub());
 ```
 
-# Example managed-native development cycle
+## Example managed-native development cycle
 
 The managed-native border crossing development cycle could have significant time penalty.
 Without any shortcuts the required steps are:
@@ -166,4 +170,4 @@ It saved me a lot of time.
 3. Switch to native code development environment.
 4. Add minimal implementation to the ```extern``` counterpart C++ function: just extract parameters from their CLR form to C++ form (see (#How to handle in C++ parameter values received from C# call)). The goal is: convert the managed-call-specific things into native C++. Forward call with the extracted parameters to a private func with same logical signature. Now you have a "clean" C++ function without any CLR specific parameter handling logic.
 5. [Debug once](../building/build-esp32.md#debugging-nanoclr-without-special-hardware). Check that your "clean" C++ func receives all the parameters appropriatelly from managed call.
-6. Implement the body of "clean" C++ function. At this moment you are not depending on managed call so you can write anywhere and with any development method, using tests to call your function without any need to setup extensive CLR objects just to test the code you are just developing. E.g. you can write and debug your code on https://www.onlinegdb.com/.
+6. Implement the body of "clean" C++ function. At this moment you are not depending on managed call so you can write anywhere and with any development method, using tests to call your function without any need to setup extensive CLR objects just to test the code you are just developing. E.g. you can write and debug your code on <https://www.onlinegdb.com/>.

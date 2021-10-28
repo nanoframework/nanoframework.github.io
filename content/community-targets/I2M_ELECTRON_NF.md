@@ -23,4 +23,3 @@ Further information can be found on [the store website](https://store.ingenuitym
 ## Managed helpers
 
 Checkout the [C# managed helpers](https://github.com/nanoframework/nf-Community-Targets/tree/main/ChibiOS/I2M_ELECTRON_NF/managed_helpers) available for this board.
-

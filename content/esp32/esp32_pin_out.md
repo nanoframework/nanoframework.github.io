@@ -64,6 +64,7 @@ We use "ADC1" with 20 logical channels mapped to the ESP32 internal controllers 
 There are the 18 available ESP32 channels plus the internal Temperature and Hall sensors making the 20 logical channels.
 
 Restrictions:-
+
 - Channels 10 to 19 can not be used while the WiFi is enabled. (exception CLR_E_PIN_UNAVAILABLE)
 - Hall sensor and Temperature sensor can not be used at same time as Channels 0 and 3.
 - Gpio 0, 2, 15 are strapping pins and can not be freely used ( Channels 11, 12, 13 ), check board schematics.

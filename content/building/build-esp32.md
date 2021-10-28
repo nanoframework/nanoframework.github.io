@@ -63,36 +63,37 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 1. Install ESP-IDF Tools by using the installer provided by Espressif [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer). The installer includes all the pre-requisites.
 
-2. After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.
+1. After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.
 
-3. Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.
+1. Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.
 
 ![idf repo location](../../images/building/esp32/install-esp-idf-tools-repo-location.png)
 
-4. Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.
+1. Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.
 
 ![idf tools location](../../images/building/esp32/install-esp-idf-tools-location.png)
 
-5. At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.
+1. At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.
 
 ![options](../../images/building/esp32/install-esp-idf-tools-options.png)
 
-6. The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...
+1. The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...
 
-7. After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script `install`. This will *hopefully* install all the requirements and prerequisites. 
+1. After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script `install`. This will *hopefully* install all the requirements and prerequisites.
 
-8. Now execute the script `export`. This will *hopefully* update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable. 
+1. Now execute the script `export`. This will *hopefully* update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
 
-9. Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.
+1. Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.
 
 ![updated path](../../images/building/esp32/install-esp-idf-tools-path.png)
 
 1. Also worth checking if the following environment variables have also been setup:
+
 - `IDF_PATH`: must point to the location where the ESP-IDF repo was cloned (see step 3. above).
 - `IDF_PYTHON_ENV_PATH`: must point to Python install location.
 - `IDF_TOOLS_PATH`: must point to the location where the ESP-IDF tools where installed (see step 3. above).
 
-:warning: **Having the path property setup it's absolutely mandatory in order to be able to build.** :warning: 
+:warning: **Having the path property setup it's absolutely mandatory in order to be able to build.** :warning:
 
 ## Set up Visual Studio Code
 
@@ -177,8 +178,8 @@ The above may have some errors if:
 
        It will ask you for the COM port where it's connected.
 
-    - An other alternative is using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool: 
-     
+    - An other alternative is using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool:
+
        ```console
        nanoff --target ESP32_PSRAM_REV0 --serialport <YourCOMPort> --image nanoCLR.bin --address 0x00010000
        ```

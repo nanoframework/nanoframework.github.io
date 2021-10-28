@@ -17,7 +17,7 @@ The first part is to get Visual Studio 2019 (VS 2017 is also supported) and the 
 1. **Install the _nanoFramework_ extension for Visual Studio**  
    Launch Visual Studio (we'll just refer to it as VS from now on) and install the **nanoFramework** extension.  
    You can do this by selecting the menu **Extensions > Manage Extensions** which will open the **Manage Extensions** dialog. Select the **Online** feed category on the left-hand and enter **_nanoFramework_** in the **search** box.
-   
+
    ![Visual Studio - Manage Extensions Dialog](../../images/getting-started-guides/vs-nf-extension-search.png)
 
 1. You will be prompted to **restart Visual Studio** to finish installing the extension
@@ -30,6 +30,7 @@ The first part is to get Visual Studio 2019 (VS 2017 is also supported) and the 
 The second part is to load the .NET **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher (nanoff)](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
 
 > NOTE
+>
 > - The [.NET 5.0 Runtime (or .NET 5.0 SDK)](https://dotnet.microsoft.com/download) must be installed
 
 1. **Install [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher)**
@@ -38,10 +39,10 @@ The second part is to load the .NET **nanoFramework** image in the board flash. 
     dotnet tool install -g nanoff
     ```
 
-1. **Perform the update** by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected. 
-(The following includes the description for targets of several platforms for completeness) 
+1. **Perform the update** by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
+(The following includes the description for targets of several platforms for completeness)
 
-    - To update the firmware of an ESP32 target connected to COM31, to the latest available preview version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash..." message) 
+    - To update the firmware of an ESP32 target connected to COM31, to the latest available preview version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash..." message)
 
         ```console
         nanoff --target ESP32_REV0 --serialport COM31 --update --preview
@@ -59,7 +60,7 @@ The second part is to load the .NET **nanoFramework** image in the board flash. 
         nanoff --target NETDUINO3_WIFI --update --dfu
         ```
 
-3. **After the upload completes**, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET **nanoFramework** by looking into the **Device Explorer** window in **Visual Studio**.
+1. **After the upload completes**, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET **nanoFramework** by looking into the **Device Explorer** window in **Visual Studio**.
 
 ## Coding a 'Hello World' application
 
@@ -76,7 +77,7 @@ Now you have everything that you need to start coding your first application. Le
 
 1. Because GPIO is being used we need to pull that class library and a reference to it in our project. The class libraries are distributed through NuGet. To add this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the search box type **nanoFramework**. Make sure you have the **preview checkbox ticked**. Find the `nanoFramework.System.Device.Gpio` package and click **Install**. After the license confirmation box, the package will be downloaded and a reference to it will be added. You'll notice that you no longer have the unknown references hints in VS.
 
-1.  You should also make sure to update the `mscorlib` package before you move to the next step. To update this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the top of the window, click on **Updates** and make sure you check the **Include Prerelease** checkbox. Then click on **Select All** and do the update.
+1. You should also make sure to update the `mscorlib` package before you move to the next step. To update this class, right click on **References** in the Solution Explorer and click **Manage NuGet Packages**. On the top of the window, click on **Updates** and make sure you check the **Include Prerelease** checkbox. Then click on **Select All** and do the update.
 
 1. Click **Build Solution** from the Build menu. A success message shows in the Build window.
 
@@ -86,6 +87,7 @@ For some STM32 devices you may need two USB cables.  For example, the STM32429I-
 1. Let's deploy the application to the board. In order to do that, right click on the Project name and choose **Deploy**. You'll see the feedback of the several operations that are running on the background in the **Output Window**. After a successful deployment you need to reset the target and your `Hello World` blinky application will start running and, _voilá_, the LED starts blinking! If you want, instead of "just" deploying the application to the target you can choose to start a **debug session**. To do that **hit F5** (as usual) in Visual Studio and watch it run.
 
 ## Trouble shooting
+
 See this guide for solutions to some common problems: [Getting Started Trouble Shooting Guide](trouble-shooting-guide.md)
 
 ## Wrapping up

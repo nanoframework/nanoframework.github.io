@@ -27,7 +27,6 @@ Because of the underlying complexity and memory usage, multidimensional arrays a
 
 .Net **nanoFramework** supports a subset of the [Standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) (D/F/G/N/X) and [Composite formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting) (left and right alignment). It does NOT support any of the [Custom numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings). Strings in **nanoFramework** are all constrained to UTF-8, so there are limits to the characters that can be displayed. The following format specifiers are supported:
 
-
 | Specifier | Examples |
 | --------- | ------- |
 | [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#decimal) |

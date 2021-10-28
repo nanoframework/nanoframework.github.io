@@ -1,6 +1,6 @@
 # AssemblyHeader (CLR_RECORD_ASSEMBLY)
 
-The AssemblyHeader structure contains a number of verification markers and CRCs to validate the legitimacy of the assembly at runtime. Additionally, the Assembly header contains the location information for the MetadataTables and BLOB storage areas. 
+The AssemblyHeader structure contains a number of verification markers and CRCs to validate the legitimacy of the assembly at runtime. Additionally, the Assembly header contains the location information for the MetadataTables and BLOB storage areas.
 
 The Structure of the AssemblyHeader is as follows:
 
@@ -26,7 +26,7 @@ The following sections describe the individual fields of the AssemblyHeader stru
 ### Marker
 
 The assembly marker is an eight character marker consisting of a string non zero terminated ASCII encoded characters.
-This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string. 
+This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string.
 
 | Version  | Marker   | Description|
 |----------|----------|------------  |
@@ -39,7 +39,7 @@ ANSI X3.66 32 bit CRC for the AssemblyHeader. This is computed assuming the Head
 
 ### AssemblyCRC
 
-ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data starting from [PaddingOfTables](#paddingoftables) 
+ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data starting from [PaddingOfTables](#paddingoftables)
 
 ### Flags
 

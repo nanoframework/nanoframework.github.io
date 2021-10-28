@@ -25,20 +25,19 @@ We offer the possibility to use such a Dev Container to build any of the support
 Go to the file `.devcontainer/devcontainer.json` and choose the container you want. You will find the details in the file itself:
 
 ```json
-	// Adjust this file to chose the platform you want using the prebuild containers
-	// - Dockerfile.All = you can build anything but it's a very large container
-	// - Dockerfile.AzureRTOS = for AzureRTOS targets
-	// - Dockerfile.ChibiOS = for ChibiOS based targets (ex: STM32, Netduino, Orgpal)
-	// - Dockerfile.ESP32 = for ESP32 targets
-	// - Dockerfile.TI = for TI targets
-	// If you prefer, you can use the source files and adjust them they are located, with the same names in ./sources. This will alow you to customize them and add anything you may need on top.
-	"dockerFile": "Dockerfile.ChibiOS",
+ // Adjust this file to chose the platform you want using the prebuild containers
+ // - Dockerfile.All = you can build anything but it's a very large container
+ // - Dockerfile.AzureRTOS = for AzureRTOS targets
+ // - Dockerfile.ChibiOS = for ChibiOS based targets (ex: STM32, Netduino, Orgpal)
+ // - Dockerfile.ESP32 = for ESP32 targets
+ // - Dockerfile.TI = for TI targets
+ // If you prefer, you can use the source files and adjust them they are located, with the same names in ./sources. This will alow you to customize them and add anything you may need on top.
+ "dockerFile": "Dockerfile.ChibiOS",
 ```
 
 > Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the `./sources` subdirectory. So the file name will be for example `./source/Dockerfile.All` to use the container containing everything and build it from the source.
-
 > Error: if you get error message like "Bad Cmake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the Cmake and Cmake tool from Visual Studio Code and restart Visual Studio Code.  
- 
+
 - **Step 9**: Once prompted or thru the menu, open the dev container.
 
 This is illustrating how to do this:
@@ -183,14 +182,14 @@ ARG USER_GID=$USER_UID
 ### Flashing image
 
 Using Docker Desktop from Windows 10 you cannot flash compiled image to your device directly
-because of the limitations of serial port exposal to container. 
+because of the limitations of serial port exposal to container.
 The instructions about "Terminal" -> "Run Task" -> "Flash nanoCRL ..."  available on other
 document pages here wont work.
 
 You can flash the compiled nanoCLR.bin file with [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool.
 
 Example:
+
 ```console
 nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
 ```
-
