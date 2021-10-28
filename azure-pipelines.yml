@@ -223,7 +223,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'Building automatically toc.yml for main content'
-  condition: succeeded()
+  condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
   inputs:
     command: 'run'
     projects: 'DocFxCompanion/src/TocDocFxCreation'
