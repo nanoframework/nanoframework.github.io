@@ -115,12 +115,12 @@
 <p>The <code>NANOCLR_SET_AND_LEAVE</code> function will just set the <code>HRESULT</code> and go to <code>nanoCLR_Cleanup</code>.</p>
 <p>You will find a detailed list of typical HRESULT in the <a href="https://github.com/nanoframework/nf-interpreter/blob/f5d026224116bd671f42d5c482701447b1bf6e70/src/CLR/Include/nf_errors_exceptions.h"><code>src\CLR\Include\nf_errors_exceptions.h</code></a> file. FAILED and SUCCEEDED are defined like this:</p>
 <pre><code class="lang-cpp">#define SUCCEEDED(Status) ((HRESULT)(Status) &gt;= 0)
-#define FAILED(Status) ((HRESULT)(Status)&lt;0)
+#define FAILED(Status)    ((HRESULT)(Status)&lt;0)
 </code></pre>
 <h3 id="nanoclr_msg_set_and_leave-and-nanoclr_msg1_set_and_leave">NANOCLR_MSG_SET_AND_LEAVE and NANOCLR_MSG1_SET_AND_LEAVE</h3>
 <p>Those 2 macros are defined like this:</p>
-<pre><code class="lang-cpp">#define NANOCLR_MSG_SET_AND_LEAVE(expr, msg)		{ hr = (expr); NANOCLR_LEAVE(); }
-#define NANOCLR_MSG1_SET_AND_LEAVE(expr, msg, arg)	{ hr = (expr); NANOCLR_LEAVE(); }
+<pre><code class="lang-cpp">#define NANOCLR_MSG_SET_AND_LEAVE(expr, msg)       { hr = (expr); NANOCLR_LEAVE(); }
+#define NANOCLR_MSG1_SET_AND_LEAVE(expr, msg, arg) { hr = (expr); NANOCLR_LEAVE(); }
 </code></pre>
 <p>So they allow you to setup the return element and leave. Those are so far used only in the <code>src\CLR\Core\TypeSystem.cpp</code> file. That said, nothing prevent you to use them as well.</p>
 <h2 id="clr_rt_stackframe-stack">CLR_RT_StackFrame &amp;stack</h2>
