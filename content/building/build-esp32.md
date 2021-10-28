@@ -32,7 +32,7 @@ You'll need:
 
 -**Step 1**: Create a directory structure such as the following:
 
-   - `C:\nanoFramework`
+      `C:\nanoFramework`
 
 -**Step 2**: Download and install [Visual Studio Code](http://code.visualstudio.com).
 
@@ -216,10 +216,10 @@ See Gojimmypi for description of JTAG connections [here](https://gojimmypi.blogs
 
 If flashing nanoCLR via a COM port (default), then be aware that you need to disconnect the JTAG to avoid it preventing the bootloader from running, and therefore being unable to reprogram the ESP23. e.g. if you see the following pattern repeating, unplug the USB-OCD-H, and then the programming will proceed.
 
-```txt
-esptool.py v2.1
-Connecting........_____....._____...
-```
+      ```txt
+         esptool.py v2.1
+         Connecting........_____....._____...
+      ```
 
 You may have to add the `IRAM_ATTR` attribute to a function that you want to debug, so it can be loaded in RAM. When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
 
@@ -236,19 +236,19 @@ you want to debug a nanoCLR code which can be executed via managed code.
    e.g.: What is the value of a variable? Which part of an if-else statement gets executed?
 - **Step 3**: Put the following temporary code there:
 
-```cpp
-        {
+      ```cpp
+      {
             char temporaryStringBuffer[64];
             int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), "interestingValue: %d\r\n", interestingValue);
             CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
-        }
-```
+      }
+      ```
 
    Or simply:
 
-```cpp
-        CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
-```
+      ```cpp
+         CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+      ```
 
 - **Step 4**: The boring part: rebuild and re-flash firmware and your program.
 - **Step 5**: Start debugging in Visual Studio and keep eye on it's debug output window.
