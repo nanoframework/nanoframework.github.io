@@ -1,10 +1,10 @@
 # Rules for creating Markdown in the repository
 
-This document explains couple of rules to create a proper Markdown file in the repository.
+This document explains a couple of rules to create a proper Markdown file in the documentation repository.
 
 Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world’s most popular markup languages.
 
-Markdown files are text based. If you want to learn about possibilities (headers, lists, tables, code and such) this cheat sheet was always helpful: [Markdown Cheatsheet · adam-p/markdown-here Wiki · GitHub](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). There are a number of them.
+Markdown files are text based. If you want to learn about possibilities (headers, lists, tables, code and such) this cheat sheet is always helpful: [Markdown Cheatsheet · adam-p/markdown-here Wiki · GitHub](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). There are a number of them.
 
 Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different.
 
@@ -34,7 +34,7 @@ For internal links on documentation, please use relative link to the file. For e
 
 ### Preview in VS Code
 
-When editing markdown in VS Code, there is a preview button on the top right that will open a live preview window on the left. So you can type and see the result at the same time. This is usually a great way to avoid basic mistakes, making sure your images are showing up properly for example.
+When editing markdown in [VS Code](https://code.visualstudio.com), there is a preview button on the top right that will open a live preview window on the left. So you can type and see the result at the same time. This is usually a great way to avoid basic mistakes, making sure your images are showing up properly for example.
 
 ![VS Code Preview](../../images/VSCodeMdPreview.gif)
 
@@ -45,6 +45,8 @@ When editing markdown in VS Code, there is a preview button on the top right tha
 ### Run markdownlint before pushing
 
 To make sure before you push, run the markdownlint tool on your md-file and solve all messages. This tool will be run in the pipeline to validate your Markdown files. Check more details [below](#markdownlint).
+
+If you're using VS Code you can install an extension with a markdown linter such as [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint). With it, you'll immediately get visual feedback on any formatting issues.
 
 > **Important**: There won't be any merge possible if the Markdown file is **not** properly formed. So it is very important to run the linter before you do a PR and fix all the issues.
 
