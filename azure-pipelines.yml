@@ -238,18 +238,11 @@ steps:
     projects: 'DocFxCompanion/src/DocLinkChecker'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\content -t'
 
-# Scan markdownfiles on style consistency
-- task:
+# Scan markdown files on style consistency
+- powershell: |
+    npm install -g markdownlint-cli
+    markdownlint -c  $(System.DefaultWorkingDirectory)/.markdownlint.json $(System.DefaultWorkingDirectory)/content
   displayName: 'Execute Markdownlint'
-  steps:
-    - bash: npm install -g markdownlint-cli
-      displayName: 'Install markdownlint'
-
-    - bash: markdownlint -c $CONFIGFILE $WORKDIR
-      env:
-        WORKDIR: $(System.DefaultWorkingDirectory)/content
-        CONFIGFILE: $(System.DefaultWorkingDirectory)/.markdownlint.json
-      displayName: 'Run markdownlint'
 
 # we then need to add the root index page to the toc
 - powershell: |
