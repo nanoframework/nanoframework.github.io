@@ -30,18 +30,19 @@ You'll need:
 
 ## Overview
 
-1. Create a directory structure such as the following:
+-**Step 1**: Create a directory structure such as the following:
 
-   - `C:\nanoFramework`
+      `C:\nanoFramework`
 
-1. Download and install [Visual Studio Code](http://code.visualstudio.com).
+-**Step 2**: Download and install [Visual Studio Code](http://code.visualstudio.com).
 
-1. Clone [`nf-interpreter`](https://github.com/nanoframework/nf-interpreter) repository into `C:\nanoFramework\nf-interpreter`. See next section for more info.
+-**Step 3**: Clone [`nf-interpreter`](https://github.com/nanoframework/nf-interpreter) repository into `C:\nanoFramework\nf-interpreter`. See next section for more info.
 
-1. Install ESP-IDF Tools by using the installer provided by Espressif.
+-**Step 4**: Install ESP-IDF Tools by using the installer provided by Espressif.
 
-1. Review and adjust several JSON files to match your environment (as documented below)
-1. Restart Visual Studio Code (due to json changes)
+-**Step 5**: Review and adjust several JSON files to match your environment (as documented below)
+
+-**Step 6**: Restart Visual Studio Code (due to json changes)
 
 ## .NET **nanoFramework** GitHub repo
 
@@ -57,52 +58,52 @@ Make sure to put this folder high enough on your drive, that you won't trigger l
 
 After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.
 
-### Automated Install of the build environment
+### Manual install of the build environment
 
 (If you already have installed ESP-IDF Tools you can skip this step.)
 
-1. Install ESP-IDF Tools by using the installer provided by Espressif [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer). The installer includes all the pre-requisites.
+-**Step 1**: Install ESP-IDF Tools by using the installer provided by Espressif [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer). The installer includes all the pre-requisites.
 
-1. After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.
+-**Step 2**: After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.
 
-1. Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.
+-**Step 3**: Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.
 
 ![idf repo location](../../images/building/esp32/install-esp-idf-tools-repo-location.png)
 
-1. Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.
+-**Step 4**: Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.
 
 ![idf tools location](../../images/building/esp32/install-esp-idf-tools-location.png)
 
-1. At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.
+-**Step 5**: At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.
 
 ![options](../../images/building/esp32/install-esp-idf-tools-options.png)
 
-1. The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...
+-**Step 6**: The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...
 
-1. After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script `install`. This will *hopefully* install all the requirements and prerequisites.
+-**Step 7**: After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script `install`. This will *hopefully* install all the requirements and prerequisites.
 
-1. Now execute the script `export`. This will *hopefully* update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
+-**Step 8**: Now execute the script `export`. This will *hopefully* update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
 
-1. Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.
+-**Step 9**: Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.
 
 ![updated path](../../images/building/esp32/install-esp-idf-tools-path.png)
 
-1. Also worth checking if the following environment variables have also been setup:
+-**Step 10**: Also worth checking if the following environment variables have also been setup:
 
 - `IDF_PATH`: must point to the location where the ESP-IDF repo was cloned (see step 3. above).
 - `IDF_PYTHON_ENV_PATH`: must point to Python install location.
 - `IDF_TOOLS_PATH`: must point to the location where the ESP-IDF tools where installed (see step 3. above).
 
-:warning: **Having the path property setup it's absolutely mandatory in order to be able to build.** :warning:
+:warning: **Having the path properly setup it's absolutely mandatory in order to be able to build.** :warning:
 
 ## Set up Visual Studio Code
 
-1. Install the extensions:
+-**Step 1**: Install the extensions:
 
     - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
     - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
-1. Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
+-**Step 2**: Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
 
     ```ps
     .\Initialize-VSCode.ps1
@@ -112,23 +113,23 @@ After cloning the repo, you need to setup the build environment. You can use the
     - The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json`, `cmake-variants.json` and `settings.json` to replace the relevant paths. **!!mind to always use forward slashes in the paths!!**
     - More info available on the [Tweaking cmake-variants.TEMPLATE.json](../building/cmake-tools-cmake-variants.md) documentation page.
 
-1. Save any open files and **RESTART** VS Code. Have you **RESTARTED** VS Code? You really have to do it otherwise this won't work.
+-**Step 3**: Save any open files and **RESTART** VS Code. Have you **RESTARTED** VS Code? You really have to do it otherwise this won't work.
 
 ## Build nanoCLR
 
-1. Launch Visual Studio from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
+-**Step 1**: Launch Visual Studio from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 Next time VS Code open it should load the workspace automatically.
 
-1. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
+-**Step 2**: In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 
-1. In the status bar at the bottom left, click on the `CMake:Debug ESP32_PSRAM_REV0: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets [here](../reference-targets/esp32.md).  
+-**Step 3**: In the status bar at the bottom left, click on the `CMake:Debug ESP32_PSRAM_REV0: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time. Also note that you should choose the build target that's appropriate for the board that you have. More details on this on the documentation about the available targets [here](../reference-targets/esp32.md).  
 ![updated path](../../images/building/esp32/kit-selection.png)
 
-1. In the status bar click `Build` or hit F7.
+-**Step 4**: In the status bar click `Build` or hit F7.
 
-1. Wait for the build to finish with `Build finished with exit code 0` output message.
+-**Step 5**: Wait for the build to finish with `Build finished with exit code 0` output message.
 
-1. In the `build` folder you'll find several files:
+-**Step 6**: In the `build` folder you'll find several files:
     - `nanoCLR.bin`
     - `nanoCLR.elf`
     - `partitions_4mb.elf`
@@ -149,13 +150,13 @@ The above may have some errors if:
 
 ## Flash nanoCLR into ESP32
 
-1. The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `build/bootloader/bootloader.bin` after a successful build.
+-**Step 1**: The third file that gets flashed into the ESP32 is the `bootloader.bin` which will be located here `build/bootloader/bootloader.bin` after a successful build.
 
-1. Connect your development board.
+-**Step 2**: Connect your development board.
 
-1. Some ESP32 boards require to be put into "download mode". Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.
+-**Step 3**: Some ESP32 boards require to be put into "download mode". Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.
 
-1. Download the image to device.
+-**Step 4**: Download the image to device.
     - In Visual Studio Code go to menu "Terminal" -> "Run Task" and select "Flash nanoCLR to ESP32 from the list.
 
     - As an alternative enter the command in command palette:
@@ -215,10 +216,10 @@ See Gojimmypi for description of JTAG connections [here](https://gojimmypi.blogs
 
 If flashing nanoCLR via a COM port (default), then be aware that you need to disconnect the JTAG to avoid it preventing the bootloader from running, and therefore being unable to reprogram the ESP23. e.g. if you see the following pattern repeating, unplug the USB-OCD-H, and then the programming will proceed.
 
-```txt
-esptool.py v2.1
-Connecting........_____....._____...
-```
+      ```txt
+         esptool.py v2.1
+         Connecting........_____....._____...
+      ```
 
 You may have to add the `IRAM_ATTR` attribute to a function that you want to debug, so it can be loaded in RAM. When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
 
@@ -235,19 +236,19 @@ you want to debug a nanoCLR code which can be executed via managed code.
    e.g.: What is the value of a variable? Which part of an if-else statement gets executed?
 - **Step 3**: Put the following temporary code there:
 
-```cpp
-        {
+      ```cpp
+      {
             char temporaryStringBuffer[64];
             int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), "interestingValue: %d\r\n", interestingValue);
             CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
-        }
-```
+      }
+      ```
 
    Or simply:
 
-```cpp
-        CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
-```
+      ```cpp
+         CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, "Hello World!", WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+      ```
 
 - **Step 4**: The boring part: rebuild and re-flash firmware and your program.
 - **Step 5**: Start debugging in Visual Studio and keep eye on it's debug output window.
