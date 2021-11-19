@@ -76,7 +76,8 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 1. Add another variable `StartReleaseCandidate`, set the content to `false` and check "Let users override this value when running this pipeline".
 1. Add another variable `UPDATE_DEPENDENTS`, set the content to `false` and check "Let users override this value when running this pipeline".
 1. Add two more secret variables `SignClientUser` and  `SignClientSecret` and fill in with the credentials for the .NET Foundation signing service. **Make sure** that the variables are set to `secret` by clicking on the appropriate option.
-1. Click the "Save" button.
+1. Click the "Save" button on the Variables pop-up (it will take you back to the pipeline yaml).
+1. Cline the "Save" button at the top right and go through the commit message.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
 1. Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
 1. Click "Save" in the toolbar (NOT "Save & Queue").
