@@ -139,6 +139,8 @@ steps:
 
       git clone https://github.com/nanoframework/Windows.Devices.Pwm.git --depth 100 -b develop Windows.Devices.Pwm 
 
+      git clone https://github.com/nanoframework/System.Device.Pwm.git --depth 100 -b develop System.Device.Pwm
+
       git clone https://github.com/nanoframework/Windows.Devices.SerialCommunication.git -b develop Windows.Devices.SerialCommunication 
 
       git clone https://github.com/nanoframework/Windows.Devices.Spi.git --depth 100 -b develop Windows.Devices.Spi 
@@ -370,6 +372,14 @@ steps:
     restoreSolution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Pwm\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Pmw
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.Pwm.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Pwm\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.SerialCommunication
@@ -694,6 +704,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build System.Device.Pwm
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.Device.Pwm\nanoFramework.System.Device.Pwm.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
