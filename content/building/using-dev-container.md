@@ -38,13 +38,15 @@ Go to the file `.devcontainer/devcontainer.json` and choose the container you wa
 > Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the `./sources` subdirectory. So the file name will be for example `./source/Dockerfile.All` to use the container containing everything and build it from the source.
 > Error: if you get error message like "Bad Cmake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the Cmake and Cmake tool from Visual Studio Code and restart Visual Studio Code.  
 
-- **Step 9**: Once prompted or thru the menu, open the dev container.
+- **Step 9**: Once prompted, open the dev container.
 
-This is illustrating how to do this:
+  This is illustrating how to do this:
 
-![remote container animation](https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif)
+  ![remote container animation](https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif)
 
-> note: in our case, the dev container is called `nanoFramework`.
+  > note: in our case, the dev container is called `nanoFramework`.
+
+  If VS Code does not show the prompt, you can press F1 to show all commands. In this list, you can select the item "Remote-Containers: Open Folder in Container..." to open the dev container manually. This option will require you to select the folder through the folder selection dialog.
 
 - **Step 10**: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.
 - **Step 11**: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.
