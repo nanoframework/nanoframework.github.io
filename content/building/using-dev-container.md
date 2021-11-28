@@ -191,5 +191,5 @@ You can flash the compiled nanoCLR.bin file with [nanoff](../getting-started-gui
 Example:
 
 ```console
-nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
+nanoff --update --platform esp32 --serialport COM3 --clrfile nanoCLR.bin
 ```
