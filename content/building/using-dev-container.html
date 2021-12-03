@@ -8,7 +8,7 @@
     <title>Using Dev Container to build targets | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Using Dev Container to build targets | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.5.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -114,18 +114,22 @@
 Error: if you get error message like &quot;Bad Cmake executable &quot;&quot;. Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the Cmake and Cmake tool from Visual Studio Code and restart Visual Studio Code.</p>
 </blockquote>
 <ul>
-<li><strong>Step 9</strong>: Once prompted or thru the menu, open the dev container.</li>
-</ul>
+<li><p><strong>Step 9</strong>: Once prompted, open the dev container.</p>
 <p>This is illustrating how to do this:</p>
 <p><img src="https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif" alt="remote container animation"></p>
 <blockquote>
 <p>note: in our case, the dev container is called <code>nanoFramework</code>.</p>
 </blockquote>
-<ul>
-<li><strong>Step 10</strong>: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.</li>
-<li><strong>Step 11</strong>: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.</li>
-<li><strong>Step 12</strong>: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.</li>
-<li><strong>Step 13</strong>: It will be over when your VS Code will give you access to the files and will look like this:</li>
+<p>If VS Code does not show the prompt, you can press F1 to show all commands. In this list, you can select the item &quot;Remote-Containers: Open Folder in Container...&quot; to open the dev container manually. This option will require you to select the folder through the folder selection dialog.</p>
+</li>
+<li><p><strong>Step 10</strong>: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.</p>
+</li>
+<li><p><strong>Step 11</strong>: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.</p>
+</li>
+<li><p><strong>Step 12</strong>: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.</p>
+</li>
+<li><p><strong>Step 13</strong>: It will be over when your VS Code will give you access to the files and will look like this:</p>
+</li>
 </ul>
 <p><img src="../../images/dev-container-vscode-ok.jpg" alt="Docker steetings"></p>
 <ul>
@@ -226,7 +230,7 @@ The instructions about &quot;Terminal&quot; -&gt; &quot;Run Task&quot; -&gt; &qu
 document pages here wont work.</p>
 <p>You can flash the compiled nanoCLR.bin file with <a href="../getting-started-guides/getting-started-managed.html#uploading-the-firmware-to-the-board-using-nanofirmwareflasher">nanoff</a> tool.</p>
 <p>Example:</p>
-<pre><code class="lang-console">nanoff --platform esp32 --serialport COM3 --image nanoCLR.bin --address 0x00010000
+<pre><code class="lang-console">nanoff --update --platform esp32 --serialport COM3 --clrfile nanoCLR.bin
 </code></pre>
 </article>
           </div>

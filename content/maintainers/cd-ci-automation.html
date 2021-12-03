@@ -8,7 +8,7 @@
     <title>CD &amp; CI automation | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="CD &amp; CI automation | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.5.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -82,7 +82,7 @@
 <h2 id="commands-that-nfbot-understands">Commands that nfbot understands</h2>
 <p>nfbot reacts to commands passed on PR comments for any repository.
 Only members of the organization have permission to send these commands.
-On successful execution of a command, nfbot reacts to the comment with a 👍. If case there is an error or problem with the execution it will react with 😕.</p>
+On successful execution of a command, nfbot reacts to the comment with a 👍 for a correct execution or 🚀 if successfully launched an async operation. If case there is an error or problem with the execution it will react with 😕. If the expected conditions aren't meet the reaction is 👀.</p>
 <p>The command syntax is: <code>@nfbot comand &lt;argument(s)&gt;</code>.</p>
 <p>Available commands:</p>
 <table>
@@ -105,9 +105,14 @@ On successful execution of a command, nfbot reacts to the comment with a 👍. I
 <td style="text-align: left;">Check if there are updated versions of the referenced libraries and update if needed</td>
 </tr>
 <tr>
+<td style="text-align: left;">updatedependencies all</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Launch a global check for updated versions of the referenced libraries and update if needed in <strong>all</strong> class libraries</td>
+</tr>
+<tr>
 <td style="text-align: left;">startrelease</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Kick a release candidate workflow for this library</td>
+<td style="text-align: left;">Kick a release candidate workflow for this library. Will fail if there are preview dependencies for the library.</td>
 </tr>
 <tr>
 <td style="text-align: left;">runpipeline</td>

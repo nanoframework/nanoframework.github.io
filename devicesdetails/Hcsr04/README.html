@@ -8,7 +8,7 @@
     <title>HC-SR04 - Ultrasonic Ranging Module | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="HC-SR04 - Ultrasonic Ranging Module | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.5.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -83,6 +83,7 @@
 <li><a href="https://components101.com/sites/default/files/component_datasheet/HCSR04%20Datasheet.pdf">HC-SR04 data sheet</a></li>
 </ul>
 <h2 id="usage">Usage</h2>
+<p>In most of the cases, you just need to pass the 2 pins you're going to use: the Echo and Trigger pins.</p>
 <pre><code class="lang-sharp">using (var sonar = new Hcsr04(4, 17))
 {
     if (sonar.TryGetDistance(out Length distance))
@@ -97,6 +98,9 @@
     Thread.Sleep(1000);
 }
 </code></pre>
+<blockquote>
+<p>Note: it is possible to use the same pin for both Trigger and Echo but it's not recommended.</p>
+</blockquote>
 <h3 id="hardware-required">Hardware Required</h3>
 <ul>
 <li>HC-SR04</li>
