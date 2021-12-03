@@ -191,7 +191,7 @@ steps:
 
       git clone https://github.com/nanoframework/System.Text.RegularExpressions.git --depth 100 -b develop System.Text.RegularExpressions
 
-      git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git --depth 100 -b develop nanoFramework.Azure.Devices
+      git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git -b develop nanoFramework.Azure.Devices
 
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
 
@@ -377,7 +377,7 @@ steps:
   displayName: NuGet restore System.Device.Pmw
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.Pwm.sln'
+    restoreSolution: 'System.Device.Pwm\nanoFramework.System.Device.Pwm.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Pwm\NuGet.Config'
 
@@ -401,7 +401,7 @@ steps:
   displayName: NuGet restore System.Device.Spi
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    restoreSolution: 'System.Device.Spi\System.Device.Spi.sln'
+    restoreSolution: 'System.Device.Spi\nanoFramework.System.Device.Spi.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.Spi\NuGet.Config'
 
@@ -561,7 +561,7 @@ steps:
   displayName: NuGet restore System.IO.Ports
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    restoreSolution: 'System.IO.Ports\System.IO.Ports.sln'
+    restoreSolution: 'System.IO.Ports\nanoFramework.System.IO.Ports.sln'
     feedsToUse: config
     nugetConfigPath: 'System.IO.Ports\NuGet.Config'
 
@@ -735,7 +735,7 @@ steps:
   displayName: Build System.Device.Spi
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    solution: 'System.Device.Spi\System.Device.Spi.sln'
+    solution: 'System.Device.Spi\nanoFramework.System.Device.Spi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
@@ -879,7 +879,7 @@ steps:
   displayName: Build System.IO.Ports
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    solution: 'System.IO.Ports\System.IO.Ports.sln'
+    solution: 'System.IO.Ports\nanoFramework.System.IO.Ports.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
