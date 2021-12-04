@@ -32,7 +32,7 @@ When you have the extension installed, you can request VS Code to automatically 
 }
 ```
 
->**WARNING**: you need to avoid automatic formating on 3rd party .h files as the foramatting can introduce many changes that add no value and make it very difficult to subsequintly compare the .h file with the orginal or with a template file when the external 3rd party software is updated.
+>**WARNING**: you'll need to avoid automatic formating on 3rd party files (both .h and .c and .cpp) as the formatting can introduce many changes that add no value and make it very difficult to subsequintly compare the file with the orginal or with a template file when the external 3rd party software is updated.
 
 You can turn clang auto format 'off' and 'on' around code you don't what reformatted.
 
