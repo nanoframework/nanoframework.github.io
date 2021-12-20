@@ -177,6 +177,8 @@ steps:
 
       git clone https://github.com/nanoframework/System.Net.Http -b develop System.Net.Http 
 
+      git clone https://github.com/nanoframework/System.Net.WebSockets -b develop System.Net.WebSockets 
+
       git clone https://github.com/nanoframework/nanoFramework.TI.EasyLink -b develop nanoFramework.TI.EasyLink
 
       git clone https://github.com/nanoframework/nanoFramework.Hardware.TI -b develop nanoFramework.Hardware.TI
@@ -526,6 +528,14 @@ steps:
     nugetConfigPath: 'System.Net.Http\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Net.WebSockets
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.Net.WebSockets\nanoFramework.System.Net.WebSockets.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Net.WebSockets\NuGet.Config'
+
+- task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.TI.EasyLink
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
@@ -848,6 +858,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build System.Net.WebSockets
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.Net.WebSockets\nanoFramework.System.Net.WebSockets.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
