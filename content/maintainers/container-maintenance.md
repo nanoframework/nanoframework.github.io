@@ -27,7 +27,7 @@ Example:
 
 Buy default a new package has a private visibility. You will need to adjust the visibility of the potential new dev containers by:
 
-1. Go to <https://github.com/nanoFramework/packages>
+1. Go to <https://github.com/orgs/nanoframework/packages>
 1. Select the package
 1. Click `Connect Repository`
 1. Select `nf-interpreter`
