@@ -200,6 +200,12 @@ steps:
   displayName: Clone repos of class libs
   condition: or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') )
 
+- task: NuGetToolInstaller@1
+  condition: succeeded()
+  displayName: 'Install specific version of NuGet'
+  inputs:
+    versionSpec: '>=5.10.0'
+
 - powershell: |
       git clone https://github.com/Ellerbach/docfx-companion-tools.git -b main DocFxCompanion
   displayName: Clone the docfx helpers
