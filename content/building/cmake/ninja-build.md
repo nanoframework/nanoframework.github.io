@@ -1,4 +1,4 @@
-# Using Ninja to build .NET **nanoFramework**
+# Using Ninja to build .NET **nanoFramework** firmware
 
 ## Inside VS Code using CMake Tools
 
@@ -10,7 +10,7 @@ To setup the CMake tools to build using Ninja you have to follow the following s
 4. Find a line for `"cmake.configureSettings"`. This is were the full path to the Nina executable should be set. Mind the forward slashes.
 If you don't have one just add a block like this: `"cmake.configureSettings": { "CMAKE_MAKE_PROGRAM": "E:/ninja/ninja.exe" },`
 
-And that is it! Hit F7 or click the build configuration options for CMake Tools at the bottom toolbar.
+And that is it! Hit <kbd>F7</kbd> or click the build configuration options for CMake Tools at the bottom toolbar.
 
 ## Performance comparison
 

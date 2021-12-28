@@ -1,4 +1,4 @@
-# Building .NET **nanoFramework**
+# Building .NET **nanoFramework** firmware
 
 .NET **nanoFramework** build system is based in CMake. Please read the instructions specific to each target series.
 
@@ -7,9 +7,15 @@
 - [NXP](build-nxp.md)
 - [Using Dev Container](using-dev-container.md)
 
+⚠️ NOTE about the need to build .NET **nanoFramework** firmware ⚠️
+
+You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+There are available ready to flash firmware images for several targets, please check the [Home](https://github.com/nanoframework/Home#firmware-for-reference-boards) repository.
+
 ## About this document
 
-This document describes how to build the required images for .NET **nanoFramework** to be flashed in a SoC or MCU.
+This document describes how to build the required images for .NET **nanoFramework** firmware to be flashed in a SoC or MCU.
 The build is based on CMake tool to ease the development in all major platforms.
 
 ## Using Dev Container
@@ -36,8 +42,8 @@ If you are using VS Code as your development platform we suggest that you use th
 
 In case you specify an RTOS and you want its source to be downloaded from the official repository, you'll need:
 
-- For FreeRTOS a SVN client. [Tortoise SVN](https://tortoisesvn.net/downloads) seems to be a popular choice for Windows machines.
-- For ChibiOS a Git client. [GitHub Desktop](https://desktop.github.com/) seems to be a popular choice for Windows machines.
+- For ChibiOS a SVN client. [Tortoise SVN](https://tortoisesvn.net/downloads) seems to be a popular choice for Windows machines.
+- For all the other repositories a Git client. [Fork](https://git-fork.com/) it's a great visual git client packed with a lot of features or [GitHub Desktop](https://desktop.github.com/) seems to be a popular choice for Windows machines.
 
 ## Preparation
 
@@ -48,11 +54,11 @@ In case you need to clean up or start a fresh build all you have to do is simply
 
 As a suggestion we recommend that you create a directory named *build* in the repository root and run CMake from there.
 
-## Build a .NET **nanoFramework** image
+## Build a .NET **nanoFramework** firmware image
 
 The build script accepts the a number of parameters (some of them are mandatory). Please check the details about each parameter [here](cmake-tools-cmake-variants.md#content-explained).
 
-_Note 1: The RTOS currently supported (except for ESP32 target) is ChibiOS. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork._
+_Note 1: The RTOSes currently supported (except for ESP32 target) are ChibiOS and FreeRTOS. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork._
 _Note 2: the very first build will take more or less time depending on the download speed of the Internet connection of the machine were the build is running. This is because the source code of the RTOS of your choice will be downloaded from its repository. On the subsequent builds this won't happen._
 
 You can specify any generator that is supported in the platform where you are building.
@@ -87,12 +93,12 @@ cmake \
 -DCHIBIOS_BOARD=ST_NUCLEO144_F746ZG \
 -DTARGET_SERIES=STM32F7xx \
 -DNF_FEATURE_DEBUGGER=TRUE \
--DAPI_Windows.Devices.Gpio=ON \
+-DAPI_System.Device.Gpio=ON \
 -DNF_FEATURE_RTC=ON \
 -G "NMake Makefiles" ../
 ```
 
-This will call CMake (on your *build* directory that is assumed to be under the repository root) specifying the location of the toolchain install, specifying that ChibiOS sources to be used are located in the designated path (mind the forward slash and no ending slash),  that the target board is named ST_NUCLEO144_F746ZG, that STM32F7xx is the series name that it belongs to, debugger feature is to be included, Windows.Devices.Gpio API is to be included, RTC is used and that the build files suitable for NMake are to be generated.
+This will call CMake (on your *build* directory that is assumed to be under the repository root) specifying the location of the toolchain install, specifying that ChibiOS sources to be used are located in the designated path (mind the forward slash and no ending slash),  that the target board is named ST_NUCLEO144_F746ZG, that STM32F7xx is the series name that it belongs to, debugger feature is to be included, System.Device.Gpio API is to be included, RTC is used and that the build files suitable for NMake are to be generated.
 
 After successful completion you'll have the build files ready to be used in the target build tool.
 
@@ -106,9 +112,9 @@ Follows a brief explanation on the files you might want to tweak.
 - launch.json (inside .vscode folder) here you can set up your launch configurations, such as gdb path or OpenOCD configuration. We've made available Gists with launch.json for several of the reference targets. Grab yours from [here](https://gist.github.com/nfbot). :warning: Remember to update paths and other preferences according to your setup and machine configuration. :wink:
 - cmake-variants.json (at the repository root) here you can add several build flavors. You can even add variants to each one. Check the documentation extension [here](https://vector-of-bool.github.io/docs/vscode-cmake-tools/variants.html#). We've made available Gists with cmake-variants.json for each of the reference targets. Grab yours from [here](https://gist.github.com/nfbot). :warning: Remember to update paths and other preferences according to your setup and machine configuration. :wink:
 
-To launch the build in VS Code check the status bar at the bottom. Select the build flavor and then click the build button (or hit F7).
+To launch the build in VS Code check the status bar at the bottom. Select the build flavour and then click the build button (or hit <kbd>F7</kbd>).
 
-## .NET **nanoFramework** build deliverables
+## .NET **nanoFramework** firmware build deliverables
 
 After a successful build you can find the .NET **nanoFramework** image files in the *build* directory. Those are:
 
