@@ -77,8 +77,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="how-to-build-flash-and-debug-the-stm32-nanobooter-and-nanoclr-on-windows-using-visual-studio-code">How to Build, Flash and Debug the STM32 nanoBooter and nanoCLR on Windows using Visual Studio Code</h1>
 
+<p>⚠️ NOTE about the need to build .NET <strong>nanoFramework</strong> firmware ⚠️</p>
+<p>You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+There are available ready to flash firmware images for several targets, please check the <a href="https://github.com/nanoframework/Home#firmware-for-reference-boards">Home</a> repository.</p>
 <h2 id="about-this-document">About this document</h2>
-<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> for STM32 targets.
+<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> firmware for STM32 targets.
 The build is based on CMake tool to ease the development in all major platforms.</p>
 <h2 id="using-dev-container">Using Dev Container</h2>
 <p>If you want a simple, efficient way, we can recommend you to use <a href="using-dev-container.html">Dev Container</a> to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!</p>
@@ -111,7 +115,7 @@ The build is based on CMake tool to ease the development in all major platforms.
 </li>
 <li><p>Run the PowerShell script that's on the <code>install-scripts</code> folder that will download and install all the required tools.
 <code>.\install-nf-tools.ps1 -TargetSeries STM32 -Path 'C:\nftools'</code>
-For best results, run in an elevated command prompt, otherwise setting system environnement variables will fail.</p>
+For best results, run in an elevated command prompt, otherwise setting system environment variables will fail.</p>
 </li>
 <li><p>Review and adjust several JSON files to match your environment (as documented below)</p>
 </li>

@@ -77,8 +77,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="how-to-build-flash-and-debug-the-esp32-nanoclr-on-windows-using-visual-code">How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code</h1>
 
+<p>⚠️ NOTE about the need to build .NET <strong>nanoFramework</strong> firmware ⚠️</p>
+<p>You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+There are available ready to flash firmware images for several targets, please check the <a href="https://github.com/nanoframework/Home#firmware-for-reference-boards">Home</a> repository.</p>
 <h2 id="about-this-document">About this document</h2>
-<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> for ESP32 targets.
+<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> firmware for ESP32 targets.
 The build is based on CMake tool to ease the development in all major platforms.</p>
 <h2 id="using-dev-container">Using Dev Container</h2>
 <p>If you want a simple, efficient way, we can recommend you to use <a href="using-dev-container.html">Dev Container</a> to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!</p>
@@ -129,12 +133,12 @@ The build is based on CMake tool to ease the development in all major platforms.
 <p><img src="../../images/building/esp32/install-esp-idf-tools-repo-location.png" alt="idf repo location"></p>
 <p>-<strong>Step 4</strong>: Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-location.png" alt="idf tools location"></p>
-<p>-<strong>Step 5</strong>: At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.</p>
+<p>-<strong>Step 5</strong>: At the options screen, know that you don't have to install all the tools there. Follow the recommended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-options.png" alt="options"></p>
 <p>-<strong>Step 6</strong>: The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...</p>
-<p>-<strong>Step 7</strong>: After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script <code>install</code>. This will <em>hopefully</em> install all the requirements and prerequisites.</p>
-<p>-<strong>Step 8</strong>: Now execute the script <code>export</code>. This will <em>hopefully</em> update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.</p>
-<p>-<strong>Step 9</strong>: Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.</p>
+<p>-<strong>Step 7</strong>: After the installer completes, open a command prompt at the IDF repository location with elevated permission and execute the script <code>install</code>. This will <em>hopefully</em> install all the requirements and prerequisites.</p>
+<p>-<strong>Step 8</strong>: Now execute the script <code>export</code>. This will <em>hopefully</em> update the path environment variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.</p>
+<p>-<strong>Step 9</strong>: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-path.png" alt="updated path"></p>
 <p>-<strong>Step 10</strong>: Also worth checking if the following environment variables have also been setup:</p>
 <ul>

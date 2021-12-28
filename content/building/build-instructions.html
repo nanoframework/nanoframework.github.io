@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Building .NET nanoFramework | nanoFramework Documentation </title>
+    <title>Building .NET nanoFramework firmware | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Building .NET nanoFramework | nanoFramework Documentation ">
+    <meta name="title" content="Building .NET nanoFramework firmware | nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -75,7 +75,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="building-net-nanoframework">Building .NET <strong>nanoFramework</strong></h1>
+<h1 id="building-net-nanoframework-firmware">Building .NET <strong>nanoFramework</strong> firmware</h1>
 
 <p>.NET <strong>nanoFramework</strong> build system is based in CMake. Please read the instructions specific to each target series.</p>
 <ul>
@@ -84,8 +84,12 @@
 <li><a href="build-nxp.html">NXP</a></li>
 <li><a href="using-dev-container.html">Using Dev Container</a></li>
 </ul>
+<p>⚠️ NOTE about the need to build .NET <strong>nanoFramework</strong> firmware ⚠️</p>
+<p>You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+There are available ready to flash firmware images for several targets, please check the <a href="https://github.com/nanoframework/Home#firmware-for-reference-boards">Home</a> repository.</p>
 <h2 id="about-this-document">About this document</h2>
-<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> to be flashed in a SoC or MCU.
+<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> firmware to be flashed in a SoC or MCU.
 The build is based on CMake tool to ease the development in all major platforms.</p>
 <h2 id="using-dev-container">Using Dev Container</h2>
 <p>If you want a simple, efficient way, we can recommend you to use <a href="using-dev-container.html">Dev Container</a> to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!</p>
@@ -110,17 +114,17 @@ The build is based on CMake tool to ease the development in all major platforms.
 </ul>
 <p>In case you specify an RTOS and you want its source to be downloaded from the official repository, you'll need:</p>
 <ul>
-<li>For FreeRTOS a SVN client. <a href="https://tortoisesvn.net/downloads">Tortoise SVN</a> seems to be a popular choice for Windows machines.</li>
-<li>For ChibiOS a Git client. <a href="https://desktop.github.com/">GitHub Desktop</a> seems to be a popular choice for Windows machines.</li>
+<li>For ChibiOS a SVN client. <a href="https://tortoisesvn.net/downloads">Tortoise SVN</a> seems to be a popular choice for Windows machines.</li>
+<li>For all the other repositories a Git client. <a href="https://git-fork.com/">Fork</a> it's a great visual git client packed with a lot of features or <a href="https://desktop.github.com/">GitHub Desktop</a> seems to be a popular choice for Windows machines.</li>
 </ul>
 <h2 id="preparation">Preparation</h2>
 <p>It's <em><strong>highly</strong></em> recommended that run the build outside the source tree. This prevents you from cluttering the source tree with CMake artifacts, temporary files etc.
 In fact this is enforced and checked by the CMake script.</p>
 <p>In case you need to clean up or start a fresh build all you have to do is simply delete the contents of the build directory.</p>
 <p>As a suggestion we recommend that you create a directory named <em>build</em> in the repository root and run CMake from there.</p>
-<h2 id="build-a-net-nanoframework-image">Build a .NET <strong>nanoFramework</strong> image</h2>
+<h2 id="build-a-net-nanoframework-firmware-image">Build a .NET <strong>nanoFramework</strong> firmware image</h2>
 <p>The build script accepts the a number of parameters (some of them are mandatory). Please check the details about each parameter <a href="cmake-tools-cmake-variants.html#content-explained">here</a>.</p>
-<p><em>Note 1: The RTOS currently supported (except for ESP32 target) is ChibiOS. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork.</em>
+<p><em>Note 1: The RTOSes currently supported (except for ESP32 target) are ChibiOS and FreeRTOS. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork.</em>
 <em>Note 2: the very first build will take more or less time depending on the download speed of the Internet connection of the machine were the build is running. This is because the source code of the RTOS of your choice will be downloaded from its repository. On the subsequent builds this won't happen.</em></p>
 <p>You can specify any generator that is supported in the platform where you are building.
 For more information on this check CMake documentation <a href="https://cmake.org/cmake/help/v3.7/manual/cmake-generators.7.html?highlight=generator">here</a>.</p>
@@ -146,11 +150,11 @@ The following is a working example:</p>
 -DCHIBIOS_BOARD=ST_NUCLEO144_F746ZG \
 -DTARGET_SERIES=STM32F7xx \
 -DNF_FEATURE_DEBUGGER=TRUE \
--DAPI_Windows.Devices.Gpio=ON \
+-DAPI_System.Device.Gpio=ON \
 -DNF_FEATURE_RTC=ON \
 -G &quot;NMake Makefiles&quot; ../
 </code></pre>
-<p>This will call CMake (on your <em>build</em> directory that is assumed to be under the repository root) specifying the location of the toolchain install, specifying that ChibiOS sources to be used are located in the designated path (mind the forward slash and no ending slash),  that the target board is named ST_NUCLEO144_F746ZG, that STM32F7xx is the series name that it belongs to, debugger feature is to be included, Windows.Devices.Gpio API is to be included, RTC is used and that the build files suitable for NMake are to be generated.</p>
+<p>This will call CMake (on your <em>build</em> directory that is assumed to be under the repository root) specifying the location of the toolchain install, specifying that ChibiOS sources to be used are located in the designated path (mind the forward slash and no ending slash),  that the target board is named ST_NUCLEO144_F746ZG, that STM32F7xx is the series name that it belongs to, debugger feature is to be included, System.Device.Gpio API is to be included, RTC is used and that the build files suitable for NMake are to be generated.</p>
 <p>After successful completion you'll have the build files ready to be used in the target build tool.</p>
 <h2 id="building-from-vs-code-using-cmake-tools-extension">Building from VS Code (using CMake Tools extension)</h2>
 <p>We've added the required files and configurations to help you launch your build from VS Code.
@@ -161,8 +165,8 @@ You'll also need to set the use of CMake Server to true, like this: <code>&quot;
 <li>launch.json (inside .vscode folder) here you can set up your launch configurations, such as gdb path or OpenOCD configuration. We've made available Gists with launch.json for several of the reference targets. Grab yours from <a href="https://gist.github.com/nfbot">here</a>. ⚠️ Remember to update paths and other preferences according to your setup and machine configuration. 😉</li>
 <li>cmake-variants.json (at the repository root) here you can add several build flavors. You can even add variants to each one. Check the documentation extension <a href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/variants.html#">here</a>. We've made available Gists with cmake-variants.json for each of the reference targets. Grab yours from <a href="https://gist.github.com/nfbot">here</a>. ⚠️ Remember to update paths and other preferences according to your setup and machine configuration. 😉</li>
 </ul>
-<p>To launch the build in VS Code check the status bar at the bottom. Select the build flavor and then click the build button (or hit F7).</p>
-<h2 id="net-nanoframework-build-deliverables">.NET <strong>nanoFramework</strong> build deliverables</h2>
+<p>To launch the build in VS Code check the status bar at the bottom. Select the build flavour and then click the build button (or hit <kbd>F7</kbd>).</p>
+<h2 id="net-nanoframework-firmware-build-deliverables">.NET <strong>nanoFramework</strong> firmware build deliverables</h2>
 <p>After a successful build you can find the .NET <strong>nanoFramework</strong> image files in the <em>build</em> directory. Those are:</p>
 <ul>
 <li><p>nanoBooter image (not available for ESP32 builds):</p>

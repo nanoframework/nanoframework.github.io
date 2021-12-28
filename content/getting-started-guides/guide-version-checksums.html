@@ -77,8 +77,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started-with-package-and-assembly-versions-and-checksums">Getting started with package and assembly versions and checksums</h1>
 
-<p>Much of the nanoFramework is made up of C# classes that invoke code that is in native C++ assemblies.  Some assemblies are just generic C++, others are specific to a hardware platform.</p>
-<p>There is an interop framework that assists in handling the interface between C# and C++.  That framework includes the generation of a checksum for a given interface contract, and a version checking mechanism to make sure that versions are updated when the contract (and checksum) change.</p>
+<p>Much of the .NET <strong>nanoFramework</strong> is made up of C# classes that invoke code that is in native C++ assemblies.  Some assemblies are just generic C++, others are specific to a hardware platform.</p>
+<p>There is an interop framework that assists in handling the interface between C# and C++. That framework includes the generation of a checksum for a given interface contract, and a version checking mechanism to make sure that versions are updated when the contract (and checksum) change.</p>
 <h2 id="how-the-checksum-is-generated">How the checksum is generated</h2>
 <p>As with all of dotnet the nfproj file is actually a MSBuild XML configuration file. Part of the nanoFramework is the <code>meta-data-processor</code> (MDP) which is invoked as a post-build task in the MSBuild of the nfproj.</p>
 <p>During the post-build the MDP creates stub C++ files for any interfaces that are declared as <code>InternalCall</code>.  The stub files are located at bin\debug\stubs\[assembly-name].  The calculated checksum is found in the corlib_native.cpp file. The MDP also emits the checksum as an environmental variable and later that is used to embed the checksum in the Portable Executable (PE) file that the nanoFramework actually runs. Below is a screen print taken from a stub of mscorlib with a checksum of 0x132BDB6F, and required native assembly version of 100.5.0.12:</p>
@@ -105,7 +105,7 @@
 Note: In this example a bug in the build process caused the required native assembly version number to not be copied to the description correctly.</p>
 </blockquote>
 <h2 id="firmware-versions-and-native-assembly-versions">Firmware versions and native assembly versions</h2>
-<p>Firmware is built automatically for a standard set of device targets.  The firmware version is independent from the assembly versions, but the latest firmware always uses the latest native assembly versions and will work with the latest NuGet package versions of a component. Here is a screen shot of nanoff installing the latest preview version of the firmware from the Cloudsmith.io repository:</p>
+<p>Firmware is built automatically for a standard set of device targets.  The firmware version is independent from the assembly versions, but the latest firmware always uses the latest native assembly versions and will work with the latest NuGet package versions of a component. Here is a screen shot of <code>nanoff</code> installing the latest preview version of the firmware from the Cloudsmith.io repository:</p>
 <blockquote>
 <p><img src="../../images/getting-started-guides/nanoff-flash-latest-preview.png" alt="nanoff Flash latest preview"></p>
 </blockquote>

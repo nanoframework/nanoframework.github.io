@@ -80,8 +80,8 @@
 <p>.NET <strong>nanoFramework</strong> enables the writing of managed code applications for embedded devices. Doesn't matter if you are a seasoned .NET developer or if you've just arrived here and want to give it a try.</p>
 <p>This getting started guide will walk you through the setup of your development machine to get you coding a nice &quot;Hello World&quot; in no time!</p>
 <p>You can find the video for this guide on our YouTube channel <a href="https://youtu.be/iZdN2GmefXI">here</a>.</p>
-<h2 id="installing-and-configuring-visual-studio-2019">Installing and configuring Visual Studio 2019</h2>
-<p>The first part is to get Visual Studio 2019 (VS 2017 is also supported) and the .NET <strong>nanoFramework</strong> extension installed.</p>
+<h2 id="installing-and-configuring-visual-studio-2022">Installing and configuring Visual Studio 2022</h2>
+<p>The first part is to get Visual Studio 2022 (VS 2019 is also supported) and the .NET <strong>nanoFramework</strong> extension installed.</p>
 <ol>
 <li><p><strong>Download Visual Studio</strong><br>
 If you already have it installed, you can skip this step. If you don't, please download the free <a href="https://www.visualstudio.com/downloads">Visual Studio Community</a> edition.
@@ -103,7 +103,7 @@ You can do this by selecting the menu <strong>Extensions &gt; Manage Extensions<
 <blockquote>
 <p>NOTE</p>
 <ul>
-<li>The <a href="https://dotnet.microsoft.com/download">.NET 5.0 Runtime (or .NET 5.0 SDK)</a> must be installed</li>
+<li>The <a href="https://dotnet.microsoft.com/download">.NET 6.0 Runtime (or .NET 6.0 SDK)</a> must be installed</li>
 </ul>
 </blockquote>
 <ol>
@@ -114,8 +114,8 @@ You can do this by selecting the menu <strong>Extensions &gt; Manage Extensions<
 <li><p><strong>Perform the update</strong> by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
 (The following includes the description for targets of several platforms for completeness)</p>
 <ul>
-<li><p>To update the firmware of an ESP32 target connected to COM31, to the latest available preview version. (In case the board you have has one of these: please press and hold Flash button on your board before running command and until you see 'Erasing flash...&quot; message)</p>
-<pre><code class="lang-console">nanoff --target ESP32_REV0 --serialport COM31 --update --preview
+<li><p>To update the firmware of an ESP32 target connected to COM31, to the latest available preview version.</p>
+<pre><code class="lang-console">nanoff --platform esp32 --serialport COM31 --update --preview
 </code></pre>
 </li>
 <li><p>To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available preview version.</p>
@@ -154,7 +154,7 @@ You can do this by selecting the menu <strong>Extensions &gt; Manage Extensions<
 <li><p>We are almost there. Go into the <strong>Device Explorer</strong> window and click on the .NET <strong>nanoFramework</strong> device showing there. Make sure the connection is OK by hitting the <strong>Ping</strong> button. On success, a message shows on the output window. <br><br>
 For some STM32 devices you may need two USB cables.  For example, the STM32429I-Discovery has a mini-USB connector that is labeled USB-STLINK that powers the device and provides the USB interface for flashing the firmware and/or running the JTAG debugger for debugging native C++ code (in VSCode or other C++ IDE).  The micro-USB connector is labeled USB-USER and provides the COM/Serial interface used by the <strong>Visual Studio nanoFramework Extension</strong> for debugging your C# application code and for <strong>Device Explorer</strong>.  For that device BOTH cables must be plugged into USB ports on your computer.</p>
 </li>
-<li><p>Let's deploy the application to the board. In order to do that, right click on the Project name and choose <strong>Deploy</strong>. You'll see the feedback of the several operations that are running on the background in the <strong>Output Window</strong>. After a successful deployment you need to reset the target and your <code>Hello World</code> blinky application will start running and, <em>voilá</em>, the LED starts blinking! If you want, instead of &quot;just&quot; deploying the application to the target you can choose to start a <strong>debug session</strong>. To do that <strong>hit F5</strong> (as usual) in Visual Studio and watch it run.</p>
+<li><p>Let's deploy the application to the board. In order to do that, right click on the Project name and choose <strong>Deploy</strong>. You'll see the feedback of the several operations that are running on the background in the <strong>Output Window</strong>. After a successful deployment you need to reset the target and your <code>Hello World</code> blinky application will start running and, <em>voilá</em>, the LED starts blinking! If you want, instead of &quot;just&quot; deploying the application to the target you can choose to start a <strong>debug session</strong>. To do that <strong>hit</strong> <kbd>F5</kbd> (as usual) in Visual Studio and watch it run.</p>
 </li>
 </ol>
 <h2 id="trouble-shooting">Trouble shooting</h2>
