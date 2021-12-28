@@ -21,3 +21,4 @@ These boards are NOT maintained by the core team and any related questions or is
 - [PYBStick Standard 26](pybstick2x.md)
 - [BrainPad2](brainpad2.md)
 - [QUAIL](mbn-quail.md)
+- [NETDUINO3_WIFI](netduino3-wifi.md)
