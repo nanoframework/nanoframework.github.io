@@ -1,8 +1,14 @@
 # How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code
 
+⚠️ NOTE about the need to build .NET **nanoFramework** firmware ⚠️
+
+You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+There are available ready to flash firmware images for several targets, please check the [Home](https://github.com/nanoframework/Home#firmware-for-reference-boards) repository.
+
 ## About this document
 
-This document describes how to build the required images for .NET **nanoFramework** for ESP32 targets.
+This document describes how to build the required images for .NET **nanoFramework** firmware for ESP32 targets.
 The build is based on CMake tool to ease the development in all major platforms.
 
 ## Using Dev Container
@@ -74,17 +80,17 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 ![idf tools location](../../images/building/esp32/install-esp-idf-tools-location.png)
 
--**Step 5**: At the options screen, know that you don't have to install all the tools there. Follow the recomended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.
+-**Step 5**: At the options screen, know that you don't have to install all the tools there. Follow the recommended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.
 
 ![options](../../images/building/esp32/install-esp-idf-tools-options.png)
 
 -**Step 6**: The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...
 
--**Step 7**: After the installer completes, open a command prompt at the IDF repository location with elevated permisssion and execute the script `install`. This will *hopefully* install all the requirements and prerequisites.
+-**Step 7**: After the installer completes, open a command prompt at the IDF repository location with elevated permission and execute the script `install`. This will *hopefully* install all the requirements and prerequisites.
 
--**Step 8**: Now execute the script `export`. This will *hopefully* update the path environement variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
+-**Step 8**: Now execute the script `export`. This will *hopefully* update the path environment variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
 
--**Step 9**: Calling the above scripts it's not 100% guaranteed to effectivelly install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was succesfull so you can compare it.
+-**Step 9**: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it.
 
 ![updated path](../../images/building/esp32/install-esp-idf-tools-path.png)
 

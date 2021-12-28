@@ -1,8 +1,8 @@
 # Getting started with package and assembly versions and checksums
 
-Much of the nanoFramework is made up of C# classes that invoke code that is in native C++ assemblies.  Some assemblies are just generic C++, others are specific to a hardware platform.
+Much of the .NET **nanoFramework** is made up of C# classes that invoke code that is in native C++ assemblies.  Some assemblies are just generic C++, others are specific to a hardware platform.
 
-There is an interop framework that assists in handling the interface between C# and C++.  That framework includes the generation of a checksum for a given interface contract, and a version checking mechanism to make sure that versions are updated when the contract (and checksum) change.
+There is an interop framework that assists in handling the interface between C# and C++. That framework includes the generation of a checksum for a given interface contract, and a version checking mechanism to make sure that versions are updated when the contract (and checksum) change.
 
 ## How the checksum is generated
 
@@ -35,7 +35,7 @@ The checksum and required native version are included in the description for the
 
 ## Firmware versions and native assembly versions
 
-Firmware is built automatically for a standard set of device targets.  The firmware version is independent from the assembly versions, but the latest firmware always uses the latest native assembly versions and will work with the latest NuGet package versions of a component. Here is a screen shot of nanoff installing the latest preview version of the firmware from the Cloudsmith.io repository:
+Firmware is built automatically for a standard set of device targets.  The firmware version is independent from the assembly versions, but the latest firmware always uses the latest native assembly versions and will work with the latest NuGet package versions of a component. Here is a screen shot of `nanoff` installing the latest preview version of the firmware from the Cloudsmith.io repository:
 
 >![nanoff Flash latest preview](../../images/getting-started-guides/nanoff-flash-latest-preview.png)
 

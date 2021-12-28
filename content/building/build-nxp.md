@@ -1,8 +1,14 @@
 # How to Build, Flash and Debug the NXP nanoBooter and nanoCLR on Windows using Visual Studio Code
 
+⚠️ NOTE about the need to build .NET **nanoFramework** firmware ⚠️
+
+You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+There are available ready to flash firmware images for several targets, please check the [Home](https://github.com/nanoframework/Home#firmware-for-reference-boards) repository.
+
 ## About this document
 
-This document describes how to build the required images for .NET **nanoFramework** for NXP targets.
+This document describes how to build the required images for .NET **nanoFramework** firmware for NXP targets.
 The build is based on CMake tool to ease the development in all major platforms.
 
 ## Using Dev Container
@@ -42,7 +48,7 @@ To simplify: this guide we will put all our tools and source in easily accessibl
 
 1. Run the PowerShell script that's on the `install-scripts` folder that will download and install all the required tools.
   `.\install-stm32-tools.ps1 -Path 'C:\nftools'`
-   For best results, run in an elevated command prompt, otherwise setting system environnement variables will fail.
+   For best results, run in an elevated command prompt, otherwise setting system environment variables will fail.
 1. Review and adjust several JSON files to match your environment (as documented below)
 1. Restart Visual Studio Code (due to json changes)
 

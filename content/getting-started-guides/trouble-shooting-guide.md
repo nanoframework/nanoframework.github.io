@@ -4,7 +4,7 @@ Here are solutions to some common problems when getting started.
 
 ## No devices appear in **Device Explorer** in Visual Studio (View/Other Windows/Device Explorer)
 
-- The **Visual Studio nanoFramework Extension** communicates to the device using serial/COM ports.  The extension must first detect that the COM port is active, and then ping the port for a response to a specific query.  The device drivers for serial ports come in many flavors and versions, and are probably the #1 problem with detecting and communicating with a device.  Install the latest drivers for the USB chipset used by your board.  Check the version using Windows Device Manager.  
+- The **Visual Studio nanoFramework Extension** communicates to the device using serial/COM ports.  The extension must first detect that the COM port is active, and then ping the port for a response to a specific query.  The device drivers for serial ports come in many flavours and versions, and are probably the #1 problem with detecting and communicating with a device.  Install the latest drivers for the USB chipset used by your board.  Check the version using Windows Device Manager.  
 - Sometimes unplugging and replugging the USB port will "wake up" a serial device driver
 - Try pressing the RESET button on your device to reboot it
 - Reflash your device to make sure it has nanoFramework installed
@@ -15,15 +15,14 @@ Here are solutions to some common problems when getting started.
 
 ## When you attempt to debug you get a deployment error and you see a message "Couldn't find a valid assembly required by mscorlib..." in the Output Window/.NET nanoFramework Extension
 
-- An example of the error when the problem is version number.  This was done by back-leveling the CoreLibrary to 1.10.4-preview.11 which was for the previous checksum.  In this case the checksum was not checked - since the required native assembly version did not match the deploy failed prior to checking the checksum:
+- An example of the error when the problem is version number.  This was done by back-levelling the CoreLibrary to 1.10.4-preview.11 which was for the previous checksum. In this case the checksum was not checked - since the required native assembly version did not match the deploy failed prior to checking the checksum:
 
 >![mscorlib version mismatch](../../images/getting-started-guides/mscorlib-version-mismatch.png)
 
 - The C# and native C++ assemblies are not version aligned.
-- The C# version is determined by Nuget and the version of the component you selected.  nanoFramework. CoreLibrary is the most common problem seen since it tends to load early.  
-- Due to the high change frequency most developers will be using preview versions of nanoFramework Nuget packages and firmware.  Be sure to check the check-box on the NuGet Package Manager for `Include prerelease` to see the preview (prerelease) packages. If you use preview C# NuGet packages then you have to use preview firmware - and vice versa, if you use stable NuGet packages then you have to use stable firmware.  AND, the versions must be compatible via the checksum.
-- The C++ assembly version is determined by nanoff and the version of the firmware you selected.  `mscorlib` is the most common problem in matching since it tends to get resolved early.
-- When loading firmware with nanoff if you are using preview/prerelease NuGet packages then use the `-preview` option when updating firmware.
+- The C# version is determined by NuGet and the version of the component you selected. nanoFramework.CoreLibrary is the most common problem seen since it tends to load early.  
+- Due to the high change frequency most developers will be using preview versions of nanoFramework NuGet packages and firmware.  Be sure to check the check-box on the NuGet Package Manager for `Include prerelease` to see the preview (prerelease) packages. If you use preview C# NuGet packages then you have to use preview firmware - and vice versa, if you use stable NuGet packages then you have to use stable firmware. AND, the versions must be compatible via the checksum.
+- When loading firmware with nanoff if you are using preview/prerelease NuGet packages then use the `--preview` option when updating firmware.
 - The description of the NuGet package will contain the version and checksum of the native assembly that is required.
 - See [Guide for package and assembly versions and checksums](guide-version-checksums.md) for more info.
 - Use the **Device Capabilities** button ![Device Capabilities](../../images/getting-started-guides/device-capabilities.png) on the **Device Explorer** to see what assembly versions and checksums are installed on the device as part of the firmware.
@@ -36,12 +35,13 @@ Here are solutions to some common problems when getting started.
 
 ## nanoff ends with Ennnn error
 
-- Update your copy of the nanoff tool using the command
+- Update your copy of the `nanoff` tool using the command
 
     ```console
     dotnet tool update nanoff --global
     ```
 
-- Check permissions for the cache folders at [username]\.nanoFramework.  Deleting the cache files can sometimes fix problems.
+- Run `nanoff` again, this time with detailed output messages by adding `-v diag` at the end. This will output verbose messages on the progress of the tool execution, hopefully detailing what could be wrong.
+- Make sure you have the latest drivers of the serial devices connected. Check the driver manufacturer website as not all of them make available the latest versions through Windows Update.
+- Check permissions for the cache folders at [username]\\.nanoFramework.  Deleting the cache files can sometimes fix problems.
 - Like the **Device Explorer** the flash utility depends on serial/COM drivers for most devices.  Check that USB cables are not power-only cables (i.e. no signal wires), and that you are using the most recent USB drivers.
-- The native flash utilities for each device are include with the nanoff utility.  Install and test that the manufacturer utility for your device works and is not missing something like MSVC redistributable dlls.

@@ -1,5 +1,5 @@
 # Project priorities
 
-We're working hard to have a wide support od targets, a proper way of building them, deploying them and of course documentation. We have our Discord channel where our top priority is to help each others, answer questions. So [join us on Discord](https://discord.gg/AE4Yxrvt)!
+We're working hard to have a wide support of targets and platforms, a proper way of building them, deploying their firmware images and, of course, documentation. We have our Discord channel where our top priority is to help each other, answer questions and engage in productive conversations. So [join us on Discord](https://discordapp.com/invite/gCyBu8T)!
 
-Any help is always appreciated, we love your PR! Keep them coming in :-)
+Any help it's highly appreciated, we ❤️ **P**ull **R**equests! Keep them coming. 😉

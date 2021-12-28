@@ -1,5 +1,11 @@
 # Building .NET **nanoFramework** in Visual Studio
 
+⚠️ NOTE about the need to build .NET **nanoFramework** firmware ⚠️
+
+You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+There are available ready to flash firmware images for several targets, please check the [Home](https://github.com/nanoframework/Home#firmware-for-reference-boards) repository.
+
 ## Developing firmware for the nanoframework using Visual Studio 2019 community edition
 
 [(See below for VS2017)](#developing-firmware-for-the-nanoframework-using-visual-studio-2017-community-edition)
