@@ -26,10 +26,6 @@ We provide ready build firmware images for several reference target boards. Thes
 
 - [NXP i.MX_RT1060_EVK](mimxrt-1060-evk.md)
 
-## Netduino boards
-
-- [NETDUINO3_WIFI](netduino3-wifi.md)
-
 ## Community target boards
 
 There is a GitHub repository that holds target boards provided by community members. Check it [here](https://github.com/nanoframework/nf-Community-Targets).
