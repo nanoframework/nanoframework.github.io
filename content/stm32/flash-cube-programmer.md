@@ -25,17 +25,12 @@ Note: ensure you Update the STLink Firmware before continuing using the `Firmwar
 1. Select "ST-Link" in the interface options.
     >![ST-LINK](../../images/stm32/stm32-cube-programmer-select-stlink.jpg)
 
-
-
 ### Connect to a JTAG connected board
 
 1. Connect the target board to your PC using an USB cable. Note that on most ST development boards there are two micro USB connectors. To follow this guide you'll want to use the one that's providing the JTAG connection through the ST-Link debugger. In doubt, check the PCB for the correct one or the board schematic.
 
-
 1. Select "USB" in the interface options.
     >![USB interface](../../images/stm32/stm32-cube-programmer-select-usb.jpg)
-
-
 
 ### Connect to a DFU connected board
 
