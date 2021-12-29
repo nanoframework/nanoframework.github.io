@@ -27,16 +27,19 @@ Note: ensure you Update the STLink Firmware before continuing using the `Firmwar
 
 ### Connect to a JTAG connected board
 
-1. Connect the target board to your PC using an USB cable. Note that on most ST development boards there are two micro USB connectors. To follow this guide you'll want to use the one that's providing the JTAG connection through the ST-Link debugger. In doubt, check the PCB for the correct one or the board schematic.
+1. Connect the target board to your PC using an USB cable. Note that on most ST development boards there are TWO micro USB connectors. To follow this guide you will want to use the one that's providing the `JTAG` connection through the `ST-Link` debugger. If in doubt, check the PCB for the correct one or the board schematic.
 
-1. Select "USB" in the interface options.
-    >![USB interface](../../images/stm32/stm32-cube-programmer-select-usb.jpg)
+1. Select "ST-Link" in the interface options.
+    >![ST-LINK](../../images/stm32/stm32-cube-programmer-select-stlink.jpg)
 
 ### Connect to a DFU connected board
 
-Note: `.dfu` files are no longer required.
+Note: `.dfu` files are no longer required and (if it-to-date) use `.hex` files.
 
 1. Put your device in bootloader mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
+
+1. Select "USB" in the interface options.
+    >![USB interface](../../images/stm32/stm32-cube-programmer-select-usb.jpg)
 
 ## Flash .NET nanoFramework Firmware
 
