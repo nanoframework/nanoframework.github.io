@@ -18,7 +18,7 @@ There are two firmware binaries to be flashed to the device, one for nanoBooter 
 
 1. Launch the STM32 Cube Programmer that you've just installed and connect to the ST board.
 
-### Connect to a ST-Link connected board
+### Connect to a ST-Link connected board (Discovery / Nucleo)
 
 Note: ensure you Update the STLink Firmware before continuing using the `Firmware Upgrade` button and following the instructions.
 
@@ -34,7 +34,6 @@ Note: ensure you Update the STLink Firmware before continuing using the `Firmwar
 
 ### Connect to a DFU connected board
 
-
 1. Put your device in bootloader mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
 
 1. Select "USB" in the interface options.
@@ -48,7 +47,7 @@ Note: ensure you Update the STLink Firmware before continuing using the `Firmwar
 1. Perform a "full chip erase" to clear the flash.
     >![Full chip erase](../../images/stm32/stm32-cube-programmer-full-chip-erase.jpg)
 
-Note: If `.dfu` files were previously used for flashing, they are no longer supported. `.hex` files can be used instead.
+NOTE: If `.dfu` files were previously used for flashing, they are no longer supported using the STM32 Cube Programmer utility. `.hex` files can be used instead as outlined below.
 
 1. Load the `nanoBooter.hex` file from the package by clicking the "Browse" button. Make sure you tick the "Run after programming" and "Skip flash erase before programming" check boxes and hit "Start Program..." button. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
     >![STM32CubeProgrammer load nanobooter](../../images/stm32/stm32-cube-programmer-load-nanobooter.png)
