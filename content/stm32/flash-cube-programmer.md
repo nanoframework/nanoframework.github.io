@@ -18,16 +18,16 @@ There are two firmware binaries to be flashed to the device, one for nanoBooter 
 
 1. Launch the STM32 Cube Programmer that you've just installed and connect to the ST board.
 
-### Connect to a ST-Link connected board (Discovery / Nucleo)
+### Connect to a ST-Link connected board (Discovery / External ST-Link programmer)
 
 Note: ensure you Update the STLink Firmware before continuing using the `Firmware Upgrade` button and following the instructions.
 
 1. Select "ST-Link" in the interface options.
     >![ST-LINK](../../images/stm32/stm32-cube-programmer-select-stlink.jpg)
 
-### Connect to a JTAG connected board
+### Connect to a JTAG connected board (Nucleo)
 
-1. Connect the target board to your PC using an USB cable. Note that on most ST development boards there are TWO micro USB connectors. To follow this guide you will want to use the one that's providing the `JTAG` connection through the `ST-Link` debugger. If in doubt, check the PCB for the correct one or the board schematic.
+1. Connect the target board to your PC using an USB cable. Note that on most ST Nucleo boards there are TWO micro USB connectors. To follow this guide you will want to use the one that's providing the `JTAG` connection through the `ST-Link` debugger. If in doubt, check the PCB for the correct one or the board schematic.
 
 1. Select "ST-Link" in the interface options.
     >![ST-LINK](../../images/stm32/stm32-cube-programmer-select-stlink.jpg)
@@ -47,7 +47,7 @@ Note: ensure you Update the STLink Firmware before continuing using the `Firmwar
 1. Perform a "full chip erase" to clear the flash.
     >![Full chip erase](../../images/stm32/stm32-cube-programmer-full-chip-erase.jpg)
 
-NOTE: If `.dfu` files were previously used for flashing, they are no longer supported using the STM32 Cube Programmer utility. `.hex` files can be used instead as outlined below.
+NOTE: If `.dfu` files were previously used for flashing, they are no longer supported using the STM32 Cube Programmer utility. `.hex` files can now be used instead (like all others) as outlined below.
 
 1. Load the `nanoBooter.hex` file from the package by clicking the "Browse" button. Make sure you tick the "Run after programming" and "Skip flash erase before programming" check boxes and hit "Start Program..." button. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
     >![STM32CubeProgrammer load nanobooter](../../images/stm32/stm32-cube-programmer-load-nanobooter.png)
