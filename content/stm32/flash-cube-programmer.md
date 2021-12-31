@@ -1,8 +1,8 @@
 # How To Flash a target using STM32 Cube Programmer
 
-This is a "rough" guide on how to manually flash the firmware using STM32CubeProgrammer utility.
+This is a guide on how to manually flash the firmware using STM32CubeProgrammer utility.
 
-NOTE: This utility replaces the deprecated ST-Link utility and is required as a prerquisite for boards with outdated firmware. Outdated boards will need to use this utility to update their current boot loader firmware. Once updated, all further firmware maintentance can be carried out using the nanoFramework Firmware Flash tool [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher).
+NOTE: This utility replaces the deprecated ST-Link utility and is required as a prerquisite for boards with outdated ST-LINK firmware and certain drivers. Outdated boards will need to use this utility to update their current ST-Link firmware. Once updated, all further firmware maintentance can be carried out using the nanoFramework Firmware Flash tool [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher).
 
 ## Install the STM32 Cube Programmer utility
 
@@ -34,7 +34,6 @@ Note: ensure you Update the STLink Firmware before continuing using the `Firmwar
 
 ### Connect to a DFU connected board
 
-Note: `.dfu` files are no longer required and (if it-to-date) use `.hex` files.
 
 1. Put your device in bootloader mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
 
@@ -48,6 +47,8 @@ Note: `.dfu` files are no longer required and (if it-to-date) use `.hex` files.
 
 1. Perform a "full chip erase" to clear the flash.
     >![Full chip erase](../../images/stm32/stm32-cube-programmer-full-chip-erase.jpg)
+
+Note: If `.dfu` files were previously used for flashing, they are no longer supported. `.hex` files can be used instead.
 
 1. Load the `nanoBooter.hex` file from the package by clicking the "Browse" button. Make sure you tick the "Run after programming" and "Skip flash erase before programming" check boxes and hit "Start Program..." button. After the upload completes, the MCU is reset and the nanoBooter image runs. You can check the success of the operation watching for a slow blink pattern on the LED. Congratulations, you now have a board running nanoFramework's booter!
     >![STM32CubeProgrammer load nanobooter](../../images/stm32/stm32-cube-programmer-load-nanobooter.png)
