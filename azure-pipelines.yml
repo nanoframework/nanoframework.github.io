@@ -158,7 +158,7 @@ steps:
 
       git clone https://github.com/nanoframework/Windows.Devices.Adc.git --depth 100 -b develop Windows.Devices.Adc 
 
-      git clone https://github.com/nanoframework/Windows.Devices.WiFi.git --depth 100 -b develop Windows.Devices.WiFi 
+      git clone https://github.com/nanoframework/System.Device.WiFi.git --depth 100 -b develop System.Device.WiFi 
 
       git clone https://github.com/nanoframework/nanoFramework.Graphics -b develop nanoFramework.Graphics 
 
@@ -472,12 +472,12 @@ steps:
     nugetConfigPath: 'Windows.Devices.Adc\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore Windows.Devices.WiFi
+  displayName: NuGet restore System.Device.WiFi
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    restoreSolution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
+    restoreSolution: 'System.Device.WiFi\nanoFramework.System.Device.WiFi.sln'
     feedsToUse: config
-    nugetConfigPath: 'Windows.Devices.WiFi\NuGet.Config'
+    nugetConfigPath: 'System.Device.WiFi\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Graphics
@@ -814,10 +814,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSBuild@1
-  displayName: Build Windows.Devices.WiFi
+  displayName: Build System.Device.WiFi
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    solution: 'Windows.Devices.WiFi\nanoFramework.Windows.Devices.WiFi.sln'
+    solution: 'System.Device.WiFi\nanoFramework.System.Device.WiFi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
