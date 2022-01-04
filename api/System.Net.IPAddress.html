@@ -81,7 +81,7 @@
   
   <h1 id="System_Net_IPAddress" data-uid="System.Net.IPAddress" class="text-break">Class IPAddress
   </h1>
-  <div class="markdown level0 summary"><p>Provides an internet protocol (IP) address.</p>
+  <div class="markdown level0 summary"><p>Initializes a new instance of the <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> class.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -96,9 +96,6 @@
     </div>
     <div>
       <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
       <a class="xref" href="System.Object.html#System_Object_GetType">Object.GetType()</a>
@@ -121,7 +118,7 @@ public class IPAddress</code></pre>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress__ctor_System_Byte___.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.%23ctor(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L76">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L92">View Source</a>
   </span>
   <a id="System_Net_IPAddress__ctor_" data-uid="System.Net.IPAddress.#ctor*"></a>
   <h4 id="System_Net_IPAddress__ctor_System_Byte___" data-uid="System.Net.IPAddress.#ctor(System.Byte[])">IPAddress(Byte[])</h4>
@@ -149,12 +146,38 @@ public class IPAddress</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="System_Net_IPAddress__ctor_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The IPAddress is created with the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.ipaddress.address#System_Net_IPAddress_Address">Address</a> property set to <code data-dev-comment-type="paramref" class="paramref">address</code>.
+If the length of <code data-dev-comment-type="paramref" class="paramref">address</code> is 4, <a class="xref" href="System.Net.IPAddress.html">IPAddress</a>(Byte[]) constructs an IPv4 address; otherwise, an IPv6 address with a scope of 0 is constructed.
+The <a class="xref" href="System.Byte.html">Byte</a> array is assumed to be in network byte order with the most significant byte first in index position 0.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">address</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">address</code> contains a bad IP address.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress__ctor_System_Int64_.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.%23ctor(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L59">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L66">View Source</a>
   </span>
   <a id="System_Net_IPAddress__ctor_" data-uid="System.Net.IPAddress.#ctor*"></a>
   <h4 id="System_Net_IPAddress__ctor_System_Int64_" data-uid="System.Net.IPAddress.#ctor(System.Int64)">IPAddress(Int64)</h4>
@@ -178,7 +201,29 @@ public class IPAddress</code></pre>
       <tr>
         <td><a class="xref" href="System.Int64.html">Int64</a></td>
         <td><span class="parametername">newAddress</span></td>
-        <td></td>
+        <td><p>The long value of the IP address. For example, the value 0x2414188f in big-endian format would be the IP address &quot;143.24.20.36&quot;.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Net_IPAddress__ctor_System_Int64__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The IPAddress instance is created with the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.ipaddress.address#System_Net_IPAddress_Address">Address</a> property set to <code data-dev-comment-type="paramref" class="paramref">newAddress</code>.
+The <a class="xref" href="System.Int64.html">Int64</a> value is assumed to be in network byte order.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">newAddress</code> &lt; 0 or
+<code data-dev-comment-type="paramref" class="paramref">newAddress</code> &gt; 0x00000000FFFFFFFF</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -189,11 +234,10 @@ public class IPAddress</code></pre>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_Any.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.Any%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L23">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L22">View Source</a>
   </span>
   <h4 id="System_Net_IPAddress_Any" data-uid="System.Net.IPAddress.Any">Any</h4>
-  <div class="markdown level1 summary"><p>Provides an IP address that indicates that the server must listen for client activity on all network interfaces.
-This field is read-only.</p>
+  <div class="markdown level1 summary"><p>Provides an IP address that indicates that the server must listen for client activity on all network interfaces. This field is read-only.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -220,7 +264,7 @@ This field is read-only.</p>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_Loopback.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.Loopback%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L28">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L27">View Source</a>
   </span>
   <h4 id="System_Net_IPAddress_Loopback" data-uid="System.Net.IPAddress.Loopback">Loopback</h4>
   <div class="markdown level1 summary"><p>Provides the IP loopback address. This field is read-only.</p>
@@ -252,7 +296,7 @@ This field is read-only.</p>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_AddressFamily.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.AddressFamily%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L47">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L46">View Source</a>
   </span>
   <a id="System_Net_IPAddress_AddressFamily_" data-uid="System.Net.IPAddress.AddressFamily*"></a>
   <h4 id="System_Net_IPAddress_AddressFamily" data-uid="System.Net.IPAddress.AddressFamily">AddressFamily</h4>
@@ -286,7 +330,7 @@ This field is read-only.</p>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_Equals_System_Object_.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L105">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L130">View Source</a>
   </span>
   <a id="System_Net_IPAddress_Equals_" data-uid="System.Net.IPAddress.Equals*"></a>
   <h4 id="System_Net_IPAddress_Equals_System_Object_" data-uid="System.Net.IPAddress.Equals(System.Object)">Equals(Object)</h4>
@@ -337,7 +381,7 @@ This field is read-only.</p>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_GetAddressBytes.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.GetAddressBytes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L118">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L143">View Source</a>
   </span>
   <a id="System_Net_IPAddress_GetAddressBytes_" data-uid="System.Net.IPAddress.GetAddressBytes*"></a>
   <h4 id="System_Net_IPAddress_GetAddressBytes" data-uid="System.Net.IPAddress.GetAddressBytes">GetAddressBytes()</h4>
@@ -369,7 +413,7 @@ This field is read-only.</p>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_GetDefaultLocalAddress.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.GetDefaultLocalAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L159">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L182">View Source</a>
   </span>
   <a id="System_Net_IPAddress_GetDefaultLocalAddress_" data-uid="System.Net.IPAddress.GetDefaultLocalAddress*"></a>
   <h4 id="System_Net_IPAddress_GetDefaultLocalAddress" data-uid="System.Net.IPAddress.GetDefaultLocalAddress">GetDefaultLocalAddress()</h4>
@@ -398,10 +442,44 @@ This field is read-only.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_GetHashCode.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L208">View Source</a>
+  </span>
+  <a id="System_Net_IPAddress_GetHashCode_" data-uid="System.Net.IPAddress.GetHashCode*"></a>
+  <h4 id="System_Net_IPAddress_GetHashCode" data-uid="System.Net.IPAddress.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><p>A hash code for the current object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_Parse_System_String_.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.Parse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L135">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L160">View Source</a>
   </span>
   <a id="System_Net_IPAddress_Parse_" data-uid="System.Net.IPAddress.Parse*"></a>
   <h4 id="System_Net_IPAddress_Parse_System_String_" data-uid="System.Net.IPAddress.Parse(System.String)">Parse(String)</h4>
@@ -451,7 +529,7 @@ This field is read-only.</p>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_IPAddress_ToString.md&amp;value=---%0Auid%3A%20System.Net.IPAddress.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L150">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/IPAddress.cs/#L173">View Source</a>
   </span>
   <a id="System_Net_IPAddress_ToString_" data-uid="System.Net.IPAddress.ToString*"></a>
   <h4 id="System_Net_IPAddress_ToString" data-uid="System.Net.IPAddress.ToString">ToString()</h4>
@@ -473,8 +551,7 @@ This field is read-only.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">String</a></td>
-        <td><p>A string that contains the IP address in either IPv4 dotted-quad or
-in IPv6 colon-hexadecimal notation.</p>
+        <td><p>A string that contains the IP address in either IPv4 dotted-quad or in IPv6 colon-hexadecimal notation.</p>
 </td>
       </tr>
     </tbody>
@@ -482,8 +559,7 @@ in IPv6 colon-hexadecimal notation.</p>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="System.Object.html#System_Object_ToString">Object.ToString()</a></div>
   <h5 id="System_Net_IPAddress_ToString_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The ToString method converts the IP address that is stored in the Address property to either IPv4 dotted-quad or
-IPv6 colon-hexadecimal notation.</p>
+  <div class="markdown level1 remarks"><p>The <a class="xref" href="System.Net.IPAddress.html#System_Net_IPAddress_ToString">ToString()</a> method converts the IP address that is stored in the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.ipaddress.address#System_Net_IPAddress_Address">Address</a> property to either IPv4 dotted-quad or IPv6 colon-hexadecimal notation.</p>
 </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>

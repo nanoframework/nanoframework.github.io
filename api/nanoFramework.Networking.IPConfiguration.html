@@ -81,7 +81,7 @@
   
   <h1 id="nanoFramework_Networking_IPConfiguration" data-uid="nanoFramework.Networking.IPConfiguration" class="text-break">Class IPConfiguration
   </h1>
-  <div class="markdown level0 summary"><p>IP configuration used for static IP address configuration.</p>
+  <div class="markdown level0 summary"><p>IP configuration to be used for static IP address configuration.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -89,20 +89,44 @@
     <div class="level0"><a class="xref" href="System.Object.html">Object</a></div>
     <div class="level1"><span class="xref">IPConfiguration</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.Networking.html">nanoFramework.Networking</a></h6>
-  <h6><strong>Assembly</strong>: nanoFramework.NetworkHelper.dll</h6>
+  <h6><strong>Assembly</strong>: System.Net.dll</h6>
   <h5 id="nanoFramework_Networking_IPConfiguration_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class IPConfiguration : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class IPConfiguration</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration__ctor_System_String_System_String_System_String_System_String___.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration__ctor_System_String_System_String_System_String_System_String___.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/blob/develop/NetworkHelper/IPConfiguration.cs/#L19">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/NetworkHelper/IPConfiguration.cs/#L18">View Source</a>
   </span>
   <a id="nanoFramework_Networking_IPConfiguration__ctor_" data-uid="nanoFramework.Networking.IPConfiguration.#ctor*"></a>
   <h4 id="nanoFramework_Networking_IPConfiguration__ctor_System_String_System_String_System_String_System_String___" data-uid="nanoFramework.Networking.IPConfiguration.#ctor(System.String,System.String,System.String,System.String[])">IPConfiguration(String, String, String, String[])</h4>
@@ -111,7 +135,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IPConfiguration(string ipAddress, string ipSubnetMask, string ipGatewayAddress, string[] ipDns)</code></pre>
+    <pre><code class="lang-csharp hljs">public IPConfiguration(string ipv4Address, string ipv4SubnetMask, string ipv4GatewayAddress, string[] ipv4DnsAddresses = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,26 +149,26 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">String</a></td>
-        <td><span class="parametername">ipAddress</span></td>
-        <td><p>The static IP address.</p>
+        <td><span class="parametername">ipv4Address</span></td>
+        <td><p>The IP v4 address to use on the network interface.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.String.html">String</a></td>
-        <td><span class="parametername">ipSubnetMask</span></td>
-        <td><p>The IP subnet mask address.</p>
+        <td><span class="parametername">ipv4SubnetMask</span></td>
+        <td><p>The IPv4 subnet mask.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.String.html">String</a></td>
-        <td><span class="parametername">ipGatewayAddress</span></td>
-        <td><p>The IP gateway address.</p>
+        <td><span class="parametername">ipv4GatewayAddress</span></td>
+        <td><p>The gateway IPv4 address.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.String.html">String</a>[]</td>
-        <td><span class="parametername">ipDns</span></td>
-        <td><p>The IP DNS list, null to let automatic DNS on.</p>
+        <td><span class="parametername">ipv4DnsAddresses</span></td>
+        <td><p>List with the IPv4 DNS server address. Set to <span class="xref">null</span> for automatic DNS.</p>
 </td>
       </tr>
     </tbody>
@@ -153,14 +177,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPAddress.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPAddress.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/blob/develop/NetworkHelper/IPConfiguration.cs/#L30">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/NetworkHelper/IPConfiguration.cs/#L33">View Source</a>
   </span>
   <a id="nanoFramework_Networking_IPConfiguration_IPAddress_" data-uid="nanoFramework.Networking.IPConfiguration.IPAddress*"></a>
   <h4 id="nanoFramework_Networking_IPConfiguration_IPAddress" data-uid="nanoFramework.Networking.IPConfiguration.IPAddress">IPAddress</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the static IP Address.</p>
+  <div class="markdown level1 summary"><p>IP v4 address to use on the network interface.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,14 +208,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPDns.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPDns%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPDns.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPDns%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/blob/develop/NetworkHelper/IPConfiguration.cs/#L45">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/NetworkHelper/IPConfiguration.cs/#L48">View Source</a>
   </span>
   <a id="nanoFramework_Networking_IPConfiguration_IPDns_" data-uid="nanoFramework.Networking.IPConfiguration.IPDns*"></a>
   <h4 id="nanoFramework_Networking_IPConfiguration_IPDns" data-uid="nanoFramework.Networking.IPConfiguration.IPDns">IPDns</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the static DNS. null to let the automatic DNS enabled.</p>
+  <div class="markdown level1 summary"><p>IPv4 DNS server address. Set to <span class="xref">null</span> for automatic DNS.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -215,14 +239,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPGatewayAddress.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPGatewayAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPGatewayAddress.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPGatewayAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/blob/develop/NetworkHelper/IPConfiguration.cs/#L40">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/NetworkHelper/IPConfiguration.cs/#L43">View Source</a>
   </span>
   <a id="nanoFramework_Networking_IPConfiguration_IPGatewayAddress_" data-uid="nanoFramework.Networking.IPConfiguration.IPGatewayAddress*"></a>
   <h4 id="nanoFramework_Networking_IPConfiguration_IPGatewayAddress" data-uid="nanoFramework.Networking.IPConfiguration.IPGatewayAddress">IPGatewayAddress</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the he IP gateway address.</p>
+  <div class="markdown level1 summary"><p>The gateway IPv4 address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -246,14 +270,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPSubnetMask.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPSubnetMask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration_IPSubnetMask.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration.IPSubnetMask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/blob/develop/NetworkHelper/IPConfiguration.cs/#L35">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/NetworkHelper/IPConfiguration.cs/#L38">View Source</a>
   </span>
   <a id="nanoFramework_Networking_IPConfiguration_IPSubnetMask_" data-uid="nanoFramework.Networking.IPConfiguration.IPSubnetMask*"></a>
   <h4 id="nanoFramework_Networking_IPConfiguration_IPSubnetMask" data-uid="nanoFramework.Networking.IPConfiguration.IPSubnetMask">IPSubnetMask</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the IP subnet mask address.</p>
+  <div class="markdown level1 summary"><p>The IPv4 subnet mask.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -287,10 +311,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=nanoFramework_Networking_IPConfiguration.md&amp;value=---%0Auid%3A%20nanoFramework.Networking.IPConfiguration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nanoframework/Windows.Devices.WiFi/blob/develop/NetworkHelper/IPConfiguration.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/NetworkHelper/IPConfiguration.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
