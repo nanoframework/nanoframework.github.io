@@ -256,7 +256,7 @@ steps:
     )
   inputs:
     command: 'run'
-    projects: 'DocFxCompanion/src/DocFxTocCreation'
+    projects: 'DocFxCompanion/src/DocFxTocGenerator'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -si'
 
 - task: DotNetCoreCLI@2
@@ -264,7 +264,7 @@ steps:
   condition: succeeded()
   inputs:
     command: 'run'
-    projects: 'DocFxCompanion/src/DocFxTocCreation'
+    projects: 'DocFxCompanion/src/DocFxTocGenerator'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\content -s -r -g'
 
 # Check the links
