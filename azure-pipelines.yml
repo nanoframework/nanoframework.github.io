@@ -202,6 +202,8 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
 
+      git clone https://github.com/nanoframework/nanoFramework.SignalR.Client.git -b develop nanoFramework.SignalR.Client
+
   displayName: Clone repos of class libs
   condition: >-
     or(
@@ -216,9 +218,8 @@ steps:
   inputs:
     versionSpec: '>=5.10.0'
 
-- powershell: |
-      git clone https://github.com/Ellerbach/docfx-companion-tools.git -b main DocFxCompanion
-  displayName: Clone the docfx helpers
+- powershell: choco install dofx-companion-tools -y
+  displayName: Install the docfx helpers
   condition: succeeded()
 
 # install docfx
@@ -246,7 +247,8 @@ steps:
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
 
-- task: DotNetCoreCLI@2
+- powershell: |
+    &TocDocFxCreation -d $(System.DefaultWorkingDirectory)\devicesdetails -si
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     or(
@@ -254,27 +256,17 @@ steps:
       contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
       eq(variables['BuildOptions.BUILD_ALL'], 'true')
     )
-  inputs:
-    command: 'run'
-    projects: 'DocFxCompanion/src/TocDocFxCreation'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -si'
 
-- task: DotNetCoreCLI@2
+- powershell: |
+    &DocFxTocCreation -d $(System.DefaultWorkingDirectory)\content -s -r -g
   displayName: 'Building automatically toc.yml for main content'
   condition: succeeded()
-  inputs:
-    command: 'run'
-    projects: 'DocFxCompanion/src/TocDocFxCreation'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\content -s -r -g'
 
 # Check the links
-- task: DotNetCoreCLI@2
+- powershell: |
+    &DocLinkChecker -d $(System.DefaultWorkingDirectory)\content -t
   displayName: 'Check internal links in the core repo'
   condition: succeeded()
-  inputs:
-    command: 'run'
-    projects: 'DocFxCompanion/src/DocLinkChecker'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\content -t'
 
 # Scan markdown files on style consistency
 - powershell: |
@@ -630,7 +622,7 @@ steps:
     restoreSolution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Text.RegularExpressions\NuGet.Config'
-      
+
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Azure.Devices
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
@@ -638,6 +630,14 @@ steps:
     restoreSolution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Azure.Devices\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.SignalR.Client
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.SignalR.Client\NuGet.Config'
 
 # we only need to reference the main nuget.config 
 - task: NuGetCommand@2
@@ -962,6 +962,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.SignalR.Client
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
