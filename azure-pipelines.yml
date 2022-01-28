@@ -202,8 +202,6 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
 
-      git clone https://github.com/nanoframework/nanoFramework.SignalR.Client.git -b develop nanoFramework.SignalR.Client
-
   displayName: Clone repos of class libs
   condition: >-
     or(
@@ -218,7 +216,7 @@ steps:
   inputs:
     versionSpec: '>=5.10.0'
 
-- powershell: choco install dofx-companion-tools -y
+- powershell: choco install docfx-companion-tools -y
   displayName: Install the docfx helpers
   condition: succeeded()
 
@@ -248,7 +246,7 @@ steps:
     arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
 
 - powershell: |
-    &TocDocFxCreation -d $(System.DefaultWorkingDirectory)\devicesdetails -si
+    &DocFxTocCreation -d $(System.DefaultWorkingDirectory)\devicesdetails -si
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     or(
@@ -631,14 +629,6 @@ steps:
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Azure.Devices\NuGet.Config'
 
-- task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.SignalR.Client
-  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
-  inputs:
-    restoreSolution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
-    feedsToUse: config
-    nugetConfigPath: 'nanoFramework.SignalR.Client\NuGet.Config'
-
 # we only need to reference the main nuget.config 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.IoT.Device
@@ -962,14 +952,6 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSBuild@1
-  displayName: Build nanoFramework.SignalR.Client
-  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
-  inputs:
-    solution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
