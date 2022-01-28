@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct DateTime
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1684,6 +1684,85 @@ For example, if month equals 2 for February, the return value is 28 or 29 depend
   <div><a class="xref" href="System.Object.html#System_Object_GetHashCode">Object.GetHashCode()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/CoreLibrary/new/pages-source/apiSpec/new?filename=System_DateTime_Parse_System_String_.md&amp;value=---%0Auid%3A%20System.DateTime.Parse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/nanoFramework.CoreLibrary/System/DateTime.cs/#L805">View Source</a>
+  </span>
+  <a id="System_DateTime_Parse_" data-uid="System.DateTime.Parse*"></a>
+  <h4 id="System_DateTime_Parse_System_String_" data-uid="System.DateTime.Parse(System.String)">Parse(String)</h4>
+  <div class="markdown level1 summary"><p>Converts the string representation of a date and time to its <a class="xref" href="System.DateTime.html">DateTime</a> equivalent by using the conventions of the current culture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime Parse(string s)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">String</a></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>A string that contains a date and time to convert. See The string to parse for more information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.DateTime.html">DateTime</a></td>
+        <td><p>An object that is equivalent to the date and time contained in <code data-dev-comment-type="paramref" class="paramref">s</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_DateTime_Parse_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+.NET nanoFramework doesn&apos;t support local times so converted values will always have <a class="xref" href="System.DateTime.html#System_DateTime_Kind">Kind</a> set to <a class="xref" href="System.DateTimeKind.html#System_DateTimeKind_Utc">Utc</a>.
+</p>
+<p>
+This attempts to parse <code data-dev-comment-type="paramref" class="paramref">s</code> by using the formatting conventions of Invariant Culture.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">s</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.FormatException.html">FormatException</a></td>
+        <td><p>Failed to parse <code data-dev-comment-type="paramref" class="paramref">s</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/nanoframework/CoreLibrary/new/pages-source/apiSpec/new?filename=System_DateTime_Subtract_System_DateTime_.md&amp;value=---%0Auid%3A%20System.DateTime.Subtract(System.DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1901,6 +1980,70 @@ For example, if month equals 2 for February, the return value is 28 or 29 depend
   <h5 id="System_DateTime_ToUnixTimeSeconds_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Unix time represents the number of seconds that have elapsed since 1970-01-01T00:00:00Z (January 1, 1970, at 12:00 AM UTC). It does not take leap seconds into account.</p>
 <p>This method is exclusive of nanoFramework.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/CoreLibrary/new/pages-source/apiSpec/new?filename=System_DateTime_TryParse_System_String_System_DateTime__.md&amp;value=---%0Auid%3A%20System.DateTime.TryParse(System.String%2CSystem.DateTime%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/nanoFramework.CoreLibrary/System/DateTime.cs/#L825">View Source</a>
+  </span>
+  <a id="System_DateTime_TryParse_" data-uid="System.DateTime.TryParse*"></a>
+  <h4 id="System_DateTime_TryParse_System_String_System_DateTime__" data-uid="System.DateTime.TryParse(System.String,System.DateTime@)">TryParse(String, out DateTime)</h4>
+  <div class="markdown level1 summary"><p>Converts the specified string representation of a date and time to its <a class="xref" href="System.DateTime.html">DateTime</a> equivalent and returns a value that indicates whether the conversion succeeded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string s, out DateTime result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">String</a></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>A string containing a date and time to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.DateTime.html">DateTime</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When this method returns, contains the <a class="xref" href="System.DateTime.html">DateTime</a> value equivalent to the date and time contained in <code data-dev-comment-type="paramref" class="paramref">s</code>, if the conversion succeeded, or <a class="xref" href="System.DateTime.html#System_DateTime_MinValue">MinValue</a> if the conversion failed. The conversion fails if the <code data-dev-comment-type="paramref" class="paramref">s</code> parameter is <span class="xref">null</span>, is an <a class="xref" href="System.String.html#System_String_Empty">Empty</a>, or does not contain a valid string representation of a date and time. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><p><span class="xref">true</span> if the <code data-dev-comment-type="paramref" class="paramref">s</code> parameter was converted successfully; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_DateTime_TryParse_System_String_System_DateTime___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The <a class="xref" href="System.DateTime.html#System_DateTime_TryParse_System_String_System_DateTime__">TryParse(String, out DateTime)</a> method is similar to the <a class="xref" href="System.DateTime.html#System_DateTime_Parse_System_String_">Parse(String)</a> method, except that the <a class="xref" href="System.DateTime.html#System_DateTime_TryParse_System_String_System_DateTime__">TryParse(String, out DateTime)</a> method does not throw an exception if the conversion fails.
+</p>
+<p>
+The string <code data-dev-comment-type="paramref" class="paramref">s</code> is parsed using formatting information of the Invariant Culture.
+</p>
 </div>
   <h3 id="operators">Operators
   </h3>

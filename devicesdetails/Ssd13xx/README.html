@@ -8,7 +8,7 @@
     <title>SSD13xx &amp; SSH1106 OLED display family | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="SSD13xx &amp; SSH1106 OLED display family | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -100,6 +100,63 @@
 <li>[X] I2C</li>
 <li>[ ] SPI</li>
 </ul>
+<h2 id="usage-notes">Usage notes</h2>
+<p>There are two groups of drawing methods.</p>
+<ol>
+<li><p>Various specialized drawing methods allowing to draw on screen pixel-by-pixel, like:</p>
+<ul>
+<li><code>DrawPixel(...)</code>: draws one pixel</li>
+<li><code>DrawHorizontalLine(...)</code>: draws a horizontal line</li>
+<li><code>DrawVerticalLine(...)</code>: draws a vertical line</li>
+<li><code>DrawFilledRectangle(...)</code>: draws a filled rectangle</li>
+<li><code>DrawBitmap(...)</code>: draws a bitmap</li>
+<li><code>DrawString(...)</code>: draws a string with preset font</li>
+</ul>
+<p>Using these methods you do not need to care about any technique the driver uses to display
+your drawing instructions.</p>
+</li>
+<li><p>Methods allowing to modify screen content by blocks of internal representation (screen buffer), like:</p>
+<ul>
+<li><code>DrawDirectAligned(...)</code>: overwrites screen buffer with given content</li>
+<li><code>ClearDirectAligned(...)</code>: clears out (with 0x00) given part of screen buffer</li>
+</ul>
+<p>These methods allow faster (~100 times) display access but with some constraints.</p>
+<ul>
+<li>bitmaps handed over here must be in appropriate format (see SSD13xx docs for &quot;GDDRAM&quot; and &quot;Horizontal addressing mode&quot;).</li>
+<li>no bit operations occure with existing buffer data (with pixels drawn via other means), the new data will overwrite the pixels &quot;below&quot; newly drawed content.</li>
+<li>the &quot;y&quot; coordinate and the bitmap height must be byte aligned with screen buffer (again, see above docs)</li>
+</ul>
+</li>
+</ol>
+<p>The use of two groups can be freely mixed (e.g. display text via <code>DrawString(...)</code> and displaying an image below via <code>DrawDirectAligned(...)</code>)</p>
+<p>Examples for 1. can be found in <code>samples</code> folder.</p>
+<p>Example for 2. follows here.</p>
+<pre><code class="lang-csharp">// There are superb online helpers like the one below which are able to
+// create an appropriate byte array from an image in code use ready format.
+// https://www.mischianti.org/images-to-byte-array-online-converter-cpp-arduino/
+// On the site above use these settings to get bytes needed here:
+// - &quot;plain bytes&quot;
+// - &quot;vertical - 1 bit per pixel&quot;
+var buffer = new byte[] { ... }; 
+var width = 16;
+var height = 16;
+
+// instantiation example
+var ssd1306 = new Ssd1306(
+    I2cDevice.Create(
+        new I2cConnectionSettings(
+            1, 
+            Ssd1306.DefaultI2cAddress, 
+            I2cBusSpeed.FastMode)), 
+    Ssd13xx.DisplayResolution.OLED128x64);
+
+// this line sends the image data to the screen
+ssd1306.DrawDirectAligned(x, y, width, height, buffer);
+
+// this one wipes its place to blank
+ssd1306.ClearDirectAligned(x, y, width, height);
+
+</code></pre>
 </article>
           </div>
           

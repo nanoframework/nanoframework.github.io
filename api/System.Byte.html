@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Byte
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -177,11 +177,11 @@
     <a href="https://github.com/nanoframework/CoreLibrary/new/pages-source/apiSpec/new?filename=System_Byte_Parse_System_String_.md&amp;value=---%0Auid%3A%20System.Byte.Parse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/nanoFramework.CoreLibrary/System/Byte.cs/#L57">View Source</a>
+    <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/nanoFramework.CoreLibrary/System/Byte.cs/#L58">View Source</a>
   </span>
   <a id="System_Byte_Parse_" data-uid="System.Byte.Parse*"></a>
   <h4 id="System_Byte_Parse_System_String_" data-uid="System.Byte.Parse(System.String)">Parse(String)</h4>
-  <div class="markdown level1 summary"><p>Converts the string representation of a number to its Byte equivalent.</p>
+  <div class="markdown level1 summary"><p>Converts the string representation of a number to its <a class="xref" href="System.Byte.html">Byte</a> equivalent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -218,7 +218,7 @@ public static byte Parse(string s)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Byte.html">Byte</a></td>
-        <td><p>A byte value that is equivalent to the number contained in s.</p>
+        <td><p>A <a class="xref" href="System.Byte.html">Byte</a> value that is equivalent to the number contained in <code data-dev-comment-type="paramref" class="paramref">s</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -234,7 +234,12 @@ public static byte Parse(string s)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>s is  null reference (Nothing in Visual Basic).</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">s</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.FormatException.html">FormatException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">s</code> is not of the correct format.</p>
 </td>
       </tr>
     </tbody>
@@ -326,6 +331,66 @@ public static byte Parse(string s)</code></pre>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/CoreLibrary/new/pages-source/apiSpec/new?filename=System_Byte_TryParse_System_String_System_Byte__.md&amp;value=---%0Auid%3A%20System.Byte.TryParse(System.String%2CSystem.Byte%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/nanoFramework.CoreLibrary/System/Byte.cs/#L75">View Source</a>
+  </span>
+  <a id="System_Byte_TryParse_" data-uid="System.Byte.TryParse*"></a>
+  <h4 id="System_Byte_TryParse_System_String_System_Byte__" data-uid="System.Byte.TryParse(System.String,System.Byte@)">TryParse(String, out Byte)</h4>
+  <div class="markdown level1 summary"><p>Tries to convert the string representation of a number to its <a class="xref" href="System.Byte.html">Byte</a> equivalent, and returns a value that indicates whether the conversion succeeded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string s, out byte result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">String</a></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>A <a class="xref" href="System.String.html">String</a> that contains a number to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">Byte</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When this method returns, contains the <a class="xref" href="System.Byte.html">Byte</a> value equivalent to the number contained in <code data-dev-comment-type="paramref" class="paramref">s</code> if the conversion succeeded, or zero if the conversion failed. This parameter is passed uninitialized; any value originally supplied in <code data-dev-comment-type="paramref" class="paramref">result</code> will be overwritten.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><p>true if <code data-dev-comment-type="paramref" class="paramref">s</code> was converted successfully; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Byte_TryParse_System_String_System_Byte___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The conversion fails and the method returns <span class="xref">false</span> if the s parameter is not in the correct format, if it is <span class="xref">null</span> or <a class="xref" href="System.String.html#System_String_Empty">Empty</a>, or if it represents a number less than <a class="xref" href="System.Byte.html#System_Byte_MinValue">MinValue</a> or greater than <a class="xref" href="System.Byte.html#System_Byte_MaxValue">MaxValue</a>.
+The <a class="xref" href="System.Byte.html#System_Byte_TryParse_System_String_System_Byte__">TryParse(String, out Byte)</a>(String, Byte) method is similar to the Byte.Parse(String) method, except that <a class="xref" href="System.Byte.html#System_Byte_TryParse_System_String_System_Byte__">TryParse(String, out Byte)</a>(String, Byte) does not throw an exception if the conversion fails.</p>
+</div>
 </article>
           </div>
           

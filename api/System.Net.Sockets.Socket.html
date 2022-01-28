@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Socket
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -592,7 +592,7 @@ If you want to change the default remote host, call Connect again with the desir
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1066">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1087">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_Dispose_" data-uid="System.Net.Sockets.Socket.Dispose*"></a>
   <h4 id="System_Net_Sockets_Socket_Dispose_System_Boolean_" data-uid="System.Net.Sockets.Socket.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -634,7 +634,7 @@ When the disposing parameter is true, this method releases all resources held by
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_Finalize.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1085">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1106">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_Finalize_" data-uid="System.Net.Sockets.Socket.Finalize*"></a>
   <h4 id="System_Net_Sockets_Socket_Finalize" data-uid="System.Net.Sockets.Socket.Finalize">Finalize()</h4>
@@ -650,7 +650,7 @@ When the disposing parameter is true, this method releases all resources held by
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.GetSocketOption(System.Net.Sockets.SocketOptionLevel%2CSystem.Net.Sockets.SocketOptionName)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L943">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L949">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_GetSocketOption_" data-uid="System.Net.Sockets.Socket.GetSocketOption*"></a>
   <h4 id="System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_" data-uid="System.Net.Sockets.Socket.GetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName)">GetSocketOption(SocketOptionLevel, SocketOptionName)</h4>
@@ -696,24 +696,43 @@ When the disposing parameter is true, this method releases all resources held by
     <tbody>
       <tr>
         <td><a class="xref" href="System.Object.html">Object</a></td>
-        <td><p>An object that represents the value of the option. When the optionName parameter is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> the return value is an instance of the LingerOption
-class. When optionName is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_AddMembership">AddMembership</a> or <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DropMembership">DropMembership</a>, the return value is an instance of the MulticastOption class. When optionName is
-any other value, the return value is an integer.</p>
+        <td><p>/// An object that represents the value of the option.</p>
+<p>
+When the <code data-dev-comment-type="paramref" class="paramref">optionName</code> parameter is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> the return value is an <a class="xref" href="System.Int32.html">Int32</a> with the value in seconds that the socket will linger after close.
+To check if linger is enabled for the socket the <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a> option should be queried.
+</p>
+<p>
+When optionName is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_ExclusiveAddressUse">ExclusiveAddressUse</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_AcceptConnection">AcceptConnection</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Broadcast">Broadcast</a> or <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_KeepAlive">KeepAlive</a>, the return value is <a class="xref" href="System.Boolean.html">Boolean</a>.
+</p>
+<p>
+When optionName is any other value, the return value is an integer.
+</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> options determine the behavior of the current <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>. Use this overload to get the <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_AddMembership">AddMembership</a>, and <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DropMembership">DropMembership</a> options.
-For the <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> option, use <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> for the optionLevel parameter. For <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_AddMembership">AddMembership</a> and <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DropMembership">DropMembership</a>, use <a class="xref" href="System.Net.Sockets.SocketOptionLevel.html#System_Net_Sockets_SocketOptionLevel_IP">IP</a>. If you want to set the value of any of
-the options listed above, use the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Int32_">SetSocketOption(SocketOptionLevel, SocketOptionName, Int32)</a> method.</p>
-</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
+        <td><p>When using an <a class="xref" href="System.Net.Sockets.SocketOptionName.html">SocketOptionName</a> that can't be retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Byte___.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.GetSocketOption(System.Net.Sockets.SocketOptionLevel%2CSystem.Net.Sockets.SocketOptionName%2CSystem.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L990">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1011">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_GetSocketOption_" data-uid="System.Net.Sockets.Socket.GetSocketOption*"></a>
   <h4 id="System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Byte___" data-uid="System.Net.Sockets.Socket.GetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName,System.Byte[])">GetSocketOption(SocketOptionLevel, SocketOptionName, Byte[])</h4>
@@ -819,7 +838,7 @@ to accept a connection from the queue.
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_Poll_System_Int32_System_Net_Sockets_SelectMode_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.Poll(System.Int32%2CSystem.Net.Sockets.SelectMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1043">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1064">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_Poll_" data-uid="System.Net.Sockets.Socket.Poll*"></a>
   <h4 id="System_Net_Sockets_Socket_Poll_System_Int32_System_Net_Sockets_SelectMode_" data-uid="System.Net.Sockets.Socket.Poll(System.Int32,System.Net.Sockets.SelectMode)">Poll(Int32, SelectMode)</h4>
@@ -2047,7 +2066,7 @@ In this overload, the buffer offset defaults to 0, and the number of bytes to se
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Boolean_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.SetSocketOption(System.Net.Sockets.SocketOptionLevel%2CSystem.Net.Sockets.SocketOptionName%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L903">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L905">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_SetSocketOption_" data-uid="System.Net.Sockets.Socket.SetSocketOption*"></a>
   <h4 id="System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Boolean_" data-uid="System.Net.Sockets.Socket.SetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName,System.Boolean)">SetSocketOption(SocketOptionLevel, SocketOptionName, Boolean)</h4>
@@ -2093,7 +2112,7 @@ In this overload, the buffer offset defaults to 0, and the number of bytes to se
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Byte___.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.SetSocketOption(System.Net.Sockets.SocketOptionLevel%2CSystem.Net.Sockets.SocketOptionName%2CSystem.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L918">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L920">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_SetSocketOption_" data-uid="System.Net.Sockets.Socket.SetSocketOption*"></a>
   <h4 id="System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Byte___" data-uid="System.Net.Sockets.Socket.SetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName,System.Byte[])">SetSocketOption(SocketOptionLevel, SocketOptionName, Byte[])</h4>
@@ -2143,7 +2162,7 @@ In this overload, the buffer offset defaults to 0, and the number of bytes to se
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Int32_.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.SetSocketOption(System.Net.Sockets.SocketOptionLevel%2CSystem.Net.Sockets.SocketOptionName%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L873">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L875">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_SetSocketOption_" data-uid="System.Net.Sockets.Socket.SetSocketOption*"></a>
   <h4 id="System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Int32_" data-uid="System.Net.Sockets.Socket.SetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName,System.Int32)">SetSocketOption(SocketOptionLevel, SocketOptionName, Int32)</h4>
@@ -2188,6 +2207,8 @@ In this overload, the buffer offset defaults to 0, and the number of bytes to se
   <div class="markdown level1 remarks"><p><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> options determine the behavior of the current <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>. For an option with a Boolean data type, specify a nonzero value to enable the option, and a 
 zero value to disable the option. For an option with an integer data type, specify the appropriate value. <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> options are grouped by level of protocol support.
 </p>
+For <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> option the <code data-dev-comment-type="paramref" class="paramref">optionValue</code> it&apos;s the number of seconds that the socket will linger before closing the connection.
+To disable socket linger call <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Boolean_">SetSocketOption(SocketOptionLevel, SocketOptionName, Boolean)</a> with <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a> and setting it to <span class="xref">true</span>. 
 </div>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
@@ -2196,7 +2217,7 @@ zero value to disable the option. For an option with an integer data type, speci
     <a href="https://github.com/nanoframework/System.Net/new/pages-source/apiSpec/new?filename=System_Net_Sockets_Socket_System_IDisposable_Dispose.md&amp;value=---%0Auid%3A%20System.Net.Sockets.Socket.System%23IDisposable%23Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1076">View Source</a>
+    <a href="https://github.com/nanoframework/System.Net/blob/develop/nanoFramework.System.Net/Sockets/Socket.cs/#L1097">View Source</a>
   </span>
   <a id="System_Net_Sockets_Socket_System_IDisposable_Dispose_" data-uid="System.Net.Sockets.Socket.System#IDisposable#Dispose*"></a>
   <h4 id="System_Net_Sockets_Socket_System_IDisposable_Dispose" data-uid="System.Net.Sockets.Socket.System#IDisposable#Dispose">IDisposable.Dispose()</h4>

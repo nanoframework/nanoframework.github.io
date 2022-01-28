@@ -8,7 +8,7 @@
     <title>Getting Started Guide for managed code (C#) | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Getting Started Guide for managed code (C#) | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -82,6 +82,7 @@
 <p>You can find the video for this guide on our YouTube channel <a href="https://youtu.be/iZdN2GmefXI">here</a>.</p>
 <h2 id="installing-and-configuring-visual-studio-2022">Installing and configuring Visual Studio 2022</h2>
 <p>The first part is to get Visual Studio 2022 (VS 2019 is also supported) and the .NET <strong>nanoFramework</strong> extension installed.</p>
+<p><img src="../../images/getting-started-guides/getting-started-extension-installation.gif" alt="Installing Visual Studio Extension"></p>
 <ol>
 <li><p><strong>Download Visual Studio</strong><br>
 If you already have it installed, you can skip this step. If you don't, please download the free <a href="https://www.visualstudio.com/downloads">Visual Studio Community</a> edition.
@@ -90,22 +91,24 @@ Make sure to install the <strong>workloads</strong> for <strong>.NET desktop dev
 <li><p><strong>Install the <em>nanoFramework</em> extension for Visual Studio</strong><br>
 Launch Visual Studio (we'll just refer to it as VS from now on) and install the <strong>nanoFramework</strong> extension.<br>
 You can do this by selecting the menu <strong>Extensions &gt; Manage Extensions</strong> which will open the <strong>Manage Extensions</strong> dialog. Select the <strong>Online</strong> feed category on the left-hand and enter <strong><em>nanoFramework</em></strong> in the <strong>search</strong> box.</p>
-<p><img src="../../images/getting-started-guides/vs-nf-extension-search.png" alt="Visual Studio - Manage Extensions Dialog"></p>
 </li>
 <li><p>You will be prompted to <strong>restart Visual Studio</strong> to finish installing the extension</p>
-</li>
-<li><p>Now open the <strong>Device Explorer</strong> window, by selecting the menu <strong>View &gt; Other Windows &gt; Device Explorer</strong>.
-<img src="../../images/getting-started-guides/vs-nf-device-explorer.png" alt="Device Explorer"></p>
 </li>
 </ol>
 <h2 id="uploading-the-firmware-to-the-board-using-nanofirmwareflasher">Uploading the firmware to the board using nanoFirmwareFlasher</h2>
 <p>The second part is to load the .NET <strong>nanoFramework</strong> image in the board flash. The best way is to use the <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher (nanoff)</a> tool. This is a .NET Core CLI command tool.</p>
+<p>You need to know the COM Port attached to your device. Search for <strong>Computer Management</strong>, select <strong>Device Manager</strong> then expand <strong>Ports (COM &amp; LPT)</strong>, you will find the COM port of the connected device.</p>
+<blockquote>
+<p>IMPORTANT: you may have to install drivers. Refer to the vendor website or use Windows Update to install the latest version of the drivers.</p>
+</blockquote>
+<p><img src="../../images/getting-started-guides/getting-started-find-com-port.gif" alt="Finding COM Port"></p>
 <blockquote>
 <p>NOTE</p>
 <ul>
 <li>The <a href="https://dotnet.microsoft.com/download">.NET 6.0 Runtime (or .NET 6.0 SDK)</a> must be installed</li>
 </ul>
 </blockquote>
+<p><img src="../../images/getting-started-guides/getting-started-install-nanoff-flash-esp32.gif" alt="Installing nanoff and flashing"></p>
 <ol>
 <li><p><strong>Install <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a></strong></p>
 <pre><code class="lang-console">dotnet tool install -g nanoff
@@ -130,17 +133,19 @@ You can do this by selecting the menu <strong>Extensions &gt; Manage Extensions<
 </li>
 <li><p><strong>After the upload completes</strong>, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET <strong>nanoFramework</strong> by looking into the <strong>Device Explorer</strong> window in <strong>Visual Studio</strong>.</p>
 </li>
+<li><p>Now open the <strong>Device Explorer</strong> window, by selecting the menu <strong>View &gt; Other Windows &gt; Device Explorer</strong>.</p>
+</li>
 </ol>
 <h2 id="coding-a-hello-world-application">Coding a 'Hello World' application</h2>
 <p>Now you have everything that you need to start coding your first application. Let's go for a good old 'Hello World' in micro-controller mode, which is blinking a LED, shall we?</p>
+<p><img src="../../images/getting-started-guides/getting-started-first-project.gif" alt="My first project"></p>
 <ol>
 <li><p>Go back to Visual Studio and select the <strong>File &gt; New &gt; Project</strong> menu, to open the <strong>Create a new project</strong> dialog.</p>
 <ol>
 <li>Enter <strong>nanoFramework</strong> into the <strong>Search for templates</strong> search prompt.</li>
 <li>Choose the <strong>Blank Application (nanoFramework)</strong> template and press the <strong>Next</strong> button.</li>
 <li>Name your project and choose a location of where the project files will be saved, and press the <strong>Create</strong> button.</li>
-<li>The project will be created and opened.<br>
-<img src="../../images/getting-started-guides/vs-nf-new-project.png" alt="Create new project dialog"></li>
+<li>The project will be created and opened.</li>
 </ol>
 </li>
 <li><p>We'll code a <strong>very simple application</strong> that enters an infinite loop and <strong>turns on and off an LED</strong>. We'll skip the details because that's not the aim of this guide. Let's just grab the <code>Blinky</code> code from the .NET <a href="https://github.com/nanoframework/Samples/tree/master/samples/Blinky"><strong>nanoFramework</strong> samples</a> repository. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board. If you don't know which pin to use, just enter something like &quot;ESP32 led pin number&quot; in your preferred search engine - assuming you are using an ESP32 device. If not, change ESP32 with the name of the device you have</p>
