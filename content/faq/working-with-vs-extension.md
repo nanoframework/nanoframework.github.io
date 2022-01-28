@@ -38,4 +38,10 @@ You can do that following these steps:
 1. Uninstall the current version from the "Manage Extension" window in Visual Studio.
 1. Go to the [Releases](https://github.com/nanoframework/nf-Visual-Studio-extension/releases) section in the Visual Studio extension repository.
 1. Find the version that you're looking for and expand the 'Assets' listed in the release entry.
-1. Download the '.vsix' package and start the instal.
+1. Download the '.vsix' package and start the install.
+
+## I want to exclude certain COM ports from being scanned by Device Explorer
+
+1. Open the Settings dialog in Device Explorer (cog wheel icon).
+1. Go to General tab.
+1. Add to 'COM port exclusion list' the COM port(s) to exclude, separated by a semi-column, no spaces.
