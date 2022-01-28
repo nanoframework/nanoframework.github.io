@@ -200,6 +200,8 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git -b develop nanoFramework.Azure.Devices
 
+      git clone https://github.com/nanoframework/nanoFramework.SignalR.Client.git -b develop nanoFramework.SignalR.Client      
+
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
 
   displayName: Clone repos of class libs
@@ -639,6 +641,14 @@ steps:
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Azure.Devices\NuGet.Config'
 
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.SignalR.Client
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.SignalR.Client\NuGet.Config'
+
 # we only need to reference the main nuget.config 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.IoT.Device
@@ -962,6 +972,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    
+- task: VSBuild@1
+  displayName: Build nanoFramework.SignalR.Client
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
