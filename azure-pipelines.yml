@@ -157,6 +157,8 @@ steps:
       git clone https://github.com/nanoframework/Windows.Storage.Streams.git --depth 100 -b develop Windows.Storage.Streams 
 
       git clone https://github.com/nanoframework/Windows.Devices.Adc.git --depth 100 -b develop Windows.Devices.Adc 
+      
+      git clone https://github.com/nanoframework/System.Device.Adc.git --depth 100 -b develop System.Device.Adc 
 
       git clone https://github.com/nanoframework/System.Device.WiFi.git --depth 100 -b develop System.Device.WiFi 
 
@@ -472,6 +474,14 @@ steps:
     restoreSolution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Adc\NuGet.Config'
+    
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Adc
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.Device.Adc\nanoFramework.System.Device.Adc.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Adc\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.WiFi
