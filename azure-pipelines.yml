@@ -832,6 +832,14 @@ steps:
     solution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+- task: VSBuild@1
+  displayName: Build System.Device.Adc
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.Device.Adc\nanoFramework.System.Device.Adc.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
 
 - task: VSBuild@1
   displayName: Build System.Device.WiFi
