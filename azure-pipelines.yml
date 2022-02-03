@@ -201,6 +201,8 @@ steps:
       git clone https://github.com/nanoframework/System.Text.RegularExpressions.git --depth 100 -b develop System.Text.RegularExpressions
 
       git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git -b develop nanoFramework.Azure.Devices
+      
+      git clone https://github.com/nanoframework/nanoFramework.Aws.IoTCore.Devices.git -b develop nanoFramework.Aws.IoTCore.Devices
 
       git clone https://github.com/nanoframework/nanoFramework.SignalR.Client.git -b develop nanoFramework.SignalR.Client      
 
@@ -650,6 +652,14 @@ steps:
     restoreSolution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Azure.Devices\NuGet.Config'
+    
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Aws.IoTCore.Devices
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'nanoFramework.Aws.IoTCore.Devices\nanoFramework.Aws.IoTCore.Devices.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Aws.IoTCore.Devices\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.SignalR.Client
@@ -990,6 +1000,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    
+- task: VSBuild@1
+  displayName: Build nanoFramework.Aws.IoTCore.Devices
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'nanoFramework.Aws.IoTCore.Devices\nanoFramework.Aws.IoTCore.Devices.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     
