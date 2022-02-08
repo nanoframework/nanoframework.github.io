@@ -86,9 +86,9 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 -**Step 6**: The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...
 
--**Step 7**: After the installer completes, open a command prompt at the IDF repository location with elevated permission and execute the script `install`. This will *hopefully* install all the requirements and prerequisites.
+-**Step 7**: After the installer completes, open a command prompt at the IDF repository location with elevated permission and execute the script `install`. This will _hopefully_ install all the requirements and prerequisites.
 
--**Step 8**: Now execute the script `export`. This will *hopefully* update the path environment variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
+-**Step 8**: Now execute the script `export`. This will _hopefully_ update the path environment variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
 
 -**Step 9**: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it.
 
@@ -123,7 +123,7 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 ## Build nanoCLR
 
--**Step 1**: Launch Visual Studio from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
+-**Step 1**: Launch Visual Studio from the repository folder, or load it from the **File** menu, select **Open Folder** and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 Next time VS Code open it should load the workspace automatically.
 
 -**Step 2**: In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.

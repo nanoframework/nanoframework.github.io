@@ -25,20 +25,20 @@ There are two sets of parameters that need to be present in this file:
 - the build type : 'debug' or 'release', for example
 - the board's environment : MCU, toolchain, RTOS
 
-You should not have to modify the *BuildType* section unless you have good reasons to do so. However, the *Linkage* section is the one you will have to take care of.
+You should not have to modify the _BuildType_ section unless you have good reasons to do so. However, the _Linkage_ section is the one you will have to take care of.
 
-For each *board* you want to build, you will have to create a dedicated section in the *Linkage* area, precisely describing the MCU, the toolchain, the build type and the RTOS you will use.
+For each _board_ you want to build, you will have to create a dedicated section in the _Linkage_ area, precisely describing the MCU, the toolchain, the build type and the RTOS you will use.
 
 ## Content explained
 
-The following explains each line of the *linkage* section. Text highlighted in **bold** is an information that you will have to provide.
+The following explains each line of the _linkage_ section. Text highlighted in **bold** is an information that you will have to provide.
 
 **_Note : Mind the forward slash ('/') in paths strings !_**
 
 - "**OPTION1_NAME_HERE**"
-  - Replace this text with a distinctive option name. e.g. *"STM32F429_Disco"*
+  - Replace this text with a distinctive option name. e.g. _"STM32F429_Disco"_
 - "short": "**summary-here**"
-  - Replace the *summary-here* text with one word describing shortly your board. e.g. "F429Disco"
+  - Replace the _summary-here_ text with one word describing shortly your board. e.g. "F429Disco"
 - "long": "**description-here**"
   - This is a more complete description of the configuration
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
@@ -92,7 +92,7 @@ The following explains each line of the *linkage* section. Text highlighted in *
 - "NF_FEATURE_RTC" : "**OFF**"
   - Allows you to specify whether to use the real time clock unit of the hardware for date & time functions. Depends on target availability. Default is OFF.
 - "NF_FEATURE_USE_APPDOMAINS" : "**OFF**"
-  - Allows you to specify whether to include, or not, support for Application Domains. Default is OFF. More information about this is available in the documentation [here](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). ***Note that the complete removal of support for this feature is being considered (see issue [here](https://github.com/nanoframework/nf-interpreter/issues/303)).***
+  - Allows you to specify whether to include, or not, support for Application Domains. Default is OFF. More information about this is available in the documentation [here](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). **Note that the complete removal of support for this feature is being considered (see issue [here](https://github.com/nanoframework/nf-interpreter/issues/303)).**
 - "NF_FEATURE_WATCHDOG" : "**ON**"
   - Allows you to define it the hardware watchdog should be disabled.
    This setting can only be set to OFF for STM32 targets. ESP32 build enables this by default so there is no way to disable it.

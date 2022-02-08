@@ -43,7 +43,7 @@ The VS2019 IDE normally hides the contents of this directory in `Solution Explor
 
 The two configuration files in `.vs` are `tasks.vs.json` and `launch.vs.json`. When you clone the `nf-interpreter` repository there will be two files names `tasks.vs.SAMPLE.json` and `launch.vs.SAMPLE.json`, which you can copy as the appropriate name and then modify to suit your configuration if required. Note that these are `SAMPLE` rather than `TEMPLATE` files as they are not used as a basis for automatic configuration, but are there as an example of something that is known to work.
 
->Unlike VS2017, VS2019 currently rewrites your JSON configuration files,and in doing so will remove any comments you have added. This may strictly follow the JSON spec., but for human readable configuration files is a _Really Bad Thing!_ Hopefully MS will realize this and change the behaviour, perhaps taking on a more reasoned format such as [JSON5](https://json5.org/)
+>Unlike VS2017, VS2019 currently rewrites your JSON configuration files,and in doing so will remove any comments you have added. This may strictly follow the JSON spec., but for human readable configuration files is a **Really Bad Thing!** Hopefully MS will realize this and change the behaviour, perhaps taking on a more reasoned format such as [JSON5](https://json5.org/)
 
 #### tasks.vs.json
 
@@ -53,7 +53,7 @@ This adds some entries to the Right-Click context menu for items in the `Solutio
 
 This is used to launch the debugger, using `GDB` locally with `OpenOCD` acting as the GDB server providing a connection to your device. The example for ESP32 is using a `SEGGER JLINK` device to connect to the ESP32 JTAG pins, while the STM32 example uses the `STM32 STLINK` interface on the STM769IDiscovery board.
 
-Note that we haven't been able to get the debug system working purely using the  VS2019 resources, and we call a Windows batch file `"startocd.bat"` to handle the `OpenOCD` configuration details. Take a look at that file and modify it to suit your configuration. (It __can__ have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.
+Note that we haven't been able to get the debug system working purely using the  VS2019 resources, and we call a Windows batch file `"startocd.bat"` to handle the `OpenOCD` configuration details. Take a look at that file and modify it to suit your configuration. (It **can** have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.
 
 >GDB requires `/` separators in the path passed for the executable file and symbols, rather than the windows backslash `\`, and at present neither VS Code or VS2017/2019 can do that for us when expanding variables, hence the need to add a hard-coded file path. For VS Code we have a neat little extension `nf` to take care of that for us, but at this stage no such solution for VS.
 
@@ -305,7 +305,7 @@ Run a debugging session to collect data and turn it off with the following comma
 
 This will give you a log of the operation and communications occuring. ( Good luck!)
 
-__*An example snippet displays error for "Monitor reset halt ( not quite sure why?)*__
+> An example snippet displays error for "Monitor reset halt (not quite sure why?)
 
 ```text
         8: (1976730) ->^done

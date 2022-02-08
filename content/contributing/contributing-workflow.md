@@ -138,7 +138,7 @@ We use and recommend the following workflow:
 
     `git checkout -b <branch-name-here> develop`
   
-    We suggest that you name the branch so that it clearly communicates your intentions, such as *issue-123* or *githubhandle-issue*.
+    We suggest that you name the branch so that it clearly communicates your intentions, such as _issue-123_ or _githubhandle-issue_.
     Don't use a branch name starting with _develop_ because that may be mistaken with the _develop_ branches on the master repository.
 
     Branches are useful since they isolate your changes from incoming changes from upstream. They also enable you to create multiple PRs from the same fork.
@@ -174,11 +174,11 @@ Note 1: It is OK for your PR to include a large number of commits. If that's the
 
 Note 2: It is OK to create your PR as "[WIP]" on the upstream repo before the implementation is done. This can be useful if you'd like to start the feedback process concurrent with your implementation. State that this is the case in the initial PR comment.
 
-Note 3: If you are working on a feature that has high impact or it's something experimental, your original PR can have it's target branch moved into a new develop branch in the master repo, something like *develop-shiny-awesome-feature*.
+Note 3: If you are working on a feature that has high impact or it's something experimental, your original PR can have it's target branch moved into a new develop branch in the master repo, something like _develop-shiny-awesome-feature_.
 
 ## General git resources
 
-If you are coming from another version control system *git* can feel daunting, awkward, confusing and may cause you frustration. :warning: Be warned about that! :warning: :stuck_out_tongue_winking_eye:
+If you are coming from another version control system _git_ can feel daunting, awkward, confusing and may cause you frustration. :warning: Be warned about that! :warning: :stuck_out_tongue_winking_eye:
 
 We suggest that you go through some basic tutorial and give it a try on a test repo that you setup for yourself.
 

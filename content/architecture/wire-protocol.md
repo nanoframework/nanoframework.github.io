@@ -50,8 +50,8 @@ Follows a high-level description on how the Wire Protocol component works.
 ## Wire Protocol Commands
 
 Processing a command is carried in a handler function.
-The collection of the commands that are implemented is listed in ```c_Lookup_Request```. This lookup structure is basically an array with the command code along with a pointer to the respective handler. It resides in *WireProtocol_App_Interface.c*.
-The actual command implementation resides in *WireProtocol_Commands.c*.
+The collection of the commands that are implemented is listed in ```c_Lookup_Request```. This lookup structure is basically an array with the command code along with a pointer to the respective handler. It resides in _WireProtocol_App_Interface.c_.
+The actual command implementation resides in _WireProtocol_Commands.c_.
 
 ## How to add support for a new command
 
@@ -118,6 +118,6 @@ To ease debugging of Wire Protocol sessions there are available a set of CMake o
 
 In order to ensure Wire Protocol communications integrity the message header and payload have each a CRC32 field which is filled in with the CRC32 hash of the respective section. This allows the receiver to validate the integrity of both the header and the payload.
 
-A target can choose *not* to implement that. The Wire Protocol layer in the debugger is able to automatically handle both situations.
+A target can choose _not_ to implement that. The Wire Protocol layer in the debugger is able to automatically handle both situations.
 
 To have a target image built **without** implementing CRC32 validation the option `NF_WP_IMPLEMENTS_CRC32=OFF` has to be passed to CMake.
