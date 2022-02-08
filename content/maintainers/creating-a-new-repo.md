@@ -60,7 +60,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 1. Click "Configure" button for Azure Pipelines.
 1. The next step will take you to the [Azure DevOps](https://dev.azure.com/nanoframework) website.
 1. Click on "Create New Project".
-1. Name the project following the GitHub repo name. Select _Public_ for visibility option.
+1. Name the project following the GitHub repo name. Select **Public** for visibility option.
 1. After the project is created a list with GitHub repositories shows. Select the repository that has been just created.
 1. The next step asks for the Pipeline configuration. Choose "Starter Pipeline" to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml.
 1. Click on "Variables" and add the following ones.
@@ -114,12 +114,12 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 1. Rename, edit and adjust as required the "nuspec" files to create the NuGet packages.
 1. Edit the "readme.txt" inside the `assets` folder and rename the repository name.
 1. Edit the "files.txt" inside the `config` folder and rename the file pattern.
-1. Still on"azure-pipelines.yml" _and only_ if there are class libraries that depend on this one.
+1. Still on"azure-pipelines.yml" **and only** if there are class libraries that depend on this one.
     1. Adjust the `repositoriesToUpdate` list with the repo names of the class libraries that depend on this new one.
 
 ## Adjust the repository settings (part 2)
 
-1. Go to the repository settings in GitHub and move into _Branches_.
+1. Go to the repository settings in GitHub and move into **Branches**.
 1. Go to the rule for "develop" branch and change the following:
       - Enable "Require pull request reviews before merging"
       - Enable "Require status checks to pass before merging" with the options:
@@ -130,7 +130,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 ## Update the dependency upwards
 
 As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the [`azure-pipelines.yml`](https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml) file there and add this new repo to the `repositoriesToUpdate` list.
-Now, if it depends on others, you have to figure out which one of those is **at the end** of the dependency chain and add this new repo to _that_ `azure-pipelines.yml` file. For example, `System.Device.Gpio` depends on `CoreLibrary` and `Runtime.Events` (which, in turn, depends on `CoreLibrary`). Updating it's dependencies has to the triggered at `Runtime.Events` not on `CoreLibrary` because of the chained dependency.
+Now, if it depends on others, you have to figure out which one of those is **at the end** of the dependency chain and add this new repo to **that** `azure-pipelines.yml` file. For example, `System.Device.Gpio` depends on `CoreLibrary` and `Runtime.Events` (which, in turn, depends on `CoreLibrary`). Updating it's dependencies has to the triggered at `Runtime.Events` not on `CoreLibrary` because of the chained dependency.
 
 ## Add the class library to the documentation project
 
