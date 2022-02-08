@@ -126,7 +126,7 @@ There are available ready to flash firmware images for several targets, please c
 The VS2019 IDE normally hides the contents of this directory in <code>Solution Explorer</code>, but if you go to the task-bar at the top of the <code>Solution Explorer</code> pane and hover over the icons you will find <code>Show All Files</code>. When selected, these files appear below in <code>&quot;Local Settings (.vs)&quot;</code></p>
 <p>The two configuration files in <code>.vs</code> are <code>tasks.vs.json</code> and <code>launch.vs.json</code>. When you clone the <code>nf-interpreter</code> repository there will be two files names <code>tasks.vs.SAMPLE.json</code> and <code>launch.vs.SAMPLE.json</code>, which you can copy as the appropriate name and then modify to suit your configuration if required. Note that these are <code>SAMPLE</code> rather than <code>TEMPLATE</code> files as they are not used as a basis for automatic configuration, but are there as an example of something that is known to work.</p>
 <blockquote>
-<p>Unlike VS2017, VS2019 currently rewrites your JSON configuration files,and in doing so will remove any comments you have added. This may strictly follow the JSON spec., but for human readable configuration files is a <em>Really Bad Thing!</em> Hopefully MS will realize this and change the behaviour, perhaps taking on a more reasoned format such as <a href="https://json5.org/">JSON5</a></p>
+<p>Unlike VS2017, VS2019 currently rewrites your JSON configuration files,and in doing so will remove any comments you have added. This may strictly follow the JSON spec., but for human readable configuration files is a <strong>Really Bad Thing!</strong> Hopefully MS will realize this and change the behaviour, perhaps taking on a more reasoned format such as <a href="https://json5.org/">JSON5</a></p>
 </blockquote>
 <h4 id="tasksvsjson">tasks.vs.json</h4>
 <p>This adds some entries to the Right-Click context menu for items in the <code>Solution Explorer</code> pane, for example <code>CMakeLists.txt</code>. The sample file is set up for the ESP32, and uses <code>esptool.py</code> to erase or program Flash on the device. You may need to modify the <code>&quot;port&quot;</code> setting near the top of the file from <code>COM3</code> to the port your ESP32 is connected to.</p>
@@ -355,7 +355,9 @@ In Visual Studio select the Command Window Ctrl+Alt+A, and turn on debug logging
 <p>Run a debugging session to collect data and turn it off with the following command.</p>
 <p><code>debug.midebuglog /Off</code></p>
 <p>This will give you a log of the operation and communications occuring. ( Good luck!)</p>
-<p><strong><em>An example snippet displays error for &quot;Monitor reset halt ( not quite sure why?)</em></strong></p>
+<blockquote>
+<p>An example snippet displays error for &quot;Monitor reset halt (not quite sure why?)</p>
+</blockquote>
 <pre><code class="lang-text">        8: (1976730) -&gt;^done
         8: (1976730) &lt;-1005-interpreter-exec console  &quot;monitor reset halt&quot;
         8: (1976730) -&gt;(gdb)`
