@@ -138,7 +138,7 @@ We use and recommend the following workflow:
 
     `git checkout -b <branch-name-here> develop`
   
-    We suggest that you name the branch so that it clearly communicates your intentions, such as *issue-123* or _githubhandle-issue_.
+    We suggest that you name the branch so that it clearly communicates your intentions, such as _issue-123_ or _githubhandle-issue_.
     Don't use a branch name starting with _develop_ because that may be mistaken with the _develop_ branches on the master repository.
 
     Branches are useful since they isolate your changes from incoming changes from upstream. They also enable you to create multiple PRs from the same fork.

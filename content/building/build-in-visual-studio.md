@@ -305,7 +305,7 @@ Run a debugging session to collect data and turn it off with the following comma
 
 This will give you a log of the operation and communications occuring. ( Good luck!)
 
-__An example snippet displays error for "Monitor reset halt ( not quite sure why?)__
+> An example snippet displays error for "Monitor reset halt (not quite sure why?)
 
 ```text
         8: (1976730) ->^done
