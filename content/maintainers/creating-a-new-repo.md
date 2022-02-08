@@ -12,22 +12,16 @@ If in doubt please ask one of the senior team members.
 ## Creating the repository in GitHub
 
 1. This is basically clicking the create new repository button in GitHub.
-
     Note: The class libraries repositories are usually named with the prefix "*nanoFramework*.*namespace*" most of the remaining repositories are "**nf**-*some-relevant-name-here*".
-
 2. As we are following the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) two branches must be created: `main` and `develop`.
-
 3. Make sure to create an empty readme.md to make it easier to fork and clone the new repo.
 
 ## Adjust the repository settings (part 1)
 
-1. Go to the repository **Settings** and move into _Options_.
-
-1. In the _Features_ section disable Wikis, Issues and Projects.
-
-1. On the _Merge Button_ section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.
-
-1. Move into _Branches_ and set `develop` as the default branch.
+1. Go to the repository **Settings** and move into **Options**.
+1. In the**_Features** section disable Wikis, Issues and Projects.
+1. On the **Merge Button** section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.
+1. Move into **Branches** and set `develop` as the default branch.
 
 ## Setup Sonarcloud project
 
@@ -90,11 +84,11 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 1. Fork the repo into your preferred GutHub account and clone it locally.
 1. The best option is to copy/paste from an existing repo, so you're more efficient doing just that. Mind the name changes tough! Grab the following files:
     - .github_changelog_generator
-    - .gitignore _(no changes required)_
+    - .gitignore **(no changes required)**
     - azure-pipelines.yml
-    - LICENSE.md _(no changes required)_
+    - LICENSE.md **(no changes required)**
     - README.md
-    - template.vssettings _(no changes required)_
+    - template.vssettings **(no changes required)**
     - version.json
     - NuGet.Config
     - assets\readme.txt
@@ -107,8 +101,8 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
     1. Rename the `sourceFileName` parameter with the equivalent name. It's probably wise to wait for the first successful build of the class library and then get back here with the correct name for the assembly declaration source file.
     1. Rename the `sonarCloudProject` variable with the repo name.
     1. If there are class libraries that depend on this one, copy the "update dependencies" job from CorLib "azure-pipelines.yml". If there aren't just skip this step.
-1. Open ".github_changelog_generator" and set the _project_ to the repo name.
-1. Open "version.json" and set the _version_ to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.
+1. Open ".github_changelog_generator" and set the **project** to the repo name.
+1. Open "version.json" and set the **version** to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.
 1. Open "README.md"
     1. Rename the class library name occurrences with the new name.
     2. Rename the package name for the NuGet badges.
@@ -136,7 +130,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 ## Update the dependency upwards
 
 As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the [`azure-pipelines.yml`](https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml) file there and add this new repo to the `repositoriesToUpdate` list.
-Now, if it depends on others, you have to figure out which one of those is _at the end_ of the dependency chain and add this new repo to _that_ `azure-pipelines.yml` file. For example, `System.Device.Gpio` depends on `CoreLibrary` and `Runtime.Events` (which, in turn, depends on `CoreLibrary`). Updating it's dependencies has to the triggered at `Runtime.Events` not on `CoreLibrary` because of the chained dependency.
+Now, if it depends on others, you have to figure out which one of those is **at the end** of the dependency chain and add this new repo to _that_ `azure-pipelines.yml` file. For example, `System.Device.Gpio` depends on `CoreLibrary` and `Runtime.Events` (which, in turn, depends on `CoreLibrary`). Updating it's dependencies has to the triggered at `Runtime.Events` not on `CoreLibrary` because of the chained dependency.
 
 ## Add the class library to the documentation project
 

@@ -58,8 +58,8 @@ As a suggestion we recommend that you create a directory named *build* in the re
 
 The build script accepts the a number of parameters (some of them are mandatory). Please check the details about each parameter [here](cmake-tools-cmake-variants.md#content-explained).
 
-_Note 1: The RTOSes currently supported (except for ESP32 target) are ChibiOS and FreeRTOS. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork._
-_Note 2: the very first build will take more or less time depending on the download speed of the Internet connection of the machine were the build is running. This is because the source code of the RTOS of your choice will be downloaded from its repository. On the subsequent builds this won't happen._
+> Note 1: The RTOSes currently supported (except for ESP32 target) are ChibiOS and FreeRTOS. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork._
+> Note 2: the very first build will take more or less time depending on the download speed of the Internet connection of the machine were the build is running. This is because the source code of the RTOS of your choice will be downloaded from its repository. On the subsequent builds this won't happen._
 
 You can specify any generator that is supported in the platform where you are building.
 For more information on this check CMake documentation [here](https://cmake.org/cmake/help/v3.7/manual/cmake-generators.7.html?highlight=generator).
