@@ -464,6 +464,59 @@ object were invalid.</p>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="System_IO_Ports_SerialPort_InvertSignalLevels_" data-uid="System.IO.Ports.SerialPort.InvertSignalLevels*"></a>
+  <h4 id="System_IO_Ports_SerialPort_InvertSignalLevels" data-uid="System.IO.Ports.SerialPort.InvertSignalLevels">InvertSignalLevels</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the logic level of the RX and TX signals.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InvertSignalLevels { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_IO_Ports_SerialPort_InvertSignalLevels_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>When the signal levels are not inverted (reads <span class="xref">false</span>) the RX, TX pins use the standard logic levels (VDD = 1/idle, GND = 0/mark).
+Setting this property to <span class="xref">true</span>, will invert those signal levels, which will become inverted (VDD = 0/mark, GND= 1/idle).
+Some targets may not support this setting and accessing it will throw a <a class="xref" href="System.NotSupportedException.html">NotSupportedException</a> exception.
+This is a .NET nanoFramework property only. Doesn't exist on other .NET platforms.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
+        <td><p>Trying to set this property when the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a> is already opened and the driver doesn't support it.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
+        <td><p>Trying to set this property on a target that does not support signal inversion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_IsOpen.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.IsOpen%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -969,7 +1022,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Dispose.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L703">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L723">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Dispose_" data-uid="System.IO.Ports.SerialPort.Dispose*"></a>
   <h4 id="System_IO_Ports_SerialPort_Dispose" data-uid="System.IO.Ports.SerialPort.Dispose">Dispose()</h4>
@@ -985,7 +1038,7 @@ object were invalid.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L673">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L693">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Dispose_" data-uid="System.IO.Ports.SerialPort.Dispose*"></a>
   <h4 id="System_IO_Ports_SerialPort_Dispose_System_Boolean_" data-uid="System.IO.Ports.SerialPort.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -1205,7 +1258,7 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_ReadByte.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.ReadByte%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L576">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L596">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_ReadByte_" data-uid="System.IO.Ports.SerialPort.ReadByte*"></a>
   <h4 id="System_IO_Ports_SerialPort_ReadByte" data-uid="System.IO.Ports.SerialPort.ReadByte">ReadByte()</h4>
@@ -1432,7 +1485,7 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_Write_System_String_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.Write(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L635">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L655">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_Write_" data-uid="System.IO.Ports.SerialPort.Write*"></a>
   <h4 id="System_IO_Ports_SerialPort_Write_System_String_" data-uid="System.IO.Ports.SerialPort.Write(System.String)">Write(String)</h4>
@@ -1492,7 +1545,7 @@ passed. Either offset or count is less than zero.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_WriteLine_System_String_.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.WriteLine(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L648">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L668">View Source</a>
   </span>
   <a id="System_IO_Ports_SerialPort_WriteLine_" data-uid="System.IO.Ports.SerialPort.WriteLine*"></a>
   <h4 id="System_IO_Ports_SerialPort_WriteLine_System_String_" data-uid="System.IO.Ports.SerialPort.WriteLine(System.String)">WriteLine(String)</h4>
@@ -1556,7 +1609,7 @@ to the stream.</p>
     <a href="https://github.com/nanoframework/System.IO.Ports/new/pages-source/apiSpec/new?filename=System_IO_Ports_SerialPort_DataReceived.md&amp;value=---%0Auid%3A%20System.IO.Ports.SerialPort.DataReceived%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L473">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Ports/blob/develop/System.IO.Ports/SerialPort.cs/#L493">View Source</a>
   </span>
   <h4 id="System_IO_Ports_SerialPort_DataReceived" data-uid="System.IO.Ports.SerialPort.DataReceived">DataReceived</h4>
   <div class="markdown level1 summary"><p>Indicates that data has been received through a port represented by the <a class="xref" href="System.IO.Ports.SerialPort.html">SerialPort</a>

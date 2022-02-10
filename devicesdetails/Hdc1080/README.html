@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hdc1080 - temperature and humidity sensor | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Hdc1080 - temperature and humidity sensor | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="hdc1080---temperature-and-humidity-sensor">Hdc1080 - temperature and humidity sensor</h1>
+
+<p>Hdc1080 is a device that reads barometric pressure, altitude and temperature. I2C can be used to communicate with the device.</p>
+<h2 id="documentation">Documentation</h2>
+<p><a href="https://pdf1.alldatasheet.com/datasheet-pdf/view/813671/TI1/HDC1080.html">Datasheet</a> for the Hdc1080.</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the I2C pins especially for ESP32 before creating the <code>I2cDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the I2C GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the I2C bus you want to use.</p>
+<p>An example on how to use this device binding is available in the <a href="samples">samples</a> folder.</p>
+<pre><code class="lang-csharp">I2cConnectionSettings settings = new I2cConnectionSettings(1, Hdc1080.DefaultI2cAddress, I2cBusSpeed.FastMode);
+
+var tempSensor = new Hdc1080(I2cDevice.Create(settings);
+Debug.WriteLine($&quot;SN: {tempSensor.SerialNumber}\r\nDeviceId: {tempSensor.DeviceId}\r\nManufacturerId: {tempSensor.ManufacturerId}&quot;);
+while (true)
+{
+    var temperature = tempSensor.ReadTemperature();
+    Thread.Sleep(20);
+    var humidity = tempSensor.ReadHumidity();
+    Debug.WriteLine($&quot;Temperature: {temperature.DegreesCelsius.ToString(&quot;F&quot;)}\u00B0C Humidity: {humidity.Percent.ToString(&quot;F&quot;)}%&quot;);
+    Thread.Sleep(5000);
+}
+</code></pre>
+<p>The following fritzing diagram illustrates one way to wire up the Hdc1080 sensor with an MCU like ESP32 using I2C.</p>
+<p><img src="../../devicesimages/Hdc1080/Hdc1080_bb.png" alt="ESP32 Breadboard diagram"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Hdc1080/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
