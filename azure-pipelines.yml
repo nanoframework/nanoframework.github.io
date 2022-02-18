@@ -142,6 +142,8 @@ steps:
 
       git clone https://github.com/nanoframework/System.IO.FileSystem.git --depth 100 -b develop System.IO.FileSystem
 
+      git clone https://github.com/nanoframework/System.IO.Streams.git --depth 100 -b develop System.IO.Streams
+
       git clone https://github.com/nanoframework/Windows.Devices.Pwm.git --depth 100 -b develop Windows.Devices.Pwm 
 
       git clone https://github.com/nanoframework/System.Device.Pwm.git --depth 100 -b develop System.Device.Pwm
@@ -414,6 +416,14 @@ steps:
     restoreSolution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     feedsToUse: config
     nugetConfigPath: 'System.IO.FileSystem\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore System.IO.Streams
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.IO.Streams\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Pwm
@@ -786,6 +796,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build System.IO.Streams
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
