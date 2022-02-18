@@ -18,6 +18,7 @@ Notes:
 
 - These could be made available, at the expense of increasing the PE size.
 - For `Enum.IsDefined()` you can always use a switch instruction in your code to create something similar depending on your use case.
+- An enum value's ToString() will return the numerical value as a string, not the enum name as is the case for other platforms. 
 
 ## Multidimensional arrays
 
