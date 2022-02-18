@@ -81,7 +81,7 @@
   
   <h1 id="System_IO_MemoryStream" data-uid="System.IO.MemoryStream" class="text-break">Class MemoryStream
   </h1>
-  <div class="markdown level0 summary"><p>MemoryStream class</p>
+  <div class="markdown level0 summary"><p>Creates a stream whose backing store is memory.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -98,15 +98,6 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Close">Stream.Close()</a>
-    </div>
-    <div>
-      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose">Stream.Dispose()</a>
-    </div>
-    <div>
-      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Finalize">Stream.Finalize()</a>
-    </div>
-    <div>
       <a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanTimeout">Stream.CanTimeout</a>
     </div>
     <div>
@@ -114,6 +105,15 @@
     </div>
     <div>
       <a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteTimeout">Stream.WriteTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Close">Stream.Close()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_CopyTo_System_IO_Stream_">Stream.CopyTo(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose">Stream.Dispose()</a>
     </div>
     <div>
       <a class="xref" href="System.Object.html#System_Object_ToString">Object.ToString()</a>
@@ -138,7 +138,7 @@
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="System.IO.html">System.IO</a></h6>
-  <h6><strong>Assembly</strong>: System.IO.FileSystem.dll</h6>
+  <h6><strong>Assembly</strong>: System.IO.Streams.dll</h6>
   <h5 id="System_IO_MemoryStream_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class MemoryStream : Stream, IDisposable</code></pre>
@@ -147,14 +147,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream__ctor.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream__ctor.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L35">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L44">View Source</a>
   </span>
   <a id="System_IO_MemoryStream__ctor_" data-uid="System.IO.MemoryStream.#ctor*"></a>
   <h4 id="System_IO_MemoryStream__ctor" data-uid="System.IO.MemoryStream.#ctor">MemoryStream()</h4>
-  <div class="markdown level1 summary"><p>Creates an empty memory stream.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> class with an expandable capacity initialized to zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -162,18 +162,23 @@
     <pre><code class="lang-csharp hljs">public MemoryStream()</code></pre>
   </div>
   <h5 id="System_IO_MemoryStream__ctor_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Default capacity is 256.</p>
+  <div class="markdown level1 remarks"><p>
+The <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanRead">CanRead</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanSeek">CanSeek</a>, and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanWrite">CanWrite</a> properties are all set to <span class="xref">true</span>.
+</p>
+<p>
+The capacity of the current stream automatically increases when you use the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(Int64)</a> method to set the length to a value larger than the capacity of the current stream.
+</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream__ctor_System_Byte___.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.%23ctor(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream__ctor_System_Byte___.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.%23ctor(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L48">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L68">View Source</a>
   </span>
   <a id="System_IO_MemoryStream__ctor_" data-uid="System.IO.MemoryStream.#ctor*"></a>
   <h4 id="System_IO_MemoryStream__ctor_System_Byte___" data-uid="System.IO.MemoryStream.#ctor(System.Byte[])">MemoryStream(Byte[])</h4>
-  <div class="markdown level1 summary"><p>Creates a memory stream from a buffer.</p>
+  <div class="markdown level1 summary"><p>Initializes a new non-resizable instance of the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> class based on the specified byte array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -193,10 +198,19 @@
       <tr>
         <td><a class="xref" href="System.Byte.html">Byte</a>[]</td>
         <td><span class="parametername">buffer</span></td>
-        <td></td>
+        <td><p>The array of unsigned bytes from which to create the current stream.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 id="System_IO_MemoryStream__ctor_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanRead">CanRead</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanSeek">CanSeek</a>, and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanWrite">CanWrite</a> properties are all set to <span class="xref">true</span>.
+</p>
+<p>
+The capacity of the current stream automatically increases when you use the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(Int64)</a> method to set the length to a value larger than the capacity of the current stream.
+</p>
+</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -208,7 +222,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>Buffer can't be null.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">buffer</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -217,14 +231,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_CanRead.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.CanRead%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_CanRead.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.CanRead%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L62">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L90">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_CanRead_" data-uid="System.IO.MemoryStream.CanRead*"></a>
   <h4 id="System_IO_MemoryStream_CanRead" data-uid="System.IO.MemoryStream.CanRead">CanRead</h4>
-  <div class="markdown level1 summary"><p>When overridden in a derived class, gets a value indicating whether the current stream supports reading.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the current stream supports reading.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -242,23 +256,31 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
-        <td><p>true if the stream supports reading; otherwise, false.</p>
+        <td><p>/// <span class="xref">true</span> if the stream is open.///</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanRead">Stream.CanRead</a></div>
+  <h5 id="System_IO_MemoryStream_CanRead_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+If a class derived from <a class="xref" href="System.IO.Stream.html">Stream</a> does not support reading, calls to the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Read_System_SpanByte_">Read(SpanByte)</a> and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_ReadByte">ReadByte()</a> methods throw a <a class="xref" href="System.NotSupportedException.html">NotSupportedException</a>.
+</p>
+<p>
+If the stream is closed, this property returns <span class="xref">false</span>.
+</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_CanSeek.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.CanSeek%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_CanSeek.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.CanSeek%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L65">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L104">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_CanSeek_" data-uid="System.IO.MemoryStream.CanSeek*"></a>
   <h4 id="System_IO_MemoryStream_CanSeek" data-uid="System.IO.MemoryStream.CanSeek">CanSeek</h4>
-  <div class="markdown level1 summary"><p>When overridden in a derived class, gets a value indicating whether the current stream supports seeking.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the current stream supports seeking.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -276,23 +298,31 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
-        <td><p>true if the stream supports seeking; otherwise, false.</p>
+        <td><p><span class="xref">true</span> if the stream is open.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanSeek">Stream.CanSeek</a></div>
+  <h5 id="System_IO_MemoryStream_CanSeek_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+If a class derived from <a class="xref" href="System.IO.Stream.html">Stream</a> does not support reading, calls to the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Length">Length</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(Int64)</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Position">Position</a> and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Seek_System_Int64_System_IO_SeekOrigin_">Seek(Int64, SeekOrigin)</a> throw a <a class="xref" href="System.NotSupportedException.html">NotSupportedException</a>.
+</p>
+<p>
+If the stream is closed, this property returns <span class="xref">false</span>.
+</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_CanWrite.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.CanWrite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_CanWrite.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.CanWrite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L68">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L118">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_CanWrite_" data-uid="System.IO.MemoryStream.CanWrite*"></a>
   <h4 id="System_IO_MemoryStream_CanWrite" data-uid="System.IO.MemoryStream.CanWrite">CanWrite</h4>
-  <div class="markdown level1 summary"><p>When overridden in a derived class, gets a value indicating whether the current stream supports writing.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the current stream supports writing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -310,19 +340,27 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
-        <td><p>true if the stream supports writing; otherwise, false.</p>
+        <td><p><span class="xref">true</span> if the stream supports writing; otherwise, <span class="xref">false</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanWrite">Stream.CanWrite</a></div>
+  <h5 id="System_IO_MemoryStream_CanWrite_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+If a class derived from <a class="xref" href="System.IO.Stream.html">Stream</a> does not support reading, calls to the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(Int64)</a> and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Write_System_Byte___System_Int32_System_Int32_">Write(Byte[], Int32, Int32)</a> or <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_WriteByte_System_Byte_">WriteByte(Byte)</a> methods throw a <a class="xref" href="System.NotSupportedException.html">NotSupportedException</a>.
+</p>
+<p>
+If the stream is closed, this property returns <span class="xref">false</span>.
+</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Length.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Length.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L124">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L152">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_Length_" data-uid="System.IO.MemoryStream.Length*"></a>
   <h4 id="System_IO_MemoryStream_Length" data-uid="System.IO.MemoryStream.Length">Length</h4>
@@ -353,10 +391,10 @@
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Length">Stream.Length</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Position.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Position.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L136">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L165">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_Position_" data-uid="System.IO.MemoryStream.Position*"></a>
   <h4 id="System_IO_MemoryStream_Position" data-uid="System.IO.MemoryStream.Position">Position</h4>
@@ -410,10 +448,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L71">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L121">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_Dispose_" data-uid="System.IO.MemoryStream.Dispose*"></a>
   <h4 id="System_IO_MemoryStream_Dispose_System_Boolean_" data-uid="System.IO.MemoryStream.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -446,10 +484,10 @@
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose_System_Boolean_">Stream.Dispose(Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Flush.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Flush%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Flush.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Flush%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L120">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L130">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_Flush_" data-uid="System.IO.MemoryStream.Flush*"></a>
   <h4 id="System_IO_MemoryStream_Flush" data-uid="System.IO.MemoryStream.Flush">Flush()</h4>
@@ -464,10 +502,50 @@
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Flush">Stream.Flush()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Read_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Read(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_GetBuffer.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.GetBuffer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L165">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L146">View Source</a>
+  </span>
+  <a id="System_IO_MemoryStream_GetBuffer_" data-uid="System.IO.MemoryStream.GetBuffer*"></a>
+  <h4 id="System_IO_MemoryStream_GetBuffer" data-uid="System.IO.MemoryStream.GetBuffer">GetBuffer()</h4>
+  <div class="markdown level1 summary"><p>Returns the array of unsigned bytes from which this stream was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual byte[] GetBuffer()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">Byte</a>[]</td>
+        <td><p>The byte array from which this stream was created, or the underlying array if a byte array was not provided to the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> constructor during construction of the current instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_IO_MemoryStream_GetBuffer_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Note that the buffer contains allocated bytes which might be unused. For example, if the string &quot;test&quot; is written into the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> object, the length of the buffer returned from <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_GetBuffer">GetBuffer()</a> is 256, not 4, with 252 bytes unused. To obtain only the data in the buffer, use the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_ToArray">ToArray()</a> method; however, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_ToArray">ToArray()</a> creates a copy of the data in memory.
+</p>
+<p>
+The buffer can also be <span class="xref">null</span>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Read_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Read(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L220">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_Read_" data-uid="System.IO.MemoryStream.Read*"></a>
   <h4 id="System_IO_MemoryStream_Read_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.MemoryStream.Read(System.Byte[],System.Int32,System.Int32)">Read(Byte[], Int32, Int32)</h4>
@@ -536,28 +614,111 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>Invalid length.</p>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>The current stream instance is closed.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>IBuffer is null.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">buffer</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>Offset is negative or longer than count.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">offset</code> or <code data-dev-comment-type="paramref" class="paramref">count</code> is negative.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">offset</code> subtracted from the buffer length is less than <code data-dev-comment-type="paramref" class="paramref">count</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_ReadByte.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.ReadByte%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Read_System_SpanByte_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Read(System.SpanByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L196">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L191">View Source</a>
+  </span>
+  <a id="System_IO_MemoryStream_Read_" data-uid="System.IO.MemoryStream.Read*"></a>
+  <h4 id="System_IO_MemoryStream_Read_System_SpanByte_" data-uid="System.IO.MemoryStream.Read(System.SpanByte)">Read(SpanByte)</h4>
+  <div class="markdown level1 summary"><p>When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Read(SpanByte buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.SpanByte.html">SpanByte</a></td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>A region of memory. When this method returns, the contents of this region are replaced by the bytes read from the current source.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">Int32</a></td>
+        <td><p>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Read_System_SpanByte_">Stream.Read(SpanByte)</a></div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>The current stream instance is closed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">offset</code> or <code data-dev-comment-type="paramref" class="paramref">count</code> is negative.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">offset</code> subtracted from the buffer length is less than <code data-dev-comment-type="paramref" class="paramref">count</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_ReadByte.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.ReadByte%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L262">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_ReadByte_" data-uid="System.IO.MemoryStream.ReadByte*"></a>
   <h4 id="System_IO_MemoryStream_ReadByte" data-uid="System.IO.MemoryStream.ReadByte">ReadByte()</h4>
@@ -586,12 +747,28 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_ReadByte">Stream.ReadByte()</a></div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>The current stream instance is closed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Seek_System_Int64_System_IO_SeekOrigin_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Seek(System.Int64%2CSystem.IO.SeekOrigin)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Seek_System_Int64_System_IO_SeekOrigin_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Seek(System.Int64%2CSystem.IO.SeekOrigin)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L218">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L283">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_Seek_" data-uid="System.IO.MemoryStream.Seek*"></a>
   <h4 id="System_IO_MemoryStream_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="System.IO.MemoryStream.Seek(System.Int64,System.IO.SeekOrigin)">Seek(Int64, SeekOrigin)</h4>
@@ -654,23 +831,34 @@
     </thead>
     <tbody>
       <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">offset</code> is greater than <a class="xref" href="System.Int32.html#System_Int32_MaxValue">MaxValue</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
-        <td><p>You cannot Seek before origin or you cannot Seek after a fixed size buffer.</p>
+        <td><p>Seeking is attempted before the beginning of the stream.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>&quot;Invalid seek origin.&quot;</p>
+        <td><p>There is an invalid <a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a>.
+-or-
+<code data-dev-comment-type="paramref" class="paramref">offset</code> caused an arithmetic overflow.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_SetLength_System_Int64_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.SetLength(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_SetLength_System_Int64_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.SetLength(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L278">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L331">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_SetLength_" data-uid="System.IO.MemoryStream.SetLength*"></a>
   <h4 id="System_IO_MemoryStream_SetLength_System_Int64_" data-uid="System.IO.MemoryStream.SetLength(System.Int64)">SetLength(Int64)</h4>
@@ -703,10 +891,10 @@
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_SetLength_System_Int64_">Stream.SetLength(Int64)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_ToArray.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.ToArray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_ToArray.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.ToArray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L302">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L357">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_ToArray_" data-uid="System.IO.MemoryStream.ToArray*"></a>
   <h4 id="System_IO_MemoryStream_ToArray" data-uid="System.IO.MemoryStream.ToArray">ToArray()</h4>
@@ -733,10 +921,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Write_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Write(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_Write_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.Write(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L310">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L367">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_Write_" data-uid="System.IO.MemoryStream.Write*"></a>
   <h4 id="System_IO_MemoryStream_Write_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.MemoryStream.Write(System.Byte[],System.Int32,System.Int32)">Write(Byte[], Int32, Int32)</h4>
@@ -781,10 +969,10 @@
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Write_System_Byte___System_Int32_System_Int32_">Stream.Write(Byte[], Int32, Int32)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_WriteByte_System_Byte_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.WriteByte(System.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_WriteByte_System_Byte_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.WriteByte(System.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L347">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L404">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_WriteByte_" data-uid="System.IO.MemoryStream.WriteByte*"></a>
   <h4 id="System_IO_MemoryStream_WriteByte_System_Byte_" data-uid="System.IO.MemoryStream.WriteByte(System.Byte)">WriteByte(Byte)</h4>
@@ -817,10 +1005,10 @@
   <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteByte_System_Byte_">Stream.WriteByte(Byte)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_WriteTo_System_IO_Stream_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.WriteTo(System.IO.Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream_WriteTo_System_IO_Stream_.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream.WriteTo(System.IO.Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L369">View Source</a>
+    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L426">View Source</a>
   </span>
   <a id="System_IO_MemoryStream_WriteTo_" data-uid="System.IO.MemoryStream.WriteTo*"></a>
   <h4 id="System_IO_MemoryStream_WriteTo_System_IO_Stream_" data-uid="System.IO.MemoryStream.WriteTo(System.IO.Stream)">WriteTo(Stream)</h4>
@@ -860,7 +1048,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>if stream is null.</p>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">stream</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -881,10 +1069,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/System.IO.FileSystem/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/nanoframework/System.IO.Streams/new/pages-source/apiSpec/new?filename=System_IO_MemoryStream.md&amp;value=---%0Auid%3A%20System.IO.MemoryStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nanoframework/System.IO.FileSystem/blob/develop/System.IO.FileSystem/MemoryStream.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nanoframework/System.IO.Streams/blob/develop/System.IO.Streams/MemoryStream.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
