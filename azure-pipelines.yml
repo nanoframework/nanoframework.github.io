@@ -208,6 +208,8 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.SignalR.Client.git -b develop nanoFramework.SignalR.Client      
 
+      git clone https://github.com/nanoframework/System.Net.Sockets.TcpClient.git -b develop System.Net.Sockets.TcpClient
+
       git clone https://github.com/nanoframework/System.Net.Sockets.UdpClient.git -b develop System.Net.Sockets.UdpClient
 
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
@@ -682,6 +684,14 @@ steps:
     nugetConfigPath: 'nanoFramework.SignalR.Client\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Net.Sockets.TcpClient
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.Net.Sockets.TcpClient\nanoFramework.System.Net.Sockets.TcpClient.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Net.Sockets.TcpClient\NuGet.Config'
+
+- task: NuGetCommand@2
   displayName: NuGet restore System.Net.Sockets.UdpClient
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
@@ -1046,7 +1056,15 @@ steps:
     solution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-    
+
+- task: VSBuild@1
+  displayName: Build System.Net.Sockets.TcpClient
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.Net.Sockets.TcpClient\nanoFramework.System.Net.Sockets.TcpClient.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
 - task: VSBuild@1
   displayName: Build System.Net.Sockets.UdpClient
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
