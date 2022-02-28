@@ -26,5 +26,3 @@ Integrated devices with additional sensors like accelerometers, screens, leds:
 |![MBits](../../images/getting-started-guides/mbits.jpg) Mbits ESP32 Dev Board|16M Flash & 8M RAM, contains additional sensors|Mbits ESP32|ESP32_REV0, ESP32_BLE_REV0|[![elecrow logo](../../images/getting-started-guides/Elecrow_logo.png)](https://www.elecrow.com/mbits.html)
 
 Note that you can find most of those boards as well on Amazon and various local websites. Again, feel free to submit a PR with more links on where we can find your favorite device!
-
-
