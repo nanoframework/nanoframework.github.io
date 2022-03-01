@@ -258,7 +258,7 @@ steps:
     arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
 
 - powershell: |
-    &DocFxTocCreation -d $(System.DefaultWorkingDirectory)\devicesdetails -si
+    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\devicesdetails -si
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     or(
@@ -268,7 +268,7 @@ steps:
     )
 
 - powershell: |
-    &DocFxTocCreation -d $(System.DefaultWorkingDirectory)\content -s -r -g
+    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\content -s -r -g
   displayName: 'Building automatically toc.yml for main content'
   condition: succeeded()
 
