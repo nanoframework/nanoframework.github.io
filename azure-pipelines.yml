@@ -228,9 +228,8 @@ steps:
   inputs:
     versionSpec: '>=5.10.0'
 
-- powershell: |
-      git clone https://github.com/Ellerbach/docfx-companion-tools.git -b main DocFxCompanion
-  displayName: Clone the docfx helpers
+- powershell: choco install docfx-companion-tools -y
+  displayName: Install the docfx helpers
   condition: succeeded()
 
 # install docfx
@@ -258,7 +257,8 @@ steps:
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
 
-- task: DotNetCoreCLI@2
+- powershell: |
+    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\devicesdetails -si
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     or(
@@ -266,27 +266,17 @@ steps:
       contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
       eq(variables['BuildOptions.BUILD_ALL'], 'true')
     )
-  inputs:
-    command: 'run'
-    projects: 'DocFxCompanion/src/DocFxTocGenerator'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -si'
 
-- task: DotNetCoreCLI@2
+- powershell: |
+    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\content -s -r -g
   displayName: 'Building automatically toc.yml for main content'
   condition: succeeded()
-  inputs:
-    command: 'run'
-    projects: 'DocFxCompanion/src/DocFxTocGenerator'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\content -s -r -g'
 
 # Check the links
-- task: DotNetCoreCLI@2
+- powershell: |
+    &DocLinkChecker -d $(System.DefaultWorkingDirectory)\content -t
   displayName: 'Check internal links in the core repo'
   condition: succeeded()
-  inputs:
-    command: 'run'
-    projects: 'DocFxCompanion/src/DocLinkChecker'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\content -t'
 
 # Scan markdown files on style consistency
 - powershell: |
@@ -658,7 +648,7 @@ steps:
     restoreSolution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Text.RegularExpressions\NuGet.Config'
-      
+
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Azure.Devices
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
@@ -1093,7 +1083,6 @@ steps:
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\devices_generated
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\nanoFramework.IoT.Device.CodeConverter
       Remove-Item -Recurse -Force nanoFramework.IoT.Device\src\GenerateDocFxStructure
-      Remove-Item -Recurse -Force DocFxCompanion
       cd nanoFramework.IoT.Device\devices
       $Nerdbank = '<package id="Nerdbank.GitVersioning"'
       $Files = Get-ChildItem -Filter "packages.config" -Recurse
