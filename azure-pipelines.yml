@@ -122,7 +122,7 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.Devices.Can.git --depth 100 -b develop nanoFramework.Devices.Can 
 
-      git clone https://github.com/nanoframework/nanoFramework.Devices.OneWire.git --depth 100 -b develop nanoFramework.Devices.OneWire 
+      git clone https://github.com/nanoframework/nanoFramework.Device.OneWire.git --depth 100 -b develop nanoFramework.Device.OneWire 
 
       git clone https://github.com/nanoframework/nanoFramework.Runtime.Events.git --depth 100 -b develop nanoFramework.Runtime.Events 
 
@@ -340,12 +340,12 @@ steps:
     nugetConfigPath: 'nanoFramework.Devices.Can\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.Devices.OneWire
+  displayName: NuGet restore nanoFramework.Device.OneWire
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    restoreSolution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
+    restoreSolution: 'nanoFramework.Device.OneWire\nanoFramework.Device.OneWire.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.Devices.OneWire\NuGet.Config'
+    nugetConfigPath: 'nanoFramework.Device.OneWire\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Runtime.Events
@@ -730,10 +730,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSBuild@1
-  displayName: Build nanoFramework.Devices.OneWire
+  displayName: Build nanoFramework.Device.OneWire
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    solution: 'nanoFramework.Devices.OneWire\nanoFramework.Devices.OneWire.sln'
+    solution: 'nanoFramework.Device.OneWire\nanoFramework.Device.OneWire.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
