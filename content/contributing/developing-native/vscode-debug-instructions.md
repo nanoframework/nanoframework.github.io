@@ -32,9 +32,8 @@ Here's what you need to change in order to adapt the template file to your setup
 - debugServerPath: full path to the OpenOCD executable
 - debugServerArgs: full path to the scripts directory on the OpenOCD installation AND the appropriate .cfg files for the interface and the board.
 
-_Note 1: VS Code parser seems to have trouble parsing and replacing the ${workspaceRoot} for some OpenOCD commands. That's the reason why you see there the ${workspaceRoot} variable and in other places the full path were that variable would make sense to be at. Just use what's there to keep OpenOCD happy._
-
-_Note 2: Always mind the forward slash in the paths above, otherwise you'll get into troubles with strange and unclear errors from OpenOCD._
+> Note 1: VS Code parser seems to have trouble parsing and replacing the ${workspaceRoot} for some OpenOCD commands. That's the reason why you see there the ${workspaceRoot} variable and in other places the full path were that variable would make sense to be at. Just use what's there to keep OpenOCD happy.
+> Note 2: Always mind the forward slash in the paths above, otherwise you'll get into troubles with strange and unclear errors from OpenOCD.
 
 ### Templates
 

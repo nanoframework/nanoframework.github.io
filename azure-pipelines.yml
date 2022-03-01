@@ -142,6 +142,8 @@ steps:
 
       git clone https://github.com/nanoframework/System.IO.FileSystem.git --depth 100 -b develop System.IO.FileSystem
 
+      git clone https://github.com/nanoframework/System.IO.Streams.git --depth 100 -b develop System.IO.Streams
+
       git clone https://github.com/nanoframework/Windows.Devices.Pwm.git --depth 100 -b develop Windows.Devices.Pwm 
 
       git clone https://github.com/nanoframework/System.Device.Pwm.git --depth 100 -b develop System.Device.Pwm
@@ -157,6 +159,8 @@ steps:
       git clone https://github.com/nanoframework/Windows.Storage.Streams.git --depth 100 -b develop Windows.Storage.Streams 
 
       git clone https://github.com/nanoframework/Windows.Devices.Adc.git --depth 100 -b develop Windows.Devices.Adc 
+      
+      git clone https://github.com/nanoframework/System.Device.Adc.git --depth 100 -b develop System.Device.Adc 
 
       git clone https://github.com/nanoframework/System.Device.WiFi.git --depth 100 -b develop System.Device.WiFi 
 
@@ -199,6 +203,14 @@ steps:
       git clone https://github.com/nanoframework/System.Text.RegularExpressions.git --depth 100 -b develop System.Text.RegularExpressions
 
       git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git -b develop nanoFramework.Azure.Devices
+      
+      git clone https://github.com/nanoframework/nanoFramework.Aws.IoTCore.Devices.git -b develop nanoFramework.Aws.IoTCore.Devices
+
+      git clone https://github.com/nanoframework/nanoFramework.SignalR.Client.git -b develop nanoFramework.SignalR.Client      
+
+      git clone https://github.com/nanoframework/System.Net.Sockets.TcpClient.git -b develop System.Net.Sockets.TcpClient
+
+      git clone https://github.com/nanoframework/System.Net.Sockets.UdpClient.git -b develop System.Net.Sockets.UdpClient
 
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
 
@@ -398,6 +410,14 @@ steps:
     nugetConfigPath: 'System.IO.FileSystem\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.IO.Streams
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.IO.Streams\NuGet.Config'
+
+- task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Pwm
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
@@ -460,6 +480,14 @@ steps:
     restoreSolution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     feedsToUse: config
     nugetConfigPath: 'Windows.Devices.Adc\NuGet.Config'
+    
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Device.Adc
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.Device.Adc\nanoFramework.System.Device.Adc.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.Adc\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.WiFi
@@ -628,6 +656,38 @@ steps:
     restoreSolution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.Azure.Devices\NuGet.Config'
+    
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Aws.IoTCore.Devices
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'nanoFramework.Aws.IoTCore.Devices\nanoFramework.Aws.IoTCore.Devices.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Aws.IoTCore.Devices\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.SignalR.Client
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.SignalR.Client\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Net.Sockets.TcpClient
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.Net.Sockets.TcpClient\nanoFramework.System.Net.Sockets.TcpClient.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Net.Sockets.TcpClient\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Net.Sockets.UdpClient
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'System.Net.Sockets.UdpClient\nanoFramework.System.Net.Sockets.UdpClient.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Net.Sockets.UdpClient\NuGet.Config'
 
 # we only need to reference the main nuget.config 
 - task: NuGetCommand@2
@@ -740,6 +800,14 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSBuild@1
+  displayName: Build System.IO.Streams
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
   displayName: Build Windows.Devices.Pwm
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
@@ -800,6 +868,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    
+- task: VSBuild@1
+  displayName: Build System.Device.Adc
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.Device.Adc\nanoFramework.System.Device.Adc.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
@@ -952,6 +1028,38 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.Aws.IoTCore.Devices
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'nanoFramework.Aws.IoTCore.Devices\nanoFramework.Aws.IoTCore.Devices.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.SignalR.Client
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build System.Net.Sockets.TcpClient
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.Net.Sockets.TcpClient\nanoFramework.System.Net.Sockets.TcpClient.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build System.Net.Sockets.UdpClient
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'System.Net.Sockets.UdpClient\nanoFramework.System.Net.Sockets.UdpClient.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
