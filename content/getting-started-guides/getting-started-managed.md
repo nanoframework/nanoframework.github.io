@@ -6,6 +6,8 @@ This getting started guide will walk you through the setup of your development m
 
 You can find the video for this guide on our YouTube channel [here](https://youtu.be/iZdN2GmefXI).
 
+Note sure where to buy a device? Check [this page](where-to-buy-devices.md) out!
+
 ## Installing and configuring Visual Studio 2022
 
 The first part is to get Visual Studio 2022 (VS 2019 is also supported) and the .NET **nanoFramework** extension installed.
