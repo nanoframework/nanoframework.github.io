@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum Register
+   | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum Register
+   | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Iot.Device.Mcp23xxx.Register">
+  
+  
+  <h1 id="Iot_Device_Mcp23xxx_Register" data-uid="Iot.Device.Mcp23xxx.Register" class="text-break">Enum Register
+  </h1>
+  <div class="markdown level0 summary"><p>Mcp23xxx Register</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.Device.Mcp23xxx.html">Iot.Device.Mcp23xxx</a></h6>
+  <h6><strong>Assembly</strong>: Iot.Device.Mcp23xxx.dll</h6>
+  <h5 id="Iot_Device_Mcp23xxx_Register_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum Register : byte</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_DEFVAL">DEFVAL</td>
+        <td><p>Configures the default comparison value.
+If enabled (via GPINTEN and INTCON) to compare against the DEFVAL register,
+an opposite value on the associated pin will cause an interrupt to occur.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_GPINTEN">GPINTEN</td>
+        <td><p>Controls the interrupt-on-change feature for each pin.
+When a bit is set, the corresponding pin is enabled for interrupt-on-change.
+The DEFVAL and INTCON registers must also be configured if any pins are enabled for interrupt-on-change.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_GPIO">GPIO</td>
+        <td><p>Reflects the value on the port. Reading from this register reads the port.
+Writing to this register modifies the Output Latch (OLAT) register.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_GPPU">GPPU</td>
+        <td><p>Controls the pull-up resistors for the port pins.
+When a bit is set and the corresponding pin is configured as an input,
+the corresponding port pin is internally pulled up with a 100 kΩ resistor.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_INTCAP">INTCAP</td>
+        <td><p>The INTCAP register captures the GPIO port value at the time the interrupt occurred.
+The register is read-only and is updated only when an interrupt occurs.
+The register will remain unchanged until the interrupt is cleared via a read of INTCAP or GPIO.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_INTCON">INTCON</td>
+        <td><p>Controls how the associated pin value is compared for the interrupt-on-change feature.
+When a bit is set, the corresponding I/O pin is compared against the associated bit in the DEFVAL register.
+When a bit value is clear, the corresponding I/O pin is compared against the previous value.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_INTF">INTF</td>
+        <td><p>Reflects the interrupt condition on the port pins of any pin that is enabled for interrupts via the GPINTEN register.
+A 'set' bit indicates that the associated pin caused the interrupt.
+This register is read-only. Writes to this register will be ignored.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_IOCON">IOCON</td>
+        <td><p>Contains several bits for configuring the device.  See respective datasheet for more details.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_IODIR">IODIR</td>
+        <td><p>Controls the direction of the data I/O.
+When a bit is set, the corresponding pin becomes an input.
+When a bit is clear, the corresponding pin becomes an output.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_IPOL">IPOL</td>
+        <td><p>Configures the polarity on the corresponding GPIO port bits.
+When a bit is set, the corresponding GPIO register bit will reflect the inverted value on the pin.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Iot_Device_Mcp23xxx_Register_OLAT">OLAT</td>
+        <td><p>Provides access to the output latches.
+A read from this register results in a read of the OLAT and not the port itself.
+A write to this register modifies the output latches that modify the pins configured as outputs.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/new/pages-source/apiSpec/new?filename=Iot_Device_Mcp23xxx_Register.md&amp;value=---%0Auid%3A%20Iot.Device.Mcp23xxx.Register%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/blob/develop/devices/Mcp23xxx/Register.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
