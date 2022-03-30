@@ -128,18 +128,18 @@ We use and recommend the following workflow:
 
     `git remote add upstream https://github.com/nanoframework/<nf-repo-name-here>.git`
 
-5. Make sure that your develop branch is in sync with the master  **develop** branch.
+5. Make sure that your main branch is in sync with the upstream  **main** branch.
 
-    `git checkout develop`
+    `git checkout main`
 
-    `git pull upstream develop`
+    `git pull upstream main`
 
-6. Create a branch off of **develop** branch.
+6. Create a branch off of **main** branch.
 
-    `git checkout -b <branch-name-here> develop`
+    `git checkout -b <branch-name-here> main`
   
     We suggest that you name the branch so that it clearly communicates your intentions, such as _issue-123_ or _githubhandle-issue_.
-    Don't use a branch name starting with _develop_ because that may be mistaken with the _develop_ branches on the master repository.
+    Don't use a branch name starting with _develop_ because that may be mistaken with the _develop_ branches on the upstream repository.
 
     Branches are useful since they isolate your changes from incoming changes from upstream. They also enable you to create multiple PRs from the same fork.
 
@@ -153,15 +153,15 @@ We use and recommend the following workflow:
       - Make sure that the builds are clean.
       - Make sure that the tests are all passing, including any new tests that you've added.
 
-10. If you've been working in this branch and changes have been made in upstream develop, you should rebase the working branch on the upstream develop branch so that your work shows on top of any other changes. If you have just created your working branch you can skip this step.
+10. If you've been working in this branch and changes have been made in upstream main, you should rebase the working branch on the upstream main branch so that your work shows on top of any other changes. If you have just created your working branch you can skip this step.
 
-    `git rebase upstream/develop`
+    `git rebase upstream/main`
 
 11. Push your changes to your fork on GitHub (if you haven't already).
 
     `git push origin <branch-name-here>`
 
-12. Create a pull request (PR) against the upstream repository's **develop** branch.
+12. Create a pull request (PR) against the upstream repository's **main** branch.
 
     Creating a PR is a simple click on the "Pull Request" button that shows on your personal fork in GitHub.
 

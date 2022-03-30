@@ -125,7 +125,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
       - Enable "Require status checks to pass before merging" with the options:
         - "Require branches to be up to date before merging"
         - "Status checks: nanoframework.**azure-devops-project-name**"
-        - "Status checks: license/cla" (for develop branch)
+        - "Status checks: license/cla" (for main branch)
 
 ## Update the dependency upwards
 
