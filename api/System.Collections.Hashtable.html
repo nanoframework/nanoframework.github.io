@@ -81,9 +81,7 @@
   
   <h1 id="System_Collections_Hashtable" data-uid="System.Collections.Hashtable" class="text-break">Class Hashtable
   </h1>
-  <div class="markdown level0 summary"><p>HashTable is an Associative Container.
-Created in March 2010.
-by Eric Harlow.</p>
+  <div class="markdown level0 summary"><p>Initializes a new instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -128,6 +126,9 @@ by Eric Harlow.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class Hashtable : ICloneable, IDictionary, ICollection, IEnumerable</code></pre>
   </div>
+  <h5 id="System_Collections_Hashtable_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The implementation for .NET nanoFramework, unlike the full .NET, doesn't support collisions so every key has to be truly unique through it's <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
@@ -135,28 +136,42 @@ by Eric Harlow.</p>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable__ctor.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L28">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L51">View Source</a>
   </span>
   <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
   <h4 id="System_Collections_Hashtable__ctor" data-uid="System.Collections.Hashtable.#ctor">Hashtable()</h4>
-  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the Hashtable class using the default initial capacity and load factor.</p>
+  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the default initial capacity, load factor, hash code provider and comparer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Hashtable()</code></pre>
   </div>
+  <h5 id="System_Collections_Hashtable__ctor_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+A hash table&apos;s capacity is used to calculate the optimal number of hash table buckets based on the load factor. Capacity is automatically increased as required.
+</p>
+<p>
+The load factor is the maximum ratio of elements to buckets. A smaller load factor means faster lookup at the cost of increased memory consumption.
+</p>
+<p>
+When the actual load factor reaches the specified load factor, the number of buckets is automatically increased to the smallest prime number that is larger than twice the current number of buckets.
+</p>
+<p>
+The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key&apos;s implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
+</p>
+The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(Object)</a> to perform comparisons of the key&apos;s.
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable__ctor_System_Int32_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.%23ctor(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L38">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L73">View Source</a>
   </span>
   <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
   <h4 id="System_Collections_Hashtable__ctor_System_Int32_" data-uid="System.Collections.Hashtable.#ctor(System.Int32)">Hashtable(Int32)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the Hashtable class using the specified initial capacity,
-and the default load factor.</p>
+  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the specified initial capacity and load factor, and the default hash code provider and comparer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -176,27 +191,58 @@ and the default load factor.</p>
       <tr>
         <td><a class="xref" href="System.Int32.html">Int32</a></td>
         <td><span class="parametername">capacity</span></td>
-        <td><p>The initial capacity of the HashTable</p>
+        <td><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Collections_Hashtable__ctor_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Specifying the initial capacity eliminates the need to perform a number of resizing operations while adding elements to the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. Capacity is automatically increased as required based on the load factor.
+</p>
+<p>
+The load factor is the maximum ratio of elements to buckets. A smaller load factor means faster lookup at the cost of increased memory consumption.
+</p>
+<p>
+When the actual load factor reaches the specified load factor, the number of buckets is automatically increased to the smallest prime number that is larger than twice the current number of buckets.
+</p>
+<p>
+The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key&apos;s implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
+</p>
+The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(Object)</a> to perform comparisons of the key&apos;s.
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">capacity</code> is causing an overflow.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable__ctor_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.%23ctor(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable__ctor_System_Int32_System_Single_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.%23ctor(System.Int32%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L49">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L114">View Source</a>
   </span>
   <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
-  <h4 id="System_Collections_Hashtable__ctor_System_Int32_System_Int32_" data-uid="System.Collections.Hashtable.#ctor(System.Int32,System.Int32)">Hashtable(Int32, Int32)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the Hashtable class using the specified initial capacity,
+  <h4 id="System_Collections_Hashtable__ctor_System_Int32_System_Single_" data-uid="System.Collections.Hashtable.#ctor(System.Int32,System.Single)">Hashtable(Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the specified initial capacity and load factor, and the default hash code provider and comparer.
 load factor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Hashtable(int capacity, int maxLoadFactor)</code></pre>
+    <pre><code class="lang-csharp hljs">public Hashtable(int capacity, float loadFactor)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -211,13 +257,63 @@ load factor.</p>
       <tr>
         <td><a class="xref" href="System.Int32.html">Int32</a></td>
         <td><span class="parametername">capacity</span></td>
-        <td><p>The initial capacity of the HashTable</p>
+        <td><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="System.Int32.html">Int32</a></td>
-        <td><span class="parametername">maxLoadFactor</span></td>
-        <td><p>The load factor to cause a rehash</p>
+        <td><a class="xref" href="System.Single.html">Single</a></td>
+        <td><span class="parametername">loadFactor</span></td>
+        <td><p>A number in the range from 0.1 through 1.0 that is multiplied by the default value which provides the best performance. The result is the maximum ratio of elements to buckets.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Collections_Hashtable__ctor_System_Int32_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Specifying the initial capacity eliminates the need to perform a number of resizing operations while adding elements to the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. Capacity is automatically increased as required based on the load factor.
+</p>
+<p>
+The load factor is the maximum ratio of elements to buckets. A smaller load factor means faster lookup at the cost of increased memory consumption.
+</p>
+<p>
+When the actual load factor reaches the specified load factor, the number of buckets is automatically increased to the smallest prime number that is larger than twice the current number of buckets.
+</p>
+<p>
+The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key&apos;s implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
+</p>
+The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(Object)</a> to perform comparisons of the key&apos;s.
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p>
+<code data-dev-comment-type="paramref" class="paramref">capacity</code> is less than zero.
+</p>
+<p>
+-or>
+</p>
+<p>
+<code data-dev-comment-type="paramref" class="paramref">loadFactor</code> is less than 0.1.
+</p>
+<p>
+-or>
+</p>
+<p>
+<code data-dev-comment-type="paramref" class="paramref">loadFactor</code> is greater than 1.0.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">capacity</code> is causing an overflow.</p>
 </td>
       </tr>
     </tbody>
@@ -229,7 +325,7 @@ load factor.</p>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Count.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L233">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L238">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_Count_" data-uid="System.Collections.Hashtable.Count*"></a>
   <h4 id="System_Collections_Hashtable_Count" data-uid="System.Collections.Hashtable.Count">Count</h4>
@@ -258,42 +354,10 @@ load factor.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_GrowthFactor.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.GrowthFactor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L82">View Source</a>
-  </span>
-  <a id="System_Collections_Hashtable_GrowthFactor_" data-uid="System.Collections.Hashtable.GrowthFactor*"></a>
-  <h4 id="System_Collections_Hashtable_GrowthFactor" data-uid="System.Collections.Hashtable.GrowthFactor">GrowthFactor</h4>
-  <div class="markdown level1 summary"><p>GrowthFactor Property is a multiplier to increase the HashTable size by during a rehash.
-Default value is 2.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double GrowthFactor { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Double.html">Double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_IsFixedSize.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.IsFixedSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L306">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L317">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_IsFixedSize_" data-uid="System.Collections.Hashtable.IsFixedSize*"></a>
   <h4 id="System_Collections_Hashtable_IsFixedSize" data-uid="System.Collections.Hashtable.IsFixedSize">IsFixedSize</h4>
@@ -325,7 +389,7 @@ Default value is 2.</p>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_IsReadOnly.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L295">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L314">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_IsReadOnly_" data-uid="System.Collections.Hashtable.IsReadOnly*"></a>
   <h4 id="System_Collections_Hashtable_IsReadOnly" data-uid="System.Collections.Hashtable.IsReadOnly">IsReadOnly</h4>
@@ -357,7 +421,7 @@ Default value is 2.</p>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_IsSynchronized.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.IsSynchronized%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L244">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L246">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_IsSynchronized_" data-uid="System.Collections.Hashtable.IsSynchronized*"></a>
   <h4 id="System_Collections_Hashtable_IsSynchronized" data-uid="System.Collections.Hashtable.IsSynchronized">IsSynchronized</h4>
@@ -389,7 +453,7 @@ Default value is 2.</p>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Item_System_Object_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Item(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L344">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L330">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_Item_" data-uid="System.Collections.Hashtable.Item*"></a>
   <h4 id="System_Collections_Hashtable_Item_System_Object_" data-uid="System.Collections.Hashtable.Item(System.Object)">Item[Object]</h4>
@@ -439,7 +503,7 @@ Default value is 2.</p>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Keys.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Keys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L317">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L320">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_Keys_" data-uid="System.Collections.Hashtable.Keys*"></a>
   <h4 id="System_Collections_Hashtable_Keys" data-uid="System.Collections.Hashtable.Keys">Keys</h4>
@@ -468,44 +532,10 @@ Default value is 2.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_MaxLoadFactor.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.MaxLoadFactor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L70">View Source</a>
-  </span>
-  <a id="System_Collections_Hashtable_MaxLoadFactor_" data-uid="System.Collections.Hashtable.MaxLoadFactor*"></a>
-  <h4 id="System_Collections_Hashtable_MaxLoadFactor" data-uid="System.Collections.Hashtable.MaxLoadFactor">MaxLoadFactor</h4>
-  <div class="markdown level1 summary"><p>MaxLoadFactor Property is the value used to trigger a rehash.
-Default value is 2.
-A higher number can decrease lookup performance for large collections.
-While a value of 1 maintains a constant time complexity at the cost of increased memory requirements.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int MaxLoadFactor { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_SyncRoot.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.SyncRoot%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L255">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L254">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_SyncRoot_" data-uid="System.Collections.Hashtable.SyncRoot*"></a>
   <h4 id="System_Collections_Hashtable_SyncRoot" data-uid="System.Collections.Hashtable.SyncRoot">SyncRoot</h4>
@@ -537,7 +567,7 @@ While a value of 1 maintains a constant time complexity at the cost of increased
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Values.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Values%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L331">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L323">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_Values_" data-uid="System.Collections.Hashtable.Values*"></a>
   <h4 id="System_Collections_Hashtable_Values" data-uid="System.Collections.Hashtable.Values">Values</h4>
@@ -571,11 +601,11 @@ While a value of 1 maintains a constant time complexity at the cost of increased
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Add_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Add(System.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L384">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L344">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_Add_" data-uid="System.Collections.Hashtable.Add*"></a>
   <h4 id="System_Collections_Hashtable_Add_System_Object_System_Object_" data-uid="System.Collections.Hashtable.Add(System.Object,System.Object)">Add(Object, Object)</h4>
-  <div class="markdown level1 summary"><p>Adds an element with the provided key and value to the IDictionary object.</p>
+  <div class="markdown level1 summary"><p>Adds an element with the specified key and value into the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -595,43 +625,62 @@ While a value of 1 maintains a constant time complexity at the cost of increased
       <tr>
         <td><a class="xref" href="System.Object.html">Object</a></td>
         <td><span class="parametername">key</span></td>
-        <td><p>The Object to use as the key of the element to add.</p>
+        <td><p>The key of the element to add.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.Object.html">Object</a></td>
         <td><span class="parametername">value</span></td>
-        <td><p>The Object to use as the value of the element to add.</p>
+        <td><p>The value of the element to add. The value can be <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Clear.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L399">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">key</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p>An element with the same key already exists in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="System_Collections_Hashtable_Clear_" data-uid="System.Collections.Hashtable.Clear*"></a>
   <h4 id="System_Collections_Hashtable_Clear" data-uid="System.Collections.Hashtable.Clear">Clear()</h4>
-  <div class="markdown level1 summary"><p>Removes all elements from the IDictionary object.</p>
+  <div class="markdown level1 summary"><p>Removes all elements from the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+    <pre><code class="lang-csharp hljs">public extern void Clear()</code></pre>
   </div>
+  <h5 id="System_Collections_Hashtable_Clear_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a class="xref" href="System.Collections.Hashtable.html#System_Collections_Hashtable_Count">Count</a> is set to zero, and references to other objects from elements of the collection are also released. The capacity remains unchanged.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Clone.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L200">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L162">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_Clone_" data-uid="System.Collections.Hashtable.Clone*"></a>
   <h4 id="System_Collections_Hashtable_Clone" data-uid="System.Collections.Hashtable.Clone">Clone()</h4>
-  <div class="markdown level1 summary"><p>Make a new object which is a copy of the object instanced.</p>
+  <div class="markdown level1 summary"><p>Creates a shallow copy of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -649,26 +698,32 @@ While a value of 1 maintains a constant time complexity at the cost of increased
     <tbody>
       <tr>
         <td><a class="xref" href="System.Object.html">Object</a></td>
-        <td><p>A new object that represents a clone of the object.</p>
+        <td><p>A shallow copy of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Contains_System_Object_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Contains(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L412">View Source</a>
-  </span>
+  <h5 id="System_Collections_Hashtable_Clone_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+A shallow copy of a collection copies only the elements of the collection, whether they are reference types or value types, but it does not copy the objects that the references refer to. The references in the new collection point to the same objects that the references in the original collection point to.
+</p>
+<p>
+In contrast, a deep copy of a collection copies the elements and everything directly or indirectly referenced by the elements.
+</p>
+<p>
+The <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> clone has the same count, the same capacity, the same hash provider, and the same comparer as the original <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.
+</p>
+</div>
+  
+  
   <a id="System_Collections_Hashtable_Contains_" data-uid="System.Collections.Hashtable.Contains*"></a>
   <h4 id="System_Collections_Hashtable_Contains_System_Object_" data-uid="System.Collections.Hashtable.Contains(System.Object)">Contains(Object)</h4>
-  <div class="markdown level1 summary"><p>Determines whether the IDictionary object contains an element with the specified key.</p>
+  <div class="markdown level1 summary"><p>Determines whether the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> contains a specific key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Contains(object key)</code></pre>
+    <pre><code class="lang-csharp hljs">public extern bool Contains(object key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -683,7 +738,7 @@ While a value of 1 maintains a constant time complexity at the cost of increased
       <tr>
         <td><a class="xref" href="System.Object.html">Object</a></td>
         <td><span class="parametername">key</span></td>
-        <td><p>The key to locate in the IDictionary object.</p>
+        <td><p>The key to locate in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -699,7 +754,31 @@ While a value of 1 maintains a constant time complexity at the cost of increased
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
-        <td><p>true if the IDictionary contains an element with the key; otherwise, false.</p>
+        <td><p><span class="xref">true</span> if the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> contains an element with the specified key; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Collections_Hashtable_Contains_System_Object__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+<a class="xref" href="System.Collections.Hashtable.html#System_Collections_Hashtable_Contains_System_Object_">Contains(Object)</a> implements <a class="xref" href="System.Collections.IDictionary.html#System_Collections_IDictionary_Contains_System_Object_">Contains(Object)</a>.
+</p>
+<p>
+This method uses the collection&apos;s objects&apos; <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(Object)</a> method on item to determine whether item exists.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">key</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -709,16 +788,16 @@ While a value of 1 maintains a constant time complexity at the cost of increased
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_CopyTo_System_Array_System_Int32_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.CopyTo(System.Array%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L265">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L269">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_CopyTo_" data-uid="System.Collections.Hashtable.CopyTo*"></a>
   <h4 id="System_Collections_Hashtable_CopyTo_System_Array_System_Int32_" data-uid="System.Collections.Hashtable.CopyTo(System.Array,System.Int32)">CopyTo(Array, Int32)</h4>
-  <div class="markdown level1 summary"><p>Copies the elements of the ICollection to an Array, starting at a particular Array index.</p>
+  <div class="markdown level1 summary"><p>Copies the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> elements to a one-dimensional <a class="xref" href="System.Array.html">Array</a> instance at the specified index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CopyTo(Array array, int index)</code></pre>
+    <pre><code class="lang-csharp hljs">public void CopyTo(Array array, int arrayIndex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -733,13 +812,44 @@ While a value of 1 maintains a constant time complexity at the cost of increased
       <tr>
         <td><a class="xref" href="System.Array.html">Array</a></td>
         <td><span class="parametername">array</span></td>
-        <td><p>The one-dimensional Array that is the destination of the elements copied from ICollection. The Array must have zero-based indexing.</p>
+        <td><p>The one-dimensional <a class="xref" href="System.Array.html">Array</a> that is the destination of the <a class="xref" href="System.Collections.DictionaryEntry.html">DictionaryEntry</a> objects copied from <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>. The <a class="xref" href="System.Array.html">Array</a> must have zero-based indexing.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.Int32.html">Int32</a></td>
-        <td><span class="parametername">index</span></td>
+        <td><span class="parametername">arrayIndex</span></td>
         <td><p>The zero-based index in array at which copying begins.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Collections_Hashtable_CopyTo_System_Array_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The elements are copied to the <a class="xref" href="System.Array.html">Array</a> in the same order in which the enumerator iterates through the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">array</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">arrayIndex</code> is less than zero.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p>The number of elements in the source <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> is greater than the available space from <code data-dev-comment-type="paramref" class="paramref">arrayIndex</code> to the end of the destination array.</p>
 </td>
       </tr>
     </tbody>
@@ -749,11 +859,11 @@ While a value of 1 maintains a constant time complexity at the cost of increased
     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_GetEnumerator.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L218">View Source</a>
+    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L226">View Source</a>
   </span>
   <a id="System_Collections_Hashtable_GetEnumerator_" data-uid="System.Collections.Hashtable.GetEnumerator*"></a>
   <h4 id="System_Collections_Hashtable_GetEnumerator" data-uid="System.Collections.Hashtable.GetEnumerator">GetEnumerator()</h4>
-  <div class="markdown level1 summary"><p>Returns an enumerator that iterates through a collection.</p>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a> that iterates through the Hashtable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -771,26 +881,44 @@ While a value of 1 maintains a constant time complexity at the cost of increased
     <tbody>
       <tr>
         <td><a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a></td>
-        <td><p>An IEnumerator object that can be used to iterate through the collection.</p>
+        <td><p>An <a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a> for the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable_Remove_System_Object_.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable.Remove(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L434">View Source</a>
-  </span>
+  <h5 id="System_Collections_Hashtable_GetEnumerator_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The <span class="xref">langword_csharp_foreach</span> statement of the C# language (for each in Visual Basic) hides the complexity of the enumerators. Therefore, using <span class="xref">langword_csharp_foreach</span> is recommended, instead of directly manipulating the enumerator.
+</p>
+<p>
+Enumerators can be used to read the data in the collection, but they cannot be used to modify the underlying collection.
+</p>
+<p>
+Initially, the enumerator is positioned before the first element in the collection. <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Reset">Reset()</a> also brings the enumerator back to this position. At this position, <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Current">Current</a> is undefined. Therefore, you must call <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_MoveNext">MoveNext()</a> to advance the enumerator to the first element of the collection before reading the value of <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Current">Current</a>.
+</p>
+<p>
+<a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Current">Current</a> returns the same object until either <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_MoveNext">MoveNext()</a> or <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Reset">Reset()</a> is called. MoveNext sets Current to the next element.
+</p>
+<p>
+If <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_MoveNext">MoveNext()</a> passes the end of the collection, the enumerator is positioned after the last element in the collection and <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_MoveNext">MoveNext()</a> returns false. When the enumerator is at this position, subsequent calls to <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_MoveNext">MoveNext()</a> also return false. If the last call to <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_MoveNext">MoveNext()</a> returned false, <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Current">Current</a> is undefined. To set <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Current">Current</a> to the first element of the collection again, you can call <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_Reset">Reset()</a> followed by <a class="xref" href="System.Collections.IEnumerator.html#System_Collections_IEnumerator_MoveNext">MoveNext()</a>.
+</p>
+<p>
+An enumerator remains valid as long as the collection remains unchanged. If changes are made to the collection, such as adding, modifying, or deleting elements, the enumerator is irrecoverably invalidated and its behavior is undefined.
+</p>
+<p>
+The enumerator does not have exclusive access to the collection; therefore, enumerating through a collection is intrinsically not a thread safe procedure. To guarantee thread safety during enumeration, you can lock the collection during the entire enumeration. To allow the collection to be accessed by multiple threads for reading and writing, you must implement your own synchronization.
+</p>
+</div>
+  
+  
   <a id="System_Collections_Hashtable_Remove_" data-uid="System.Collections.Hashtable.Remove*"></a>
   <h4 id="System_Collections_Hashtable_Remove_System_Object_" data-uid="System.Collections.Hashtable.Remove(System.Object)">Remove(Object)</h4>
-  <div class="markdown level1 summary"><p>Removes the element with the specified key from the IDictionary object.</p>
+  <div class="markdown level1 summary"><p>Removes the element with the specified key from the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Remove(object key)</code></pre>
+    <pre><code class="lang-csharp hljs">public extern void Remove(object key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -806,6 +934,22 @@ While a value of 1 maintains a constant time complexity at the cost of increased
         <td><a class="xref" href="System.Object.html">Object</a></td>
         <td><span class="parametername">key</span></td>
         <td><p>The key of the element to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">key</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -838,7 +982,7 @@ While a value of 1 maintains a constant time complexity at the cost of increased
                     <a href="https://github.com/nanoframework/System.Collections/new/pages-source/apiSpec/new?filename=System_Collections_Hashtable.md&amp;value=---%0Auid%3A%20System.Collections.Hashtable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nanoframework/System.Collections/blob/develop/nanoFramework.System.Collections/Collections/Hashtable.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nanoframework/System.Collections/blob/main/nanoFramework.System.Collections/Collections/Hashtable.cs/#L18" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

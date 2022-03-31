@@ -167,14 +167,14 @@ Also don't think that comments and requests for changes means that your contribu
 <li><p>Configure a remote upstream to the master repository.</p>
 <p><code>git remote add upstream https://github.com/nanoframework/&lt;nf-repo-name-here&gt;.git</code></p>
 </li>
-<li><p>Make sure that your develop branch is in sync with the master  <strong>develop</strong> branch.</p>
-<p><code>git checkout develop</code></p>
-<p><code>git pull upstream develop</code></p>
+<li><p>Make sure that your main branch is in sync with the upstream  <strong>main</strong> branch.</p>
+<p><code>git checkout main</code></p>
+<p><code>git pull upstream main</code></p>
 </li>
-<li><p>Create a branch off of <strong>develop</strong> branch.</p>
-<p><code>git checkout -b &lt;branch-name-here&gt; develop</code></p>
+<li><p>Create a branch off of <strong>main</strong> branch.</p>
+<p><code>git checkout -b &lt;branch-name-here&gt; main</code></p>
 <p>We suggest that you name the branch so that it clearly communicates your intentions, such as <em>issue-123</em> or <em>githubhandle-issue</em>.
-Don't use a branch name starting with <em>develop</em> because that may be mistaken with the <em>develop</em> branches on the master repository.</p>
+Don't use a branch name starting with <em>develop</em> because that may be mistaken with the <em>develop</em> branches on the upstream repository.</p>
 <p>Branches are useful since they isolate your changes from incoming changes from upstream. They also enable you to create multiple PRs from the same fork.</p>
 </li>
 <li><p>Work your way through the changes and commit them using your Git client or the command line as you prefer.</p>
@@ -191,13 +191,13 @@ Don't use a branch name starting with <em>develop</em> because that may be mista
 <li>Make sure that the tests are all passing, including any new tests that you've added.</li>
 </ul>
 </li>
-<li><p>If you've been working in this branch and changes have been made in upstream develop, you should rebase the working branch on the upstream develop branch so that your work shows on top of any other changes. If you have just created your working branch you can skip this step.</p>
-<p><code>git rebase upstream/develop</code></p>
+<li><p>If you've been working in this branch and changes have been made in upstream main, you should rebase the working branch on the upstream main branch so that your work shows on top of any other changes. If you have just created your working branch you can skip this step.</p>
+<p><code>git rebase upstream/main</code></p>
 </li>
 <li><p>Push your changes to your fork on GitHub (if you haven't already).</p>
 <p><code>git push origin &lt;branch-name-here&gt;</code></p>
 </li>
-<li><p>Create a pull request (PR) against the upstream repository's <strong>develop</strong> branch.</p>
+<li><p>Create a pull request (PR) against the upstream repository's <strong>main</strong> branch.</p>
 <p>Creating a PR is a simple click on the &quot;Pull Request&quot; button that shows on your personal fork in GitHub.</p>
 <p>There is a template for the PR message. We ask you to follow it. It has the required topics and placeholders for what is required to make it clear. Also acts as a check list for you as the submitter.</p>
 <p>When starting a PR GitHub will show you if you repo is up to date with the master one and if a merge is OK. If there are differences showing you have to go back to you local clone and merge those into your local clone. After doing that it's advisable to re-run the build and tests because there could have been changed brought in that affected your code.
