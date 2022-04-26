@@ -8,7 +8,7 @@
     <title>Building .NET nanoFramework firmware | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Building .NET nanoFramework firmware | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.59.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -85,8 +85,8 @@
 <li><a href="using-dev-container.html">Using Dev Container</a></li>
 </ul>
 <p>⚠️ NOTE about the need to build .NET <strong>nanoFramework</strong> firmware ⚠️</p>
-<p>You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
-If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+<p>You only need to build it if you plan to debug the CLR, interpreter, execution engine, drivers, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image using <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a>.
 There are available ready to flash firmware images for several targets, please check the <a href="https://github.com/nanoframework/Home#firmware-for-reference-boards">Home</a> repository.</p>
 <h2 id="about-this-document">About this document</h2>
 <p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> firmware to be flashed in a SoC or MCU.
@@ -98,19 +98,14 @@ The build is based on CMake tool to ease the development in all major platforms.
 <p>You'll need:</p>
 <ul>
 <li><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU ARM Embedded Toolchain</a></li>
-<li><a href="https://cmake.org/">CMake</a> (Minimum required version is 3.7)</li>
-<li>A build system for CMake to generate the build files to.
-<ul>
-<li>If you have Visual Studio (full version) you can use the included NMake.</li>
-<li>A nice alternative is <a href="https://github.com/ninja-build/ninja">Ninja</a>. This is lightweight build system, designed for speed and it works on Windows and Linux machines. See <a href="cmake/ninja-build.html">here</a> how to setup Ninja to build .NET <strong>nanoFramework</strong>.</li>
-</ul>
-</li>
+<li><a href="https://cmake.org/">CMake</a> (Minimum required version is 3.23)</li>
+<li>A build tool for CMake to generate the build files to. We recommend <a href="https://github.com/ninja-build/ninja">Ninja</a>. This is lightweight build system, designed for speed and it works on Windows and Linux machines. See <a href="cmake/ninja-build.html">here</a> how to setup Ninja to build .NET <strong>nanoFramework</strong>.</li>
 </ul>
 <p>If you are using VS Code as your development platform we suggest that you use the CMake Tools extension. This will allow you to run the builds without leaving VS Code.</p>
 <ul>
 <li><a href="http://code.visualstudio.com/">Visual Studio Code</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake">CMake Extension</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools">CMake Tools Extension</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools Extension</a></li>
 </ul>
 <p>In case you specify an RTOS and you want its source to be downloaded from the official repository, you'll need:</p>
 <ul>
@@ -125,49 +120,34 @@ In fact this is enforced and checked by the CMake script.</p>
 <h2 id="build-a-net-nanoframework-firmware-image">Build a .NET <strong>nanoFramework</strong> firmware image</h2>
 <p>The build script accepts the a number of parameters (some of them are mandatory). Please check the details about each parameter <a href="cmake-tools-cmake-variants.html#content-explained">here</a>.</p>
 <blockquote>
-<p>Note 1: The RTOSes currently supported (except for ESP32 target) are ChibiOS and FreeRTOS. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork._
-Note 2: the very first build will take more or less time depending on the download speed of the Internet connection of the machine were the build is running. This is because the source code of the RTOS of your choice will be downloaded from its repository. On the subsequent builds this won't happen._</p>
+<p>Note 1: The RTOSes currently supported (except for ESP32 target) are ChibiOS for STM32 targets, FreeRTOS for NXP and TI-RTOS for TI targets. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork.
+Note 2: the very first build will take more or less time depending on the download speed of the Internet connection of the machine were the build is running. This is because the source code of the RTOS of your choice will be downloaded from its repository. On the subsequent builds this won't happen.</p>
 </blockquote>
 <p>You can specify any generator that is supported in the platform where you are building.
-For more information on this check CMake documentation <a href="https://cmake.org/cmake/help/v3.7/manual/cmake-generators.7.html?highlight=generator">here</a>.</p>
+For more information on this check CMake documentation <a href="https://cmake.org/cmake/help/v3.23/manual/cmake-generators.7.html?highlight=generator">here</a>.</p>
 <h2 id="building-from-the-command-prompt">Building from the command prompt</h2>
-<p>If you are building from the command prompt, just go to your <em>build</em> directory and run CMake from there with the appropriate parameters.
+<p>If you are building from the command prompt, just go to the repository root folder and run CMake from there with the appropriate parameters.
 The following is a working example:</p>
-<pre><code class="lang-dotnetcli">cmake \
--DTOOLCHAIN_PREFIX=&quot;E:/GNU_Tools_ARM_Embedded/5_4_2016q3&quot; \
--DCMAKE_TOOLCHAIN_FILE=CMake/toolchain.arm-none-eabi.cmake \
--DCHIBIOS_BOARD=ST_NUCLEO_F091RC \
--DTARGET_SERIES=STM32F0xx \
--DNF_FEATURE_DEBUGGER=TRUE \
--DAPI_Windows.Devices.Gpio=ON \
--DNF_FEATURE_RTC=ON \
--G &quot;NMake Makefiles&quot; ../
+<pre><code class="lang-text">cmake --preset ST_NUCLEO_F091RC
+cmake --build --preset ST_NUCLEO_F091RC
 </code></pre>
-<p>This will call CMake (on your <em>build</em> directory that is assumed to be under the repository root) specifying the location of the toolchain install, that the target board is named ST_NUCLEO_F091RC, that STM32F0xx is the series name that it belongs to, debugger feature is to be included, Windows.Devices.Gpio API is to be included and that the build files suitable for NMake are to be generated.</p>
-<p>Another example:</p>
-<pre><code class="lang-text">cmake \
--DTOOLCHAIN_PREFIX=&quot;E:/GNU_Tools_ARM_Embedded/5_4_2016q3&quot; \
--DCMAKE_TOOLCHAIN_FILE=CMake/toolchain.arm-none-eabi.cmake \
--DCHIBIOS_SOURCE=E:/GitHub/ChibiOS \
--DCHIBIOS_BOARD=ST_NUCLEO144_F746ZG \
--DTARGET_SERIES=STM32F7xx \
--DNF_FEATURE_DEBUGGER=TRUE \
--DAPI_System.Device.Gpio=ON \
--DNF_FEATURE_RTC=ON \
--G &quot;NMake Makefiles&quot; ../
+<p>This will call CMake and build the ST_NUCLEO_F091RC target from that configuration preset. It's assumed that you've previously adjusted the tools path in the CMakeUserPresets.json file.</p>
+<p>Any of the build options in the cache variables can be overridden from the CLI like in the example below here we're setting the TOOLCHAIN_PREFIX:</p>
+<pre><code class="lang-text">cmake --preset ST_NUCLEO144_F746ZG -DTOOLCHAIN_PREFIX=&quot;E:/GNU_Tools_ARM_Embedded/10.3-2021.10&quot;
+cmake --build --preset ST_NUCLEO144_F746ZG
 </code></pre>
-<p>This will call CMake (on your <em>build</em> directory that is assumed to be under the repository root) specifying the location of the toolchain install, specifying that ChibiOS sources to be used are located in the designated path (mind the forward slash and no ending slash),  that the target board is named ST_NUCLEO144_F746ZG, that STM32F7xx is the series name that it belongs to, debugger feature is to be included, System.Device.Gpio API is to be included, RTC is used and that the build files suitable for NMake are to be generated.</p>
 <p>After successful completion you'll have the build files ready to be used in the target build tool.</p>
 <h2 id="building-from-vs-code-using-cmake-tools-extension">Building from VS Code (using CMake Tools extension)</h2>
 <p>We've added the required files and configurations to help you launch your build from VS Code.
 Follows a brief explanation on the files you might want to tweak.</p>
 <ul>
-<li>settings.json (inside .vscode folder) here you can change the generator that CMake uses to generate the build. The default is <code>&quot;cmake.generator&quot;: &quot;NMake Makefiles&quot;</code>. The recommendation is to use Ninja as the build tool because it's way faster than NMake.
-You'll also need to set the use of CMake Server to true, like this: <code>&quot;cmake.useCMakeServer&quot; : true</code>.</li>
+<li>settings.json (inside .vscode folder) here you can change the generator that CMake uses to generate the build. The default is <code>&quot;cmake.generator&quot;: &quot;NMake Makefiles&quot;</code>. The recommendation is to use Ninja as the build tool because it's way faster than NMake.</li>
 <li>launch.json (inside .vscode folder) here you can set up your launch configurations, such as gdb path or OpenOCD configuration. We've made available Gists with launch.json for several of the reference targets. Grab yours from <a href="https://gist.github.com/nfbot">here</a>. ⚠️ Remember to update paths and other preferences according to your setup and machine configuration. 😉</li>
-<li>cmake-variants.json (at the repository root) here you can add several build flavors. You can even add variants to each one. Check the documentation extension <a href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/variants.html#">here</a>. We've made available Gists with cmake-variants.json for each of the reference targets. Grab yours from <a href="https://gist.github.com/nfbot">here</a>. ⚠️ Remember to update paths and other preferences according to your setup and machine configuration. 😉</li>
+<li>CMakeUserPresets.TEMPLATE.json (at the repository root). You should copy this one over to CMakeUserPresets.json. Besides adjusting the paths to the location where you have the tools installed locally, you can tweak build options, add new build configurations and override the default ones. Check the documentation <a href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-presets.md">here</a>. <strong>!!mind to always use forward slashes in the paths!!</strong>
+⚠️ Remember to update paths and other preferences according to your setup and machine configuration. 😉</li>
 </ul>
-<p>To launch the build in VS Code check the status bar at the bottom. Select the build flavour and then click the build button (or hit <kbd>F7</kbd>).</p>
+<p>To launch the build in VS Code check the status bar at the bottom. Select the Configure Preset that you want and click the build button (or hit <kbd>F7</kbd>).</p>
+<p><img src="../../images/building/vs-code-bottom-tolbar-choose-preset.png" alt="choose-preset"></p>
 <h2 id="net-nanoframework-firmware-build-deliverables">.NET <strong>nanoFramework</strong> firmware build deliverables</h2>
 <p>After a successful build you can find the .NET <strong>nanoFramework</strong> image files in the <em>build</em> directory. Those are:</p>
 <ul>
@@ -175,7 +155,6 @@ You'll also need to set the use of CMake Server to true, like this: <code>&quot;
 <ul>
 <li>nanoBooter.bin (raw binary format)</li>
 <li>nanoBooter.hex (Intel hex format)</li>
-<li>nanoBooter.s19 (Motorola S-record format, equivalent to srec)</li>
 <li>nanoBooter.lst (source code listing intermixed with disassembly)</li>
 <li>nanoBooter.map (image map)</li>
 </ul>
@@ -184,7 +163,6 @@ You'll also need to set the use of CMake Server to true, like this: <code>&quot;
 <ul>
 <li>nanoCLR.bin (raw binary format)</li>
 <li>nanoCLR.hex (Intel hex format)</li>
-<li>nanoCLR.s19 (Motorola S-record format, equivalent to srec)</li>
 <li>nanoCLR.lst (source code listing intermixed with disassembly)</li>
 <li>nanoCLR.map (image map)</li>
 </ul>
@@ -195,7 +173,7 @@ You'll also need to set the use of CMake Server to true, like this: <code>&quot;
 <pre><code class="lang-text">Found assemblies mismatches when checking for deployment pre-check.
 </code></pre>
 <p>This is because the BUILD_VERSION value of your custom built nanoCLR doesn't match the one nanoframework.CoreLibrary expects.
-BUILD_VERSION can be set cmake-variants.json. The value defaults to <code>&quot;0.9.99.999&quot;</code>.
+BUILD_VERSION can be set CMakeUserPresets.json. The value defaults to <code>&quot;0.9.99.999&quot;</code>.
 Change that to the one you need at the moment, like <code>&quot;1.6.1.28&quot;</code>.</p>
 <p>Don't forget to:</p>
 <ul>
