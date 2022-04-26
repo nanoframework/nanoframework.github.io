@@ -36,7 +36,7 @@ Go to the file `.devcontainer/devcontainer.json` and choose the container you wa
 ```
 
 > Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the `./sources` subdirectory. So the file name will be for example `./source/Dockerfile.All` to use the container containing everything and build it from the source.
-> Error: if you get error message like "Bad Cmake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the Cmake and Cmake tool from Visual Studio Code and restart Visual Studio Code.  
+> Error: if you get error message like "Bad CMake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the CMake and CMake tool from Visual Studio Code and restart Visual Studio Code.  
 
 - **Step 9**: Once prompted, open the dev container.
 

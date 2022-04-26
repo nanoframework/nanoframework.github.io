@@ -205,7 +205,7 @@ At the end of a successful build the build outputs are copied to the *\Build* di
 > - Note: It is sometimes necessary to delete the contents of these folders if Visual Studio misbehaves.
 Using Visual Studio with CMake results in what appears to be inconsistencies at times.
 Sometime the CMake server goes away, shutting down Visual Studio and restarting usually fixes the problem.
-> - Note: After clearing the Cmake cache, on occasions the build/chibios_source directory is left empty or only containing the .git file
+> - Note: After clearing the CMake cache, on occasions the build/chibios_source directory is left empty or only containing the .git file
 >due to some conflict. The current CMakeLists.txt file finds the directory and does not re-copy the code.
 >It is necessary to manually delete the directory from file explorer and generate the cache for the copy to run.
 >_
@@ -249,7 +249,7 @@ Place a copy of the hex2dfu.exe tool here
 | Software Component | Notes | Link |
 |:---|---|---|
 | Visual Studio 2017 community edition |Linux development with C++||
-|option|Visual C++ tools for Cmake and Linux||
+|option|Visual C++ tools for CMake and Linux||
 |option|Embedded and IoT Development|GCC version 6.3.1. December/2018|
 |GCC Tool Chain - Version 7-2018-q2-update|GNU Arm Embedded Toolchain|<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>|
 
