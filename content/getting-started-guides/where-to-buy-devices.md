@@ -25,7 +25,7 @@ Integrated devices with additional sensors like accelerometers, screens, leds:
 |![M5Core 2](../../images/getting-started-guides/m5core2.jpg) M5Core2|16MB flash, 520Kb SRAM, 9Mb PSRAM|ESP32-D0WDQ6-V3|M5Core2|[![M5Stack logo](../../images/getting-started-guides/m5stack.jpg)](https://shop.m5stack.com/collections/m5-controllers/CORE)|
 |![M5StickC Plus](../../images/getting-started-guides/m5stickc_plus.jpg) M5StickC, M5StickC Plus|4MB Flash & 2MB PSRAM|ESP32-PICO-DEVKITM-2|M5StickC or M5StickCPlus|[![M5Stack logo](../../images/getting-started-guides/m5stack.jpg)](https://shop.m5stack.com/collections/m5-controllers/STICK)|
 |![M5Atom Lite](../../images/getting-started-guides/m5atomlite.jpg) M5Atom, M5Atom Lite, M5Atom Matrix|4MB Flash & 2MB PSRAM|ESP32-PICO-DEVKITM-2|ESP32_PICO |[![M5Stack logo](../../images/getting-started-guides/m5stack.jpg)](https://shop.m5stack.com/collections/m5-controllers/ATOM)|
-|![MBits](../../images/getting-started-guides/mbits.jpg) Mbits ESP32 Dev Board|16M Flash & 8M RAM, contains additional sensors|Mbits ESP32|ESP32_REV0, ESP32_BLE_REV0|[![elecrow logo](../../images/getting-started-guides/Elecrow_logo.png)](https://www.elecrow.com/mbits.html)
+|![MBits](../../images/getting-started-guides/mbits.jpg) Mbits ESP32 Dev Board|16M Flash & 8M RAM, contains additional sensors|Mbits ESP32|ESP32_REV0, ESP32_BLE_REV0|[![elecrow logo](../../images/getting-started-guides/Elecrow_logo.png)](https://www.elecrow.com/mbits.html)|
 
 Note that you can find most of those boards as well on Amazon and various local websites. Again, feel free to submit a PR with more links on where we can find your favorite device!
 
