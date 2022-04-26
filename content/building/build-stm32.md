@@ -123,7 +123,7 @@ The PowerShell relies on the environment variables described above to properly s
 
 - **Step 1:** Launch Visual Studio Code from the repository folder, or load it from the **File** menu, select **Open Folder** and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 
-- **Step 2:** Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the `No Configure Preset Selected` and select the target you want to build from the drop-down list that will open at the top. The respective build preset will be automatically selected by VS Code. More details on this on the documentation about the available targets [here](../reference-targets/stm32.md).
+- **Step 2:** Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the `No Configure Preset Selected` and select the target you want to build from the drop-down list that will open at the top. The respective build preset will be automatically selected by VS Code. More details on this on the documentation about the available targets [here](../reference-targets/index.md).
 
 ![choose-preset](../../images/building/vs-code-bottom-tolbar-choose-preset.png)
 
