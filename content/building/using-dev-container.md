@@ -6,7 +6,7 @@ We offer the possibility to use such a Dev Container to build any of the support
 
 ## Requirements
 
-- **Step 0**: Make sure your have cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) nanoFramework directory. The stable branch is `develop`.
+- **Step 0**: Make sure your have cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) nanoFramework directory. The working branch is `main`.
 - **Step 1**: Make sure you have [VS Code](https://code.visualstudio.com/Download) installed.
 - **Step 2**: Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop) installed.
 - **Step 3**: Optional but strongly recommended for performance reasons: activate [Windows Subsystem for Linux 2](https://docs.microsoft.com/windows/wsl/install-win10) on your Windows host machine.
