@@ -8,7 +8,7 @@ This document describes the design and organization of .NET **nanoFramework** Cl
 
 Follow the list of the existing libraries, respective NuGet package and CMake enable option:
 
-| Class Library | Stable | CMake option |
+| Class Library | Version | CMake option |
 | --- | --- | --- |
 | Base Class Library (also know as mscorlib) |[![NuGet](https://img.shields.io/nuget/v/nanoFramework.CoreLibrary.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.CoreLibrary/) | (always included) |
 | Base Class Library (without Reflection) |  [![NuGet](https://img.shields.io/nuget/v/nanoFramework.CoreLibrary.NoReflection.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.CoreLibrary.NoReflection/) | (always included, -DNF_FEATURE_SUPPORT_REFLECTION=OFF) |
@@ -53,8 +53,8 @@ Follow the list of the existing libraries, respective NuGet package and CMake en
 
 ## Other libraries
 
-| Class Library |Stable | Preview |
-| --- | --- | --- |
+| Class Library | Version |
+| --- | --- |
 | AMQP Net Lite | [![NuGet](https://img.shields.io/nuget/v/AMQPNetLite.nanoFramework.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/AMQPNetLite.nanoFramework/) |
 |AMQP Net Lite (micro) | [![NuGet](https://img.shields.io/nuget/v/AMQPNetMicro.nanoFramework.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/AMQPNetMicro.nanoFramework/) |
 | nanoFramework.Azure.Devices | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.Azure.Devices.Client.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.Azure.Devices.Client/) |
@@ -68,8 +68,8 @@ Follow the list of the existing libraries, respective NuGet package and CMake en
 
 ## Board Support Packages libraries
 
-| Class Library |Stable | Preview |
-| --- | --- | --- |
+| Class Library | Version |
+| --- | --- |
 | nanoFramework.M5Stack | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.M5Stack.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.M5Stack/) |
 | nanoFramework.M5Stick | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.M5StickC.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.M5StickC/) |
 | nanoFramework.M5StickCPlus | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.M5StickCPlus.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.M5StickCPlus/) |
