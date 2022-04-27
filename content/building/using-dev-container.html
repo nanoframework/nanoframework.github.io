@@ -95,7 +95,12 @@
 <p><img src="../../images/dev-container-docker.jpg" alt="Docker steetings"></p>
 <ul>
 <li><strong>Step 5</strong>: Make sure you have the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> extension installed.</li>
-<li><strong>Step 6</strong>: copy the file in <code>.\vscode\cmake-variants-DEVCONTAINER.json</code>to <code>.\vscode\cmake-variants.json</code></li>
+<li><strong>Step 6</strong>: copy the file in <code>CMakeUserPresets-TEMPLATE.json</code>to <code>CMakeUserPresets.json</code>.
+<ul>
+<li>Remove the section <code>user-local-tools</code></li>
+<li>Rename the section <code>user-local-tools-container</code> to <code>user-local-tools</code></li>
+</ul>
+</li>
 <li><strong>Step 7</strong>: Open the full <code>nf-interpreter</code>directory with VS Code.</li>
 <li><strong>Step 8</strong>: Chose your container.</li>
 </ul>
@@ -133,13 +138,12 @@ Error: if you get error message like &quot;Bad CMake executable &quot;&quot;. Is
 </ul>
 <p><img src="../../images/dev-container-vscode-ok.jpg" alt="Docker steetings"></p>
 <ul>
-<li><strong>Step 14</strong>: Select the target you want to build, click on <code>CMake: [Unknown]: Ready</code></li>
+<li><strong>Step 14</strong>: Select the target you want to build, if all the previous steps has been done properly, the list will show up:</li>
 </ul>
-<p><img src="../../images/dev-container-selecttarget.jpg" alt="cmakr select"></p>
-<p>The first time you'll do this, you will be asked to select a kit, choose the <code>unspecified</code>one:</p>
 <p><img src="../../images/dev-container-selectkit.jpg" alt="select kit unspecified"></p>
-<p>Then you can pick the target you want to build:</p>
-<p><img src="../../images/dev-container-target.jpg" alt="target to build"></p>
+<p>If you select for example the ESP_REV0, you will see it in the taskbar:</p>
+<p><img src="../../images/dev-container-selecttarget.jpg" alt="cmakr select"></p>
+<p>To select a new image, just click on the name of the target, the menu will pop up again and you can select a new target. Make sure that you clean your build folder first.</p>
 <ul>
 <li><strong>Step 15</strong>: This will actually prepare all what is needed in the <code>build</code>folder.</li>
 </ul>
