@@ -111,7 +111,7 @@ The example is for adding System.Device.Gpio library.
 
 1. In the CMake [NF_NativeAssemblies.cmake](https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/NF_NativeAssemblies.cmake) find the macro `ParseApiOptions` and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.
 
-1. Update the template file for the CMake variants [here](https://github.com/nanoframework/nf-interpreter/blob/develop/cmake-variants.TEMPLATE.json) to include the respective option. For the System.Device.Gpio example you would add to the _OPTION1..._ and _OPTION2..._ (under _linkage_) the following line: "API_System.Device.Gpio" : "OFF"
+1. Update the template file for the CMake presets [here](https://github.com/nanoframework/nf-interpreter/blob/main/CMakeUserPresets.TEMPLATE.json) to include the respective options. For the System.Device.Gpio example you would add to the _OPTION1..._ and _OPTION2..._ (under _linkage_) the following line: "API_System.Device.Gpio" : "OFF"
 
 1. If the API requires enabling hardware or SoC peripherals in the target HAL/PAL make the required changes to the appropriate files.
 For System.Device.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
@@ -126,5 +126,5 @@ In contrast, for the System.Device.Spi, the SPI subsystem has to be enabled at t
 ## How to include a class library in the build
 
 To include a class library in the build for a target image you have to add to the CMake an option for the API. For the System.Device.Gpio example the option would be `-DAPI_System.Device.Gpio=ON`.
-You can also add this to your own cmake-variants.json file.
+You can also add this to your own `CMakePresets.json` / `CMakeUserPresets.json` file.
 To exclude a class library just set the option to OFF or simply don't include it in the command.

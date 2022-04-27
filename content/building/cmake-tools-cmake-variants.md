@@ -1,4 +1,4 @@
-# CMake variants for CMake tools
+# CMake variants for CMake tools (OBSOLETE)
 
 ## About this document
 

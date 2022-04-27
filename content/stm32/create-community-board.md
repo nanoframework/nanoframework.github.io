@@ -10,9 +10,9 @@ It is important to find the same MCU or a close one. Once done, copy/paste the f
 
 > Tip: keep the folder into the target folder in nf-interpreter the time of your development. You will be able to move it later on to the `nf-Community-Targets` one and do a proper PR.
 
-## Create your project in cmake-variants.json
+## Create your project in CMakeUserPresets.json
 
-Create a proper section in your `cmake-variants.json`. Reuse the one from the board you're starting. Use the exact same settings as the recommended ones to build it. Just to make sure all is OK, build it with the exact same settings as the board you have cloned. This will ensure you're starting with a clean state.
+Create a proper section in your `CMakePresets.json` and `CMakeUserPresets.json`. Reuse the one from the board you're starting. Use the exact same settings as the recommended ones to build it. Just to make sure all is OK, build it with the exact same settings as the board you have cloned. This will ensure you're starting with a clean state.
 
 > Tip: you can use the [dev containers](../building/using-dev-container.md) to avoid having to clone all the source repositories and build in a safe always working environment.
 

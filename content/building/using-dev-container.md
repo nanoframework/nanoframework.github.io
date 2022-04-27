@@ -107,9 +107,9 @@ Build may fail if your image is too big. This is the case sometime when you sele
 [build] collect2: error: ld returned 1 exit status
 ```
 
-### Making changes in your .vscode\cmake-variants.json file
+### Making changes in your CMakePresets.json or CMakeUserPresets.json file
 
-Every time you make a change in the `.vscode\cmake-variants.json`file, you will have to leave the container bit clicking on the bottom left and then select `Reopen locally` and again select `Reopen in dev container`.
+Every time you make a change in the `CMakePresets.json` or `CMakeUserPresets.json` files, you may have to leave the container bit clicking on the bottom left and then select `Reopen locally` and again select `Reopen in dev container`.
 
 You usually do this operation to adjust what you want to add in your target.
 
