@@ -6,7 +6,7 @@ This article will explain what needs to be adjusted to create a community board 
 
 Find a board that is close to your board. Check both the official boards and the community boards.
 
-It is important to find the same MCU or a close one. Once done, copy/paste the folder in your cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) repo. and rename the folder. Note that it is recommended to create a new branch so you won't mix it up with anything else. You can as well clone the repository in a temporary place just for the occasion. In all cases, make sure you have the latest up to date `develop` branch.
+It is important to find the same MCU or a close one. Once done, copy/paste the folder in your cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) repo. and rename the folder. Note that it is recommended to create a new branch so you won't mix it up with anything else. You can as well clone the repository in a temporary place just for the occasion. In all cases, make sure you have the latest up to date `main` branch.
 
 > Tip: keep the folder into the target folder in nf-interpreter the time of your development. You will be able to move it later on to the `nf-Community-Targets` one and do a proper PR.
 
