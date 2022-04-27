@@ -18,7 +18,9 @@ We offer the possibility to use such a Dev Container to build any of the support
 ![Docker steetings](../../images/dev-container-docker.jpg)
 
 - **Step 5**: Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed.
-- **Step 6**: copy the file in `.\vscode\cmake-variants-DEVCONTAINER.json`to `.\vscode\cmake-variants.json`
+- **Step 6**: copy the file in `CMakeUserPresets-TEMPLATE.json`to `CMakeUserPresets.json`.
+  - Remove the section `user-local-tools`
+  - Rename the section `user-local-tools-container` to `user-local-tools`
 - **Step 7**: Open the full `nf-interpreter`directory with VS Code.
 - **Step 8**: Chose your container.
 
@@ -55,17 +57,15 @@ Go to the file `.devcontainer/devcontainer.json` and choose the container you wa
 
 ![Docker steetings](../../images/dev-container-vscode-ok.jpg)
 
-- **Step 14**: Select the target you want to build, click on `CMake: [Unknown]: Ready`
-
-![cmakr select](../../images/dev-container-selecttarget.jpg)
-
-The first time you'll do this, you will be asked to select a kit, choose the `unspecified`one:
+- **Step 14**: Select the target you want to build, if all the previous steps has been done properly, the list will show up:
 
 ![select kit unspecified](../../images/dev-container-selectkit.jpg)
 
-Then you can pick the target you want to build:
+If you select for example the ESP_REV0, you will see it in the taskbar:
 
-![target to build](../../images/dev-container-target.jpg)
+![cmakr select](../../images/dev-container-selecttarget.jpg)
+
+To select a new image, just click on the name of the target, the menu will pop up again and you can select a new target. Make sure that you clean your build folder first.
 
 - **Step 15**: This will actually prepare all what is needed in the `build`folder.
 
