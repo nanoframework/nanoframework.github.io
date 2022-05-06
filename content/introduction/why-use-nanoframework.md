@@ -8,7 +8,7 @@ Because it’s completely free and [Open Source](https://en.wikipedia.org/wiki/F
 Here are some of its unique features:
 
 - Can run on resource-constrained devices with as low as 256kB of flash and 64kB of RAM.
-- Runs directly on bare metal. Currently [ARM Cortex-M](https://en.wikipedia.org/wiki/ARM_Cortex-M) and [ESP32](https://en.wikipedia.org/wiki/ESP32) devices are supported.
+- Runs directly on bare metal. Currently there is support for [ARM Cortex-M](https://en.wikipedia.org/wiki/ARM_Cortex-M) and [Xtensa LX6 and LX7](https://en.wikipedia.org/wiki/ESP32) cores.
 - Supports common embedded peripherals and interconnects like GPIO, UART, SPI, I2C, USB, networking.
 - Provides multithreading support natively.
 - Support for energy-efficient operation such as devices running on batteries.
@@ -20,8 +20,8 @@ Here are some advantages over other similar systems:
 
 - First class debugger experience right on the target hardware with breakpoints, single step, step into, step out, step over, pause and stop.
 - Powerful and free programming environment with [Microsoft Visual Studio IDE](https://www.visualstudio.com/vs/).
-- Support for a large range of inexpensive boards from several manufacturers including: Discovery and Nucleo boards from [ST Microelectronics](http://www.st.com/content/st_com/en.html), [Quail](https://www.mikroe.com/quail) from Mikrobus, [Netduino](https://www.wildernesslabs.co/Netduino) from Wilderness Labs and [ESP32](https://en.wikipedia.org/wiki/ESP32) DevKit C.
-- Easily expandable to other hardware platforms and [RTOSes](https://en.wikipedia.org/wiki/Real-time_operating_system). Currently is targeting [CMSIS](https://developer.arm.com/embedded/cmsis) compatible ones and ESP32 FreeRTOS port.
+- Support for a large range of inexpensive boards from several manufacturers including: Discovery and Nucleo boards from [ST Microelectronics](http://www.st.com/content/st_com/en.html), [ESP32 and S2](https://en.wikipedia.org/wiki/ESP32) series, [CC1352R1-LAUNCHXL](https://www.ti.com/tool/LAUNCHXL-CC1352R1) from Texas Instruments, [i.MXRT1060](https://www.nxp.com/design/development-boards/i.mx-evaluation-and-development-boards/mimxrt1060-evk-i.mx-rt1060-evaluation-kit:MIMXRT1060-EVK) from NXP and many others.
+- Easily expandable to other hardware platforms and [RTOSes](https://en.wikipedia.org/wiki/Real-time_operating_system). Currently is targeting [ChibiOS](http://www.chibios.org/dokuwiki/doku.php), FreeRTOS, TI-RTOS and ESP32 FreeRTOS port.
 - Completely free and [Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software). From the core components to the utilities used for building, deploying, debugging and IDE components.
 
 In case you wonder: [what is .NET **nanoFramework**?](what-is-nanoframework.md)
