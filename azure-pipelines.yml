@@ -120,7 +120,7 @@ steps:
 - powershell: |
       git clone https://github.com/nanoframework/CoreLibrary.git --recursive --depth 100 -b main CoreLibrary 
 
-      git clone https://github.com/nanoframework/nanoFramework.Devices.Can.git --depth 100 -b main nanoFramework.Devices.Can 
+      git clone https://github.com/nanoframework/nanoFramework.Device.Can.git --depth 100 -b main nanoFramework.Device.Can 
 
       git clone https://github.com/nanoframework/nanoFramework.Device.OneWire.git --depth 100 -b main nanoFramework.Device.OneWire 
 
@@ -322,12 +322,12 @@ steps:
     nugetConfigPath: 'CoreLibrary\NuGet.Config'
 
 - task: NuGetCommand@2
-  displayName: NuGet restore nanoFramework.Devices.Can
+  displayName: NuGet restore nanoFramework.Device.Can
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    restoreSolution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
+    restoreSolution: 'nanoFramework.Device.Can\nanoFramework.Device.Can.sln'
     feedsToUse: config
-    nugetConfigPath: 'nanoFramework.Devices.Can\NuGet.Config'
+    nugetConfigPath: 'nanoFramework.Device.Can\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Device.OneWire
@@ -714,10 +714,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSBuild@1
-  displayName: Build nanoFramework.Devices.Can
+  displayName: Build nanoFramework.Device.Can
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
-    solution: 'nanoFramework.Devices.Can\nanoFramework.Devices.Can.sln'
+    solution: 'nanoFramework.Device.Can\nanoFramework.Device.Can.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 

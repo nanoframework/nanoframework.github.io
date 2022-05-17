@@ -125,7 +125,7 @@ The following explains each line of the _linkage_ section. Text highlighted in *
   - Allows you to specify whether System.Math support is available to your application. Default is OFF.
 - "API_System.Net" : "**OFF**"
   - Allows you to specify whether System.Net support is available to your application. Default is OFF.
-- "API_nanoFramework.Devices.Can" : "**OFF**"
+- "API_nanoFramework.Device.Can" : "**OFF**"
   - Allows you to specify whether CAN bus functions are available to your application. Default is OFF.
 - "API_nanoFramework.Devices.OneWire" : "**OFF**"
   - Allows you to specify whether 1-Wire functions are available to your application. Default is OFF.
