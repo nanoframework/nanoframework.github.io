@@ -6,13 +6,13 @@ This article will explain what needs to be adjusted to create a community board 
 
 Find a board that is close to your board. Check both the official boards and the community boards.
 
-It is important to find the same MCU or a close one. Once done, copy/paste the folder in your cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) repo. and rename the folder. Note that it is recommended to create a new branch so you won't mix it up with anything else. You can as well clone the repository in a temporary place just for the occasion. In all cases, make sure you have the latest up to date `develop` branch.
+It is important to find the same MCU or a close one. Once done, copy/paste the folder in your cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) repo. and rename the folder. Note that it is recommended to create a new branch so you won't mix it up with anything else. You can as well clone the repository in a temporary place just for the occasion. In all cases, make sure you have the latest up to date `main` branch.
 
 > Tip: keep the folder into the target folder in nf-interpreter the time of your development. You will be able to move it later on to the `nf-Community-Targets` one and do a proper PR.
 
-## Create your project in cmake-variants.json
+## Create your project in CMakeUserPresets.json
 
-Create a proper section in your `cmake-variants.json`. Reuse the one from the board you're starting. Use the exact same settings as the recommended ones to build it. Just to make sure all is OK, build it with the exact same settings as the board you have cloned. This will ensure you're starting with a clean state.
+Create a proper section in your `CMakePresets.json` and `CMakeUserPresets.json`. Reuse the one from the board you're starting. Use the exact same settings as the recommended ones to build it. Just to make sure all is OK, build it with the exact same settings as the board you have cloned. This will ensure you're starting with a clean state.
 
 > Tip: you can use the [dev containers](../building/using-dev-container.md) to avoid having to clone all the source repositories and build in a safe always working environment.
 

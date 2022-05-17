@@ -54,7 +54,7 @@ As a suggestion we recommend that you create a directory named *build* in the re
 
 ## Build a .NET **nanoFramework** firmware image
 
-The build script accepts the a number of parameters (some of them are mandatory). Please check the details about each parameter [here](cmake-tools-cmake-variants.md#content-explained).
+The build script accepts the a number of parameters (some of them are mandatory). Please check the details about each parameter [here](cmake-presets.md).
 
 > Note 1: The RTOSes currently supported (except for ESP32 target) are ChibiOS for STM32 targets, FreeRTOS for NXP and TI-RTOS for TI targets. If no source path is specified the source files will be downloaded from nanoFramework  GitHub fork.
 > Note 2: the very first build will take more or less time depending on the download speed of the Internet connection of the machine were the build is running. This is because the source code of the RTOS of your choice will be downloaded from its repository. On the subsequent builds this won't happen.
@@ -129,7 +129,7 @@ Change that to the one you need at the moment, like `"1.6.1.28"`.
 
 Don't forget to:
 
-- make this change under appropriate target block, as described [here](cmake-tools-cmake-variants.md)
+- make this change under appropriate target block, as described [here](cmake-presets.md)
 - make sure you understood that VSCode have to be reloaded to these json changes have effect.
 - make sure you understood that the build folder have to be removed to these changes have effect.
 - re-select the CMake target (VSCode bottom line) to reconfigure the build.
