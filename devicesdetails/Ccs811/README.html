@@ -117,16 +117,16 @@ Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
 <p>You'll find below how to use the sensor. A full example covering in details all the usage can be found in the <a href="./samples">samples directory</a>.</p>
 <h3 id="create-the-device">Create the device</h3>
 <p>To create a device without any of the pins:</p>
-<pre><code class="lang-csharp">var ccs811 = new Css811Sensor(I2cDevice.Create(new I2cConnectionSettings(1, Ccs811Sensor.I2cFirstAddress)));
+<pre><code class="lang-csharp">var ccs811 = new Ccs811Sensor(I2cDevice.Create(new I2cConnectionSettings(1, Ccs811Sensor.I2cFirstAddress)));
 </code></pre>
 <p>To create a device with a wake pin and interrupt pin:</p>
-<pre><code class="lang-csharp">var ccs811 = new Css811Sensor(I2cDevice.Create(new I2cConnectionSettings(1, Ccs811Sensor.I2cFirstAddress)), pinWake: 3, pinInterruption: 2);
+<pre><code class="lang-csharp">var ccs811 = new Ccs811Sensor(I2cDevice.Create(new I2cConnectionSettings(1, Ccs811Sensor.I2cFirstAddress)), pinWake: 3, pinInterruption: 2);
 </code></pre>
 <p><em>Note</em>:</p>
 <ul>
 <li>If you are using the software I2C device instead of the hardware I2C, adjust the bus number. If like in the previous section, you've setup the software I2C, the bus number is 3. So instancing the device will be then:</li>
 </ul>
-<pre><code class="lang-csharp">var ccs811 = new Css811Sensor(I2cDevice.Create(new I2cConnectionSettings(3, Ccs811Sensor.I2cFirstAddress)));
+<pre><code class="lang-csharp">var ccs811 = new Ccs811Sensor(I2cDevice.Create(new I2cConnectionSettings(3, Ccs811Sensor.I2cFirstAddress)));
 </code></pre>
 <p>To create a device using an external chipset like FT4222 to offer GPIO and I2C support including Wake and Interrupt pins:</p>
 <pre><code class="lang-csharp">var ftdiI2C = new Ft4222I2c(new I2cConnectionSettings(0, Ccs811Sensor.I2cFirstAddress));
@@ -190,7 +190,7 @@ ccs811.BaselineAlgorithmCalculation = baseline;
 Debug.WriteLine($&quot;Baseline calculation value: {ccs811.BaselineAlgorithmCalculation}&quot;);
 </code></pre>
 <h2 id="ccs811-samples">CCS811 Samples</h2>
-<p>This <a href="https://github.com/dotnet/iot/tree/main/src/devices/Ccs811/samples">sample application</a> contains flow and menus allowing you to test easily all the feature of the CSS811 and also show how to implement properly all readings.</p>
+<p>This <a href="https://github.com/dotnet/iot/tree/main/src/devices/Ccs811/samples">sample application</a> contains flow and menus allowing you to test easily all the feature of the CCS811 and also show how to implement properly all readings.</p>
 <p>You can test it thru:</p>
 <ul>
 <li>A native platform like an ESP32</li>
