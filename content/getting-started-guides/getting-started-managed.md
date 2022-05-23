@@ -66,7 +66,7 @@ You need to know the COM Port attached to your device. Search for **Computer Man
         ```console
         nanoff --target NETDUINO3_WIFI --update --dfu
         ```
-    
+
     - Note: to list the available serial ports, you can use the following command:
 
         ```console
