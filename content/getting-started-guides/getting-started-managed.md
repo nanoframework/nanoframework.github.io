@@ -52,19 +52,25 @@ You need to know the COM Port attached to your device. Search for **Computer Man
     - To update the firmware of an ESP32 target connected to COM31, to the latest available preview version.
 
         ```console
-        nanoff --platform esp32 --serialport COM31 --update --preview
+        nanoff --platform esp32 --serialport COM31 --update
         ```
 
     - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available preview version.
 
         ```console
-        nanoff --target ST_NUCLEO144_F746ZG --update --preview
+        nanoff --target ST_NUCLEO144_F746ZG --update
         ```
 
     - To update the firmware of a ST board connected through DFU (like the NETDUINO3) you first need to put the board in DFU mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
 
         ```console
         nanoff --target NETDUINO3_WIFI --update --dfu
+        ```
+
+    - Note: to list the available serial ports, you can use the following command:
+
+        ```console
+        nanoff --listports
         ```
 
 1. **After the upload completes**, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET **nanoFramework** by looking into the **Device Explorer** window in **Visual Studio**.
