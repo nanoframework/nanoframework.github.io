@@ -80,7 +80,7 @@
 <p>Some devices like the Raspberry Pi cannot read analog values directly so rely on  <a href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">analog to digital converters</a>, like the ones available from Microchip in the Mcp3000, Mcp3200 and Mcp3300 ranges. These chips can be accessed as an <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI device</a> or manually via raw GPIO pins. Normally all MCU has an analogic capability but the number of pins can be limited. This is typically useful when you want your MCU to have more than the number of ADC available. Another case is if you need a different resolution or voltage reference.</p>
 <p>You can use these converters in your project to access analog devices.</p>
 <p>The following fritzing diagram illustrates one way to wire up the Mcp3008, with an ESP32 and a potentiometer.</p>
-<p><img src="../../devicesimages/Mcp3xxx/rpi-trimpot_spi.png" alt="ESP32 Breadboard diagram"></p>
+<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Mcp3xxx/rpi-trimpot_spi.png" alt="ESP32 Breadboard diagram"></p>
 <h2 id="documentation">Documentation</h2>
 <p>The sample is based on following resources:</p>
 <ul>
@@ -139,7 +139,7 @@ using (Mcp3008 mcp = new Mcp3008(spi))
 <li>MCP3008 DIN to MCU MOSI</li>
 <li>MCP3008 CS/SHDN to MCU CE0</li>
 </ul>
-<p><img src="../../devicesimages/Mcp3xxx/rpi-trimpot_spi.png" alt="ESP32 Breadboard diagram"></p>
+<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Mcp3xxx/rpi-trimpot_spi.png" alt="ESP32 Breadboard diagram"></p>
 <h3 id="accessing-the-mcp3008-via-gpio">Accessing the MCP3008 via GPIO</h3>
 <p>You can also access the MCP3008 via GPIO pins, implementing SPI manually. This method is referred to as <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Example_of_bit-banging_the_master_protocol">bit-banging</a>.</p>
 <p>You can use the following code to <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Mcp3xxx/samples/Program.cs">access the MCP3008 via GPIO</a>:</p>
@@ -167,7 +167,7 @@ using (Mcp3008 mcp = new Mcp3008(spi))
 <li>MCP3008 DIN to any valid GPIO on the MCU</li>
 <li>MCP3008 CS/SHDN to any valid GPIO on the MCU</li>
 </ul>
-<p><img src="../../devicesimages/Mcp3xxx/rpi-trimpot_gpio.png" alt="ESP32 Breadboard diagram"></p>
+<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Mcp3xxx/rpi-trimpot_gpio.png" alt="ESP32 Breadboard diagram"></p>
 <h3 id="processing-the-data">Processing the data</h3>
 <p>Independent of the way in which you access the MCP3008 chip, the code to process its results is the same, which follows.</p>
 <pre><code class="lang-csharp">while (true)
