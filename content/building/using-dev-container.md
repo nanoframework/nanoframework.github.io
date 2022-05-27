@@ -18,11 +18,12 @@ We offer the possibility to use such a Dev Container to build any of the support
 ![Docker steetings](../../images/dev-container-docker.jpg)
 
 - **Step 5**: Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed.
-- **Step 6**: copy the file in `CMakeUserPresets-TEMPLATE.json`to `CMakeUserPresets.json`.
-  - Remove the section `user-local-tools`
-  - Rename the section `user-local-tools-container` to `user-local-tools`
+- **Step 6**: copy the existing file (in the root `nf-interpreter` folder) `CMakeUserPresets-TEMPLATE.json`to a (new) file called `CMakeUserPresets.json`.
+  Change the content of your "new" `CMakeUserPresets.json` file as follows:
+  - Remove the json section `user-local-tools` (or rename it e.g. `"name": "user-local-tools-no-container"`)
+  - Rename the json section `user-local-tools-container` to `user-local-tools`
 - **Step 7**: Open the full `nf-interpreter`directory with VS Code.
-- **Step 8**: Chose your container.
+- **Step 8**: Choose your container.
 
 Go to the file `.devcontainer/devcontainer.json` and choose the container you want. You will find the details in the file itself:
 
