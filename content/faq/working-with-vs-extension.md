@@ -7,6 +7,13 @@ To prevent this from happening, you have to open the "Configuration Manager" dia
 To remove the lock on that file open a PowerShell console and execute the following command, being NNNN the process number that shows at the very end of the VS message:
 `Stop-Process -id NNNNN`.
 
+## When opening a Solution, Visual Studio complains about missing references and I see a bunch of red squiggles and there is no Intellisense
+
+This can happen because Visual Studio is having issues resolving types from one or more referenced assemblies.
+Start by restoring the NuGet packages by right clicking on the Solution (in Solution Explorer). Then rebuild.
+If that doesn't work, you can try clean the solution and then close and open the Solution again.
+In case that still doesn't work: close the solution and manually delete the `bin`, `obj` and `.vs` folders. Then open it again, restore the NuGet packages and rebuild. That should take care of it.
+
 ## When I build a project/solutions it fails with an error `NFMDP: Error 0x81010009`. What is this
 
 This happens when you are using a C# feature that is not currently supported by nanoFramework. The most common cases are generics or a complicated Linq expression.
