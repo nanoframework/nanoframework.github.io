@@ -130,6 +130,8 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.WebServer -b main nanoFramework.WebServer 
 
+      git clone https://github.com/nanoframework/nanoFramework.DependencyInjection -b main nanoFramework.DependencyInjection 
+
       git clone https://github.com/nanoframework/System.Device.Dac.git --depth 100 -b main System.Device.Dac
 
       git clone https://github.com/nanoframework/System.Device.Gpio.git --depth 100 -b main System.Device.Gpio 
@@ -360,6 +362,14 @@ steps:
     restoreSolution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.WebServer\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.DependencyInjection
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'nanoFramework.DependencyInjection\nanoFramework.DependencyInjection.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.DependencyInjection\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Dac
@@ -753,6 +763,14 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
   
+- task: VSBuild@1
+  displayName: Build nanoFramework.DependencyInjection
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'nanoFramework.DependencyInjection\nanoFramework.DependencyInjection.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
 - task: VSBuild@1
   displayName: Build System.Device.Dac
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
