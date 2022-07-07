@@ -8,7 +8,7 @@
     <title>C# Coding Style | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="C# Coding Style | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -80,9 +80,9 @@
 <p>For non code files (xml etc) our current best guidance is consistency. When editing files, keep new code and changes consistent with the style in the files. For new files, it should conform to the style for that component. Last, if there's a completely new component, anything that is reasonably broadly accepted is fine.</p>
 <p>The general rule we follow is &quot;use Visual Studio defaults&quot;. For details check the <a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines">Naming Guidelines</a> of .NET guide.</p>
 <ol>
-<li>We use <a href="http://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman style</a> braces, where each brace begins on a new line. A single line statement block can go without braces but the block must be properly indented on its own line and it must not be nested in other statement blocks that use braces.</li>
+<li>We use <a href="http://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman style</a> braces, where each brace begins on a new line. Even a single line statement block should go with braces and nested in other statement blocks that use braces.</li>
 <li>We use four spaces of indentation (no tabs).</li>
-<li>We use <code>_camelCase</code> for internal and private fields and use <code>readonly</code> where possible. Prefix static fields with <code>s_</code> and thread static fields with <code>t_</code>. When used on static fields, <code>readonly</code> should come after <code>static</code> (i.e. <code>static readonly</code> not <code>readonly static</code>).</li>
+<li>We use <code>_camelCase</code> for internal and private fields and use <code>readonly</code> where possible. Prefix static fields can be used with <code>s_</code> and thread static fields with <code>t_</code>. When used on static fields, <code>readonly</code> should come after <code>static</code> (i.e. <code>static readonly</code> not <code>readonly static</code>).</li>
 <li>We avoid <code>this.</code> unless absolutely necessary.</li>
 <li>We always specify the visibility, even if it's the default (i.e.
 <code>private string _foo</code> not <code>string _foo</code>). Visibility should be the first modifier (i.e.
@@ -91,9 +91,11 @@
 <code>namespace</code> declarations and should be sorted alphabetically.</li>
 <li>Avoid more than one empty line at any time. For example, do not have two
 blank lines between members of a type.</li>
+<li>Add an extra empty line after a closing bracket <code>}</code> except if another closing bracket follows or another instruction like <code>else</code> follows.</li>
 <li>Avoid spurious free spaces.
 For example avoid <code>if (someVar == 0)...</code>, where the dots mark the spurious free spaces.
-Consider enabling &quot;View White Space (Ctrl+E, S)&quot; if using Visual Studio, to aid detection.</li>
+Consider enabling &quot;View White Space (Ctrl+E, S)&quot; if using Visual Studio, to aid detection.
+Tip: use <code>clrl+k+d</code> in Visual Studio to clean the indentations, extra spaces</li>
 <li>If a file happens to differ in style from these guidelines (e.g. private members are named <code>m_member</code>
 rather than <code>_member</code>), the existing style in that file takes precedence.</li>
 <li>We only use <code>var</code> when it's obvious what the variable type is (i.e. <code>var stream = new FileStream(...)</code> not <code>var stream = OpenStandardInput()</code>).</li>
@@ -101,11 +103,18 @@ rather than <code>_member</code>), the existing style in that file takes precede
 <li>We use PascalCasing to name all our constant local variables and fields. The only exception is for interop code where the constant value should exactly match the name and value of the code you are calling via interop.</li>
 <li>We use <code>nameof(...)</code> instead of <code>&quot;...&quot;</code> whenever possible and relevant.</li>
 <li>Fields should be specified at the top within type declarations.</li>
+<li>Always add intellisense (the /// comments) on all the public elements, including the return type, the params.</li>
+<li>Use the <em>exception</em> to describe exceptions in the intellisense comment and <strong>avoid</strong> adding text to the exception you raise. This will save space on the PE code. But <strong>do</strong> use them is contributing to the one of the tool like nanoff.</li>
+<li>Don't forget the header, the 2 lines simplified version can be used.</li>
+<li>Try to avoid abbreviation, always use longer names when possible and where it does make sense. It is acceptable for very known ones to use them like HTTP for example. Also, if using abbreviations, the names should follow the the pattern. For example, if you are using <code>HTTP</code> in a name of a function called <code>Something</code>, it will then be <code>HttpSomething</code>. This goes as well for namespaces, classes, properties, variable names.</li>
 </ol>
 <p>We have provided a Visual Studio 2013 vssettings file <code>nnnnn.vssettings</code> at the root of each repository, enabling C# auto-formatting conforming to the above guidelines. Note that rules 7 and 8 are not covered by the vssettings, since these are not rules currently supported by VS formatting.</p>
 <h2 id="example-file">Example File</h2>
 <p><code>ObservableLinkedList`1.cs:</code></p>
-<pre><code class="lang-C#">using System;
+<pre><code class="lang-C#">// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -115,15 +124,30 @@ using Microsoft.Win32;
 
 namespace System.Collections.Generic
 {
+    /// &lt;summary&gt;
+    /// A clear description of whatthis is.
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;T&quot;&gt;A description as well of this generic parameter.&lt;/typeparam&gt;
     public partial class ObservableLinkedList&lt;T&gt; : INotifyCollectionChanged, INotifyPropertyChanged
     {
+        // All constants, public or private goes first
+        private const int CountDefualt = 42;
+        // All variable declarations goes on top
+        // Starting with anything static
         private ObservableLinkedListNode&lt;T&gt; _head;
         private int _count;
 
+        /// &lt;summary&gt;
+        /// Instanciate an ObservableLinkedList class. 
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;items&quot;&gt;An enumerable of items.&lt;/param&gt;
+        /// &lt;exception cref=&quot;ArgumentNullException&quot;&gt;The items parameter can't be null.&lt;/exception&gt;
         public ObservableLinkedList(IEnumerable&lt;T&gt; items)
         {
             if (items == null)
+            {
                 throw new ArgumentNullException(nameof(items));
+            }
 
             foreach (T item in items)
             {
@@ -131,13 +155,21 @@ namespace System.Collections.Generic
             }
         }
 
+        /// &lt;summary&gt;
+        /// A collection change event
+        /// &lt;/summary&gt;
         public event NotifyCollectionChangedEventHandler CollectionChanged;
 
-        public int Count
-        {
-            get { return _count; }
-        }
+        /// &lt;summary&gt;
+        /// Gets the counts.
+        /// &lt;/summary&gt;
+        public int Count =&gt; _count;        
 
+        /// &lt;summary&gt;
+        /// Another good description here. All sentences should finish with a dot.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;value&quot;&gt;A good description of the variable here as well.&lt;/param&gt;
+        /// &lt;returns&gt;And of course the return type as well!&lt;/returns&gt;
         public ObservableLinkedListNode AddLast(T value)
         {
             var newNode = new LinkedListNode&lt;T&gt;(this, value);
@@ -156,37 +188,7 @@ namespace System.Collections.Generic
 
         private void InsertNodeBefore(LinkedListNode&lt;T&gt; node, LinkedListNode&lt;T&gt; newNode)
         {
-           ...
-        }
-
-        ...
-    }
-}
-</code></pre>
-<p><code>ObservableLinkedList`1.ObservableLinkedListNode.cs:</code></p>
-<pre><code class="lang-C#">using System;
-
-namespace System.Collections.Generics
-{
-    partial class ObservableLinkedList&lt;T&gt;
-    {
-        public class ObservableLinkedListNode
-        {
-            private readonly ObservableLinkedList&lt;T&gt; _parent;
-            private readonly T _value;
-
-            internal ObservableLinkedListNode(ObservableLinkedList&lt;T&gt; parent, T value)
-            {
-                Debug.Assert(parent != null);
-
-                _parent = parent;
-                _value = value;
-            }
-
-            public T Value
-            {
-               get { return _value; }
-            }
+            ...
         }
 
         ...

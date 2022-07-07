@@ -8,7 +8,7 @@
     <title>Si7021 - Temperature &amp; Humidity Sensor | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Si7021 - Temperature &amp; Humidity Sensor | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -117,12 +117,12 @@ using (Si7021 sensor = new Si7021(device, Resolution.Resolution1))
         var tempValue = sensor.Temperature;
         var humValue = sensor.Humidity;
 
-        Debug.WriteLine($&quot;Temperature: {tempValue.Celsius:0.#}\u00B0C&quot;);
-        Debug.WriteLine($&quot;Relative humidity: {humValue:0.#}%&quot;);
+        Debug.WriteLine($&quot;Temperature: {tempValue.Celsius:N2}\u00B0C&quot;);
+        Debug.WriteLine($&quot;Relative humidity: {humValue:N2}%&quot;);
 
         // WeatherHelper supports more calculations, such as saturated vapor pressure, actual vapor pressure and absolute humidity.
-        Debug.WriteLine($&quot;Heat index: {WeatherHelper.CalculateHeatIndex(tempValue, humValue).Celsius:0.#}\u00B0C&quot;);
-        Debug.WriteLine($&quot;Dew point: {WeatherHelper.CalculateDewPoint(tempValue, humValue).Celsius:0.#}\u00B0C&quot;);
+        Debug.WriteLine($&quot;Heat index: {WeatherHelper.CalculateHeatIndex(tempValue, humValue).Celsius:N2}\u00B0C&quot;);
+        Debug.WriteLine($&quot;Dew point: {WeatherHelper.CalculateDewPoint(tempValue, humValue).Celsius:N2}\u00B0C&quot;);
         Debug.WriteLine();
 
         Thread.Sleep(1000);

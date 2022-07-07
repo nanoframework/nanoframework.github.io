@@ -8,7 +8,7 @@
     <title>Using Dev Container to build targets | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Using Dev Container to build targets | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -95,14 +95,15 @@
 <p><img src="../../images/dev-container-docker.jpg" alt="Docker steetings"></p>
 <ul>
 <li><strong>Step 5</strong>: Make sure you have the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a> extension installed.</li>
-<li><strong>Step 6</strong>: copy the file in <code>CMakeUserPresets-TEMPLATE.json</code>to <code>CMakeUserPresets.json</code>.
+<li><strong>Step 6</strong>: copy the existing file (in the root <code>nf-interpreter</code> folder) <code>CMakeUserPresets-TEMPLATE.json</code>to a (new) file called <code>CMakeUserPresets.json</code>.
+Change the content of your &quot;new&quot; <code>CMakeUserPresets.json</code> file as follows:
 <ul>
-<li>Remove the section <code>user-local-tools</code></li>
-<li>Rename the section <code>user-local-tools-container</code> to <code>user-local-tools</code></li>
+<li>Remove the json section <code>user-local-tools</code> (or rename it e.g. <code>&quot;name&quot;: &quot;user-local-tools-no-container&quot;</code>)</li>
+<li>Rename the json section <code>user-local-tools-container</code> to <code>user-local-tools</code></li>
 </ul>
 </li>
 <li><strong>Step 7</strong>: Open the full <code>nf-interpreter</code>directory with VS Code.</li>
-<li><strong>Step 8</strong>: Chose your container.</li>
+<li><strong>Step 8</strong>: Choose your container.</li>
 </ul>
 <p>Go to the file <code>.devcontainer/devcontainer.json</code> and choose the container you want. You will find the details in the file itself:</p>
 <pre><code class="lang-json"> // Adjust this file to chose the platform you want using the prebuild containers
