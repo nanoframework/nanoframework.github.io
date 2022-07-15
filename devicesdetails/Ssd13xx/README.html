@@ -157,6 +157,14 @@ ssd1306.DrawDirectAligned(x, y, width, height, buffer);
 ssd1306.ClearDirectAligned(x, y, width, height);
 
 </code></pre>
+<p>To display double byte fonts (for example fonts of Asian languages) you have to set the font to <code>DoubleByteFont()</code>, like this:</p>
+<pre><code class="lang-csharp">device.Font = new DoubleByteFont();
+device.DrawString(2, 2, &quot;功夫＄&quot;, 2, false);
+device.DrawString(2, 34, &quot;８９ＡＢ功夫＄&quot;, 1, true);
+device.Display();
+</code></pre>
+<p>Follows the output on the display:</p>
+<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Ssd13xx/display-with-double-byte-chars.jpg" alt="double-byte.fonts"></p>
 </article>
           </div>
           

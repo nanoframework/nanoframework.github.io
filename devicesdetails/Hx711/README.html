@@ -85,22 +85,41 @@
 <li>Datasheet for the Hx711 ADC can be found <a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/unit/HX711_en.pdf">here</a>.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p><strong>Important</strong>: make sure you setup the SPI pins for ESP32 before creating the <code>Scale</code>. For this, make sure you install the <code>nanoFramework.Hardware.ESP32</code> NuGet:</p>
+<h3 id="signals-and-connections">Signals and connections</h3>
+<p>Check the connections for the WEIGTH module at the <a href="https://docs.m5stack.com/en/unit/weight">product page</a>.
+From the schematic one can see these signals:</p>
+<ul>
+<li>DOUT: Grove connector pin 1</li>
+<li>PDSCK: Grove connector pin 2</li>
+</ul>
+<p>Our code is using SPI to generate the clock signals and read back data from the HX711, so the connections need to match the SPI signals like this:</p>
+<ul>
+<li>MOSI -&gt; PDSCK</li>
+<li>MISO -&gt; DOUT</li>
+</ul>
+<p>SPI clock is not used so feel free to route to an unused GPIO.
+There is also no need for the CS signal so no need to define a pin for it.</p>
+<p><strong>Important</strong>: make sure you setup the SPI pins for ESP32 before creating the <code>Scale</code>. For this, make sure you install the <code>nanoFramework.Hardware.ESP32</code> NuGet.</p>
 <pre><code class="lang-csharp">///////////////////////////////////////////////////////////////////////
 // When connecting to an ESP32 device, need to configure the SPI GPIOs
 // The following mapping is used in order to connect the WEIGTH module
 // to a M5Core device using the Grove port A
-// MOSI: connects to Grove pin 1
-// MISO: connects to Grove pin 2
+// MOSI: connects to WEIGHT Grove pin 2
+// MISO: connects to WEIGHT Grove pin 1
 // CLOCK: connect to any free port as it's not used at all
 Configuration.SetPinFunction(21, DeviceFunction.SPI1_MOSI);
 Configuration.SetPinFunction(22, DeviceFunction.SPI1_MISO);
 Configuration.SetPinFunction(23, DeviceFunction.SPI1_CLOCK);
 </code></pre>
+<blockquote>
+<p><strong>Warning</strong>
+Make sure to follow the instructions above. At first glance they can look contrary to the naming of the signals and schematics in M5Stack documentation. That's because the GROVE connectors are meant to use I2C and their implementation of the driver is different from ours.</p>
+</blockquote>
 <p>For other devices, like STM32, please make sure you're using the pins for the UART you want to use.</p>
+<h3 id="configuring-spi">Configuring SPI</h3>
 <pre><code class="lang-csharp">// setup SPI connection settings
 // the clock value was adjusted in order to get the typical duration expected by the PD_SCK ~1us
-var spisettings = new SpiConnectionSettings(1, 19)
+var spisettings = new SpiConnectionSettings(1)
 {
     ClockFrequency = Scale.DefaultClockFrequency
 };
