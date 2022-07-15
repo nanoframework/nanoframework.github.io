@@ -132,6 +132,8 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.DependencyInjection -b main nanoFramework.DependencyInjection 
 
+      git clone https://github.com/nanoframework/nanoFramework.Hosting -b main nanoFramework.Hosting 
+
       git clone https://github.com/nanoframework/System.Device.Dac.git --depth 100 -b main System.Device.Dac
 
       git clone https://github.com/nanoframework/System.Device.Gpio.git --depth 100 -b main System.Device.Gpio 
@@ -370,6 +372,14 @@ steps:
     restoreSolution: 'nanoFramework.DependencyInjection\nanoFramework.DependencyInjection.sln'
     feedsToUse: config
     nugetConfigPath: 'nanoFramework.DependencyInjection\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Hosting
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    restoreSolution: 'nanoFramework.Hosting\nanoFramework.Hosting.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Hosting\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.Device.Dac
@@ -768,6 +778,14 @@ steps:
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   inputs:
     solution: 'nanoFramework.DependencyInjection\nanoFramework.DependencyInjection.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.Hosting
+  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  inputs:
+    solution: 'nanoFramework.Hosting\nanoFramework.Hosting.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
