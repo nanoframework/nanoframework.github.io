@@ -168,6 +168,8 @@ steps:
 
       git clone https://github.com/nanoframework/System.Device.WiFi.git --depth 100 -b main System.Device.WiFi 
 
+      git clone https://github.com/nanoframework/nanoFramework.Benchmark -b main nanoFramework.Benchmark 
+
       git clone https://github.com/nanoframework/nanoFramework.Graphics -b main nanoFramework.Graphics 
 
       git clone https://github.com/nanoframework/nanoFramework.Hardware.Esp32 -b main nanoFramework.Hardware.Esp32
@@ -729,6 +731,22 @@ steps:
     restoreSolution: 'System.Device.WiFi\nanoFramework.System.Device.WiFi.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.WiFi\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore nanoFramework.Benchmark
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    restoreSolution: 'nanoFramework.Benchmark\nanoFramework.Benchmark.sln'
+    feedsToUse: config
+    nugetConfigPath: 'nanoFramework.Benchmark\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore nanoFramework.Graphics
@@ -1535,6 +1553,22 @@ steps:
     )
   inputs:
     solution: 'System.Device.WiFi\nanoFramework.System.Device.WiFi.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build nanoFramework.Benchmark
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    solution: 'nanoFramework.Benchmark\nanoFramework.Benchmark.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
