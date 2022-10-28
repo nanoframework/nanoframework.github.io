@@ -108,7 +108,7 @@ Follows a list of the build options to use in the CMake presets.
   - Allows you to specify whether PWM functions are available to your application. Default is OFF.
 - "API_Windows.Devices.SerialCommunication" : "**OFF**"
   - Allows you to specify whether Serial Communication functions are available to your application. Default is OFF.
-- "API_Windows.Devices.Spi" : "**OFF**"
+- "API_System.Device.Spi" : "**OFF**"
   - Allows you to specify whether SPI functions are available to your application. Default is OFF.
 - "API_Windows.Networking.Sockets" : "**OFF**"
   - Allows you to specify whether Networking Sockets functions are available to your application. Default is OFF.
