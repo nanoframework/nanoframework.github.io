@@ -7,7 +7,7 @@ This document describes how to use and modify the **CMakePresets.json** and **CM
 ## Build options for CMake Presets
 
 Below is a list of the build options available (last updated October 2022) for target boards.
-***Note:*** some of these options are specific to the `RTOS` or target type. 
+***Note:*** some of these options are specific to the `RTOS` or target type.
 
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
   - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md#how-to-prevent-a-board-from-updating-if-working-on-a-custom-firmware)
@@ -174,6 +174,6 @@ Below is a list of the build options available (last updated October 2022) for t
 
 - "USE_FPU"
 
-
 ## Updating from CMake Variants
+
 Please refer to [this blog post](https://www.nanoframework.net/build-updated-to-cmake-presets/) about the move to CMake presets.
