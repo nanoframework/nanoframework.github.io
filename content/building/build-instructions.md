@@ -131,4 +131,4 @@ Don't forget to:
 
 - make this change under appropriate target block, as described [here](cmake-presets.md)
 - re-select the CMake target (VSCode bottom line) to reconfigure the build.
-- you're better running CMake command: 'delete cache and reconfigure' for this to become effective
+- you're better running CMake command: 'delete cache and reconfigure' for this to become effective.
