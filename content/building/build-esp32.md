@@ -21,7 +21,7 @@ If you prefer to install all the tools needed on your Windows machine, you shoul
 
 You'll need:
 
-- [Visual Studio Code](http://code.visualstudio.com/).Additional extensions and setup steps follow below. [Set up Visual Code](#Set-up-Visual-Code)
+- [Visual Studio Code](http://code.visualstudio.com/). Additional extensions and setup steps follow below.
 - Visual Studio Code Extensions
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)

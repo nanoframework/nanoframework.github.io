@@ -50,6 +50,10 @@ The flags property are meant to contain a bit flags value. They are not used in 
 The ***NativeMethodsChecksum*** is a unique value that is matched against the native methods table stored in the CLR firmware to ensure the methods match. The actual algorithm used for computing this checksum are documented in the [NativeMethodsChecksum Algorithm] document. Though, it worth noting that the actual algorithm doesn't matter. Nothing in the runtime will compute this value. The runtime only compares the assembly's value with the one for the native code registered for a given assembly to ensure they match. As long as the tool generating the assembly and the native method stubs header and code files use the same value then the actual algorithm is mostly irrelevant. The most important aspect of the algorithm chosen is that any change to any type or method signature
 of any type with native methods **MUST** generate a distinct checksum value. The current MetadataProcessor algorithm constructs a mangled string name for the native methods (used to generate the stubs), sorts them all and runs a CRC32 across them to get a distinct value. Since the CRC is based on the fully qualified method name and the types of all parameters any change of the signatures will generate a new value - denoting a mismatch.
 
+### NativeMethodsOffset
+
+(TBD)
+
 ### Version
 
 The ***Version*** field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the debugger for version checks at deployment time. The runtime itself doesn't use versions to resolve references, as only one version of an assembly can be loaded at a time. Thus assembly references in the PE format don't include a version.

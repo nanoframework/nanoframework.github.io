@@ -21,7 +21,7 @@ If you prefer to install all the tools needed on your Windows machine, you shoul
 
 You'll need:
 
-- [Visual Studio Code](http://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - Visual Studio Code Extensions
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
@@ -29,7 +29,7 @@ You'll need:
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - OpenOCD. We suggest [Microsoft build](https://github.com/microsoft/openocd) which provides a Windows distribution including convenient fixes for working with Azure RTOS.
-- [ChibiOS](http://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `CHIBIOS_SOURCE_FOLDER` build option (more info [here](#Set-up-Visual-Studio-Code)).
+- [ChibiOS](https://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `CHIBIOS_SOURCE_FOLDER` build option (more info [here](#set-up-visual-studio-code)).
 
 All the the above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries STM32` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).
 
