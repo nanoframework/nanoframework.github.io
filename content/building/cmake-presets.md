@@ -90,7 +90,7 @@ Follows a list of the build options to use in the CMake presets.
   - Path to an optional local with mbedTLS source files.
 - "API_nanoFramework.Device.OneWire" : "**OFF**"
   - Allows you to specify whether support for Devices.OneWire is available to your application. Default is OFF.
-- "API_System.Devices.Dac" : "**OFF**"
+- "API_System.Device.Dac" : "**OFF**"
   - Allows you to specify whether DAC functions are available to your application. Default is OFF.
 - "API_System.Math" : "**OFF**"
   - Allows you to specify whether System.Math support is available to your application. Default is OFF.
