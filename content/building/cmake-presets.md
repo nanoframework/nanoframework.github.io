@@ -88,7 +88,7 @@ Follows a list of the build options to use in the CMake presets.
   - Enables support for secure sockets using mbedTLS. Default is OFF.
 - "MBEDTLS_SOURCE" : "**OFF**"
   - Path to an optional local with mbedTLS source files.
-- "API_nanoFramework.Devices.OneWire" : "**OFF**"
+- "API_nanoFramework.Device.OneWire" : "**OFF**"
   - Allows you to specify whether support for Devices.OneWire is available to your application. Default is OFF.
 - "API_System.Devices.Dac" : "**OFF**"
   - Allows you to specify whether DAC functions are available to your application. Default is OFF.
