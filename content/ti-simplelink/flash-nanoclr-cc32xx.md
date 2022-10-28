@@ -12,7 +12,7 @@ Assuming that Uniflash tool and the USB drivers are properly installed, follows 
 1. Connect the board using the USB cable.
 1. Start Uniflash. The board should be detected and listed.
 ![uniflash-start-screen](../../images/ti/ti-uniflash-start-screen.png)
-1. Click the **Start** button there and select the project corresponding to your board. This is assuming that you've created that project beforehand. If that's not the case, please follow the walk-through [here](#Prepare-a-Uniflash-project-for-a-CC32xx-board).
+1. Click the **Start** button there and select the project corresponding to your board. This is assuming that you've created that project beforehand. If that's not the case, please follow the walk-through [here](#prepare-a-uniflash-project-for-a-cc32xx-board).
 1. Select the nanoCLR image file by clicking **Browse** and navigating to the folder/file where the `nanoCLR.bin` is located. (Make sure you do select the file with _bin_ extension).
 ![uniflash-project-loaded-screen](../../images/ti/ti-uniflash-browse-image.png)
 1. Click the **Connect** button.

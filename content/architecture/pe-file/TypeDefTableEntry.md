@@ -20,7 +20,7 @@ The MethodRef table contains entries with the following structure:
 | InstanceFieldsCount | uint8_t | Count of instance fields for the type|
 | FirstGenericParam   | GenericParamTableIndex | Index into [GenericParam table](GenericParamTableEntry.md) for the first generic parameter for the type|
 | GenericParamCount   | uint8_t | Count of generic parameters for the type|
-| Flags               | [TypeDefFlags](#TypeDefFLags) | Flags defining intrinsic attributes and access modifiers for the type|
+| Flags               | [TypeDefFlags](#typedefflags) | Flags defining intrinsic attributes and access modifiers for the type|
 
 ## TypeDefFlags
 
