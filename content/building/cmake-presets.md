@@ -98,7 +98,7 @@ Follows a list of the build options to use in the CMake presets.
   - Allows you to specify whether System.Net support is available to your application. Default is OFF.
 - "API_nanoFramework.Device.Can" : "**OFF**"
   - Allows you to specify whether CAN bus functions are available to your application. Default is OFF.
-- "API_Windows.Devices.Adc" : "**OFF**"
+- "API_System.Device.Adc" : "**OFF**"
   - Allows you to specify whether ADC functions are available to your application. Default is OFF.
 - "API_Windows.Devices.Gpio" : "**OFF**"
   - Allows you to specify whether GPIO functions are available to your application. Default is OFF.
