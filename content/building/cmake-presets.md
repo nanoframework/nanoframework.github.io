@@ -6,7 +6,8 @@ This document describes how to use and modify the **CMakePresets.json** and **CM
 
 ## Build options for CMake Presets
 
-Follows a list of the build options to use in the CMake presets.
+Below is a list of the build options available (last updated October 2022) for target boards.
+***Note:*** some of these options are specific to the `RTOS` or target type. 
 
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
   - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md#how-to-prevent-a-board-from-updating-if-working-on-a-custom-firmware)
@@ -89,7 +90,7 @@ Follows a list of the build options to use in the CMake presets.
 - "MBEDTLS_SOURCE" : "**OFF**"
   - Path to an optional local with mbedTLS source files.
 - "API_nanoFramework.Device.OneWire" : "**OFF**"
-  - Allows you to specify whether support for Devices.OneWire is available to your application. Default is OFF.
+  - Allows you to specify whether support for OneWire functions are available to your application. Default is OFF.
 - "API_System.Device.Dac" : "**OFF**"
   - Allows you to specify whether DAC functions are available to your application. Default is OFF.
 - "API_System.Math" : "**OFF**"
@@ -120,5 +121,54 @@ Follows a list of the build options to use in the CMake presets.
 - "API_Hardware.Stm32" : "**OFF**"
   - Allows you to specify whether Hardware.Stm32 functions are available to your application. Default is OFF.
   Note that this API is exclusive of STM32 targets and can't be used with any other.
+- "API_nanoFramework.ResourceManager" : "**OFF**"
 
+- "API_nanoFramework.System.Collections" : "**OFF**"
+
+- "API_nanoFramework.System.Text" : "**OFF**"
+
+- "API_System.Device.Wifi" : "**OFF**"
+
+- "API_nanoFramework.Device.Bluetooth" : "**OFF**"
+
+- "API_System.IO.FileSystem" : "**OFF**"
+
+- "ESP32_SPIRAM_FOR_IDF_ALLOCATION"
+
+- "API_nanoFramework.Graphics" : "**OFF**"
+
+    - "GRAPHICS_MEMORY": "Graphics_Memory.cpp",
+    - "GRAPHICS_DISPLAY": "Otm8009a_DSI_Video_Mode.cpp",
+    - "GRAPHICS_DISPLAY_INTERFACE": "DSI_To_Display_Video_Mode.cpp",
+    - "TOUCHPANEL_DEVICE": "ft6x06_I2C.cpp",
+    - "TOUCHPANEL_INTERFACE": "I2C_To_TouchPanel.cpp"
+
+- "NF_FEATURE_HAS_SDCARD" : "**OFF**"
+
+- "ESP32_ETHERNET_SUPPORT" : "**OFF**"
+
+    - "ESP32_ETHERNET_INTERFACE"
+    - "ETH_PHY_RST_GPIO"
+    - "ETH_RMII_CLK_OUT_GPIO"
+    - "ETH_RMII_CLK_IN_GPIO"
+    - "ETH_MDIO_GPIO"
+    - "ETH_MDC_GPIO"
+
+- "ESP32_CONFIG_PIN_PHY_POWER"
+- "ESP32_CONFIG_PHY_CLOCK_MODE"
+- "ESP32_USB_CDC"
+
+- "SDK_CONFIG_FILE"
+
+- "API_nanoFramework.TI.EasyLink" : "**OFF**"
+- "API_nanoFramework.Hardware.TI" : "**OFF**"
+
+- "NF_TARGET_HAS_NANOBOOTER" : "**ON**"
+
+- "USE_FPU"
+
+- "NF_FEATURE_HAS_USB_MSD"
+
+
+## Updating from CMake Variants
 Please refer to [this blog post](https://www.nanoframework.net/build-updated-to-cmake-presets/) about the move to CMake presets.
