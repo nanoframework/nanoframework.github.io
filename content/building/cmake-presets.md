@@ -39,14 +39,65 @@ Below is a list of the build options available (last updated October 2022) for t
   - Defines which bases are supported when performing string to value conversions. When ON support for any base is enabled. When OFF (the default) the image will be compiled with support for base 10 and base 16 only.
 - "RTOS" : "**one-of-valid-rtos-options**"
   - Defines the RTOS that will be used to build nanoFramework. Valid options: ChibiOS, ESP32, AzureRTOS and FreeRTOS.
-- "CHIBIOS_SOURCE_FOLDER" : "**absolute-path-to-chibios-source-mind-the-forward-slash**"
-  - Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources automatically from the RTOS repository when required.
+- "CHIBIOS_SOURCE_FOLDER" : ""
+  - Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources automatically from ChibiOS SVN repository when required. Mind the forward slash.
 - "CHIBIOS_HAL_REQUIRED" : "**OFF**"
   - Set to ON to include ChibiOS HAL repository in the build.
+- "CHIBIOS_HAL_SOURCE": ""
+  - Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources automatically from ChibiOS SVN repository when required. Mind the forward slash.
+- "CHIBIOS_HAL_VERSION": ""
+  - Valid ChibiOS version. If empty use default CMake setting.
+- "CHIBIOS_CONTRIB_REQUIRED": "OFF"
+  - Set to ON to include ChibiOS Contrib repository in the build.
+- "CHIBIOS_CONTRIB_SOURCE": ""
+  - Path to an optional local installation of ChibiOS Contrib source files. If no path is given, then CMake will download the sources automatically from ChibiOS Contrib repository when required. Mind the forward slash.
+- "FREERTOS_SOURCE_FOLDER": ""
+  - Path to an optional local installation of FreeRTOS source files. If no path is given, then CMake will download the sources automatically from FreeRTOS repository when required. Mind the forward slash.
+- "CMSIS_SOURCE": ""
+  - Path to an optional local installation of CMSIS source files. If no path is given, then CMake will download the sources automatically from CMSIS repository when required. Mind the forward slash.
+- "CMSIS_VERSION": ""
+  - Valid CMSIS version. If empty use default CMake setting.
+- "STM32_CUBE_PACKAGE_REQUIRED": "OFF"
+  - Set to ON to include STM Cube package in the build.
+- "STM32_HAL_DRIVER_SOURCE": ""
+  - Path to an optional local installation of CMSIS source files. If no path is given, then CMake will download the sources automatically from CMSIS repository when required. Mind the forward slash.
+- "STM32_CMSIS_DEVICE_SOURCE": ""
+  - Path to an optional local installation of CMSIS device source files. If no path is given, then CMake will download the sources automatically from CMSIS device repository when required. Mind the forward slash.
+- "STM32_CMSIS_CORE_SOURCE": ""
+  - Path to an optional local installation of SMT32 CMSIS source files. If no path is given, then CMake will download the sources automatically from SMT32 CMSIS repository when required. Mind the forward slash.
+- "TI_SL_CC32xx_SDK_SOURCE": ""
+  - Path to an optional local installation of SMT32 CMSIS source files. If no path is given, then CMake will download the sources automatically from SMT32 CMSIS repository when required. Mind the forward slash.
+<path-to-local-TI_SimpleLink-CC32xx-SDK-source-mind-the-forward-slash>",
+- "TI_SL_CC13xx_26xx_SDK_SOURCE": ""
+  - Path to an optional local installation of TI SimpleLink CC13xx_26xx SDK source files. If no path is given, then CMake will download the sources automatically from TI SimpleLink CC13xx_26xx SDK repository when required. Mind the forward slash.
+- "TI_XDCTOOLS_SOURCE": ""
+  - Path to an optional local installation of TI XDC Tools source files. If no path is given, then CMake will download the sources automatically from TI XDC Tools repository when required. Mind the forward slash.
+- "TI_SYSCONFIG_SOURCE": ""
+  - Path to an optional local installation of TI SysConfig source files. If no path is given, then CMake will download the sources automatically from TI SysConfig repository when required. Mind the forward slash.
+- "RADIO_FREQUENCY": "915",
+  - Valid frequency for CC13xx_26xx targets. Possible values are 868 and 915.
+- "SPIFFS_SOURCE": ""
+  - Path to an optional local installation of Spiffs source files. If no path is given, then CMake will download the sources automatically from Spiffs repository when required. Mind the forward slash.
+- "FATFS_SOURCE": ""
+  - Path to an optional local installation of FatFS source files. If no path is given, then CMake will download the sources automatically from FatFS repository when required. Mind the forward slash.
+- "FATFS_VERSION": ""
+  - Valid FatFS version. If empty use default CMake setting.
+- "LWIP_VERSION": ""
+  - Valid lwIP version. If empty use default CMake setting.
+- "ESP32_XTAL_FREQ_26": "OFF"
+  - Set to ON to enable XTAL frequency to 26M.
+- "ESP32_USB_CDC": "OFF"
+  - Set to ON to enable embedded USB CDC. Valid for ESP32_S2 series.
+- "ESP32_ETHERNET_SUPPORT": "OFF"
+  - Set to ON to enable Ethernet support for ESP32 target.
+- "SDK_CONFIG_FILE": ""
+  - Path to an optional location of IDF SDK config file. If no path is given, then CMake will build one according to the target and relevant build options.
 - "SWO_OUTPUT" : "**OFF**"
   - Allows specifying whether to include, or not, support for Cortex-M Single Wire Output (SWO). Default is OFF. Check the documentation [here](../contributing/developing-native/arm-swo.md) for more details on how to use SWO.
 - "NF_BUILD_RTM" : "**OFF**"
   - Sets if the build is of **R**eady **T**o **M**arket type. Meaning that all debug helpers and code blocks will be removed from compilation and the build will be compiled and linked with all possible code reducing options enabled.
+- "NF_TRACE_TO_STDIO": "OFF"
+  - Set to ON to enable trace messages to stdio.
 - "NF_WP_TRACE_ERRORS" : "**OFF**"
   - Enable error tracing in Wire Protocol.
 - "NF_WP_TRACE_HEADERS" :  "**OFF**"
@@ -65,6 +116,8 @@ Below is a list of the build options available (last updated October 2022) for t
   - Allows you to specify whether to use the real time clock unit of the hardware for date & time functions. Depends on target availability. Default is OFF.
 - "NF_FEATURE_USE_APPDOMAINS" : "**OFF**"
   - Allows you to specify whether to include, or not, support for Application Domains. Default is OFF. More information about this is available in the documentation [here](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). **Note that the complete removal of support for this feature is being considered (see issue [here](https://github.com/nanoframework/nf-interpreter/issues/303)).**
+- "NF_FEATURE_SUPPORT_REFLECTION": "ON"
+  - Set to OFF to disable support for System.Reflection API.
 - "NF_FEATURE_WATCHDOG" : "**ON**"
   - Allows you to define it the hardware watchdog should be disabled.
    This setting can only be set to OFF for STM32 targets. ESP32 build enables this by default so there is no way to disable it.
@@ -148,31 +201,37 @@ Below is a list of the build options available (last updated October 2022) for t
     - "GRAPHICS_DISPLAY_INTERFACE"
     - "TOUCHPANEL_DEVICE"
     - "TOUCHPANEL_INTERFACE"
-
 - "NF_FEATURE_HAS_SDCARD" : "**OFF**"
+  - Set to ON to enable support for SDCard storage device.
 - "NF_FEATURE_HAS_USB_MSD" : "**OFF**"
-
+  - Set to ON to enable support for USB Mass storage device.
+- "NF_FEATURE_USE_SPIFFS": "OFF"
+  - Set to ON to enable support for SPI flash file system.
 - "ESP32_ETHERNET_SUPPORT" : "**OFF**"
   - Allows you to specify whether Ethernet support is available for ESP32. Default is OFF.
   Note that this API has the following sub options:
-    - "ESP32_ETHERNET_INTERFACE"
+    - "ESP32_ETHERNET_INTERFACE":
+      - Type of PHY or SPI device used leave empty to use default Lan8720.
     - "ETH_PHY_RST_GPIO"
+      - GPIO number for PHY reset leave empty to use default of none.
     - "ETH_RMII_CLK_OUT_GPIO"
+      - GPIO number that will output the RMII CLK signal leave empty if not used.
     - "ETH_RMII_CLK_IN_GPIO"
-    - "ETH_MDIO_GPIO"
-    - "ETH_MDC_GPIO"
-
+      - GPIO number that will be input for RMII CLK signal leave empty if not used.
+    - "ETH_PHY_ADDR": ""
+      - Address of the PHY chip leave empty to use default.
+    - "ETH_MDC_GPIO": ""
+      - GPIO number for SMI MDC pin leave empty to use default.
+    - "ETH_MDIO_GPIO": ""
+      - GPIO number for SMI MDIO pin leave empty to use default.
 - "ESP32_CONFIG_PIN_PHY_POWER" : Not used?!
 - "ESP32_CONFIG_PHY_CLOCK_MODE" : Not used?!
-- "ESP32_USB_CDC"
-
-- "ESP32_SPIRAM_FOR_IDF_ALLOCATION"
-
-- "SDK_CONFIG_FILE"
-
+- "ESP32_SPIRAM_FOR_IDF_ALLOCATION" : ""
+  - Set a value to reserve from SPI RAM for IDF allocation.
 - "NF_TARGET_HAS_NANOBOOTER" : "**ON**"
-
-- "USE_FPU"
+  - Set to OFF to signal that target does not have nanoBooter.
+- "USE_FPU" : "OFF"
+  - Set to ON to enable FP usage. Depends on platform and MCU availability.
 
 ## Updating from CMake Variants
 
