@@ -122,31 +122,39 @@ Below is a list of the build options available (last updated October 2022) for t
   - Allows you to specify whether Hardware.Stm32 functions are available to your application. Default is OFF.
   Note that this API is exclusive of STM32 targets and can't be used with any other.
 - "API_nanoFramework.ResourceManager" : "**OFF**"
-
+- "API_nanoFramework.TI.EasyLink" : "**OFF**"
+  - Allows you to specify whether TI.EasyLink functions are available to your application. Default is OFF.
+  Note that this API is exclusive for TI targets and can't be used with any other.
+- "API_nanoFramework.Hardware.TI" : "**OFF**"
+  - Allows you to specify whether Hardware.TI functions are available to your application. Default is OFF.
+    Note that this API is exclusive for TI targets and can't be used with any other.
 - "API_nanoFramework.System.Collections" : "**OFF**"
-
+  - Allows you to specify whether System.Collections functions are available to your application. Default is OFF.
 - "API_nanoFramework.System.Text" : "**OFF**"
-
+  - Allows you to specify whether System.Text functions are available to your application. Default is OFF.
 - "API_System.Device.Wifi" : "**OFF**"
-
+  - Allows you to specify whether Device.Wifi functions are available to your application. Default is OFF.
+  Note that this API is exclusive of ESP32 targets and can't be used with any other.
 - "API_nanoFramework.Device.Bluetooth" : "**OFF**"
-
+  - Allows you to specify whether Device.Bluetooth functions are available to your application. Default is OFF.
+  Note that this API is exclusive of ESP32 targets and can't be used with any other.
 - "API_System.IO.FileSystem" : "**OFF**"
-
-- "ESP32_SPIRAM_FOR_IDF_ALLOCATION"
-
+  - Allows you to specify whether System.IO.FileSystem functions are available to your application. Default is OFF.
 - "API_nanoFramework.Graphics" : "**OFF**"
-
-    - "GRAPHICS_MEMORY": "Graphics_Memory.cpp",
-    - "GRAPHICS_DISPLAY": "Otm8009a_DSI_Video_Mode.cpp",
-    - "GRAPHICS_DISPLAY_INTERFACE": "DSI_To_Display_Video_Mode.cpp",
-    - "TOUCHPANEL_DEVICE": "ft6x06_I2C.cpp",
-    - "TOUCHPANEL_INTERFACE": "I2C_To_TouchPanel.cpp"
+  - Allows you to specify whether Graphics functions are available to your application. Default is OFF.
+  Note that this API has the following sub options required depending on target:
+    - "GRAPHICS_MEMORY"
+    - "GRAPHICS_DISPLAY"
+    - "GRAPHICS_DISPLAY_INTERFACE"
+    - "TOUCHPANEL_DEVICE"
+    - "TOUCHPANEL_INTERFACE"
 
 - "NF_FEATURE_HAS_SDCARD" : "**OFF**"
+- "NF_FEATURE_HAS_USB_MSD" : "**OFF**"
 
 - "ESP32_ETHERNET_SUPPORT" : "**OFF**"
-
+  - Allows you to specify whether Ethernet support is available for ESP32. Default is OFF.
+  Note that this API has the following sub options:
     - "ESP32_ETHERNET_INTERFACE"
     - "ETH_PHY_RST_GPIO"
     - "ETH_RMII_CLK_OUT_GPIO"
@@ -154,20 +162,17 @@ Below is a list of the build options available (last updated October 2022) for t
     - "ETH_MDIO_GPIO"
     - "ETH_MDC_GPIO"
 
-- "ESP32_CONFIG_PIN_PHY_POWER"
-- "ESP32_CONFIG_PHY_CLOCK_MODE"
+- "ESP32_CONFIG_PIN_PHY_POWER" : Not used?!
+- "ESP32_CONFIG_PHY_CLOCK_MODE" : Not used?!
 - "ESP32_USB_CDC"
 
-- "SDK_CONFIG_FILE"
+- "ESP32_SPIRAM_FOR_IDF_ALLOCATION"
 
-- "API_nanoFramework.TI.EasyLink" : "**OFF**"
-- "API_nanoFramework.Hardware.TI" : "**OFF**"
+- "SDK_CONFIG_FILE"
 
 - "NF_TARGET_HAS_NANOBOOTER" : "**ON**"
 
 - "USE_FPU"
-
-- "NF_FEATURE_HAS_USB_MSD"
 
 
 ## Updating from CMake Variants
