@@ -144,6 +144,8 @@ steps:
 
       git clone https://github.com/nanoframework/System.Device.I2c.git --depth 100 -b main System.Device.I2c
 
+      git clone https://github.com/nanoframework/System.Device.I2s.git --depth 100 -b main System.Device.I2s
+
       git clone https://github.com/nanoframework/System.IO.FileSystem.git --depth 100 -b main System.IO.FileSystem
 
       git clone https://github.com/nanoframework/System.IO.Streams.git --depth 100 -b main System.IO.Streams
@@ -539,6 +541,22 @@ steps:
     restoreSolution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     feedsToUse: config
     nugetConfigPath: 'System.Device.I2c\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Device.I2s
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    restoreSolution: 'System.Device.I2s\nanoFramework.System.Device.I2s.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.I2s\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore System.IO.FileSystem
@@ -1361,6 +1379,22 @@ steps:
     )
   inputs:
     solution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSBuild@1
+  displayName: Build System.Device.I2s
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    solution: 'System.Device.I2s\nanoFramework.System.Device.I2s.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
