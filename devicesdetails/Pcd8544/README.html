@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PCD8544 - 48 &#215; 84 pixels matrix LCD, famous Nokia 5110 screen | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PCD8544 - 48 &#215; 84 pixels matrix LCD, famous Nokia 5110 screen | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="pcd8544---48--84-pixels-matrix-lcd-famous-nokia-5110-screen">PCD8544 - 48 × 84 pixels matrix LCD, famous Nokia 5110 screen</h1>
+
+<p>This is the famous screen that Nokia 5110 used. It's a SPI based device. This Nokia 5110 was very popular and many of us used to have it in their hands and that young generation have seen it in pictures. This LCD is quite cheap and easy to use.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>Nokia5110 <a href="https://www.sparkfun.com/datasheets/LCD/Monochrome/Nokia5110.pdf">datasheet</a></li>
+</ul>
+<h2 id="circuit">Circuit</h2>
+<p><img src="../../devicesimages/Pcd8544/ESP32-PCD8544_bb.png" alt="Connecting ESP32 &amp; Pcd8544"></p>
+<p>It uses SPI and you can add PWM to control the 4 leds brightness which are around the screen. The pin have various names like  BL or LED.</p>
+<p>It requires as well a GPIO controller on top of the SPI device with a pin called Data Control, most often presented as DC.</p>
+<p>In this schema, the Chip Select (active low) is most of the time called CE. The SPI Clock has to be connected to CLK or SCLK. And the MOSI pin to DIN or MOSI. Names for the pins varies a bit.</p>
+<p>Reset pin is sometimes called RST.</p>
+<p>Supply voltage can vary, 3.3 or 5V, up to 7V is acceptable. Make sure that there is a current limiting resistor between the brightness led and the controller you'll plug. Most of the kits you buy have it. If you don't add one, you will damage the external brightness leds.</p>
+<p>The following example shows how to setup the screen with a PWM to control the brightness:</p>
+<pre><code class="lang-csharp">var resetPin = 32;
+var dataCommandPin = 33;
+var backlightPin = 21;
+
+var gpioController = new GpioController();
+var spiConnectionSettings = new SpiConnectionSettings(1, 5)
+{
+    ClockFrequency = 5_000_000,
+    Mode = SpiMode.Mode0,
+    DataFlow = DataFlow.MsbFirst,
+    ChipSelectLineActiveState = PinValue.Low
+};
+var spiDevice = new SpiDevice(spiConnectionSettings);
+var pwmChannel = PwmChannel.CreateFromPin(backlightPin);
+
+var lcd = new Iot.Device.Pcd8544(dataCommandPin, spiDevice, resetPin, pwmChannel, gpioController, false);
+</code></pre>
+<p>If you don't want neither a PWM neither a reset pin, you can then pass a negative pin number for reset and null for the PWM:</p>
+<pre><code class="lang-csharp">lcd = new(27, spi, -1, null);
+
+var lcd = new Iot.Device.Pcd8544(dataCommandPin, spiDevice, -1, null);
+</code></pre>
+<p>Note that there is as well the possibility to pass a normal pin number for the backlight. In this case, the light will be on once the <code>BacklightBrightness</code> property if more then 0.5, otherwise off.</p>
+<h3 id="displaying-text">Displaying text</h3>
+<p>Like for other screen bindings in this repository you have <code>Write</code> and <code>SetCursorPosition</code> to write text and set the cursor position.</p>
+<p>A specific font is available and optimized for the screen. The font only contains a limited number of characters and will just ignore any characters that are unknown.</p>
+<pre><code class="lang-csharp">lcd.SetCursorPosition(0, 0);
+lcd.WriteLine(&quot;First line&quot;);
+lcd.Write(&quot;Second one&quot;);
+lcd.SetCursorPosition(0, 5);
+lcd.Write(&quot;last line&quot;);
+</code></pre>
+<p>The position of the cursor moves with the text you write. The screen has 6 lines in total. And a character is 5 pixels width and 8 pixels height.</p>
+<p>You can as well provide your own character using the <code>Write(ReadOnlySpan&lt;byte&gt; text)</code> function.</p>
+<h3 id="drawing-lines-rectangles-and-points">Drawing lines, rectangles and points</h3>
+<p>Point, line and rectangle primitives are available:</p>
+<pre><code class="lang-csharp">lcd.DrawPoint(5, 5, true);
+lcd.DrawLine(0, 0, 15, 35, true);
+lcd.DrawRectangle(10, 30, 10, 20, true, true);
+lcd.DrawRectangle(12, 32, 6, 16, false, true);
+// You should not forget to draw what you have in memory
+lcd.Draw();
+</code></pre>
+<p>Each can take <code>Point</code>, <code>Size</code> and <code>Rectangle</code> as well as input. You have to decide if you want to have the point on or off and if you fill or not the rectangle.</p>
+<p>Also you should <code>Refresh</code> the screen once you'll finish your drawing. All drawing are in the memory and needs to be pushed to the screen.</p>
+<h3 id="displaying-raw-images">Displaying raw images</h3>
+<p>The function SetByteMap allows you to draw anything, you'll just need to provide the raw buffer. Size is 504 bytes representing from the top left part columns of 8 pixels up to the right up to the next raw. A total of 6 raws are available with 84 columns each.</p>
+<p>Here is an example on how you can convert an existing image to extract the raw data then convert it into a C# array you can copy into your code:</p>
+<pre><code class="lang-csharp">using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+
+var imageFilePath = args[0];
+using var image = Image.Load&lt;Rgba32&gt;(imageFilePath);
+image.Mutate(x =&gt; x.Resize(new Size(84, 48)));
+image.Mutate(x =&gt; x.BlackWhite());
+
+var colWhite = new Rgba32(255, 255, 255);
+var width = 84;
+var result = new byte[504];
+for (var pos = 0; pos &lt; result.Length; pos++)
+{
+    byte toStore = 0;
+    for (int bit = 0; bit &lt; 8; bit++)
+    {
+        var x = pos % width;
+        var y = pos / width * 8 + bit;
+        toStore = (byte)(toStore | ((image[x, y] == colWhite ? 0 : 1) &lt;&lt; bit));
+    }
+
+    result[pos] = toStore;
+}
+
+var resultString = $&quot;var bitmap = new byte[] {{{String.Join(&quot;,&quot;, result.Select(b =&gt; $&quot;0x{b.ToString(&quot;X2&quot;)}&quot;))}}}&quot;;
+Console.WriteLine(resultString);
+Console.ReadKey();
+</code></pre>
+<p>In case you want to convert existing images which have a different size than the 84x48 screen size, you have to resize the picture like this using ImageSharp and convert it to Black and White:</p>
+<pre><code class="lang-csharp">// Open an image and resize it
+using var image = Image.Load&lt;Rgba32&gt;(imageFilePath);
+bitmapLarge.Mutate(x =&gt; x.Resize(new Size(84, 48)));
+bitmapLarge.Mutate(x =&gt; x.BlackWhite());
+...
+</code></pre>
+<p>Note: you may want to reverse the colors first depending on what you want.</p>
+<p>This code is also available as a simple C# Console Application in <a href="./Img2Pcd8544">Img2Pcd8544</a> and you can execute it using this command:</p>
+<p><code>Img2Pcd8544 &lt;PATH_TO_IMAGE_FILE&gt;</code></p>
+<h3 id="advanced-functions">Advanced functions</h3>
+<p>You can adjust couple of factors like <code>Bias</code>,  <code>Temperature</code>, <code>Contrast</code> and <code>Brightness</code>. The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Pcd8544/samples/Pcd8544.samples/Program.cs">sample</a> will run through all of them so you can understand the impact of each of them. The <code>Bias</code> will increase the voltage and darken the screen.</p>
+<p>In general, it is recommended to leave Temperature to the 0 coefficient, if you are in normal conditions. The Bias can be left to 4 as well as a default value for normal conditions.</p>
+<p>Then you can use the Contrast property to properly adjust the contrast. A value around 0x30 is usually a good one for normal conditions.</p>
+<p>But you may have to adjust those depending on the conditions of lights, temperature you are in.</p>
+<h4 id="brightness">Brightness</h4>
+<p>The brightness is controlling the PWM. If you have not passed any PWM controller, this has no effect on the screen.
+Brightness goes from 0.0 to 0.1f.</p>
+<pre><code class="lang-csharp">lcd.BacklightBrightness = 0.2f;
+</code></pre>
+<h4 id="invertedcolors">InvertedColors</h4>
+<p>An invert mode is available, it just revert the screen colors. So white pixels become black and vice versa</p>
+<pre><code class="lang-csharp">lcd.InvertedColors = true;
+</code></pre>
+<h4 id="enabled">Enabled</h4>
+<p>You can switch on or off the screen fully with the <code>Enabled</code> property:</p>
+<pre><code class="lang-csharp">lcd.Enabled = true;
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Pcd8544/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

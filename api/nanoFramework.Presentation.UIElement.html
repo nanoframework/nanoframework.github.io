@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class UIElement
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1520,7 +1520,9 @@ return desired;
 }</code></pre>
 </example>
 The key aspects of this snippet are:
-<ul><li></li><li></li><li></li><li></li></ul>
+<ul><li>You must call Measure on each child UIElement</li><li>It is common to cache measurement information between the MeasureOverride and ArrangeOverride method calls</li><li>Calling base.MeasureOverride is not required.</li><li>Calls to Measure on children are passing either the same availableSize as the parent, or a subset of the area depending
+on the type of layout the parent will perform (for example, it would be valid to remove the area
+for some border or padding).</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>

@@ -8,7 +8,7 @@
     <title>Building .NET nanoFramework firmware | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Building .NET nanoFramework firmware | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -173,14 +173,13 @@ Follows a brief explanation on the files you might want to tweak.</p>
 <pre><code class="lang-text">Found assemblies mismatches when checking for deployment pre-check.
 </code></pre>
 <p>This is because the BUILD_VERSION value of your custom built nanoCLR doesn't match the one nanoframework.CoreLibrary expects.
-BUILD_VERSION can be set CMakeUserPresets.json. The value defaults to <code>&quot;0.9.99.999&quot;</code>.
+<code>BUILD_VERSION</code> can be set in the file <code>CMakeUserPresets.json</code>. The value defaults to <code>&quot;0.9.99.999&quot;</code>.
 Change that to the one you need at the moment, like <code>&quot;1.6.1.28&quot;</code>.</p>
 <p>Don't forget to:</p>
 <ul>
 <li>make this change under appropriate target block, as described <a href="cmake-presets.html">here</a></li>
-<li>make sure you understood that VSCode have to be reloaded to these json changes have effect.</li>
-<li>make sure you understood that the build folder have to be removed to these changes have effect.</li>
 <li>re-select the CMake target (VSCode bottom line) to reconfigure the build.</li>
+<li>you're better running CMake command: 'delete cache and reconfigure' for this to become effective.</li>
 </ul>
 </article>
           </div>

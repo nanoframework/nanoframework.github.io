@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class JsonSerializer
    | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -123,19 +123,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/nanoframework/nanoFramework.Json/new/pages-source/apiSpec/new?filename=nanoFramework_Json_JsonSerializer_SerializeString_System_String_.md&amp;value=---%0Auid%3A%20nanoFramework.Json.JsonSerializer.SerializeString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/nanoframework/nanoFramework.Json/new/pages-source/apiSpec/new?filename=nanoFramework_Json_JsonSerializer_SerializeObject_System_Object_System_Boolean_.md&amp;value=---%0Auid%3A%20nanoFramework.Json.JsonSerializer.SerializeObject(System.Object%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/nanoframework/nanoFramework.Json/blob/main/nanoFramework.Json/JsonSerializer.cs/#L208">View Source</a>
+    <a href="https://github.com/nanoframework/nanoFramework.Json/blob/main/nanoFramework.Json/JsonSerializer.cs/#L31">View Source</a>
   </span>
-  <a id="nanoFramework_Json_JsonSerializer_SerializeString_" data-uid="nanoFramework.Json.JsonSerializer.SerializeString*"></a>
-  <h4 id="nanoFramework_Json_JsonSerializer_SerializeString_System_String_" data-uid="nanoFramework.Json.JsonSerializer.SerializeString(System.String)">SerializeString(String)</h4>
-  <div class="markdown level1 summary"><p>Safely serialize a String into a JSON string value, escaping all backslash and quote characters.</p>
+  <a id="nanoFramework_Json_JsonSerializer_SerializeObject_" data-uid="nanoFramework.Json.JsonSerializer.SerializeObject*"></a>
+  <h4 id="nanoFramework_Json_JsonSerializer_SerializeObject_System_Object_System_Boolean_" data-uid="nanoFramework.Json.JsonSerializer.SerializeObject(System.Object,System.Boolean)">SerializeObject(Object, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Convert an object to a JSON string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected static string SerializeString(string str)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string SerializeObject(object o, bool topObject = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -148,9 +148,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.String.html">String</a></td>
-        <td><span class="parametername">str</span></td>
-        <td><p>The string to serialize.</p>
+        <td><a class="xref" href="System.Object.html">Object</a></td>
+        <td><span class="parametername">o</span></td>
+        <td><p>The value to convert. Supported types are: <a class="xref" href="System.Boolean.html">Boolean</a>, <a class="xref" href="System.String.html">String</a>, <a class="xref" href="System.Byte.html">Byte</a>, <a class="xref" href="System.UInt16.html">UInt16</a>, <a class="xref" href="System.Int16.html">Int16</a>, <a class="xref" href="System.UInt32.html">UInt32</a>,  <a class="xref" href="System.Int32.html">Int32</a>, <a class="xref" href="System.Single.html">Single</a>, <a class="xref" href="System.Double.html">Double</a>, <a class="xref" href="System.Array.html">Array</a>, <a class="xref" href="System.Collections.IDictionary.html">IDictionary</a>, <a class="xref" href="System.Collections.IEnumerable.html">IEnumerable</a>, <a class="xref" href="System.Guid.html">Guid</a>, <a class="xref" href="System.DateTime.html">DateTime</a>, <a class="xref" href="System.TimeSpan.html">TimeSpan</a>, <a class="xref" href="System.Collections.DictionaryEntry.html">DictionaryEntry</a>, <a class="xref" href="System.Object.html">Object</a> and <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">Boolean</a></td>
+        <td><span class="parametername">topObject</span></td>
+        <td><p>Is the object top in hierarchy. Default true.</p>
 </td>
       </tr>
     </tbody>
@@ -166,11 +172,14 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">String</a></td>
-        <td><p>The serialized JSON string.</p>
+        <td><p>The JSON object as a string or null when the value type is not supported.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="nanoFramework_Json_JsonSerializer_SerializeObject_System_Object_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For objects, only internal properties with getters are converted.</p>
+</div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(Object)</a>
@@ -186,7 +195,7 @@
                     <a href="https://github.com/nanoframework/nanoFramework.Json/new/pages-source/apiSpec/new?filename=nanoFramework_Json_JsonSerializer.md&amp;value=---%0Auid%3A%20nanoFramework.Json.JsonSerializer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/nanoframework/nanoFramework.Json/blob/main/nanoFramework.Json/JsonSerializer.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/nanoframework/nanoFramework.Json/blob/main/nanoFramework.Json/JsonSerializer.cs/#L18" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

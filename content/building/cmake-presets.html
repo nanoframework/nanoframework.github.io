@@ -8,7 +8,7 @@
     <title>CMake Presets | nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="CMake Presets | nanoFramework Documentation ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -79,8 +79,533 @@
 
 <h2 id="about-this-document">About this document</h2>
 <p>This document describes how to use and modify the <strong>CMakePresets.json</strong> and <strong>CMakeUserPresets.TEMPLATE.json</strong> files to suit your needs.</p>
-<h2 id="documentation">DOCUMENTATION</h2>
-<p>Please refer to <a href="https://www.nanoframework.net/build-updated-to-cmake-presets/">this blog post</a> and some useful information from the now <strong>obsolete</strong>  <a href="cmake-tools-cmake-variants.html">cmake-tools-cmake-variants</a> until it is fixed.</p>
+<h2 id="build-options-for-cmake-presets">Build options for CMake Presets</h2>
+<p>Below is a list of the build options available (last updated October 2022) for target boards.
+<em><strong>Note:</strong></em> some of these options are specific to the <code>RTOS</code> or target type.</p>
+<ul>
+<li>&quot;BUILD_VERSION&quot; : &quot;<strong>version-number-for-the-build-format-is-N.N.N.N</strong>&quot;
+<ul>
+<li>This can be used <a href="../faq/automatic-firmware-updates.html#how-to-prevent-a-board-from-updating-if-working-on-a-custom-firmware">to prevent a board from updating if working on a custom firmware</a></li>
+<li>This can be used to workaround &quot;<a href="build-instructions.html#build_version-matching">Found assemblies mismatches when checking for deployment pre-check</a>&quot; error during deployment.</li>
+</ul>
+</li>
+<li>&quot;BUILD_VERBOSE&quot;
+<ul>
+<li>Option to output verbose messages during build. Useful for debugging issues with build system.</li>
+</ul>
+</li>
+<li>&quot;TOOL_HEX2DFU_PREFIX&quot; : &quot;<strong>absolute-path-to-hex2dfu-utility-mind-the-forward-slash</strong>&quot;
+<ul>
+<li>This is the path to the HEX2DFU utility. Use forward slashes and do not provide executable name here.</li>
+</ul>
+</li>
+<li>&quot;TARGET_BOARD&quot;
+<ul>
+<li>Valid target name from platform boards collection.</li>
+</ul>
+</li>
+<li>&quot;ESP32_IDF_PATH&quot; : &quot;<strong>absolute-path-to-esp-idf-mind-the-forward-slash</strong>&quot;
+<ul>
+<li>This the path to the ESP32 IDF utility. Use forward slashes and do not provide executable name here.</li>
+</ul>
+</li>
+<li>&quot;EXECUTABLE_OUTPUT_PATH&quot; : &quot;<strong>${workspaceRoot}/build</strong>&quot;
+<ul>
+<li>This is the default and recommended path which will expand to the build folder when building from VS Code. When building from the command line or from Visual Studio this is not required.</li>
+</ul>
+</li>
+<li>&quot;TARGET_SERIES&quot; : &quot;<strong>STM32F7xx</strong>&quot;
+<ul>
+<li>For STM32 MCUs represents the target series (STM32F4XX, STM32L4XX, and so on)</li>
+<li>For ESP32 represents the target series (ESP32, ESP32_S2, and so on)</li>
+<li>For NXP represents the target series (IMXRT10xx)</li>
+<li>For TI SimpleLink targets represents the target series (CC13X2, CC32xx)</li>
+</ul>
+</li>
+<li>&quot;TARGET_SERIAL_BAUDRATE&quot;
+<ul>
+<li>Baudrate for serial communication. Only required to override default.</li>
+</ul>
+</li>
+<li>&quot;TARGET_NAME&quot;
+<ul>
+<li>Required only if need to override the target name on the firmware.</li>
+</ul>
+</li>
+<li>&quot;USE_RNG&quot; : &quot;<strong>ON</strong>&quot;
+<ul>
+<li>Option to enable the use of the hardware true random generator unit, if present. Default is ON as the majority of the targets have this feature.</li>
+</ul>
+</li>
+<li>&quot;DP_FLOATINGPOINT&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Enables support for double-precision floating point. The default is single-precision. Set to ON to enable double precision floating point.</li>
+</ul>
+</li>
+<li>&quot;SUPPORT_ANY_BASE_CONVERSION&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Defines which bases are supported when performing string to value conversions. When ON support for any base is enabled. When OFF (the default) the image will be compiled with support for base 10 and base 16 only.</li>
+</ul>
+</li>
+<li>&quot;RTOS&quot; : &quot;<strong>one-of-valid-rtos-options</strong>&quot;
+<ul>
+<li>Defines the RTOS that will be used to build nanoFramework. Valid options: ChibiOS, ESP32, AzureRTOS and FreeRTOS.</li>
+</ul>
+</li>
+<li>&quot;CHIBIOS_SOURCE_FOLDER&quot; : &quot;&quot;
+<ul>
+<li>Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources automatically from ChibiOS SVN repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;CHIBIOS_HAL_REQUIRED&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Set to ON to include ChibiOS HAL repository in the build.</li>
+</ul>
+</li>
+<li>&quot;CHIBIOS_HAL_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources automatically from ChibiOS SVN repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;CHIBIOS_HAL_VERSION&quot;: &quot;&quot;
+<ul>
+<li>Valid ChibiOS version. If empty use default CMake setting.</li>
+</ul>
+</li>
+<li>&quot;CHIBIOS_CONTRIB_REQUIRED&quot;: &quot;OFF&quot;
+<ul>
+<li>Set to ON to include ChibiOS Contrib repository in the build.</li>
+</ul>
+</li>
+<li>&quot;CHIBIOS_CONTRIB_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of ChibiOS Contrib source files. If no path is given, then CMake will download the sources automatically from ChibiOS Contrib repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;FREERTOS_SOURCE_FOLDER&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of FreeRTOS source files. If no path is given, then CMake will download the sources automatically from FreeRTOS repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;CMSIS_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of CMSIS source files. If no path is given, then CMake will download the sources automatically from CMSIS repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;CMSIS_VERSION&quot;: &quot;&quot;
+<ul>
+<li>Valid CMSIS version. If empty use default CMake setting.</li>
+</ul>
+</li>
+<li>&quot;STM32_CUBE_PACKAGE_REQUIRED&quot;: &quot;OFF&quot;
+<ul>
+<li>Set to ON to include STM Cube package in the build.</li>
+</ul>
+</li>
+<li>&quot;STM32_HAL_DRIVER_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of CMSIS source files. If no path is given, then CMake will download the sources automatically from CMSIS repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;STM32_CMSIS_DEVICE_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of CMSIS device source files. If no path is given, then CMake will download the sources automatically from CMSIS device repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;STM32_CMSIS_CORE_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of SMT32 CMSIS source files. If no path is given, then CMake will download the sources automatically from SMT32 CMSIS repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;TI_SL_CC32xx_SDK_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of SMT32 CMSIS source files. If no path is given, then CMake will download the sources automatically from SMT32 CMSIS repository when required. Mind the forward slash.
+&lt;path-to-local-TI_SimpleLink-CC32xx-SDK-source-mind-the-forward-slash&gt;&quot;,</li>
+</ul>
+</li>
+<li>&quot;TI_SL_CC13xx_26xx_SDK_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of TI SimpleLink CC13xx_26xx SDK source files. If no path is given, then CMake will download the sources automatically from TI SimpleLink CC13xx_26xx SDK repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;TI_XDCTOOLS_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of TI XDC Tools source files. If no path is given, then CMake will download the sources automatically from TI XDC Tools repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;TI_SYSCONFIG_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of TI SysConfig source files. If no path is given, then CMake will download the sources automatically from TI SysConfig repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;RADIO_FREQUENCY&quot;: &quot;915&quot;,
+<ul>
+<li>Valid frequency for CC13xx_26xx targets. Possible values are 868 and 915.</li>
+</ul>
+</li>
+<li>&quot;SPIFFS_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of Spiffs source files. If no path is given, then CMake will download the sources automatically from Spiffs repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;FATFS_SOURCE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional local installation of FatFS source files. If no path is given, then CMake will download the sources automatically from FatFS repository when required. Mind the forward slash.</li>
+</ul>
+</li>
+<li>&quot;FATFS_VERSION&quot;: &quot;&quot;
+<ul>
+<li>Valid FatFS version. If empty use default CMake setting.</li>
+</ul>
+</li>
+<li>&quot;LWIP_VERSION&quot;: &quot;&quot;
+<ul>
+<li>Valid lwIP version. If empty use default CMake setting.</li>
+</ul>
+</li>
+<li>&quot;ESP32_XTAL_FREQ_26&quot;: &quot;OFF&quot;
+<ul>
+<li>Set to ON to enable XTAL frequency to 26M.</li>
+</ul>
+</li>
+<li>&quot;ESP32_USB_CDC&quot;: &quot;OFF&quot;
+<ul>
+<li>Set to ON to enable embedded USB CDC. Valid for ESP32_S2 series.</li>
+</ul>
+</li>
+<li>&quot;ESP32_ETHERNET_SUPPORT&quot;: &quot;OFF&quot;
+<ul>
+<li>Set to ON to enable Ethernet support for ESP32 target.</li>
+</ul>
+</li>
+<li>&quot;SDK_CONFIG_FILE&quot;: &quot;&quot;
+<ul>
+<li>Path to an optional location of IDF SDK config file. If no path is given, then CMake will build one according to the target and relevant build options.</li>
+</ul>
+</li>
+<li>&quot;SWO_OUTPUT&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows specifying whether to include, or not, support for Cortex-M Single Wire Output (SWO). Default is OFF. Check the documentation <a href="../contributing/developing-native/arm-swo.html">here</a> for more details on how to use SWO.</li>
+</ul>
+</li>
+<li>&quot;NF_BUILD_RTM&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Sets if the build is of <strong>R</strong>eady <strong>T</strong>o <strong>M</strong>arket type. Meaning that all debug helpers and code blocks will be removed from compilation and the build will be compiled and linked with all possible code reducing options enabled.</li>
+</ul>
+</li>
+<li>&quot;NF_TRACE_TO_STDIO&quot;: &quot;OFF&quot;
+<ul>
+<li>Set to ON to enable trace messages to stdio.</li>
+</ul>
+</li>
+<li>&quot;NF_WP_TRACE_ERRORS&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Enable error tracing in Wire Protocol.</li>
+</ul>
+</li>
+<li>&quot;NF_WP_TRACE_HEADERS&quot; :  &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Enable packet headers tracing in Wire Protocol.</li>
+</ul>
+</li>
+<li>&quot;NF_WP_TRACE_STATE&quot; :  &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Enable state tracing in Wire Protocol.</li>
+</ul>
+</li>
+<li>&quot;NF_WP_TRACE_NODATA&quot; :  &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Enable tracing of empty or incomplete packets in Wire Protocol.</li>
+</ul>
+</li>
+<li>&quot;NF_WP_TRACE_ALL&quot; :  &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Enable all tracing options for Wire Protocol.</li>
+</ul>
+</li>
+<li>&quot;NF_WP_IMPLEMENTS_CRC32&quot; :  &quot;<strong>ON</strong>&quot;
+<ul>
+<li>Enable CRC32 calculations for Wire Protocol. See details <a href="../architecture/wire-protocol.html#crc32-validatons">here</a>.</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_DEBUGGER&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Defines is support for debuggin managed applications is enabled. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_RTC&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether to use the real time clock unit of the hardware for date &amp; time functions. Depends on target availability. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_USE_APPDOMAINS&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether to include, or not, support for Application Domains. Default is OFF. More information about this is available in the documentation <a href="https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx">here</a>. <strong>Note that the complete removal of support for this feature is being considered (see issue <a href="https://github.com/nanoframework/nf-interpreter/issues/303">here</a>).</strong></li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_SUPPORT_REFLECTION&quot;: &quot;ON&quot;
+<ul>
+<li>Set to OFF to disable support for System.Reflection API.</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_WATCHDOG&quot; : &quot;<strong>ON</strong>&quot;
+<ul>
+<li>Allows you to define it the hardware watchdog should be disabled.
+This setting can only be set to OFF for STM32 targets. ESP32 build enables this by default so there is no way to disable it.
+Default is ON, so the hardware watchdog will be enabled by default.</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_HAS_CONFIG_BLOCK&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows the developer to set if the targets platform has configuration block.
+This requires the the block storage definition and the linker files add support for that.
+Default is OFF meaning that that the target DOES NOT have configuration block.</li>
+</ul>
+</li>
+<li>&quot;NF_PLATFORM_NO_CLR_TRACE&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to define if trace messages and checks are added to CLR or not.
+These checks are usually valuable when debugging issues within the CLR.
+Can and should be removed for RTM build flavours.
+Default is OFF meaning that all the standard trace and checks are added to the CLR.</li>
+</ul>
+</li>
+<li>&quot;NF_CLR_NO_IL_INLINE&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to define if CLR will use IL inlining.
+Default is OFF meaning that CLR will inline IL.</li>
+</ul>
+</li>
+<li>&quot;NF_INTEROP_ASSEMBLIES&quot; : [ &quot;Assembly1-Namespace&quot;, &quot;Assembly2-Namespace&quot; ]
+<ul>
+<li>Lists the name of the Interop assembly(ies) to be added to the build. Leave empty or don't add it if no Interop assembly is to be added.</li>
+</ul>
+</li>
+<li>&quot;NF_NETWORKING_SNTP&quot; : &quot;<strong>ON</strong>&quot;
+<ul>
+<li>Allows you to specify whether SNTP is enabled. Requires networking feature to be enabled. Default is ON.</li>
+</ul>
+</li>
+<li>&quot;NF_SECURITY_MBEDTLS&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Enables support for secure sockets using mbedTLS. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;MBEDTLS_SOURCE&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Path to an optional local with mbedTLS source files.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.Device.OneWire&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether support for OneWire functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Device.Dac&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether DAC functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Math&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether System.Math support is available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Net&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether System.Net support is available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.Device.Can&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether CAN bus functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Device.Adc&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether ADC functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Device.Gpio&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether GPIO functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Device.I2c&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether I2C functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Device.Pwm&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether PWM functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.IO.Ports&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Serial Communication functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Device.Spi&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether SPI functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_Windows.Networking.Sockets&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Networking Sockets functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_Windows.Storage&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Windows.Storage functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_Hardware.Esp32&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Hardware.Esp32 functions are available to your application. Default is OFF.
+Note that this API is exclusive of ESP32 targets and can't be used with any other.</li>
+</ul>
+</li>
+<li>&quot;API_Hardware.Stm32&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Hardware.Stm32 functions are available to your application. Default is OFF.
+Note that this API is exclusive of STM32 targets and can't be used with any other.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.ResourceManager&quot; : &quot;<strong>OFF</strong>&quot;</li>
+<li>&quot;API_nanoFramework.TI.EasyLink&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether TI.EasyLink functions are available to your application. Default is OFF.
+Note that this API is exclusive for TI targets and can't be used with any other.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.Hardware.TI&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Hardware.TI functions are available to your application. Default is OFF.
+Note that this API is exclusive for TI targets and can't be used with any other.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.System.Collections&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether System.Collections functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.System.Text&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether System.Text functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_System.Device.Wifi&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Device.Wifi functions are available to your application. Default is OFF.
+Note that this API is exclusive of ESP32 targets and can't be used with any other.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.Device.Bluetooth&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Device.Bluetooth functions are available to your application. Default is OFF.
+Note that this API is exclusive of ESP32 targets and can't be used with any other.</li>
+</ul>
+</li>
+<li>&quot;API_System.IO.FileSystem&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether System.IO.FileSystem functions are available to your application. Default is OFF.</li>
+</ul>
+</li>
+<li>&quot;API_nanoFramework.Graphics&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Graphics functions are available to your application. Default is OFF.
+Note that this API has the following sub options required depending on target:
+<ul>
+<li>&quot;GRAPHICS_MEMORY&quot;</li>
+<li>&quot;GRAPHICS_DISPLAY&quot;</li>
+<li>&quot;GRAPHICS_DISPLAY_INTERFACE&quot;</li>
+<li>&quot;TOUCHPANEL_DEVICE&quot;</li>
+<li>&quot;TOUCHPANEL_INTERFACE&quot;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_HAS_SDCARD&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Set to ON to enable support for SDCard storage device.</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_HAS_USB_MSD&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Set to ON to enable support for USB Mass storage device.</li>
+</ul>
+</li>
+<li>&quot;NF_FEATURE_USE_SPIFFS&quot;: &quot;OFF&quot;
+<ul>
+<li>Set to ON to enable support for SPI flash file system.</li>
+</ul>
+</li>
+<li>&quot;ESP32_ETHERNET_SUPPORT&quot; : &quot;<strong>OFF</strong>&quot;
+<ul>
+<li>Allows you to specify whether Ethernet support is available for ESP32. Default is OFF.
+Note that this API has the following sub options:
+<ul>
+<li>&quot;ESP32_ETHERNET_INTERFACE&quot;:
+<ul>
+<li>Type of PHY or SPI device used leave empty to use default Lan8720.</li>
+</ul>
+</li>
+<li>&quot;ETH_PHY_RST_GPIO&quot;
+<ul>
+<li>GPIO number for PHY reset leave empty to use default of none.</li>
+</ul>
+</li>
+<li>&quot;ETH_RMII_CLK_OUT_GPIO&quot;
+<ul>
+<li>GPIO number that will output the RMII CLK signal leave empty if not used.</li>
+</ul>
+</li>
+<li>&quot;ETH_RMII_CLK_IN_GPIO&quot;
+<ul>
+<li>GPIO number that will be input for RMII CLK signal leave empty if not used.</li>
+</ul>
+</li>
+<li>&quot;ETH_PHY_ADDR&quot;: &quot;&quot;
+<ul>
+<li>Address of the PHY chip leave empty to use default.</li>
+</ul>
+</li>
+<li>&quot;ETH_MDC_GPIO&quot;: &quot;&quot;
+<ul>
+<li>GPIO number for SMI MDC pin leave empty to use default.</li>
+</ul>
+</li>
+<li>&quot;ETH_MDIO_GPIO&quot;: &quot;&quot;
+<ul>
+<li>GPIO number for SMI MDIO pin leave empty to use default.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&quot;ESP32_CONFIG_PIN_PHY_POWER&quot; : Not used?!</li>
+<li>&quot;ESP32_CONFIG_PHY_CLOCK_MODE&quot; : Not used?!</li>
+<li>&quot;ESP32_SPIRAM_FOR_IDF_ALLOCATION&quot; : &quot;&quot;
+<ul>
+<li>Set a value to reserve from SPI RAM for IDF allocation.</li>
+</ul>
+</li>
+<li>&quot;NF_TARGET_HAS_NANOBOOTER&quot; : &quot;<strong>ON</strong>&quot;
+<ul>
+<li>Set to OFF to signal that target does not have nanoBooter.</li>
+</ul>
+</li>
+<li>&quot;USE_FPU&quot; : &quot;OFF&quot;
+<ul>
+<li>Set to ON to enable FP usage. Depends on platform and MCU availability.</li>
+</ul>
+</li>
+</ul>
+<h2 id="updating-from-cmake-variants">Updating from CMake Variants</h2>
+<p>Please refer to <a href="https://www.nanoframework.net/build-updated-to-cmake-presets/">this blog post</a> about the move to CMake presets.</p>
 </article>
           </div>
           
