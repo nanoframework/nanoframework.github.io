@@ -1168,7 +1168,7 @@ steps:
     nugetConfigPath: 'nanoFramework.IoT.Device\NuGet.Config'
 
 # Build part
-- task: InstallnFBuildComponents@1
+- task: InstallNanoMSBuildComponents@1
   condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
   displayName: Install nanoFramework MSBuild components
   env:
