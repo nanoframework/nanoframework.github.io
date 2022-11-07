@@ -43,3 +43,7 @@ static void WaitIP()
 ## Can I debug nanoCLR code on ESP32 using Visual Studio without any special hardware
 
 Yes you can! Follow the old-school steps described [here](../building/build-esp32.md#debugging-nanoclr-without-special-hardware).
+
+## How do I decode a _Guru Meditation Error_ output?
+
+We have a VS Code Task to help on this. If you have installed the Tasks template we offer for VS Code, you'll find it under the name "Decode ESP32 back trace". Here's a [blog post](https://jsimoesblog.wordpress.com/2022/11/04/decoding-esp32-back-trace/) with the instructions on how to use it.
