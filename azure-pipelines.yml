@@ -326,10 +326,18 @@ steps:
 
 - task: Cache@2
   displayName: Cache NuGet packages
-  condition: succeeded()
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
   continueOnError: true
   inputs:
-    key: 'nuget | "$(Agent.OS)"'
+    key: 'nuget | **/packages.lock.json'
     path: $(UserProfile)/.nuget/packages
 
 # build all libs
@@ -1169,10 +1177,16 @@ steps:
 
 # Build part
 - task: InstallNanoMSBuildComponents@1
-  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
   displayName: Install nanoFramework MSBuild components
-  env:
-    GITHUB_TOKEN: $(GitHubToken)
 
 - task: VSBuild@1
   displayName: Build CoreLibrary
