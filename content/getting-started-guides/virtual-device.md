@@ -121,7 +121,7 @@ nanoclr run --resolve (--assemblies ...)
 
 ## Maintenance operations with the nanoCLR
 
-The nanoCLR it's, in fact, a wrapper to the nanoCLR instance that is distributed as DLL so it can be easily updated.
+The nanoCLR is, in fact, a wrapper to the nanoCLR instance that is distributed as DLL so it can be easily updated.
 The following operations are available to manage this.
 
 ### Version of nanoCLR
