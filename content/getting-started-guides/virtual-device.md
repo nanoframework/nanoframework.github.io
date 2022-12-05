@@ -28,7 +28,7 @@ Last configuration pertains the automatic update of the nanoCLR image that the v
 
 ## Output from Virtual Device
 
-The output from the virtual device it's made available in Visual Studio Output pane, just select `.NET nanoFramework Virtual Device`.
+The output from the virtual device is made available in Visual Studio Output pane, just select `.NET nanoFramework Virtual Device`.
 
 ![virtual device configurations](../../images/virtual-device/settings-virtual-device-tab.png)
 
