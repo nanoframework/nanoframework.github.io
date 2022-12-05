@@ -1,6 +1,6 @@
 # .NET **nanoFramework** Virtual Device
 
-A .NET **nanoFramework** _Virtual Device_  it's available as a [.NET Core Tool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) allows running nanoCLR in Windows machines. This can be useful for development purposes, performing automated tests on pipelines and other usage scenarios that benefit from having a virtual device opposed to real physical hardware. The virtual device can be accessed just like a real one through a virtual serial port or a TCP/IP port.
+A .NET **nanoFramework** _Virtual Device_ is available as a [.NET Tool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). It allows to run nanoCLR on Windows machines. This can be useful for development purposes, performing automated tests on pipelines and other usage scenarios that benefit from having a virtual device opposed to real physical hardware. The virtual device can be accessed just like a real one through a virtual serial port or a TCP/IP port.
 
 The Visual Studio extension can interact with the .NET **nanoFramework** virtual device just like it does with a real device. It will be listed in Device Explorer window and will offer the same option as a real device.
 
