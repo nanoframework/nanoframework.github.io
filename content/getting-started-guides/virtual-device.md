@@ -100,7 +100,7 @@ nanoclr run --assemblies "C:\nano\my_nice_project\bin\Debug\mscorlib.pe" "C:\nan
 This option specifies the COM port that will be used to expose the virtual nanoCLR that will be running. It requires a previous setup of a Virtual Serial Port (see [Create Virtual Serial port](#create-virtual-serial-port)).
 
 ```console
-nanoclr run --serialport COM99  (--assemblies ...)
+nanoclr run --serialport COM99 (--assemblies ...)
 ```
 
 ### Specify Named Pipe
