@@ -1,4 +1,4 @@
-# Getting started with package and assembly versions and checksums
+# Package and assembly versions and checksums
 
 Much of the .NET **nanoFramework** is made up of C# classes that invoke code that is in native C++ assemblies.  Some assemblies are just generic C++, others are specific to a hardware platform.
 
