@@ -49,13 +49,13 @@ You need to know the COM Port attached to your device. Search for **Computer Man
 1. **Perform the update** by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
 (The following includes the description for targets of several platforms for completeness)
 
-    - To update the firmware of an ESP32 target connected to COM31, to the latest available preview version.
+    - To update the firmware of an ESP32 target connected to COM31, to the latest available version.
 
         ```console
         nanoff --platform esp32 --serialport COM31 --update
         ```
 
-    - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available preview version.
+    - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available version.
 
         ```console
         nanoff --target ST_NUCLEO144_F746ZG --update
