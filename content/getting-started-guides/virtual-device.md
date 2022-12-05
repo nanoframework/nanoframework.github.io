@@ -47,7 +47,7 @@ nanoclr --help
 ## Virtual Serial Ports
 
 This verb allows managing the virtual serial port exposing the virtual device.
-The virtual serial port it's only available in Windows machines. It's made available with the sponsorship of [HHD Software](https://www.hhdsoftware.com/) which has kindly sponsored a free license for running their tool.
+The virtual serial port is only available in Windows machines. It's made available with the sponsorship of [HHD Software](https://www.hhdsoftware.com/) which has kindly sponsored a free license for running their tool.
 
 ### List Virtual Serial ports
 
