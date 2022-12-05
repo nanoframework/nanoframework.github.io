@@ -22,7 +22,7 @@ Here are solutions to some common problems when getting started.
 - The C# and native C++ assemblies are not version aligned.
 - The C# version is determined by NuGet and the version of the component you selected. nanoFramework.CoreLibrary is the most common problem seen since it tends to load early.  
 - The description of the NuGet package will contain the version and checksum of the native assembly that is required.
-- See [Guide for package and assembly versions and checksums](guide-version-checksums.md) for more info.
+- See [Guide for package and assembly versions and checksums](../architecture/guide-version-checksums.md) for more info.
 - Use the **Device Capabilities** button ![Device Capabilities](../../images/getting-started-guides/device-capabilities.png) on the **Device Explorer** to see what assembly versions and checksums are installed on the device as part of the firmware.
 - If you are changing a nanoFramework component and you change the interface/contract of either the C# code or the C++ code, you will get a checksum mismatch error instead of a version mismatch error.  This is the mechanism that prevents developers from breaking the contract without generating new versions and checksums.
 

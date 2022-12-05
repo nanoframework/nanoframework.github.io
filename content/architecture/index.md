@@ -10,6 +10,7 @@
 - [Native interrupt handlers](native-interrupt-handlers.md)
 - [Wire Protocol](wire-protocol.md)
 - [PE File format](pe-file/index.md)
+- [Package and assembly versions and checksums](guide-version-checksums.md)
 
 As a summary, we can represent the nanoFramework architecture like this:
 
