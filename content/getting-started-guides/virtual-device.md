@@ -6,7 +6,7 @@ The Visual Studio extension can interact with the .NET **nanoFramework** virtual
 
 ![virtual device listed in device explorer](../../images/virtual-device/device-explorer-showing-virtual-device.png)
 
->> Note: the .NET Core Tool with the **nanoFramework** virtual device it's not exclusive of the Visual Studio extension. It's a global tool that can be use standalone. Read below instructions on how to use it.
+> Note: the .NET Tool with the **nanoFramework** virtual device is not exclusive of the Visual Studio extension. It's a global tool that can be use standalone. Read below instructions on how to use it.
 
 The serial port that exposes the **nanoFramework** virtual device it's provided by [HHD Software](https://www.hhdsoftware.com/) which has kindly sponsored a free license for running their tool in .NET **nanoFramework** tools.
 
