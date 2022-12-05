@@ -108,7 +108,7 @@ nanoclr run --serialport COM99 (--assemblies ...)
 This option specifies a [Named Pipe](https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipes) that will be used to expose the virtual nanoCLR that will be running.
 
 ```console
-nanoclr run --namedpipe MyNanoDevice  (--assemblies ...)
+nanoclr run --namedpipe MyNanoDevice (--assemblies ...)
 ```
 
 ### Resolve references
