@@ -26,6 +26,12 @@ Last configuration pertains the automatic update of the nanoCLR image that the v
 
 > Note: if a specific nanoCLR version was installed, the virtual device will use that one. This is useful if you're testing a specific version of a library of firmware version, for example.
 
+## Output from Virtual Device
+
+The output from the virtual device it's made available in Visual Studio Output pane, just select `.NET nanoFramework Virtual Device`.
+
+![virtual device configurations](../../images/virtual-device/settings-virtual-device-tab.png)
+
 ## Known limitations
 
 The virtual device has implemented most of the libraries and APIs that do not require hardware interaction. For those a "stubbed" version is offered meaning that a call to those APIs will result on a `Not Implemented Exception`. There is also no support for network. This will be added in a future version.
