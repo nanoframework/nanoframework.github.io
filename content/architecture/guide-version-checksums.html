@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Package and assembly versions and checksums | nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Package and assembly versions and checksums | nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="package-and-assembly-versions-and-checksums">Package and assembly versions and checksums</h1>
+
+<p>Much of the .NET <strong>nanoFramework</strong> is made up of C# classes that invoke code that is in native C++ assemblies.  Some assemblies are just generic C++, others are specific to a hardware platform.</p>
+<p>There is an interop framework that assists in handling the interface between C# and C++. That framework includes the generation of a checksum for a given interface contract, and a version checking mechanism to make sure that versions are updated when the contract (and checksum) change.</p>
+<h2 id="how-the-checksum-is-generated">How the checksum is generated</h2>
+<p>As with all of dotnet the nfproj file is actually a MSBuild XML configuration file. Part of the nanoFramework is the <code>meta-data-processor</code> (MDP) which is invoked as a post-build task in the MSBuild of the nfproj.</p>
+<p>During the post-build the MDP creates stub C++ files for any interfaces that are declared as <code>InternalCall</code>.  The stub files are located at bin\debug\stubs\[assembly-name].  The calculated checksum is found in the corlib_native.cpp file. The MDP also emits the checksum as an environmental variable and later that is used to embed the checksum in the Portable Executable (PE) file that the nanoFramework actually runs. Below is a screen print taken from a stub of mscorlib with a checksum of 0x132BDB6F, and required native assembly version of 100.5.0.12:</p>
+<blockquote>
+<p><img src="../../images/getting-started-guides/mscorlib-corlib-native_cpp_declaration.png" alt="mscorlib corlib_native.cpp declaration"></p>
+</blockquote>
+<h2 id="how-the-required-native-version-is-defined">How the required native version is defined</h2>
+<p>The required native version is set manually by a developer in the AssemblyInfo.cs file for the assembly.  The MDP will copy that information and also place it in the stub file corlib_native.cpp.  Here is a screen print of the CoreLibrary AssemblyInfo.cs file:</p>
+<blockquote>
+<p><img src="../../images/getting-started-guides/assemblyinfo-cs.png" alt="mscorlib AssemblyInfo.cs declaration"></p>
+</blockquote>
+<h2 id="manual-process-to-update-native-assembly-checksum-and-version">Manual process to update native assembly checksum and version</h2>
+<p>Each native assembly has a corlib_native.cpp (and .h) file.  A developer manually copies any interface changes generated by the MDP stub generation process into the CPP files actually used by the native assembly.  They are very careful to copy the new checksum and to accept a new version number if the checksum has changed due to an interface/contract change.</p>
+<h2 id="how-the-nuget-package-version-is-generated">How the NuGet package version is generated</h2>
+<p>The assemblies in the nanoFramework use the nerdBank GitVersion NuGet component to manage NuGet versions.  There is a version.json file in the GIT repository root - here is a screen print for CoreLibrary:</p>
+<blockquote>
+<p><img src="../../images/getting-started-guides/mscorlib-version-json.png" alt="mscorlib AssemblyInfo.cs declaration"></p>
+</blockquote>
+<p>The {height} placeholder is filled out by the nerdBank component.  It is the number of commits since the last time the version.json file was changed to a new version number.  Note that the number will always increment, but it is not like a build number in that you may not start at 1, and it may not increment by 1.  But the version number will always be numeric and greater than the previous version.  Changing the version info in the file will cause the counter to start back around 1 - this depends on how many commits are in the first build after updating the version info.</p>
+<p>The developer manually updates the NuGet package version prefix when there are breaking changes to the interface and a new checksum is needed.  In the preceding example the developer changed the prefix from 1.10.4 to 1.10.5.  Code changes that do not change the contract (and the checksum) will just get a new &quot;height&quot; as changes are committed and built.</p>
+<p>The checksum and required native version are included in the description for the NuGet package.  Here is what that looks like for CoreLibrary:</p>
+<blockquote>
+<p><img src="../../images/getting-started-guides/core-library-nuget-version.png" alt="CoreLibrary NuGet version">
+Note: In this example a bug in the build process caused the required native assembly version number to not be copied to the description correctly.</p>
+</blockquote>
+<h2 id="firmware-versions-and-native-assembly-versions">Firmware versions and native assembly versions</h2>
+<p>Firmware is built automatically for a standard set of device targets.  The firmware version is independent from the assembly versions, but the latest firmware always uses the latest native assembly versions and will work with the latest NuGet package versions of a component. Here is a screen shot of <code>nanoff</code> installing the latest preview version of the firmware from the Cloudsmith.io repository:</p>
+<blockquote>
+<p><img src="../../images/getting-started-guides/nanoff-flash-latest-preview.png" alt="nanoff Flash latest preview"></p>
+</blockquote>
+<p>Here are two screen shots from using the <strong>Device Capabilities</strong> of the <strong>Device Explorer</strong> in Visual Studio to see what version of the firmware is installed, and then what native assembly versions (and checksums) were included in that firmware version:</p>
+<blockquote>
+<p><img src="../../images/getting-started-guides/device-capabilities-firmware-version.png" alt="device capabilities firmware version">
+<img src="../../images/getting-started-guides/native-assembly-versions.png" alt="device capabilities native assembly versions"></p>
+</blockquote>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/guide-version-checksums.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
