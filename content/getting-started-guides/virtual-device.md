@@ -24,7 +24,7 @@ The virtual device can be started & stopped by clicking the respective button.
 
 Last configuration pertains the automatic update of the nanoCLR image that the virtual device will be running. To have the tool automatically update and use the latest available version, just enable the checkbox.
 
->> Note: if a specific nanoCLR version was installed, the virtual device will use that one. This is useful if you're testing a specific version of a library of firmware version, for example.
+> Note: if a specific nanoCLR version was installed, the virtual device will use that one. This is useful if you're testing a specific version of a library of firmware version, for example.
 
 ## Known limitations
 
