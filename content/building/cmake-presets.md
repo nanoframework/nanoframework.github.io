@@ -118,6 +118,8 @@ Below is a list of the build options available (last updated October 2022) for t
   - Allows you to specify whether to include, or not, support for Application Domains. Default is OFF. More information about this is available in the documentation [here](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). **Note that the complete removal of support for this feature is being considered (see issue [here](https://github.com/nanoframework/nf-interpreter/issues/303)).**
 - "NF_FEATURE_SUPPORT_REFLECTION": "ON"
   - Set to OFF to disable support for System.Reflection API.
+- "NF_FEATURE_BINARY_SERIALIZATION": "**ON**"
+  - Set to OFF to disable support for binary serialization/deserialization. This is only applicable with NF_FEATURE_SUPPORT_REFLECTION set to `ON`.
 - "NF_FEATURE_WATCHDOG" : "**ON**"
   - Allows you to define it the hardware watchdog should be disabled.
    This setting can only be set to OFF for STM32 targets. ESP32 build enables this by default so there is no way to disable it.
