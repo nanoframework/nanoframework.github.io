@@ -10,8 +10,8 @@ Below is a list of the build options available (last updated October 2022) for t
 ***Note:*** some of these options are specific to the `RTOS` or target type.
 
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
-  - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md#how-to-prevent-a-board-from-updating-if-working-on-a-custom-firmware)
-  - This can be used to workaround "[Found assemblies mismatches when checking for deployment pre-check](build-instructions.md#build_version-matching)" error during deployment.
+  - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md#l13)
+  - This can be used to workaround "[Found assemblies mismatches when checking for deployment pre-check](build-instructions.md#buildversion-matching)" error during deployment.
 - "BUILD_VERBOSE"
   - Option to output verbose messages during build. Useful for debugging issues with build system.
 - "TOOL_HEX2DFU_PREFIX" : "**absolute-path-to-hex2dfu-utility-mind-the-forward-slash**"
@@ -109,7 +109,7 @@ Below is a list of the build options available (last updated October 2022) for t
 - "NF_WP_TRACE_ALL" :  **`OFF`**
   - Enable all tracing options for Wire Protocol.
 - "NF_WP_IMPLEMENTS_CRC32" :  **`ON`**
-  - Enable CRC32 calculations for Wire Protocol. See details [here](../architecture/wire-protocol.md#crc32-validatons).
+  - Enable CRC32 calculations for Wire Protocol. See details [here](../architecture/wire-protocol.md#crc32-validations).
 - "NF_FEATURE_DEBUGGER" : **`OFF`**
   - Defines is support for debuggin managed applications is enabled. Default is `OFF`.
 - "NF_FEATURE_RTC" : **`OFF`**
