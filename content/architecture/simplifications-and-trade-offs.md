@@ -30,11 +30,11 @@ Because of the underlying complexity and memory usage, multidimensional arrays a
 
 | Specifier | Examples |
 | --------- | ------- |
-| [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#dformatstring) | [Decimal unit test output](string-format-examples.md#decimal) |
-| [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#fformatstring) | [Fixed-point unit test output](string-format-examples.md#fixed) |
-| [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#gformatstring) | [General unit test output](string-format-examples.md#general) |
-| [N-Number](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#nformatstring) | [Number unit test output](string-format-examples.md#number) |
-| [X-Hexadecimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#xformatstring) | [Hexadecimal unit test output](string-format-examples.md#hexadecimal) |
+| [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#d-decimal) |
+| [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Fixed-point unit test output](string-format-examples.md#f-fixed-point) |
+| [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString) | [General unit test output](string-format-examples.md#g-general) |
+| [N-Number](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString) | [Number unit test output](string-format-examples.md#n-number) |
+| [X-Hexadecimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString) | [Hexadecimal unit test output](string-format-examples.md#x-hexadecimal) |
 
 ## Generics
 
