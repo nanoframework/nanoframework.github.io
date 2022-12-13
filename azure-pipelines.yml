@@ -150,6 +150,8 @@ steps:
 
       git clone https://github.com/nanoframework/System.IO.Streams.git --depth 100 -b main System.IO.Streams
 
+      git clone https://github.com/nanoframework/System.Runtime.Serialization.git --depth 100 -b main System.Runtime.Serialization
+
       git clone https://github.com/nanoframework/Windows.Devices.Pwm.git --depth 100 -b main Windows.Devices.Pwm 
 
       git clone https://github.com/nanoframework/System.Device.Pwm.git --depth 100 -b main System.Device.Pwm
@@ -597,6 +599,22 @@ steps:
     restoreSolution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
     feedsToUse: config
     nugetConfigPath: 'System.IO.Streams\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Runtime.Serialization
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    restoreSolution: 'System.Runtime.Serialization\nanoFramework.System.Runtime.Serialization.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Runtime.Serialization\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Pwm
@@ -1456,6 +1474,23 @@ steps:
     )
   inputs:
     solution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+
+- task: VSBuild@1
+  displayName: Build System.Runtime.Serialization
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    solution: 'System.Runtime.Serialization\nanoFramework.System.Runtime.Serialization.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
