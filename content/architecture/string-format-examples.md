@@ -9,7 +9,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 [Decimal Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString)
 
 |    Value| Format| SByte |  Int16|   Int32|   Int64| Byte| UInt16| UInt32 |UInt64  |
-| ---     | ---   |---    |---    |---     |---     |---  |---    |---     |---     |
+| ---:    | :---  |---:   |---:   |---:    |---:    |---: |---:   |---:    |---:    |
 |      123| D     |   123 |    123|     123|     123|  123|    123|    123 |   123  |
 |      123| d     |   123 |    123|     123|     123|  123|    123|    123 |   123  |
 |      129| D     |   n/a |    129|     129|     129|  129|    129|    129 |   129  |
@@ -36,7 +36,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 [Fixed-point Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString)
 
  |        Value| Format|  SByte |       Int16 |       Int32 |       Int64|     Byte|      UInt16|      UInt32|      UInt64|       Single |      Double  |
- | ---         |---    |---     |---          |---          |---         |---      |---         |---         |---         |---           |---           |
+ | ---:        |:---   |---:    |---:         |---:         |---:        |---:     |---:        |---:        |---:        |---:          |---:          |
  |          123| F     | 123.00 |      123.00 |      123.00 |      123.00|   123.00|      123.00|      123.00|      123.00|       123.00 |      123.00  |
  |          123| f     | 123.00 |      123.00 |      123.00 |      123.00|   123.00|      123.00|      123.00|      123.00|       123.00 |      123.00  |
  |          129| F     |    n/a |      129.00 |      129.00 |      129.00|   129.00|      129.00|      129.00|      129.00|       129.00 |      129.00  |
@@ -71,7 +71,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 [General Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString)
 
  |        Value| Format|    SByte |   Int16|    Int32|    Int64| Byte|  UInt16|  UInt32|  UInt64|    Single|    Double |
- | ---         |---    |---       |---     |---      |---      |---  |---     |---     |---     |---       |---        |
+ | ---:        |:---   |---:      |---:    |---:     |---:     |---: |---:    |---:    |---:    |---:      |---:       |
  |          123| G     |      123 |     123|      123|      123|  123|     123|     123|     123|       123|       123 |
  |          123| g     |      123 |     123|      123|      123|  123|     123|     123|     123|       123|       123 |
  |          129| G     |      n/a |     129|      129|      129|  129|     129|     129|     129|       129|       129 |
@@ -118,7 +118,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 [Number Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString)
 
  |           Value| Format|   SByte|         Int16|         Int32|         Int64|     Byte|       UInt16|       UInt32|       UInt64|        Single|        Double |
- |---             | ---   | ---    | ---          | ---          | ---          | ---     | ---         | ---         | ---         | ---          | ---           |
+ |---:            | :---  | ---:   | ---:         | ---:         | ---:         | ---:    | ---:        | ---:        | ---:        | ---:         | ---:          |
  |             123| N     |  123.00|        123.00|        123.00|        123.00|   123.00|       123.00|       123.00|       123.00|        123.00|        123.00 |
  |             123| n     |  123.00|        123.00|        123.00|        123.00|   123.00|       123.00|       123.00|       123.00|        123.00|        123.00 |
  |             129| N     |     n/a|        129.00|        129.00|        129.00|   129.00|       129.00|       129.00|       129.00|        129.00|        129.00 |
@@ -155,7 +155,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 [Hexadecimal Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString)
 
 |     Value| Format| SByte|  Int16|    Int32|            Int64| Byte| UInt16| UInt32| UInt64 |
-| ---      | ---   | ---  | ---   | ---     | ---             | --- | ---   | ---   | ---    |
+| ---:     | :---  | ---: | ---:  | ---:    | ---:            | ---:| ---:  | ---:  | ---:   |
 |         0| X2    |    00|     00|       00|               00|   00|     00|     00|     00 |
 |         0| x2    |    00|     00|       00|               00|   00|     00|     00|     00 |
 |        +0| X     |     0|      0|        0|                0|    0|      0|      0|      0 |
