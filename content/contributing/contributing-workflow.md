@@ -86,11 +86,11 @@ Also don't think that comments and requests for changes means that your contribu
 
 ## Working on an open issue
 
-When you want to work on an open issue (including _up-for-grabs_) we recommend the following.
+When you want to work on an open issue (including _up for grabs_) we recommend the following.
 
-- Issues labeled with [_investigating_](labels.md#labels): if the current status doesn't seem updated or clear, add a comment asking for clarification before start any work on it.
-- Issues labeled with [_under-review_](labels.md#labels): if the current status doesn't seem updated or clear, add a comment asking for a clarification before start any work on it.
-- Issues labeled with [_up-for-grabs_](labels.md#labels): add a comment stating your interest and the issue will be assigned to you and the label switched to _in progress_.
+- Issues labeled with [_investigating_](labels.md#l10): if the current status doesn't seem updated or clear, add a comment asking for clarification before start any work on it.
+- Issues labeled with [_under review_](labels.md#l27): if the current status doesn't seem updated or clear, add a comment asking for a clarification before start any work on it.
+- Issues labeled with [_up for grabs_](labels.md#l9): add a comment stating your interest and the issue will be assigned to you and the label switched to _in progress_.
 
 ## Suggested Workflow
 
