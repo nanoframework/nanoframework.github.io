@@ -13,8 +13,8 @@ There are available ready to flash firmware images for several targets, please c
 - [Getting started guide for C#](getting-started-managed.md)
 - [Getting started trouble shooting guide](trouble-shooting-guide.md)
 - [Getting started with VS Code extension](getting-started-vs-code.md)
-- [Getting started with package and assembly versions and checksums](guide-version-checksums.md)
 - [Compare .NET **nanoFramework** with .NET IoT](dotnet-iot-core-vs-nanoframework.md)
+- [Virtual Device](virtual-device.md)
 
 ## Build instructions
 

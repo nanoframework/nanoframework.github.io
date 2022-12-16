@@ -1,8 +1,12 @@
 trigger:
   branches:
-    include: [pages-source]
+    include: 
+      - pages-source
   paths:
-    exclude: [README.md, LICENSE.md, .gitignore]
+    exclude: 
+      - README.md
+      - LICENSE.md
+      - .gitignore
 
 # PR always trigger build   
 pr:
@@ -19,6 +23,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  DOTNET_NOLOGO: true
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
@@ -144,9 +149,13 @@ steps:
 
       git clone https://github.com/nanoframework/System.Device.I2c.git --depth 100 -b main System.Device.I2c
 
+      git clone https://github.com/nanoframework/System.Device.I2s.git --depth 100 -b main System.Device.I2s
+
       git clone https://github.com/nanoframework/System.IO.FileSystem.git --depth 100 -b main System.IO.FileSystem
 
       git clone https://github.com/nanoframework/System.IO.Streams.git --depth 100 -b main System.IO.Streams
+
+      git clone https://github.com/nanoframework/System.Runtime.Serialization.git --depth 100 -b main System.Runtime.Serialization
 
       git clone https://github.com/nanoframework/Windows.Devices.Pwm.git --depth 100 -b main Windows.Devices.Pwm 
 
@@ -324,11 +333,19 @@ steps:
 
 - task: Cache@2
   displayName: Cache NuGet packages
-  condition: succeeded()
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
   continueOnError: true
   inputs:
-    key: 'nuget | "$(Agent.OS)"'
-    path: $(Pipeline.Workspace)/.nuget/packages
+    key: 'nuget | **/packages.lock.json'
+    path: $(UserProfile)/.nuget/packages
 
 # build all libs
 
@@ -541,6 +558,22 @@ steps:
     nugetConfigPath: 'System.Device.I2c\NuGet.Config'
 
 - task: NuGetCommand@2
+  displayName: NuGet restore System.Device.I2s
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    restoreSolution: 'System.Device.I2s\nanoFramework.System.Device.I2s.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Device.I2s\NuGet.Config'
+
+- task: NuGetCommand@2
   displayName: NuGet restore System.IO.FileSystem
   condition: >-
     and(
@@ -571,6 +604,22 @@ steps:
     restoreSolution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
     feedsToUse: config
     nugetConfigPath: 'System.IO.Streams\NuGet.Config'
+
+- task: NuGetCommand@2
+  displayName: NuGet restore System.Runtime.Serialization
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    restoreSolution: 'System.Runtime.Serialization\nanoFramework.System.Runtime.Serialization.sln'
+    feedsToUse: config
+    nugetConfigPath: 'System.Runtime.Serialization\NuGet.Config'
 
 - task: NuGetCommand@2
   displayName: NuGet restore Windows.Devices.Pwm
@@ -1150,11 +1199,17 @@ steps:
     nugetConfigPath: 'nanoFramework.IoT.Device\NuGet.Config'
 
 # Build part
-- task: InstallnFBuildComponents@1
-  condition: and(succeeded(), or( eq(variables['BUILD_ALL'], 'true'), contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'), eq(variables['BuildOptions.BUILD_ALL'], 'true') ))
+- task: InstallNanoMSBuildComponents@1
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
   displayName: Install nanoFramework MSBuild components
-  env:
-    GITHUB_TOKEN: $(GitHubToken)
 
 - task: VSBuild@1
   displayName: Build CoreLibrary
@@ -1171,6 +1226,7 @@ steps:
     solution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Device.Can
@@ -1187,6 +1243,7 @@ steps:
     solution: 'nanoFramework.Device.Can\nanoFramework.Device.Can.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Device.OneWire
@@ -1203,6 +1260,7 @@ steps:
     solution: 'nanoFramework.Device.OneWire\nanoFramework.Device.OneWire.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Runtime.Events
@@ -1219,6 +1277,7 @@ steps:
     solution: 'nanoFramework.Runtime.Events\nanoFramework.Runtime.Events.sln '
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Runtime.Native
@@ -1235,6 +1294,7 @@ steps:
     solution: 'nanoFramework.Runtime.Native\nanoFramework.Runtime.Native.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.WebServer
@@ -1251,6 +1311,7 @@ steps:
     solution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
   
 - task: VSBuild@1
   displayName: Build nanoFramework.DependencyInjection
@@ -1267,6 +1328,7 @@ steps:
     solution: 'nanoFramework.DependencyInjection\nanoFramework.DependencyInjection.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hosting
@@ -1283,6 +1345,7 @@ steps:
     solution: 'nanoFramework.Hosting\nanoFramework.Hosting.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Device.Dac
@@ -1299,6 +1362,7 @@ steps:
     solution: 'System.Device.Dac\nanoFramework.System.Device.Dac.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Device.Gpio
@@ -1315,6 +1379,7 @@ steps:
     solution: 'System.Device.Gpio\nanoFramework.System.Device.Gpio.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Gpio
@@ -1331,6 +1396,7 @@ steps:
     solution: 'Windows.Devices.Gpio\nanoFramework.Windows.Devices.Gpio.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.I2c
@@ -1347,6 +1413,7 @@ steps:
     solution: 'Windows.Devices.I2c\nanoFramework.Windows.Devices.I2c.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Device.I2c
@@ -1363,6 +1430,24 @@ steps:
     solution: 'System.Device.I2c\nanoFramework.System.Device.I2c.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+
+- task: VSBuild@1
+  displayName: Build System.Device.I2s
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    solution: 'System.Device.I2s\nanoFramework.System.Device.I2s.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.IO.FileSystem
@@ -1379,6 +1464,7 @@ steps:
     solution: 'System.IO.FileSystem\nanoFramework.System.IO.FileSystem.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.IO.Streams
@@ -1395,6 +1481,24 @@ steps:
     solution: 'System.IO.Streams\nanoFramework.System.IO.Streams.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+
+- task: VSBuild@1
+  displayName: Build System.Runtime.Serialization
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    solution: 'System.Runtime.Serialization\nanoFramework.System.Runtime.Serialization.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Pwm
@@ -1411,6 +1515,7 @@ steps:
     solution: 'Windows.Devices.Pwm\nanoFramework.Windows.Devices.Pwm.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Device.Pwm
@@ -1427,6 +1532,7 @@ steps:
     solution: 'System.Device.Pwm\nanoFramework.System.Device.Pwm.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.SerialCommunication
@@ -1443,6 +1549,7 @@ steps:
     solution: 'Windows.Devices.SerialCommunication\nanoFramework.Windows.Devices.SerialCommunication.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Spi
@@ -1459,6 +1566,7 @@ steps:
     solution: 'Windows.Devices.Spi\nanoFramework.Windows.Devices.Spi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Device.Spi
@@ -1475,6 +1583,7 @@ steps:
     solution: 'System.Device.Spi\nanoFramework.System.Device.Spi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Storage
@@ -1491,6 +1600,7 @@ steps:
     solution: 'Windows.Storage\nanoFramework.Windows.Storage.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Storage.Streams
@@ -1507,6 +1617,7 @@ steps:
     solution: 'Windows.Storage.Streams\nanoFramework.Windows.Storage.Streams.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build Windows.Devices.Adc
@@ -1523,6 +1634,7 @@ steps:
     solution: 'Windows.Devices.Adc\nanoFramework.Windows.Devices.Adc.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
     
 - task: VSBuild@1
   displayName: Build System.Device.Adc
@@ -1539,6 +1651,7 @@ steps:
     solution: 'System.Device.Adc\nanoFramework.System.Device.Adc.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Device.WiFi
@@ -1555,6 +1668,7 @@ steps:
     solution: 'System.Device.WiFi\nanoFramework.System.Device.WiFi.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Benchmark
@@ -1571,6 +1685,7 @@ steps:
     solution: 'nanoFramework.Benchmark\nanoFramework.Benchmark.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Graphics
@@ -1587,6 +1702,7 @@ steps:
     solution: 'nanoFramework.Graphics\nanoFramework.Graphics.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.Esp32
@@ -1603,6 +1719,7 @@ steps:
     solution: 'nanoFramework.Hardware.Esp32\nanoFramework.Hardware.Esp32.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.Esp32.Rmt
@@ -1619,6 +1736,7 @@ steps:
     solution: 'nanoFramework.Hardware.Esp32.Rmt\nanoFramework.Hardware.Esp32.Rmt.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Json
@@ -1635,6 +1753,7 @@ steps:
     solution: 'nanoFramework.Json\nanoFramework.Json.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.Stm32
@@ -1651,6 +1770,7 @@ steps:
     solution: 'nanoFramework.Hardware.Stm32\nanoFramework.Hardware.Stm32.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Networking.Sntp
@@ -1667,6 +1787,7 @@ steps:
     solution: 'nanoFramework.Networking.Sntp\nanoFramework.Networking.Sntp.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Collections
@@ -1683,6 +1804,7 @@ steps:
     solution: 'System.Collections\nanoFramework.System.Collections.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Text
@@ -1699,6 +1821,7 @@ steps:
     solution: 'System.Text\nanoFramework.System.Text.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Net
@@ -1715,6 +1838,7 @@ steps:
     solution: 'System.Net\nanoFramework.System.Net.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Net.Http
@@ -1731,6 +1855,7 @@ steps:
     solution: 'System.Net.Http\nanoFramework.System.Net.Http.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Net.WebSockets
@@ -1747,6 +1872,7 @@ steps:
     solution: 'System.Net.WebSockets\nanoFramework.System.Net.WebSockets.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Hardware.TI
@@ -1763,6 +1889,7 @@ steps:
     solution: 'nanoFramework.Hardware.TI\nanoFramework.Hardware.TI.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Math
@@ -1779,6 +1906,7 @@ steps:
     solution: 'System.Math\nanoFramework.System.Math.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Logging
@@ -1795,6 +1923,7 @@ steps:
     solution: 'nanoFramework.Logging\nanoFramework.Logging.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.IO.Ports
@@ -1811,6 +1940,7 @@ steps:
     solution: 'System.IO.Ports\nanoFramework.System.IO.Ports.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.M2Mqtt
@@ -1827,6 +1957,7 @@ steps:
     solution: 'nanoFramework.M2Mqtt\nanoFramework.M2Mqtt.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Text.RegularExpressions
@@ -1843,6 +1974,7 @@ steps:
     solution: 'System.Text.RegularExpressions\nanoFramework.System.Text.RegularExpressions.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Azure.Devices
@@ -1859,6 +1991,7 @@ steps:
     solution: 'nanoFramework.Azure.Devices\nanoFramework.Azure.Devices.Client.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.Aws.IoTCore.Devices
@@ -1875,6 +2008,7 @@ steps:
     solution: 'nanoFramework.Aws.IoTCore.Devices\nanoFramework.Aws.IoTCore.Devices.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build nanoFramework.SignalR.Client
@@ -1891,6 +2025,7 @@ steps:
     solution: 'nanoFramework.SignalR.Client\nanoFramework.SignalR.Client.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Net.Sockets.TcpClient
@@ -1907,6 +2042,7 @@ steps:
     solution: 'System.Net.Sockets.TcpClient\nanoFramework.System.Net.Sockets.TcpClient.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 - task: VSBuild@1
   displayName: Build System.Net.Sockets.UdpClient
@@ -1923,6 +2059,7 @@ steps:
     solution: 'System.Net.Sockets.UdpClient\nanoFramework.System.Net.Sockets.UdpClient.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
 
 # This should build all the bindings in nanoFramework.IoT.Device in the devices directory
 - task: VSBuild@1
@@ -1940,6 +2077,7 @@ steps:
     solution: 'nanoFramework.IoT.Device\devices\**\*.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
   continueOnError: true
 
 # Clean what's not needed from IoT.Device and adjust the nugets to remove nerdbank to help build
