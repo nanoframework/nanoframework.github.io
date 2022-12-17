@@ -9,7 +9,7 @@ To manually flash firmware using ST DFUSE tools, get a copy of [ST DFUSE tools](
 ## Step one
 
 - Locate the devices Device_BlockStorage.c file.
-  - E.g. the Netduino 3 file is located [here](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/NETDUINO3_WIFI/common/Device_BlockStorage.c).
+  - E.g. the Netduino 3 file is located [here](https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/NETDUINO3_WIFI/common/Device_BlockStorage.c).
 - Find the BlockRegionInfo segment Start address and bytes per block.
 
 Example:
