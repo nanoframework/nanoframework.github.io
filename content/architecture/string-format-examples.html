@@ -79,176 +79,2108 @@
 
 <h2 id="about-this-document">About this document</h2>
 <p>This document provides examples of numeric formatting in the <strong>nanoFramework</strong> CLR. The examples are part of the Unit Test Framework and can be found in the <a href="https://github.com/nanoframework/CoreLibrary">CoreLibrary repository</a> as part of the <a href="https://github.com/nanoframework/CoreLibrary/blob/main/Tests/NFUnitTestArithmetic/UnitTestFormat.cs">Arithmetic unit tests</a>.  When running the unit test for a specifier the example data is gathered and displayed in the Test Output after a successful test run. Each format specifier is attempted for the signed integers (SByte, Int16, Int32, Int64), unsigned integers (Byte, UInt16, UInt32, UInt64) and floating-point (Single/Double) number types.  Negative numbers are not attempted for unsigned integer types (n/a will appear), and the value must be within the range of the integer type (i.e. must be between -128 and +128 for SByte) otherwise n/a will appear.  The Decimal and Hexadecimal types ONLY support integer number types.  For all of the examples both upper and lower case versions of the specifier are tested, however only lower case g and x have any effect on the output.</p>
-<h2 id="d-decimal"><a id="decimal">D-Decimal</a></h2>
+<h2 id="d-decimal">D-Decimal</h2>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString">Decimal Format Specifier</a></p>
-<pre><code> Value Format SByte   Int16   Int32   Int64 Byte UInt16 UInt32 UInt64
-   123 D        123     123     123     123  123    123    123    123
-   123 d        123     123     123     123  123    123    123    123
-   129 D        n/a     129     129     129  129    129    129    129
-   129 d        n/a     129     129     129  129    129    129    129
-  -129 D        n/a    -129    -129    -129  n/a    n/a    n/a    n/a
-  -129 d        n/a    -129    -129    -129  n/a    n/a    n/a    n/a
-   128 D        n/a     128     128     128  128    128    128    128
-   128 d        n/a     128     128     128  128    128    128    128
-  -128 D       -128    -128    -128    -128  n/a    n/a    n/a    n/a
-  -128 d       -128    -128    -128    -128  n/a    n/a    n/a    n/a
-  -128 D2      -128    -128    -128    -128  n/a    n/a    n/a    n/a
-  -128 d2      -128    -128    -128    -128  n/a    n/a    n/a    n/a
-  1234 D2       n/a    1234    1234    1234  n/a   1234   1234   1234
-  1234 d2       n/a    1234    1234    1234  n/a   1234   1234   1234
- -1234 D        n/a   -1234   -1234   -1234  n/a    n/a    n/a    n/a
- -1234 d        n/a   -1234   -1234   -1234  n/a    n/a    n/a    n/a
-  1234 D6       n/a  001234  001234  001234  n/a 001234 001234 001234
-  1234 d6       n/a  001234  001234  001234  n/a 001234 001234 001234
- -1234 D6       n/a -001234 -001234 -001234  n/a    n/a    n/a    n/a
- -1234 d6       n/a -001234 -001234 -001234  n/a    n/a    n/a    n/a
-</code></pre>
-<h2 id="f-fixed-point"><a id="fixed">F-Fixed-point</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: right;">SByte</th>
+<th style="text-align: right;">Int16</th>
+<th style="text-align: right;">Int32</th>
+<th style="text-align: right;">Int64</th>
+<th style="text-align: right;">Byte</th>
+<th style="text-align: right;">UInt16</th>
+<th style="text-align: right;">UInt32</th>
+<th style="text-align: right;">UInt64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">D2</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">d2</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">D2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">d2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">D6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">d6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+<td style="text-align: right;">001234</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">D6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-001234</td>
+<td style="text-align: right;">-001234</td>
+<td style="text-align: right;">-001234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">d6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-001234</td>
+<td style="text-align: right;">-001234</td>
+<td style="text-align: right;">-001234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+</tbody>
+</table>
+<h2 id="f-fixed-point">F-Fixed-point</h2>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString">Fixed-point Format Specifier</a></p>
-<pre><code>     Value Format   SByte        Int16        Int32        Int64     Byte      UInt16      UInt32      UInt64       Single       Double
-       123 F       123.00       123.00       123.00       123.00   123.00      123.00      123.00      123.00       123.00       123.00
-       123 f       123.00       123.00       123.00       123.00   123.00      123.00      123.00      123.00       123.00       123.00
-       129 F          n/a       129.00       129.00       129.00   129.00      129.00      129.00      129.00       129.00       129.00
-       129 f          n/a       129.00       129.00       129.00   129.00      129.00      129.00      129.00       129.00       129.00
-      -129 F          n/a      -129.00      -129.00      -129.00      n/a         n/a         n/a         n/a      -129.00      -129.00
-      -129 f          n/a      -129.00      -129.00      -129.00      n/a         n/a         n/a         n/a      -129.00      -129.00
-       128 F          n/a       128.00       128.00       128.00   128.00      128.00      128.00      128.00       128.00       128.00
-       128 f          n/a       128.00       128.00       128.00   128.00      128.00      128.00      128.00       128.00       128.00
-       128 F4         n/a     128.0000     128.0000     128.0000 128.0000    128.0000    128.0000    128.0000     128.0000     128.0000
-       128 f4         n/a     128.0000     128.0000     128.0000 128.0000    128.0000    128.0000    128.0000     128.0000     128.0000
-      -128 F      -128.00      -128.00      -128.00      -128.00      n/a         n/a         n/a         n/a      -128.00      -128.00
-      -128 f      -128.00      -128.00      -128.00      -128.00      n/a         n/a         n/a         n/a      -128.00      -128.00
-      -128 F2     -128.00      -128.00      -128.00      -128.00      n/a         n/a         n/a         n/a      -128.00      -128.00
-      -128 f2     -128.00      -128.00      -128.00      -128.00      n/a         n/a         n/a         n/a      -128.00      -128.00
-      1234 F2         n/a      1234.00      1234.00      1234.00      n/a     1234.00     1234.00     1234.00      1234.00      1234.00
-      1234 f2         n/a      1234.00      1234.00      1234.00      n/a     1234.00     1234.00     1234.00      1234.00      1234.00
-     -1234 F          n/a     -1234.00     -1234.00     -1234.00      n/a         n/a         n/a         n/a     -1234.00     -1234.00
-     -1234 f          n/a     -1234.00     -1234.00     -1234.00      n/a         n/a         n/a         n/a     -1234.00     -1234.00
-      1234 F6         n/a  1234.000000  1234.000000  1234.000000      n/a 1234.000000 1234.000000 1234.000000  1234.000000  1234.000000
-      1234 f6         n/a  1234.000000  1234.000000  1234.000000      n/a 1234.000000 1234.000000 1234.000000  1234.000000  1234.000000
-     -1234 F6         n/a -1234.000000 -1234.000000 -1234.000000      n/a         n/a         n/a         n/a -1234.000000 -1234.000000
-     -1234 f6         n/a -1234.000000 -1234.000000 -1234.000000      n/a         n/a         n/a         n/a -1234.000000 -1234.000000
-    123.78 F3         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a      123.780      123.780
-    123.78 f3         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a      123.780      123.780
-    123.78 F1         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a        123.8        123.8
-    123.78 f1         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a        123.8        123.8
- 1234.8999 F3         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a     1234.900     1234.900
- 1234.8999 f3         n/a          n/a          n/a          n/a      n/a         n/a         n/a         n/a     1234.900     1234.900
-</code></pre>
-<h2 id="g-general"><a id="general">G-General</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: right;">SByte</th>
+<th style="text-align: right;">Int16</th>
+<th style="text-align: right;">Int32</th>
+<th style="text-align: right;">Int64</th>
+<th style="text-align: right;">Byte</th>
+<th style="text-align: right;">UInt16</th>
+<th style="text-align: right;">UInt32</th>
+<th style="text-align: right;">UInt64</th>
+<th style="text-align: right;">Single</th>
+<th style="text-align: right;">Double</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">F4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">f4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">F2</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">f2</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">F2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">f2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+<td style="text-align: right;">1234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">-1234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.00</td>
+<td style="text-align: right;">-1234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">F6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">f6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+<td style="text-align: right;">1234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">F6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">-1234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">f6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.000000</td>
+<td style="text-align: right;">-1234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">F3</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.780</td>
+<td style="text-align: right;">123.780</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">f3</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.780</td>
+<td style="text-align: right;">123.780</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">F1</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.8</td>
+<td style="text-align: right;">123.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.8</td>
+<td style="text-align: right;">123.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">F3</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.900</td>
+<td style="text-align: right;">1234.900</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">f3</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.900</td>
+<td style="text-align: right;">1234.900</td>
+</tr>
+</tbody>
+</table>
+<h2 id="g-general">G-General</h2>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString">General Format Specifier</a></p>
-<pre><code>     Value Format    SByte    Int16    Int32    Int64 Byte  UInt16  UInt32  UInt64    Single    Double
-       123 G           123      123      123      123  123     123     123     123       123       123
-       123 g           123      123      123      123  123     123     123     123       123       123
-       129 G           n/a      129      129      129  129     129     129     129       129       129
-       129 g           n/a      129      129      129  129     129     129     129       129       129
-      -129 G           n/a     -129     -129     -129  n/a     n/a     n/a     n/a      -129      -129
-      -129 g           n/a     -129     -129     -129  n/a     n/a     n/a     n/a      -129      -129
-       128 G           n/a      128      128      128  128     128     128     128       128       128
-       128 g           n/a      128      128      128  128     128     128     128       128       128
-       128 G4          n/a      128      128      128  128     128     128     128       128       128
-       128 g4          n/a      128      128      128  128     128     128     128       128       128
-      -128 G          -128     -128     -128     -128  n/a     n/a     n/a     n/a      -128      -128
-      -128 g          -128     -128     -128     -128  n/a     n/a     n/a     n/a      -128      -128
-      -128 G2     -1.3E+02 -1.3E+02 -1.3E+02 -1.3E+02  n/a     n/a     n/a     n/a  -1.3E+02  -1.3E+02
-      -128 g2     -1.3e+02 -1.3e+02 -1.3e+02 -1.3e+02  n/a     n/a     n/a     n/a  -1.3e+02  -1.3e+02
-      1234 G2          n/a  1.2E+03  1.2E+03  1.2E+03  n/a 1.2E+03 1.2E+03 1.2E+03   1.2E+03   1.2E+03
-      1234 g2          n/a  1.2e+03  1.2e+03  1.2e+03  n/a 1.2e+03 1.2e+03 1.2e+03   1.2e+03   1.2e+03
-     -1234 G           n/a    -1234    -1234    -1234  n/a     n/a     n/a     n/a     -1234     -1234
-     -1234 g           n/a    -1234    -1234    -1234  n/a     n/a     n/a     n/a     -1234     -1234
-      1234 G6          n/a     1234     1234     1234  n/a    1234    1234    1234      1234      1234
-      1234 g6          n/a     1234     1234     1234  n/a    1234    1234    1234      1234      1234
-     -1234 G6          n/a    -1234    -1234    -1234  n/a     n/a     n/a     n/a     -1234     -1234
-     -1234 g6          n/a    -1234    -1234    -1234  n/a     n/a     n/a     n/a     -1234     -1234
-    123.78 G3          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a       124       124
-    123.78 g3          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a       124       124
-  123.7841 G5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    123.78    123.78
-  123.7841 g5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    123.78    123.78
-  123.7851 G5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    123.79    123.79
-  123.7851 g5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    123.79    123.79
-    123.78 G5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    123.78    123.78
-    123.78 g5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    123.78    123.78
-    123.78 G4          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a     123.8     123.8
-    123.78 g4          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a     123.8     123.8
- 1234.8999 G5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    1234.9    1234.9
- 1234.8999 g5          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    1234.9    1234.9
- 1234.8999 G6          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    1234.9    1234.9
- 1234.8999 g6          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    1234.9    1234.9
- 1234.8999 G7          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    1234.9    1234.9
- 1234.8999 g7          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a    1234.9    1234.9
- -1234.901 G7          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a -1234.901 -1234.901
- -1234.901 g7          n/a      n/a      n/a      n/a  n/a     n/a     n/a     n/a -1234.901 -1234.901
-</code></pre>
-<h2 id="n-number"><a id="number">N-Number</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: right;">SByte</th>
+<th style="text-align: right;">Int16</th>
+<th style="text-align: right;">Int32</th>
+<th style="text-align: right;">Int64</th>
+<th style="text-align: right;">Byte</th>
+<th style="text-align: right;">UInt16</th>
+<th style="text-align: right;">UInt32</th>
+<th style="text-align: right;">UInt64</th>
+<th style="text-align: right;">Single</th>
+<th style="text-align: right;">Double</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">g</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">g</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">g</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129</td>
+<td style="text-align: right;">-129</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">g</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">G4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">g4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">128</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">g</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128</td>
+<td style="text-align: right;">-128</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">G2</td>
+<td style="text-align: right;">-1.3E+02</td>
+<td style="text-align: right;">-1.3E+02</td>
+<td style="text-align: right;">-1.3E+02</td>
+<td style="text-align: right;">-1.3E+02</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1.3E+02</td>
+<td style="text-align: right;">-1.3E+02</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">g2</td>
+<td style="text-align: right;">-1.3e+02</td>
+<td style="text-align: right;">-1.3e+02</td>
+<td style="text-align: right;">-1.3e+02</td>
+<td style="text-align: right;">-1.3e+02</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1.3e+02</td>
+<td style="text-align: right;">-1.3e+02</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">G2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1.2E+03</td>
+<td style="text-align: right;">1.2E+03</td>
+<td style="text-align: right;">1.2E+03</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1.2E+03</td>
+<td style="text-align: right;">1.2E+03</td>
+<td style="text-align: right;">1.2E+03</td>
+<td style="text-align: right;">1.2E+03</td>
+<td style="text-align: right;">1.2E+03</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">g2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1.2e+03</td>
+<td style="text-align: right;">1.2e+03</td>
+<td style="text-align: right;">1.2e+03</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1.2e+03</td>
+<td style="text-align: right;">1.2e+03</td>
+<td style="text-align: right;">1.2e+03</td>
+<td style="text-align: right;">1.2e+03</td>
+<td style="text-align: right;">1.2e+03</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">g</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">G6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">g6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+<td style="text-align: right;">1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">G6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">g6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: right;">-1234</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">G3</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">124</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">g3</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">124</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.7841</td>
+<td style="text-align: left;">G5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: right;">123.78</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.7841</td>
+<td style="text-align: left;">g5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: right;">123.78</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.7851</td>
+<td style="text-align: left;">G5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.79</td>
+<td style="text-align: right;">123.79</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.7851</td>
+<td style="text-align: left;">g5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.79</td>
+<td style="text-align: right;">123.79</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">G5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: right;">123.78</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">g5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: right;">123.78</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">G4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.8</td>
+<td style="text-align: right;">123.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">123.78</td>
+<td style="text-align: left;">g4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123.8</td>
+<td style="text-align: right;">123.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">G5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.9</td>
+<td style="text-align: right;">1234.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">g5</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.9</td>
+<td style="text-align: right;">1234.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">G6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.9</td>
+<td style="text-align: right;">1234.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">g6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.9</td>
+<td style="text-align: right;">1234.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">G7</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.9</td>
+<td style="text-align: right;">1234.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.8999</td>
+<td style="text-align: left;">g7</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1234.9</td>
+<td style="text-align: right;">1234.9</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234.901</td>
+<td style="text-align: left;">G7</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.901</td>
+<td style="text-align: right;">-1234.901</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234.901</td>
+<td style="text-align: left;">g7</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1234.901</td>
+<td style="text-align: right;">-1234.901</td>
+</tr>
+</tbody>
+</table>
+<h2 id="n-number">N-Number</h2>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString">Number Format Specifier</a></p>
-<pre><code>        Value Format   SByte         Int16         Int32         Int64     Byte       UInt16       UInt32       UInt64        Single        Double
-          123 N       123.00        123.00        123.00        123.00   123.00       123.00       123.00       123.00        123.00        123.00
-          123 n       123.00        123.00        123.00        123.00   123.00       123.00       123.00       123.00        123.00        123.00
-          129 N          n/a        129.00        129.00        129.00   129.00       129.00       129.00       129.00        129.00        129.00
-          129 n          n/a        129.00        129.00        129.00   129.00       129.00       129.00       129.00        129.00        129.00
-         -129 N          n/a       -129.00       -129.00       -129.00      n/a          n/a          n/a          n/a       -129.00       -129.00
-         -129 n          n/a       -129.00       -129.00       -129.00      n/a          n/a          n/a          n/a       -129.00       -129.00
-          128 N          n/a        128.00        128.00        128.00   128.00       128.00       128.00       128.00        128.00        128.00
-          128 n          n/a        128.00        128.00        128.00   128.00       128.00       128.00       128.00        128.00        128.00
-          128 N4         n/a      128.0000      128.0000      128.0000 128.0000     128.0000     128.0000     128.0000      128.0000      128.0000
-          128 n4         n/a      128.0000      128.0000      128.0000 128.0000     128.0000     128.0000     128.0000      128.0000      128.0000
-         -128 N      -128.00       -128.00       -128.00       -128.00      n/a          n/a          n/a          n/a       -128.00       -128.00
-         -128 n      -128.00       -128.00       -128.00       -128.00      n/a          n/a          n/a          n/a       -128.00       -128.00
-         -128 N2     -128.00       -128.00       -128.00       -128.00      n/a          n/a          n/a          n/a       -128.00       -128.00
-         -128 n2     -128.00       -128.00       -128.00       -128.00      n/a          n/a          n/a          n/a       -128.00       -128.00
-         1234 N2         n/a      1,234.00      1,234.00      1,234.00      n/a     1,234.00     1,234.00     1,234.00      1,234.00      1,234.00
-         1234 n2         n/a      1,234.00      1,234.00      1,234.00      n/a     1,234.00     1,234.00     1,234.00      1,234.00      1,234.00
-        -1234 N          n/a     -1,234.00     -1,234.00     -1,234.00      n/a          n/a          n/a          n/a     -1,234.00     -1,234.00
-        -1234 n          n/a     -1,234.00     -1,234.00     -1,234.00      n/a          n/a          n/a          n/a     -1,234.00     -1,234.00
-         1234 N6         n/a  1,234.000000  1,234.000000  1,234.000000      n/a 1,234.000000 1,234.000000 1,234.000000  1,234.000000  1,234.000000
-         1234 n6         n/a  1,234.000000  1,234.000000  1,234.000000      n/a 1,234.000000 1,234.000000 1,234.000000  1,234.000000  1,234.000000
-        -1234 N6         n/a -1,234.000000 -1,234.000000 -1,234.000000      n/a          n/a          n/a          n/a -1,234.000000 -1,234.000000
-        -1234 n6         n/a -1,234.000000 -1,234.000000 -1,234.000000      n/a          n/a          n/a          n/a -1,234.000000 -1,234.000000
-     1234.567 N2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a      1,234.57      1,234.57
-     1234.567 n2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a      1,234.57      1,234.57
-    -1234.567 N2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a     -1,234.57     -1,234.57
-    -1234.567 n2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a     -1,234.57     -1,234.57
-    123456.78 N2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a    123,456.78    123,456.78
-    123456.78 n2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a    123,456.78    123,456.78
- 1234567.1210 N2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a  1,234,567.12  1,234,567.12
- 1234567.1210 n2         n/a           n/a           n/a           n/a      n/a          n/a          n/a          n/a  1,234,567.12  1,234,567.12
-</code></pre>
-<h2 id="x-hexadecimal"><a id="hexadecimal">X-Hexadecimal</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: right;">SByte</th>
+<th style="text-align: right;">Int16</th>
+<th style="text-align: right;">Int32</th>
+<th style="text-align: right;">Int64</th>
+<th style="text-align: right;">Byte</th>
+<th style="text-align: right;">UInt16</th>
+<th style="text-align: right;">UInt32</th>
+<th style="text-align: right;">UInt64</th>
+<th style="text-align: right;">Single</th>
+<th style="text-align: right;">Double</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">n</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+<td style="text-align: right;">123.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">n</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+<td style="text-align: right;">129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">n</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-129.00</td>
+<td style="text-align: right;">-129.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">n</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+<td style="text-align: right;">128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">N4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">n4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+<td style="text-align: right;">128.0000</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">n</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">n2</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-128.00</td>
+<td style="text-align: right;">-128.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">n2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+<td style="text-align: right;">1,234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">-1,234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">n</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.00</td>
+<td style="text-align: right;">-1,234.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">N6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">n6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+<td style="text-align: right;">1,234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">N6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">-1,234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">n6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.000000</td>
+<td style="text-align: right;">-1,234.000000</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.567</td>
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.57</td>
+<td style="text-align: right;">1,234.57</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234.567</td>
+<td style="text-align: left;">n2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234.57</td>
+<td style="text-align: right;">1,234.57</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234.567</td>
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.57</td>
+<td style="text-align: right;">-1,234.57</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234.567</td>
+<td style="text-align: left;">n2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">-1,234.57</td>
+<td style="text-align: right;">-1,234.57</td>
+</tr>
+<tr>
+<td style="text-align: right;">123456.78</td>
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123,456.78</td>
+<td style="text-align: right;">123,456.78</td>
+</tr>
+<tr>
+<td style="text-align: right;">123456.78</td>
+<td style="text-align: left;">n2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">123,456.78</td>
+<td style="text-align: right;">123,456.78</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234567.1210</td>
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234,567.12</td>
+<td style="text-align: right;">1,234,567.12</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234567.1210</td>
+<td style="text-align: left;">n2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">1,234,567.12</td>
+<td style="text-align: right;">1,234,567.12</td>
+</tr>
+</tbody>
+</table>
+<h2 id="x-hexadecimal">X-Hexadecimal</h2>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString">Hexadecimal Format Specifier</a></p>
-<pre><code> Value Format SByte  Int16    Int32            Int64 Byte UInt16 UInt32 UInt64
-     0 X2        00     00       00               00   00     00     00     00
-     0 x2        00     00       00               00   00     00     00     00
-    +0 X          0      0        0                0    0      0      0      0
-    +0 x          0      0        0                0    0      0      0      0
-    -0 X          0      0        0                0    0      0      0      0
-    -0 x          0      0        0                0    0      0      0      0
-    12 X          C      C        C                C    C      C      C      C
-    12 x          c      c        c                c    c      c      c      c
-    12 X2        0C     0C       0C               0C   0C     0C     0C     0C
-    12 x2        0c     0c       0c               0c   0c     0c     0c     0c
-   127 X         7F     7F       7F               7F   7F     7F     7F     7F
-   127 x         7f     7f       7f               7f   7f     7f     7f     7f
-   129 X        n/a     81       81               81   81     81     81     81
-   129 x        n/a     81       81               81   81     81     81     81
-   128 X4       n/a   0080     0080             0080 0080   0080   0080   0080
-   128 x4       n/a   0080     0080             0080 0080   0080   0080   0080
-  1234 X        n/a    4D2      4D2              4D2  n/a    4D2    4D2    4D2
-  1234 x        n/a    4d2      4d2              4d2  n/a    4d2    4d2    4d2
-  1234 X6       n/a 0004D2   0004D2           0004D2  n/a 0004D2 0004D2 0004D2
-  1234 x6       n/a 0004d2   0004d2           0004d2  n/a 0004d2 0004d2 0004d2
-  -127 X         81   FF81 FFFFFF81 FFFFFFFFFFFFFF81  n/a    n/a    n/a    n/a
-  -127 x         81   ff81 ffffff81 ffffffffffffff81  n/a    n/a    n/a    n/a
-  -128 X         80   FF80 FFFFFF80 FFFFFFFFFFFFFF80  n/a    n/a    n/a    n/a
-  -128 x         80   ff80 ffffff80 ffffffffffffff80  n/a    n/a    n/a    n/a
-  -128 X4      0080   FF80 FFFFFF80 FFFFFFFFFFFFFF80  n/a    n/a    n/a    n/a
-  -128 x4      0080   ff80 ffffff80 ffffffffffffff80  n/a    n/a    n/a    n/a
-  -129 X        n/a   FF7F FFFFFF7F FFFFFFFFFFFFFF7F  n/a    n/a    n/a    n/a
-  -129 x        n/a   ff7f ffffff7f ffffffffffffff7f  n/a    n/a    n/a    n/a
- -1234 X        n/a   FB2E FFFFFB2E FFFFFFFFFFFFFB2E  n/a    n/a    n/a    n/a
- -1234 x        n/a   fb2e fffffb2e fffffffffffffb2e  n/a    n/a    n/a    n/a
- -1234 X6       n/a 00FB2E FFFFFB2E FFFFFFFFFFFFFB2E  n/a    n/a    n/a    n/a
- -1234 x6       n/a 00fb2e fffffb2e fffffffffffffb2e  n/a    n/a    n/a    n/a
-</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: right;">SByte</th>
+<th style="text-align: right;">Int16</th>
+<th style="text-align: right;">Int32</th>
+<th style="text-align: right;">Int64</th>
+<th style="text-align: right;">Byte</th>
+<th style="text-align: right;">UInt16</th>
+<th style="text-align: right;">UInt32</th>
+<th style="text-align: right;">UInt64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">X2</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">x2</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+<td style="text-align: right;">00</td>
+</tr>
+<tr>
+<td style="text-align: right;">+0</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">+0</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">-0</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">-0</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">C</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">c</td>
+<td style="text-align: right;">c</td>
+<td style="text-align: right;">c</td>
+<td style="text-align: right;">c</td>
+<td style="text-align: right;">c</td>
+<td style="text-align: right;">c</td>
+<td style="text-align: right;">c</td>
+<td style="text-align: right;">c</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">X2</td>
+<td style="text-align: right;">0C</td>
+<td style="text-align: right;">0C</td>
+<td style="text-align: right;">0C</td>
+<td style="text-align: right;">0C</td>
+<td style="text-align: right;">0C</td>
+<td style="text-align: right;">0C</td>
+<td style="text-align: right;">0C</td>
+<td style="text-align: right;">0C</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">x2</td>
+<td style="text-align: right;">0c</td>
+<td style="text-align: right;">0c</td>
+<td style="text-align: right;">0c</td>
+<td style="text-align: right;">0c</td>
+<td style="text-align: right;">0c</td>
+<td style="text-align: right;">0c</td>
+<td style="text-align: right;">0c</td>
+<td style="text-align: right;">0c</td>
+</tr>
+<tr>
+<td style="text-align: right;">127</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">7F</td>
+<td style="text-align: right;">7F</td>
+<td style="text-align: right;">7F</td>
+<td style="text-align: right;">7F</td>
+<td style="text-align: right;">7F</td>
+<td style="text-align: right;">7F</td>
+<td style="text-align: right;">7F</td>
+<td style="text-align: right;">7F</td>
+</tr>
+<tr>
+<td style="text-align: right;">127</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">7f</td>
+<td style="text-align: right;">7f</td>
+<td style="text-align: right;">7f</td>
+<td style="text-align: right;">7f</td>
+<td style="text-align: right;">7f</td>
+<td style="text-align: right;">7f</td>
+<td style="text-align: right;">7f</td>
+<td style="text-align: right;">7f</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+</tr>
+<tr>
+<td style="text-align: right;">129</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">X4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: left;">x4</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">0080</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">4D2</td>
+<td style="text-align: right;">4D2</td>
+<td style="text-align: right;">4D2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">4D2</td>
+<td style="text-align: right;">4D2</td>
+<td style="text-align: right;">4D2</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">4d2</td>
+<td style="text-align: right;">4d2</td>
+<td style="text-align: right;">4d2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">4d2</td>
+<td style="text-align: right;">4d2</td>
+<td style="text-align: right;">4d2</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">X6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">0004D2</td>
+<td style="text-align: right;">0004D2</td>
+<td style="text-align: right;">0004D2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">0004D2</td>
+<td style="text-align: right;">0004D2</td>
+<td style="text-align: right;">0004D2</td>
+</tr>
+<tr>
+<td style="text-align: right;">1234</td>
+<td style="text-align: left;">x6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">0004d2</td>
+<td style="text-align: right;">0004d2</td>
+<td style="text-align: right;">0004d2</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">0004d2</td>
+<td style="text-align: right;">0004d2</td>
+<td style="text-align: right;">0004d2</td>
+</tr>
+<tr>
+<td style="text-align: right;">-127</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">FF81</td>
+<td style="text-align: right;">FFFFFF81</td>
+<td style="text-align: right;">FFFFFFFFFFFFFF81</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-127</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">ff81</td>
+<td style="text-align: right;">ffffff81</td>
+<td style="text-align: right;">ffffffffffffff81</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">FF80</td>
+<td style="text-align: right;">FFFFFF80</td>
+<td style="text-align: right;">FFFFFFFFFFFFFF80</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">ff80</td>
+<td style="text-align: right;">ffffff80</td>
+<td style="text-align: right;">ffffffffffffff80</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">X4</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">FF80</td>
+<td style="text-align: right;">FFFFFF80</td>
+<td style="text-align: right;">FFFFFFFFFFFFFF80</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-128</td>
+<td style="text-align: left;">x4</td>
+<td style="text-align: right;">0080</td>
+<td style="text-align: right;">ff80</td>
+<td style="text-align: right;">ffffff80</td>
+<td style="text-align: right;">ffffffffffffff80</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">FF7F</td>
+<td style="text-align: right;">FFFFFF7F</td>
+<td style="text-align: right;">FFFFFFFFFFFFFF7F</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-129</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">ff7f</td>
+<td style="text-align: right;">ffffff7f</td>
+<td style="text-align: right;">ffffffffffffff7f</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">FB2E</td>
+<td style="text-align: right;">FFFFFB2E</td>
+<td style="text-align: right;">FFFFFFFFFFFFFB2E</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">fb2e</td>
+<td style="text-align: right;">fffffb2e</td>
+<td style="text-align: right;">fffffffffffffb2e</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">X6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">00FB2E</td>
+<td style="text-align: right;">FFFFFB2E</td>
+<td style="text-align: right;">FFFFFFFFFFFFFB2E</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+<tr>
+<td style="text-align: right;">-1234</td>
+<td style="text-align: left;">x6</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">00fb2e</td>
+<td style="text-align: right;">fffffb2e</td>
+<td style="text-align: right;">fffffffffffffb2e</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           
