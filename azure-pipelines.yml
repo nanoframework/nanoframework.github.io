@@ -1211,7 +1211,7 @@ steps:
     )
   displayName: Install nanoFramework MSBuild components
 
-- task: VSBuild@1
+- task: MSBuild@1
   displayName: Build CoreLibrary
   condition: >-
     and(
@@ -1223,7 +1223,7 @@ steps:
       )
     )
   inputs:
-    solution: 'CoreLibrary\nanoFramework.CoreLibrary.sln'
+    solution: 'CoreLibrary\nanoFramework.CoreLibrary\CoreLibrary.nfproj'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
