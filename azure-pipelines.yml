@@ -1296,7 +1296,7 @@ steps:
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
 
-- task: VSBuild@1
+- task: MSBuild@1
   displayName: Build nanoFramework.WebServer
   condition: >-
     and(
@@ -1308,7 +1308,7 @@ steps:
       )
     )
   inputs:
-    solution: 'nanoFramework.WebServer\nanoFramework.WebServer.sln'
+    solution: 'nanoFramework.WebServer\nanoFramework.WebServer\nanoFramework.WebServer.nfproj'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     maximumCpuCount: true
