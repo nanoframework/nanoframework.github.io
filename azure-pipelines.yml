@@ -1773,6 +1773,23 @@ steps:
     maximumCpuCount: true
 
 - task: VSBuild@1
+  displayName: Build nanoFramework.ResourceManager
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    solution: 'nanoFramework.ResourceManager\nanoFramework.ResourceManager.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    maximumCpuCount: true
+
+- task: VSBuild@1
   displayName: Build nanoFramework.Networking.Sntp
   condition: >-
     and(
