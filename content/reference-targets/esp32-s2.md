@@ -15,7 +15,7 @@ You can check Espressif [Product Selector](https://products.espressif.com/#/prod
 
 ## TinyS2
 
-![TinyS2](../../images/reference-targets/tinys2.jpg)
+![TinyS2](../../images/reference-targets/TinyS2.jpg)
 
 [TinyS2 Product page](https://unexpectedmaker.com/tinys2/)
 
