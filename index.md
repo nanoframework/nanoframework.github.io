@@ -2,12 +2,14 @@
 
 Our mantra is about **making it easy to write C# code for embedded systems!** And all what we're doing here is about that. This free and Open Source platform that enables the writing of managed code applications for constrained embedded devices. As a developer, you can use your powerful and familiar tools like Microsoft Visual Studio IDE and your .NET C# skills to write code on a microcontroller.
 
-![nanoFramework logo](../images/nanoFramework-repo-logo.png)
+![nanoFramework logo](./images/nanoFramework-repo-logo.png)
 
 <div style='vertical-align:middle; display:inline;'>
 .NET nanoFramework is supported by the .NET Foundation.
 </div>
-<img style='vertical-align:middle;' width="100px" src='https://dotnetfoundation.org/img/logo_big.svg'>
+<img style='vertical-align:middle;' width="100px" src='https://dotnetfoundation.org/images/default-source/default-album/logo.png'>
+
+[![Getting started](./images/getting-started-button.png)](./content/getting-started-guides/getting-started-managed.md)
 
 ## Sponsoring .NET **nanoFramework**
 

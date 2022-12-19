@@ -6,9 +6,13 @@ This getting started guide will walk you through the setup of your development m
 
 You can find the video for this guide on our YouTube channel [here](https://youtu.be/iZdN2GmefXI).
 
+Note sure where to buy a device? Check [this page](where-to-buy-devices.md) out!
+
 ## Installing and configuring Visual Studio 2022
 
 The first part is to get Visual Studio 2022 (VS 2019 is also supported) and the .NET **nanoFramework** extension installed.
+
+![Installing Visual Studio Extension](../../images/getting-started-guides/getting-started-extension-installation.gif)
 
 1. **Download Visual Studio**  
    If you already have it installed, you can skip this step. If you don't, please download the free [Visual Studio Community](https://www.visualstudio.com/downloads) edition.
@@ -18,20 +22,23 @@ The first part is to get Visual Studio 2022 (VS 2019 is also supported) and the 
    Launch Visual Studio (we'll just refer to it as VS from now on) and install the **nanoFramework** extension.  
    You can do this by selecting the menu **Extensions > Manage Extensions** which will open the **Manage Extensions** dialog. Select the **Online** feed category on the left-hand and enter **_nanoFramework_** in the **search** box.
 
-   ![Visual Studio - Manage Extensions Dialog](../../images/getting-started-guides/vs-nf-extension-search.png)
-
 1. You will be prompted to **restart Visual Studio** to finish installing the extension
-
-1. Now open the **Device Explorer** window, by selecting the menu **View > Other Windows > Device Explorer**.
-  ![Device Explorer](../../images/getting-started-guides/vs-nf-device-explorer.png)
 
 ## Uploading the firmware to the board using nanoFirmwareFlasher
 
 The second part is to load the .NET **nanoFramework** image in the board flash. The best way is to use the [nano Firmware Flasher (nanoff)](https://github.com/nanoframework/nanoFirmwareFlasher) tool. This is a .NET Core CLI command tool.
 
+You need to know the COM Port attached to your device. Search for **Computer Management**, select **Device Manager** then expand **Ports (COM & LPT)**, you will find the COM port of the connected device.
+
+> IMPORTANT: you may have to install drivers. Refer to the vendor website or use Windows Update to install the latest version of the drivers.
+
+![Finding COM Port](../../images/getting-started-guides/getting-started-find-com-port.gif)
+
 > NOTE
 >
 > - The [.NET 6.0 Runtime (or .NET 6.0 SDK)](https://dotnet.microsoft.com/download) must be installed
+
+![Installing nanoff and flashing](../../images/getting-started-guides/getting-started-install-nanoff-flash-esp32.gif)
 
 1. **Install [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher)**
 
@@ -42,16 +49,16 @@ The second part is to load the .NET **nanoFramework** image in the board flash. 
 1. **Perform the update** by providing the target name to nano Firmware Flasher. The official name of the target (either a reference or a community board) has to be used, otherwise it won't work as the tool isn't able to guess what board is connected.
 (The following includes the description for targets of several platforms for completeness)
 
-    - To update the firmware of an ESP32 target connected to COM31, to the latest available preview version.
+    - To update the firmware of an ESP32 target connected to COM31, to the latest available version.
 
         ```console
-        nanoff --platform esp32 --serialport COM31 --update --preview
+        nanoff --platform esp32 --serialport COM31 --update
         ```
 
-    - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available preview version.
+    - To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available version.
 
         ```console
-        nanoff --target ST_NUCLEO144_F746ZG --update --preview
+        nanoff --target ST_NUCLEO144_F746ZG --update
         ```
 
     - To update the firmware of a ST board connected through DFU (like the NETDUINO3) you first need to put the board in DFU mode. This can be accomplished by pressing a certain combination of buttons. It depends on the particular hardware that you are using.
@@ -60,18 +67,27 @@ The second part is to load the .NET **nanoFramework** image in the board flash. 
         nanoff --target NETDUINO3_WIFI --update --dfu
         ```
 
+    - Note: to list the available serial ports, you can use the following command:
+
+        ```console
+        nanoff --listports
+        ```
+
 1. **After the upload completes**, the MCU is reset and the nanoCLR image will run. You can check if the board is properly running .NET **nanoFramework** by looking into the **Device Explorer** window in **Visual Studio**.
+
+1. Now open the **Device Explorer** window, by selecting the menu **View > Other Windows > Device Explorer**.
 
 ## Coding a 'Hello World' application
 
 Now you have everything that you need to start coding your first application. Let's go for a good old 'Hello World' in micro-controller mode, which is blinking a LED, shall we?
 
+![My first project](../../images/getting-started-guides/getting-started-first-project.gif)
+
 1. Go back to Visual Studio and select the **File > New > Project** menu, to open the **Create a new project** dialog.  
    1. Enter **nanoFramework** into the **Search for templates** search prompt.
    2. Choose the **Blank Application (nanoFramework)** template and press the **Next** button.
    3. Name your project and choose a location of where the project files will be saved, and press the **Create** button.  
-   4. The project will be created and opened.  
-   ![Create new project dialog](../../images/getting-started-guides/vs-nf-new-project.png)
+   4. The project will be created and opened.
 
 1. We'll code a **very simple application** that enters an infinite loop and **turns on and off an LED**. We'll skip the details because that's not the aim of this guide. Let's just grab the `Blinky` code from the .NET [**nanoFramework** samples](https://github.com/nanoframework/Samples/tree/master/samples/Blinky) repository. Make sure that the correct GPIO pin is being used. That's the line below the comment mentioning the STM32F746 NUCLEO board. If you don't know which pin to use, just enter something like "ESP32 led pin number" in your preferred search engine - assuming you are using an ESP32 device. If not, change ESP32 with the name of the device you have
 

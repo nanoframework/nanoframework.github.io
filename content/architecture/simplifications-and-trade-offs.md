@@ -18,6 +18,7 @@ Notes:
 
 - These could be made available, at the expense of increasing the PE size.
 - For `Enum.IsDefined()` you can always use a switch instruction in your code to create something similar depending on your use case.
+- An enum value's ToString() will return the numerical value as a string, not the enum name as is the case for other platforms.
 
 ## Multidimensional arrays
 
@@ -29,11 +30,11 @@ Because of the underlying complexity and memory usage, multidimensional arrays a
 
 | Specifier | Examples |
 | --------- | ------- |
-| [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#decimal) |
-| [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Fixed-point unit test output](string-format-examples.md#fixed) |
-| [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString) | [General unit test output](string-format-examples.md#general) |
-| [N-Number](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString) | [Number unit test output](string-format-examples.md#number) |
-| [X-Hexadecimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString) | [Hexadecimal unit test output](string-format-examples.md#hexadecimal) |
+| [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#d-decimal) |
+| [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Fixed-point unit test output](string-format-examples.md#f-fixed-point) |
+| [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString) | [General unit test output](string-format-examples.md#g-general) |
+| [N-Number](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString) | [Number unit test output](string-format-examples.md#n-number) |
+| [X-Hexadecimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString) | [Hexadecimal unit test output](string-format-examples.md#x-hexadecimal) |
 
 ## Generics
 

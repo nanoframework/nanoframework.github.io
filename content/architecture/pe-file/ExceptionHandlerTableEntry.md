@@ -13,14 +13,14 @@ In a future revision of the PE binary format this should be managed by inserting
 | Name          | Type                 | Description  |
 |---------------|----------------------|------------  |
 | Mode          | ExceptionHandlerMode | Mode for the exception handler|
-| ClassToken([1](#Notes)) | TypeDefOrRef | Class token for the handler|
+| ClassToken([1](#notes)) | TypeDefOrRef | Class token for the handler|
 | FilterStart   | MetadataOffset       | Offset into the IL ByteCode stream for the filter code|
 | TryStart      | MetadataOffset       | Offset into the IL ByteCode stream for the starting range this handler covers|
 | TryEnd        | MetadataOffset       | Offset into the IL ByteCode stream for the end of the range this handler covers|
 | HandlerStart  | MetadataOffset       | Offset into the IL ByteCode stream for the start of the exception handler|
 | HandlerEnd    | MetadataOffset       | Offset into the IL ByteCode stream for the end of the exception handler|
 
-**Notes***:
+### Notes
 
 1. The Mode, ClassToken and FilterStart form a discriminated union with the mode as the discriminator and the ClassToken and FilterStart sharing the same memory location. That is the ClassToken and FilterStart are representable as a C/C++ anonymous union.
 2. Start and End offsets are inclusive

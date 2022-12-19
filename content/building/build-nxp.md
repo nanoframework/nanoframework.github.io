@@ -2,14 +2,14 @@
 
 ⚠️ NOTE about the need to build .NET **nanoFramework** firmware ⚠️
 
-You only need to build it if you plan to debug the native code, add new targets or add new features at native level.
-If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
+You only need to build it if you plan to debug the CLR, interpreter, execution engine, drivers, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image using [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher).
 There are available ready to flash firmware images for several targets, please check the [Home](https://github.com/nanoframework/Home#firmware-for-reference-boards) repository.
 
 ## About this document
 
 This document describes how to build the required images for .NET **nanoFramework** firmware for NXP targets.
-The build is based on CMake tool to ease the development in all major platforms.
+The build system is based on CMake tool to ease the development in all major platforms.
 
 ## Using Dev Container
 
@@ -26,7 +26,7 @@ You'll need:
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
   . [Cortex Debug](https://github.com/Marus/cortex-debug)) - Debug tool made explicity for ARM Cortex-M cores (needed for J-Link), if you're using on board programmer you don't need it.
-- [CMake](https://cmake.org/download/) (Minimum required version is 3.15)
+- [CMake](https://cmake.org/download/) (Minimum required version is 3.21)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - OpenOCD. Suggest the [xPack OpenOCD](https://github.com/xpack-dev-tools/openocd-xpack/releases) that kindly maintains a Windows distribution.
@@ -58,9 +58,9 @@ The setup is a lot easier than it seems. The setup scripts do almost everything.
 
 If you intend to change the nanoBooter or nanoCLR and create Pull Requests then you will need to fork the [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as the [GitHub Desktop application](https://desktop.github.com/).
 
-The _develop_ branch is the default working branch. When working on a fix or experimenting a new feature you should do it on another branch. See the [Contributing guide](../contributing/contributing-workflow.md#suggested-workflow) for specific instructions on the suggested contributing workflow.
+The _main_ branch is the default working branch. When working on a fix or experimenting a new feature you should do it on its own branch. See the [Contributing guide](../contributing/contributing-workflow.md#suggested-workflow) for specific instructions on the suggested contributing workflow.
 
-If you don't intend to make changes to the nanoBooter and nanoCLR, you can clone [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) directly from here.
+If you don't intend to make changes to the nanoBooter and nanoCLR, you can just clone [nanoFramework/nf-interpreter](https://github.com/nanoFramework/nf-interpreter) directly from GitHub.
 
 Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMake does not support filenames in excess of 250 characters.
 
@@ -97,9 +97,9 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 ### Automated Install of the build environment
 
-__Run Power Shell as an Administrator and run `set-executionpolicy RemoteSigned` to enable execution of the signed script.__
+**Run Power Shell as an Administrator and run `set-executionpolicy RemoteSigned` to enable execution of the signed script.**
 
-On Windows, one may use the `.\install-nf-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download/install CMake, the toolchain, OpenOCD (for JTAG debugging) and Ninja. You may need to use __Run as Administrator__ for power shell to permit installing modules to unzip the downloaded archives.
+On Windows, one may use the `.\install-nf-tools.ps1` Power Shell script located in the repository `install-scripts` folder to download/install CMake, the toolchain, OpenOCD (for JTAG debugging) and Ninja. You may need to use **Run as Administrator** for power shell to permit installing modules to unzip the downloaded archives.
 The script will download the zips and installers into the repository `zips` folder and extract them into sub-folders of the nanoFramework tools folder `C:\nftools` or install the tool.
 
 1. Open Power Shell in the `install-scripts` folder of the repository and run the script.
@@ -128,21 +128,23 @@ The following Environment Variables will be created for the current Windows User
 
 ## Set up Visual Studio Code
 
-- **Step1**: Install the extensions:
+- **Step 1**: Install the extensions:
 
   - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
   - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
-- **Step2**: Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
+- **Step 2**: Run the PowerShell script `Initialize-VSCode.ps1` that's on the `install-scripts` folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.
 
 ```ps
   .\Initialize-VSCode.ps1
 ```
 
 You can force the environment variables to be updated by adding `-Force` to the command line.
-The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json`, `cmake-variants.json` and `settings.json` to replace the relevant paths.
+The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json` and `settings.json` to replace the relevant paths.
 
-- **Step3**: If you want to use onboard programmer edit the file named `settings.json` inside the `.vscode` folder and paste the following (mind to update the path to your setup).
+- **Step 3:** Copy `CMakeUserPresets.TEMPLATE.json` to `CMakeUserPresets.json` and adjust paths for the tools and repositories in the `user-local-tools` configuration preset. If you don't have the intention to build for a particular platform you can simply remove the related options from there. If you don't want to use local clones of the various repositories you can simply set those to `null`. **!!mind to always use forward slashes in the paths!!**
+
+- **Step 4**: If you want to use onboard programmer edit the file named `settings.json` inside the `.vscode` folder and paste the following (mind to update the path to your setup).
 
 ```json
 {
@@ -151,21 +153,25 @@ The PowerShell relies on the environment variables described above to properly s
 }
 ```
 
-- **Step4**: Save any open files and exit VS Code.
+- **Step 5**: Save any open files and exit VS Code.
 
 ## Build nanoCLR
 
-- **Step1**: Launch Visual Studio Code from the repository folder, or load it from the __File__ menu, select __Open Folder__ and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
+- **Step 1**: Launch Visual Studio Code from the repository folder, or load it from the **File** menu, select **Open Folder** and browse to the repo folder. VS Code could prompt you asking "Would you like to configure this project?". Ignore the prompt as you need to select the build variant first.
 
-- **Step2**: Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
+- **Step 2**: Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the `No Kit Selected` and select `[Unspecified]`.
 
-- **Step3**: In the status bar at the bottom left, click on the `CMake:Debug NXP_MIMXRT1060_EVK: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.
+- **Step 3**: In the status bar at the bottom left, click on the `CMake:Debug NXP_MIMXRT1060_EVK: Ready` and select `Debug`. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.
 
-- **Step4**: In the status bar click `Build` or hit F7.
+- **Step 4:** Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the `No Configure Preset Selected` and select the target you want to build from the drop-down list that will open at the top. Possibly `NXP_MIMXRT1060_EVK`. The respective build preset will be automatically selected by VS Code.
 
-- **Step5**: Wait for the build to finish with `Build finished with exit code 0` output message.
+![choose-preset](../../images/building/vs-code-bottom-tolbar-choose-preset.png)
 
-- **Step6**: In the `build` folder you'll find several files:
+- **Step 5**: In the status bar click `Build` or hit F7.
+
+- **Step 6**: Wait for the build to finish with `Build finished with exit code 0` output message.
+
+- **Step 7**: In the `build` folder you'll find several files:
   - `nanoBooter.bin`
   - `nanoBooter.elf`
   - `nanoBooter.hex`
@@ -183,9 +189,9 @@ The above may have some errors if:
 - CMake is not installed properly, not in the PATH or cannot be found for some reason.
 - Ninja is not recognized: check settings.json or your PATH environment variable and restart Visual Studio Code.
 - COMPILATION object file not found: check that your paths don't exceed 140 chars. Put the solution folder high enough on drive.
-- Make sure to 'Build all' first time.
-- Reopen VS Code if you have changed anything on the `cmake-variants.json`.
-- Clean the build folder by deleting it's contents and restart VS Code.
+- Reopen VS Code if you have made changes on the `CMakePresets.json` or `CMakeUserPresets.json`.
+
+A good remedy for most of the build issues is to manually clean the build folder by deleting it's contents and restarting VS Code.
 
 ## Flash the NXP target
 

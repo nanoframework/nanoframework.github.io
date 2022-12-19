@@ -6,7 +6,7 @@ We offer the possibility to use such a Dev Container to build any of the support
 
 ## Requirements
 
-- **Step 0**: Make sure your have cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) nanoFramework directory. The stable branch is `develop`.
+- **Step 0**: Make sure your have cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) nanoFramework directory. The working branch is `main`.
 - **Step 1**: Make sure you have [VS Code](https://code.visualstudio.com/Download) installed.
 - **Step 2**: Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop) installed.
 - **Step 3**: Optional but strongly recommended for performance reasons: activate [Windows Subsystem for Linux 2](https://docs.microsoft.com/windows/wsl/install-win10) on your Windows host machine.
@@ -18,9 +18,12 @@ We offer the possibility to use such a Dev Container to build any of the support
 ![Docker steetings](../../images/dev-container-docker.jpg)
 
 - **Step 5**: Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed.
-- **Step 6**: copy the file in `.\vscode\cmake-variants-DEVCONTAINER.json`to `.\vscode\cmake-variants.json`
+- **Step 6**: copy the existing file (in the root `nf-interpreter` folder) `CMakeUserPresets-TEMPLATE.json`to a (new) file called `CMakeUserPresets.json`.
+  Change the content of your "new" `CMakeUserPresets.json` file as follows:
+  - Remove the json section `user-local-tools` (or rename it e.g. `"name": "user-local-tools-no-container"`)
+  - Rename the json section `user-local-tools-container` to `user-local-tools`
 - **Step 7**: Open the full `nf-interpreter`directory with VS Code.
-- **Step 8**: Chose your container.
+- **Step 8**: Choose your container.
 
 Go to the file `.devcontainer/devcontainer.json` and choose the container you want. You will find the details in the file itself:
 
@@ -36,7 +39,7 @@ Go to the file `.devcontainer/devcontainer.json` and choose the container you wa
 ```
 
 > Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the `./sources` subdirectory. So the file name will be for example `./source/Dockerfile.All` to use the container containing everything and build it from the source.
-> Error: if you get error message like "Bad Cmake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the Cmake and Cmake tool from Visual Studio Code and restart Visual Studio Code.  
+> Error: if you get error message like "Bad CMake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the CMake and CMake tool from Visual Studio Code and restart Visual Studio Code.  
 
 - **Step 9**: Once prompted, open the dev container.
 
@@ -55,17 +58,15 @@ Go to the file `.devcontainer/devcontainer.json` and choose the container you wa
 
 ![Docker steetings](../../images/dev-container-vscode-ok.jpg)
 
-- **Step 14**: Select the target you want to build, click on `CMake: [Unknown]: Ready`
-
-![cmakr select](../../images/dev-container-selecttarget.jpg)
-
-The first time you'll do this, you will be asked to select a kit, choose the `unspecified`one:
+- **Step 14**: Select the target you want to build, if all the previous steps has been done properly, the list will show up:
 
 ![select kit unspecified](../../images/dev-container-selectkit.jpg)
 
-Then you can pick the target you want to build:
+If you select for example the ESP_REV0, you will see it in the taskbar:
 
-![target to build](../../images/dev-container-target.jpg)
+![cmakr select](../../images/dev-container-selecttarget.jpg)
+
+To select a new image, just click on the name of the target, the menu will pop up again and you can select a new target. Make sure that you clean your build folder first.
 
 - **Step 15**: This will actually prepare all what is needed in the `build`folder.
 
@@ -107,9 +108,9 @@ Build may fail if your image is too big. This is the case sometime when you sele
 [build] collect2: error: ld returned 1 exit status
 ```
 
-### Making changes in your .vscode\cmake-variants.json file
+### Making changes in your CMakePresets.json or CMakeUserPresets.json file
 
-Every time you make a change in the `.vscode\cmake-variants.json`file, you will have to leave the container bit clicking on the bottom left and then select `Reopen locally` and again select `Reopen in dev container`.
+Every time you make a change in the `CMakePresets.json` or `CMakeUserPresets.json` files, you may have to leave the container bit clicking on the bottom left and then select `Reopen locally` and again select `Reopen in dev container`.
 
 You usually do this operation to adjust what you want to add in your target.
 

@@ -7,6 +7,13 @@ To prevent this from happening, you have to open the "Configuration Manager" dia
 To remove the lock on that file open a PowerShell console and execute the following command, being NNNN the process number that shows at the very end of the VS message:
 `Stop-Process -id NNNNN`.
 
+## When opening a Solution, Visual Studio complains about missing references and I see a bunch of red squiggles and there is no Intellisense
+
+This can happen because Visual Studio is having issues resolving types from one or more referenced assemblies.
+Start by restoring the NuGet packages by right clicking on the Solution (in Solution Explorer). Then rebuild.
+If that doesn't work, you can try clean the solution and then close and open the Solution again.
+In case that still doesn't work: close the solution and manually delete the `bin`, `obj` and `.vs` folders. Then open it again, restore the NuGet packages and rebuild. That should take care of it.
+
 ## When I build a project/solutions it fails with an error `NFMDP: Error 0x81010009`. What is this
 
 This happens when you are using a C# feature that is not currently supported by nanoFramework. The most common cases are generics or a complicated Linq expression.
@@ -38,4 +45,10 @@ You can do that following these steps:
 1. Uninstall the current version from the "Manage Extension" window in Visual Studio.
 1. Go to the [Releases](https://github.com/nanoframework/nf-Visual-Studio-extension/releases) section in the Visual Studio extension repository.
 1. Find the version that you're looking for and expand the 'Assets' listed in the release entry.
-1. Download the '.vsix' package and start the instal.
+1. Download the '.vsix' package and start the install.
+
+## I want to exclude certain COM ports from being scanned by Device Explorer
+
+1. Open the Settings dialog in Device Explorer (cog wheel icon).
+1. Go to General tab.
+1. Add to 'COM port exclusion list' the COM port(s) to exclude, separated by a semi-column, no spaces.

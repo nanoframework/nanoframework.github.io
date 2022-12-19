@@ -6,20 +6,18 @@ This document describes the workflow and strategy adopted by .NET **nanoFramewor
 
 ## Pull Requests
 
-Pull requests with contributions are **always** merged into _develop_ branch.
+Pull requests with contributions are **always** merged into _main_ branch.
 On each pull request build the respective NuGet packages are published to nanoFramework [Azure DevOps NuGet feed](https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&feed=sandbox) (if this is a component that uses this distribution channel). By sourcing this NuGet feed someone testing that pull request can reference it straight away without any further hassle.
 There is nothing else to be done as the package identifier and the version are automatically incremented based.
 
 ## Development
 
-Once pull requests have been merged into _develop_ a new release is automatically generated and published to nanoFramework [Azure DevOps NuGet feed](https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&feed=sandbox) (if this is a component that uses this distribution channel).
+Once pull requests have been merged into _main_ a new release is automatically generated and published to nanoFramework [Azure DevOps NuGet feed](https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&feed=sandbox) (if this is a component that uses this distribution channel).
 There is nothing else to be done as the package identifier and the version are automatically incremented.
 
-## Release Candidates
+## Versioning
 
-The process is kicked off by opening up a pull request from _develop_ to a new branch named _release-vN.N.N_ (note the branch name starting with _release_, this is mandatory for the configuration and scripts to properly recognize this as such).
-
-If this release contains a breaking change then increase the MAJOR version by one and reset the MINOR back to zero and keep the PATCH at zero. Otherwise just bump the MINOR version by one and keep the PATCH at zero.
+When a release contains a breaking change MAJOR version should be increased by one and reset the MINOR back to zero and keep the PATCH at zero. Otherwise just bump the MINOR version by one and keep the PATCH at zero.
 
 At this stage the contributor proposing a new release must perform a few administrative tasks. It's the responsibility of the release approver to verify that these tasks have been performed correctly.
 
@@ -34,7 +32,7 @@ If there are any problems with the generated release notes document, resolve tho
 
 ## Production
 
-The process is kicked off by opening up a pull request from a _release-vN.N.N_ branch to _master_.
+The process is kicked off by opening up a pull request from a _release-vN.N.N_ branch to _main_.
 
 In the Home repository, edit the vNext milestone and change it to the version number of this release.
 

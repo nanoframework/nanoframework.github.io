@@ -26,7 +26,7 @@ In this case the board.c and board.h files have to be included right in the targ
 
 Support for each board in .NET **nanoFramework** is required. This is were the configuration details and components/features are specified and/or configured. CMakes checks if the target board is available in the targets collection. The collection of board support is at /targets/CMSIS-OS/ChibiOS.
 
-After successfully finding the board support in both ChibiOS and .NET **nanoFramework** targets, CMake checks the TARGET_SERIES in the list of supported series in order to figure out the series for later use. Please check the code at [FindCHIBIOS.cmake](https://github.com/nanoframework/nf-interpreter/blob/develop/CMake/Modules/FindChibiOS.cmake) for details.
+After successfully finding the board support in both ChibiOS and .NET **nanoFramework** targets, CMake checks the TARGET_SERIES in the list of supported series in order to figure out the series for later use. Please check the code at [FindCHIBIOS.cmake](https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindChibiOS.cmake) for details.
 (NOTE: the current code has been validated for STM boards only)
 
 The _FindCHIBIOS.cmake_ includes the specifics for the target series and the respective GCC options.

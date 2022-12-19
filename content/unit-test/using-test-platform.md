@@ -108,7 +108,7 @@ Note that all the `Assert` functions can pass a custom message. For example: `As
 
 ### Assert.Throws
 
-This check is a specific function will throw. Usage:
+This checks if a specific function will throw an exception. Usage:
 
 ```csharp
 Assert.Throws(typeof(ExceptionTypeToCatch), AFunctionToCall);

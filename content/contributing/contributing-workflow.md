@@ -86,11 +86,11 @@ Also don't think that comments and requests for changes means that your contribu
 
 ## Working on an open issue
 
-When you want to work on an open issue (including _up-for-grabs_) we recommend the following.
+When you want to work on an open issue (including _up for grabs_) we recommend the following.
 
-- Issues labeled with [_investigating_](labels.md#investigating): if the current status doesn't seem updated or clear, add a comment asking for clarification before start any work on it.
-- Issues labeled with [_under-review_](labels.md#under-review): if the current status doesn't seem updated or clear, add a comment asking for a clarification before start any work on it.
-- Issues labeled with [_up-for-grabs_](labels.md#up-for-grabs): add a comment stating your interest and the issue will be assigned to you and the label switched to _in progress_.
+- Issues labeled with [_investigating_](labels.md#l10): if the current status doesn't seem updated or clear, add a comment asking for clarification before start any work on it.
+- Issues labeled with [_under review_](labels.md#l27): if the current status doesn't seem updated or clear, add a comment asking for a clarification before start any work on it.
+- Issues labeled with [_up for grabs_](labels.md#l9): add a comment stating your interest and the issue will be assigned to you and the label switched to _in progress_.
 
 ## Suggested Workflow
 
@@ -128,18 +128,18 @@ We use and recommend the following workflow:
 
     `git remote add upstream https://github.com/nanoframework/<nf-repo-name-here>.git`
 
-5. Make sure that your develop branch is in sync with the master  **develop** branch.
+5. Make sure that your main branch is in sync with the upstream  **main** branch.
 
-    `git checkout develop`
+    `git checkout main`
 
-    `git pull upstream develop`
+    `git pull upstream main`
 
-6. Create a branch off of **develop** branch.
+6. Create a branch off of **main** branch.
 
-    `git checkout -b <branch-name-here> develop`
+    `git checkout -b <branch-name-here> main`
   
-    We suggest that you name the branch so that it clearly communicates your intentions, such as *issue-123* or *githubhandle-issue*.
-    Don't use a branch name starting with _develop_ because that may be mistaken with the _develop_ branches on the master repository.
+    We suggest that you name the branch so that it clearly communicates your intentions, such as _issue-123_ or _githubhandle-issue_.
+    Don't use a branch name starting with _develop_ because that may be mistaken with the _develop_ branches on the upstream repository.
 
     Branches are useful since they isolate your changes from incoming changes from upstream. They also enable you to create multiple PRs from the same fork.
 
@@ -153,15 +153,15 @@ We use and recommend the following workflow:
       - Make sure that the builds are clean.
       - Make sure that the tests are all passing, including any new tests that you've added.
 
-10. If you've been working in this branch and changes have been made in upstream develop, you should rebase the working branch on the upstream develop branch so that your work shows on top of any other changes. If you have just created your working branch you can skip this step.
+10. If you've been working in this branch and changes have been made in upstream main, you should rebase the working branch on the upstream main branch so that your work shows on top of any other changes. If you have just created your working branch you can skip this step.
 
-    `git rebase upstream/develop`
+    `git rebase upstream/main`
 
 11. Push your changes to your fork on GitHub (if you haven't already).
 
     `git push origin <branch-name-here>`
 
-12. Create a pull request (PR) against the upstream repository's **develop** branch.
+12. Create a pull request (PR) against the upstream repository's **main** branch.
 
     Creating a PR is a simple click on the "Pull Request" button that shows on your personal fork in GitHub.
 
@@ -174,11 +174,11 @@ Note 1: It is OK for your PR to include a large number of commits. If that's the
 
 Note 2: It is OK to create your PR as "[WIP]" on the upstream repo before the implementation is done. This can be useful if you'd like to start the feedback process concurrent with your implementation. State that this is the case in the initial PR comment.
 
-Note 3: If you are working on a feature that has high impact or it's something experimental, your original PR can have it's target branch moved into a new develop branch in the master repo, something like *develop-shiny-awesome-feature*.
+Note 3: If you are working on a feature that has high impact or it's something experimental, your original PR can have it's target branch moved into a new develop branch in the master repo, something like _develop-shiny-awesome-feature_.
 
 ## General git resources
 
-If you are coming from another version control system *git* can feel daunting, awkward, confusing and may cause you frustration. :warning: Be warned about that! :warning: :stuck_out_tongue_winking_eye:
+If you are coming from another version control system _git_ can feel daunting, awkward, confusing and may cause you frustration. :warning: Be warned about that! :warning: :stuck_out_tongue_winking_eye:
 
 We suggest that you go through some basic tutorial and give it a try on a test repo that you setup for yourself.
 
