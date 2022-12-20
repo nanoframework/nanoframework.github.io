@@ -115,7 +115,7 @@ Below is a list of the build options available (last updated October 2022) for t
 - "NF_FEATURE_RTC" : **`OFF`**
   - Allows you to specify whether to use the real time clock unit of the hardware for date & time functions. Depends on target availability. Default is `OFF`.
 - "NF_FEATURE_USE_APPDOMAINS" : **`OFF`**
-  - Allows you to specify whether to include, or not, support for Application Domains. Default is `OFF`. More information about this is available in the documentation [here](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). **Note that the complete removal of support for this feature is being considered (see issue [here](https://github.com/nanoframework/nf-interpreter/issues/303)).**
+  - Allows you to specify whether to include, or not, support for Application Domains. Default is `OFF`. More information about this is available in the documentation [here](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). **Note that the complete removal of support for this feature is being considered.**
 - "NF_FEATURE_SUPPORT_REFLECTION": "ON"
   - Set to `OFF` to disable support for System.Reflection API.
 - "NF_FEATURE_BINARY_SERIALIZATION": **`ON`**

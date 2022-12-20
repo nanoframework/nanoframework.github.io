@@ -25,9 +25,9 @@ All other images are built with variations of those images. There are variants t
 
 All M5Stack boards carry ESP32 chips. Some are revision 1, others 3, and others PICO. Please checkout the [official documentation](https://docs.m5stack.com/en/products?id=core) to understand which one is based on which chip.
 
-![M5 Stack](../../images/reference-targets/M5Stack.jpg)
+![M5 Stack](../../images/reference-targets/m5stack.jpg)
 
-![M5 Stick](../../images/reference-targets/M5Stick.jpg)
+![M5 Stick](../../images/reference-targets/m5stick.jpg)
 
 ![ATOM](../../images/reference-targets/m5stack_atom.jpg)
 

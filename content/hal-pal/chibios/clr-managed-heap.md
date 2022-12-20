@@ -7,9 +7,9 @@ This document describes how the CLR manged heap is defined as a ChibiOS target.
 For STM32 based devices:
 The configurations are chained by linker files:
 
-- the target linker file provided for the nanoCLR in the target board folder, e.g. [STM32F091xC.ld](https://github.com/nanoframework/nf-interpreter/blob/main/targets/CMSIS-OS/ChibiOS/ST_NUCLEO_F091RC/nanoCLR/STM32F091xC.ld) and from within calls rules.ld **except** the F7 series which calls rules_clr.ld, rules_code.ld, rules_data.ld and rules_stacks.ld directly.
-- [rules.ld](https://github.com/nanoframework/nf-interpreter/blob/main/targets/CMSIS-OS/ChibiOS/common/rules.ld) (which is common to all STM32 based ChibiOS targets and calls the next set of linker files)
-- [rules_clr.ld](https://github.com/nanoframework/nf-interpreter/blob/main/targets/CMSIS-OS/ChibiOS/common/rules_clr.ld), [rules_code.ld](https://github.com/nanoframework/nf-interpreter/blob/main/targets/CMSIS-OS/ChibiOS/common/rules_code.ld), [rules_data.ld](https://github.com/nanoframework/nf-interpreter/blob/main/targets/CMSIS-OS/ChibiOS/common/rules_data.ld) and [rules_stacks.ld](https://github.com/nanoframework/nf-interpreter/blob/main/targets/CMSIS-OS/ChibiOS/common/rules_stacks.ld)
+- the target linker file provided for the nanoCLR in the target board folder, e.g. [STM32F091xC.ld](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/ST_NUCLEO64_F091RC/nanoCLR/STM32F091xC_CLR.ld) and from within calls rules.ld **except** the F7 series which calls rules_clr.ld, rules_code.ld, rules_data.ld and rules_stacks.ld directly.
+- [rules.ld](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/_common/rules.ld) (which is common to all STM32 based ChibiOS targets and calls the next set of linker files)
+- [rules_clr.ld](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/_common/rules_clr.ld), [rules_code.ld](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/_common/rules_code.ld), [rules_data.ld](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/_common/rules_data.ld) and [rules_stacks.ld](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/_common/rules_stacks.ld)
 
 ## Managed heap location and size
 
@@ -21,7 +21,7 @@ This empowers developers to create new target boards with maximum flexibility of
 
 ### Definition the CLR managed heap location
 
-The location of the CLR managed heap is set in in target linker file provided for nanoCLR in the target boards folder, e.g. [STM32F091xC_CLR.ld](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/ST_NUCLEO64_F091RC/nanoCLR/STM32F091xC_CLR.ld)
+The location of the CLR managed heap is set in in target linker file provided for nanoCLR in the target boards folder, e.g. [STM32F091xC_CLR.ld](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/ST_NUCLEO64_F091RC/nanoCLR/STM32F091xC_CLR.ld)
 
 For example the line (usually toward the end of the file) will contain something similar to `REGION_ALIAS("CLR_MANAGED_HEAP_RAM", ram0);`. The example stated here defines CLR manged heap location as being set in the _ram0_ region. The RAM regions and respective sizes are defined in the same file. For further information, please check the ChibiOS documentation for details on how to define further RAM regions.
 
@@ -29,7 +29,7 @@ For example the line (usually toward the end of the file) will contain something
 
 The size of the CLR managed heap is automatically adjusted to take all the available RAM space after the CRT heap (if it's assigned to that same RAM region).
 
-It maybe be required to adjust the size of the CRT heap. This is set in the CMake file of the target board, e.g. [CMakeLists.txt](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/CMSIS-OS/ChibiOS/ST_NUCLEO64_F091RC/CMakeLists.txt).
+It maybe be required to adjust the size of the CRT heap. This is set in the CMake file of the target board, e.g. [CMakeLists.txt](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/ST_NUCLEO64_F091RC/CMakeLists.txt).
 Look for the `__crt_heap_size__` definition in a line that contain something similar to `--defsym=__crt_heap_size__=0x800`. In the example stated here the size of CRT heap is being set to 0x800.
 
 When defining the size you need to take into account several factors:

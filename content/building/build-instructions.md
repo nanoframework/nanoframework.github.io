@@ -40,7 +40,7 @@ If you are using VS Code as your development platform we suggest that you use th
 
 In case you specify an RTOS and you want its source to be downloaded from the official repository, you'll need:
 
-- For ChibiOS a SVN client. [Tortoise SVN](https://tortoisesvn.net/downloads) seems to be a popular choice for Windows machines.
+- For ChibiOS a SVN client. [Tortoise SVN](https://tortoisesvn.net/downloads.html) seems to be a popular choice for Windows machines.
 - For all the other repositories a Git client. [Fork](https://git-fork.com/) it's a great visual git client packed with a lot of features or [GitHub Desktop](https://desktop.github.com/) seems to be a popular choice for Windows machines.
 
 ## Preparation
