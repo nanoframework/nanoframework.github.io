@@ -10,7 +10,7 @@ We provide ready build firmware images for several reference target boards. Thes
 
 ## OrgPal boards
 
-- [OrgPal PalThree](orgpal-palthree)
+- [OrgPal PalThree](orgpal-palthree.md)
 
 ## STMicroelectronics boards
 

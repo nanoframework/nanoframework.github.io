@@ -2,7 +2,7 @@
 
 ESP32 Pin out differ depending of the physical hardware. What is common is the GPIO numbering. So refer to the documentation of your specific board to find out the physical relation.
 
-You can find all the details for the default mapping in [this file](https://github.com/nanoframework/nf-interpreter/blob/main/targets/FreeRTOS_ESP32/ESP32_WROOM_32/common/Esp32_DeviceMapping.cpp)
+You can find all the details for the default mapping in [this file](https://github.com/nanoframework/nf-interpreter/blob/main/targets/ESP32/_common/DeviceMapping_common.cpp)
 
 The default mapping defines how the pins are configured on start up. These pins configurations can be configured/redefined using the nanoFramework.Hardware.Esp32 assembly.
 

@@ -19,7 +19,7 @@ Considering that the default placement of the CLR managed is in the SoC internal
 
 ### Example for STM32F429I-Discovery reference target
 
-To provide a working example of this configuration we are taking the STM32F429I-Discovery reference target that is in the nf-interpreter repository [here](https://github.com/nanoframework/nf-interpreter/tree/main/targets/CMSIS-OS/ChibiOS/ST_STM32F429I_DISCOVERY).
+To provide a working example of this configuration we are taking the STM32F429I-Discovery reference target that is in the nf-interpreter repository [here](https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/ST_STM32F429I_DISCOVERY).
 This targets board has a 64Mbit SDRAM (the chip is the IS42S16400J).
 
 1. The _target_ implementation is provided in the `target_external_memory.c` file that is located in the target base folder. This location allows the function to be reused by nanoCLR and nanoBooter, if desired. Plus, it's included in the compile sequence at a time that the target CPU and other required definitions are already set.

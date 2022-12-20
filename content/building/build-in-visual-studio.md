@@ -216,7 +216,7 @@ Manually create this directory to contain the following folders.
 
 ##### c:\nanoFramework_Tools\ChibiOS
 
-Copy of the ChibiOS repository cloned from <https://github.com/nanoframework/chibios.git>
+Copy of the ChibiOS repository cloned from <https://svn.osdn.net/svnroot/chibios/branches/stable_21.11.x>
 
 ##### C:\nanoFramework_Tools\Tools\openocd
 
