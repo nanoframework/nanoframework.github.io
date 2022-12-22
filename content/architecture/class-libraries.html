@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Libraries | nanoFramework Documentation </title>
+    <title>Class Libraries | .NET nanoFramework Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Libraries | nanoFramework Documentation ">
+    <meta name="title" content="Class Libraries | .NET nanoFramework Documentation ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -412,18 +412,18 @@
 </li>
 <li>The specific implementation bits that are platform dependent and that will live 'inside' each platform RTOS folder:
 <ul>
-<li>ChibiOS <a href="https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
-<li>ESP32 FreeRTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/main/targets/FreeRTOS_ESP32/ESP32_WROOM_32/nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
-<li>TI-RTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/main/targets/TI_SimpleLink/nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
+<li>ChibiOS <a href="https://github.com/nanoframework/nf-interpreter/tree/main/targets/ChibiOS/_nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
+<li>ESP32 FreeRTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/main/targets/ESP32/_nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
+<li>TI-RTOS <a href="https://github.com/nanoframework/nf-interpreter/tree/main/targets/TI_SimpleLink/_nanoCLR/System.Device.Gpio">System.Device.Gpio</a>.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>Add the CMake as a module to the modules folder <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules">here</a>. The name of the module should follow the assembly name (Find<strong>System.Device.Gpio</strong>.cmake). Mind the CMake rules for the naming: start with <em>Find</em> followed by the module name and <em>cmake</em> extension. The CMake for the System.Device.Gpio module is <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindSystem.Device.Gpio.cmake">here</a>.</p>
 </li>
-<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/NF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> add an option for the API. The option name must follow the pattern API_<strong>namespace</strong>. The option for System.Device.Gpio is API_System.Device.Gpio.</p>
+<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindNF_NativeAssemblies.cmake">FindNF_NativeAssemblies.cmake</a> add an option for the API. The option name must follow the pattern API_<strong>namespace</strong>. The option for System.Device.Gpio is API_System.Device.Gpio.</p>
 </li>
-<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/NF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> find the macro <code>ParseApiOptions</code> and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.</p>
+<li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindNF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> find the text <code>WHEN ADDING A NEW API add the corresponding block below</code> and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.</p>
 </li>
 <li><p>Update the template file for the CMake presets <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMakeUserPresets.TEMPLATE.json">here</a> to include the respective options. For the System.Device.Gpio example you would add to the <em>OPTION1...</em> and <em>OPTION2...</em> (under <em>linkage</em>) the following line: &quot;API_System.Device.Gpio&quot; : &quot;OFF&quot;</p>
 </li>
