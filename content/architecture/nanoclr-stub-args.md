@@ -207,3 +207,100 @@ You can setup a return result using the family functions `SetResult_`. System ty
 `SetResult_Object` allows you to return any valid object, class or structure.
 
 To return a string, `SetResult_String` is your best friend. Note that this function returns an `HRESULT` and should be checked.
+
+### Functions with reference parameters and how to set them
+
+It is possible to have a function that has reference parameters and to set them on the native side.
+
+Here is an example with a static function but it does work as well with non static functions (you just need to start at Arg1 for the first parameter):
+
+```chsarp
+[MethodImpl(MethodImplOptions.InternalCall)]
+private extern static void NativeGetVoltage(ref TouchHighVoltage touchHighVoltage, ref TouchLowVoltage touchLowVoltage, ref TouchHighVoltageAttenuation touchHighVoltageAttenuation);
+```
+
+And here is a full simple example on how to set the parameters back:
+
+```cpp
+HRESULT Library_nanoFramework_hardware_esp32_native_nanoFramework_Hardware_Esp32_Touch_TouchPad::NativeGetVoltage___STATIC__VOID__BYREF_nanoFrameworkHardwareEsp32TouchTouchHighVoltage__BYREF_nanoFrameworkHardwareEsp32TouchTouchLowVoltage__BYREF_nanoFrameworkHardwareEsp32TouchTouchHighVoltageAttenuation( CLR_RT_StackFrame &stack )
+{
+    NANOCLR_HEADER();
+
+    touch_high_volt_t refh;
+    touch_low_volt_t refl;
+    touch_volt_atten_t atten;
+
+    // Get the voltage    
+    if (touch_pad_get_voltage(&refh, &refl, &atten) == ESP_OK)
+    {
+        CLR_RT_HeapBlock bhRefh;
+        CLR_RT_HeapBlock bhRefl;
+        CLR_RT_HeapBlock bhAtten;
+        bhRefh.SetInteger(refh);
+        NANOCLR_CHECK_HRESULT(bhRefh.StoreToReference(stack.Arg0(), 0));
+        bhRefl.SetInteger(refl);
+        NANOCLR_CHECK_HRESULT(bhRefl.StoreToReference(stack.Arg1(), 0));
+        bhAtten.SetInteger(atten);
+        NANOCLR_CHECK_HRESULT(bhAtten.StoreToReference(stack.Arg2(), 0));
+    }
+    else
+    {
+        NANOCLR_SET_AND_LEAVE(CLR_E_INVALID_OPERATION);
+    }
+
+    NANOCLR_NOCLEANUP();
+}
+```
+
+The key element here is the first create a heap block `CLR_RT_HeapBlock bhRefh;`, then set the value `bhRefh.SetInteger(refh);` and finaly store it into the argument `NANOCLR_CHECK_HRESULT(bhRefh.StoreToReference(stack.Arg0(), 0));`.
+
+Note that this is working as well with objects, arrays or string.
+
+## Generating exceptions and other HAL elements
+
+It's possible to generate various exceptions from the native side. And it's as well possible to access more of the HAL elements.
+
+### Generating exceptions
+
+This is straight forward, you can use `NANOCLR_SET_AND_LEAVE(THE_EXCEPTION)`. The list of exception is available in [this include file](https://github.com/nanoframework/nf-interpreter/blob/main/src/CLR/Include/nf_errors_exceptions.h).
+
+You can use it like this:
+
+```cpp
+NANOCLR_HEADER();
+
+// some code
+
+if (somethingWrong)
+{
+    NANOCLR_SET_AND_LEAVE(CLR_E_INVALID_OPERATION);
+}
+
+// If somethingWrong, then the code here won't be executed. You'll go directly to the end
+
+// This is where you'll arrive
+NANOCLR_NOCLEANUP();
+```
+
+### Checking results of a function
+
+You can check if the result of a HRESULT function is a success or not by using `NANOCLR_CHECK_HRESULT` and few others like `NANOCLR_EXIT_ON_SUCCESS`. All those macros are available and documented in [this include file](https://github.com/nanoframework/nf-interpreter/blob/main/src/CLR/Include/nanoCLR_Interop.h). They al require to use the same pattern like:
+
+```cpp
+NANOCLR_HEADER();
+
+// some code
+
+NANOCLR_CHECK_HRESULT(AnotherNativeFunctionOfHRESULT);
+
+// If somethingWrong, then the code here won't be executed. You'll go directly to the end
+
+// This is where you'll arrive
+NANOCLR_NOCLEANUP();
+```
+
+### Access to callback before soft reboot
+
+Do you need to clean resources before a soft reboot? Yes, then you're covered. The function `HAL_AddSoftRebootHandler(HAL_AddSoftRebootHandler);` if here for you!
+
+The `HAL_AddSoftRebootHandler` is a simple `void FunctionName()` handler. Add this into your initialization function and you'll be sure to be called before a soft reboot.
