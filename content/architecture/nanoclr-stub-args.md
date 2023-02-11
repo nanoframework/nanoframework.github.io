@@ -1,4 +1,4 @@
-# Generating stubs for a native project, NANOCLR macros, Arguments and return types
+# Native tips & tricsk, generating stubs for a native project, NANOCLR macros, Arguments and return types
 
 When you want to use native code and creating an associated managed code C# library, you should start by reading [this article](https://jsimoesblog.wordpress.com/2018/06/19/interop-in-net-nanoframework/). This article will give you all the steps to create your managed C# project, generate the stubs and have everything glued together.
 
@@ -299,8 +299,107 @@ NANOCLR_CHECK_HRESULT(AnotherNativeFunctionOfHRESULT);
 NANOCLR_NOCLEANUP();
 ```
 
-### Access to callback before soft reboot
+## Access to callback before soft reboot
 
 Do you need to clean resources before a soft reboot? Yes, then you're covered. The function `HAL_AddSoftRebootHandler(HAL_AddSoftRebootHandler);` if here for you!
 
 The `HAL_AddSoftRebootHandler` is a simple `void FunctionName()` handler. Add this into your initialization function and you'll be sure to be called before a soft reboot.
+
+## Checking object types on native side
+
+There are quite a few occasions where you want to pass an interface object on the native side.
+Something like:
+
+```csharp
+[MethodImpl(MethodImplOptions.InternalCall)]
+private extern static void NativeStartFilter(IFilterSetting periodSetting);
+
+// With a simple IFilterSetting interface and 2 classes implementing the interface
+public interface IFilterSetting
+{
+}
+
+public class Esp32FilterSetting : IFilterSetting
+{
+    // Some private fields you'll access on the native side
+    private uint _period;
+    // And some public ones
+}
+
+public class S2S3FilterSetting : IFilterSetting
+{
+    // Different field here
+    private int _anotherField
+    // And more public fields
+}
+```
+
+On the native side, you'll get a generated function and structures, they'll look like this:
+
+```cpp
+// The function definition, very classic
+HRESULT Lib_Name::NativeStartFilter___STATIC__VOID__nanoFrameworkHardwareEsp32TouchIFilterSetting(CLR_RT_StackFrame &stack)
+
+struct Lib_Name_Esp32FilterSetting
+{
+    static const int FIELD___period = 1;
+
+    //--//
+};
+
+struct Lib_Name_S2S3FilterSetting
+{
+    static const int FIELD___anotherField = 1;
+  
+    //--//
+};
+```
+
+The question is how on the native side, you can check if `Esp32FilterSetting` has been passed or `S2S3FilterSetting`?
+
+The following code snippet shows you how you how to achieve this:
+
+```cpp
+CLR_RT_TypeDescriptor typeParamType;
+CLR_RT_HeapBlock *bhPeriodeSetting;
+
+// Static function, argument 0 is the first argument
+bhPeriodeSetting = stack.Arg0().Dereference();
+
+// get type descriptor for parameter
+NANOCLR_CHECK_HRESULT(typeParamType.InitializeFromObject(*bhPeriodeSetting));
+
+CLR_RT_TypeDef_Index esp32FilteringTypeDef;
+CLR_RT_TypeDescriptor esp32FilteringType;
+CLR_RT_TypeDef_Index s2s3FilteringTypeDef;    
+CLR_RT_TypeDescriptor s2s3FilteringType;
+
+// init types to compare with bhPeriodeSetting parameter
+// You need the full namespace here
+g_CLR_RT_TypeSystem.FindTypeDef("Esp32FilterSetting", "nanoFramework.Hardware.Esp32.Touch", esp32FilteringTypeDef);
+esp32FilteringType.InitializeFromType(esp32FilteringTypeDef);
+
+// You need the full namespace here
+g_CLR_RT_TypeSystem.FindTypeDef("S2S3FilterSetting", "nanoFramework.Hardware.Esp32.Touch", s2s3FilteringTypeDef);
+s2s3FilteringType.InitializeFromType(s2s3FilteringTypeDef);
+
+
+// sanity check for parameter type
+if (!CLR_RT_ExecutionEngine::IsInstanceOf(typeParamType, esp32FilteringType, false))
+{
+    // We have an Esp32FilterSetting
+    // Implement your logic with this class
+}
+else if (!CLR_RT_ExecutionEngine::IsInstanceOf(typeParamType, s2s3FilteringType, false))
+{
+    // We have a S2S3FilterSetting
+    // Implement your logic with this class
+}
+else
+{
+    // It's not what we expect!
+    NANOCLR_SET_AND_LEAVE(CLR_E_INVALID_PARAMETER);
+}
+```
+
+This does allow complex scenarios where you can differentiate the native execution. It does allow other scenarios where the hardware matters and you have a generic class but specific hardware settings. It's now open to your imagination!
