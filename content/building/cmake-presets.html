@@ -78,9 +78,43 @@
 <h1 id="cmake-presets">CMake Presets</h1>
 
 <h2 id="about-this-document">About this document</h2>
-<p>This document describes how to use and modify the <strong>CMakePresets.json</strong> and <strong>CMakeUserPresets.TEMPLATE.json</strong> files to suit your needs.</p>
+<p>This document describes how to use and modify the CMake presets to suit your needs.</p>
+<p><strong>CMakePresets.json</strong> and <strong>CMakeUserPresets.TEMPLATE.json</strong> files to suit your needs.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Our build system uses <a href="https://cmake.org/">CMake</a> and <a href="https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html">CMake presets</a> to configure the various build options.
+The build can be managed and configured using a command prompt or directly from <a href="https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-presets.md">VS Code</a> or <a href="https://learn.microsoft.com/en-us/cpp/build/cmake-presets-vs?view=msvc-160">Visual Studio</a>.</p>
+<p>The simplest way to tweak a build or configuration preset is to create a CMakeUserPresets.json and override there any of the configurations and options set in the presets. (you can read more details on how the user presets work on the document above about CMake presets)</p>
+<p>Follows an example to illustrate how this works. Let's imagine that a developer working on a ESP32 WROVER KIT doesn't need support for the display and is not interest in support for SD Card either.
+Both options are being set in the target preset, so it's a simple matter of overriding them like this:</p>
+<pre><code class="lang-json">{
+    &quot;version&quot;: 4,
+    &quot;configurePresets&quot;: [
+        {
+            &quot;name&quot;: &quot;MY_ESP_WROVER_KIT&quot;,
+            &quot;hidden&quot;: true,
+            &quot;inherits&quot;: [
+                &quot;ESP_WROVER_KIT&quot;
+            ],           
+            &quot;cacheVariables&quot;: {
+                &quot;NF_FEATURE_HAS_SDCARD&quot;: &quot;OFF&quot;,
+                &quot;API_nanoFramework.Graphics&quot;: &quot;ON&quot;
+            }
+        },      
+    ],
+    &quot;buildPresets&quot;: [
+        {
+            &quot;name&quot;: &quot;MY_ESP_WROVER_KIT&quot;,
+            &quot;displayName&quot;: &quot;MY_ESP_WROVER_KIT&quot;,
+            &quot;configurePreset&quot;: &quot;MY_ESP_WROVER_KIT&quot;
+        }
+    ] 
+}
+</code></pre>
+<p>With the above, a new configure preset named <code>MY_ESP_WROVER_KIT</code> was created inheriting the original preset <code>ESP_WROVER_KIT</code> and overriding the build options that one is interested in changing. Following this a new build preset is also created to expose the configure preset.
+With the above a new configure preset <code>MY_ESP_WROVER_KIT</code> is made available and ready to be used in CMake CLI, VS Code or Visual Studio.</p>
+<p>Other adjustments, with potentially broader impact, can be made in the <code>config\user-prefs.json</code> and <code>config\user-tools-repos.json</code> preset files.</p>
 <h2 id="build-options-for-cmake-presets">Build options for CMake Presets</h2>
-<p>Below is a list of the build options available (last updated October 2022) for target boards.
+<p>Below is a list of the build options available (last updated October 2022). These can be found at the various CMake presets files available.
 <em><strong>Note:</strong></em> some of these options are specific to the <code>RTOS</code> or target type.</p>
 <ul>
 <li>&quot;BUILD_VERSION&quot; : &quot;<strong>version-number-for-the-build-format-is-N.N.N.N</strong>&quot;
