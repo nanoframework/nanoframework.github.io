@@ -28,7 +28,7 @@ Both options are being set in the target preset, so it's a simple matter of over
             ],           
             "cacheVariables": {
                 "NF_FEATURE_HAS_SDCARD": "OFF",
-                "API_nanoFramework.Graphics": "ON"
+                "API_nanoFramework.Graphics": "OFF"
             }
         },      
     ],
