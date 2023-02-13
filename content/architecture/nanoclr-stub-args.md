@@ -301,9 +301,9 @@ NANOCLR_NOCLEANUP();
 
 ## Access to callback before soft reboot
 
-Do you need to clean resources before a soft reboot? Yes, then you're covered. The function `HAL_AddSoftRebootHandler(HAL_AddSoftRebootHandler);` if here for you!
+Do you need to clean resources before a soft reboot? Yes, then you're covered. The function `HAL_AddSoftRebootHandler(FeatureSoftRebootHandler);` if here for you!
 
-The `HAL_AddSoftRebootHandler` is a simple `void FunctionName()` handler. Add this into your initialization function and you'll be sure to be called before a soft reboot.
+The `FeatureSoftRebootHandler` is a simple `void FunctionName()` handler. Add this into your initialization function and you'll be sure to be called before a soft reboot.
 
 ## Checking object types on native side
 
