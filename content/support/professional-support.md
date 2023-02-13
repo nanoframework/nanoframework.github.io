@@ -13,7 +13,7 @@ The above will, obviously, contribute to the project continuous growth.
 
 ### Eclo Solutions
 
-<a href="http://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" height="100" width="151"/></a>
+<a href="https://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" height="100" width="151"/></a>
 
 ### LINKIT
 
