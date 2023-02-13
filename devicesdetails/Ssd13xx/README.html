@@ -92,7 +92,65 @@
 <li><a href="https://www.amazon.com/Diymall-Yellow-Arduino-Display-Raspberry/dp/B00O2LLT30">Diymall 0.96&quot; Inch Blue and Yellow I2c IIC Serial Oled LCD LED Module 12864 128X64 for Arduino Display Raspberry PI 51 Msp420 Stim32 SCR</a></li>
 </ul>
 <h2 id="board">Board</h2>
-<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Ssd13xx/Ssd1306_I2c_PiOled.png" alt="Connection schematics"></p>
+<p>Address on the I2C bus: Ssd1306.DefaultI2cAddress 0x3C</p>
+<p><img src="../../devicesimages/Ssd13xx/Ssd1306_I2c_PiOled.png" alt="Connection schematics"></p>
+<p>Version with 7-pin I2C/SPI</p>
+<p>Address on the I2C bus: Ssd1306.SecondaryI2cAddress 0x3D</p>
+<p>Connecting resistors:</p>
+<ul>
+<li>I2C — R1, R4, R8;</li>
+<li>SPI — R3, R4.</li>
+</ul>
+<p>For only I2C</p>
+<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Ssd13xx/Ssd1306_I2C_SPI_back.jpg" alt="Ssd1306 I2C/SPI back"></p>
+<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Ssd13xx/Ssd1306_OLED_128x64_I2C_SPI.png" alt="Connection schematics"></p>
+<h3 id="connection-table">Connection table:</h3>
+<table>
+<thead>
+<tr>
+<th>Pin No:</th>
+<th>Pin Name:</th>
+<th>Description:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ground (Gnd)</td>
+<td>Connected to the ground of the circuit</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Supply (Vdd,Vcc,5V)</td>
+<td>Can be powered by either 3.3V or 5V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SCK (D0,SCL,CLK)</td>
+<td>The display supports both IIC and SPI, for which clock is supplied through this pin</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SDA (D1,MOSI)</td>
+<td>This is the data pin of the both, it can either be used for IIC or for SPI</td>
+</tr>
+<tr>
+<td>5</td>
+<td>RES(RST,RESET)</td>
+<td>When held to ground momentarily this pin resets the module (operational work, High value)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>DC (A0)</td>
+<td>I2C — must be connected to power (3.3V or 5V). SPI — this is command pin</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Chip Select (CS)</td>
+<td>Normally held low, used only when more than one SPI device is connected to MCU</td>
+</tr>
+</tbody>
+</table>
 <h2 id="binding-notes">Binding Notes</h2>
 <p>This binding currently only supports commands and raw data.  Eventually, the plan is to create a graphics library that can send text and images to the device. So this library is just a start and you'll find in the <a href="./samples">sample</a> more advance commands.</p>
 <p>The following connection types are supported by this binding.</p>
@@ -164,7 +222,7 @@ device.DrawString(2, 34, &quot;８９ＡＢ功夫＄&quot;, 1, true);
 device.Display();
 </code></pre>
 <p>Follows the output on the display:</p>
-<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Ssd13xx/display-with-double-byte-chars.jpg" alt="double-byte.fonts"></p>
+<p><img src="../../devicesimages/Ssd13xx/display-with-double-byte-chars.jpg" alt="double-byte.fonts"></p>
 </article>
           </div>
           

@@ -143,9 +143,9 @@ Mag data: X=    -2.19813942, Y=    -7.69348812, Z=  -37.029045104, head_dir: -16
 <pre><code class="lang-csharp">bmm150.CalibrateMagnetometer();
 </code></pre>
 <p>If no calibration is performed, you will get a raw data cloud which looks like this:</p>
-<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Bmm150/rawcalib.png" alt="raw data"></p>
+<p><img src="../../devicesimages/Bmm150/rawcalib.png" alt="raw data"></p>
 <p>Running the calibration properly require to <strong>move the sensor in all the possible directions</strong> while performing the calibration. You should consider running it with enough samples, at least few hundreds. The default is set to 100. While moving the sensor in all direction, far from any magnetic field, you will get the previous clouds. Calculating the average from those clouds and subtracting it from the read value will give you a centered cloud of data like this:</p>
-<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Bmm150/corrcalib.png" alt="raw data"></p>
+<p><img src="../../devicesimages/Bmm150/corrcalib.png" alt="raw data"></p>
 <p>To create those cloud point graphs, every cloud is a coordinate of X-Y, Y-Z and Z-X.</p>
 <p>Once the calibration is done, you will be able to read the data with the bias corrected using the <code>ReadMagnetometer</code> function. You will still be able to read the data without any calibration using the <code>ReadMagnetometerWithoutCalibration</code> function.</p>
 <h2 id="not-supportedimplemented-features-of-the-bmm150">Not supported/implemented features of the Bmm150</h2>
@@ -156,7 +156,7 @@ Mag data: X=    -2.19813942, Y=    -7.69348812, Z=  -37.029045104, head_dir: -16
 </ul>
 <h2 id="testing">Testing</h2>
 <p>Unit tests project is in \Bmm150.tests. You can use VS2019 built-in test capabilites as follows:</p>
-<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Bmm150/vs2019_unit_tests.png" alt="unit tests"></p>
+<p><img src="../../devicesimages/Bmm150/vs2019_unit_tests.png" alt="unit tests"></p>
 <pre><code class="lang-csharp">[TestMethod]
 public void TestCompensateVector3()
 {

@@ -89,7 +89,7 @@ Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
 Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
 </code></pre>
 <p>For other devices like STM32, please make sure you're using the preset pins for the I2C bus you want to use.</p>
-<p>You can find an example in the <a href="https://github.com/dotnet/iot/tree/main/src/devices/Ak8963/samples/ak8963.sample.cs">sample</a> directory. Usage is straight forward including the possibility to have a calibration.</p>
+<p>You can find an example in the <a href="https://github.com/dotnet/iot/tree/main/src/devices/Ak8963/samples">sample</a> directory. Usage is straight forward including the possibility to have a calibration.</p>
 <pre><code class="lang-csharp">var mpui2CConnectionSettingmpus = new I2cConnectionSettings(1, Ak8963.Ak8963.DefaultI2cAddress);
 // This will use the default I2C interface
 Ak8963 ak8963 = new Ak8963(I2cDevice.Create(mpui2CConnectionSettingmpus));
@@ -119,9 +119,9 @@ Debug.WriteLine($&quot;Mag Z = {ak8963.MagnometerBias.Z}&quot;);
 </code></pre>
 <p>You will find a full example on how to extract raw data without calibration on the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Mpu9250/samples/Program.cs">MPU9250 sample</a>.</p>
 <p>If no calibration is performed, you will get a raw data cloud which looks like this:</p>
-<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Ak8963/rawcalib.png" alt="raw data"></p>
+<p><img src="../../devicesimages/Ak8963/rawcalib.png" alt="raw data"></p>
 <p>Running the calibration properly require to <strong>move the sensor in all the possible directions</strong> while performing the calibration. You should consider running it with enough samples, at least few hundreds. The default is set to 1000. While moving the sensor in all direction, far from any magnetic field, you will get the previous clouds. Calculating the average from those clouds and subtracting it from the read value will give you a centered cloud of data like this:</p>
-<p><img src="https://raw.githubusercontent.com/nanoframework/nanoFramework.IoT.Device/develop/devices/Ak8963/corrcalib.png" alt="raw data"></p>
+<p><img src="../../devicesimages/Ak8963/corrcalib.png" alt="raw data"></p>
 <p>To create those cloud point graphs, every cloud is a coordinate of X-Y, Y-Z and Z-X.</p>
 <p>Once the calibration is done, you will be able to read the data with the bias corrected using the <code>ReadMagnetometer</code> function. You will still be able to read the data without any calibration using the <code>ReadMagnetometerWithoutCalibration</code> function.</p>
 <h2 id="using-a-different-i2c-interface">Using a different I2C interface</h2>
