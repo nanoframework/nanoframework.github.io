@@ -18,7 +18,7 @@ We offer the possibility to use such a Dev Container to build any of the support
 ![Docker steetings](../../images/dev-container-docker.jpg)
 
 - **Step 5**: Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed.
-- **Step 6**: copy the template file (in `nf-interpreter\config` folder) `user-tools-repos.TEMPLATE.json` to a (new) file called `user-tools-repos.json`.
+- **Step 6**: Copy the two template files (in `nf-interpreter\config` folder) `user-tools-repos.TEMPLATE.json` and `user-prefs.TEMPLATE.json` to (new) files named `user-tools-repos.json` and `user-prefs.json`.
   Change the content of your "new" `user-tools-repos.json` file as follows:
   - Rename the json section `user-tools-repos-container` to `user-tools-repos`.
 - **Step 7**: Open the full `nf-interpreter`directory with VS Code.
