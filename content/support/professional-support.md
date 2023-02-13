@@ -15,8 +15,5 @@ The above will, obviously, contribute to the project continuous growth.
 
 <a href="http://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" height="100" width="151"/></a>
 
-### CSA Engineering AG
-
-<a href="http://www.csa.ch"><img src="https://docs.nanoframework.net/images/logos/CSA-cmyk.svg" height="100" width="262"/></a>
 
 Looking for [community help](community-help.md)?
