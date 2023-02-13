@@ -11,7 +11,7 @@ This document describes how to use and modify the CMake presets to suit your nee
 Our build system uses [CMake](https://cmake.org/) and [CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) to configure the various build options.
 The build can be managed and configured using a command prompt or directly from [VS Code](https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-presets.md) or [Visual Studio](https://learn.microsoft.com/en-us/cpp/build/cmake-presets-vs?view=msvc-160).
 
-The simplest way to tweak a build or configuration preset is to create a CMakeUserPresets.json and override there any of the configurations and options set in the presets. (you can read more details on how the user presets work on the document above about CMake presets)
+The simplest way to tweak a build or configuration preset is to create a `CMakeUserPresets.json` and override in this file, any of the configurations and options set in the presets. You can read more details on how the user presets work on the document above about CMake presets.
 
 Follows an example to illustrate how this works. Let's imagine that a developer working on a ESP32 WROVER KIT doesn't need support for the display and is not interest in support for SD Card either.
 Both options are being set in the target preset, so it's a simple matter of overriding them like this:
