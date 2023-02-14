@@ -1,4 +1,4 @@
-# Generating stubs for a native project, NANOCLR macros, Arguments and return types
+# Native tips & tricsk, generating stubs for a native project, NANOCLR macros, Arguments and return types
 
 When you want to use native code and creating an associated managed code C# library, you should start by reading [this article](https://jsimoesblog.wordpress.com/2018/06/19/interop-in-net-nanoframework/). This article will give you all the steps to create your managed C# project, generate the stubs and have everything glued together.
 
@@ -207,3 +207,199 @@ You can setup a return result using the family functions `SetResult_`. System ty
 `SetResult_Object` allows you to return any valid object, class or structure.
 
 To return a string, `SetResult_String` is your best friend. Note that this function returns an `HRESULT` and should be checked.
+
+### Functions with reference parameters and how to set them
+
+It is possible to have a function that has reference parameters and to set them on the native side.
+
+Here is an example with a static function but it does work as well with non static functions (you just need to start at Arg1 for the first parameter):
+
+```chsarp
+[MethodImpl(MethodImplOptions.InternalCall)]
+private extern static void NativeGetVoltage(ref TouchHighVoltage touchHighVoltage, ref TouchLowVoltage touchLowVoltage, ref TouchHighVoltageAttenuation touchHighVoltageAttenuation);
+```
+
+And here is a full simple example on how to set the parameters back:
+
+```cpp
+HRESULT Library_nanoFramework_hardware_esp32_native_nanoFramework_Hardware_Esp32_Touch_TouchPad::NativeGetVoltage___STATIC__VOID__BYREF_nanoFrameworkHardwareEsp32TouchTouchHighVoltage__BYREF_nanoFrameworkHardwareEsp32TouchTouchLowVoltage__BYREF_nanoFrameworkHardwareEsp32TouchTouchHighVoltageAttenuation( CLR_RT_StackFrame &stack )
+{
+    NANOCLR_HEADER();
+
+    touch_high_volt_t refh;
+    touch_low_volt_t refl;
+    touch_volt_atten_t atten;
+
+    // Get the voltage    
+    if (touch_pad_get_voltage(&refh, &refl, &atten) == ESP_OK)
+    {
+        CLR_RT_HeapBlock bhRefh;
+        CLR_RT_HeapBlock bhRefl;
+        CLR_RT_HeapBlock bhAtten;
+        bhRefh.SetInteger(refh);
+        NANOCLR_CHECK_HRESULT(bhRefh.StoreToReference(stack.Arg0(), 0));
+        bhRefl.SetInteger(refl);
+        NANOCLR_CHECK_HRESULT(bhRefl.StoreToReference(stack.Arg1(), 0));
+        bhAtten.SetInteger(atten);
+        NANOCLR_CHECK_HRESULT(bhAtten.StoreToReference(stack.Arg2(), 0));
+    }
+    else
+    {
+        NANOCLR_SET_AND_LEAVE(CLR_E_INVALID_OPERATION);
+    }
+
+    NANOCLR_NOCLEANUP();
+}
+```
+
+The key element here is the first create a heap block `CLR_RT_HeapBlock bhRefh;`, then set the value `bhRefh.SetInteger(refh);` and finaly store it into the argument `NANOCLR_CHECK_HRESULT(bhRefh.StoreToReference(stack.Arg0(), 0));`.
+
+Note that this is working as well with objects, arrays or string.
+
+## Generating exceptions and other HAL elements
+
+It's possible to generate various exceptions from the native side. And it's as well possible to access more of the HAL elements.
+
+### Generating exceptions
+
+This is straight forward, you can use `NANOCLR_SET_AND_LEAVE(THE_EXCEPTION)`. The list of exception is available in [this include file](https://github.com/nanoframework/nf-interpreter/blob/main/src/CLR/Include/nf_errors_exceptions.h).
+
+You can use it like this:
+
+```cpp
+NANOCLR_HEADER();
+
+// some code
+
+if (somethingWrong)
+{
+    NANOCLR_SET_AND_LEAVE(CLR_E_INVALID_OPERATION);
+}
+
+// If somethingWrong, then the code here won't be executed. You'll go directly to the end
+
+// This is where you'll arrive
+NANOCLR_NOCLEANUP();
+```
+
+### Checking results of a function
+
+You can check if the result of a HRESULT function is a success or not by using `NANOCLR_CHECK_HRESULT` and few others like `NANOCLR_EXIT_ON_SUCCESS`. All those macros are available and documented in [this include file](https://github.com/nanoframework/nf-interpreter/blob/main/src/CLR/Include/nanoCLR_Interop.h). They al require to use the same pattern like:
+
+```cpp
+NANOCLR_HEADER();
+
+// some code
+
+NANOCLR_CHECK_HRESULT(AnotherNativeFunctionOfHRESULT);
+
+// If somethingWrong, then the code here won't be executed. You'll go directly to the end
+
+// This is where you'll arrive
+NANOCLR_NOCLEANUP();
+```
+
+## Access to callback before soft reboot
+
+Do you need to clean resources before a soft reboot? Yes, then you're covered. The function `HAL_AddSoftRebootHandler(FeatureSoftRebootHandler);` if here for you!
+
+The `FeatureSoftRebootHandler` is a simple `void FunctionName()` handler. Add this into your initialization function and you'll be sure to be called before a soft reboot.
+
+## Checking object types on native side
+
+There are quite a few occasions where you want to pass an interface object on the native side.
+Something like:
+
+```csharp
+[MethodImpl(MethodImplOptions.InternalCall)]
+private extern static void NativeStartFilter(IFilterSetting periodSetting);
+
+// With a simple IFilterSetting interface and 2 classes implementing the interface
+public interface IFilterSetting
+{
+}
+
+public class Esp32FilterSetting : IFilterSetting
+{
+    // Some private fields you'll access on the native side
+    private uint _period;
+    // And some public ones
+}
+
+public class S2S3FilterSetting : IFilterSetting
+{
+    // Different field here
+    private int _anotherField
+    // And more public fields
+}
+```
+
+On the native side, you'll get a generated function and structures, they'll look like this:
+
+```cpp
+// The function definition, very classic
+HRESULT Lib_Name::NativeStartFilter___STATIC__VOID__nanoFrameworkHardwareEsp32TouchIFilterSetting(CLR_RT_StackFrame &stack)
+
+struct Lib_Name_Esp32FilterSetting
+{
+    static const int FIELD___period = 1;
+
+    //--//
+};
+
+struct Lib_Name_S2S3FilterSetting
+{
+    static const int FIELD___anotherField = 1;
+  
+    //--//
+};
+```
+
+The question is how on the native side, you can check if `Esp32FilterSetting` has been passed or `S2S3FilterSetting`?
+
+The following code snippet shows you how you how to achieve this:
+
+```cpp
+CLR_RT_TypeDescriptor typeParamType;
+CLR_RT_HeapBlock *bhPeriodeSetting;
+
+// Static function, argument 0 is the first argument
+bhPeriodeSetting = stack.Arg0().Dereference();
+
+// get type descriptor for parameter
+NANOCLR_CHECK_HRESULT(typeParamType.InitializeFromObject(*bhPeriodeSetting));
+
+CLR_RT_TypeDef_Index esp32FilteringTypeDef;
+CLR_RT_TypeDescriptor esp32FilteringType;
+CLR_RT_TypeDef_Index s2s3FilteringTypeDef;    
+CLR_RT_TypeDescriptor s2s3FilteringType;
+
+// init types to compare with bhPeriodeSetting parameter
+// You need the full namespace here
+g_CLR_RT_TypeSystem.FindTypeDef("Esp32FilterSetting", "nanoFramework.Hardware.Esp32.Touch", esp32FilteringTypeDef);
+esp32FilteringType.InitializeFromType(esp32FilteringTypeDef);
+
+// You need the full namespace here
+g_CLR_RT_TypeSystem.FindTypeDef("S2S3FilterSetting", "nanoFramework.Hardware.Esp32.Touch", s2s3FilteringTypeDef);
+s2s3FilteringType.InitializeFromType(s2s3FilteringTypeDef);
+
+
+// sanity check for parameter type
+if (!CLR_RT_ExecutionEngine::IsInstanceOf(typeParamType, esp32FilteringType, false))
+{
+    // We have an Esp32FilterSetting
+    // Implement your logic with this class
+}
+else if (!CLR_RT_ExecutionEngine::IsInstanceOf(typeParamType, s2s3FilteringType, false))
+{
+    // We have a S2S3FilterSetting
+    // Implement your logic with this class
+}
+else
+{
+    // It's not what we expect!
+    NANOCLR_SET_AND_LEAVE(CLR_E_INVALID_PARAMETER);
+}
+```
+
+This does allow complex scenarios where you can differentiate the native execution. It does allow other scenarios where the hardware matters and you have a generic class but specific hardware settings. It's now open to your imagination!
