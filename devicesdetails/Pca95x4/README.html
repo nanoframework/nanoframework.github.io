@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pca95x4 - I2C GPIO Expander | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Pca95x4 - I2C GPIO Expander | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="pca95x4---i2c-gpio-expander">Pca95x4 - I2C GPIO Expander</h1>
+
+<p>The PCA95x4 provides 8 bits of General Purpose parallel Input/Output (GPIO) expansion for I2C-bus applications.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>Philips I2C IO expanders application notes can be found <a href="http://ecee.colorado.edu/%7Emcclurel/Philips_I2C_IO_Expanders_AN469_2.pdf">here</a></li>
+</ul>
+<h3 id="nxp">NXP</h3>
+<ul>
+<li>PCA9534 <a href="https://www.nxp.com/docs/en/data-sheet/PCA9534.pdf">datasheet</a></li>
+<li>PCA9534A <a href="https://www.nxp.com/docs/en/data-sheet/PCA9534.pdf">datasheet</a></li>
+<li>PCA9554/PCA9554A <a href="https://www.nxp.com/docs/en/data-sheet/PCA9554_9554A.pdf">datasheet</a></li>
+</ul>
+<h3 id="texas-instruments">Texas Instruments</h3>
+<ul>
+<li>PCA9534 <a href="http://www.ti.com/lit/ds/symlink/pca9534.pdf">datasheet</a></li>
+<li>PCA9534A <a href="http://www.ti.com/lit/ds/symlink/pca9534a.pdf">datasheet</a></li>
+<li>PCA9554 <a href="http://www.ti.com/lit/ds/symlink/pca9554.pdf">datasheet</a></li>
+<li>PCA9554A <a href="http://www.ti.com/lit/ds/symlink/pca9554a.pdf">datasheet</a></li>
+</ul>
+<h2 id="board">Board</h2>
+<p><img src="../../devicesimages/Pca95x4/Pca95x4_I2c_WriteLeds.png" alt="Connection Diagram"></p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the I2C pins especially for ESP32 before creating the <code>I2cDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the I2C GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the I2C bus you want to use.</p>
+<p>This example shows how to write value out to 8 LEDs using a PCA95x4 device and a MCU.</p>
+<pre><code class="lang-csharp">I2cConnectionSettings i2cConnectionSettings = new(1, 0x38);
+I2cDevice i2cDevice = I2cDevice.Create(i2cConnectionSettings);
+pca95x4 = new Pca95x4(i2cDevice);
+</code></pre>
+<h3 id="cycle-output-bits">Cycle output bits</h3>
+<pre><code class="lang-csharp">pca95x4.Write(Register.Configuration, 0x00);  // Make all outputs.
+pca95x4.Write(Register.OutputPort, 0xFF);  // Set all outputs.
+
+for (int bitNumber = 0; bitNumber &lt; 8; bitNumber++)
+{
+    pca95x4.WriteBit(Register.OutputPort, bitNumber, false);  // Clear output.
+    Thread.Sleep(500);
+    pca95x4.WriteBit(Register.OutputPort, bitNumber, true);  // Set output.
+}
+</code></pre>
+<h3 id="read-input-port">Read Input Port</h3>
+<pre><code class="lang-csharp">pca95x4.Write(Register.Configuration, 0xFF);  // Make all inputs.
+byte data = pca95x4.Read(Register.InputPort);
+Debug.WriteLine($&quot;Input Port: 0x{data:X2}&quot;);
+</code></pre>
+<h3 id="check-input-register-polarity-inversion">Check Input Register Polarity Inversion</h3>
+<pre><code class="lang-csharp">pca95x4.Write(Register.Configuration, 0xFF);  // Make all inputs.
+byte data = pca95x4.Read(Register.InputPort);
+Debug.WriteLine($&quot;Input Register: 0x{data:X2}&quot;);
+pca95x4.InvertInputRegisterPolarity(true);
+data = pca95x4.Read(Register.InputPort);
+Debug.WriteLine($&quot;Input Register Polarity Inverted: 0x{data:X2}&quot;);
+pca95x4.InvertInputRegisterPolarity(false);
+data = pca95x4.Read(Register.InputPort);
+Debug.WriteLine($&quot;Input Register: 0x{data:X2}&quot;);
+</code></pre>
+<h2 id="binding-notes">Binding Notes</h2>
+<p>PCA9534/PCA9554 and PCA9534A/PCA9554A are identical except for a few differences.</p>
+<ul>
+<li>The removal of the internal I/O pull-up resistor which greatly reduces power consumption when the I/Os are held LOW.</li>
+<li>Each has a fixed I2C address. This allows for up to 16 of these devices (8 of each) on the same I2C bus.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Pca95x4/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

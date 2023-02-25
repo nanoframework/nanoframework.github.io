@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Container maintenance | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Container maintenance | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="container-maintenance">Container maintenance</h1>
+
+<h2 id="adjusting-the-dockerfile-images">Adjusting the Dockerfile images</h2>
+<p>The Dockerfile source images are located in <code>.devcontainer/sources</code>. Whenever you need to adjust something, please check the following:</p>
+<ul>
+<li>[ ] when you adjust a version for a cloned repository, please check <strong>all</strong> the Dockerfile</li>
+<li>[ ] in <code>.github/workflows</code> change the version for the generated image</li>
+<li>[ ] in the <code>.devcontainer</code> adjust the version of the corresponding Dockerfile</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>[X] when you adjust a version for a cloned repository, please check <strong>all</strong> the Dockerfile
+<ul>
+<li>You change the file <code>targets/TI-SimpleLin/CMakeLists.txt</code>and adjust the version in <code>set(TI_SL_CC13x2_26x2_SDK_TAG &quot;4.40.04.04&quot; CACHE INTERNAL &quot;TI CC13x2_26x2 SDK tag&quot;)</code></li>
+<li>You need to adjust this version as well in <code>.devcontainer/sources/Dockerfile.All</code> and adjust it here <code>git clone --branch 4.40.04.04 https://github.com/nanoframework/SimpleLink_CC13x2_26x2_SDK.git --depth 1 ./sources/SimpleLinkCC13 \</code></li>
+<li>You need to adjust this version as well in <code>.devcontainer/sources/Dockerfile.TI</code> and adjust it here <code>git clone --branch 4.40.04.04 https://github.com/nanoframework/SimpleLink_CC13x2_26x2_SDK.git --depth 1 ./sources/SimpleLinkCC13 \</code></li>
+<li>Be aware that some cloned repositories are present in almost all the files. So make sure you adjust all of them.</li>
+</ul>
+</li>
+<li>[X] in <code>.github/workflows</code> change the version for the generated image
+<ul>
+<li>change the version of the container in <code>all.yaml</code> by increasing the minor version (major if this is a real major change), for example if it was 1.5 to <code>GCR_VERSION: v1.6</code></li>
+<li>change the version of the container in <code>ti.yaml</code> by increasing the minor version (major if this is a real major change), for example if it was 1.2 to <code>GCR_VERSION: v1.3</code></li>
+<li>Be aware that versions of the different containers can be different depending on the changes made</li>
+</ul>
+</li>
+<li>[X] in the <code>.devcontainer</code> adjust the version of the corresponding Dockerfile
+<ul>
+<li>Change the version accordingly in <code>Dockerfile.All</code> to <code>FROM ghcr.io/ellerbach/dev-container-all:v1.6</code></li>
+<li>Change the version accordingly in <code>Dockerfile.TI</code> to <code>FROM ghcr.io/ellerbach/dev-container-all:v1.6</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="publishing-a-new-package">Publishing a new package</h2>
+<p>Buy default a new package has a private visibility. You will need to adjust the visibility of the potential new dev containers by:</p>
+<ol>
+<li>Go to <a href="https://github.com/orgs/nanoframework/packages">https://github.com/orgs/nanoframework/packages</a></li>
+<li>Select the package</li>
+<li>Click <code>Connect Repository</code></li>
+<li>Select <code>nf-interpreter</code></li>
+<li>Click <code>View all tagged versions</code></li>
+<li>Click <code>Options</code></li>
+<li>Adjust the visibility to public</li>
+<li>Check as well <code>Inherit access from source repository</code></li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/maintainers/container-maintenance.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

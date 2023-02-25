@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Comparison between .NET nanoFramework and .NET IoT | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Comparison between .NET nanoFramework and .NET IoT | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="comparison-between-net-nanoframework-and-net-iot">Comparison between .NET <strong>nanoFramework</strong> and .NET IoT</h1>
+
+<p>This document compares .NET <strong>nanoFramework</strong> and .NET IoT platforms. For this documentation a same sample application with an identical scenario is created on both platforms.</p>
+<p>The sample application includes a scenario on both platforms: Every 3 seconds the application reads temperature value from BMP280 sensor and turns on LED after reading the value. Then this temperature value is pushed to IoT Hub with device name and after every successful push LED will blink and turn off. Data will be handled by IoT Hub message routing and will be pushed to blob storage to store.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">.NET IoT</th>
+<th style="text-align: center;">.NET <strong>nanoFramework</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="../../images/getting-started-guides/compare-RP-BMP280_bb.png" alt="Raspberry Pi with .Net IoT"></td>
+<td style="text-align: center;"><img src="../../images/getting-started-guides/compare-ESP32-BMP280_bb.png" alt="M5Stack with .NET nanoFramework"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://github.com/dotnet/iot/tree/main/samples">Raspberry Pi with .Net IoT sample project</a></td>
+<td style="text-align: center;"><a href="https://github.com/nanoframework/Samples/tree/main/samples/AzureSDK/AzureSDKSensorCertificate">M5Stack with .NET nanoFramework sample project</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="certificate">Certificate</h2>
+<p>Device certificates are used in these samples. Certificates provide handshake between your device and Azure IoT Hub, and samples explain how to use certificates on both .NET IoT and .NET <strong>nanoFramework</strong> platforms.</p>
+<p>If you don't have any certificate, you can learn how to create certificates following <a href="https://github.com/nanoframework/Samples/blob/main/samples/AzureSDK/AzureSDKSensorCertificate/create-certificate.md">Create test certificate using OpenSSL and Azure IoT Hub</a> documentation.</p>
+<p>You can check differences of using these certificates below.</p>
+<h2 id="quick-tips--differences">Quick Tips &amp; Differences</h2>
+<table>
+<thead>
+<tr>
+<th>.NET IoT</th>
+<th>.NET <strong>nanoFramework</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Works on powerful boards with memory and CPU</td>
+<td>Works on low-level microcontroller devices with low memory</td>
+</tr>
+<tr>
+<td>Due to device specs it can benefit from all .NET core libraries</td>
+<td>Uses specific .NET libraries for <strong>nanoFramework</strong> due to performance on low-level devices</td>
+</tr>
+<tr>
+<td>You can add your packages via NuGet manager</td>
+<td>You can add your packages via NuGet manager</td>
+</tr>
+<tr>
+<td>You only need to add <code>Iot.Device.Bindings</code> and <code>System.Device.Gpio</code> packages for new sensors</td>
+<td>You need to add <strong>nanoFramework</strong> specific packages separately for each sensor</td>
+</tr>
+<tr>
+<td>You need to setup your deployment and remote debugging manually</td>
+<td>Built-in deployment and rich remote debugging experience as Default</td>
+</tr>
+<tr>
+<td>Deploy the code via SSH connection</td>
+<td>Deploy the code directly via wired connection</td>
+</tr>
+<tr>
+<td>It can use WiFi of Raspberry Pi OS</td>
+<td>You need to connect your device to WiFi through your code</td>
+</tr>
+<tr>
+<td>You can use <code>pfx</code> certificates in your code</td>
+<td>You can use <code>PEM</code>, <code>crt</code> and <code>der</code> certificates in your code</td>
+</tr>
+</tbody>
+</table>
+<h2 id="code-comparison">Code Comparison</h2>
+<p>With this comparison we use exactly the same scenario for .NET IoT and .NET <strong>nanoFramework</strong> platforms. We're controlling BMP280 temperature &amp; pressure sensor and LED via GPIO pins, connecting to Wi-Fi and accessing Azure IoT Hub via client specific Azure SDKs. We're using certificates to identify devices on Azure IoT Hub and grant access based on certificates.</p>
+<p>Code may change due to access some platform specific resources and SDKs, but majority of the code lines are identically same in these samples. Let's compare what are the differences on these platforms.</p>
+<p><img src="../../images/getting-started-guides/compare-dotnet-iot-and-nanoframework-code.jpeg" alt="Compare .NET IoT vs .NET nanoFramework"></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Both .NET IoT and .NET <strong>nanoFramework</strong> are very powerful platforms and enable the writing of managed code applications using C# on different boards. Both platforms provide maximum code reusability, there are only small nuances which are due to platform/board specific differences.</p>
+<p>Both of them provide access to GPIO pins, pin numbers may change based on device manufacturer.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/getting-started-guides/dotnet-iot-core-vs-nanoframework.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

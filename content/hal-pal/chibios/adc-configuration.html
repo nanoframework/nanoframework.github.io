@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ADC configuration | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ADC configuration | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="adc-configuration">ADC configuration</h1>
+
+<h2 id="about-this-document">About this document</h2>
+<p>This document describes how to configure the ADC and respective GPIO pins for a STM32 target board based in ChibiOS HAL/PAL.</p>
+<h2 id="assumptions-and-design">Assumptions and design</h2>
+<p>The STM32 parts can have up to 19 multiplexed channels (being 16 from external sources). Those can be grouped for special conversion scenarios that we are not going to use.
+Each ADC channel can be exposed in one or more GPIO pins. Despite this providing more flexibility to a system designer it poses an additional complication at the time of configuring the ADC.
+Considering that the heavy-lifting on the ADC configuration and initial setup is performed by ChibiOS, we've tried to make the remaining configuration as simple as possible, which is pretty much mapping the GPIO pins.</p>
+<p>For the remaining of this document we'll be using ST STM32F769I_DISCOVERY reference target and will configure the ADC to use the ADC channels exposed through the CN14 connector. From the schematics of the board (mb1225 F769I-DISCO schematic.pdf downloadable from ST web site) one can see that the following channels exposed:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">pad</th>
+<th style="text-align: center;">GPIO pin</th>
+<th style="text-align: center;">ADC channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">A0</td>
+<td style="text-align: center;">PA6</td>
+<td style="text-align: center;">ADC1_IN6</td>
+</tr>
+<tr>
+<td style="text-align: center;">A1</td>
+<td style="text-align: center;">PA4</td>
+<td style="text-align: center;">ADC1_IN4</td>
+</tr>
+<tr>
+<td style="text-align: center;">A2</td>
+<td style="text-align: center;">PC2</td>
+<td style="text-align: center;">ADC1_IN12</td>
+</tr>
+<tr>
+<td style="text-align: center;">A3</td>
+<td style="text-align: center;">PF10</td>
+<td style="text-align: center;">ADC1_IN8</td>
+</tr>
+<tr>
+<td style="text-align: center;">A4</td>
+<td style="text-align: center;">PF8</td>
+<td style="text-align: center;">ADC3_IN6</td>
+</tr>
+<tr>
+<td style="text-align: center;">A5</td>
+<td style="text-align: center;">PB8</td>
+<td style="text-align: center;">ADC3_IN7</td>
+</tr>
+</tbody>
+</table>
+<p>To fully take advantage of the ADC hardware we are going to enable the internal ADC sources. These ones have to be mapped to ADC1.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">pad</th>
+<th style="text-align: center;">GPIO pin</th>
+<th style="text-align: center;">ADC channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">N.A.</td>
+<td style="text-align: center;">N.A.</td>
+<td style="text-align: center;">ADC1_TEMP_SENSOR</td>
+</tr>
+<tr>
+<td style="text-align: center;">N.A.</td>
+<td style="text-align: center;">N.A.</td>
+<td style="text-align: center;">ADC1_VREFINT</td>
+</tr>
+<tr>
+<td style="text-align: center;">N.A.</td>
+<td style="text-align: center;">N.A.</td>
+<td style="text-align: center;">ADC1_VBAT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configurations">Configurations</h2>
+<p>The configurations are all concentrated in the <code>target_windows_devices_adc_config.cpp</code> file in the reference target folder.
+This source file is added to the CMake target only if the <code>API_Windows.Devices.Adc</code> option is set to ON. See the target CMakeList.txt.</p>
+<p>There is a global <code>NF_PAL_ADC_PORT_PIN_CHANNEL</code> array for the ADC controller. On each entry there are the configurations for the ADC block, the GPIO port and pin along with the ADC internal channel reference.
+Note that for the internal sources channels the GPIO port and pin are to be set to <code>NULL</code> and those are only available on ADC1.
+All the naming come from existing ChibiOS defines.</p>
+<p>The configuration array will look like:</p>
+<pre><code class="lang-C">const NF_PAL_ADC_PORT_PIN_CHANNEL AdcPortPinConfig[] = {
+
+    // ADC1
+    {1, GPIOA, 6, ADC_CHANNEL_IN6},
+    {1, GPIOA, 4, ADC_CHANNEL_IN4},
+    {1, GPIOC, 2, ADC_CHANNEL_IN12},
+    {1, GPIOF, 10, ADC_CHANNEL_IN8},
+
+    // ADC3
+    {3, GPIOF, 8, ADC_CHANNEL_IN6},
+    {3, GPIOB, 8, ADC_CHANNEL_IN7},
+
+    // these are the internal sources, available only at ADC1
+    {1, NULL, NULL, ADC_CHANNEL_SENSOR},
+    {1, NULL, NULL, ADC_CHANNEL_VREFINT},
+    {1, NULL, NULL, ADC_CHANNEL_VBAT},
+};
+</code></pre>
+<p>There is also a variable with the channel count, like this:
+<code>const int AdcChannelCount = ARRAYSIZE(AdcPortPinConfig);</code></p>
+<p>To complete the configuration one has to enable ADC1 and ADC3 for ChibiOS HAL. Remember those were the ADC blocks used in the configuration above. This is done by editing the <code>mcuconf.h</code> file inside the target nanoCLR folder. Search for <code>STM32_ADC_USE_ADC1</code> and <code>STM32_ADC_USE_ADC3</code> and set those to <code>TRUE</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/hal-pal/chibios/adc-configuration.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

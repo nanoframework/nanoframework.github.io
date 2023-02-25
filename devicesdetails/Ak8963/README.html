@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AK8963 - Magnetometer | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AK8963 - Magnetometer | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ak8963---magnetometer">AK8963 - Magnetometer</h1>
+
+<p>The AK8963 is a magnetometer that can be controlled either thru I2C either thru SPI. It is present in other sensors like the <a href="../Mpu9250/README.html">MPU9250</a>. This implementation fully supports the I2C mode and the usage thru the MPU9250. It does not support SPI.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Documentation for the AK8963 can be found <a href="https://www.akm.com/akm/en/file/datasheet/AK8963C.pdf">here</a></p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the I2C pins especially for ESP32 before creating the <code>I2cDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the I2C GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the I2C bus you want to use.</p>
+<p>You can find an example in the <a href="https://github.com/dotnet/iot/tree/main/src/devices/Ak8963/samples">sample</a> directory. Usage is straight forward including the possibility to have a calibration.</p>
+<pre><code class="lang-csharp">var mpui2CConnectionSettingmpus = new I2cConnectionSettings(1, Ak8963.Ak8963.DefaultI2cAddress);
+// This will use the default I2C interface
+Ak8963 ak8963 = new Ak8963(I2cDevice.Create(mpui2CConnectionSettingmpus));
+if (!ak8963.CheckVersion())
+    throw new IOException($&quot;This device does not contain the correct signature 0x48 for a AK8963&quot;);
+
+while (true)
+{
+    var magne = ak8963.ReadMagnetometer(true);
+    Debug.WriteLine($&quot;Mag X = {magne.X, 15}&quot;);
+    Debug.WriteLine($&quot;Mag Y = {magne.Y, 15}&quot;);
+    Debug.WriteLine($&quot;Mag Z = {magne.Z, 15}&quot;);
+    Thread.Sleep(100);
+}
+</code></pre>
+<h2 id="calibration-and-bias">Calibration and bias</h2>
+<p>You can get access to the self tests and calibration thru the <code>CalibrateMagnetometer</code> function which will return the bias calibration. Be aware that the calibration takes couple of seconds.</p>
+<pre><code class="lang-csharp">var magBias = ak8963.CalibrateMagnetometer();
+Debug.WriteLine($&quot;Factory Bias:&quot;);
+Debug.WriteLine($&quot;Mag X = {magBias.X}&quot;);
+Debug.WriteLine($&quot;Mag Y = {magBias.Y}&quot;);
+Debug.WriteLine($&quot;Mag Z = {magBias.Z}&quot;);
+Debug.WriteLine($&quot;Bias from calibration:&quot;);
+Debug.WriteLine($&quot;Mag X = {ak8963.MagnometerBias.X}&quot;);
+Debug.WriteLine($&quot;Mag Y = {ak8963.MagnometerBias.Y}&quot;);
+Debug.WriteLine($&quot;Mag Z = {ak8963.MagnometerBias.Z}&quot;);
+</code></pre>
+<p>You will find a full example on how to extract raw data without calibration on the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Mpu9250/samples/Program.cs">MPU9250 sample</a>.</p>
+<p>If no calibration is performed, you will get a raw data cloud which looks like this:</p>
+<p><img src="../../devicesimages/Ak8963/rawcalib.png" alt="raw data"></p>
+<p>Running the calibration properly require to <strong>move the sensor in all the possible directions</strong> while performing the calibration. You should consider running it with enough samples, at least few hundreds. The default is set to 1000. While moving the sensor in all direction, far from any magnetic field, you will get the previous clouds. Calculating the average from those clouds and subtracting it from the read value will give you a centered cloud of data like this:</p>
+<p><img src="../../devicesimages/Ak8963/corrcalib.png" alt="raw data"></p>
+<p>To create those cloud point graphs, every cloud is a coordinate of X-Y, Y-Z and Z-X.</p>
+<p>Once the calibration is done, you will be able to read the data with the bias corrected using the <code>ReadMagnetometer</code> function. You will still be able to read the data without any calibration using the <code>ReadMagnetometerWithoutCalibration</code> function.</p>
+<h2 id="using-a-different-i2c-interface">Using a different I2C interface</h2>
+<p>This sensor is used for example in the <a href="../Mpu9250/README.html">MPU9250</a>. The MPU9250 is in this case a master I2C controlling the secondary AK8963 I2C sensor. An abstract class is available to implement basic I2C operation:</p>
+<pre><code class="lang-csharp">public abstract class Ak8963I2cBase
+{
+    public abstract void WriteRegister(I2cDevice i2CDevice, Register reg, byte data);
+    public abstract byte ReadByte(I2cDevice i2CDevice, Register reg);
+    public abstract void ReadBytes(I2cDevice i2CDevice, Register reg, Span&lt;byte&gt; readBytes);
+}
+</code></pre>
+<p>For example the I2C basic implementation is the following:</p>
+<pre><code class="lang-csharp">public class Ak8963I2c : Ak8963I2cBase
+{
+    public override byte ReadByte(I2cDevice i2cDevice, Register reg)
+    {
+        i2cDevice.WriteByte((byte)reg);
+        return i2cDevice.ReadByte();
+    }
+
+    public override void ReadBytes(I2cDevice i2cDevice, Register reg, Span&lt;byte&gt; readBytes)
+    {
+        i2cDevice.WriteByte((byte)reg);
+        i2cDevice.Read(readBytes);
+    }
+
+    public override void WriteRegister(I2cDevice i2cDevice, Register reg, byte data)
+    {
+        Span&lt;byte&gt; dataout = stackalloc byte[] { (byte)reg, data };
+        i2cDevice.Write(dataout);
+    }
+}
+</code></pre>
+<p>The class embedded into the MPU9250 is more complex, for example here is the code to do the WriteRegister operation:</p>
+<pre><code class="lang-csharp">public override void WriteRegister(I2cDevice i2cDevice, Ak8963.Register reg, byte data)
+{
+    Span&lt;byte&gt; dataout = stackalloc byte[2] { (byte)Register.I2C_SLV0_ADDR, Ak8963.Ak8963.DefaultI2cAddress };
+    i2cDevice.Write(dataout);
+    dataout[0] = (byte)Register.I2C_SLV0_REG;
+    dataout[1] = (byte)reg;
+    i2cDevice.Write(dataout);
+    dataout[0] = (byte)Register.I2C_SLV0_DO;
+    dataout[1] = data;
+    i2cDevice.Write(dataout);
+    dataout[0] = (byte)Register.I2C_SLV0_CTRL;
+    dataout[1] = 0x81;
+    i2cDevice.Write(dataout);
+}
+</code></pre>
+<p>If you have to use a different I2C interface, you have to use the constructor where you can pass it:</p>
+<pre><code class="lang-csharp">ak8963 = new Ak8963(_i2cDevice, new Ak8963Attached(), false);
+</code></pre>
+<h2 id="circuit">Circuit</h2>
+<p>Only I2C is supported in this version.</p>
+<ul>
+<li>SCL - SCL</li>
+<li>SDA - SDA</li>
+<li>VCC - 3.3V</li>
+<li>GND - GND</li>
+</ul>
+<p>Depending on the version you have, you may have to select I2C over SPI. This is done in different way depending on the board you'll have.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Ak8963/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

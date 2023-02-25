@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>LSM9DS1 - 3D accelerometer, gyroscope and magnetometer | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="LSM9DS1 - 3D accelerometer, gyroscope and magnetometer | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="lsm9ds1---3d-accelerometer-gyroscope-and-magnetometer">LSM9DS1 - 3D accelerometer, gyroscope and magnetometer</h1>
+
+<p>LSM9DS1 internally uses 2 buses:</p>
+<ul>
+<li>Accelerometer and gyroscope</li>
+<li>Magnetometer</li>
+</ul>
+<p>and therefore functionality has been split into 2 classes which allows using them independently.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>You can find the datasheet <a href="https://www.st.com/resource/en/datasheet/lsm9ds1.pdf">here</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the I2C pins especially for ESP32 before creating the <code>I2cDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the I2C GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the I2C bus you want to use.</p>
+<h3 id="accelerometer-and-gyroscope">Accelerometer and gyroscope</h3>
+<pre><code class="lang-csharp">class Program
+{
+    public const int I2cAddress = 0x6A;
+
+    static void Main(string[] args)
+    {
+        using (var ag = new Lsm9Ds1AccelerometerAndGyroscope(CreateI2cDevice()))
+        {
+            while (true)
+            {
+                Debug.WriteLine($&quot;Acceleration={ag.Acceleration}&quot;);
+                Debug.WriteLine($&quot;AngularRate={ag.AngularRate}&quot;);
+                Thread.Sleep(100);
+            }
+        }
+    }
+
+    private static I2cDevice CreateI2cDevice()
+    {
+        var settings = new I2cConnectionSettings(1, I2cAddress);
+        return I2cDevice.Create(settings);
+    }
+}
+</code></pre>
+<h3 id="magnetometer">Magnetometer</h3>
+<pre><code class="lang-csharp">class Magnetometer
+{
+    public const int I2cAddress = 0x1C;
+
+    public static void Run()
+    {
+        using (var m = new Lsm9Ds1Magnetometer(CreateI2cDevice()))
+        {
+            Debug.WriteLine(&quot;Calibrating...&quot;);
+            Debug.WriteLine(&quot;Move the sensor around Z for the next 20 seconds, try covering every angle&quot;);
+            Stopwatch sw = Stopwatch.StartNew();
+            Vector3 min = m.MagneticInduction;
+            Vector3 max = m.MagneticInduction;
+            while (sw.ElapsedMilliseconds &lt; 20 * 1000)
+            {
+                Vector3 sample = m.MagneticInduction;
+                min = Vector3.Min(min, sample);
+                max = Vector3.Max(max, sample);
+                Thread.Sleep(50);
+            }
+            Debug.WriteLine(&quot;Stop moving for some time...&quot;);
+            Thread.Sleep(3000);
+            const int intervals = 32;
+            bool[,] data = new bool[32,32];
+            Vector3 size = max - min;
+            int n = 0;
+            while (true)
+            {
+                n++;
+                Vector3 sample = m.MagneticInduction;
+                Vector3 pos = Vector3.Divide(Vector3.Multiply((sample - min), intervals - 1), size);
+                int x = Math.Clamp((int)pos.X, 0, intervals - 1);
+                int y = Math.Clamp((int)pos.Y, 0, intervals - 1);
+                data[x, y] = true;
+                if (n % 10 == 0)
+                {
+                    Debug.WriteLine(&quot;Now move the sensor around again but slower...&quot;);
+                    for (int i = 0; i &lt; intervals; i++)
+                    {
+                        for (int j = 0; j &lt; intervals; j++)
+                        {
+                            if (i == x &amp;&amp; y == j)
+                            {
+                                Debug.Write('#');
+                            }
+                            else
+                            {
+                                Debug.Write(data[i, j] ? '#' : ' ');
+                            }
+                        }
+                        Debug.WriteLine();
+                    }
+                }
+                Thread.Sleep(50);
+            }
+        }
+    }
+
+    private static I2cDevice CreateI2cDevice()
+    {
+        var settings = new I2cConnectionSettings(1, I2cAddress);
+        return I2cDevice.Create(settings);
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Lsm9Ds1/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

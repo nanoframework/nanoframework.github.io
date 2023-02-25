@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Unit Test for nanoFramework architecture | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Unit Test for nanoFramework architecture | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="unit-test-for-nanoframework-architecture">Unit Test for nanoFramework architecture</h1>
+
+<p>This document gives explanation on how the nanoFramework Unit Test platform is build and how everything is working together. The all up architecture can be described like that:</p>
+<p><img src="../../images/test-architecture.png" alt="unit test architecture"></p>
+<p>nanoFramework test platform is relaying on Visual Studio test platform (vstest) and uses the concept of Adapter. You'll fine more details information <a href="https://github.com/Microsoft/vstest-docs/blob/master/RFCs/0004-Adapter-Extensibility.md">here</a>.</p>
+<p>In short, vstest offers extensibility for an integration into Visual Studio but as well as in command line for capacity to run on pipelines. We've been building a specific component, <code>nanoFramework.TestAdapter</code> for this purpose. It does implement the 2 interfaces described into the detailed information and a third one to use specific parameters like time out, if the tests has to run on real hardware or in the Win32 nanoCLR. The architecture is the exact same if the tests are on the Win32 nanoCLR or done on real hardware. The only difference is the output console which in the case of a real hardware is pulled from the serial debug port.</p>
+<p>One of the interface is called <code>ITestDiscoverer</code> which is used by the Visual Studio to gather the possible tests. vstest will call the adapter for any build that is triggered and pass the dll or exe generated matching specific build condition (as so far we don't have TFM, we're using a hack and target Framework40). Our nanoFramework TestAdapter is then parsing the directories to find the nfproj, parsing the cs files looking at the specific Test attributes defined for nanoFramework. A list is built out of this and passed back.</p>
+<p>This hack is done thru a file called with the extension <code>.runsettings</code> and the minium elements you need are (not: IsRealHardware to false to run on Win32 nanoCLR, true for a real hardware):</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RunSettings&gt;
+   &lt;!-- Configurations that affect the Test Framework --&gt;
+   &lt;RunConfiguration&gt;
+       &lt;MaxCpuCount&gt;1&lt;/MaxCpuCount&gt;
+       &lt;ResultsDirectory&gt;.\TestResults&lt;/ResultsDirectory&gt;&lt;!-- Path relative to solution directory --&gt;
+       &lt;TestSessionTimeout&gt;120000&lt;/TestSessionTimeout&gt;&lt;!-- Milliseconds --&gt;
+       &lt;TargetFrameworkVersion&gt;Framework40&lt;/TargetFrameworkVersion&gt;
+   &lt;/RunConfiguration&gt;
+   &lt;nanoFrameworkAdapter&gt;
+    &lt;Logging&gt;None&lt;/Logging&gt;
+    &lt;IsRealHardware&gt;True&lt;/IsRealHardware&gt;
+   &lt;/nanoFrameworkAdapter&gt;
+&lt;/RunSettings&gt;
+</code></pre>
+<p>Visual Studio will then display them. In this case, they are still not run once discovered except if you've selected this option.</p>
+<p>When you start building them, another interface is triggered <code>ITestExecutor</code>. In the case you're running in the context of Visual Studio, the list of test (individual or full list) is passed and this is where the <code>nanoFramework.nanoCLR.Win32.exe</code> is launched as a process passing the <code>nanoFramework.UnitTestLauncher.pe</code>, <code>mscorlib.pe</code>, <code>nanoFramework.TestFramework.pe</code> and of course you own testlibrary to the executable. The nanoFramework Unit Test launcher will then use reflection to load the test assembly and execute the tests with first the <code>Setup</code> ones, then the <code>TestMethod</code> and finally the <code>Cleanup</code> ones.</p>
+<p>The output of this process is redirected to the TestAdapter which then parse it. Important note: the <code>UnitTestLauncher</code> <strong>must</strong> be build and deploy in debug! If not, it will never be able to output anything in the console. To run the test on a real hardware, it's just about adding an entry line into the runsettings file like above.</p>
+<p>Once the tests finishes to run, the status is returned. Simple string output with the status of the test, the name of the method and the time it run or the exception. <code>Test passed: MethodName, 1234</code> or <code>Test failed: MethodName, Detailed exception</code>.</p>
+<p>This is passed back to vstest and then displayed into Visual Studio.</p>
+<p>If the vstest.console.exe is used, the executor will be just a list of dll and exe, the discovery phase is called internally and a list of tests and their status is then returned using the same principal.</p>
+<h2 id="distributing-everything-in-a-transparent-way">Distributing everything in a transparent way</h2>
+<p>NuGet is our best friend! We've package all what you need in there! The Win32 nanoCLR executable, the mscorelib and of course the Unit Test launcher and the test Framework. If you add it to your project, you'll just need to add a <code>.runsettings</code> file into your project directory with the elements described in the previous section.</p>
+<p>We've been building a Unit Test nanoFramewok project as well in Visual Studio, that's the easiest way! It will add automatically the NuGet and the .runsettings to the project.</p>
+<h2 id="where-to-look-next">Where to look next</h2>
+<p>The current status and information about usage is available under <a href="index.html">Unit Test</a> main menu entry.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/architecture/unit-test.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

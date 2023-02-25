@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HC-SR04 - Ultrasonic Ranging Module | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HC-SR04 - Ultrasonic Ranging Module | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="hc-sr04---ultrasonic-ranging-module">HC-SR04 - Ultrasonic Ranging Module</h1>
+
+<p>Device bindings for the HC-SR04 sonar distance sensor. Calculates the distance from an object by using the HC-SR04 distance sensor.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://components101.com/sites/default/files/component_datasheet/HCSR04%20Datasheet.pdf">HC-SR04 data sheet</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>In most of the cases, you just need to pass the 2 pins you're going to use: the Echo and Trigger pins.</p>
+<pre><code class="lang-sharp">using (var sonar = new Hcsr04(4, 17))
+{
+    if (sonar.TryGetDistance(out Length distance))
+    {
+        Debug.WriteLine($&quot;Distance: {distance.Centimeters} cm&quot;);
+    }
+    else
+    {
+        Debug.WriteLine(&quot;Error reading sensor&quot;);
+    }
+
+    Thread.Sleep(1000);
+}
+</code></pre>
+<blockquote>
+<p>Note: it is possible to use the same pin for both Trigger and Echo but it's not recommended.</p>
+</blockquote>
+<h3 id="hardware-required">Hardware Required</h3>
+<ul>
+<li>HC-SR04</li>
+<li>Male/Female Jumper Wires</li>
+</ul>
+<h3 id="circuit">Circuit</h3>
+<p><img src="../../devicesimages/Hcsr04/raspberry_hc-sr04.png" alt="Fritz diagram"></p>
+<ul>
+<li>VCC - 5V</li>
+<li>GND - GND</li>
+<li>Trig - Any valid GPIO</li>
+<li>Echo - Any valid GPIO</li>
+</ul>
+<p>The fritz diagram above depicts how you should wire your MCU in order to run the program, the resistance for R1 is 1kOhm. (Optional). As the HCSR04 works only with 5V and the MCU are mainly 3.3V, this resistor will help protecting the MCU. Check your MCU to see if the pin is 5V tolerant or not.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Hcsr04/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

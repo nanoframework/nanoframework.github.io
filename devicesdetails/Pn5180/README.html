@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PN5180 - RFID and NFC reader | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PN5180 - RFID and NFC reader | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="pn5180---rfid-and-nfc-reader">PN5180 - RFID and NFC reader</h1>
+
+<p>PN5180 is a RFID and NFC reader. It does supports various standards: ISO/IEC 14443 TypeA, ISO/IEC 14443 TypeB, ISO/IEC 15693 and ISO/IEC 18000-3 Mode 3. It does supports up to 848 kBit/s communication with 14443 type A cards.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Official documentation can be fond <a href="https://www.nxp.com/docs/en/data-sheet/PN5180A0XX_C3_C4.pdf">here</a></p>
+<p>Application note on how to operate PN5180 without a <a href="https://www.nxp.com/docs/en/application-note/AN12650.pdf">library</a></p>
+<h2 id="board">Board</h2>
+<p>You will find different implementation of this board. All boards should have full SPI pins plus the reset and busy ones and additionally 5V and or 3.3V plus ground.</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the SPI pins especially for ESP32 before creating the <code>SpiDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the SPI GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.SPI1_MOSI);
+Configuration.SetPinFunction(22, DeviceFunction.SPI1_MISO);
+Configuration.SetPinFunction(23, DeviceFunction.SPI1_CLOCK);
+// Make sure as well you are using the right chip select
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the SPI bus you want to use. The chip select can as well be pre setup.</p>
+<p>You will find a full example in the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Pn5180/samples/Program.cs">samples directory</a>. This example covers the usage of most of the public functions and properties. This example shows as well how to use <a href="../Card/Ultralight">Ultralight cards</a>.</p>
+<p>PN5180 is operated thru SPI and GPIO. GPIO is used to control the SPI behavior as the PN5180 is using SPI in specific way. This does then require to manually manage the pin selection for SPI. And another pin called pin busy is used to understand when the PN5180 is available to receive and send information.</p>
+<p>The following code shows how to create a SPI driver, reset the PN5180 and create the class.</p>
+<pre><code class="lang-csharp">// Note: the chip select used here won't be used by the module, so don't use the same pin
+var spi = SpiDevice.Create(new SpiConnectionSettings(1, 12) { ClockFrequency = Pn5180.SpiClockFrequency, Mode = Pn5180.SpiMode, DataFlow = DataFlow.MsbFirst });
+
+// Reset the device
+var gpioController = new GpioController();
+gpioController.OpenPin(4, PinMode.Output);
+gpioController.Write(4, PinValue.Low);
+Thread.Sleep(10);
+gpioController.Write(4, PinValue.High);
+Thread.Sleep(10);
+
+var pn5180 = new Pn5180(spi, 27, 18);
+</code></pre>
+<p>You will note that the SPI maximum clock frenquency is preset with <code>Pn5180.MaximumSpiClockFrequency</code>, the maximum operation frequency is 7MHz. Same for the mode thru <code>Pn5180.DefaultSpiMode</code>. Data Flow has to be <code>DataFlow.MsbFirst</code>.</p>
+<p>In the previous example the pin 2 is used for busy and the pin 3 for the SPI selection. Note that you have to use a specific pin selection and cannot use the one which is associate with the SPI channel you create.</p>
+<p>Reset is done thru pin 4. It is recommended to reset the board before creating the class.</p>
+<p>Once created, you then need to select a card before you can actually exchange data with the card. Here is how to do it for an ISO 14443 Type A card:</p>
+<pre><code class="lang-csharp">Data106kbpsTypeA cardTypeA;
+do
+{
+    // This will try to select the card for 1 second and will wait 300 milliseconds before trying again if none is found
+    var retok = _pn5180.ListenToCardIso14443TypeA(TransmitterRadioFrequencyConfiguration.Iso14443A_Nfc_PI_106_106, ReceiverRadioFrequencyConfiguration.Iso14443A_Nfc_PI_106_106, out cardTypeA, 1000);
+    if (retok)
+    {
+        Debug.WriteLine($&quot;ISO 14443 Type A found:&quot;);
+        Debug.WriteLine($&quot;  ATQA: {cardTypeA.Atqa}&quot;);
+        Debug.WriteLine($&quot;  SAK: {cardTypeA.Sak}&quot;);
+        Debug.WriteLine($&quot;  UID: {BitConverter.ToString(cardTypeA.NfcId)}&quot;);
+        // This is where you do something with the card
+    }
+    else
+    {
+        Thread.Sleep(300);
+    }
+}
+while (true);
+</code></pre>
+<p>And for an ISO 14443 Type B card:</p>
+<pre><code class="lang-csharp">Data106kbpsTypeB card;
+
+do
+{
+    // This will try to select the card for 1 second, if no card detected wait for 300 milliseconds and try again
+    retok = _pn5180.ListenToCardIso14443TypeB(TransmitterRadioFrequencyConfiguration.Iso14443B_106, ReceiverRadioFrequencyConfiguration.Iso14443B_106, out card, 1000);
+    if (!retok)
+    {
+        Thread.Sleep(300);
+        continue;
+    }
+
+    Debug.WriteLine($&quot;ISO 14443 Type B found:&quot;);
+    Debug.WriteLine($&quot;  Target number: {card.TargetNumber}&quot;);
+    Debug.WriteLine($&quot;  App data: {BitConverter.ToString(card.ApplicationData)}&quot;);
+    Debug.WriteLine($&quot;  App type: {card.ApplicationType}&quot;);
+    Debug.WriteLine($&quot;  UID: {BitConverter.ToString(card.NfcId)}&quot;);
+    Debug.WriteLine($&quot;  Bit rates: {card.BitRates}&quot;);
+    Debug.WriteLine($&quot;  Cid support: {card.CidSupported}&quot;);
+    Debug.WriteLine($&quot;  Command: {card.Command}&quot;);
+    Debug.WriteLine($&quot;  Frame timing: {card.FrameWaitingTime}&quot;);
+    Debug.WriteLine($&quot;  Iso 14443-4 compliance: {card.ISO14443_4Compliance}&quot;);
+    Debug.WriteLine($&quot;  Max frame size: {card.MaxFrameSize}&quot;);
+    Debug.WriteLine($&quot;  Nad support: {card.NadSupported}&quot;);
+
+    // Do something else, all operations you want with the card
+    // Halt card
+    if (_pn5180.DeselecCardTypeB(card))
+    {
+        Debug.WriteLine($&quot;Card unselected properly&quot;);
+    }
+    else
+    {
+        Debug.WriteLine($&quot;ERROR: Card can't be unselected&quot;);
+    }
+}
+while (true);
+</code></pre>
+<p>Please note that the <code>ListenToCardIso14443TypeA</code> and <code>ListenToCardIso14443TypeB</code> can be configured with different transceiver and receiver configurations. Usually the configuration need to match but you can adjust and change them. See the section with Radio Frequency configuration for more information.</p>
+<p>A card will be continuously tried to be detected during the duration on your polling. If nothing is detected or if any issue, the function will return false.</p>
+<p>Specific for type B cards, they have a target number. This target number is needed to transcieve any information with the card. The PN5180 can support up to 14 cards at the same time. But you can only select 1 card at a time, so if you have a need for multiple card selected at the same time, it is recommended to chain this card detection with the number of cards you need to select and operate at the same time. Note that depending on the card, they may not been seen as still selected by the reader.</p>
+<p>You should deselect the Type B card at the end to release the target number. If not done, during the next poll, this implementation will test if the card is still present, keep it in this case.</p>
+<h2 id="eeprom">EEPROM</h2>
+<p>You can fully access the PN5180 EEPROM. Here is an example on how to do it:</p>
+<pre><code class="lang-csharp">// Maximum size of the EEPROM
+Span&lt;byte&gt; eeprom = stackalloc byte[255];
+// This will read fully the EEPROM
+var ret = _pn5180.ReadAllEeprom(eeprom);
+Debug.WriteLine($&quot;EEPROM dump: success: {ret}, Data: {BitConverter.ToString(eeprom.ToArray())}&quot;);
+// This reads only the unique Identifier
+ret = _pn5180.ReadEeprom(EepromAddress.DieIdentifier, eeprom.Slice(0, 16));
+Debug.WriteLine($&quot;EEPROM read, unique identifier: success: {ret}, Data: {BitConverter.ToString(eeprom.Slice(0, 16).ToArray())}&quot;);
+// Same as above
+ret = _pn5180.GetIdentifier(eeprom.Slice(0, 16));
+// So you should see the exact same result than from reading manully the 16 bytes of the unique identifier
+Debug.WriteLine($&quot;GetIdentifier: success: {ret}, Data: {BitConverter.ToString(eeprom.Slice(0, 16).ToArray())}&quot;);
+// This tries to write in a read only part of the EEPROM
+ret = _pn5180.WriteEeprom(EepromAddress.DieIdentifier, eeprom.Slice(0, 1));
+// So you'll receive false as an answer from the PN5180
+Debug.WriteLine($&quot;Trying to write a read only EEPROM, this should return false: {ret}&quot;);
+// This is important to understand, if you write in the EEPROM and then try to read right after,
+// in most of the cases, the value won't change. After a reboot, you'll get the new value
+Debug.WriteLine($&quot;EEPROM writing will not be immediate. Some are only active after a reboot&quot;);
+Debug.WriteLine($&quot;changing second byte of UUID when acting as a card (first is always fix to 0x08)&quot;);
+ret = _pn5180.ReadEeprom(EepromAddress.NFCID1, eeprom.Slice(0, 3));
+eeprom[0]++;
+Debug.WriteLine($&quot;IRQ_PIN_CONFIG: success: {ret}, Data: {BitConverter.ToString(eeprom.Slice(0, 3).ToArray())}&quot;);
+Debug.WriteLine($&quot;New value to write: {BitConverter.ToString(eeprom.Slice(0, 1).ToArray())}&quot;);
+ret = _pn5180.WriteEeprom(EepromAddress.NFCID1, eeprom.Slice(0, 3));
+Debug.WriteLine($&quot;Wrote IRQ_PIN_CONFIG: {ret}&quot;);
+ret = _pn5180.ReadEeprom(EepromAddress.NFCID1, eeprom.Slice(0, 3));
+Debug.WriteLine($&quot;IRQ_PIN_CONFIG: success: {ret}, Data: {BitConverter.ToString(eeprom.Slice(0, 3).ToArray())}&quot;);
+</code></pre>
+<p>Functions has been implemented to read and write part or all the EEPROM. You need to be careful of the size of the buffer, it can't exceed 255 bytes and can't be larger than the base address you want to write and total size. So if you write at position 250, your buffer size and only be 5 maximum.</p>
+<h2 id="pn5180-versions">PN5180 versions</h2>
+<p>You can retreive the PN5180 version thru the <code>GetVersion</code> function. 3 versions will be returned, the product, firmware and EEPROM ones.</p>
+<pre><code class="lang-csharp">var versions = _pn5180.GetVersion();
+Debug.WriteLine($&quot;Product: {versions.Product.ToString()}, Firmware: {versions.Firmware.ToString()}, EEPROM: {versions.Eeprom.ToString()}&quot;);
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code>Product: 3.5, Firmware: 3.5, EEPROM: 145.0
+</code></pre>
+<p>Current firmware versions are 3.12 (3.C) and 4.0. That said, this implementation supports older firmware. Newer firmware have better support for auto calibration, fixes bugs and added specific EMVco (payment) low level features. Note that the product version is the original firmware version installed. so if you've done firmware upgrade, the product version will always remain the one from the original firmware.</p>
+<p>Note that this implementation does not support firmware update. You should use NXP tools if you want to update the firmare</p>
+<h2 id="radio-frequency-configuration">Radio Frequency Configuration</h2>
+<p>The PN5180 offers the possibility to set a lot of configurations. The good news is that those configurations are stored and can be loaded. You can adjust them as well. The following code shows an example on how to load, extract the configuration and with the same way, you can write back a configuration if you need. Please refer to the documentation in this case to understand the changes you want to make:</p>
+<pre><code class="lang-csharp">// Number of configuration
+var sizeConfig = _pn5180.GetRadioFrequencyConfigSize(TransmitterRadioFrequencyConfiguration.Iso14443B_106);
+// The RadioFrequencyConfiguraitonSize is 5, 1 for the register and 4 for the register data
+SpanByte configBuff = new byte[Pn5180.RadioFrequencyConfiguraitonSize * sizeConfig];
+var ret = _pn5180.RetrieveRadioFrequencyConfiguration(TransmitterRadioFrequencyConfiguration.Iso14443B_106, configBuff);
+for (int i = 0; i &lt; sizeConfig; i++)
+{
+    Debug.WriteLine($&quot;Register: {configBuff[Pn5180.RadioFrequencyConfiguraitonSize * i]}, Data: {BitConverter.ToString(configBuff.Slice(Pn5180.RadioFrequencyConfiguraitonSize * i + 1, Pn5180.RadioFrequencyConfiguraitonSize - 1).ToArray())}&quot;);
+}
+</code></pre>
+<p>Every configuration has the size of 5 bytes, first byte is the register number, and the next 4 are the data them selves.</p>
+<h2 id="transceive-data-with-a-card">Transceive data with a card</h2>
+<p>Once the card is selected properly, you can use the CardTranscive class to exchange data with the card. See <a href="../Card/Mifare/README.html">Mifare</a> and <a href="../Card/Ultralight/README.html">Ultralight</a> for detailed examples.</p>
+<p>This shows how to dump a Mifare (ISO 14443 type A) card fully:</p>
+<pre><code class="lang-csharp">Data106kbpsTypeA cardTypeA;
+
+// Let's pull for 20 seconds and see the result
+var retok = _pn5180.ListenToCardIso14443TypeA(TransmitterRadioFrequencyConfiguration.Iso14443A_Nfc_PI_106_106, ReceiverRadioFrequencyConfiguration.Iso14443A_Nfc_PI_106_106, out cardTypeA, 20000);
+Debug.WriteLine();
+
+if (!retok)
+{
+    Debug.WriteLine(&quot;Can't read properly the card&quot;);
+}
+else
+{
+    Debug.WriteLine($&quot;ATQA: {cardTypeA.Atqa}&quot;);
+    Debug.WriteLine($&quot;SAK: {cardTypeA.Sak}&quot;);
+    Debug.WriteLine($&quot;UID: {BitConverter.ToString(cardTypeA.NfcId)}&quot;);
+
+    MifareCard mifareCard = new MifareCard(_pn5180, cardTypeA.TargetNumber) { BlockNumber = 0, Command = MifareCardCommand.AuthenticationA };
+    mifareCard.SetCapacity(cardTypeA.Atqa, cardTypeA.Sak);
+    mifareCard.SerialNumber = cardTypeA.NfcId;
+    mifareCard.KeyA = new byte[6] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+    mifareCard.KeyB = new byte[6] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+    for (byte block = 0; block &lt; 64; block++)
+    {
+        mifareCard.BlockNumber = block;
+        mifareCard.Command = MifareCardCommand.AuthenticationB;
+        var ret = mifareCard.RunMifiCardCommand();
+        if (ret &lt; 0)
+        {
+            // Try another one
+            mifareCard.Command = MifareCardCommand.AuthenticationA;
+            ret = mifareCard.RunMifiCardCommand();
+        }
+
+        if (ret &gt;= 0)
+        {
+            mifareCard.BlockNumber = block;
+            mifareCard.Command = MifareCardCommand.Read16Bytes;
+            ret = mifareCard.RunMifiCardCommand();
+            if (ret &gt;= 0)
+            {
+                Debug.WriteLine($&quot;Bloc: {block}, Data: {BitConverter.ToString(mifareCard.Data)}&quot;);
+            }
+            else
+            {
+                Debug.WriteLine($&quot;Error reading bloc: {block}, Data: {BitConverter.ToString(mifareCard.Data)}&quot;);
+            }
+
+            if (block % 4 == 3)
+            {
+                // Check what are the permissions
+                for (byte j = 3; j &gt; 0; j--)
+                {
+                    var access = mifareCard.BlockAccess((byte)(block - j), mifareCard.Data);
+                    Debug.WriteLine($&quot;Bloc: {block - j}, Access: {access}&quot;);
+                }
+
+                var sector = mifareCard.SectorTailerAccess(block, mifareCard.Data);
+                Debug.WriteLine($&quot;Bloc: {block}, Access: {sector}&quot;);
+            }
+        }
+        else
+        {
+            Debug.WriteLine($&quot;Authentication error&quot;);
+        }
+    }
+}
+</code></pre>
+<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Pn5180/samples/Program.cs">example</a> contains as well an implementation to fully dump the content of other cards.</p>
+<h2 id="current-implementation">Current implementation</h2>
+<p>Communication support:</p>
+<ul>
+<li>[X] Hardware SPI Controller fully supported</li>
+<li>[X] GPIO Controller fully supported</li>
+</ul>
+<p>Miscellaneous</p>
+<ul>
+<li>[X] Read fully EEPROM</li>
+<li>[X] Write fully EEPROM</li>
+<li>[X] Read any part of EEPROM</li>
+<li>[X] Write any part of EEPROM</li>
+<li>[X] Get product, hardware and firmware versions</li>
+<li>[X] CardTransceive support to reuse existing <a href="../Card/Mifare/README.html">Mifare</a> and <a href="../Card/CreditCard/README.md">Credit Card</a>, ISO 14443 support Type A or Type B protocol</li>
+<li>[ ] Secure firmware update</li>
+<li>[ ] Own board GPIO access</li>
+</ul>
+<p>RF communication commands:</p>
+<ul>
+<li>[X] Load a specific configuration</li>
+<li>[X] Read a specific configuration</li>
+<li>[X] Write a specific configuration</li>
+</ul>
+<p>PN5180 as an initiator (reader) commands:</p>
+<ul>
+<li>[X] Auto poll ISO 14443 type A cards</li>
+<li>[X] Auto poll ISO 14443 type B cards</li>
+<li>[X] Deselect ISO 14443 type B cards</li>
+<li>[X] Multi card support at the same time: partial, depending on the card, CID mandatory in all 14443 type B communications</li>
+<li>[X] ISO 14443-4 communication protocol</li>
+<li>[ ] Auto poll ISO/IEC 18000-3 cards</li>
+<li>[ ] Communication support for ISO/IEC 18000-3 cards</li>
+<li>[ ] Low power card detection</li>
+<li>[X] Mifare specific authentication</li>
+<li>[ ] Fast 212, 424, 848 kbtis communication: partial</li>
+</ul>
+<p>PN5180 as a Target (acting like a card)</p>
+<ul>
+<li>[ ] Initialization as target</li>
+<li>[ ] Handling communication with another reader as a target</li>
+<li>[ ] Support for transceive data</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Pn5180/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

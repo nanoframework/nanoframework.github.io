@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MCP3xxx family of Analog to Digital Converters | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="MCP3xxx family of Analog to Digital Converters | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mcp3xxx-family-of-analog-to-digital-converters">MCP3xxx family of Analog to Digital Converters</h1>
+
+<p>Some devices like the Raspberry Pi cannot read analog values directly so rely on  <a href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">analog to digital converters</a>, like the ones available from Microchip in the Mcp3000, Mcp3200 and Mcp3300 ranges. These chips can be accessed as an <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI device</a> or manually via raw GPIO pins. Normally all MCU has an analogic capability but the number of pins can be limited. This is typically useful when you want your MCU to have more than the number of ADC available. Another case is if you need a different resolution or voltage reference.</p>
+<p>You can use these converters in your project to access analog devices.</p>
+<p>The following fritzing diagram illustrates one way to wire up the Mcp3008, with an ESP32 and a potentiometer.</p>
+<p><img src="../../devicesimages/Mcp3xxx/rpi-trimpot_spi.png" alt="ESP32 Breadboard diagram"></p>
+<h2 id="documentation">Documentation</h2>
+<p>The sample is based on following resources:</p>
+<ul>
+<li><a href="https://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi">Analog Inputs for Raspberry Pi Using the MCP3008</a></li>
+<li><a href="https://learn.adafruit.com/raspberry-pi-analog-to-digital-converters">Raspberry Pi Analog to Digital Converters</a>.</li>
+<li><a href="https://gist.github.com/ladyada/3151375">Raspbery Pi Analog Input with MCP3008</a></li>
+<li><a href="https://github.com/adafruit/Adafruit_Python_MCP3008/blob/master/Adafruit_MCP3008/MCP3008.py">MCP3008.py</a></li>
+</ul>
+<p>Major thanks to <a href="https://adafruit.com">Adafruit</a> for providing python implementations, which were ported to C# for this sample.</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the SPI pins especially for ESP32 before creating the <code>SpiDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the SPI GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.SPI1_MOSI);
+Configuration.SetPinFunction(22, DeviceFunction.SPI1_MISO);
+Configuration.SetPinFunction(23, DeviceFunction.SPI1_CLOCK);
+// Make sure as well you are using the right chip select
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the SPI bus you want to use. The chip select can as well be pre setup.</p>
+<h3 id="hardware-elements">Hardware elements</h3>
+<p>The following elements are used in this sample:</p>
+<ul>
+<li><a href="https://www.adafruit.com/product/356">Potentiometer</a></li>
+<li><a href="https://www.adafruit.com/product/856">MCP3008</a></li>
+</ul>
+<h3 id="accessing-the-mcp3008-via-spi">Accessing the MCP3008 via SPI</h3>
+<p>The MCU has support for SPI.</p>
+<p>You can use the following code to <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Mcp3xxx/samples/Program.cs">access the MCP3008 via hardware SPI</a>:</p>
+<pre><code class="lang-csharp">var hardwareSpiSettings = new SpiConnectionSettings(1, 42)
+{
+    ClockFrequency = 1000000
+};
+
+using (SpiDevice spi = SpiDevice.Create(hardwareSpiSettings))
+using (Mcp3008 mcp = new Mcp3008(spi))
+{
+    while (true)
+    {
+        double value = mcp.Read(0);
+        value = value / 10.24;
+        value = Math.Round(value);
+        Debug.WriteLine($&quot;{value}%&quot;);
+        Thread.Sleep(500);
+    }
+}
+</code></pre>
+<p>The following pin layout can be used:</p>
+<ul>
+<li>MCP3008 VDD to MCU 3.3V</li>
+<li>MCP3008 VREF to MCU 3.3V</li>
+<li>MCP3008 AGND to MCU GND</li>
+<li>MCP3008 DGND to MCU GND</li>
+<li>MCP3008 CLK to MCU SCLK</li>
+<li>MCP3008 DOUT to MCU MISO</li>
+<li>MCP3008 DIN to MCU MOSI</li>
+<li>MCP3008 CS/SHDN to MCU CE0</li>
+</ul>
+<p><img src="../../devicesimages/Mcp3xxx/rpi-trimpot_spi.png" alt="ESP32 Breadboard diagram"></p>
+<h3 id="accessing-the-mcp3008-via-gpio">Accessing the MCP3008 via GPIO</h3>
+<p>You can also access the MCP3008 via GPIO pins, implementing SPI manually. This method is referred to as <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Example_of_bit-banging_the_master_protocol">bit-banging</a>.</p>
+<p>You can use the following code to <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Mcp3xxx/samples/Program.cs">access the MCP3008 via GPIO</a>:</p>
+<pre><code class="lang-csharp">using (SpiDevice spi = new SoftwareSpi(clk: 18, miso: 23, mosi: 24, cs: 25))
+using (Mcp3008 mcp = new Mcp3008(spi))
+{
+    while (true)
+    {
+        double value = mcp.Read(0);
+        value = value / 10.24;
+        value = Math.Round(value);
+        Debug.WriteLine($&quot;{value}%&quot;);
+        Thread.Sleep(500);
+    }
+}
+</code></pre>
+<p>The following pin layout can be used:</p>
+<ul>
+<li>MCP3008 VDD to MCU 3.3V</li>
+<li>MCP3008 VREF to MCU 3.3V</li>
+<li>MCP3008 AGND to MCU GND</li>
+<li>MCP3008 DGND to MCU GND</li>
+<li>MCP3008 CLK to any valid GPIO on the MCU</li>
+<li>MCP3008 DOUT to any valid GPIO on the MCU</li>
+<li>MCP3008 DIN to any valid GPIO on the MCU</li>
+<li>MCP3008 CS/SHDN to any valid GPIO on the MCU</li>
+</ul>
+<p><img src="../../devicesimages/Mcp3xxx/rpi-trimpot_gpio.png" alt="ESP32 Breadboard diagram"></p>
+<h3 id="processing-the-data">Processing the data</h3>
+<p>Independent of the way in which you access the MCP3008 chip, the code to process its results is the same, which follows.</p>
+<pre><code class="lang-csharp">while (true)
+{
+    double value = mcp.Read(0);
+    value = value / 10.24;
+    value = Math.Round(value);
+    Debug.WriteLine(value);
+    Thread.Sleep(500);
+}
+</code></pre>
+<p>The chip is 10-bit, which means that it will generate values from 0-1023 (recall that 2^10 is 1024). We can transform the value to a more familiar 0-100 scale by dividing the 10-bit value by 10.24.</p>
+<h2 id="remarks">Remarks</h2>
+<p>These bindings support the following ADC's</p>
+<ul>
+<li><p><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21293C.pdf">Mcp3001</a> 10 bit resolution with a single pseudo-differential input.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21294E.pdf">Mcp3002</a> 10 bit resolution with two single ended inputs or a single pseudo-differential input.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/devicedoc/21295c.pdf">Mcp3004</a> 10 bit resolution with four single ended inputs or two single pseudo-differential inputs.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/devicedoc/21295c.pdf">Mcp3008</a> 10 bit resolution with eight single ended inputs or four single pseudo-differential inputs.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/devicedoc/21290d.pdf">Mcp3201</a> 12 bit resolution with a single pseudo-differential input.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/devicedoc/21034d.pdf">Mcp3202</a> 12 bit resolution with two single ended inputs or a single pseudo-differential input.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf">Mcp3204</a> 12 bit resolution with four single ended inputs or two single pseudo-differential inputs.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf">Mcp3208</a> 12 bit resolution with eight single ended inputs or four single pseudo-differential inputs.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/devicedoc/21700d.pdf">Mcp3301</a> 13 bit signed resolution with a single true differential input.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21697F.pdf">Mcp3202</a> 12 bit resolution with four single ended inputs or 13 bit signed resolution with two true differential inputs.</p>
+</li>
+<li><p><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21697F.pdf">Mcp3304</a> 12 bit resolution with eight single ended inputs or 13 bit signed resolution with four true differential inputs.</p>
+</li>
+</ul>
+<p>Note: Currently untested on the Mcp33xx family.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Mcp3xxx/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

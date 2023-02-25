@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IP5306 - Power management | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="IP5306 - Power management | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ip5306---power-management">IP5306 - Power management</h1>
+
+<p>This chip is used mainly in power bank and embedded devices as a power management device. It is connected using I2C and allows to adjust the charging current,voltage, cutoff voltage. It has the capacity to light up 4 leds displaying the charge of the battery. This device is used in the M5Stack.</p>
+<h2 id="documentation">Documentation</h2>
+<p>The datasheet in Chinese can be found <a href="https://github.com/m5stack/M5-Schematic/blob/master/Core/IIC_IP5306_REG_V1.4.pdf">here</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>As always when using I2C, you need to make sure you're using the right pins. En ESP32, you need the register the pins if not using the default one.</p>
+<pre><code class="lang-csharp">Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+
+I2cDevice i2c = new(new I2cConnectionSettings(1, Ip5306.SecondaryI2cAddress));
+Ip5306 power = new(i2c);
+</code></pre>
+<p>Note the default address of the IP5306 is 0xEA, the address used in M5Stack is 0x75 (here setup as <code>SecondaryI2cAddress</code>).</p>
+<h3 id="getting-access-to-the-properties">Getting access to the properties</h3>
+<p>All properties can be adjusted and changed. He is an example how to display all of them:</p>
+<pre><code class="lang-csharp">Debug.WriteLine($&quot;  AutoPowerOnEnabled: {power.AutoPowerOnEnabled}&quot;);
+Debug.WriteLine($&quot;  BoostOutputEnabled: {power.BoostOutputEnabled}&quot;);
+Debug.WriteLine($&quot;  BoostWhenVinUnpluggedEnabled: {power.BoostWhenVinUnpluggedEnabled}&quot;);
+Debug.WriteLine($&quot;  BostEnabled: {power.BoostEnabled}&quot;);
+Debug.WriteLine($&quot;  ButtonOffEnabled: {power.ButtonOffEnabled}&quot;);
+Debug.WriteLine($&quot;  ChargerEnabled: {power.ChargerEnabled}&quot;);
+Debug.WriteLine($&quot;  ChargingBatteryVoltage: {power.ChargingBatteryVoltage}&quot;);
+Debug.WriteLine($&quot;  ChargingCurrent: {power.ChargingCurrent}&quot;);
+Debug.WriteLine($&quot;  ChargingCutOffCurrent: {power.ChargingCutOffCurrent}&quot;);
+Debug.WriteLine($&quot;  ChargingCuttOffVoltage{power.ChargingCuttOffVoltage}&quot;);
+Debug.WriteLine($&quot;  ChargingLoopSelection: {power.ChargingLoopSelection}&quot;);
+Debug.WriteLine($&quot;  ChargingUnderVoltage: {power.ChargingUnderVoltage}&quot;);
+Debug.WriteLine($&quot;  ConstantChargingVoltage: {power.ConstantChargingVoltage}&quot;);
+Debug.WriteLine($&quot;  FlashLightBehavior {power.FlashLightBehavior}&quot;);
+Debug.WriteLine($&quot;  IsBatteryFull: {power.IsBatteryFull}&quot;);
+Debug.WriteLine($&quot;  IsCharging: {power.IsCharging}&quot;);
+Debug.WriteLine($&quot;  IsOutputLoadHigh: {power.IsOutputLoadHigh}&quot;);
+Debug.WriteLine($&quot;  LightDutyShutdownTime: {power.LightDutyShutdownTime}&quot;);
+Debug.WriteLine($&quot;  LowPowerOffEnabled: {power.LowPowerOffEnabled}&quot;);
+Debug.WriteLine($&quot;  ShortPressToSwitchBosst: {power.ShortPressToSwitchBosst}&quot;);
+Debug.WriteLine($&quot;  SwitchOffBoostBehavior: {power.SwitchOffBoostBehavior}&quot;);
+Debug.WriteLine($&quot;  GetButtonStatus: {power.GetButtonStatus()}&quot;);
+</code></pre>
+<h3 id="button-status">Button status</h3>
+<p>You can get the button status:</p>
+<pre><code class="lang-csharp">var button = power.GetButtonStatus();
+switch (button)
+{
+    case ButtonPressed.DoubleClicked:
+        Debug.WriteLine(&quot;double clicked&quot;);
+        break;
+    case ButtonPressed.LongPressed:
+        Debug.WriteLine(&quot;Long pressed&quot;);
+        break;
+    case ButtonPressed.ShortPressed:
+        Debug.WriteLine(&quot;Short pressed&quot;);
+        break;
+    case ButtonPressed.NotPressed:
+    default:
+        break;
+}
+</code></pre>
+<blockquote>
+<p><strong>Important</strong>: depending on the behavior you setup for the button, the device may switch off what's connected to it. So be careful on what you setup. Once the I2C connection is broken, you can't adjust the behavior bck.</p>
+</blockquote>
+<h3 id="configuration-for-m5stack">configuration for M5Stack</h3>
+<p>The configuration for M5Stack is the following:</p>
+<pre><code class="lang-csharp">// Configuration for M5Stack
+power.ButtonOffEnabled = true;
+power.BoostOutputEnabled = false;
+power.AutoPowerOnEnabled = true;
+power.ChargerEnabled = true;
+power.BoostEnabled = true;
+power.LowPowerOffEnabled = true;
+power.FlashLightBehavior = ButtonPress.Doubleclick;
+power.SwitchOffBoostBehavior = ButtonPress.LongPress;
+power.BoostWhenVinUnpluggedEnabled = true;
+power.ChargingUnderVoltage = ChargingUnderVoltage.V4_55;
+power.ChargingLoopSelection = ChargingLoopSelection.Vin;
+power.ChargingCurrent = ElectricCurrent.FromMilliamperes(2250);
+power.ConstantChargingVoltage = ConstantChargingVoltage.Vm28;
+power.ChargingCuttOffVoltage = ChargingCutOffVoltage.V4_17;
+power.LightDutyShutdownTime = LightDutyShutdownTime.S32;
+power.ChargingCutOffCurrent = ChargingCutOffCurrent.C500mA;
+power.ChargingCuttOffVoltage = ChargingCutOffVoltage.V4_2;
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Ip5306/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

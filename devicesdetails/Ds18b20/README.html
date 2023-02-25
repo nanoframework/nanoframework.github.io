@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ds18b20 - Temperature Sensor | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Ds18b20 - Temperature Sensor | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ds18b20---temperature-sensor">Ds18b20 - Temperature Sensor</h1>
+
+<p>The DS18B20 digital thermometer provides 9-bit to 12-bit Celsius temperature measurements and has an alarm function with nonvolatile user-programmable upper and lower trigger points.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Product datasheet can be found <a href="https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf">here</a></p>
+<h2 id="sensor-image">Sensor Image</h2>
+<p><img src="../../devicesimages/Ds18b20/sensor.png" alt="sensor"></p>
+<h2 id="circuit">Circuit</h2>
+<p><img src="../../devicesimages/Ds18b20/Ds18b20.png" alt="circuit"></p>
+<ul>
+<li>DATA - RX2 + TX2 shorted</li>
+<li>VCC - 3.3V</li>
+<li>GND - GND</li>
+</ul>
+<p><strong>Important</strong>: make sure you've connected data pin of sensor to two pins on the board!</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the Rx/Tx pins especially for ESP32 before creating the <code>OneWireHost</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">Configuration.SetPinFunction(16, DeviceFunction.COM3_RX);
+Configuration.SetPinFunction(17, DeviceFunction.COM3_TX);
+</code></pre>
+<h3 id="library-supports-three-approaches-to-read-the-data-from-ds18b20-sensors">Library supports three approaches to read the data from Ds18b20 sensors:</h3>
+<ol>
+<li>Reading from first found sensor on OneWire bus or sensor with address passed as second parameter to the constructor:</li>
+</ol>
+<pre><code class="lang-csharp"> private static void ReadingFromOneSensor()
+ {
+     OneWireHost oneWire = new OneWireHost();
+
+
+     Ds18b20 ds18b20 = new Ds18b20(oneWire, null, false, TemperatureResolution.VeryHigh);
+
+     ds18b20.IsAlarmSearchCommandEnabled = false;
+     if (ds18b20.Initialize())
+     {
+         Console.WriteLine($&quot;Is sensor parasite powered?:{ds18b20.IsParasitePowered}&quot;);
+         string devAddrStr = &quot;&quot;;
+         foreach (var addrByte in ds18b20.Address)
+         {
+             devAddrStr += addrByte.ToString(&quot;X2&quot;);
+         }
+
+         Console.WriteLine($&quot;Sensor address:{devAddrStr}&quot;);
+
+         while (true)
+         {
+             if (!ds18b20.TryReadTemperature(out var currentTemperature))
+             {
+                 Console.WriteLine(&quot;Can't read!&quot;);
+             }
+             else
+             {
+                 Console.WriteLine($&quot;Temperature: {currentTemperature.DegreesCelsius.ToString(&quot;F&quot;)}\u00B0C&quot;);
+             }
+
+             Thread.Sleep(5000);
+         }
+     }
+
+
+     oneWire.Dispose();
+ }
+</code></pre>
+<ol start="2">
+<li>Notification mode from first found sensor on OneWire bus or sensor with address passed as second parameter to the constructor:</li>
+</ol>
+<pre><code class="lang-csharp">private static void NotificationWhenValueHasChanged()
+{
+    OneWireHost oneWire = new OneWireHost();
+
+    Ds18b20 ds18b20 = new Ds18b20(oneWire, null, false, TemperatureResolution.VeryHigh);
+
+    if (ds18b20.Initialize())
+    {
+        ds18b20.SensorValueChanged += (currentTemperature) =&gt;
+        {
+            Console.WriteLine($&quot;Temperature: {currentTemperature.DegreesCelsius.ToString(&quot;F&quot;)}\u00B0C&quot;);
+        };
+        ds18b20.BeginTrackChanges(TimeSpan.FromMilliseconds(2000));
+        // do whatever you want or sleep
+        Thread.Sleep(60000);
+        ds18b20.EndTrackChanges();
+    }
+
+    oneWire.Dispose();
+}
+</code></pre>
+<ol start="3">
+<li>Using alarms - alarm is a mode when sensor has value either higher or lower than defined tresholds.</li>
+</ol>
+<pre><code class="lang-csharp">private static void UsingAlarms()
+{
+    using OneWireHost oneWire = new OneWireHost();
+
+    Ds18b20 ds18b20 = new Ds18b20(oneWire, null, false, TemperatureResolution.VeryHigh);
+
+    if (ds18b20.Initialize())
+    {
+        for (int i = 0; i &lt; ds18b20.AddressNet.Length; i++)
+        {
+            string devAddrStr = &quot;&quot;;
+            ds18b20.Address = ds18b20.AddressNet[i];
+
+            foreach (var addrByte in ds18b20.AddressNet[i])
+            {
+                devAddrStr += addrByte.ToString(&quot;X2&quot;);
+            }
+
+            Console.WriteLine(&quot;18b20-&quot; + i.ToString(&quot;X2&quot;) + &quot; &quot; + devAddrStr);
+
+            ds18b20.ConfigurationRead(false);
+            Console.WriteLine(&quot;Alarm set-points before changes:&quot;);
+            Console.WriteLine(&quot;Hi alarm = &quot; + ds18b20.TemperatureHighAlarm.DegreesCelsius + &quot; C&quot;);
+            Console.WriteLine(&quot;Lo alarm = &quot; + ds18b20.TemperatureLowAlarm.DegreesCelsius + &quot; C&quot;);
+            SetAlarmSetting();
+        }
+        alarmSearch();
+    }
+    else
+    {
+        Console.WriteLine(&quot;No devices found.&quot;);
+    }
+
+    oneWire.Dispose();
+
+    void alarmSearch()
+    {
+        int loopRead = 1000;
+        ds18b20.IsAlarmSearchCommandEnabled = true;
+
+        while (loopRead &gt; 0)
+        {
+            Console.WriteLine(&quot;LoopRead &quot; + loopRead);
+
+            if (ds18b20.SearchForAlarmCondition())
+            {
+                for (int index = 0; index &lt; ds18b20.AddressNet.Length; index++)
+                {
+                    ds18b20.Address = ds18b20.AddressNet[index];
+                    if (ds18b20.TryReadTemperature(out var currentTemperature))
+                    {
+                        break;
+                    }
+
+                    string devAddrStr = &quot;&quot;;
+                    foreach (var addrByte in ds18b20.AddressNet[index]) devAddrStr += addrByte.ToString(&quot;X2&quot;);
+                    Console.WriteLine(&quot;DS18B20[&quot; + devAddrStr + &quot;] Sensor reading in One-Shot-mode; T = &quot; + currentTemperature.DegreesCelsius.ToString(&quot;f2&quot;) + &quot; C&quot;);
+
+                    ds18b20.ConfigurationRead(false);
+                    Console.WriteLine(&quot;Alarm set-points:&quot;);
+                    Console.WriteLine(&quot;Hi alarm = &quot; + ds18b20.TemperatureHighAlarm.DegreesCelsius + &quot; C&quot;);
+                    Console.WriteLine(&quot;Lo alarm = &quot; + ds18b20.TemperatureLowAlarm.DegreesCelsius + &quot; C&quot;);
+                }
+            }
+            else
+            {
+                Console.WriteLine(&quot;***** No devices in alarm ****&quot;);
+            }
+
+            loopRead--;
+        }
+
+        Console.WriteLine(&quot;&quot;);
+    }
+
+    void SetAlarmSetting()
+    {
+        ds18b20.TemperatureHighAlarm = Temperature.FromDegreesCelsius(30);
+        ds18b20.TemperatureLowAlarm = Temperature.FromDegreesCelsius(25);
+        // Write configuration on ScratchPad.
+        ds18b20.ConfigurationWrite(false);
+        // Write configuration on EEPROM too.
+        ds18b20.ConfigurationWrite(true);
+        // Read configuration to check if changes were applied
+        ds18b20.ConfigurationRead(true);
+        Console.WriteLine(&quot;Alarm set-points after changes:&quot;);
+        Console.WriteLine(&quot;Hi alarm = &quot; + ds18b20.TemperatureHighAlarm.DegreesCelsius.ToString(&quot;F&quot;) + &quot; C&quot;);
+        Console.WriteLine(&quot;Lo alarm = &quot; + ds18b20.TemperatureLowAlarm.DegreesCelsius.ToString(&quot;F&quot;) + &quot; C&quot;);
+    }
+}
+</code></pre>
+<p>Check samples project for more usage examples.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Ds18b20/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

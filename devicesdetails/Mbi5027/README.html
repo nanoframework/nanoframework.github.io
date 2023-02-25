@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MBI5027 -- 16-bit shift register with error detection | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="MBI5027 -- 16-bit shift register with error detection | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mbi5027----16-bit-shift-register-with-error-detection">MBI5027 -- 16-bit shift register with error detection</h1>
+
+<p><a href="http://archive.fairchip.com/pdf/MACROBLOCK/MBI5027.pdf">MBI5027</a> is a 16-bit shift register. Per the datasheet, the MBI5027 is a &quot;16-bit Constant Current LED Sink Driver with Open/Short Circuit Detection&quot;. The <a href="Mbi5027.cs"><code>Mbi5027</code> binding</a> is based on and is compatible with the more general <a href="../ShiftRegister/README.html"><code>ShiftRegister</code></a> binding. The <code>Mbi5027</code> binding adds error detection functionality. Either binding can be used to control the MBI5027.</p>
+<p><img src="https://user-images.githubusercontent.com/2608468/89208974-4216cd00-d572-11ea-98eb-14a9a9b4614f.png" alt="MBI5027"></p>
+<p>The MBI5027 is similar to the commonly used <a href="../Sn74hc595/README.html">SN74HC595</a> shift register, with some key differences.</p>
+<ul>
+<li>The MBI5027 has 16 inputs (and can control 16 LEDs) while the SN74HC595 has 8 outputs.</li>
+<li>The MBI5027 is a current sink, which means you connect the cathode (ground), not anode (power) legs, to its pins. The current comes towards the sink, not away from it. The SN74HC595 is a current source and requires the opposite wiring due to the opposite direction of current.</li>
+<li>The MBI5027 provides a configurable constant current, which means that resistors are not needed per input. A single resistor is used, connected to R-EXT, to configure the current.</li>
+<li>The MBI5027 provides the ability to detect errors, per input.</li>
+<li>The SN74HC595 provides a storage register clear capability, which the MBI5027 lacks.</li>
+<li>The MBI5027 and SN74HC595 can be controlled by the same API for their basic operations; they are protocol compatible.</li>
+</ul>
+<p>Note: The <a href="http://archive.fairchip.com/pdf/MACROBLOCK/MBI5168.pdf">MBI5168</a> is an 8-bit constant current sink without error detection, making it a more direct comparison to the SN74HC595.</p>
+<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Mbi5027/samples/Program.cs">MBI5027 sample</a> demonstrates how to use the shift register. The <a href="../ShiftRegister/samples/Program.cs">generic shift register sample</a> is more extensive and is compatible with the MBI5027.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>You can find the datasheet <a href="http://archive.fairchip.com/pdf/MACROBLOCK/MBI5027.pdf">here</a></li>
+<li>Purchase: Not widely available. <a href="https://www.aliexpress.com/">aliexpress.com/</a> was used to purchase the unit used to write this binding.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>The following example code demonstrates how to use the MBI5027 with its most basic functions.</p>
+<pre><code class="lang-csharp">Mbi5027 sr = new(Mbi5027PinMapping.Minimal);
+
+// Light up three of first four LEDs
+sr.ShiftBit(1);
+sr.ShiftBit(1);
+sr.ShiftBit(0);
+sr.ShiftBit(1);
+sr.Latch();
+
+// Display for 1s
+Thread.Sleep(1000);
+
+// Clear register
+sr.ShiftClear();
+
+// Write to all 16 registers with two byte values
+// The `false` parameter avoids latching the storage register after the first call to `ShiftByte`
+sr.ShiftByte(0b_1101_1010, false);
+sr.ShiftByte(0b_1010_1101);
+</code></pre>
+<p>If you want to use SPI, see the <a href="../ShiftRegister/README.html"><code>ShiftRegister</code></a> binding, which includes more information on SPI.</p>
+<p>The following image demonstrate a <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Mbi5027/samples/Program.cs">binary clock counting example</a>.</p>
+<p><img src="../../devicesimages/Mbi5027/mbi5027-binary-clock.png" alt="binary clock counting example"></p>
+<h2 id="example-circuit">Example circuit</h2>
+<p>The following breadboard circuit demonstrates the correct wiring pattern, including error detection.</p>
+<p><img src="https://user-images.githubusercontent.com/2608468/93656940-22811a00-f9e3-11ea-84db-94615a2e1a2b.png" alt="MBI5027_BB_topview"></p>
+<p>It is easy to mis-wire the MBI5027. The following image captures the most basic aspects for correct configuration.</p>
+<p><img src="../../devicesimages/Mbi5027/mbi5027-basic-wiring.png" alt="MBI5027 basic wiring"></p>
+<p>The following are key aspects to ensure are correct:</p>
+<ul>
+<li>Pin 24 (VDD) must be wired to 5v for error correction to work correctly.</li>
+<li>Pin 23 (R-EXT) must be connected to ground with a resistor, which configures the constant current.</li>
+<li>Loads must connect to the MBI5027 with their cathode legs. In this example, the LED is connected to the ground rail via its anode leg and to a MBI5027 input pin via its cathode leg.</li>
+</ul>
+<h2 id="error-detection">Error detection</h2>
+<p>The MBI5027 provides the ability to detect errors, per output. This is very useful for remote deployments, to determine if repairs are required (for a traffic sign, for example). The MBI5027 requires transitioning to an error detection mode to detect errors and then back to normal mode for normal operation.</p>
+<p>The following example code demonstrates how to detect output errors with the MBI5027.</p>
+<pre><code class="lang-csharp">var sr = new Mbi5027(Mbi5027PinMapping.Complete);
+
+// switch to error detection mode
+sr.EnableDetectionMode();
+
+// read error states, per output
+var index = sr.BitLength - 1;
+foreach (var value in sr.ReadOutputErrorStatus())
+{
+    Debug.WriteLine($&quot;Bit {index--}: {value}&quot;);
+}
+
+// switch back to normal mode
+sr.EnableNormalMode();
+</code></pre>
+<p>Per the datasheet, data can be shifted into the storage register while reading the output error status and before re-entering normal mode.</p>
+<p>When all 16 outputs are in use, and no errors are detected, you will see the following output given this code. A <code>Low</code> state would be shown if the output is unused, is misconfigured or other error condition. You can create this situation by disconnecting one of the input connections on the MBI5027.</p>
+<pre><code class="lang-console">Bit 15: High
+Bit 14: High
+Bit 13: High
+Bit 12: High
+Bit 11: High
+Bit 10: High
+Bit 9: High
+Bit 8: High
+Bit 7: High
+Bit 6: High
+Bit 5: High
+Bit 4: High
+Bit 3: High
+Bit 2: High
+Bit 1: High
+Bit 0: High
+</code></pre>
+<p>Note: Error detection was found to work only with 5v power. When 3.3v power was used, error detection did not work correctly.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Mbi5027/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

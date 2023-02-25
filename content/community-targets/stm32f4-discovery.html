@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>STMicroelectronics STM32F4DISCOVERY | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="STMicroelectronics STM32F4DISCOVERY | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="stmicroelectronics-stm32f4discovery">STMicroelectronics STM32F4DISCOVERY</h1>
+
+<p><img src="../../images/community-targets/stm32f4_discovery.jpg" alt="stm32f4 discovery"></p>
+<p><a href="http://www.st.com/en/evaluation-tools/stm32f4discovery.html">Product page</a></p>
+<p>The board used in this community contribution is the STM32F4DISCOVERY board from STM. The board can be purchased from various sources and should be about 20 euros. Further information on this board and links for the user and programming manuals can be found at the product page in ST <a href="https://www.st.com/en/evaluation-tools/stm32f4discovery.html">website</a>.</p>
+<p>Some basic information abstracted from ST:</p>
+<ul>
+<li>STM32F407VGT6 microcontroller featuring 32-bit ARM®Cortex®-M4 with FPU core, 1-Mbyte Flash memory, 192-kbyte RAM in an LQFP100 package</li>
+<li>On-board ST-LINK/V2 on STM32F4DISCOVERY (old reference) or ST-LINK/V2-A on STM32F407G-DISC1 (new order code)</li>
+<li>USB ST-LINK with re-enumeration capability and three different interfaces:
+<ul>
+<li>Debug port</li>
+<li>Virtual Com port (with new order code only)</li>
+<li>Mass storage (with new order code only)</li>
+</ul>
+</li>
+<li>Board power supply: through USB bus or from an external 5 V supply voltage</li>
+<li>External application power supply: 3 V and 5 V</li>
+<li>LIS302DL or LIS3DSH ST MEMS 3-axis accelerometer</li>
+<li>MP45DT02 ST-MEMS audio sensor omni-directional digital microphone</li>
+<li>CS43L22 audio DAC with integrated class D speaker driver</li>
+<li>Eight LEDs:
+<ul>
+<li>LD1 (red/green) for USB communication</li>
+<li>LD2 (red) for 3.3 V power on</li>
+<li>Four user LEDs, LD3 (orange), LD4 (green), LD5 (red) and LD6 (blue)</li>
+<li>2 USB OTG LEDs LD7 (green) VBUS and LD8 (red) over-current</li>
+</ul>
+</li>
+<li>Two push-buttons (user and reset)</li>
+<li>USB OTG FS with micro-AB connector</li>
+<li>Extension header for all LQFP100 I/Os for quick connection to prototyping board and easy probing</li>
+</ul>
+<h2 id="flashing-and-debugging">Flashing and debugging</h2>
+<p>This board has one mini USB connector exposing the embedded ST-Link interface that is used for flashing the nanoFramework firmware and for performing debugging on the nanoCLR code.
+The second USB connector (a micro USB one) is used to connect the device with Visual Studio allowing to deploy and debug your C# managed applications.</p>
+<h2 id="adc-configurations">ADC configurations</h2>
+<p>The following ADC channels (and respective GPIO pins) are available to the managed API, in the respective index:</p>
+<ul>
+<li>PC1, ADC1 IN11</li>
+<li>PC2  ADC1 IN12</li>
+<li>PA6  ADC2 IN6</li>
+<li>PA7  ADC2 IN7</li>
+<li>PB0  ADC2 IN8</li>
+<li>Temp Sensor ADC1</li>
+<li>VrefInt ADC1</li>
+<li>Vbatt ADC1</li>
+</ul>
+<h2 id="i2c-configurations">I2C configurations</h2>
+<p>I2C buses available:</p>
+<ul>
+<li>I2C1
+<ul>
+<li>SCL pin: GPIOB_8</li>
+<li>SDA pin: GPIOB_9</li>
+</ul>
+</li>
+</ul>
+<h2 id="floating-point">Floating point</h2>
+<p>The current build is set to add support for single-precision floating point.
+Meaning that <code>System.Math</code> API supports only the <code>float</code> overloads. The <code>double</code> ones will throw a <code>NotImplementedException</code>.</p>
+<h2 id="firmware-images-ready-to-deploy">Firmware images (ready to deploy)</h2>
+<p><a href="https://cloudsmith.io/%7Enet-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_STM32F4_DISCOVERY/latest/"><img src="https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_STM32F4_DISCOVERY/latest/x/?render=true" alt="Latest Version @ Cloudsmith"></a></p>
+<h2 id="managed-helpers">Managed helpers</h2>
+<p>Checkout the <a href="https://github.com/nanoframework/nf-Community-Targets/tree/main/ChibiOS/ST_STM32F4_DISCOVERY/managed_helpers">C# managed helpers</a> available for this board.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/community-targets/stm32f4-discovery.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

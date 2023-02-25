@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to Build, Flash and Debug the NXP nanoBooter and nanoCLR on Windows using Visual Studio Code | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to Build, Flash and Debug the NXP nanoBooter and nanoCLR on Windows using Visual Studio Code | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-build-flash-and-debug-the-nxp-nanobooter-and-nanoclr-on-windows-using-visual-studio-code">How to Build, Flash and Debug the NXP nanoBooter and nanoCLR on Windows using Visual Studio Code</h1>
+
+<p>⚠️ NOTE about the need to build .NET <strong>nanoFramework</strong> firmware ⚠️</p>
+<p>You only need to build it if you plan to debug the CLR, interpreter, execution engine, drivers, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image using <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a>.
+There are available ready to flash firmware images for several targets, please check the <a href="https://github.com/nanoframework/Home#firmware-for-reference-boards">Home</a> repository.</p>
+<h2 id="about-this-document">About this document</h2>
+<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> firmware for NXP targets.
+The build system is based on CMake tool to ease the development in all major platforms.</p>
+<h2 id="using-dev-container">Using Dev Container</h2>
+<p>If you want a simple, efficient way, we can recommend you to use <a href="using-dev-container.html">Dev Container</a> to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!</p>
+<p>If you prefer to install all the tools needed on your Windows machine, you should continue this tutorial.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You'll need:</p>
+<ul>
+<li><a href="http://code.visualstudio.com/">Visual Studio Code</a></li>
+<li>Visual Studio Code Extensions
+. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
+. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by Microsoft)
+. <a href="https://github.com/Marus/cortex-debug">Cortex Debug</a>) - Debug tool made explicity for ARM Cortex-M cores (needed for J-Link), if you're using on board programmer you don't need it.</li>
+<li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.21)</li>
+<li>A build system for CMake to generate the build files to. We recommend <a href="https://github.com/ninja-build/ninja/releases">Ninja</a>.</li>
+<li><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">GNU ARM Embedded Toolchain</a></li>
+<li>OpenOCD. Suggest the <a href="https://github.com/xpack-dev-tools/openocd-xpack/releases">xPack OpenOCD</a> that kindly maintains a Windows distribution.</li>
+</ul>
+<p>All the above can be installed by the Power Shell script <code>.\install-nf-tools.ps1 -TargetSeries NXP</code> from the <code>install-scripts</code> folder within the <a href="https://github.com/nanoFramework/nf-interpreter"><code>nf-interpreter</code></a> project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).</p>
+<h2 id="overview">Overview</h2>
+<p>To simplify: this guide we will put all our tools and source in easily accessible folders and not at the default install paths (you do not have to do the same).</p>
+<ol>
+<li><p>Create a directory structure such as the following:</p>
+<ul>
+<li><code>C:\nftools</code></li>
+<li><code>C:\nanoFramework</code></li>
+</ul>
+</li>
+<li><p>Download and install <a href="http://code.visualstudio.com">Visual Studio Code</a>.</p>
+</li>
+<li><p>Clone <a href="https://github.com/nanoframework/nf-interpreter"><code>nf-interpreter</code></a> repository into <code>C:\nanoFramework\nf-interpreter</code>. See next section for more info.</p>
+</li>
+<li><p>Run the PowerShell script that's on the <code>install-scripts</code> folder that will download and install all the required tools.
+<code>.\install-stm32-tools.ps1 -Path 'C:\nftools'</code>
+For best results, run in an elevated command prompt, otherwise setting system environment variables will fail.</p>
+</li>
+<li><p>Review and adjust several JSON files to match your environment (as documented below)</p>
+</li>
+<li><p>Restart Visual Studio Code (due to json changes)</p>
+</li>
+</ol>
+<p>The setup is a lot easier than it seems. The setup scripts do almost everything.</p>
+<h2 id="net-nanoframework-github-repo">.NET <strong>nanoFramework</strong> GitHub repo</h2>
+<p>If you intend to change the nanoBooter or nanoCLR and create Pull Requests then you will need to fork the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as the <a href="https://desktop.github.com/">GitHub Desktop application</a>.</p>
+<p>The <em>main</em> branch is the default working branch. When working on a fix or experimenting a new feature you should do it on its own branch. See the <a href="../contributing/contributing-workflow.html#suggested-workflow">Contributing guide</a> for specific instructions on the suggested contributing workflow.</p>
+<p>If you don't intend to make changes to the nanoBooter and nanoCLR, you can just clone <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> directly from GitHub.</p>
+<p>Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMake does not support filenames in excess of 250 characters.</p>
+<h2 id="setting-up-the-build-environment-in-windows">Setting up the build environment in Windows</h2>
+<p>To simplify, this guide we will put all our tools and source in easily accessible folders and not at the default install paths (you do not have to do the same):</p>
+<ol>
+<li><p>Create a directory structure such as the following:</p>
+<ul>
+<li><code>C:\nftools</code></li>
+<li><code>C:\nanoFramework</code></li>
+</ul>
+</li>
+<li><p><a href="http://code.visualstudio.com/">Download</a> and install Visual Studio Code.</p>
+</li>
+<li><p><a href="https://cmake.org/download/">Download</a> and install CMake to <code>C:\nftools\CMake</code>.</p>
+</li>
+<li><p><a href="https://github.com/ninja-build/ninja/releases">Download</a> Ninja and place the executable in <code>C:\nftools\Ninja</code>.</p>
+</li>
+<li><p><a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">Download</a> and install the GNU ARM Embedded Toolchain to <code>C:\nftools\GNU_ARM_Toolchain</code>.</p>
+</li>
+<li><p>Finally, clone <code>nf-interpreter</code> into <code>C:\nanoFramework\nf-interpreter</code>. See next section for more info.</p>
+</li>
+</ol>
+<h3 id="set-up-mcuxpresso-ide">Set up MCUXpresso IDE</h3>
+<p>For programming eval board using on board LPC-Link programmer you will need to set up MCUXpresso IDE which provides us with redlink software. Redlink copies flash image to core RAM and from there it's flashed into external HyperFlash or QSPI flash.</p>
+<ol>
+<li>Register and download MCUXpresso IDE form nxp <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiPwZiTlMHmAhU5AxAIHQkrDNIQFjAAegQIBhAB&amp;url=https%3A%2F%2Fwww.nxp.com%2Fdesign%2Fsoftware%2Fdevelopment-software%2Fmcuxpresso-software-and-tools%2Fmcuxpresso-integrated-development-environment-ide%3AMCUXpresso-IDE&amp;usg=AOvVaw0Oh8kETGeCSOnWTlKyGj_I">website</a>.</li>
+<li>Install MCUXpresso IDE.</li>
+<li>Remember to set proper paths while setting up <code>launch.json</code> file in next steps.</li>
+</ol>
+<h2 id="setting-up-the-build-environment">Setting up the build environment</h2>
+<p>After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.</p>
+<h3 id="automated-install-of-the-build-environment">Automated Install of the build environment</h3>
+<p><strong>Run Power Shell as an Administrator and run <code>set-executionpolicy RemoteSigned</code> to enable execution of the signed script.</strong></p>
+<p>On Windows, one may use the <code>.\install-nf-tools.ps1</code> Power Shell script located in the repository <code>install-scripts</code> folder to download/install CMake, the toolchain, OpenOCD (for JTAG debugging) and Ninja. You may need to use <strong>Run as Administrator</strong> for power shell to permit installing modules to unzip the downloaded archives.
+The script will download the zips and installers into the repository <code>zips</code> folder and extract them into sub-folders of the nanoFramework tools folder <code>C:\nftools</code> or install the tool.</p>
+<ol>
+<li>Open Power Shell in the <code>install-scripts</code> folder of the repository and run the script.</li>
+</ol>
+<p>Example Power Shell command line:</p>
+<pre><code class="lang-ps">.\install-nf-tools.ps1 -TargetSeries NXP
+</code></pre>
+<p>You can force the environment variables to be updated by adding <code>-Force</code> to the command line.</p>
+<p>The script will create the following sub-folders (see manual install below):</p>
+<ul>
+<li><code>C:\nftools</code></li>
+<li><code>C:\nftools\GNU_Tools_ARM_Embedded\8-2019-q3-update</code></li>
+<li><code>C:\nftools\ninja</code></li>
+<li><code>C:\nftools\hex2dfu</code></li>
+<li><code>C:\nftools\openocd</code></li>
+</ul>
+<p>The following Environment Variables will be created for the current Windows User.</p>
+<ul>
+<li><code>NF_TOOLS_PATH = C:\nftools</code></li>
+<li><code>GNU_GCC_TOOLCHAIN_PATH = C:\nftools\GNU_Tools_ARM_Embedded\8-2019-q3-update</code></li>
+<li><code>NINJA_PATH = C:\nftools\ninja</code></li>
+</ul>
+<h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
+<ul>
+<li><p><strong>Step 1</strong>: Install the extensions:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
+</ul>
+</li>
+<li><p><strong>Step 2</strong>: Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
+</li>
+</ul>
+<pre><code class="lang-ps">  .\Initialize-VSCode.ps1
+</code></pre>
+<p>You can force the environment variables to be updated by adding <code>-Force</code> to the command line.
+The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit <code>tasks.json</code>, <code>launch.json</code> and <code>settings.json</code> to replace the relevant paths.</p>
+<ul>
+<li><p><strong>Step 3:</strong> Copy the template file (in <code>nf-interpreter\config</code> folder) <code>user-tools-repos.TEMPLATE.json</code> to a (new) file called <code>user-tools-repos.json</code>. Rename the json section <code>user-tools-repos-local</code> to <code>user-tools-repos</code> and adjust paths for the tools and repositories in the <code>user-tools-repos</code> configuration preset. If you don't have the intention to build for a particular platform you can simply remove the related options from there. If you don't want to use local clones of the various repositories you can simply set those to <code>null</code>. <strong>!!mind to always use forward slashes in the paths!!</strong></p>
+</li>
+<li><p><strong>Step 4</strong>: If you want to use onboard programmer edit the file named <code>settings.json</code> inside the <code>.vscode</code> folder and paste the following (mind to update the path to your setup).</p>
+</li>
+</ul>
+<pre><code class="lang-json">{
+    &quot;cortex-debug.armToolchainPath&quot;: &quot;c:/nftools/GNU_ARM_Toolchain/8 2019-q3-update/bin&quot;,
+    &quot;cortex-debug.JLinkGDBServerPath&quot;: &quot;c:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe&quot;
+}
+</code></pre>
+<ul>
+<li><strong>Step 5</strong>: Save any open files and exit VS Code.</li>
+</ul>
+<h2 id="build-nanoclr">Build nanoCLR</h2>
+<ul>
+<li><p><strong>Step 1</strong>: Launch Visual Studio Code from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.</p>
+</li>
+<li><p><strong>Step 2</strong>: Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Kit Selected</code> and select <code>[Unspecified]</code>.</p>
+</li>
+<li><p><strong>Step 3</strong>: In the status bar at the bottom left, click on the <code>CMake:Debug NXP_MIMXRT1060_EVK: Ready</code> and select <code>Debug</code>. Wait for it to finish Configuring the project (progress bar shown in right bottom corner). This can take a while the first time.</p>
+</li>
+<li><p><strong>Step 4:</strong> Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Configure Preset Selected</code> and select the target you want to build from the drop-down list that will open at the top. Possibly <code>NXP_MIMXRT1060_EVK</code>. The respective build preset will be automatically selected by VS Code.</p>
+</li>
+</ul>
+<p><img src="../../images/building/vs-code-bottom-tolbar-choose-preset.png" alt="choose-preset"></p>
+<ul>
+<li><p><strong>Step 5</strong>: In the status bar click <code>Build</code> or hit F7.</p>
+</li>
+<li><p><strong>Step 6</strong>: Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
+</li>
+<li><p><strong>Step 7</strong>: In the <code>build</code> folder you'll find several files:</p>
+<ul>
+<li><code>nanoBooter.bin</code></li>
+<li><code>nanoBooter.elf</code></li>
+<li><code>nanoBooter.hex</code></li>
+<li><code>nanoCLR.bin</code></li>
+<li><code>nanoCLR.elf</code></li>
+<li><code>nanoCLR.hex</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>Note: If there are errors during the build process it is possible to end up with a partial build in the <code>build</code> folder, and the <code>CMake/Ninja</code> build process declaring a successful build despite the <code>.bin</code> targets not being created, and a <code>CMake clean</code> not helping.
+In this case deleting the contents of the <code>build</code> folder should allow the build to complete once you resolve the issues that cause the original failure.</p>
+</blockquote>
+</blockquote>
+<h3 id="common-build-issues">Common Build Issues</h3>
+<p>The above may have some errors if:</p>
+<ul>
+<li>CMake is not installed properly, not in the PATH or cannot be found for some reason.</li>
+<li>Ninja is not recognized: check settings.json or your PATH environment variable and restart Visual Studio Code.</li>
+<li>COMPILATION object file not found: check that your paths don't exceed 140 chars. Put the solution folder high enough on drive.</li>
+<li>Reopen VS Code if you have made changes on the <code>CMakePresets.json</code> or <code>CMakeUserPresets.json</code>.</li>
+</ul>
+<p>A good remedy for most of the build issues is to manually clean the build folder by deleting it's contents and restarting VS Code.</p>
+<h2 id="flash-the-nxp-target">Flash the NXP target</h2>
+<ol>
+<li>Connect the Target board to your PC using an USB cable.</li>
+<li>Open Visual Studio Code and go to <code>Debug and Run</code> (CTRL+SHIFT+D).</li>
+<li>Run debug (green rectangle or F5 default shortcut), firstly on nanoBooter then nanoCLR.
+<blockquote>
+<blockquote>
+<p>Note: You don't have to re-flash nanoBooter every time you flash nanoCLR.</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<h2 id="debugging-with-cortex-debug-with-j-link-optional">Debugging with Cortex Debug with J-Link (Optional)</h2>
+<p>If you want to view CPU register values in real time and use more advanced debugging tool. It's possible to use Cortex Debug extension. Please refer to guides available at SEGGER's wiki.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>See <a href="http://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html">Getting Started</a> for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/building/build-nxp.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

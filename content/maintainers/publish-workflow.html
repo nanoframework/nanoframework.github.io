@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Publish Workflow and Strategy | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Publish Workflow and Strategy | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="publish-workflow-and-strategy">Publish Workflow and Strategy</h1>
+
+<h2 id="about-this-document">About this document</h2>
+<p>This document describes the workflow and strategy adopted by .NET <strong>nanoFramework</strong> to handle the merging, branching and release publishing.</p>
+<h2 id="pull-requests">Pull Requests</h2>
+<p>Pull requests with contributions are <strong>always</strong> merged into <em>main</em> branch.
+On each pull request build the respective NuGet packages are published to nanoFramework <a href="https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&amp;feed=sandbox">Azure DevOps NuGet feed</a> (if this is a component that uses this distribution channel). By sourcing this NuGet feed someone testing that pull request can reference it straight away without any further hassle.
+There is nothing else to be done as the package identifier and the version are automatically incremented based.</p>
+<h2 id="development">Development</h2>
+<p>Once pull requests have been merged into <em>main</em> a new release is automatically generated and published to nanoFramework <a href="https://dev.azure.com/nanoframework/feed/_packaging?_a=feed&amp;feed=sandbox">Azure DevOps NuGet feed</a> (if this is a component that uses this distribution channel).
+There is nothing else to be done as the package identifier and the version are automatically incremented.</p>
+<h2 id="versioning">Versioning</h2>
+<p>When a release contains a breaking change MAJOR version should be increased by one and reset the MINOR back to zero and keep the PATCH at zero. Otherwise just bump the MINOR version by one and keep the PATCH at zero.</p>
+<p>At this stage the contributor proposing a new release must perform a few administrative tasks. It's the responsibility of the release approver to verify that these tasks have been performed correctly.</p>
+<p>Details on the release preparation can be read from the Nerdbank GitVersioning documentation <a href="https://github.com/AArnott/Nerdbank.GitVersioning/blob/master/doc/nbgv-cli.md#preparing-a-release">here</a>.</p>
+<p>If the process for merging individual pull requests was followed perfectly there is not much else to do except verify that all pull requests have assigned a milestone and an appropriate label.
+The label classifies the type of change and it's mandatory because the release notes are automatically generated from this information.
+For the purposes of the automated release notes generation, only the pull requests have to follow this strict label mapping, not the issues. This is because the issue management is centralized in the Home repo (not per repository).
+The pull requests that address an issue already link to that issue thus making easy to trace the changes and the reasoning about those, ultimately self-documenting the changes.</p>
+<p>If there are any problems with the generated release notes document, resolve those in GitHub by assigning the appropriate labels to the pull requests and then re-run the build for the merge commit in Azure DevOps.</p>
+<h2 id="production">Production</h2>
+<p>The process is kicked off by opening up a pull request from a <em>release-vN.N.N</em> branch to <em>main</em>.</p>
+<p>In the Home repository, edit the vNext milestone and change it to the version number of this release.</p>
+<p>Once the pull request has been approved use the <em>merge commit</em> option (<strong>not the squash and merge</strong>). This will trigger a new CI build after which a new draft release with be generated along with the release notes. If the validation of these has already been done in the <em>release-vN.N.N</em> step above there should be no need for further corrections.</p>
+<p>Pressing the publish release button will stamp the repository with a git tag with the release version, overriding any automatic versioning strategies and trigger a new build which will be automatically published to NuGet (if this is a component that uses this distribution channel).</p>
+<p>After the build for the tag release is completed edit the source/version.json file and bump the <code>version</code> field to the vNext version, including the preview tag. Then start a new PR from the <em>release-vN.N.N</em> into the develop branch. This makes any changes in that have been made branch should be deleted.</p>
+<p>After the CI completes <em>squash and merge</em> (<strong>really really squash and merge</strong>) the PR. The <em>release-vN.N.N</em> branch can now be safely be deleted.</p>
+<p>To complete this step create a new vNext milestone in the Home repo.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/maintainers/publish-workflow.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-build-flash-and-debug-the-esp32-nanoclr-on-windows-using-visual-code">How to Build, Flash and Debug the ESP32 nanoCLR on Windows using Visual Code</h1>
+
+<p>⚠️ NOTE about the need to build .NET <strong>nanoFramework</strong> firmware ⚠️</p>
+<p>You only need to build it if you plan to debug the CLR, interpreter, execution engine, drivers, add new targets or add new features at native level.
+If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image using <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nanoff</a>.
+There are available ready to flash firmware images for several targets, please check the <a href="https://github.com/nanoframework/Home#firmware-for-reference-boards">Home</a> repository.</p>
+<h2 id="about-this-document">About this document</h2>
+<p>This document describes how to build the required images for .NET <strong>nanoFramework</strong> firmware for ESP32 targets.
+The build system is based on CMake tool to ease the development in all major platforms.</p>
+<h2 id="using-dev-container">Using Dev Container</h2>
+<p>If you want a simple, efficient way, we can recommend you to use <a href="using-dev-container.html">Dev Container</a> to build your image. This has few requirements as well like Docker Desktop and Remote Container extension in VS Code but it is already all setup and ready to run!</p>
+<p>If you prefer to install all the tools needed on your Windows machine, you should continue this tutorial.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You'll need:</p>
+<ul>
+<li><a href="http://code.visualstudio.com/">Visual Studio Code</a>. Additional extensions and setup steps follow below.</li>
+<li>Visual Studio Code Extensions
+. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
+. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by Microsoft)</li>
+<li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.21)</li>
+<li><a href="https://www.python.org/downloads/release/python-368">Python 3.6.8</a> Required for uploading the nanoCLR to the ESP32.
+<ul>
+<li>Ensure the Windows default app to open <code>.py</code> files is Python.</li>
+</ul>
+</li>
+<li>A build system for CMake to generate the build files to. We recommend <a href="https://github.com/ninja-build/ninja/releases">Ninja</a>.</li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html">ESP-IDF Tools</a>.</li>
+<li>Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers (all these are available along with ESP-IDF tools installer):
+<ul>
+<li><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">CP210x USB to UART Bridge VCP Drivers</a> used in the standard ESP32 DevKitC.</li>
+<li><a href="https://www.ftdichip.com/Drivers/VCP.htm">FTDI Virtual COM Port Drivers</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>-<strong>Step 1</strong>: Create a directory structure such as the following:</p>
+<pre><code>  `C:\nanoFramework`
+</code></pre>
+<p>-<strong>Step 2</strong>: Download and install <a href="http://code.visualstudio.com">Visual Studio Code</a>.</p>
+<p>-<strong>Step 3</strong>: Clone <a href="https://github.com/nanoframework/nf-interpreter"><code>nf-interpreter</code></a> repository into <code>C:\nanoFramework\nf-interpreter</code>. See next section for more info.</p>
+<p>-<strong>Step 4</strong>: Install ESP-IDF Tools by using the installer provided by Espressif.</p>
+<p>-<strong>Step 5</strong>: Review and adjust several JSON files to match your environment (as documented below)</p>
+<p>-<strong>Step 6</strong>: Restart Visual Studio Code (due to json changes)</p>
+<h2 id="net-nanoframework-github-repo">.NET <strong>nanoFramework</strong> GitHub repo</h2>
+<p>If you intend to change the nanoCLR and create Pull Requests then you will need to fork the <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> to your own GitHub repo and clone the forked GitHub repo to your Windows system using an Git client such as <a href="https://fork.dev">Fork</a> or the <a href="https://desktop.github.com">GitHub Desktop application</a>.</p>
+<p>The <em>main</em> branch is the default working branch. When working on a fix or experimenting a new feature you should do it on its own branch. See the <a href="../contributing/contributing-workflow.html#suggested-workflow">Contributing guide</a> for specific instructions on the suggested contributing workflow.</p>
+<p>If you don't intend to make changes to the nanoBooter and nanoCLR, you can just clone <a href="https://github.com/nanoFramework/nf-interpreter">nanoFramework/nf-interpreter</a> directly from GitHub.</p>
+<p>Make sure to put this folder high enough on your drive, that you won't trigger long filename issues. CMake does not support filenames in excess of 250 characters.</p>
+<h2 id="setting-up-the-build-environment">Setting up the build environment</h2>
+<p>After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.</p>
+<h3 id="manual-install-of-the-build-environment">Manual install of the build environment</h3>
+<p>(If you already have installed ESP-IDF Tools you can skip this step.)</p>
+<p>-<strong>Step 1</strong>: Install ESP-IDF Tools by using the installer provided by Espressif <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer">here</a>. The installer includes all the pre-requisites.</p>
+<p>-<strong>Step 2</strong>: After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.</p>
+<p>-<strong>Step 3</strong>: Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.</p>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-repo-location.png" alt="idf repo location"></p>
+<p>-<strong>Step 4</strong>: Location of the IDF toolchain and other tools. The default it's at the user folder. Feel free to change this to another location of your choosing.</p>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-location.png" alt="idf tools location"></p>
+<p>-<strong>Step 5</strong>: At the options screen, know that you don't have to install all the tools there. Follow the recommended option to be able to build .NET nanoFramework. Also note that you may want to install the toolchains only for the chip serie(s) that you're planning to build for.</p>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-options.png" alt="options"></p>
+<p>-<strong>Step 6</strong>: The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...</p>
+<p>-<strong>Step 7</strong>: After the installer completes, open a command prompt at the IDF repository location with elevated permission and execute the script <code>install</code>. This will <em>hopefully</em> install all the requirements and prerequisites.</p>
+<p>-<strong>Step 8</strong>: Now execute the script <code>export</code>. This will <em>hopefully</em> update the path environment variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.</p>
+<p>⚠️ At the time of this writing, the CMake version distributed with IDF it's outdated. You have to edit the path environment variable after this step and remove the entry pointing to CMake so the current CMake it's used. This should be something like <code>(...).espressif\tools\cmake\3.20.3</code>. ⚠️</p>
+<p>-<strong>Step 9</strong>: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it.</p>
+<p><img src="../../images/building/esp32/install-esp-idf-tools-path.png" alt="updated path"></p>
+<p>-<strong>Step 10</strong>: Also worth checking if the following environment variables have also been setup:</p>
+<ul>
+<li><code>IDF_PATH</code>: must point to the location where the ESP-IDF repo was cloned (see step 3. above).</li>
+<li><code>IDF_PYTHON_ENV_PATH</code>: must point to Python install location.</li>
+<li><code>IDF_TOOLS_PATH</code>: must point to the location where the ESP-IDF tools where installed (see step 3. above).</li>
+</ul>
+<p>⚠️ <strong>Having the path properly setup it's absolutely mandatory in order to be able to build.</strong> ⚠️</p>
+<h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>
+<p>-<strong>Step 1</strong>: Install the extensions:</p>
+<pre><code>- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+</code></pre>
+<p>-<strong>Step 2</strong>: Run the PowerShell script <code>Initialize-VSCode.ps1</code> that's on the <code>install-scripts</code> folder. This will adjust the required settings, build launch configuration for debugging and setup the tasks to ease your developer work.</p>
+<pre><code>```ps
+.\Initialize-VSCode.ps1
+```
+
+- You can force the environment variables to be updated by adding `-Force` to the command line.
+- The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json` and `settings.json` to replace the relevant paths. **!!mind to always use forward slashes in the paths!!**
+- More info available on the [Tweaking CMakeUserPresets.TEMPLATE.json](cmake-presets.md) documentation page.
+</code></pre>
+<ul>
+<li><p><strong>Step 3:</strong> Copy the template file (in <code>nf-interpreter\config</code> folder) <code>user-tools-repos.TEMPLATE.json</code> to a (new) file called <code>user-tools-repos.json</code>. Rename the json section <code>user-tools-repos-local</code> to <code>user-tools-repos</code> and adjust paths for the tools and repositories in the <code>user-tools-repos</code> configuration preset. If you don't have the intention to build for a particular platform you can simply remove the related options from there. If you don't want to use local clones of the various repositories you can simply set those to <code>null</code>. <strong>!!mind to always use forward slashes in the paths!!</strong></p>
+</li>
+<li><p><strong>Step 4</strong>: Save any open files and <strong>RESTART</strong> VS Code. Have you <strong>RESTARTED</strong> VS Code? You really have to do it otherwise this won't work.</p>
+</li>
+</ul>
+<h2 id="build-nanoclr">Build nanoCLR</h2>
+<p>-<strong>Step 1</strong>: Launch Visual Studio from the repository folder, or load it from the <strong>File</strong> menu, select <strong>Open Folder</strong> and browse to the repo folder. VS Code could prompt you asking &quot;Would you like to configure this project?&quot;. Ignore the prompt as you need to select the build variant first.
+Next time VS Code open it should load the workspace automatically.</p>
+<ul>
+<li><strong>Step 2:</strong> Reopen VS Code. It should load the workspace automatically. In the status bar at the bottom left, click on the <code>No Configure Preset Selected</code> and select the target you want to build from the drop-down list that will open at the top, e.g. <code>ESP32_PSRAM_REV0</code>. The respective build preset will be automatically selected by VS Code. More details on this on the documentation about the available targets <a href="../reference-targets/esp32.html">here</a>.</li>
+</ul>
+<p><img src="../../images/building/vs-code-bottom-tolbar-choose-preset.png" alt="choose-preset"></p>
+<p>-<strong>Step 3</strong>: In the status bar click <code>Build</code> or hit F7.</p>
+<p>-<strong>Step 4</strong>: Wait for the build to finish with <code>Build finished with exit code 0</code> output message.</p>
+<p>-<strong>Step 5</strong>: In the <code>build</code> folder you'll find several files:
+- <code>nanoCLR.bin</code>
+- <code>nanoCLR.elf</code>
+- <code>partitions_4mb.elf</code>
+- ...</p>
+<blockquote>
+<blockquote>
+<p>Note: If there are errors during the build process it is possible to end up with a partial build in the <code>build</code> folder, and the <code>CMake/Ninja</code> build process declaring a successful build despite the <code>.bin</code> targets not being created, and a <code>CMake clean</code> not helping.
+In this case deleting the contents of the <code>build</code> folder should allow the build to complete once you resolve the issues that cause the original failure.</p>
+</blockquote>
+</blockquote>
+<h3 id="common-build-issues">Common Build Issues</h3>
+<p>The above may have some errors if:</p>
+<ul>
+<li>CMake is not installed properly, not in the PATH or cannot be found for some reason.</li>
+<li>Ninja is not recognized: check settings.json or your PATH environment variable and restart Visual Studio Code.</li>
+<li>COMPILATION object file not found: check that your paths don't exceed 140 chars. Put the solution folder high enough on drive.</li>
+<li>Reopen VS Code if you have made changes on the <code>CMakePresets.json</code> or <code>CMakeUserPresets.json</code>.</li>
+</ul>
+<p>A good remedy for most of the build issues is to manually clean the build folder by deleting it's contents and restarting VS Code.</p>
+<h2 id="flash-nanoclr-into-esp32">Flash nanoCLR into ESP32</h2>
+<p>-<strong>Step 1</strong>: The third file that gets flashed into the ESP32 is the <code>bootloader.bin</code> which will be located here <code>build/bootloader/bootloader.bin</code> after a successful build.</p>
+<p>-<strong>Step 2</strong>: Connect your development board.</p>
+<p>-<strong>Step 3</strong>: Some ESP32 boards require to be put into &quot;download mode&quot;. Most don't even need this. Check the documentation for your variant. One of the most common options are: hold down the GPIO0 pin to GND or holding down the respective button during power up.</p>
+<p>-<strong>Step 4</strong>: Download the image to device.
+- In Visual Studio Code go to menu &quot;Terminal&quot; -&gt; &quot;Run Task&quot; and select &quot;Flash nanoCLR to ESP32 from the list.</p>
+<pre><code>- As an alternative enter the command in command palette:
+
+   ```cmd
+   Tasks: Run task
+   ```
+
+   and if you flash the board for the first time
+
+   ```cmd
+   Erase ESP32
+   ```
+
+   and then
+
+   ```cmd
+   Flash nanoCLR to ESP32
+   ```
+
+   It will ask you for the COM port where it's connected.
+
+- An other alternative is using [nanoff](../getting-started-guides/getting-started-managed.md#uploading-the-firmware-to-the-board-using-nanofirmwareflasher) tool:
+
+   ```console
+   nanoff --target ESP32_PSRAM_REV0 --serialport &lt;YourCOMPort&gt; --image nanoCLR.bin --address 0x00010000
+   ```
+
+- And another alternative would be to use Espressif's own [esptool.py](https://github.com/espressif/esptool) tool:
+
+    ```console
+    esptool.py --chip auto --port &lt;YourCOMPort&gt; --baud 1500000 --before &quot;default_reset&quot; --after &quot;hard_reset&quot; write_flash -z --flash_mode &quot;dio&quot; --flash_freq &quot;40m&quot; --flash_size detect 0x1000 &lt;YourPathTo&gt;/nf-interpreter/build/bootloader/bootloader.bin 0x10000 &lt;YourPathTo&gt;/nf-interpreter/build/nanoCLR.bin 0x8000 &lt;YourPathTo&gt;/nf-interpreter/build/&lt;PartitionFilePassingToYourBoard&gt;.bin
+    ```
+</code></pre>
+<h2 id="start-with-a-hello-world-c-application">Start with a 'Hello World' C# application</h2>
+<p>Watch the video tutorial <a href="https://youtu.be/iZdN2GmefXI">here</a> and follow the step that should be done in Visual Studio 2017 Community Edition. Skip the steps that describing uploading the nanoCLR into the STM32 Nucleo board.</p>
+<h2 id="debugging-nanoclr">Debugging nanoCLR</h2>
+<p>If you want to debug the nanoCLR code on the ESP32 chip you'll need an JTAG debugging adapter. ESP32 WROVER KIT already includes one. For other boards you can use the Olimex ARM-USB-OCD-H JTAG debugging adapter or a Segger JLink. There are preset configurations for these adapters.</p>
+<p>You can now debug nanoCLR on the ESP32 by pressing F5 in Visual Studio Code.</p>
+<h3 id="notes-on-jtag-debugging-on-esp32">Notes on JTAG debugging on ESP32</h3>
+<p>The JTAG connections on ESP32 DEVKITC are:</p>
+<ul>
+<li>TDI -&gt; GPIO12</li>
+<li>TCK -&gt; GPIO13</li>
+<li>TMS -&gt; GPIO14</li>
+<li>TDO -&gt; GPIO15</li>
+<li>TRST -&gt; EN / RST (Reset)</li>
+<li>GND -&gt; GND</li>
+</ul>
+<p>See Gojimmypi for description of JTAG connections <a href="https://gojimmypi.blogspot.com/2017/03/jtag-debugging-for-esp32.html">here</a>.</p>
+<p>If flashing nanoCLR via a COM port (default), then be aware that you need to disconnect the JTAG to avoid it preventing the bootloader from running, and therefore being unable to reprogram the ESP23. e.g. if you see the following pattern repeating, unplug the USB-OCD-H, and then the programming will proceed.</p>
+<pre><code>  ```txt
+     esptool.py v2.1
+     Connecting........_____....._____...
+  ```
+</code></pre>
+<p>You may have to add the <code>IRAM_ATTR</code> attribute to a function that you want to debug, so it can be loaded in RAM. When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.</p>
+<p>For more information on JTAG debugging see <a href="http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/">Espressif documentation</a>.</p>
+<h3 id="debugging-nanoclr-without-special-hardware">Debugging nanoCLR without special hardware</h3>
+<p>If you do not have access to any special hardware required for debug methods mentioned above you still may use some old-school technique: just place some temporary code at interesting places to get the required information. Using steps below you will get that information in Visual Studio's standard debug output window.
+Certainly Visual Studio must be debugging something to have that window in working state. So this hack will work only in cases when
+you want to debug a nanoCLR code which can be executed via managed code.</p>
+<ul>
+<li><p><strong>Step 1</strong>: Write some managed code which results in a nanoCLR call executing the code you are interested in.</p>
+</li>
+<li><p><strong>Step 2</strong>: Choose one or more places in nanoCLR code where you want to know something.
+e.g.: What is the value of a variable? Which part of an if-else statement gets executed?</p>
+</li>
+<li><p><strong>Step 3</strong>: Put the following temporary code there:</p>
+<pre><code>```cpp
+{
+      char temporaryStringBuffer[64];
+      int realStringSize=snprintf(temporaryStringBuffer, sizeof(temporaryStringBuffer), &quot;interestingValue: %d\r\n&quot;, interestingValue);
+      CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, realStringSize, temporaryStringBuffer, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+}
+```
+</code></pre>
+<p>Or simply:</p>
+<pre><code>```cpp
+   CLR_EE_DBG_EVENT_BROADCAST( CLR_DBG_Commands_c_Monitor_Message, 12, &quot;Hello World!&quot;, WP_Flags_c_NonCritical | WP_Flags_c_NoCaching );
+```
+</code></pre>
+</li>
+<li><p><strong>Step 4</strong>: The boring part: rebuild and re-flash firmware and your program.</p>
+</li>
+<li><p><strong>Step 5</strong>: Start debugging in Visual Studio and keep eye on it's debug output window.
+You will get your messages there when the related temporary code gets executed!</p>
+</li>
+<li><p><strong>Step 6</strong>: Iterate steps 2-5 till you find out what you were interested in.</p>
+</li>
+<li><p><strong>Step 7</strong>: Do not forget to remove all those temporary code blocks before you accidentally commit it!</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/building/build-esp32.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mcp25xxx device family - CAN bus | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Mcp25xxx device family - CAN bus | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mcp25xxx-device-family---can-bus">Mcp25xxx device family - CAN bus</h1>
+
+<p><strong>This binding is currently not finished. Please consider contributing to help us finish it.</strong></p>
+<p>The MCP25XXX is a stand-alone CAN controller and includes features like faster throughput, databyte filtering, and support for time-triggered protocols.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://www.microchip.com/wwwproducts/DevTool/digikey/MCP25625">MCP25625 PICtail Plus Daughter Board (ADM00617)</a></li>
+<li><a href="https://www.tindie.com/products/geraldjust/mcp25625-mini-can-bus-shield-mcp2515-compatible/">MCP25625 Mini Can Bus Shield (MCP2515 compatible)</a></li>
+<li><a href="https://www.sparkfun.com/products/13262">CAN-BUS Shield</a></li>
+<li><a href="https://www.totalphase.com/protocols/can/">TotalPhase CAN tools</a></li>
+</ul>
+<p>MCP25XXX devices contain different markings to distinguish features like interfacing, packaging, and temperature ratings.  For example, MCP25625 contains a CAN transceiver. Please review specific datasheet for more information.</p>
+<ul>
+<li>MCP2515 <a href="http://ww1.microchip.com/downloads/en/devicedoc/21801e.pdf">datasheet</a></li>
+<li>MCP25625 <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/20005282B.pdf">datasheet</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the SPI pins especially for ESP32 before creating the <code>SpiDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the SPI GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.SPI1_MOSI);
+Configuration.SetPinFunction(22, DeviceFunction.SPI1_MISO);
+Configuration.SetPinFunction(23, DeviceFunction.SPI1_CLOCK);
+// Make sure as well you are using the right chip select
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the SPI bus you want to use. The chip select can as well be pre setup.</p>
+<p>You can create a Mcp25625 device like this:</p>
+<pre><code class="lang-csharp">SpiConnectionSettings spiConnectionSettings = new(1, 42);
+SpiDevice spiDevice = SpiDevice.Create(spiConnectionSettings);
+Mcp25625 mcp25xxx = new Mcp25625(spiDevice);
+</code></pre>
+<h3 id="read-all-the-registers">Read all the registers</h3>
+<p>You can read all the registers like this:</p>
+<pre><code class="lang-csharp">Debug.WriteLine(&quot;Read Instruction for All Registers&quot;);
+Array addresses = Enum.GetValues(typeof(Address));
+
+foreach (Address address in addresses)
+{
+    byte addressData = mcp25xxx.Read(address);
+    Debug.WriteLine($&quot;0x{(byte)address:X2} - {address,-10}: 0x{addressData:X2}&quot;);
+}
+</code></pre>
+<p>to read a single register, just use the <code>Address</code> enum.</p>
+<h3 id="rx-status">RX Status</h3>
+<p>The RX status is available like this:</p>
+<pre><code class="lang-csharp">Debug.WriteLine(&quot;Rx Status Instruction&quot;);
+RxStatusResponse rxStatusResponse = mcp25xxx.RxStatus();
+Debug.WriteLine($&quot;Value: 0x{rxStatusResponse.ToByte():X2}&quot;);
+Debug.WriteLine($&quot;Filter Match: {rxStatusResponse.FilterMatch}&quot;);
+Debug.WriteLine($&quot;Message Type Received: {rxStatusResponse.MessageTypeReceived}&quot;);
+Debug.WriteLine($&quot;Received Message: {rxStatusResponse.ReceivedMessage}&quot;);
+</code></pre>
+<h3 id="read-status">Read Status</h3>
+<p>The Read status is available like this:</p>
+<pre><code class="lang-csharp">Debug.WriteLine(&quot;Read Status Instruction&quot;);
+ReadStatusResponse readStatusResponse = mcp25xxx.ReadStatus();
+Debug.WriteLine($&quot;Value: 0x{readStatusResponse:X2}&quot;);
+Debug.WriteLine($&quot;Rx0If: {readStatusResponse.HasFlag(ReadStatusResponse.Rx0If)}&quot;);
+Debug.WriteLine($&quot;Rx1If: {readStatusResponse.HasFlag(ReadStatusResponse.Rx1If)}&quot;);
+Debug.WriteLine($&quot;Tx0Req: {readStatusResponse.HasFlag(ReadStatusResponse.Tx0Req)}&quot;);
+Debug.WriteLine($&quot;Tx0If: {readStatusResponse.HasFlag(ReadStatusResponse.Tx0If)}&quot;);
+Debug.WriteLine($&quot;Tx0Req: {readStatusResponse.HasFlag(ReadStatusResponse.Tx0Req)}&quot;);
+Debug.WriteLine($&quot;Tx1If: {readStatusResponse.HasFlag(ReadStatusResponse.Tx1If)}&quot;);
+Debug.WriteLine($&quot;Tx1Req: {readStatusResponse.HasFlag(ReadStatusResponse.Tx1Req)}&quot;);
+Debug.WriteLine($&quot;Tx2Req: {readStatusResponse.HasFlag(ReadStatusResponse.Tx2Req)}&quot;);
+Debug.WriteLine($&quot;Tx2If: {readStatusResponse.HasFlag(ReadStatusResponse.Tx2If)}&quot;);
+</code></pre>
+<h3 id="transmit-a-message">Transmit a message</h3>
+<p>You can transmit a message like this:</p>
+<pre><code class="lang-csharp">Debug.WriteLine(&quot;Transmit Message&quot;);
+
+mcp25xxx.WriteByte(
+    new CanCtrl(CanCtrl.PinPrescaler.ClockDivideBy8,
+        false,
+        false,
+        false,
+        OperationMode.NormalOperation));
+
+byte[] data = new byte[] { 0b0000_0001, 0b0010_0011, 0b0100_0101, 0b0110_0111, 0b1000_1001 };
+
+mcp25xxx.Write(
+    Address.TxB0Sidh,
+    new byte[]
+    {
+        new TxBxSidh(0, 0b0000_1001).ToByte(), new TxBxSidl(0, 0b001, false, 0b00).ToByte(),
+        new TxBxEid8(0, 0b0000_0000).ToByte(), new TxBxEid0(0, 0b0000_0000).ToByte(),
+        new TxBxDlc(0, data.Length, false).ToByte()
+    });
+
+mcp25xxx.Write(Address.TxB0D0, data);
+
+// Send with TxB0 buffer.
+mcp25xxx.RequestToSend(true, false, false);
+cp25xxx.RequestToSend(false, false, true);
+</code></pre>
+<p><strong>Note</strong>: You will find detailed way of using this binding in the <a href="samples">sample file</a></p>
+<h2 id="binding-notes">Binding Notes</h2>
+<p>More details will be added in future PR once core CAN classes/interfaces are determined.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Mcp25xxx/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

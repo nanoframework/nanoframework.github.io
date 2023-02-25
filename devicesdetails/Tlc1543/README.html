@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TLC1543 - 10-bit ADC with 11 input channels | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="TLC1543 - 10-bit ADC with 11 input channels | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="tlc1543---10-bit-adc-with-11-input-channels">TLC1543 - 10-bit ADC with 11 input channels</h1>
+
+<p>High-speed 10-bit switched-capacitor successive-approximation A/D Converter with 14 channels (11 inputs and 3 self-test channels)</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>TLC1542/3 <a href="https://www.ti.com/lit/ds/symlink/tlc1543.pdf">Datasheet</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="simple-line-finding-algorithm-with-adc-usage">Simple Line finding algorithm with ADC usage</h3>
+<p>This sample shows how to calculate position of line under matrix of 5 IR sensors with the help of TLC1543 ADC. In this case it's AlphaBot2 Pi from WaveShare with ITR-20001 IR sensors.</p>
+<h3 id="initialization">Initialization</h3>
+<pre><code class="lang-csharp">SpiDevice spi = SpiDevice.Create(new SpiConnectionSettings(1, 5) { DataBitLength = Tlc1543.SpiDataBitLength });
+</code></pre>
+<h3 id="changing-charge-channel">Changing Charge Channel</h3>
+<pre><code class="lang-csharp">adc.ReadPreviousAndChargeChannel(channels[0]);
+</code></pre>
+<p>You can set ChargeChannel to one of the Self Test channels (if you really know what you're doing you can also set it to one of the normal channels - but remember that this may amplify noise going from one channel to the other) if you know exactly what range of values you're expecting on polled channels (less interference on channels with fast changing but weak signals). Default set for SelfTest512 as that's the middle of 10 bit range.</p>
+<h3 id="getting-data">Getting data</h3>
+<pre><code class="lang-csharp">int values = adc.ReadPreviousAndChargeChannel(channels[0]);
+</code></pre>
+<p>Simple way of reading values into just made list.</p>
+<h3 id="calculating-position">Calculating position</h3>
+<pre><code class="lang-csharp">for (int i = 0; i &lt; values.Count; i++)
+{
+    if (values[i] &lt; 300)
+    {
+        lineAverage += (i - 2);
+        onLine++;
+    }
+}
+</code></pre>
+<p>To find where under our matrix is line we need to check values given out from sensors depending on where they are pointing.</p>
+<ul>
+<li>Pointing at sky gives us values ranging from 0 to 50</li>
+<li>Keeping it close to white paper gives values bigger than 600</li>
+<li>Placing it pointed at black tape - taped on white paper(for contrast) gives values ranging from 150 to 250 on sensor exactly above line</li>
+</ul>
+<p>So to simplfy things we assume that when we run this program we won't be pointing our sensor matrix at the sky and we will keep it at a flat surface.</p>
+<p>Next thing is to calculate average from sensors for when there are more than one sensors seeing line.</p>
+<p>For example when first and second sensor sees line values will be</p>
+<ul>
+<li>on first loop <code>lineAverage = -2</code> and <code>onLine = 1</code>;</li>
+<li>on second loop <code>lineAverage = -3</code> and <code>onLine = 2</code>;</li>
+</ul>
+<p>And now with this data we can calculate linePosition</p>
+<pre><code class="lang-csharp">double linePosition = ((double)lineAverage / (double)onLine);
+</code></pre>
+<p><code>linePosition = -1.5</code></p>
+<p>and we now know that the line is somewhere between first and second sensor. By using <code>(i - 2)</code> in our loop we moved values that the third sensor now indicates middle of the matrix, values less than zero are left from the middle and values above are on the right side. If we would have seven sensor matrix we would move those values by 3. Nine sensors? Move it by 4 - simple as that.</p>
+<h2 id="binding-notes">Binding Notes</h2>
+<p>Only mode implemented is Fast Mode 1 (10 clocks and !ChipSelect high between conversion cycles).
+Respective timing diagram can be seen on figure 9 in datasheet.</p>
+<p>It is possible to change ADC charge channel.</p>
+<pre><code class="lang-csharp">adc.ReadPreviousAndChargeChannel(channels[0]);
+</code></pre>
+<p>Using EndOfConversion mode is not yet supported.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Tlc1543/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

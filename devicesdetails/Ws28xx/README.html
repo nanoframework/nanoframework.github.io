@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ws28xx LED drivers | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Ws28xx LED drivers | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ws28xx-led-drivers">Ws28xx LED drivers</h1>
+
+<p>This binding allows you to update the RGB LEDs on Ws28xx and based strips and matrices.</p>
+<p>To see how to use the binding in code, see the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Ws28xx/samples/Program.cs">sample</a>.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>WS2812B: <a href="https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf">Datasheet</a></li>
+<li>WS2815B: <a href="http://www.world-semi.com/DownLoadFile/138">Datasheet</a></li>
+<li>WS2808: <a href="https://datasheetspdf.com/pdf-file/806051/Worldsemi/WS2801/1">Datasheet</a></li>
+<li>SK6812: <a href="https://cdn-shop.adafruit.com/product-files/2757/p2757_SK6812RGBW_REV01.pdf">Datasheet</a></li>
+<li><a href="https://learn.adafruit.com/adafruit-neopixel-uberguide">Neo pixels guide</a></li>
+<li><a href="https://www.adafruit.com/product/1426">Neo pixels x8 stick</a></li>
+</ul>
+<h2 id="board">Board</h2>
+<h3 id="ws2812b">WS2812B</h3>
+<p><img src="../../devicesimages/Ws28xx/WS2812B.png" alt="image"></p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">using System;
+using System.Collections.Generic;
+using System.Device.Spi;
+using System.Drawing;
+using Iot.Device.Graphics;
+using Iot.Device.Ws28xx;
+
+// Configure the count of pixels
+const int Count = 8;
+Console.Clear();
+
+// Must specify pin functions on ESP32
+Configuration.SetPinFunction(23, DeviceFunction.SPI2_MOSI);
+Configuration.SetPinFunction(19, DeviceFunction.SPI2_MISO);
+Configuration.SetPinFunction(18, DeviceFunction.SPI2_CLOCK);
+Configuration.SetPinFunction(22, DeviceFunction.ADC1_CH10);
+
+// Using VSPI on bus 2 for ESP32 and pin 22 for chipselect
+SpiConnectionSettings settings = new(2, 22)
+{
+    ClockFrequency = 2_400_000,
+    Mode = SpiMode.Mode0,
+    DataBitLength = 8
+};
+using SpiDevice spi = SpiDevice.Create(settings);
+
+Ws28xx neo = new Ws2808(spi, count);
+//Ws28xx neo = new Ws2812b(spi, Count);
+
+while (true)
+{
+    Rainbow(neo, Count);
+    System.Threading.Thread.Sleep(100);
+}
+
+void Rainbow(Ws28xx neo, int count, int iterations = 1)
+{
+    BitmapImage img = neo.Image;
+    for (var i = 0; i &lt; 255 * iterations; i++)
+    {
+        for (var j = 0; j &lt; count; j++)
+        {
+            img.SetPixel(j, 0, Wheel((i + j) &amp; 255));
+        }
+
+        neo.Update();
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Ws28xx/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

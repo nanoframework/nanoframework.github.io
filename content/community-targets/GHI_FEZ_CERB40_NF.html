@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GHI FEZ CERBb40 NF | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="GHI FEZ CERBb40 NF | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ghi-fez-cerbb40-nf">GHI FEZ CERBb40 NF</h1>
+
+<p><img src="https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/GHI_FEZ_CERB40_NF/resources/cerb40.jpg?raw=true" alt="GHI FEZ CERB40"></p>
+<hr>
+<h2 id="board-introduction">Board introduction</h2>
+<p>The board here used is a GHI Fez Cerb40 based upon an STM32F405RGT6 supporting a 1MB Flash and up to 192KB RAM in a LQFP64 package. On this board the LSE is soldered in case you have a board without the LSE please make sure you have it configured correctly in both the mcuconf.h files for nanoBooter as well as nanoCLR.</p>
+<p>The available pins have been set as can be read in the board.h file and it is there where you can set the pin usage for your required use. Visiting the official site <a href="http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32-high-performance-mcus/stm32f4-series/stm32f405-415/stm32f405rg.html">here</a> and per datasheet looking at Table 9. Alternate function mapping you will find possible alternative uses of the various pins. In its initial release the following pin configuration and usage has been verified. Looking at the board from the above (MCU visible) and with the USB connector at the top we have pin 1 on the left hand side.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">PCB Pin</th>
+<th>MCU</th>
+<th>Usage</th>
+<th>Comment</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">01</td>
+<td>VCC</td>
+<td>3.3V</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">02</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">03</td>
+<td>PA8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">04</td>
+<td>PA13</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">05</td>
+<td>PA7</td>
+<td>SPI1 MISO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">06</td>
+<td>PA6</td>
+<td>SPI1 MOSI</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">07</td>
+<td>PC10</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">08</td>
+<td>PA14</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">09</td>
+<td>PC11</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td>PB4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">11</td>
+<td>PB9</td>
+<td>I2C1 SDA</td>
+<td>Confirmed and working</td>
+<td>2018-02-07</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td>PB3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">13</td>
+<td>PD2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">14</td>
+<td>PC12</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">15</td>
+<td>VBAT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">16</td>
+<td>PB8</td>
+<td>I2C1 SCL</td>
+<td>Confirmed and working</td>
+<td>2018-02-07</td>
+</tr>
+<tr>
+<td style="text-align: left;">17</td>
+<td>LODR</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">18</td>
+<td>PB7</td>
+<td>UART1 RX</td>
+<td>Confirmed and working</td>
+<td>2018-02-09</td>
+</tr>
+<tr>
+<td style="text-align: left;">19</td>
+<td>PB6</td>
+<td>UART1 TX</td>
+<td>Confirmed and working</td>
+<td>2018-02-09</td>
+</tr>
+<tr>
+<td style="text-align: left;">20</td>
+<td>PB5</td>
+<td>GPIO, PWM</td>
+<td>GPIO confirmed, PWM not done yet</td>
+<td>2018-02-07</td>
+</tr>
+<tr>
+<td style="text-align: left;">21</td>
+<td>Reset</td>
+<td></td>
+<td>Confirmed</td>
+<td>2018-02-07</td>
+</tr>
+<tr>
+<td style="text-align: left;">22</td>
+<td>PC0</td>
+<td>A0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">23</td>
+<td>PC1</td>
+<td>A1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">24</td>
+<td>PC2</td>
+<td>A2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">25</td>
+<td>PC3</td>
+<td>A3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">26</td>
+<td>PA0</td>
+<td>UART2 CTS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">27</td>
+<td>PA1</td>
+<td>UART2 RTS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">28</td>
+<td>PA2</td>
+<td>UART2 TX</td>
+<td>Confirmed and working</td>
+<td>2018-02-08</td>
+</tr>
+<tr>
+<td style="text-align: left;">29</td>
+<td>PA3</td>
+<td>UART2 RX</td>
+<td>Confirmed and working</td>
+<td>2018-02-09</td>
+</tr>
+<tr>
+<td style="text-align: left;">30</td>
+<td>PA4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">31</td>
+<td>PA5</td>
+<td>SPI1 SCK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">32</td>
+<td>PB10</td>
+<td>I2C2 SCL</td>
+<td>Confirmed and working</td>
+<td>2018-02-07</td>
+</tr>
+<tr>
+<td style="text-align: left;">33</td>
+<td>PB11</td>
+<td>I2C2 SDA</td>
+<td>Confirmed and working</td>
+<td>2018-02-07</td>
+</tr>
+<tr>
+<td style="text-align: left;">34</td>
+<td>PB14</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">35</td>
+<td>PB15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">36</td>
+<td>PC6</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">37</td>
+<td>PC7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">38</td>
+<td>PC8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">39</td>
+<td>PC9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;">40</td>
+<td>USB</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>For more information on the board specifics you can have a look at the <a href="https://docs.ghielectronics.com/hardware/breakout/fez-cerb40.html">GHI Electronics Cerb40 page</a></p>
+<p><strong>NOTE: this configuration was successfully tested in a GHI_FEZ_CERB40_NF board using the Serial over USB connection on USB port 1 that creates a virtual COM port.</strong></p>
+<h2 id="managed-helpers">Managed helpers</h2>
+<p>Checkout the <a href="https://github.com/nanoframework/nf-Community-Targets/tree/main/ChibiOS/GHI_FEZ_CERB40_NF/managed_helpers">C# managed helpers</a> available for this board.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/community-targets/GHI_FEZ_CERB40_NF.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

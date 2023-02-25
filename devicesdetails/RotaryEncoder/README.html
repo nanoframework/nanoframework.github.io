@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quadrature Rotary Encoder | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Quadrature Rotary Encoder | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="quadrature-rotary-encoder">Quadrature Rotary Encoder</h1>
+
+<p>A Rotary encoder is a device that detects angular position. One use of this is similar to a volume control on an FM radio where the user turns a shaft and the loudness of the broadcast is changed. Incremental rotary encoders do not provide information on their exact position but supply information about how much they have moved and in which direction.</p>
+<h2 id="board">Board</h2>
+<p><img src="../../devicesimages/RotaryEncoder/pec11r.png" alt="image of rotary encoder"></p>
+<p>Typically a quadrature rotary encoder will have two outputs A and B, perhaps called clock and data. For each part of a rotation then the A pin will provide a clock signal and the B pin will provide a data signal that is out of phase with the clock. The sign of the phase difference between the pins indicates the direction of rotation.</p>
+<p><img src="../../devicesimages/RotaryEncoder/encoder.png" alt="encoder"></p>
+<p>From above if we look at Pin B (data) at the time of a falling edge on Pin A (clk) then the if the value of pin P is 1 then the direction is clockwise and if it is 0 then the rotation is counter clockwise.</p>
+<h2 id="usage">Usage</h2>
+<p>This sample shows how to implement an FM radio tuner control using the <code>ScaledQuadradureEncoder</code> binding. It simply prints the tuner value to the console as the knob is turned.</p>
+<p><img src="../../devicesimages/RotaryEncoder/RotaryEncoder.Sample_bb.png" alt="rotary example"></p>
+<p>This binding implements scaled quadrature rotary encoder as <code>ScaledQuadratureEncoder</code>. The value is a double. You can for example set it up as a tuning dial for an FM radio with a range of 88.0 to 108.0 with a step of 0.1.</p>
+<p>The code below shows an example of using the encoder as an FM tuner control.</p>
+<pre><code class="lang-csharp">// create a RotaryEncoder that represents an FM Radio tuning dial with a range of 88 -&gt; 108 MHz
+ScaledQuadratureEncoder encoder = new ScaledQuadratureEncoder(pinA: 5, pinB: 6, PinEventTypes.Falling, pulsesPerRotation: 20, pulseIncrement: 0.1, rangeMin: 88.0, rangeMax: 108.0) { Value = 88 };
+// 2 milliseconds debonce time
+encoder.Debounce = TimeSpan.FromMilliseconds(2);
+// Register to Value change events
+encoder.ValueChanged += (o, e) =&gt;
+{
+    Debug.WriteLine($&quot;Tuned to {e.Value}MHz&quot;);
+};
+</code></pre>
+<p>This binding also features</p>
+<ul>
+<li>Debounce functionality on the clock signal.</li>
+<li>Acceleration so that rotating the encoder moves it further the faster the rotation.</li>
+<li>Events when the value changes.</li>
+</ul>
+<p>Also available is a <code>QuadratureRotaryEncoder</code> binding which has properties that represent the rotation of the encoder and the raw pulses.</p>
+<h2 id="limitations">Limitations</h2>
+<p>This binding is suitable for <strong>manual</strong> and <strong>small rotations</strong> where it is not a big deal if one or few rotations may be lost.</p>
+<p>This binding <strong>is not</strong> suitable for motor control with a very high rate and very precise number of counts.</p>
+<p>The precision really depends of the hardware you are using and it is not possible to give specific range of usage. You may have to try to understand if this is working for you or not.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/RotaryEncoder/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

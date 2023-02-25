@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Rules for creating Markdown in the repository | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Rules for creating Markdown in the repository | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="rules-for-creating-markdown-in-the-repository">Rules for creating Markdown in the repository</h1>
+
+<p>This document explains a couple of rules to create a proper Markdown file in the documentation repository.</p>
+<p>Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world’s most popular markup languages.</p>
+<p>Markdown files are text based. If you want to learn about possibilities (headers, lists, tables, code and such) this cheat sheet is always helpful: <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet · adam-p/markdown-here Wiki · GitHub</a>. There are a number of them.</p>
+<p>Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different. That said, as explained in the <a href="#preview-in-vs-code">section below</a>, you can have a nice preview when you open the repository with VS Code.</p>
+<p>You can find more information, a full documentation <a href="https://www.markdownguide.org/">here</a>.</p>
+<h2 id="images-and-attachments">Images and attachments</h2>
+<p><strong>All</strong> images should be stored in <code>/images</code> and its sub directories.</p>
+<p>Reason: we are using <a href="https://dotnet.github.io/docfx/">DocFX</a> to generate a static website. We only move attachments and pictures from <code>/images</code>. The rest is ignored.</p>
+<h2 id="naming-conventions">Naming conventions</h2>
+<p>Please to follow those simple rules:</p>
+<ul>
+<li>Try to only use lowercase in your file names</li>
+<li>Don't use spaces, use <code>-</code> or <code>_</code></li>
+<li>Use only ASCII 7 characters from the alphabet and numerical</li>
+</ul>
+<h2 id="links">Links</h2>
+<p>It's ok to use external links.</p>
+<p>For internal links on documentation, please use relative link to the file. For example if you are in <code>/content/esp32</code> and want to reference the document <code>build-esp32.md</code> which is located in <code>/content/building</code>, the link will be <code>../building/build-esp32.md</code>.</p>
+<h2 id="practical-tips--tricks">Practical Tips &amp; Tricks</h2>
+<h3 id="preview-in-vs-code">Preview in VS Code</h3>
+<p>When editing markdown in <a href="https://code.visualstudio.com">VS Code</a>, there is a preview button on the top right that will open a live preview window on the left. So you can type and see the result at the same time. This is usually a great way to avoid basic mistakes, making sure your images are showing up properly for example.</p>
+<p><img src="../../images/VSCodeMdPreview.gif" alt="VS Code Preview"></p>
+<h3 id="typora-as-an-alternative-tool">Typora as an alternative tool</h3>
+<p><a href="https://typora.io/">Typora</a> is an online editor to help you generate proper Markdown. It can help you creating your first Markdown, get use to it. It also has great features like the ability to create table from a copy/paste of a web page. Be sensitive of the fact this is an online tool and of the confidentiality of the information you may put into this tool.</p>
+<h3 id="run-markdownlint-before-pushing">Run markdownlint before pushing</h3>
+<p>To make sure before you push, run the markdownlint tool on your md-file and solve all messages. This tool will be run in the pipeline to validate your Markdown files. Check more details <a href="#markdownlint">below</a>.</p>
+<p>If you're using VS Code you can install an extension with a markdown linter such as <a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">markdownlint</a>. With it, you'll immediately get visual feedback on any formatting issues.</p>
+<blockquote>
+<p><strong>Important</strong>: There won't be any merge possible if the Markdown file is <strong>not</strong> properly formed. So it is very important to run the linter before you do a PR and fix all the issues.</p>
+</blockquote>
+<h3 id="use-a-spell-checker">Use a spell checker</h3>
+<p>You have plenty of Spell checker extensions, they will reduce the numbers of mistakes. We can recommend you in VS Code, <code>Spell Right</code> or <code>Code Spell Checker</code> extensions.</p>
+<h3 id="patterns-for-enumerations">Patterns for enumerations</h3>
+<p>It can be a bit frustrating when working on markdown and when you try to work with enumerations. One of the key point to keep in mind is that enumerations in markdown and in generals are made to be grouped. Once you need a lot of text or code blocks in between, enumerations are not really the best. So here are couple of patterns.</p>
+<pre><code class="lang-markdown"># This is the one and only main title
+
+## You can have as many title 2 as you want
+
+1. My enumeration starts with 1
+  - I have sub bullets which can be enums as well
+  - And another one
+1. This one will have number 2
+1. And you can guess, this one is 3
+
+1. Now, this one is 1 again as there is a career return between both enums
+1. And 2 again
+
+</code></pre>
+<p>If you are trying to get a large block of text with paragraphs and block of code, use the <code>Step #</code> pattern like this:</p>
+<pre><code class="lang-markdown">
+- Step 1: do something
+
+Here you may have a lot of blabla, some text code block, images, etc.
+
+- Step 2: do the next step
+
+Same here, a lot of things here.
+
+- Step 3: you can continue this pattern
+
+</code></pre>
+<h3 id="adding-an-emoji-into-markdown-file">Adding an Emoji into markdown file</h3>
+<p>It can be a great way to bring essential content to the point if you add some Emojis into markdown content. To add them use the next shortcuts depends on your operational system:</p>
+<ul>
+<li>on Mac: CTRL + CMD + Space</li>
+<li>on Windows: Win + ; (semi-colon) or Win + . (period)</li>
+</ul>
+<p><img src="../../images/markdown-icons.png" alt="Emoji"></p>
+<h2 id="moving-files">Moving files</h2>
+<p>In general, try <strong>not</strong> to move the files. There are a lot of links in files pointing to each others.</p>
+<p>In case you want to change files, here is a process to catch broken link:</p>
+<ul>
+<li>Once you'll do a PR, the the <a href="https://github.com/nanoframework/nanoframework.github.io/blob/538b9fee8631ec30a11805da24c3bc23ef030e4f/azure-pipelines.yml#L236">DockLinkChecker</a> will run part of the build pipeline.</li>
+<li>Open the DocFX task result and check the logs, it will contain broken links</li>
+<li>Correct the broken files</li>
+<li>Push back the changes</li>
+<li>If you still have some, they'll still show up!</li>
+</ul>
+<h2 id="no-need-to-add-any-toc">No need to add any TOC</h2>
+<p>The documentation is built automatically using DocFX. DocFX companion tools will take care of creating the TOC for you. So please do not add it. <a href="https://github.com/nanoframework/nanoframework.github.io/blob/538b9fee8631ec30a11805da24c3bc23ef030e4f/azure-pipelines.yml#L228">TheToDocFxCreation</a> tool will create it for you.</p>
+<h3 id="tables">Tables</h3>
+<p>Please make sure you respect as well the rules for tables. You need to have a <code>|</code> at the beginning and end of each column. The second line should contains at least 3 dashes, so <code>---</code> per column. You can have more and you can use the <code>:</code> pattern to align the column as you'd like. The <a href="https://github.com/nanoframework/nanoframework.github.io/blob/538b9fee8631ec30a11805da24c3bc23ef030e4f/azure-pipelines.yml#L236">DockLinkChecker</a> will check that your tables are properly formed as well during a PR.</p>
+<h2 id="markdownlint">Markdownlint</h2>
+<p>To help developers and anyone who needs to create Markdown, we propose to use <a href="https://github.com/DavidAnson/markdownlint">Markedownlint</a> which is easy and the most used linter for Markdown documents. <a href="https://github.com/igorshubovych/markdownlint-cli">Markdownlint-cli</a> is an easy to use cli based out of Markdownlint.</p>
+<h3 id="rules">Rules</h3>
+<p>A comprehensive list of rules are available <a href="https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md">here</a>. We will use a quite strict approach except for the line length rule MD013 which we won't apply and html tags.</p>
+<p>Please avoid using html tags at all. As we do integrate few external images sources which are hard to align properly, we are not applying this rule. But we will be vigilant in PR to make sure there is none checked in which is not critical.</p>
+<p>A configuration file is present in the root directory of the project for your convenience. The file is <code>.markdownlint.json</code> and contain:</p>
+<pre><code class="lang-json">{
+    &quot;MD013&quot;: false,
+    &quot;MD033&quot;: false
+}
+</code></pre>
+<p>Then simply run the following command from the root folder:</p>
+<pre><code class="lang-bash">markdownlint -f path_to_your_file.md
+</code></pre>
+<p>Note that the -f parameter will fix all basics errors and save you some time.</p>
+<h3 id="using-vs-code-extensions">Using VS Code extensions</h3>
+<p>There are couple of VS Code extensions to help you in this task as well. We can recommend <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a> which will catch some of them as well.</p>
+<h2 id="azure-devops-pipeline">Azure DevOps pipeline</h2>
+<p>Markdownlinter is also part of the Azure DevOps code quality pipeline which will automatically run upon PRs. If there is any issue, it will fail and gives you all the issues. You will have to fix them for a merge. See the tips and tricks as well!</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/contributing/markdown-creation.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

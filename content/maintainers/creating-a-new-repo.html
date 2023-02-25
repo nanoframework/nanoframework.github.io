@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Procedure for creating a new repository | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Procedure for creating a new repository | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="procedure-for-creating-a-new-repository">Procedure for creating a new repository</h1>
+
+<h2 id="about-this-document">About this document</h2>
+<p>This document describes the recipe to create a new GitHub repository. It's meant for class libraries.</p>
+<h2 id="introduction">Introduction</h2>
+<p>The strict following of this procedure is required in order to maintain consistency and coherence throughout the repositories, along with taking advantage of the build tools, testing and publishing automation.
+If in doubt please ask one of the senior team members.</p>
+<h2 id="creating-the-repository-in-github">Creating the repository in GitHub</h2>
+<ol>
+<li>This is basically clicking the create new repository button in GitHub.
+Note: The class libraries repositories are usually named with the prefix &quot;<em>nanoFramework</em>.<em>namespace</em>&quot; most of the remaining repositories are &quot;<strong>nf</strong>-<em>some-relevant-name-here</em>&quot;.</li>
+<li>As we are following the <a href="http://nvie.com/posts/a-successful-git-branching-model/">GitFlow branching model</a> two branches must be created: <code>main</code> and <code>develop</code>.</li>
+<li>Make sure to create an empty readme.md to make it easier to fork and clone the new repo.</li>
+</ol>
+<h2 id="adjust-the-repository-settings-part-1">Adjust the repository settings (part 1)</h2>
+<ol>
+<li>Go to the repository <strong>Settings</strong> and move into <strong>Options</strong>.</li>
+<li>In the**_Features** section disable Wikis, Issues and Projects.</li>
+<li>On the <strong>Merge Button</strong> section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.</li>
+<li>Move into <strong>Branches</strong> and set <code>develop</code> as the default branch.</li>
+</ol>
+<h2 id="setup-sonarcloud-project">Setup Sonarcloud project</h2>
+<p>For class libraries projects a Sonarcloud project has to be setup in order to run and process the project analysis.</p>
+<p>You have to have installed on your machine:</p>
+<ul>
+<li><a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/">SonarScanner for .NET (.NET Framework 4.6+))</a></li>
+<li>Java SDK. <a href="https://code.visualstudio.com/docs/languages/java">Recommended</a></li>
+</ul>
+<p>After installing the above, it's required to run locally the analysis tool for the very first analysis.</p>
+<ol>
+<li>Open a VS developer command prompt at the project folder.</li>
+<li>Run the preparation step with</li>
+</ol>
+<pre><code class="lang-console">PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe begin /k:&quot;nanoframework.WHATEVER.CLASS.NAME&quot; /o:nanoframework /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=TOKEN_FOR_SONARCLOUD
+</code></pre>
+<ol>
+<li>Build the solution</li>
+</ol>
+<pre><code class="lang-console">msbuild  nanoFramework.WHATEVER.CLASS.NAME.sln /t:Rebuild /p:platform=&quot;Any CPU&quot; /p:configuration=&quot;Release&quot; 
+</code></pre>
+<ol>
+<li>Run the analysis tool and upload files</li>
+</ol>
+<pre><code class="lang-console">PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TOKEN_FOR_SONARCLOUD
+</code></pre>
+<h2 id="setup-azure-devops">Setup Azure DevOps</h2>
+<ol>
+<li>Open a new browser window on which you are signed in to GitHub as <code>nfbot</code>.</li>
+<li>On the repo Settings, navigate to &quot;Integrations &amp; Services&quot;.</li>
+<li>Click &quot;Configure&quot; button for Azure Pipelines.</li>
+<li>The next step will take you to the <a href="https://dev.azure.com/nanoframework">Azure DevOps</a> website.</li>
+<li>Click on &quot;Create New Project&quot;.</li>
+<li>Name the project following the GitHub repo name. Select <strong>Public</strong> for visibility option.</li>
+<li>After the project is created a list with GitHub repositories shows. Select the repository that has been just created.</li>
+<li>The next step asks for the Pipeline configuration. Choose &quot;Starter Pipeline&quot; to get the build running and allow configuring the pipeline. The next steps will show the minimal yaml.</li>
+<li>Click on &quot;Variables&quot; and add the following ones.</li>
+<li>Add <code>DiscordWebhook</code> with a value taken from the Azure webhook of the &quot;build-monitor&quot; channel in our Discord server. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the appropriate option.</li>
+<li>Add another variable <code>GitHubToken</code> with a value taken from the nfbot personal tokens in GitHub. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the padlock icon.</li>
+<li>Add another variable <code>NbgvParameters</code>, leave it empty and check &quot;Let users override this value when running this pipeline&quot;.</li>
+<li>Add another variable <code>StartReleaseCandidate</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
+<li>Add another variable <code>UPDATE_DEPENDENTS</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
+<li>Add two more secret variables <code>SignClientUser</code> and  <code>SignClientSecret</code> and fill in with the credentials for the .NET Foundation signing service. <strong>Make sure</strong> that the variables are set to <code>secret</code> by clicking on the appropriate option.</li>
+<li>Click the &quot;Save&quot; button on the Variables pop-up (it will take you back to the pipeline yaml).</li>
+<li>Cline the &quot;Save&quot; button at the top right and go through the commit message.</li>
+<li>Navigate back to the Pipeline, select it and click &quot;Edit&quot; (at the top right). Then click on the 3 vertical dots (again at the top right) and then &quot;Triggers&quot;.</li>
+<li>Make sure that the option to override YAML is <strong>not</strong> checked for &quot;Continuous integration&quot;. Uncheck the same option for &quot;Pull request validation&quot; and check the &quot;Make secrets available to builds of forks&quot;.</li>
+<li>Click &quot;Save&quot; in the toolbar (NOT &quot;Save &amp; Queue&quot;).</li>
+<li>Go to the <code>General Project</code> project and navigate to Project Settings - Service Connections.</li>
+<li>Open each of the service connections there, click on the 3 vertical dots (again at the top right) and then &quot;Security&quot;. Scroll down to &quot;Project permissions&quot;, click on the + icon at the right hand side and select the newlly created project. This will add a permission to use this shared service connection.</li>
+<li>Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on &quot;Status badge&quot;. Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.</li>
+</ol>
+<h2 id="prepare-the-initial-commit">Prepare the initial commit</h2>
+<ol>
+<li>Fork the repo into your preferred GutHub account and clone it locally.</li>
+<li>The best option is to copy/paste from an existing repo, so you're more efficient doing just that. Mind the name changes tough! Grab the following files:
+<ul>
+<li>.github_changelog_generator</li>
+<li>.gitignore <strong>(no changes required)</strong></li>
+<li>azure-pipelines.yml</li>
+<li>LICENSE.md <strong>(no changes required)</strong></li>
+<li>README.md</li>
+<li>template.vssettings <strong>(no changes required)</strong></li>
+<li>version.json</li>
+<li>NuGet.Config</li>
+<li>assets\readme.txt</li>
+<li>assets\nf-logo.png</li>
+<li>config\filelist.txt</li>
+<li>config\SignClient.json</li>
+</ul>
+</li>
+<li>Open &quot;azure-pipelines.yml&quot;
+<ol>
+<li>Rename the <code>nugetPackageName</code> variable with the new name (mind the nanoframework prefix).</li>
+<li>Rename the <code>repoName</code> variable with the repo name.</li>
+<li>Rename the <code>sourceFileName</code> parameter with the equivalent name. It's probably wise to wait for the first successful build of the class library and then get back here with the correct name for the assembly declaration source file.</li>
+<li>Rename the <code>sonarCloudProject</code> variable with the repo name.</li>
+<li>If there are class libraries that depend on this one, copy the &quot;update dependencies&quot; job from CorLib &quot;azure-pipelines.yml&quot;. If there aren't just skip this step.</li>
+</ol>
+</li>
+<li>Open &quot;.github_changelog_generator&quot; and set the <strong>project</strong> to the repo name.</li>
+<li>Open &quot;version.json&quot; and set the <strong>version</strong> to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.</li>
+<li>Open &quot;README.md&quot;
+<ol>
+<li>Rename the class library name occurrences with the new name.</li>
+<li>Rename the package name for the NuGet badges.</li>
+<li>Replace the build status badges with the ones that you've copied from Azure DevOps. They'll be the same until there is a second pipeline for the master branch.</li>
+</ol>
+</li>
+<li>Create a folder at the root level with the name of the new class library.</li>
+<li>Add to the VS Solution the class library project. Again it's better to follow an existing one and ask in doubt.
+<ol>
+<li>Make sure you are following the naming pattern.</li>
+<li>Make sure you copy the <code>key.snk</code> from the initial repo (or from the CorLib repo). <strong>DO NOT</strong> create a new one.</li>
+</ol>
+</li>
+<li>Rename, edit and adjust as required the &quot;nuspec&quot; files to create the NuGet packages.</li>
+<li>Edit the &quot;readme.txt&quot; inside the <code>assets</code> folder and rename the repository name.</li>
+<li>Edit the &quot;files.txt&quot; inside the <code>config</code> folder and rename the file pattern.</li>
+<li>Still on&quot;azure-pipelines.yml&quot; <strong>and only</strong> if there are class libraries that depend on this one.
+<ol>
+<li>Adjust the <code>repositoriesToUpdate</code> list with the repo names of the class libraries that depend on this new one.</li>
+</ol>
+</li>
+</ol>
+<h2 id="adjust-the-repository-settings-part-2">Adjust the repository settings (part 2)</h2>
+<ol>
+<li>Go to the repository settings in GitHub and move into <strong>Branches</strong>.</li>
+<li>Go to the rule for &quot;develop&quot; branch and change the following:
+<ul>
+<li>Enable &quot;Require pull request reviews before merging&quot;</li>
+<li>Enable &quot;Require status checks to pass before merging&quot; with the options:
+<ul>
+<li>&quot;Require branches to be up to date before merging&quot;</li>
+<li>&quot;Status checks: nanoframework.<strong>azure-devops-project-name</strong>&quot;</li>
+<li>&quot;Status checks: license/cla&quot; (for main branch)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="update-the-dependency-upwards">Update the dependency upwards</h2>
+<p>As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> file there and add this new repo to the <code>repositoriesToUpdate</code> list.
+Now, if it depends on others, you have to figure out which one of those is <strong>at the end</strong> of the dependency chain and add this new repo to <strong>that</strong> <code>azure-pipelines.yml</code> file. For example, <code>System.Device.Gpio</code> depends on <code>CoreLibrary</code> and <code>Runtime.Events</code> (which, in turn, depends on <code>CoreLibrary</code>). Updating it's dependencies has to the triggered at <code>Runtime.Events</code> not on <code>CoreLibrary</code> because of the chained dependency.</p>
+<h2 id="add-the-class-library-to-the-documentation-project">Add the class library to the documentation project</h2>
+<p>If this class library has documentation that has to be published as part of nanoFramework documentation (which is most likely) it needs to be referenced in the documentation project.</p>
+<ol>
+<li>Edit the documentation repo <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> and add entries for this new repo at steps: <code>clone</code>, <code>restore</code> and <code>build</code>. Just follow one of the others already there.</li>
+<li>Edit the class library documentation <a href="../architecture/class-libraries.html">document</a> and add an entry for the new class library in the appropriate table, following the pattern and format being used there.</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/maintainers/creating-a-new-repo.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

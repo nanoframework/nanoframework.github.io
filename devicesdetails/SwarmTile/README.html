@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Swarm Tile | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Swarm Tile | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="swarm-tile">Swarm Tile</h1>
+
+<p>This library allows using all the features of the satellite module from <a href="https://swarm.space/">Swarm</a>.</p>
+<p><img src="../../devicesimages/SwarmTile/tile-trans.-600x278.jpg" alt="Swarm Tile modem"></p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>Swarm Tile <a href="https://swarm.space/wp-content/uploads/2020/10/Swarm-Tile-Spec-Sheet.pdf">datasheet</a></li>
+<li>Swarm Tile Product Manual <a href="https://swarm.space/wp-content/uploads/2021/11/Swarm-Tile-Product-Manual.pdf">datasheet</a></li>
+<li>Swarm Evaluation Kit Guide <a href="https://swarm.space/wp-content/uploads/2021/09/Swarm-Eval-Kit-Quickstart-Guide.pdf">datasheet</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="hardware-required">Hardware Required</h3>
+<ul>
+<li>Swarm Evaluation Kit</li>
+</ul>
+<p><img src="../../devicesimages/SwarmTile/swarm-eval-kit-01.png" alt="Swarm Eval Kit"></p>
+<p>The Swarm Evaluation Kit contains a <a href="https://feathers2.io/">Feather S2</a> module inside. The code described here (and in the sample application) is based on this hardware. If you're using the library with another nanoFramework module and/or connected to your Swarm Tile you may have to adjust the COM port where it's connected.</p>
+<p>The Feather S2 module is connected to Visual Studio using an USB cable like this.
+<img src="../../devicesimages/SwarmTile/eval-kit-usb.jpg" alt="Feather USB connection"></p>
+<p>For a smoother experience it's recommended that you follow the instructions on Swarm Evaluation Kit guide on how to properly setup the Kit.</p>
+<h3 id="setup-the-device-in-a-c-application">Setup the device in a C# application</h3>
+<p>You just need to instantiate the <code>SwarmTile</code> object and pass the COM port where it's connected to.
+On the code snippet bellow that's what's happening along with a event being awaited for the device to become ready.</p>
+<pre><code class="lang-csharp">// The COM port where the Tile is connected to
+// Using COM1 for the Swarm Evaluation Kit
+var swarmTile = new SwarmTile(&quot;COM1&quot;);
+
+// wait 5 seconds for the Tile to become operational
+if (!swarmTile.DeviceReady.WaitOne(5_000, false))
+{
+    /////////////////////////
+    // Tile is not responsive
+    /////////////////////////
+
+    Debug.WriteLine(&quot;****************************************************************&quot;);
+    Debug.WriteLine(&quot;*** TILE IS NOT RESPONSIVE, POSSIBLY POWERED OFF OR SLEEPING ***&quot;);
+    Debug.WriteLine(&quot;****************************************************************&quot;);
+}
+else
+{
+    // output device IDs
+    Debug.WriteLine($&quot;DeviceID: {swarmTile.DeviceID}&quot;);
+    Debug.WriteLine($&quot;DeviceName: {swarmTile.DeviceName}&quot;);
+}
+</code></pre>
+<h3 id="sending-a-message">Sending a message</h3>
+<p>Composing and queuing up a message for transmission requires only a few lines  of code.</p>
+<pre><code class="lang-csharp">// transmit a message to the Swarm network
+MessageToTransmit message = new MessageToTransmit(&quot;Hello from .NET nanoFramework!&quot;);
+
+// send message
+string msgId;
+
+if (swarmTile.TryToSendMessage(message, out msgId))
+{
+    Debug.WriteLine($&quot;Message {msgId} waiting to be transmitted!&quot;);
+}
+else
+{
+    Debug.WriteLine($&quot;Failed to send message. Error: {swarmTile.LastErrorMessage}.&quot;);
+}
+</code></pre>
+<h3 id="handling-events">Handling events</h3>
+<p>The library offers several events to allow using it in a &quot;reactive&quot; fashion. With those one doesn't have to worry about asynchronous events or keep pooling for updates or state changes.</p>
+<p>To get notified on a message event (transmitted, expired or received) just add the handler, like this:</p>
+<pre><code class="lang-csharp">// setup handler for message events
+swarmTile.MessageEvent += SwarmTile_MessageReceived;
+</code></pre>
+<p>And add code to process the event.</p>
+<pre><code class="lang-csharp">private static void SwarmTile_MessageEvent(MessageEvent messageEvent, string messageId)
+{
+    switch(messageEvent)
+    {
+        case MessageEvent.Expired:
+            Debug.WriteLine($&quot;Message {messageId} expired without being transmitted.&quot;);
+            break;
+
+        case MessageEvent.Sent:
+            Debug.WriteLine($&quot;Message {messageId} has been successfully transmitted.&quot;);
+            break;
+
+        case MessageEvent.Received:
+            Debug.WriteLine($&quot;Just received message {messageId}.&quot;);
+            break;
+
+    }
+}
+</code></pre>
+<p>There are other events available, like power state change, date and time updated, background noise reading, geospatial information and tile status.</p>
+<h3 id="controlling-power-mode">Controlling power mode</h3>
+<p>The Swarm Tile allows controlling the power state of the device to better manage power usage.</p>
+<p>To completely power off the device, call this <code>swarmTile.PowerOff()</code>.</p>
+<p>To have the Tile go into sleep for 60 minutes and wake-up again: <code>swarmTile.SendToSleep(60 * 60)</code>.
+Upon wake-up a <code>PowerStateChanged</code> event is raised.</p>
+<h3 id="managing-messages">Managing messages</h3>
+<p>To manage messages the Swarm Tile has a local database with two tables: one for messages waiting to be transmitted and another for received messages.
+Those tables can be queried, read from and items deleted. The <code>SwarmTile</code> expose those as two properties, respectively: <code>MessagesToTransmit</code> and <code>MessagesReceived</code>.</p>
+<p>Available operations to <code>MessagesToTransmit</code> table:</p>
+<ul>
+<li>List all messages: <code>GetAllMessages()</code>.</li>
+<li>List a specific message: <code>GetMessage(id)</code>.</li>
+<li>Delete all messages: <code>DeleteAllMessages()</code>.</li>
+<li>Delete a specific message: <code>DeleteMessage(id)</code>.</li>
+<li>Number of messages in the table: <code>Count</code> property.</li>
+</ul>
+<p>Available operations to <code>MessagesReceived</code> table:</p>
+<ul>
+<li>List all messages: <code>GetAllMessages()</code>.</li>
+<li>List a specific message: <code>GetMessage(id)</code>.</li>
+<li>Read a specific message: <code>ReadMessage(id)</code>.</li>
+<li>Read the newest received message: <code>ReadNewestMessage()</code>.</li>
+<li>Read the oldest message received: <code>ReadOldestMessage()</code>.</li>
+<li>Mark a message as read: <code>MarkMessageRead(id)</code>.</li>
+<li>Mark all messages as read: <code>MarkAllMessagesRead()</code>.</li>
+<li>Delete all messages: <code>DeleteAllMessages()</code>.</li>
+<li>Delete all messages that have been read: <code>DeleteAllReadMessages()</code>.</li>
+<li>Delete a specific message: <code>DeleteMessage(id)</code>.</li>
+<li>Number of messages in the table: <code>Count</code> property.</li>
+<li>Number of unread messages in the table: <code>UnreadCount</code> property.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/SwarmTile/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
