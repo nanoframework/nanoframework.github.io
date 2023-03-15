@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../x-cross/toc.html">
     
     <meta property="docfx:rel" content="../../">
     
@@ -65,28 +65,42 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="net-nanoframework-architecture">.NET <strong>nanoFramework</strong> Architecture</h1>
 
+<p><a href="simplifications-and-trade-offs.html">Simplifications and trade-offs</a> is an important read to start with. As in micro controller unit the resources are limited, we had to make trade off to still get the best of the .NET and C# experience but with few constraints.</p>
+<p>Native development:</p>
 <ul>
-<li><a href="simplifications-and-trade-offs.html">Simplifications and trade-offs</a></li>
 <li><a href="nanoclr-stub-args.html">Generating stubs for a native project, NANOCLR macros, Arguments and return types</a></li>
 <li><a href="class-libraries.html">Class Libraries</a></li>
 <li><a href="date-and-time.html">Date and Time</a></li>
-<li><a href="floating-point-calculations.html">Floating point calculations</a></li>
-<li><a href="deployment.html">Application deployment</a></li>
-<li><a href="thread-execution.html">Thread execution</a></li>
 <li><a href="native-interrupt-handlers.html">Native interrupt handlers</a></li>
 <li><a href="wire-protocol.html">Wire Protocol</a></li>
-<li><a href="pe-file/index.html">PE File format</a></li>
+<li><a href="pe-file.html">PE File format</a> and more details <a href="pe-file/index.html">here</a></li>
 <li><a href="guide-version-checksums.html">Package and assembly versions and checksums</a></li>
+<li><a href="string-format-examples.html">String.Format for numerics examples</a></li>
 </ul>
 <p>As a summary, we can represent the nanoFramework architecture like this:</p>
 <p><img src="../../images/architecture.png" alt="architecture"></p>
-<p>nanoFramework is build on an Hardware Abstraction Layer (HAL). The HAL allow to access the hardware in a consistant and standard way. This allow to have a set of functions that are exposed the same way to the Platform Abstraction Layer (PAL) and specific drivers.</p>
+<p>nanoFramework is build on an Hardware Abstraction Layer (HAL). The HAL allow to access the hardware in a consistent and standard way. This allow to have a set of functions that are exposed the same way to the Platform Abstraction Layer (PAL) and specific drivers.</p>
 <p>The CLR is built on the PAL and offers multiple libraries. The one which is always used is mscorlib (System and few other namespaces). The modularity of nanoFramework allows to add as many namespaces, classes as you want. They'll all be linked to the CLR.</p>
+<p>Other architecture elements:</p>
+<ul>
+<li><a href="unit-test.html">Unit Test for nanoFramework architecture</a></li>
+<li><a href="floating-point-calculations.html">Floating point calculations</a></li>
+<li><a href="deployment.html">Application deployment</a></li>
+<li><a href="thread-execution.html">Thread execution</a></li>
+<li><a href="HAL.html">HAL</a></li>
+</ul>
 </article>
           </div>
           
