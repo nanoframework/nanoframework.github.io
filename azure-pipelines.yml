@@ -577,7 +577,7 @@ steps:
     
     cd origin_site > $null
 
-    $auth = "basic $([System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("nfbot:$(GitHubToken)"))))"
+    $auth = "basic $([System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("nfbot:$(GitHubToken)")))"
 
     git add . -A > $null
     git commit -m "Update documentation from PR" -q > $null
