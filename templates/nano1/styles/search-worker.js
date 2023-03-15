@@ -1,12 +1,12 @@
 (function () {
-  const lunr = require('@default/lunr');
+  importScripts('lunr.min.js');
 
   var lunrIndex;
 
   var stopWords = null;
   var searchData = {};
 
-  lunr.tokenizer.separator = /[\s\-\.\(\)]+/;
+  lunr.tokenizer.seperator = /[\s\-\.]+/;
 
   var stopWordsRequest = new XMLHttpRequest();
   stopWordsRequest.open('GET', '../search-stopwords.json');

@@ -1,16 +1,19 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
 var common = require('./common.js');
 var classCategory = 'class';
 var namespaceCategory = 'ns';
 
-exports.transform = function (model) {
+exports.transform = function (model)  {
+
+  if (!model) return null;
+
+  langs = model.langs;
   handleItem(model, model._gitContribute, model._gitUrlPattern);
   if (model.children) {
-    normalizeChildren(model.children).forEach(function (item) {
+    model.children.forEach(function (item) {
       handleItem(item, model._gitContribute, model._gitUrlPattern);
     });
-  };
+  }
 
   if (model.type) {
     switch (model.type.toLowerCase()) {
@@ -22,12 +25,8 @@ exports.transform = function (model) {
       case 'interface':
       case 'struct':
       case 'delegate':
-        model.isClass = true;
-        if (model.children) groupChildren(model, classCategory);
-        model[getTypePropertyName(model.type)] = true;
-        break;
       case 'enum':
-        model.isEnum = true;
+        model.isClass = true;
         if (model.children) groupChildren(model, classCategory);
         model[getTypePropertyName(model.type)] = true;
         break;
@@ -35,9 +34,8 @@ exports.transform = function (model) {
         break;
     }
   }
-  model._disableToc = model._disableToc || !model._tocPath || (model._navPath === model._tocPath);
 
-  return { item: model };
+  return model;
 }
 
 exports.getBookmarks = function (model, ignoreChildren)  {
@@ -47,7 +45,7 @@ exports.getBookmarks = function (model, ignoreChildren)  {
 
   if (typeof ignoreChildren == 'undefined' || ignoreChildren === false) {
     if (model.children) {
-      normalizeChildren(model.children).forEach(function (item) {
+      model.children.forEach(function (item) {
         bookmarks[item.uid] = common.getHtmlId(item.uid);
         if (item.overload && item.overload.uid) {
           bookmarks[item.overload.uid] = common.getHtmlId(item.overload.uid);
@@ -61,109 +59,18 @@ exports.getBookmarks = function (model, ignoreChildren)  {
   return bookmarks;
 }
 
-function handleItem(vm, gitContribute, gitUrlPattern) {
-  // get contribution information
-  vm.docurl = common.getImproveTheDocHref(vm, gitContribute, gitUrlPattern);
-  vm.sourceurl = common.getViewSourceHref(vm, null, gitUrlPattern);
+exports.groupChildren = groupChildren;
+exports.getTypePropertyName = getTypePropertyName;
+exports.getCategory = getCategory;
 
-  // set to null incase mustache looks up
-  vm.summary = vm.summary || null;
-  vm.remarks = vm.remarks || null;
-  vm.conceptual = vm.conceptual || null;
-  vm.syntax = vm.syntax || null;
-  vm.implements = vm.implements || null;
-  vm.example = vm.example || null;
-  common.processSeeAlso(vm);
-
-  // id is used as default template's bookmark
-  vm.id = common.getHtmlId(vm.uid);
-  if (vm.overload && vm.overload.uid) {
-    vm.overload.id = common.getHtmlId(vm.overload.uid);
-  }
-
-  // concatenate multiple types with `|`
-  if (vm.syntax) {
-    var syntax = vm.syntax;
-    if (syntax.parameters) {
-      syntax.parameters = syntax.parameters.map(function (p) {
-        return joinType(p);
-      })
-      syntax.parameters = groupParameters(syntax.parameters);
-    }
-    if (syntax.return) {
-      syntax.return = joinType(syntax.return);
-    }
-  }
-}
-
-function joinType(parameter) {
-  // change type in syntax from array to string
-  var joinTypeProperty = function (type, key) {
-    if (!type || !type[0] || !type[0][key]) return null;
-    var value = type.map(function (t) {
-      return t[key][0].value;
-    }).join(' | ');
-    return [{
-      lang: type[0][key][0].lang,
-      value: value
-    }];
-  };
-  if (parameter.type) {
-    parameter.type = {
-      name: joinTypeProperty(parameter.type, "name"),
-      nameWithType: joinTypeProperty(parameter.type, "nameWithType"),
-      fullName: joinTypeProperty(parameter.type, "fullName"),
-      specName: joinTypeProperty(parameter.type, "specName")
-    }
-  }
-  return parameter;
-}
-
-function groupParameters(parameters) {
-  // group parameter with properties
-  if (!parameters || parameters.length == 0) return parameters;
-  var groupedParameters = [];
-  var stack = [];
-  for (var i = 0; i < parameters.length; i++) {
-    var parameter = parameters[i];
-    parameter.properties = null;
-    var prefixLength = 0;
-    while (stack.length > 0) {
-      var top = stack.pop();
-      var prefix = top.id + '.';
-      if (parameter.id.indexOf(prefix) == 0) {
-        prefixLength = prefix.length;
-        if (!top.parameter.properties) {
-          top.parameter.properties = [];
-        }
-        top.parameter.properties.push(parameter);
-        stack.push(top);
-        break;
-      }
-      if (stack.length == 0) {
-        groupedParameters.push(top.parameter);
-      }
-    }
-    stack.push({ id: parameter.id, parameter: parameter });
-    parameter.id = parameter.id.substring(prefixLength);
-  }
-  while (stack.length > 0) {
-    top = stack.pop();
-  }
-  groupedParameters.push(top.parameter);
-  return groupedParameters;
-}
-
-function groupChildren(model, category, typeChildrenItems) {
+function groupChildren(model, category) {
   if (!model || !model.type) {
     return;
   }
-  if (!typeChildrenItems) {
-    var typeChildrenItems = getDefinitions(category);
-  }
+  var typeChildrenItems = getDefinitions(category);
   var grouped = {};
 
-  normalizeChildren(model.children).forEach(function (c) {
+  model.children.forEach(function (c) {
     if (c.isEii) {
       var type = "eii";
     } else {
@@ -264,9 +171,7 @@ function getDefinitions(category) {
     "method":       { inMethod: true,       typePropertyName: "inMethod",       id: "methods" },
     "event":        { inEvent: true,        typePropertyName: "inEvent",        id: "events" },
     "operator":     { inOperator: true,     typePropertyName: "inOperator",     id: "operators" },
-    "eii":          { inEii: true,          typePropertyName: "inEii",          id: "eii" },
-    "function":     { inFunction: true,     typePropertyName: "inFunction",     id: "functions"},
-    "member":       { inMember: true,       typePropertyName: "inMember",       id: "members"}
+    "eii":          { inEii: true,          typePropertyName: "inEii",          id: "eii" }
   };
   if (category === 'class') {
     return classItems;
@@ -278,9 +183,72 @@ function getDefinitions(category) {
   return undefined;
 }
 
-function normalizeChildren(children) {
-  if (children[0] && children[0].lang && children[0].value) {
-    return children[0].value;
+function handleItem(vm, gitContribute, gitUrlPattern) {
+  // get contribution information
+  vm.docurl = common.getImproveTheDocHref(vm, gitContribute, gitUrlPattern);
+  vm.sourceurl = common.getViewSourceHref(vm, null, gitUrlPattern);
+
+  // set to null incase mustache looks up
+  vm.summary = vm.summary || null;
+  vm.remarks = vm.remarks || null;
+  vm.conceptual = vm.conceptual || null;
+  vm.syntax = vm.syntax || null;
+  vm.implements = vm.implements || null;
+  vm.example = vm.example || null;
+  common.processSeeAlso(vm);
+
+  // id is used as default template's bookmark
+  vm.id = common.getHtmlId(vm.uid);
+  if (vm.overload && vm.overload.uid) {
+    vm.overload.id = common.getHtmlId(vm.overload.uid);
   }
-  return children;
+
+  if (vm.supported_platforms) {
+      vm.supported_platforms = transformDictionaryToArray(vm.supported_platforms);
+  }
+
+  if (vm.requirements) {
+      var type = vm.type.toLowerCase();
+      if (type == "method") {
+          vm.requirements_method = transformDictionaryToArray(vm.requirements);
+      } else {
+          vm.requirements = transformDictionaryToArray(vm.requirements);
+      }
+  }
+
+  if (vm && langs) {
+      if (shouldHideTitleType(vm)) {
+          vm.hideTitleType = true;
+      } else {
+          vm.hideTitleType = false;
+      }
+
+      if (shouldHideSubtitle(vm)) {
+          vm.hideSubtitle = true;
+      } else {
+          vm.hideSubtitle = false;
+      }
+  }
+
+  function shouldHideTitleType(vm) {
+      var type = vm.type.toLowerCase();
+      return ((type === 'namespace' && langs.length == 1 && (langs[0] === 'objectivec' || langs[0] === 'java' || langs[0] === 'c'))
+      || ((type === 'class' || type === 'enum') && langs.length == 1 && langs[0] === 'c'));
+  }
+
+  function shouldHideSubtitle(vm) {
+      var type = vm.type.toLowerCase();
+      return (type === 'class' || type === 'namespace') && langs.length == 1 && langs[0] === 'c';
+  }
+
+  function transformDictionaryToArray(dic) {
+    var array = [];
+    for(var key in dic) {
+        if (dic.hasOwnProperty(key)) {
+            array.push({"name": key, "value": dic[key]})
+        }
+    }
+
+    return array;
+  }
 }
