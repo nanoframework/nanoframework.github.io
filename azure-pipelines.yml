@@ -282,8 +282,7 @@ steps:
   condition: succeeded()
 
 # install docfx
-- powershell: choco install docfx -y
-  displayName: Install docfx
+- task: DotNetCoreCLI@2  
   condition: >-
     and(
       succeeded(),
@@ -293,6 +292,11 @@ steps:
         eq(variables['BuildOptions.BUILD_ALL'], 'true')
       )
     )
+  displayName: Install docfx
+  inputs:
+    command: custom
+    custom: tool
+    arguments: install -g docfx
 
 # Create the README in /devices folder with all IoT.Device bindings
 # Run the Generator to physically move the files first
@@ -495,19 +499,6 @@ steps:
         | Where-Object { $_ -notmatch $Nerdbank }
         Set-Content -path $FullPath -Value $Replaced
       }
-
-# rename project files (need this to trick docfx)
-- powershell: Get-ChildItem -Filter "*.nfproj" -Recurse | Rename-Item -NewName { $_.name -replace 'nfproj','csproj' }
-  condition: >-
-    and(
-      succeeded(), 
-      or(
-        eq(variables['BUILD_ALL'], 'true'),
-        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
-        eq(variables['BuildOptions.BUILD_ALL'], 'true')
-      )
-    )
-  displayName: Rename nfproj files
 
 # run docfx
 - powershell: |
