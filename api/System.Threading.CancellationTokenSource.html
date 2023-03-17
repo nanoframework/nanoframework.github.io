@@ -1,0 +1,761 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CancellationTokenSource
+ | .NET nanoFramework Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CancellationTokenSource
+ | .NET nanoFramework Documentation ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="System.Threading.CancellationTokenSource">
+
+
+  <h1 id="System_Threading_CancellationTokenSource" data-uid="System.Threading.CancellationTokenSource" class="text-break">Class CancellationTokenSource
+</h1>
+  <div class="markdown level0 summary"><p>Signals to a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> that it should be canceled.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
+    <div class="level1"><span class="xref">CancellationTokenSource</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Threading.html">Threading</a></h6>
+  <h6><strong>Assembly</strong>: System.Threading.dll</h6>
+  <h5 id="System_Threading_CancellationTokenSource_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CancellationTokenSource : IDisposable</code></pre>
+  </div>
+  <h5 id="System_Threading_CancellationTokenSource_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is used to instantiate a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
+(via the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property)
+that can be handed to operations that wish to be notified of cancellation or that can be used to
+register asynchronous operations for cancellation. That token may have cancellation requested by
+calling to the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a>
+method.
+</p>
+<p>
+All members of this class, except <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Dispose">Dispose</a>, are thread-safe and may be used
+concurrently from multiple threads.
+</p>
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="System_Threading_CancellationTokenSource__ctor_" data-uid="System.Threading.CancellationTokenSource.#ctor*"></a>
+  <h4 id="System_Threading_CancellationTokenSource__ctor" data-uid="System.Threading.CancellationTokenSource.#ctor">CancellationTokenSource()</h4>
+  <div class="markdown level1 summary"><p>Initializes the <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CancellationTokenSource()</code></pre>
+  </div>
+  <h5 id="System_Threading_CancellationTokenSource__ctor_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is used to instantiate a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
+(via the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property)
+that can be handed to operations that wish to be notified of cancellation or that can be used to
+register asynchronous operations for cancellation. That token may have cancellation requested by
+calling to the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a>
+method.
+</p>
+<p>
+All members of this class, except <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Dispose">Dispose</a>, are thread-safe and may be used
+concurrently from multiple threads.
+</p>
+</div>
+
+
+  <a id="System_Threading_CancellationTokenSource__ctor_" data-uid="System.Threading.CancellationTokenSource.#ctor*"></a>
+  <h4 id="System_Threading_CancellationTokenSource__ctor_System_Int32_" data-uid="System.Threading.CancellationTokenSource.#ctor(System.Int32)">CancellationTokenSource(int)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> that will be canceled after a specified time span.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CancellationTokenSource(int millisecondsDelay)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">millisecondsDelay</span></td>
+        <td><p>The time span to wait before canceling this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource__ctor_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The countdown for the millisecondsDelay starts during the call to the constructor.  When the millisecondsDelay expires, 
+the constructed <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is canceled (if it has
+not been canceled already).
+</p>
+<p>
+Subsequent calls to CancelAfter will reset the millisecondsDelay for the constructed 
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>, if it has not been
+canceled already.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p>The exception that is thrown when <code data-dev-comment-type="paramref" class="paramref">millisecondsDelay</code> is less than -1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Threading_CancellationTokenSource__ctor_" data-uid="System.Threading.CancellationTokenSource.#ctor*"></a>
+  <h4 id="System_Threading_CancellationTokenSource__ctor_System_TimeSpan_" data-uid="System.Threading.CancellationTokenSource.#ctor(System.TimeSpan)">CancellationTokenSource(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> that will be canceled after a specified time span.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CancellationTokenSource(TimeSpan delay)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
+        <td><span class="parametername">delay</span></td>
+        <td><p>The time span to wait before canceling this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource__ctor_System_TimeSpan__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The countdown for the delay starts during the call to the constructor.  When the delay expires, 
+the constructed <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is canceled, if it has
+not been canceled already.
+</p>
+<p>
+Subsequent calls to CancelAfter will reset the delay for the constructed 
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>, if it has not been
+canceled already.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p>The exception that is thrown when <code data-dev-comment-type="paramref" class="paramref">delay</code> is less than -1 or greater than Int32.MaxValue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="System_Threading_CancellationTokenSource_IsCancellationRequested_" data-uid="System.Threading.CancellationTokenSource.IsCancellationRequested*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_IsCancellationRequested" data-uid="System.Threading.CancellationTokenSource.IsCancellationRequested">IsCancellationRequested</h4>
+  <div class="markdown level1 summary"><p>Gets whether cancellation has been requested for this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCancellationRequested { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td><p>Whether cancellation has been requested for this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource_IsCancellationRequested_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This property indicates whether cancellation has been requested for this token source, such as
+due to a call to its
+<a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a> method.
+</p>
+<p>
+If this property returns true, it only guarantees that cancellation has been requested. It does not
+guarantee that every handler registered with the corresponding token has finished executing, nor
+that cancellation requests have finished propagating to all registered handlers. Additional
+synchronization may be required, particularly in situations where related objects are being
+canceled concurrently.
+</p>
+</div>
+
+
+  <a id="System_Threading_CancellationTokenSource_Token_" data-uid="System.Threading.CancellationTokenSource.Token*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_Token" data-uid="System.Threading.CancellationTokenSource.Token">Token</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
+associated with this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CancellationToken Token { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></td>
+        <td><p>The <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
+associated with this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource_Token_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is used to instantiate a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
+(via the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property)
+that can be handed to operations that wish to be notified of cancellation or that can be used to
+register asynchronous operations for cancellation. That token may have cancellation requested by
+calling to the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a>
+method.
+</p>
+<p>
+All members of this class, except <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Dispose">Dispose</a>, are thread-safe and may be used
+concurrently from multiple threads.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>The token source has been
+disposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="System_Threading_CancellationTokenSource_Cancel_" data-uid="System.Threading.CancellationTokenSource.Cancel*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_Cancel" data-uid="System.Threading.CancellationTokenSource.Cancel">Cancel()</h4>
+  <div class="markdown level1 summary"><p>Communicates a request for cancellation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Cancel()</code></pre>
+  </div>
+  <h5 id="System_Threading_CancellationTokenSource_Cancel_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The associated <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> will be
+notified of the cancellation and will transition to a state where 
+<a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_IsCancellationRequested">IsCancellationRequested</a> returns true. 
+Any callbacks or cancelable operations
+registered with the <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>  will be executed.
+</p>
+<p>
+Cancelable operations and callbacks registered with the token should not throw exceptions.
+However, this overload of Cancel will aggregate any exceptions thrown into a <see cref="!:System.AggregateException"></see>,
+such that one callback throwing an exception will not prevent other registered callbacks from being executed.
+</p>
+<p>
+The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.executioncontext">ExecutionContext</a> that was captured when each callback was registered
+will be reestablished when the callback is invoked.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.AggregateException.html">AggregateException</a></td>
+        <td><p>An aggregate exception containing all the exceptions thrown
+by the registered callbacks on the associated <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>This <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> has been disposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Threading_CancellationTokenSource_Cancel_" data-uid="System.Threading.CancellationTokenSource.Cancel*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_Cancel_System_Boolean_" data-uid="System.Threading.CancellationTokenSource.Cancel(System.Boolean)">Cancel(bool)</h4>
+  <div class="markdown level1 summary"><p>Communicates a request for cancellation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Cancel(bool throwOnFirstException)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td><span class="parametername">throwOnFirstException</span></td>
+        <td><p>Specifies whether exceptions should immediately propagate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource_Cancel_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The associated <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> will be
+notified of the cancellation and will transition to a state where 
+<a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_IsCancellationRequested">IsCancellationRequested</a> returns true. 
+Any callbacks or cancelable operations
+registered with the <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>  will be executed.
+</p>
+<p>
+Cancelable operations and callbacks registered with the token should not throw exceptions. 
+If <code data-dev-comment-type="paramref" class="paramref">throwOnFirstException</code> is true, an exception will immediately propagate out of the
+call to Cancel, preventing the remaining callbacks and cancelable operations from being processed.
+If <code data-dev-comment-type="paramref" class="paramref">throwOnFirstException</code> is false, this overload will aggregate any 
+exceptions thrown into a <see cref="!:System.AggregateException"></see>,
+such that one callback throwing an exception will not prevent other registered callbacks from being executed.
+</p>
+<p>
+The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.executioncontext">ExecutionContext</a> that was captured when each callback was registered
+will be reestablished when the callback is invoked.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.AggregateException.html">AggregateException</a></td>
+        <td><p>An aggregate exception containing all the exceptions thrown
+by the registered callbacks on the associated <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>This <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> has been disposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Threading_CancellationTokenSource_CancelAfter_" data-uid="System.Threading.CancellationTokenSource.CancelAfter*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_CancelAfter_System_Int32_" data-uid="System.Threading.CancellationTokenSource.CancelAfter(System.Int32)">CancelAfter(int)</h4>
+  <div class="markdown level1 summary"><p>Schedules a Cancel operation on this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CancelAfter(int millisecondsDelay)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">millisecondsDelay</span></td>
+        <td><p>The time span to wait before canceling this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource_CancelAfter_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The countdown for the millisecondsDelay starts during this call.  When the millisecondsDelay expires, 
+this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is canceled, if it has
+not been canceled already.
+</p>
+<p>
+Subsequent calls to CancelAfter will reset the millisecondsDelay for this  
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>, if it has not been
+canceled already.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>The exception thrown when this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> has been disposed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p>The exception thrown when <code data-dev-comment-type="paramref" class="paramref">millisecondsDelay</code> is less than -1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Threading_CancellationTokenSource_CancelAfter_" data-uid="System.Threading.CancellationTokenSource.CancelAfter*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_CancelAfter_System_TimeSpan_" data-uid="System.Threading.CancellationTokenSource.CancelAfter(System.TimeSpan)">CancelAfter(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Schedules a Cancel operation on this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CancelAfter(TimeSpan delay)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
+        <td><span class="parametername">delay</span></td>
+        <td><p>The time span to wait before canceling this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource_CancelAfter_System_TimeSpan__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The countdown for the delay starts during this call.  When the delay expires, 
+this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is canceled, if it has
+not been canceled already.
+</p>
+<p>
+Subsequent calls to CancelAfter will reset the delay for this  
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>, if it has not been
+canceled already.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
+        <td><p>The exception thrown when this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> has been disposed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p>The exception thrown when <code data-dev-comment-type="paramref" class="paramref">delay</code> is less than -1 or
+greater than Int32.MaxValue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Threading_CancellationTokenSource_Dispose_" data-uid="System.Threading.CancellationTokenSource.Dispose*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_Dispose" data-uid="System.Threading.CancellationTokenSource.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Releases the resources used by this <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <h5 id="System_Threading_CancellationTokenSource_Dispose_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is not thread-safe for any other concurrent calls.</p>
+</div>
+
+
+  <a id="System_Threading_CancellationTokenSource_Dispose_" data-uid="System.Threading.CancellationTokenSource.Dispose*"></a>
+  <h4 id="System_Threading_CancellationTokenSource_Dispose_System_Boolean_" data-uid="System.Threading.CancellationTokenSource.Dispose(System.Boolean)">Dispose(bool)</h4>
+  <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> class and optionally releases the managed resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Threading_CancellationTokenSource_Dispose_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is used to instantiate a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
+(via the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property)
+that can be handed to operations that wish to be notified of cancellation or that can be used to
+register asynchronous operations for cancellation. That token may have cancellation requested by
+calling to the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a>
+method.
+</p>
+<p>
+All members of this class, except <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Dispose">Dispose</a>, are thread-safe and may be used
+concurrently from multiple threads.
+</p>
+</div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="System.IDisposable.html">IDisposable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
