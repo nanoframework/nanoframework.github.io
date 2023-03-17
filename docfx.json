@@ -4,7 +4,7 @@
       "src": [
         {
           "files": [
-            "libs/**/*.csproj"
+            "libs/**/bin/Release/**.dll"
           ],
           "exclude": [
             "**/obj/**",
@@ -13,19 +13,21 @@
             "**/Test/**",
             "Test**/**",
             "**/**.Test*",
-            "nanoFramework.IoT.Device/**"
+            "nanoFramework.IoT.Device/**",
+            "**/TestAdapter/**",
+            "**/poc/TestOfTestFrameworkByReference/**"
           ]
         }
       ],
       "filter": "api-filter.yml",
       "dest": "api",
-      "disableGitFeatures": false
+      "disableGitFeatures": true
     },
     {
       "src": [
         {
           "files": [
-            "nanoFramework.IoT.Device/**/*.csproj"
+            "nanoFramework.IoT.Device/**/bin/Release/**.dll"
           ],
           "exclude": [
             "**/obj/**",
@@ -38,9 +40,9 @@
           ]
         }
       ],
-      "filter": "api-filter.yml",
+      "filter": "api-filter-iot.yml",
       "dest": "devices",
-      "disableGitFeatures": false
+      "disableGitFeatures": true
     }
   ],
   "build": {
