@@ -4,25 +4,24 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class LidarLiteV3
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class LidarLiteV3
  | .NET nanoFramework Documentation </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class LidarLiteV3
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class LidarLiteV3
  | .NET nanoFramework Documentation ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
 
@@ -61,9 +60,11 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items"></div>
-          <ul id="pagination"></ul>
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -104,7 +105,7 @@
   <div class="markdown level1 summary"><p>Initialize the LidarLiteV3</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LidarLiteV3(I2cDevice i2cDevice, GpioController? gpioController = null, int powerEnablePin = -1, bool shouldDispose = true)</code></pre>
   </div>
@@ -152,7 +153,7 @@
   <div class="markdown level1 summary"><p>Default address for LidarLiteV3</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const byte DefaultI2cAddress = 98</code></pre>
   </div>
@@ -180,7 +181,7 @@
   <div class="markdown level1 summary"><p>Get or set the various settings to control the acquistion behavior.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AcquisitionSettings AcquisitionSettings { get; set; }</code></pre>
   </div>
@@ -209,7 +210,7 @@ but higher erronenous measurement and 96 for reduced
 sensitivity and fewer erroneous measurements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int AlgorithmBypassThreshold { get; set; }</code></pre>
   </div>
@@ -237,7 +238,7 @@ in a signed (2's complement) 8-bit number.
 Positive is away from the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length DifferenceBetweenLastTwoDistances { get; }</code></pre>
   </div>
@@ -263,7 +264,7 @@ Positive is away from the device.</p>
   <div class="markdown level1 summary"><p>Get the last distance measurement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length LastDistance { get; }</code></pre>
   </div>
@@ -289,7 +290,7 @@ Positive is away from the device.</p>
   <div class="markdown level1 summary"><p>Get or set the power control option.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PowerMode PowerMode { get; set; }</code></pre>
   </div>
@@ -315,7 +316,7 @@ Positive is away from the device.</p>
   <div class="markdown level1 summary"><p>Get the system status</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SystemStatus Status { get; }</code></pre>
   </div>
@@ -340,10 +341,9 @@ Positive is away from the device.</p>
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_Dispose_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Dispose*"></a>
   <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_Dispose" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"><p>Lidar Lite v3 is a long-range fixed position distance sensor by Garmin.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
@@ -354,7 +354,7 @@ Positive is away from the device.</p>
   <div class="markdown level1 summary"><p>Measure distance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length MeasureDistance(bool withReceiverBiasCorrection = true)</code></pre>
   </div>
@@ -403,7 +403,7 @@ repetition finishes (forever if infinite).</p>
   <div class="markdown level1 summary"><p>Power off the device if GPIO controller and power enable pin is provided.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void PowerOff()</code></pre>
   </div>
@@ -414,7 +414,7 @@ repetition finishes (forever if infinite).</p>
   <div class="markdown level1 summary"><p>Power on the device if GPIO controller and power enable pin is provided.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void PowerOn()</code></pre>
   </div>
@@ -425,7 +425,7 @@ repetition finishes (forever if infinite).</p>
   <div class="markdown level1 summary"><p>Reset FPGA, all registers return to default values</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
   </div>
@@ -436,7 +436,7 @@ repetition finishes (forever if infinite).</p>
   <div class="markdown level1 summary"><p>Set a new I2C address and dispose the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetI2cAddressAndDispose(byte address)</code></pre>
   </div>
@@ -468,7 +468,7 @@ repetition finishes (forever if infinite).</p>
   <div class="markdown level1 summary"><p>Set the repetition mode to enable automatic measurement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetMeasurementRepetitionMode(MeasurementRepetition measurementRepetition, int count = -1, int delay = -1)</code></pre>
   </div>
@@ -512,7 +512,8 @@ repetition finishes (forever if infinite).</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
@@ -530,8 +531,7 @@ repetition finishes (forever if infinite).</p>
       <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer>    </div>
 
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
