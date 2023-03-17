@@ -4,25 +4,24 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Mpu9250
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Mpu9250
  | .NET nanoFramework Documentation </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Mpu9250
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Mpu9250
  | .NET nanoFramework Documentation ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
 
@@ -61,9 +60,11 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items"></div>
-          <ul id="pagination"></ul>
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -178,7 +179,7 @@ public class Mpu9250 : Mpu6500</code></pre>
   <div class="markdown level1 summary"><p>Initialize the MPU9250</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Mpu9250(I2cDevice i2cDevice, bool shouldDispose = true, I2cDevice? i2CDeviceAk8963 = null)</code></pre>
   </div>
@@ -221,7 +222,7 @@ public class Mpu9250 : Mpu6500</code></pre>
   <div class="markdown level1 summary"><p>True if there is a data to read</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HasDataToRead { get; }</code></pre>
   </div>
@@ -247,7 +248,7 @@ public class Mpu9250 : Mpu6500</code></pre>
   <div class="markdown level1 summary"><p>Get the magnetometer hardware adjustment bias</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property]
 public Vector3 MagnetometerAdjustment { get; }</code></pre>
@@ -274,7 +275,7 @@ public Vector3 MagnetometerAdjustment { get; }</code></pre>
   <div class="markdown level1 summary"><p>Select the magnetometer measurement mode</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public MeasurementMode MagnetometerMeasurementMode { get; set; }</code></pre>
   </div>
@@ -300,7 +301,7 @@ public Vector3 MagnetometerAdjustment { get; }</code></pre>
   <div class="markdown level1 summary"><p>Select the magnetometer output bit rate</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property]
 public OutputBitMode MagnetometerOutputBitMode { get; set; }</code></pre>
@@ -327,7 +328,7 @@ public OutputBitMode MagnetometerOutputBitMode { get; set; }</code></pre>
   <div class="markdown level1 summary"><p>Get the magnetometer bias</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property]
 public Vector3 MagnometerBias { get; }</code></pre>
@@ -369,7 +370,7 @@ Move your sensor in all direction to make sure it will get enough data in all po
 Calculate as well the magnetometer bias</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Command]
 public Vector3 CalibrateMagnetometer(int calibrationCounts = 1000)</code></pre>
@@ -415,7 +416,7 @@ public Vector3 CalibrateMagnetometer(int calibrationCounts = 1000)</code></pre>
   <div class="markdown level1 summary"><p>Cleanup everything</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
@@ -426,7 +427,7 @@ public Vector3 CalibrateMagnetometer(int calibrationCounts = 1000)</code></pre>
   <div class="markdown level1 summary"><p>Check if the magnetometer version is the correct one (0x48)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property(&quot;MagnetometerVersion&quot;)]
 public byte GetMagnetometerVersion()</code></pre>
@@ -457,7 +458,7 @@ public byte GetMagnetometerVersion()</code></pre>
   <div class="markdown level1 summary"><p>Read the magnetometer with bias correction and can wait for new data to be present</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Telemetry(&quot;MagneticInduction&quot;)]
 public Vector3 ReadMagnetometer(bool waitForData = true)</code></pre>
@@ -514,7 +515,7 @@ public Vector3 ReadMagnetometer(bool waitForData = true)</code></pre>
   <div class="markdown level1 summary"><p>Read the magnetometer without bias correction and can wait for new data to be present</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Vector3 ReadMagnetometerWithoutCorrection(bool waitForData = true)</code></pre>
   </div>
@@ -573,7 +574,7 @@ Reading the sensor won't give any value until it wakes up periodically
 Only Accelerator data is available in this mode</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetWakeOnMotion(uint accelerometerThreshold, AccelerometerLowPowerFrequency acceleratorLowPower)</code></pre>
   </div>
@@ -611,7 +612,8 @@ Only Accelerator data is available in this mode</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
@@ -626,11 +628,10 @@ Only Accelerator data is available in this mode</p>
               <a href="#top">Back to top</a>
             </span>
       
-      <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer>    </div>
 
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>

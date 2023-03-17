@@ -4,25 +4,24 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class LcdInterface
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class LcdInterface
  | .NET nanoFramework Documentation </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class LcdInterface
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class LcdInterface
  | .NET nanoFramework Documentation ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
 
@@ -61,9 +60,11 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items"></div>
-          <ul id="pagination"></ul>
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -101,10 +102,9 @@
 
   <a id="Iot_Device_CharacterLcd_LcdInterface__ctor_" data-uid="Iot.Device.CharacterLcd.LcdInterface.#ctor*"></a>
   <h4 id="Iot_Device_CharacterLcd_LcdInterface__ctor" data-uid="Iot.Device.CharacterLcd.LcdInterface.#ctor">LcdInterface()</h4>
-  <div class="markdown level1 summary"><p>Abstraction layer for accessing the lcd IC.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected LcdInterface()</code></pre>
   </div>
@@ -117,7 +117,7 @@
   <div class="markdown level1 summary"><p>Enable/disable the backlight. (Will always return false if no backlight pin was provided.)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool BacklightOn { get; set; }</code></pre>
   </div>
@@ -143,7 +143,7 @@
   <div class="markdown level1 summary"><p>True if device uses 8-bits for communication, false if device uses 4-bits</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract bool EightBitMode { get; }</code></pre>
   </div>
@@ -169,7 +169,7 @@
   <div class="markdown level1 summary"><p>The command wait time multiplier for the LCD.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double WaitMultiplier { get; set; }</code></pre>
   </div>
@@ -207,7 +207,7 @@ r/w pin attached.</p>
   <div class="markdown level1 summary"><p>Creates a ShiftRegister based interface for the LCD.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static LcdInterface CreateFromShiftRegister(int registerSelectPin, int enablePin, int[] dataPins, int backlightPin = -1, ShiftRegister? shiftRegister = null, bool shouldDispose = true)</code></pre>
   </div>
@@ -285,7 +285,7 @@ r/w pin attached.</p>
   <div class="markdown level1 summary"><p>Creates a GPIO based interface for the LCD.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static LcdInterface CreateGpio(int registerSelectPin, int enablePin, int[] dataPins, int backlightPin = -1, float backlightBrightness = 1, int readWritePin = -1, GpioController? controller = null, bool shouldDispose = true)</code></pre>
   </div>
@@ -371,7 +371,7 @@ r/w pin attached.</p>
   <div class="markdown level1 summary"><p>Create an integrated I2c based interface for the LCD.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static LcdInterface CreateI2c(I2cDevice device, bool uses8Bit = true)</code></pre>
   </div>
@@ -421,10 +421,9 @@ r/w pin attached.</p>
 
   <a id="Iot_Device_CharacterLcd_LcdInterface_Dispose_" data-uid="Iot.Device.CharacterLcd.LcdInterface.Dispose*"></a>
   <h4 id="Iot_Device_CharacterLcd_LcdInterface_Dispose" data-uid="Iot.Device.CharacterLcd.LcdInterface.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"><p>Abstraction layer for accessing the lcd IC.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
@@ -436,7 +435,7 @@ r/w pin attached.</p>
 and optionally release managed resources</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
@@ -465,7 +464,7 @@ and optionally release managed resources</p>
   <div class="markdown level1 summary"><p>Sends command to the LCD device</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void SendCommand(byte command)</code></pre>
   </div>
@@ -496,7 +495,7 @@ behave unexpectedly. It may show random, blinking characters
 or display text very faintly only.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void SendCommandAndWait(byte command)</code></pre>
   </div>
@@ -525,7 +524,7 @@ or display text very faintly only.</p>
   <div class="markdown level1 summary"><p>Send commands to the LCD device</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void SendCommands(SpanByte values)</code></pre>
   </div>
@@ -554,7 +553,7 @@ or display text very faintly only.</p>
   <div class="markdown level1 summary"><p>Sends byte to LCD device</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void SendData(byte value)</code></pre>
   </div>
@@ -583,7 +582,7 @@ or display text very faintly only.</p>
   <div class="markdown level1 summary"><p>Sends data to the LCD device</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void SendData(SpanByte values)</code></pre>
   </div>
@@ -612,7 +611,7 @@ or display text very faintly only.</p>
   <div class="markdown level1 summary"><p>Sends data to the LCD device</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract void SendData(SpanChar values)</code></pre>
   </div>
@@ -641,7 +640,7 @@ or display text very faintly only.</p>
   <div class="markdown level1 summary"><p>Wait for the device to not be busy.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void WaitForNotBusy(int microseconds)</code></pre>
   </div>
@@ -673,7 +672,8 @@ or display text very faintly only.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
@@ -688,11 +688,10 @@ or display text very faintly only.</p>
               <a href="#top">Back to top</a>
             </span>
       
-      <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer>    </div>
 
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>

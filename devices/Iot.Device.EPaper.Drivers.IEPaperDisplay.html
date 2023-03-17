@@ -4,25 +4,24 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IEPaperDisplay
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IEPaperDisplay
  | .NET nanoFramework Documentation </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IEPaperDisplay
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IEPaperDisplay
  | .NET nanoFramework Documentation ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
 
@@ -61,9 +60,11 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items"></div>
-          <ul id="pagination"></ul>
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -99,7 +100,7 @@
   <div class="markdown level1 summary"><p>Gets the frame buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">IFrameBuffer FrameBuffer { get; }</code></pre>
   </div>
@@ -129,7 +130,7 @@ as a measure to reduce memory footprint. See the ctor documentation for more inf
   <div class="markdown level1 summary"><p>Gets the height of the drawable area on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">int Height { get; }</code></pre>
   </div>
@@ -155,7 +156,7 @@ as a measure to reduce memory footprint. See the ctor documentation for more inf
   <div class="markdown level1 summary"><p>Gets a value indicating whether drawing to a frame is paged to save on memory space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">bool PagedFrameDrawEnabled { get; }</code></pre>
   </div>
@@ -181,7 +182,7 @@ as a measure to reduce memory footprint. See the ctor documentation for more inf
   <div class="markdown level1 summary"><p>Gets the width of the drawable area on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">int Width { get; }</code></pre>
   </div>
@@ -214,7 +215,7 @@ do {
 EndFrameDraw();</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void BeginFrameDraw()</code></pre>
   </div>
@@ -225,7 +226,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Clears the display frame buffer by resetting it to its default state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void Clear(bool triggerPageRefresh = false)</code></pre>
   </div>
@@ -254,7 +255,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Draws a single pixel to the appropriate frame buffer based on the specified color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void DrawPixel(int x, int y, Color color)</code></pre>
   </div>
@@ -295,7 +296,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Ends the frame draw and flushes the current page to the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void EndFrameDraw()</code></pre>
   </div>
@@ -306,7 +307,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Flushes the content of the internal frame buffer to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void Flush()</code></pre>
   </div>
@@ -320,7 +321,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Moves the current buffers to the next frame page and returns true if successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">bool NextFramePage()</code></pre>
   </div>
@@ -347,7 +348,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Initiates the full refresh sequence on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void PerformFullRefresh()</code></pre>
   </div>
@@ -358,7 +359,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Initiates the partial refresh sequence on the display if the panel supports it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void PerformPartialRefresh()</code></pre>
   </div>
@@ -369,7 +370,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Sends a command byte(s) to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void SendCommand(params byte[] command)</code></pre>
   </div>
@@ -398,7 +399,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Send frame data to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void SendData(params byte[] data)</code></pre>
   </div>
@@ -427,7 +428,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Sets the drawing position on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void SetPosition(int x, int y)</code></pre>
   </div>
@@ -462,7 +463,7 @@ EndFrameDraw();</code></pre>
   <div class="markdown level1 summary"><p>Blocks the current thread until the display is in idle mode again.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void WaitReady()</code></pre>
   </div>
@@ -476,7 +477,8 @@ EndFrameDraw();</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
@@ -491,11 +493,10 @@ EndFrameDraw();</code></pre>
               <a href="#top">Back to top</a>
             </span>
       
-      <span>Copyright © 2018 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer>    </div>
 
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
