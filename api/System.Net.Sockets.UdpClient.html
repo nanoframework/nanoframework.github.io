@@ -12,7 +12,7 @@
  | .NET nanoFramework Documentation ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -151,21 +151,8 @@ Requires a call to connect to be bind locally on some udp port.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UdpClient()</code></pre>
   </div>
-  <h5 id="System_Net_Sockets_UdpClient__ctor_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -193,7 +180,7 @@ all IP addresses (<a class="xref" href="System.Net.IPAddress.html#System_Net_IPA
     <pre><code class="lang-csharp hljs">public UdpClient(int port)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -210,21 +197,8 @@ all IP addresses (<a class="xref" href="System.Net.IPAddress.html#System_Net_IPA
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient__ctor_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -256,7 +230,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public UdpClient(IPEndPoint localEP)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -273,21 +247,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient__ctor_System_Net_IPEndPoint__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -324,7 +285,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public UdpClient(string hostname, int port)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -352,7 +313,7 @@ Additionally, once a remote host is established the datagram received from other
 hostname and port parameters.</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -381,7 +342,7 @@ hostname and port parameters.</p>
     <pre><code class="lang-csharp hljs">protected bool Active { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -395,19 +356,6 @@ hostname and port parameters.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Active_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
 
 
   <a id="System_Net_Sockets_UdpClient_Available_" data-uid="System.Net.Sockets.UdpClient.Available*"></a>
@@ -420,7 +368,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public int Available { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -434,21 +382,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Available_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -480,7 +415,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public Socket Client { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -494,19 +429,6 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Client_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
 
 
   <a id="System_Net_Sockets_UdpClient_DontFragment_" data-uid="System.Net.Sockets.UdpClient.DontFragment*"></a>
@@ -519,7 +441,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public bool DontFragment { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -533,21 +455,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_DontFragment_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -579,7 +488,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public bool EnableBroadcast { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -593,21 +502,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_EnableBroadcast_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -639,7 +535,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public bool ExclusiveAddressUse { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -653,21 +549,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_ExclusiveAddressUse_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -699,7 +582,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public bool MulticastLoopback { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -713,21 +596,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_MulticastLoopback_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -759,7 +629,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public short Ttl { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -773,21 +643,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Ttl_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -825,19 +682,6 @@ Additionally, once a remote host is established the datagram received from other
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Close()</code></pre>
   </div>
-  <h5 id="System_Net_Sockets_UdpClient_Close_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
 
 
   <a id="System_Net_Sockets_UdpClient_Connect_" data-uid="System.Net.Sockets.UdpClient.Connect*"></a>
@@ -850,7 +694,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public void Connect(IPAddress addr, int port)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -873,21 +717,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Connect_System_Net_IPAddress_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -929,7 +760,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public void Connect(IPEndPoint endPoint)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -946,21 +777,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Connect_System_Net_IPEndPoint__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -997,7 +815,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public void Connect(string hostname, int port)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1023,7 +841,7 @@ Additionally, once a remote host is established the datagram received from other
 Once established, you do not have to specify a remote host in each call to the <a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient_Send_System_Byte___">Send(byte[])</a> method.</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1069,19 +887,6 @@ Once established, you do not have to specify a remote host in each call to the <
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
-  <h5 id="System_Net_Sockets_UdpClient_Dispose_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
 
 
   <a id="System_Net_Sockets_UdpClient_DropMulticastGroup_" data-uid="System.Net.Sockets.UdpClient.DropMulticastGroup*"></a>
@@ -1094,7 +899,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public void DropMulticastGroup(IPAddress multicastAddr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1111,21 +916,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_DropMulticastGroup_System_Net_IPAddress__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1162,7 +954,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public void JoinMulticastGroup(IPAddress multicastAddr, IPAddress localAddress)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1185,21 +977,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_JoinMulticastGroup_System_Net_IPAddress_System_Net_IPAddress__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1236,7 +1015,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public void JoinMulticastGroup(IPAddress multicastAddr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1253,21 +1032,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_JoinMulticastGroup_System_Net_IPAddress__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1304,7 +1070,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer, int offset, int size, ref IPEndPoint remoteEP)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1340,7 +1106,7 @@ Additionally, once a remote host is established the datagram received from other
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1362,7 +1128,7 @@ support the MSG_TRUNC socket option in calls to recvfrom to return the real leng
 when it is longer than the passed buffer opposite to common Un*x implementations.</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1404,7 +1170,7 @@ when it is longer than the passed buffer opposite to common Un*x implementations
     <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer, ref IPEndPoint remoteEP)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1428,7 +1194,7 @@ when it is longer than the passed buffer opposite to common Un*x implementations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1450,7 +1216,7 @@ support the MSG_TRUNC socket option in calls to recvfrom to return the real leng
 when it is longer than the passed buffer opposite to common Un*x implementations.</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1482,7 +1248,7 @@ when it is longer than the passed buffer opposite to common Un*x implementations
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram, int offset, int size, IPEndPoint endPoint)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1518,7 +1284,7 @@ when it is longer than the passed buffer opposite to common Un*x implementations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1533,21 +1299,8 @@ when it is longer than the passed buffer opposite to common Un*x implementations
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Int32_System_Int32_System_Net_IPEndPoint__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1595,7 +1348,7 @@ Or remote <code data-dev-comment-type="paramref" class="paramref">endPoint</code
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram, int offset, int size)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1625,7 +1378,7 @@ Or remote <code data-dev-comment-type="paramref" class="paramref">endPoint</code
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1640,21 +1393,8 @@ Or remote <code data-dev-comment-type="paramref" class="paramref">endPoint</code
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Int32_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1701,7 +1441,7 @@ Additionally, once a remote host is established the datagram received from other
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram, IPEndPoint endPoint)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1725,7 +1465,7 @@ Additionally, once a remote host is established the datagram received from other
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1740,21 +1480,8 @@ Additionally, once a remote host is established the datagram received from other
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Net_IPEndPoint__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1797,7 +1524,7 @@ Or remote <code data-dev-comment-type="paramref" class="paramref">endPoint</code
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1815,7 +1542,7 @@ Or remote <code data-dev-comment-type="paramref" class="paramref">endPoint</code
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1830,21 +1557,8 @@ Or remote <code data-dev-comment-type="paramref" class="paramref">endPoint</code
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_Send_System_Byte____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1887,7 +1601,7 @@ This is only recommended on multi-homed systems</p>
     <pre><code class="lang-csharp hljs">public void SetMulticastInterface(IPAddress localAddress)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1904,21 +1618,8 @@ This is only recommended on multi-homed systems</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_Sockets_UdpClient_SetMulticastInterface_System_Net_IPAddress__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn&apos;t
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code>Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code>Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2009,7 +1710,7 @@ Additionally, once a remote host is established the datagram received from other
         </div>
       </footer>    </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

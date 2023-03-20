@@ -12,7 +12,7 @@
  | .NET nanoFramework Documentation ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -161,7 +161,7 @@ threads must spin, each should use its own instance of SpinWait.
     <pre><code class="lang-csharp hljs">public static void SpinUntil(int millisecondsTimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -178,28 +178,8 @@ threads must spin, each should use its own instance of SpinWait.
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Threading_SpinWait_SpinUntil_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-<a class="xref" href="System.Threading.SpinWait.html">SpinWait</a> encapsulates common spinning logic. On single-processor machines, yields are
-always used instead of busy waits, and on computers with Intel™ processors employing Hyper-Threading™
-technology, it helps to prevent hardware thread starvation. SpinWait encapsulates a good mixture of
-spinning and true yielding.
-</p>
-<p>
-<a class="xref" href="System.Threading.SpinWait.html">SpinWait</a> is a value type, which means that low-level code can utilize SpinWait without
-fear of unnecessary allocation overheads. SpinWait is not generally useful for ordinary applications.
-In most cases, you should use the synchronization classes provided by the .NET Framework, such as
-<a class="xref" href="System.Threading.Monitor.html">Monitor</a>. For most purposes where spin waiting is required, however,
-the <a class="xref" href="System.Threading.SpinWait.html">SpinWait</a> type should be preferred over the <a class="xref" href="System.Threading.Thread.html#System_Threading_Thread_SpinWait_System_Int32_">SpinWait(int)</a> method.
-</p>
-<p>
-While SpinWait is designed to be used in concurrent applications, it is not designed to be
-used from multiple threads concurrently.  SpinWait&apos;s members are not thread-safe.  If multiple
-threads must spin, each should use its own instance of SpinWait.
-</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -227,7 +207,7 @@ negative number other than -1, which represents an infinite time-out.</p>
     <pre><code class="lang-csharp hljs">public static void SpinUntil(TimeSpan timeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -244,28 +224,8 @@ negative number other than -1, which represents an infinite time-out.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Threading_SpinWait_SpinUntil_System_TimeSpan__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-<a class="xref" href="System.Threading.SpinWait.html">SpinWait</a> encapsulates common spinning logic. On single-processor machines, yields are
-always used instead of busy waits, and on computers with Intel™ processors employing Hyper-Threading™
-technology, it helps to prevent hardware thread starvation. SpinWait encapsulates a good mixture of
-spinning and true yielding.
-</p>
-<p>
-<a class="xref" href="System.Threading.SpinWait.html">SpinWait</a> is a value type, which means that low-level code can utilize SpinWait without
-fear of unnecessary allocation overheads. SpinWait is not generally useful for ordinary applications.
-In most cases, you should use the synchronization classes provided by the .NET Framework, such as
-<a class="xref" href="System.Threading.Monitor.html">Monitor</a>. For most purposes where spin waiting is required, however,
-the <a class="xref" href="System.Threading.SpinWait.html">SpinWait</a> type should be preferred over the <a class="xref" href="System.Threading.Thread.html#System_Threading_Thread_SpinWait_System_Int32_">SpinWait(int)</a> method.
-</p>
-<p>
-While SpinWait is designed to be used in concurrent applications, it is not designed to be
-used from multiple threads concurrently.  SpinWait&apos;s members are not thread-safe.  If multiple
-threads must spin, each should use its own instance of SpinWait.
-</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -313,7 +273,7 @@ other than -1 milliseconds, which represents an infinite time-out
         </div>
       </footer>    </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

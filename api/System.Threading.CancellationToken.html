@@ -12,7 +12,7 @@
  | .NET nanoFramework Documentation ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -137,7 +137,7 @@ All members of this struct are thread-safe and may be used concurrently from mul
     <pre><code class="lang-csharp hljs">public CancellationToken(bool canceled)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -175,7 +175,7 @@ both <a class="xref" href="System.Threading.CancellationToken.html#System_Thread
     <pre><code class="lang-csharp hljs">public bool CanBeCanceled { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -206,7 +206,7 @@ return true.</p>
     <pre><code class="lang-csharp hljs">public bool IsCancellationRequested { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -248,7 +248,7 @@ particularly in situations where related objects are being canceled concurrently
     <pre><code class="lang-csharp hljs">public static CancellationToken None { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -277,7 +277,7 @@ particularly in situations where related objects are being canceled concurrently
     <pre><code class="lang-csharp hljs">public WaitHandle WaitHandle { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -298,7 +298,7 @@ dispose the associated <a class="xref" href="System.Threading.CancellationTokenS
 the source will dispose of this allocated handle).  The handle should not be closed or disposed directly.</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -328,7 +328,7 @@ specified <a class="xref" href="System.Object.html">object</a>.</p>
     <pre><code class="lang-csharp hljs">public override bool Equals(object other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -346,7 +346,7 @@ specified <a class="xref" href="System.Object.html">object</a>.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -366,25 +366,8 @@ from public CancellationToken constructors and their <a class="xref" href="Syste
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="System.ValueType.html#System_ValueType_Equals_System_Object_">ValueType.Equals(object)</a></div>
-  <h5 id="System_Threading_CancellationToken_Equals_System_Object__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-A <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> may be created directly in an unchangeable canceled or non-canceled state
-using the CancellationToken&apos;s constructors. However, to have a CancellationToken that can change 
-from a non-canceled to a canceled state, 
-<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> must be used.
-CancellationTokenSource exposes the associated CancellationToken that may be canceled by the source through its 
-<a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property. 
-</p>
-<p>
-Once canceled, a token may not transition to a non-canceled state, and a token whose 
-<a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_CanBeCanceled">CanBeCanceled</a> is false will never change to one that can be canceled.
-</p>
-<p>
-All members of this struct are thread-safe and may be used concurrently from multiple threads.
-</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -412,7 +395,7 @@ specified token.</p>
     <pre><code class="lang-csharp hljs">public bool Equals(CancellationToken other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -431,7 +414,7 @@ instance.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -448,23 +431,6 @@ from public CancellationToken constructors and their <a class="xref" href="Syste
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Threading_CancellationToken_Equals_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-A <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> may be created directly in an unchangeable canceled or non-canceled state
-using the CancellationToken&apos;s constructors. However, to have a CancellationToken that can change 
-from a non-canceled to a canceled state, 
-<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> must be used.
-CancellationTokenSource exposes the associated CancellationToken that may be canceled by the source through its 
-<a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property. 
-</p>
-<p>
-Once canceled, a token may not transition to a non-canceled state, and a token whose 
-<a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_CanBeCanceled">CanBeCanceled</a> is false will never change to one that can be canceled.
-</p>
-<p>
-All members of this struct are thread-safe and may be used concurrently from multiple threads.
-</p>
-</div>
 
 
   <a id="System_Threading_CancellationToken_GetHashCode_" data-uid="System.Threading.CancellationToken.GetHashCode*"></a>
@@ -477,7 +443,7 @@ All members of this struct are thread-safe and may be used concurrently from mul
     <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -494,23 +460,6 @@ All members of this struct are thread-safe and may be used concurrently from mul
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="System.Object.html#System_Object_GetHashCode">object.GetHashCode()</a></div>
-  <h5 id="System_Threading_CancellationToken_GetHashCode_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-A <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> may be created directly in an unchangeable canceled or non-canceled state
-using the CancellationToken&apos;s constructors. However, to have a CancellationToken that can change 
-from a non-canceled to a canceled state, 
-<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> must be used.
-CancellationTokenSource exposes the associated CancellationToken that may be canceled by the source through its 
-<a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property. 
-</p>
-<p>
-Once canceled, a token may not transition to a non-canceled state, and a token whose 
-<a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_CanBeCanceled">CanBeCanceled</a> is false will never change to one that can be canceled.
-</p>
-<p>
-All members of this struct are thread-safe and may be used concurrently from multiple threads.
-</p>
-</div>
 
 
   <a id="System_Threading_CancellationToken_Register_" data-uid="System.Threading.CancellationToken.Register*"></a>
@@ -523,7 +472,7 @@ All members of this struct are thread-safe and may be used concurrently from mul
     <pre><code class="lang-csharp hljs">public CancellationTokenRegistration Register(Action callback)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -541,7 +490,7 @@ All members of this struct are thread-safe and may be used concurrently from mul
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -569,7 +518,7 @@ along with the delegate and will be used when executing it.
 </p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -602,7 +551,7 @@ this token has had cancellation requested.</p>
    throw new OperationCanceledException(token);</code></pre>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -648,7 +597,7 @@ this token has had cancellation requested.</p>
         </div>
       </footer>    </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>
