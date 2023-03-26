@@ -179,8 +179,8 @@ Below is a list of the build options available (last updated October 2022). Thes
 - "NF_CLR_NO_IL_INLINE" : **`OFF`**
   - Allows you to define if CLR will use IL inlining.
   Default is `OFF` meaning that CLR will inline IL.
-- "NF_INTEROP_ASSEMBLIES" : [ "Assembly1-Namespace", "Assembly2-Namespace" ]
-  - Lists the name of the Interop assembly(ies) to be added to the build. Leave empty or don't add it if no Interop assembly is to be added.
+- "NF_INTEROP_ASSEMBLIES" : "Assembly1-Namespace Assembly2-Namespace Assembly3-Namespace"
+  - Lists the name of the Interop assembly(ies) to be added to the build in a space separated string. Leave empty or don't add it if no Interop assembly is to be added.
 - "NF_NETWORKING_SNTP" : **`ON`**
   - Allows you to specify whether SNTP is enabled. Requires networking feature to be enabled. Default is ON.
 - "NF_SECURITY_MBEDTLS" : **`OFF`**
