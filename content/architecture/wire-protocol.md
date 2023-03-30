@@ -20,7 +20,7 @@ The message basic structure is comprised by:
   - Size of the payload.
 - Payload for carrying data. Optional and its size is variable.
 
-You can check the details on `WireProtocol.h](@ src\CLR\WireProtocol\WireProtocol.h)
+You can check the details on [WireProtocol.h](https://github.com/nanoframework/nf-interpreter/blob/main/src/CLR/Include/WireProtocol.h).
 
 ## Data channels
 
