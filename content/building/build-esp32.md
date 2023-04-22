@@ -121,7 +121,7 @@ After cloning the repo, you need to setup the build environment. You can use the
     - The PowerShell relies on the environment variables described above to properly setup the various VS Code working files. In case you have not used the automated install and the variable are not available you'll have to manually edit `tasks.json`, `launch.json` and `settings.json` to replace the relevant paths. **!!mind to always use forward slashes in the paths!!**
     - More info available on the [Tweaking CMakeUserPresets.TEMPLATE.json](cmake-presets.md) documentation page.
 
-- **Step 3:** Copy `CMakeUserPresets.TEMPLATE.json` to `CMakeUserPresets.json` and adjust paths for the tools and repositories in the `user-local-tools` configuration preset. If you don't have the intention to build for a particular platform you can simply remove the related options from there. If you don't want to use local clones of the various repositories you can simply set those to `null`. **!!mind to always use forward slashes in the paths!!**
+- **Step 3:** Copy the template file (in `nf-interpreter\config` folder) `user-tools-repos.TEMPLATE.json` to a (new) file called `user-tools-repos.json`. Rename the json section `user-tools-repos-local` to `user-tools-repos` and adjust paths for the tools and repositories in the `user-tools-repos` configuration preset. If you don't have the intention to build for a particular platform you can simply remove the related options from there. If you don't want to use local clones of the various repositories you can simply set those to `null`. **!!mind to always use forward slashes in the paths!!**
 
 - **Step 4**: Save any open files and **RESTART** VS Code. Have you **RESTARTED** VS Code? You really have to do it otherwise this won't work.
 

@@ -4,7 +4,7 @@
       "src": [
         {
           "files": [
-            "**/*.csproj"
+            "libs/**/bin/Release/**.dll"
           ],
           "exclude": [
             "**/obj/**",
@@ -13,19 +13,21 @@
             "**/Test/**",
             "Test**/**",
             "**/**.Test*",
-            "nanoFramework.IoT.Device/**"
+            "nanoFramework.IoT.Device/**",
+            "**/TestAdapter/**",
+            "**/poc/TestOfTestFrameworkByReference/**"
           ]
         }
       ],
       "filter": "api-filter.yml",
       "dest": "api",
-      "disableGitFeatures": false
+      "disableGitFeatures": true
     },
     {
       "src": [
         {
           "files": [
-            "nanoFramework.IoT.Device/**/*.csproj"
+            "nanoFramework.IoT.Device/**/bin/Release/**.dll"
           ],
           "exclude": [
             "**/obj/**",
@@ -33,13 +35,14 @@
             "**/Tests/**",
             "**/Test/**",
             "**/**.Test*",
-            "**/samples/**"
+            "**/samples/**",
+            "libs/**"
           ]
         }
       ],
-      "filter": "api-filter.yml",
+      "filter": "api-filter-iot.yml",
       "dest": "devices",
-      "disableGitFeatures": false
+      "disableGitFeatures": true
     }
   ],
   "build": {
@@ -76,6 +79,7 @@
       {
         "files": [
           "images/**",
+          "favicons/**",
           "devicesimages/**"
         ],
         "exclude": [
@@ -100,8 +104,8 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "nano1",
-      "templates/nano1"
+      "default",
+      "templates/nano"
     ],    
     "postProcessors": [ "ExtractSearchIndex" ],
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
@@ -110,7 +114,7 @@
     "cleanupCacheHistory": false,
     "disableGitFeatures": false,
     "globalMetadata": {
-      "_appTitle": "nanoFramework Documentation",
+      "_appTitle": ".NET nanoFramework Documentation",
       "_enableSearch": true,
       "_gitContribute": {
         "branch": "pages-source"
