@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>.NET nanoFramework usage at CSA Engineering AG | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content=".NET nanoFramework usage at CSA Engineering AG | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+      <link rel="mask-icon" href="../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="net-nanoframework-usage-at-csa-engineering-ag">.NET nanoFramework usage at CSA Engineering AG</h1>
+
+<p><strong>Company</strong>: <a href="https://www.csa.ch/">CSA Engineering AG</a></p>
+<p>As an engineering service provider, CSA Engineering AG develops customer-specific hardware and software solutions for the medical technology, passenger transportation and industry sector.
+Recently, CSA developed together with one of its customers a universal embedded platform with a STM32F4 microcontroller as main hardware component and the .NET nanoFramework as software basis. The result is the so-called M4MCU-Board.</p>
+<h2 id="m4mcu-board">M4MCU-Board</h2>
+<p>For both applications these key requirements were important:</p>
+<ul>
+<li>Extensive communication capabilities, especially TCP/IP for the remote access and CAN as well as ModBus for connecting to a PLC and industrial sensors</li>
+<li>Available filesystem and capabilities to handle larger data files and enable an easy on-site configuration, especially required are USB host and SD card functionalities</li>
+<li>Usage of C# code with all the publicly available .NET class libraries, as already a large code basis is existent at the customer and CSA. Additionally, to facilitate an efficient development environment as the same tools for programming the embedded part (M4MCU) and the computer application can be used</li>
+<li>The possibility of safe and secured remote software updates in the field</li>
+</ul>
+<p>The developed M4MCU-Board fulfils these key requirements with the following components:</p>
+<ul>
+<li>Cortex-M4 STM32F427 microcontroller with 256kB SRAM and 1MB flash</li>
+<li>8MB SDRAM and 8MB flash external storage</li>
+<li>SD card slot to store configuration data and large files</li>
+<li>LEDs, buttons and some GPIOs for general interactions</li>
+<li>Communication interfaces:
+<ul>
+<li>1x USB device</li>
+<li>1x USB host</li>
+<li>1x Ethernet RJ45</li>
+<li>1x CAN</li>
+<li>1x RS485</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../images/case-studies/csa-engineering-ag/M4MCU.jpg" alt="M4MCU-Board"></p>
+<p>In addition, several software realized features are available as e.g., development, deploying and debugging directly with Visual Studio, data encryption with NaCl algorithm, remote software update, several communication protocols as SSL/TLS, CAN, ModBus, software supervision with a watchdog.</p>
+<p>The porting of the .NET nanoFramework to our own hardware platform took some time and required in-depth knowledge in embedded software development. But finally, the .NET nanoFramework could be successfully introduced and provided a comfortable way of development combined with a comprehensive set of features for the product application.</p>
+<p>The M4MCU-Board and .Net nanoFramework has been used in the following applications.</p>
+<h2 id="application-1-smart-gateway-for-combined-heat-and-power-plant-units">Application 1: Smart gateway for combined heat and power plant units</h2>
+<p>These generators produce in parallel heat and electrical power. For optimization purposes several control parameters need to be set up e.g., ignition timing or the air fuel ratio. The parameters must be accessible to maintenance engineers, both locally at the generator itself as well as over the internet since some of the generators are installed in very remote locations. In addition, characteristic data and error messages are logged and sent to the company to analyze the plant efficiency continuously. One important characteristic data is the nitrogen oxide concentration in the exhaust gases. To continuously monitor this value as well in previous models, a stand-alone unit as retrofit kit is available too. All the tasks described are realized with the M4MCU-Board, .NET nanoFramework as basis and the C# product application.</p>
+<p><img src="../../images/case-studies/csa-engineering-ag/M4MCU_Housing.PNG" alt="M4MCU DIN rail case">
+<em>M4MCU built into DIN rail compatible case</em></p>
+<p><img src="../../images/case-studies/csa-engineering-ag/M4MCU_SmartGateway.PNG" alt="M4MCU in application 1">
+<em>Application 1: Smart gateway (marked with yellow circle) installed in the combined heat and power plant control cabinet</em></p>
+<h2 id="application-2-control-and-communication-electronic-for-an-exhibition-eye-catcher-product">Application 2: Control and communication electronic for an exhibition eye-catcher product</h2>
+<p>This product is an 8x8x8 LED-Cube to display text and animations and thus catch the attention of exhibition visitors. The LED-Cubes can be configured, animations chosen, and the status supervised by the operator on a frontend. In the background our IoT-Backend based on Azure products is running. The communication with this IoT-Backend via MQTT, the conversion and storage of the animations / playlists and the activation of the LEDs via SPI is realized with the M4MCU-Board, .NET nanoFramework as basis and the C# product application.</p>
+<p><img src="../../images/case-studies/csa-engineering-ag/LED-Cube-HW-1.png" alt="M4MCU in application 2 (Hardware)">
+<em>Application 2: LED-Cube controlled by the M4MCU-Board</em></p>
+<p><img src="../../images/case-studies/csa-engineering-ag/LED-Cube-Application-3.png" alt="M4MCU in application 2 (Frontend)">
+<em>Application 2: LED-Cube configuration frontend</em></p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/case-studies/nanoframework-usage-at-csa-engineering-ag.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
