@@ -2,7 +2,7 @@
 
 ![F12ZG](https://www.st.com/bin/ecommerce/api/image.PF262641.en.feature-description-include-personalized-no-cpn-medium.jpg)
 
-The board used in this community contribution is the NUCLEO144_F412ZG board from ST. The board can be purchased from various sources and should be about 20 euros. Further information on the Nucleo144 boards can be found in the user manuals UM1727 or UM1974 on the ST side (www.st.com).
+The board used in this community contribution is the NUCLEO144_F412ZG board from ST. The board can be purchased from various sources and should be about 20 euros. Further information on the Nucleo144 boards can be found in the user manuals UM1727 or UM1974 over at the [ST website](https://www.st.com).
 
 Some basic information abstracted from ST:
 
