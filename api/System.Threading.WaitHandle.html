@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -87,6 +87,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="System.Threading.WaitHandle">
+
 
 
   <h1 id="System_Threading_WaitHandle" data-uid="System.Threading.WaitHandle" class="text-break">Class WaitHandle
@@ -176,6 +177,51 @@
 
 
   <a id="System_Threading_WaitHandle_WaitAll_" data-uid="System.Threading.WaitHandle.WaitAll*"></a>
+  <h4 id="System_Threading_WaitHandle_WaitAll_System_Threading_WaitHandle___" data-uid="System.Threading.WaitHandle.WaitAll(System.Threading.WaitHandle[])">WaitAll(WaitHandle[])</h4>
+  <div class="markdown level1 summary"><p>Waits for all the elements in the specified array to receive a signal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool WaitAll(WaitHandle[] waitHandles)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Threading.WaitHandle.html">WaitHandle</a>[]</td>
+        <td><span class="parametername">waitHandles</span></td>
+        <td><p>A WaitHandle array containing the objects for which the current instance will wait. This array cannot contain multiple references to the same object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td><p>true when every element in waitHandles has received a signal; otherwise the method never returns.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Threading_WaitHandle_WaitAll_" data-uid="System.Threading.WaitHandle.WaitAll*"></a>
   <h4 id="System_Threading_WaitHandle_WaitAll_System_Threading_WaitHandle___System_Int32_System_Boolean_" data-uid="System.Threading.WaitHandle.WaitAll(System.Threading.WaitHandle[],System.Int32,System.Boolean)">WaitAll(WaitHandle[], int, bool)</h4>
   <div class="markdown level1 summary"><p>Waits for all the elements in the specified array to receive a signal, using an Int32 value to specify the time interval and specifying whether to exit the synchronization domain before the wait.</p>
 </div>
@@ -232,14 +278,14 @@
   </table>
 
 
-  <a id="System_Threading_WaitHandle_WaitAll_" data-uid="System.Threading.WaitHandle.WaitAll*"></a>
-  <h4 id="System_Threading_WaitHandle_WaitAll_System_Threading_WaitHandle___" data-uid="System.Threading.WaitHandle.WaitAll(System.Threading.WaitHandle[])">WaitAll(WaitHandle[])</h4>
-  <div class="markdown level1 summary"><p>Waits for all the elements in the specified array to receive a signal.</p>
+  <a id="System_Threading_WaitHandle_WaitAny_" data-uid="System.Threading.WaitHandle.WaitAny*"></a>
+  <h4 id="System_Threading_WaitHandle_WaitAny_System_Threading_WaitHandle___" data-uid="System.Threading.WaitHandle.WaitAny(System.Threading.WaitHandle[])">WaitAny(WaitHandle[])</h4>
+  <div class="markdown level1 summary"><p>Waits for any of the elements in the specified array to receive a signal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool WaitAll(WaitHandle[] waitHandles)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int WaitAny(WaitHandle[] waitHandles)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -254,7 +300,7 @@
       <tr>
         <td><a class="xref" href="System.Threading.WaitHandle.html">WaitHandle</a>[]</td>
         <td><span class="parametername">waitHandles</span></td>
-        <td><p>A WaitHandle array containing the objects for which the current instance will wait. This array cannot contain multiple references to the same object.</p>
+        <td><p>A WaitHandle array containing the objects for which the current instance will wait.</p>
 </td>
       </tr>
     </tbody>
@@ -269,8 +315,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>true when every element in waitHandles has received a signal; otherwise the method never returns.</p>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><p>The array index of the object that satisfied the wait.</p>
 </td>
       </tr>
     </tbody>
@@ -328,51 +374,6 @@
       <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><p>The array index of the object that satisfied the wait, or WaitTimeout if no object satisfied the wait and a time interval equivalent to millisecondsTimeout has passed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Threading_WaitHandle_WaitAny_" data-uid="System.Threading.WaitHandle.WaitAny*"></a>
-  <h4 id="System_Threading_WaitHandle_WaitAny_System_Threading_WaitHandle___" data-uid="System.Threading.WaitHandle.WaitAny(System.Threading.WaitHandle[])">WaitAny(WaitHandle[])</h4>
-  <div class="markdown level1 summary"><p>Waits for any of the elements in the specified array to receive a signal.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int WaitAny(WaitHandle[] waitHandles)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Threading.WaitHandle.html">WaitHandle</a>[]</td>
-        <td><span class="parametername">waitHandles</span></td>
-        <td><p>A WaitHandle array containing the objects for which the current instance will wait.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The array index of the object that satisfied the wait.</p>
 </td>
       </tr>
     </tbody>
@@ -486,6 +487,7 @@
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

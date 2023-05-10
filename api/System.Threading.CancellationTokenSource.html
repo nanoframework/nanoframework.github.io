@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Threading.CancellationTokenSource">
 
 
+
   <h1 id="System_Threading_CancellationTokenSource" data-uid="System.Threading.CancellationTokenSource" class="text-break">Class CancellationTokenSource
 </h1>
   <div class="markdown level0 summary"><p>Signals to a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> that it should be canceled.</p>
@@ -136,10 +137,10 @@
   <h5 id="System_Threading_CancellationTokenSource_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> is used to instantiate a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
-(via the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property)
+(via the source's <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property)
 that can be handed to operations that wish to be notified of cancellation or that can be used to
 register asynchronous operations for cancellation. That token may have cancellation requested by
-calling to the source&apos;s <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a>
+calling to the source's <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a>
 method.
 </p>
 <p>
@@ -212,7 +213,7 @@ canceled already.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The exception that is thrown when <code data-dev-comment-type="paramref" class="paramref">millisecondsDelay</code> is less than -1.</p>
+        <td><p>The exception that is thrown when <code class="paramref">millisecondsDelay</code> is less than -1.</p>
 </td>
       </tr>
     </tbody>
@@ -269,7 +270,7 @@ canceled already.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The exception that is thrown when <code data-dev-comment-type="paramref" class="paramref">delay</code> is less than -1 or greater than Int32.MaxValue.</p>
+        <td><p>The exception that is thrown when <code class="paramref">delay</code> is less than -1 or greater than Int32.MaxValue.</p>
 </td>
       </tr>
     </tbody>
@@ -390,7 +391,7 @@ However, this overload of Cancel will aggregate any exceptions thrown into a <se
 such that one callback throwing an exception will not prevent other registered callbacks from being executed.
 </p>
 <p>
-The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.executioncontext">ExecutionContext</a> that was captured when each callback was registered
+The <span class="xref">System.Threading.ExecutionContext</span> that was captured when each callback was registered
 will be reestablished when the callback is invoked.
 </p>
 </div>
@@ -455,14 +456,14 @@ registered with the <a class="xref" href="System.Threading.CancellationToken.htm
 </p>
 <p>
 Cancelable operations and callbacks registered with the token should not throw exceptions. 
-If <code data-dev-comment-type="paramref" class="paramref">throwOnFirstException</code> is true, an exception will immediately propagate out of the
+If <code class="paramref">throwOnFirstException</code> is true, an exception will immediately propagate out of the
 call to Cancel, preventing the remaining callbacks and cancelable operations from being processed.
-If <code data-dev-comment-type="paramref" class="paramref">throwOnFirstException</code> is false, this overload will aggregate any 
+If <code class="paramref">throwOnFirstException</code> is false, this overload will aggregate any 
 exceptions thrown into a <see cref="!:System.AggregateException"></see>,
 such that one callback throwing an exception will not prevent other registered callbacks from being executed.
 </p>
 <p>
-The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.executioncontext">ExecutionContext</a> that was captured when each callback was registered
+The <span class="xref">System.Threading.ExecutionContext</span> that was captured when each callback was registered
 will be reestablished when the callback is invoked.
 </p>
 </div>
@@ -545,7 +546,7 @@ canceled already.
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The exception thrown when <code data-dev-comment-type="paramref" class="paramref">millisecondsDelay</code> is less than -1.</p>
+        <td><p>The exception thrown when <code class="paramref">millisecondsDelay</code> is less than -1.</p>
 </td>
       </tr>
     </tbody>
@@ -607,7 +608,7 @@ canceled already.
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The exception thrown when <code data-dev-comment-type="paramref" class="paramref">delay</code> is less than -1 or
+        <td><p>The exception thrown when <code class="paramref">delay</code> is less than -1 or
 greater than Int32.MaxValue.</p>
 </td>
       </tr>
@@ -691,6 +692,7 @@ greater than Int32.MaxValue.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

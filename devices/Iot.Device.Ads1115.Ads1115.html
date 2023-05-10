@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Iot.Device.Ads1115.Ads1115">
 
 
+
   <h1 id="Iot_Device_Ads1115_Ads1115" data-uid="Iot.Device.Ads1115.Ads1115" class="text-break">Class Ads1115
 </h1>
   <div class="markdown level0 summary"><p>Analog-to-Digital Converter ADS1115.</p>
@@ -99,7 +100,7 @@
     <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
     <div class="level1"><span class="xref">Ads1115</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Ads1115.html">Ads1115</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Ads1115.html">Ads1115</a></h6>
   <h6><strong>Assembly</strong>: Iot.Device.Ads1115.dll</h6>
   <h5 id="Iot_Device_Ads1115_Ads1115_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -800,6 +801,55 @@ If in PowerDown (single-shot) mode, one new sample is requested first.</p>
 
 
   <a id="Iot_Device_Ads1115_Ads1115_ReadRaw_" data-uid="Iot.Device.Ads1115.Ads1115.ReadRaw*"></a>
+  <h4 id="Iot_Device_Ads1115_Ads1115_ReadRaw_Iot_Device_Ads1115_InputMultiplexer_" data-uid="Iot.Device.Ads1115.Ads1115.ReadRaw(Iot.Device.Ads1115.InputMultiplexer)">ReadRaw(InputMultiplexer)</h4>
+  <div class="markdown level1 summary"><p>Reads the next raw value, first switching to the given input and ranges.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public short ReadRaw(InputMultiplexer inputMultiplexer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Iot.Device.Ads1115.InputMultiplexer.html">InputMultiplexer</a></td>
+        <td><span class="parametername">inputMultiplexer</span></td>
+        <td><p>New input multiplexer setting.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../api/System.Int16.html">short</a></td>
+        <td><p>Measured value as short.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Iot_Device_Ads1115_Ads1115_ReadRaw_Iot_Device_Ads1115_InputMultiplexer__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For performance reasons, it is advised to use this method if quick readings with different input channels are required,
+instead of setting all the properties first and then calling <a class="xref" href="Iot.Device.Ads1115.Ads1115.html#Iot_Device_Ads1115_Ads1115_ReadRaw">ReadRaw()</a>.</p>
+</div>
+
+
+  <a id="Iot_Device_Ads1115_Ads1115_ReadRaw_" data-uid="Iot.Device.Ads1115.Ads1115.ReadRaw*"></a>
   <h4 id="Iot_Device_Ads1115_Ads1115_ReadRaw_Iot_Device_Ads1115_InputMultiplexer_Iot_Device_Ads1115_MeasuringRange_Iot_Device_Ads1115_DataRate_" data-uid="Iot.Device.Ads1115.Ads1115.ReadRaw(Iot.Device.Ads1115.InputMultiplexer,Iot.Device.Ads1115.MeasuringRange,Iot.Device.Ads1115.DataRate)">ReadRaw(InputMultiplexer, MeasuringRange, DataRate)</h4>
   <div class="markdown level1 summary"><p>Reads the next raw value, first switching to the given input and ranges.</p>
 </div>
@@ -858,55 +908,6 @@ If in PowerDown (single-shot) mode, one new sample is requested first.</p>
   <div class="markdown level1 remarks"><p>For performance reasons, it is advised to use this method if quick readings with different settings
 (i.e. different input channels) are required, instead of setting all the properties first and then
 calling <a class="xref" href="Iot.Device.Ads1115.Ads1115.html#Iot_Device_Ads1115_Ads1115_ReadRaw">ReadRaw()</a>.</p>
-</div>
-
-
-  <a id="Iot_Device_Ads1115_Ads1115_ReadRaw_" data-uid="Iot.Device.Ads1115.Ads1115.ReadRaw*"></a>
-  <h4 id="Iot_Device_Ads1115_Ads1115_ReadRaw_Iot_Device_Ads1115_InputMultiplexer_" data-uid="Iot.Device.Ads1115.Ads1115.ReadRaw(Iot.Device.Ads1115.InputMultiplexer)">ReadRaw(InputMultiplexer)</h4>
-  <div class="markdown level1 summary"><p>Reads the next raw value, first switching to the given input and ranges.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public short ReadRaw(InputMultiplexer inputMultiplexer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Ads1115.InputMultiplexer.html">InputMultiplexer</a></td>
-        <td><span class="parametername">inputMultiplexer</span></td>
-        <td><p>New input multiplexer setting.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int16.html">short</a></td>
-        <td><p>Measured value as short.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Ads1115_Ads1115_ReadRaw_Iot_Device_Ads1115_InputMultiplexer__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>For performance reasons, it is advised to use this method if quick readings with different input channels are required,
-instead of setting all the properties first and then calling <a class="xref" href="Iot.Device.Ads1115.Ads1115.html#Iot_Device_Ads1115_Ads1115_ReadRaw">ReadRaw()</a>.</p>
 </div>
 
 
@@ -1053,6 +1054,7 @@ Requires setup through <a class="xref" href="Iot.Device.Ads1115.Ads1115.html#Iot
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 

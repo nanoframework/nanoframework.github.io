@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="nanoFramework.UI.Application">
 
 
+
   <h1 id="nanoFramework_UI_Application" data-uid="nanoFramework.UI.Application" class="text-break">Class Application
 </h1>
   <div class="markdown level0 summary"><p>Application base class</p>
@@ -137,7 +138,7 @@
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">nanoFramework</span>.<a class="xref" href="nanoFramework.UI.html">UI</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.UI.html">UI</a></h6>
   <h6><strong>Assembly</strong>: nanoFramework.Graphics.dll</h6>
   <h5 id="nanoFramework_UI_Application_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -227,15 +228,18 @@ The three values for the ShutdownMode enum are :
 OnLastWindowClose
 OnMainWindowClose
 OnExplicitShutdown</p>
-<p>OnLastWindowClose - this mode will shutdown the application when  the
-last window is closed, or an explicit call is made
-to Application.Shutdown(). This is the default mode.</p>
-<p>OnMainWindowClose - this mode will shutdown the application when the main
-window has been closed, or Application.Shutdown() is
-called. Note that if the MainWindow property has not
-been set - this mode is equivalent to OnExplicitOnly.</p>
-<p>OnExplicitShutdown- this mode will shutdown the application only when an
-explicit call to OnShutdown() has been made.</p>
+<pre><code>OnLastWindowClose - this mode will shutdown the application when  the
+                    last window is closed, or an explicit call is made
+                    to Application.Shutdown(). This is the default mode.
+
+OnMainWindowClose - this mode will shutdown the application when the main
+                    window has been closed, or Application.Shutdown() is
+                    called. Note that if the MainWindow property has not
+                    been set - this mode is equivalent to OnExplicitOnly.
+
+OnExplicitShutdown- this mode will shutdown the application only when an
+                    explicit call to OnShutdown() has been made.
+</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -290,7 +294,8 @@ can iterate over all the windows that have been opened in the current applicatio
 
   <a id="nanoFramework_UI_Application_InitializeForEventSource_" data-uid="nanoFramework.UI.Application.InitializeForEventSource*"></a>
   <h4 id="nanoFramework_UI_Application_InitializeForEventSource" data-uid="nanoFramework.UI.Application.InitializeForEventSource">InitializeForEventSource()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes the InputProvider for the EventSource.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -300,7 +305,8 @@ can iterate over all the windows that have been opened in the current applicatio
 
   <a id="nanoFramework_UI_Application_OnEvent_" data-uid="nanoFramework.UI.Application.OnEvent*"></a>
   <h4 id="nanoFramework_UI_Application_OnEvent_nanoFramework_Runtime_Events_BaseEvent_" data-uid="nanoFramework.UI.Application.OnEvent(nanoFramework.Runtime.Events.BaseEvent)">OnEvent(BaseEvent)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Provides input processing for BaseEvent objects from the EventSource.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -319,7 +325,8 @@ can iterate over all the windows that have been opened in the current applicatio
       <tr>
         <td><a class="xref" href="nanoFramework.Runtime.Events.BaseEvent.html">BaseEvent</a></td>
         <td><span class="parametername">ev</span></td>
-        <td></td>
+        <td><p>The event to process.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -334,7 +341,8 @@ can iterate over all the windows that have been opened in the current applicatio
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
+        <td><p>Returns true if the event was successfully processed, otherwise returns false.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -569,6 +577,7 @@ This event is raised by the OnStartup method.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

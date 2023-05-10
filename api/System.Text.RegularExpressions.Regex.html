@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Text.RegularExpressions.Regex">
 
 
+
   <h1 id="System_Text_RegularExpressions_Regex" data-uid="System.Text.RegularExpressions.Regex" class="text-break">Class Regex
 </h1>
   <div class="markdown level0 summary"><p>A lightweight Regular Expression Engine and Parser. Contributed by Julius Friedman</p>
@@ -141,6 +142,37 @@ This is likely to be an uncommon practice, but is still supported.</p>
 
 
   <a id="System_Text_RegularExpressions_Regex__ctor_" data-uid="System.Text.RegularExpressions.Regex.#ctor*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex__ctor_System_String_" data-uid="System.Text.RegularExpressions.Regex.#ctor(System.String)">Regex(string)</h4>
+  <div class="markdown level1 summary"><p>Constructs a regular expression matcher from a String by compiling it
+using a new instance of RECompiler.  If you will be compiling many
+expressions, you may prefer to use a single RECompiler object instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Regex(string pattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>he regular expression pattern to compile.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_RegularExpressions_Regex__ctor_" data-uid="System.Text.RegularExpressions.Regex.#ctor*"></a>
   <h4 id="System_Text_RegularExpressions_Regex__ctor_System_String_System_Text_RegularExpressions_RegexOptions_" data-uid="System.Text.RegularExpressions.Regex.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)">Regex(string, RegexOptions)</h4>
   <div class="markdown level1 summary"><p>Constructs a regular expression matcher from a String by compiling it
 using a new instance of RECompiler.  If you will be compiling many
@@ -171,37 +203,6 @@ expressions, you may prefer to use a single RECompiler object instead.</p>
         <td><a class="xref" href="System.Text.RegularExpressions.RegexOptions.html">RegexOptions</a></td>
         <td><span class="parametername">matchFlags</span></td>
         <td><p>The MatchOptions</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_RegularExpressions_Regex__ctor_" data-uid="System.Text.RegularExpressions.Regex.#ctor*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex__ctor_System_String_" data-uid="System.Text.RegularExpressions.Regex.#ctor(System.String)">Regex(string)</h4>
-  <div class="markdown level1 summary"><p>Constructs a regular expression matcher from a String by compiling it
-using a new instance of RECompiler.  If you will be compiling many
-expressions, you may prefer to use a single RECompiler object instead.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Regex(string pattern)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">pattern</span></td>
-        <td><p>he regular expression pattern to compile.</p>
 </td>
       </tr>
     </tbody>
@@ -359,6 +360,54 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
 
 
   <a id="System_Text_RegularExpressions_Regex_GetMatches_" data-uid="System.Text.RegularExpressions.Regex.GetMatches*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_GetMatches_System_String___" data-uid="System.Text.RegularExpressions.Regex.GetMatches(System.String[])">GetMatches(string[])</h4>
+  <div class="markdown level1 summary"><p>Returns an array of Strings, whose ToString representation matches a regular
+expression. This method works like the Perl function of the same name.  Given
+a regular expression of &quot;a*b&quot; and an array of String objects of [foo, aab, zzz,
+aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetMatches(string[] search)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a>[]</td>
+        <td><span class="parametername">search</span></td>
+        <td><p>Array of string to search</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a>[]</td>
+        <td><p>Array of Strings whose value matches this regular expression</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_RegularExpressions_Regex_GetMatches_" data-uid="System.Text.RegularExpressions.Regex.GetMatches*"></a>
   <h4 id="System_Text_RegularExpressions_Regex_GetMatches_System_String___System_Int32_System_Int32_" data-uid="System.Text.RegularExpressions.Regex.GetMatches(System.String[],System.Int32,System.Int32)">GetMatches(string[], int, int)</h4>
   <div class="markdown level1 summary"><p>Returns an array of Strings, whose ToString representation matches a regular
 expression. This method works like the Perl function of the same name.  Given
@@ -418,17 +467,14 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
   </table>
 
 
-  <a id="System_Text_RegularExpressions_Regex_GetMatches_" data-uid="System.Text.RegularExpressions.Regex.GetMatches*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_GetMatches_System_String___" data-uid="System.Text.RegularExpressions.Regex.GetMatches(System.String[])">GetMatches(string[])</h4>
-  <div class="markdown level1 summary"><p>Returns an array of Strings, whose ToString representation matches a regular
-expression. This method works like the Perl function of the same name.  Given
-a regular expression of &quot;a*b&quot; and an array of String objects of [foo, aab, zzz,
-aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
+  <a id="System_Text_RegularExpressions_Regex_IsMatch_" data-uid="System.Text.RegularExpressions.Regex.IsMatch*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_IsMatch_System_String_" data-uid="System.Text.RegularExpressions.Regex.IsMatch(System.String)">IsMatch(string)</h4>
+  <div class="markdown level1 summary"><p>Matches the current regular expression program against a String.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string[] GetMatches(string[] search)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsMatch(string search)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -441,9 +487,9 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.String.html">string</a>[]</td>
+        <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">search</span></td>
-        <td><p>Array of string to search</p>
+        <td><p>String to match against</p>
 </td>
       </tr>
     </tbody>
@@ -458,8 +504,8 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.String.html">string</a>[]</td>
-        <td><p>Array of Strings whose value matches this regular expression</p>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td><p>True if search string matched</p>
 </td>
       </tr>
     </tbody>
@@ -517,14 +563,14 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
   </table>
 
 
-  <a id="System_Text_RegularExpressions_Regex_IsMatch_" data-uid="System.Text.RegularExpressions.Regex.IsMatch*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_IsMatch_System_String_" data-uid="System.Text.RegularExpressions.Regex.IsMatch(System.String)">IsMatch(string)</h4>
-  <div class="markdown level1 summary"><p>Matches the current regular expression program against a String.</p>
+  <a id="System_Text_RegularExpressions_Regex_Match_" data-uid="System.Text.RegularExpressions.Regex.Match*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_Match_System_String_" data-uid="System.Text.RegularExpressions.Regex.Match(System.String)">Match(string)</h4>
+  <div class="markdown level1 summary"><p>Searches the specified input string for the first occurrence of the regular expression specified in the Regex constructor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsMatch(string search)</code></pre>
+    <pre><code class="lang-csharp hljs">public Match Match(string input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -538,9 +584,8 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">search</span></td>
-        <td><p>String to match against</p>
-</td>
+        <td><span class="parametername">input</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -554,8 +599,8 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>True if search string matched</p>
+        <td><a class="xref" href="System.Text.RegularExpressions.Match.html">Match</a></td>
+        <td><p>A Match</p>
 </td>
       </tr>
     </tbody>
@@ -605,6 +650,57 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
       <tr>
         <td><a class="xref" href="System.Text.RegularExpressions.Match.html">Match</a></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_RegularExpressions_Regex_Match_" data-uid="System.Text.RegularExpressions.Regex.Match*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_Match_System_String_System_String_" data-uid="System.Text.RegularExpressions.Regex.Match(System.String,System.String)">Match(string, string)</h4>
+  <div class="markdown level1 summary"><p>Searches the specified input string for the first occurrence of the specified regular expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Match Match(string input, string pattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The string to match against</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Text.RegularExpressions.Match.html">Match</a></td>
+        <td><p>A Match representing the first match from the input against the pattern</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -667,14 +763,14 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
   </table>
 
 
-  <a id="System_Text_RegularExpressions_Regex_Match_" data-uid="System.Text.RegularExpressions.Regex.Match*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_Match_System_String_System_String_" data-uid="System.Text.RegularExpressions.Regex.Match(System.String,System.String)">Match(string, string)</h4>
-  <div class="markdown level1 summary"><p>Searches the specified input string for the first occurrence of the specified regular expression.</p>
+  <a id="System_Text_RegularExpressions_Regex_Matches_" data-uid="System.Text.RegularExpressions.Regex.Matches*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_Matches_System_String_" data-uid="System.Text.RegularExpressions.Regex.Matches(System.String)">Matches(string)</h4>
+  <div class="markdown level1 summary"><p>Searches the specified input string for all occurrences of a regular expression.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Match Match(string input, string pattern)</code></pre>
+    <pre><code class="lang-csharp hljs">public MatchCollection Matches(string input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -689,13 +785,7 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">input</span></td>
-        <td><p>The string to match against</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">pattern</span></td>
-        <td><p>The pattern to match</p>
+        <td><p>The input string to match against</p>
 </td>
       </tr>
     </tbody>
@@ -710,52 +800,8 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Text.RegularExpressions.Match.html">Match</a></td>
-        <td><p>A Match representing the first match from the input against the pattern</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_RegularExpressions_Regex_Match_" data-uid="System.Text.RegularExpressions.Regex.Match*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_Match_System_String_" data-uid="System.Text.RegularExpressions.Regex.Match(System.String)">Match(string)</h4>
-  <div class="markdown level1 summary"><p>Searches the specified input string for the first occurrence of the regular expression specified in the Regex constructor.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Match Match(string input)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">input</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Text.RegularExpressions.Match.html">Match</a></td>
-        <td><p>A Match</p>
+        <td><a class="xref" href="System.Text.RegularExpressions.MatchCollection.html">MatchCollection</a></td>
+        <td><p>A Collection of Matches from the input</p>
 </td>
       </tr>
     </tbody>
@@ -791,6 +837,57 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">startat</span></td>
         <td><p>The position to start matching at</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Text.RegularExpressions.MatchCollection.html">MatchCollection</a></td>
+        <td><p>A Collection of Matches from the input</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_RegularExpressions_Regex_Matches_" data-uid="System.Text.RegularExpressions.Regex.Matches*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_Matches_System_String_System_String_" data-uid="System.Text.RegularExpressions.Regex.Matches(System.String,System.String)">Matches(string, string)</h4>
+  <div class="markdown level1 summary"><p>Searches the specified input string for all occurrences of a regular expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MatchCollection Matches(string input, string pattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The string to match against</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match</p>
 </td>
       </tr>
     </tbody>
@@ -870,14 +967,18 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
   </table>
 
 
-  <a id="System_Text_RegularExpressions_Regex_Matches_" data-uid="System.Text.RegularExpressions.Regex.Matches*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_Matches_System_String_System_String_" data-uid="System.Text.RegularExpressions.Regex.Matches(System.String,System.String)">Matches(string, string)</h4>
-  <div class="markdown level1 summary"><p>Searches the specified input string for all occurrences of a regular expression.</p>
+  <a id="System_Text_RegularExpressions_Regex_Replace_" data-uid="System.Text.RegularExpressions.Regex.Replace*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_Replace_System_String_System_String_" data-uid="System.Text.RegularExpressions.Regex.Replace(System.String,System.String)">Replace(string, string)</h4>
+  <div class="markdown level1 summary"><p>Substitutes a string for this regular expression in another string.
+This method works like the Perl function of the same name.
+Given a regular expression of &quot;a*b&quot;, a String to substituteIn of
+&quot;aaaabfooaaabgarplyaaabwackyb&quot; and the substitution String &quot;-&quot;, the
+resulting String returned by Substring would be &quot;-foo-garply-wacky-&quot;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MatchCollection Matches(string input, string pattern)</code></pre>
+    <pre><code class="lang-csharp hljs">public string Replace(string substituteIn, string substitution)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -891,14 +992,14 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">input</span></td>
-        <td><p>The string to match against</p>
+        <td><span class="parametername">substituteIn</span></td>
+        <td><p>String to substitute within</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">pattern</span></td>
-        <td><p>The pattern to match</p>
+        <td><span class="parametername">substitution</span></td>
+        <td><p>String to substitute for all matches of this regular expression.</p>
 </td>
       </tr>
     </tbody>
@@ -913,53 +1014,10 @@ aaaab], the array of Strings returned by grep would be [aab, aaaab].</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Text.RegularExpressions.MatchCollection.html">MatchCollection</a></td>
-        <td><p>A Collection of Matches from the input</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_RegularExpressions_Regex_Matches_" data-uid="System.Text.RegularExpressions.Regex.Matches*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_Matches_System_String_" data-uid="System.Text.RegularExpressions.Regex.Matches(System.String)">Matches(string)</h4>
-  <div class="markdown level1 summary"><p>Searches the specified input string for all occurrences of a regular expression.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MatchCollection Matches(string input)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">input</span></td>
-        <td><p>The input string to match against</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Text.RegularExpressions.MatchCollection.html">MatchCollection</a></td>
-        <td><p>A Collection of Matches from the input</p>
+        <td><p>The string substituteIn with zero or more occurrences of the current
+regular expression replaced with the substitution String (if this regular
+expression object doesn't match at any position, the original String is returned unchanged).</p>
 </td>
       </tr>
     </tbody>
@@ -975,13 +1033,13 @@ Given a regular expression of &quot;a*b&quot;, a String to substituteIn of
 resulting String returned by subst would be &quot;-foo-garply-wacky-&quot;.</p>
 <p>
 It is also possible to reference the contents of a parenthesized expression
-with $0, $1, ... $9. A regular expression of &quot;http://[\\.\\w\\-\\?/~_@&amp;=%]+&quot;,
-a String to substituteIn of &quot;visit us: http://www.apache.org!&quot; and the
-substitution String &quot;&lt;a href=\&quot;$0\&quot;>$0&lt;/a>&quot;, the resulting String
+with $0, $1, ... $9. A regular expression of "http://[\\.\\w\\-\\?/~_@&amp;=%]+",
+a String to substituteIn of "visit us: http://www.apache.org!" and the
+substitution String "&lt;a href=\"$0\"&gt;$0&lt;/a&gt;", the resulting String
 returned by subst would be
-&quot;visit us: &lt;a href=\&quot;http://www.apache.org\&quot;>http://www.apache.org&lt;/a>!&quot;.
+"visit us: &lt;a href=\"http://www.apache.org\"&gt;http://www.apache.org&lt;/a&gt;!".
 </p>
-<em>Note:</em> $0 represents the whole match.
+<i>Note:</i> $0 represents the whole match.
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1045,65 +1103,8 @@ unchanged).</p>
   </table>
 
 
-  <a id="System_Text_RegularExpressions_Regex_Replace_" data-uid="System.Text.RegularExpressions.Regex.Replace*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_Replace_System_String_System_String_" data-uid="System.Text.RegularExpressions.Regex.Replace(System.String,System.String)">Replace(string, string)</h4>
-  <div class="markdown level1 summary"><p>Substitutes a string for this regular expression in another string.
-This method works like the Perl function of the same name.
-Given a regular expression of &quot;a*b&quot;, a String to substituteIn of
-&quot;aaaabfooaaabgarplyaaabwackyb&quot; and the substitution String &quot;-&quot;, the
-resulting String returned by Substring would be &quot;-foo-garply-wacky-&quot;.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Replace(string substituteIn, string substitution)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">substituteIn</span></td>
-        <td><p>String to substitute within</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">substitution</span></td>
-        <td><p>String to substitute for all matches of this regular expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><p>The string substituteIn with zero or more occurrences of the current
-regular expression replaced with the substitution String (if this regular
-expression object doesn't match at any position, the original String is returned unchanged).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <a id="System_Text_RegularExpressions_Regex_Split_" data-uid="System.Text.RegularExpressions.Regex.Split*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_Split_System_String_System_Int32_System_Int32_System_Int32_" data-uid="System.Text.RegularExpressions.Regex.Split(System.String,System.Int32,System.Int32,System.Int32)">Split(string, int, int, int)</h4>
+  <h4 id="System_Text_RegularExpressions_Regex_Split_System_String_" data-uid="System.Text.RegularExpressions.Regex.Split(System.String)">Split(string)</h4>
   <div class="markdown level1 summary"><p>Splits a string into an array of strings on regular expression boundaries.
 This function works the same way as the Perl function of the same name.
 Given a regular expression of &quot;[ab]+&quot; and a string to split of
@@ -1116,7 +1117,7 @@ matched by the pattern.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string[] Split(string s, int maxMatches, int start, int length)</code></pre>
+    <pre><code class="lang-csharp hljs">public string[] Split(string s)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1131,25 +1132,7 @@ matched by the pattern.</p>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">s</span></td>
-        <td><p>String to split on this regular expression.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">maxMatches</span></td>
-        <td><p>The maximum number of matches to split.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">start</span></td>
-        <td><p>The offset in the string to start at.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">length</span></td>
-        <td><p>The maximum length in the string that should parsed.</p>
+        <td><p>String to split on this regular exression</p>
 </td>
       </tr>
     </tbody>
@@ -1208,6 +1191,76 @@ matched by the pattern.</p>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">maxMatches</span></td>
         <td><p>The maximum number of matches to split</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a>[]</td>
+        <td><p>Array of strings</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_RegularExpressions_Regex_Split_" data-uid="System.Text.RegularExpressions.Regex.Split*"></a>
+  <h4 id="System_Text_RegularExpressions_Regex_Split_System_String_System_Int32_System_Int32_System_Int32_" data-uid="System.Text.RegularExpressions.Regex.Split(System.String,System.Int32,System.Int32,System.Int32)">Split(string, int, int, int)</h4>
+  <div class="markdown level1 summary"><p>Splits a string into an array of strings on regular expression boundaries.
+This function works the same way as the Perl function of the same name.
+Given a regular expression of &quot;[ab]+&quot; and a string to split of
+&quot;xyzzyababbayyzabbbab123&quot;, the result would be the array of Strings
+&quot;[xyzzy, yyz, 123]&quot;.</p>
+<p>Please note that the first string in the resulting array may be an empty
+string. This happens when the very first character of input string is
+matched by the pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] Split(string s, int maxMatches, int start, int length)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>String to split on this regular expression.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">maxMatches</span></td>
+        <td><p>The maximum number of matches to split.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The offset in the string to start at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">length</span></td>
+        <td><p>The maximum length in the string that should parsed.</p>
 </td>
       </tr>
     </tbody>
@@ -1350,58 +1403,6 @@ matched by the pattern.</p>
       <tr>
         <td><a class="xref" href="System.String.html">string</a>[]</td>
         <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_RegularExpressions_Regex_Split_" data-uid="System.Text.RegularExpressions.Regex.Split*"></a>
-  <h4 id="System_Text_RegularExpressions_Regex_Split_System_String_" data-uid="System.Text.RegularExpressions.Regex.Split(System.String)">Split(string)</h4>
-  <div class="markdown level1 summary"><p>Splits a string into an array of strings on regular expression boundaries.
-This function works the same way as the Perl function of the same name.
-Given a regular expression of &quot;[ab]+&quot; and a string to split of
-&quot;xyzzyababbayyzabbbab123&quot;, the result would be the array of Strings
-&quot;[xyzzy, yyz, 123]&quot;.</p>
-<p>Please note that the first string in the resulting array may be an empty
-string. This happens when the very first character of input string is
-matched by the pattern.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string[] Split(string s)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">s</span></td>
-        <td><p>String to split on this regular exression</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a>[]</td>
-        <td><p>Array of strings</p>
-</td>
       </tr>
     </tbody>
   </table>
@@ -1573,6 +1574,7 @@ matched by the pattern.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

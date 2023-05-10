@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Iot.Device.Pn5180.Pn5180">
 
 
+
   <h1 id="Iot_Device_Pn5180_Pn5180" data-uid="Iot.Device.Pn5180.Pn5180" class="text-break">Class Pn5180
 </h1>
   <div class="markdown level0 summary"><p>A PN5180 class offering RFID and NFC functionalities. Implement the CardTransceiver class to
@@ -101,7 +102,7 @@ allow Mifare, Credit Card support</p>
     <div class="level1"><a class="xref" href="Iot.Device.Card.CardTransceiver.html">CardTransceiver</a></div>
     <div class="level2"><span class="xref">Pn5180</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Pn5180.html">Pn5180</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Pn5180.html">Pn5180</a></h6>
   <h6><strong>Assembly</strong>: Iot.Device.Pn5180.dll</h6>
   <h5 id="Iot_Device_Pn5180_Pn5180_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -983,6 +984,56 @@ If the full byte is valid then the value of the valid bit is 0</p>
 
 
   <a id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_" data-uid="Iot.Device.Pn5180.Pn5180.ReadDataFromCard*"></a>
+  <h4 id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_System_SpanByte_" data-uid="Iot.Device.Pn5180.Pn5180.ReadDataFromCard(System.SpanByte)">ReadDataFromCard(SpanByte)</h4>
+  <div class="markdown level1 summary"><p>Read data from a card.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReadDataFromCard(SpanByte toRead)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
+        <td><span class="parametername">toRead</span></td>
+        <td><p>The span of byte to read</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
+        <td><p>True if success</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_System_SpanByte__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Using this function you'll have to manage yourself the possible low level communication protocol.
+This function write directly to the card all the bytes. Please make sure you'll first load specific radio frequence settings,
+detect a card, select it and then send data</p>
+</div>
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_" data-uid="Iot.Device.Pn5180.Pn5180.ReadDataFromCard*"></a>
   <h4 id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_System_SpanByte_System_Int32__" data-uid="Iot.Device.Pn5180.Pn5180.ReadDataFromCard(System.SpanByte,System.Int32@)">ReadDataFromCard(SpanByte, out int)</h4>
   <div class="markdown level1 summary"><p>Read all the data from the card</p>
 </div>
@@ -1034,56 +1085,6 @@ If the full byte is valid then the value of the valid bit is 0</p>
     </tbody>
   </table>
   <h5 id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_System_SpanByte_System_Int32___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Using this function you'll have to manage yourself the possible low level communication protocol.
-This function write directly to the card all the bytes. Please make sure you'll first load specific radio frequence settings,
-detect a card, select it and then send data</p>
-</div>
-
-
-  <a id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_" data-uid="Iot.Device.Pn5180.Pn5180.ReadDataFromCard*"></a>
-  <h4 id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_System_SpanByte_" data-uid="Iot.Device.Pn5180.Pn5180.ReadDataFromCard(System.SpanByte)">ReadDataFromCard(SpanByte)</h4>
-  <div class="markdown level1 summary"><p>Read data from a card.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ReadDataFromCard(SpanByte toRead)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">toRead</span></td>
-        <td><p>The span of byte to read</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p>True if success</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Pn5180_Pn5180_ReadDataFromCard_System_SpanByte__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Using this function you'll have to manage yourself the possible low level communication protocol.
 This function write directly to the card all the bytes. Please make sure you'll first load specific radio frequence settings,
 detect a card, select it and then send data</p>
@@ -1143,10 +1144,7 @@ detect a card, select it and then send data</p>
 
   <a id="Iot_Device_Pn5180_Pn5180_ReselectTarget_" data-uid="Iot.Device.Pn5180.Pn5180.ReselectTarget*"></a>
   <h4 id="Iot_Device_Pn5180_Pn5180_ReselectTarget_System_Byte_" data-uid="Iot.Device.Pn5180.Pn5180.ReselectTarget(System.Byte)">ReselectTarget(byte)</h4>
-  <div class="markdown level1 summary"><p>Once you have an authentication operation failing with Mifare cards or a read/write, the card stop.
-TYhe only way to have it back is to send the unselect and anti collision.
-This function provides this feature</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1165,8 +1163,7 @@ This function provides this feature</p>
       <tr>
         <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
         <td><span class="parametername">targetNumber</span></td>
-        <td><p>The target number to reselect</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1181,8 +1178,7 @@ This function provides this feature</p>
     <tbody>
       <tr>
         <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p>True if success</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1351,9 +1347,7 @@ detect a card, select it and then send data</p>
 
   <a id="Iot_Device_Pn5180_Pn5180_Transceive_" data-uid="Iot.Device.Pn5180.Pn5180.Transceive*"></a>
   <h4 id="Iot_Device_Pn5180_Pn5180_Transceive_System_Byte_System_SpanByte_System_SpanByte_" data-uid="Iot.Device.Pn5180.Pn5180.Transceive(System.Byte,System.SpanByte,System.SpanByte)">Transceive(byte, SpanByte, SpanByte)</h4>
-  <div class="markdown level1 summary"><p>This function has to be implemented by all NFC/RFID/Card readers. This function is used in exchange of data with
-the reader and the cards.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1372,20 +1366,17 @@ the reader and the cards.</p>
       <tr>
         <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
         <td><span class="parametername">targetNumber</span></td>
-        <td><p>Some readers have a notion of target number for the cards as they can read multiple ones</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
         <td><span class="parametername">dataToSend</span></td>
-        <td><p>A standardized raw buffer with the command at the position 0 in the array</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
         <td><span class="parametername">dataFromCard</span></td>
-        <td><p>If any data are read from the card, they will be put into this array</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1400,8 +1391,7 @@ the reader and the cards.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><p>-1 in case of error, otherwise the number of bytes read and copied into the <code data-dev-comment-type="paramref" class="paramref">dataFromCard</code> array</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1605,6 +1595,7 @@ the reader and the cards.</p>
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 

@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.SpanByte">
 
 
+
   <h1 id="System_SpanByte" data-uid="System.SpanByte" class="text-break">Struct SpanByte
 </h1>
   <div class="markdown level0 summary"><p>Provides a type- and memory-safe representation of a contiguous region of arbitrary byte array</p>
@@ -124,6 +125,35 @@ public readonly ref struct SpanByte</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
+
+
+  <a id="System_SpanByte__ctor_" data-uid="System.SpanByte.#ctor*"></a>
+  <h4 id="System_SpanByte__ctor_System_Byte___" data-uid="System.SpanByte.#ctor(System.Byte[])">SpanByte(byte[])</h4>
+  <div class="markdown level1 summary"><p>Creates a new System.SpanByte object over the entirety of a specified array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpanByte(byte[] array)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">array</span></td>
+        <td><p>The array from which to create the System.Span object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="System_SpanByte__ctor_" data-uid="System.SpanByte.#ctor*"></a>
@@ -186,37 +216,8 @@ start is outside the bounds of the array.
 </p>
 <p>-or-</p>
 <p>
-<code data-dev-comment-type="paramref" class="paramref">start</code> + <code data-dev-comment-type="paramref" class="paramref">length</code> exceed the number of elements in the array.
+<code class="paramref">start</code> + <code class="paramref">length</code> exceed the number of elements in the array.
 </p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_SpanByte__ctor_" data-uid="System.SpanByte.#ctor*"></a>
-  <h4 id="System_SpanByte__ctor_System_Byte___" data-uid="System.SpanByte.#ctor(System.Byte[])">SpanByte(byte[])</h4>
-  <div class="markdown level1 summary"><p>Creates a new System.SpanByte object over the entirety of a specified array.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SpanByte(byte[] array)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">array</span></td>
-        <td><p>The array from which to create the System.Span object.</p>
 </td>
       </tr>
     </tbody>
@@ -332,7 +333,7 @@ true if the current span is empty; otherwise, false.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">index</code> is out of range.</p>
+        <td><p><code class="paramref">index</code> is out of range.</p>
 </td>
       </tr>
     </tbody>
@@ -413,73 +414,6 @@ true if the current span is empty; otherwise, false.</p>
 
 
   <a id="System_SpanByte_Slice_" data-uid="System.SpanByte.Slice*"></a>
-  <h4 id="System_SpanByte_Slice_System_Int32_System_Int32_" data-uid="System.SpanByte.Slice(System.Int32,System.Int32)">Slice(int, int)</h4>
-  <div class="markdown level1 summary"><p>Forms a slice out of the current <a class="xref" href="System.SpanByte.html">SpanByte</a> starting at a specified index for a specified length.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SpanByte Slice(int start, int length)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">start</span></td>
-        <td><p>The index at which to begin this slice.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">length</span></td>
-        <td><p>The desired length for the slice.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.SpanByte.html">SpanByte</a></td>
-        <td><p>A <a class="xref" href="System.SpanByte.html">SpanByte</a> that consists of <code data-dev-comment-type="paramref" class="paramref">length</code> number of elements from the current <a class="xref" href="System.SpanByte.html">SpanByte</a> starting at <code data-dev-comment-type="paramref" class="paramref">start</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">start</code> or <code data-dev-comment-type="paramref" class="paramref">start</code> + <code data-dev-comment-type="paramref" class="paramref">length</code> is &lt; zero or &gt; <a class="xref" href="System.SpanByte.html#System_SpanByte_Length">Length</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_SpanByte_Slice_" data-uid="System.SpanByte.Slice*"></a>
   <h4 id="System_SpanByte_Slice_System_Int32_" data-uid="System.SpanByte.Slice(System.Int32)">Slice(int)</h4>
   <div class="markdown level1 summary"><p>Forms a slice out of the current <a class="xref" href="System.SpanByte.html">SpanByte</a> that begins at a specified index.</p>
 </div>
@@ -533,7 +467,74 @@ true if the current span is empty; otherwise, false.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">start</code> is &lt; zero or &gt; <a class="xref" href="System.SpanByte.html#System_SpanByte_Length">Length</a>.</p>
+        <td><p><code class="paramref">start</code> is &lt; zero or &gt; <a class="xref" href="System.SpanByte.html#System_SpanByte_Length">Length</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_SpanByte_Slice_" data-uid="System.SpanByte.Slice*"></a>
+  <h4 id="System_SpanByte_Slice_System_Int32_System_Int32_" data-uid="System.SpanByte.Slice(System.Int32,System.Int32)">Slice(int, int)</h4>
+  <div class="markdown level1 summary"><p>Forms a slice out of the current <a class="xref" href="System.SpanByte.html">SpanByte</a> starting at a specified index for a specified length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpanByte Slice(int start, int length)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The index at which to begin this slice.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">length</span></td>
+        <td><p>The desired length for the slice.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.SpanByte.html">SpanByte</a></td>
+        <td><p>A <a class="xref" href="System.SpanByte.html">SpanByte</a> that consists of <code class="paramref">length</code> number of elements from the current <a class="xref" href="System.SpanByte.html">SpanByte</a> starting at <code class="paramref">start</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
+        <td><p><code class="paramref">start</code> or <code class="paramref">start</code> + <code class="paramref">length</code> is &lt; zero or &gt; <a class="xref" href="System.SpanByte.html#System_SpanByte_Length">Length</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -610,6 +611,7 @@ true if the current span is empty; otherwise, false.</p>
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 

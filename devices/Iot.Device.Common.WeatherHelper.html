@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Iot.Device.Common.WeatherHelper">
 
 
+
   <h1 id="Iot_Device_Common_WeatherHelper" data-uid="Iot.Device.Common.WeatherHelper" class="text-break">Class WeatherHelper
 </h1>
   <div class="markdown level0 summary"><p>Helpers for weather.</p>
@@ -99,7 +100,7 @@
     <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
     <div class="level1"><span class="xref">WeatherHelper</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Common.html">Common</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Common.html">Common</a></h6>
   <h6><strong>Assembly</strong>: Iot.Device.Common.WeatherHelper.dll</h6>
   <h5 id="Iot_Device_Common_WeatherHelper_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -188,13 +189,13 @@
 
 
   <a id="Iot_Device_Common_WeatherHelper_CalculateAltitude_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude*"></a>
-  <h4 id="Iot_Device_Common_WeatherHelper_CalculateAltitude_UnitsNet_Pressure_UnitsNet_Pressure_UnitsNet_Temperature_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude(UnitsNet.Pressure,UnitsNet.Pressure,UnitsNet.Temperature)">CalculateAltitude(Pressure, Pressure, Temperature)</h4>
-  <div class="markdown level1 summary"><p>Calculates the altitude in meters from the given pressure, sea-level pressure and air temperature.</p>
+  <h4 id="Iot_Device_Common_WeatherHelper_CalculateAltitude_UnitsNet_Pressure_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude(UnitsNet.Pressure)">CalculateAltitude(Pressure)</h4>
+  <div class="markdown level1 summary"><p>Calculates the altitude in meters from the given pressure. Assumes mean sea-level pressure and temperature of 15C.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Length CalculateAltitude(Pressure pressure, Pressure seaLevelPressure, Temperature airTemperature)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Length CalculateAltitude(Pressure pressure)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -210,18 +211,6 @@
         <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
         <td><span class="parametername">pressure</span></td>
         <td><p>The pressure at the point for which altitude is being calculated.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
-        <td><span class="parametername">seaLevelPressure</span></td>
-        <td><p>The sea-level pressure.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></td>
-        <td><span class="parametername">airTemperature</span></td>
-        <td><p>The dry air temperature at the point for which altitude is being calculated.</p>
 </td>
       </tr>
     </tbody>
@@ -296,6 +285,63 @@
 
 
   <a id="Iot_Device_Common_WeatherHelper_CalculateAltitude_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude*"></a>
+  <h4 id="Iot_Device_Common_WeatherHelper_CalculateAltitude_UnitsNet_Pressure_UnitsNet_Pressure_UnitsNet_Temperature_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude(UnitsNet.Pressure,UnitsNet.Pressure,UnitsNet.Temperature)">CalculateAltitude(Pressure, Pressure, Temperature)</h4>
+  <div class="markdown level1 summary"><p>Calculates the altitude in meters from the given pressure, sea-level pressure and air temperature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Length CalculateAltitude(Pressure pressure, Pressure seaLevelPressure, Temperature airTemperature)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
+        <td><span class="parametername">pressure</span></td>
+        <td><p>The pressure at the point for which altitude is being calculated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
+        <td><span class="parametername">seaLevelPressure</span></td>
+        <td><p>The sea-level pressure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></td>
+        <td><span class="parametername">airTemperature</span></td>
+        <td><p>The dry air temperature at the point for which altitude is being calculated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
+        <td><p>The altitude.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Iot_Device_Common_WeatherHelper_CalculateAltitude_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude*"></a>
   <h4 id="Iot_Device_Common_WeatherHelper_CalculateAltitude_UnitsNet_Pressure_UnitsNet_Temperature_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude(UnitsNet.Pressure,UnitsNet.Temperature)">CalculateAltitude(Pressure, Temperature)</h4>
   <div class="markdown level1 summary"><p>Calculates the altitude in meters from the given pressure and air temperature. Assumes mean sea-level pressure.</p>
 </div>
@@ -346,14 +392,20 @@
   </table>
 
 
-  <a id="Iot_Device_Common_WeatherHelper_CalculateAltitude_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude*"></a>
-  <h4 id="Iot_Device_Common_WeatherHelper_CalculateAltitude_UnitsNet_Pressure_" data-uid="Iot.Device.Common.WeatherHelper.CalculateAltitude(UnitsNet.Pressure)">CalculateAltitude(Pressure)</h4>
-  <div class="markdown level1 summary"><p>Calculates the altitude in meters from the given pressure. Assumes mean sea-level pressure and temperature of 15C.</p>
+  <a id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_" data-uid="Iot.Device.Common.WeatherHelper.CalculateBarometricPressure*"></a>
+  <h4 id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_UnitsNet_Pressure_UnitsNet_Temperature_UnitsNet_Length_" data-uid="Iot.Device.Common.WeatherHelper.CalculateBarometricPressure(UnitsNet.Pressure,UnitsNet.Temperature,UnitsNet.Length)">CalculateBarometricPressure(Pressure, Temperature, Length)</h4>
+  <div class="markdown level1 summary"><p>Calculates the barometric pressure from a raw reading, using the reduction formula from the german met service.
+This is a more complex variant of <a class="xref" href="Iot.Device.Common.WeatherHelper.html#Iot_Device_Common_WeatherHelper_CalculateSeaLevelPressure_UnitsNet_Pressure_UnitsNet_Length_UnitsNet_Temperature_">CalculateSeaLevelPressure(Pressure, Length, Temperature)</a>. It gives the value that a weather station gives
+for a particular area and is also used in meteorological charts.
+<example>
+You are at 650m over sea and measure a pressure of 948.7 hPa and a temperature of 24.0°C. The met service will show that
+you are within a high-pressure area of around 1020 hPa.
+</example></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Length CalculateAltitude(Pressure pressure)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Pressure CalculateBarometricPressure(Pressure measuredPressure, Temperature measuredTemperature, Length measurementAltitude)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -367,8 +419,22 @@
     <tbody>
       <tr>
         <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
-        <td><span class="parametername">pressure</span></td>
-        <td><p>The pressure at the point for which altitude is being calculated.</p>
+        <td><span class="parametername">measuredPressure</span></td>
+        <td><p>Measured pressure at the observation point.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></td>
+        <td><span class="parametername">measuredTemperature</span></td>
+        <td><p>Measured temperature at the observation point.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
+        <td><span class="parametername">measurementAltitude</span></td>
+        <td><p>Height over sea level of the observation point (to be really precise, geopotential heights have
+to be used above ~750m). Do not use the height obtained by calling <a class="xref" href="Iot.Device.Common.WeatherHelper.html#Iot_Device_Common_WeatherHelper_CalculateAltitude_UnitsNet_Pressure_">CalculateAltitude(Pressure)</a>
+or any of its overloads, since what would use redundant data.</p>
 </td>
       </tr>
     </tbody>
@@ -383,12 +449,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td><p>The altitude.</p>
+        <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
+        <td><p>The barometric pressure at the point of observation.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_UnitsNet_Pressure_UnitsNet_Temperature_UnitsNet_Length__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>From <a href="https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel#Anwendungen">https://de.wikipedia.org/wiki/Barometrische_Höhenformel#Anwendungen</a>.</p>
+</div>
 
 
   <a id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_" data-uid="Iot.Device.Common.WeatherHelper.CalculateBarometricPressure*"></a>
@@ -457,74 +526,6 @@ to be used above ~750m).</p>
     </tbody>
   </table>
   <h5 id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_UnitsNet_Pressure_UnitsNet_Temperature_UnitsNet_Length_UnitsNet_RelativeHumidity__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>From <a href="https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel#Anwendungen">https://de.wikipedia.org/wiki/Barometrische_Höhenformel#Anwendungen</a>.</p>
-</div>
-
-
-  <a id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_" data-uid="Iot.Device.Common.WeatherHelper.CalculateBarometricPressure*"></a>
-  <h4 id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_UnitsNet_Pressure_UnitsNet_Temperature_UnitsNet_Length_" data-uid="Iot.Device.Common.WeatherHelper.CalculateBarometricPressure(UnitsNet.Pressure,UnitsNet.Temperature,UnitsNet.Length)">CalculateBarometricPressure(Pressure, Temperature, Length)</h4>
-  <div class="markdown level1 summary"><p>Calculates the barometric pressure from a raw reading, using the reduction formula from the german met service.
-This is a more complex variant of <a class="xref" href="Iot.Device.Common.WeatherHelper.html#Iot_Device_Common_WeatherHelper_CalculateSeaLevelPressure_UnitsNet_Pressure_UnitsNet_Length_UnitsNet_Temperature_">CalculateSeaLevelPressure(Pressure, Length, Temperature)</a>. It gives the value that a weather station gives
-for a particular area and is also used in meteorological charts.
-<example>
-You are at 650m over sea and measure a pressure of 948.7 hPa and a temperature of 24.0°C. The met service will show that
-you are within a high-pressure area of around 1020 hPa.
-</example></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Pressure CalculateBarometricPressure(Pressure measuredPressure, Temperature measuredTemperature, Length measurementAltitude)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
-        <td><span class="parametername">measuredPressure</span></td>
-        <td><p>Measured pressure at the observation point.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></td>
-        <td><span class="parametername">measuredTemperature</span></td>
-        <td><p>Measured temperature at the observation point.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td><span class="parametername">measurementAltitude</span></td>
-        <td><p>Height over sea level of the observation point (to be really precise, geopotential heights have
-to be used above ~750m). Do not use the height obtained by calling <a class="xref" href="Iot.Device.Common.WeatherHelper.html#Iot_Device_Common_WeatherHelper_CalculateAltitude_UnitsNet_Pressure_">CalculateAltitude(Pressure)</a>
-or any of its overloads, since what would use redundant data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Pressure.html">Pressure</a></td>
-        <td><p>The barometric pressure at the point of observation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Common_WeatherHelper_CalculateBarometricPressure_UnitsNet_Pressure_UnitsNet_Temperature_UnitsNet_Length__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>From <a href="https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel#Anwendungen">https://de.wikipedia.org/wiki/Barometrische_Höhenformel#Anwendungen</a>.</p>
 </div>
 
@@ -982,6 +983,7 @@ The formula used is valid for temperatures between -100°C and +100°C.</p>
   <h5 id="Iot_Device_Common_WeatherHelper_CalculateTemperature_UnitsNet_Pressure_UnitsNet_Pressure_UnitsNet_Length__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><a class="xref" href="Iot.Device.Common.WeatherHelper.html#Iot_Device_Common_WeatherHelper_CalculatePressure_UnitsNet_Pressure_UnitsNet_Length_UnitsNet_Temperature_">CalculatePressure(Pressure, Length, Temperature)</a> solved for temperature.</p>
 </div>
+
 </article>
           </div>
 

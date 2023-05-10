@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Diagnostics.Debug">
 
 
+
   <h1 id="System_Diagnostics_Debug" data-uid="System.Diagnostics.Debug" class="text-break">Class Debug
 </h1>
   <div class="markdown level0 summary"><p>Provides a set of methods and properties that help debug your code.</p>
@@ -134,14 +135,14 @@
 
 
   <a id="System_Diagnostics_Debug_Assert_" data-uid="System.Diagnostics.Debug.Assert*"></a>
-  <h4 id="System_Diagnostics_Debug_Assert_System_Boolean_System_String_System_String_" data-uid="System.Diagnostics.Debug.Assert(System.Boolean,System.String,System.String)">Assert(bool, string, string)</h4>
+  <h4 id="System_Diagnostics_Debug_Assert_System_Boolean_" data-uid="System.Diagnostics.Debug.Assert(System.Boolean)">Assert(bool)</h4>
   <div class="markdown level1 summary"><p>Causes a break in execution if the specified assertion (condition) evaluates to false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Conditional(&quot;DEBUG&quot;)]
-public static void Assert(bool condition, string message, string detailedMessage)</code></pre>
+public static void Assert(bool condition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -157,18 +158,6 @@ public static void Assert(bool condition, string message, string detailedMessage
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
         <td><span class="parametername">condition</span></td>
         <td><p>The condition to be evaluated. If the value is false, program execution stops.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">message</span></td>
-        <td><p>The text to be output if the assertion is false.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">detailedMessage</span></td>
-        <td><p>The detailed message to be displayed if the assertion is false.</p>
 </td>
       </tr>
     </tbody>
@@ -212,14 +201,14 @@ public static void Assert(bool condition, string message)</code></pre>
 
 
   <a id="System_Diagnostics_Debug_Assert_" data-uid="System.Diagnostics.Debug.Assert*"></a>
-  <h4 id="System_Diagnostics_Debug_Assert_System_Boolean_" data-uid="System.Diagnostics.Debug.Assert(System.Boolean)">Assert(bool)</h4>
+  <h4 id="System_Diagnostics_Debug_Assert_System_Boolean_System_String_System_String_" data-uid="System.Diagnostics.Debug.Assert(System.Boolean,System.String,System.String)">Assert(bool, string, string)</h4>
   <div class="markdown level1 summary"><p>Causes a break in execution if the specified assertion (condition) evaluates to false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Conditional(&quot;DEBUG&quot;)]
-public static void Assert(bool condition)</code></pre>
+public static void Assert(bool condition, string message, string detailedMessage)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -235,6 +224,18 @@ public static void Assert(bool condition)</code></pre>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
         <td><span class="parametername">condition</span></td>
         <td><p>The condition to be evaluated. If the value is false, program execution stops.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The text to be output if the assertion is false.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">detailedMessage</span></td>
+        <td><p>The detailed message to be displayed if the assertion is false.</p>
 </td>
       </tr>
     </tbody>
@@ -320,6 +321,7 @@ public static void WriteLine(string message)</code></pre>
   <h5 id="System_Diagnostics_Debug_WriteLine_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>In .NET nanoFramework implementation the message is output to Visual Studio debugger window.</p>
 </div>
+
 </article>
           </div>
 

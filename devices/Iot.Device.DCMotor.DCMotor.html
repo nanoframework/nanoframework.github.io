@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Iot.Device.DCMotor.DCMotor">
 
 
+
   <h1 id="Iot_Device_DCMotor_DCMotor" data-uid="Iot.Device.DCMotor.DCMotor" class="text-break">Class DCMotor
 </h1>
   <div class="markdown level0 summary"><p>Direct current (DC) motor</p>
@@ -100,7 +101,7 @@
     <div class="level1"><span class="xref">DCMotor</span></div>
       <div class="level2"><a class="xref" href="Iot.Device.DCMotor.DCMotorWithStartStop.html">DCMotorWithStartStop</a></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.DCMotor.html">DCMotor</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.DCMotor.html">DCMotor</a></h6>
   <h6><strong>Assembly</strong>: Iot.Device.DCMotor.dll</h6>
   <h5 id="Iot_Device_DCMotor_DCMotor_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -203,6 +204,56 @@
 
 
   <a id="Iot_Device_DCMotor_DCMotor_Create_" data-uid="Iot.Device.DCMotor.DCMotor.Create*"></a>
+  <h4 id="Iot_Device_DCMotor_DCMotor_Create_System_Device_Pwm_PwmChannel_" data-uid="Iot.Device.DCMotor.DCMotor.Create(System.Device.Pwm.PwmChannel)">Create(PwmChannel)</h4>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="Iot.Device.DCMotor.DCMotor.html">DCMotor</a> instance using only one pin which allows to control speed in one direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DCMotor Create(PwmChannel speedControlChannel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../api/System.Device.Pwm.PwmChannel.html">PwmChannel</a></td>
+        <td><span class="parametername">speedControlChannel</span></td>
+        <td><p><a class="xref" href="../api/System.Device.Pwm.PwmChannel.html">PwmChannel</a> used to control the speed of the motor</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Iot.Device.DCMotor.DCMotor.html">DCMotor</a></td>
+        <td><p>DCMotor instance</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Iot_Device_DCMotor_DCMotor_Create_System_Device_Pwm_PwmChannel__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>PWM pin <code class="paramref">speedControlChannel</code> can be connected to either enable pin of the H-bridge.
+or directly to the one of two inputs related with the motor direction (if H-bridge allows inputs to change frequently).
+Connecting motor directly to GPIO pin is not recommended and may damage your board.</p>
+</div>
+
+
+  <a id="Iot_Device_DCMotor_DCMotor_Create_" data-uid="Iot.Device.DCMotor.DCMotor.Create*"></a>
   <h4 id="Iot_Device_DCMotor_DCMotor_Create_System_Device_Pwm_PwmChannel_System_Int32_System_Device_Gpio_GpioController_System_Boolean_System_Boolean_" data-uid="Iot.Device.DCMotor.DCMotor.Create(System.Device.Pwm.PwmChannel,System.Int32,System.Device.Gpio.GpioController,System.Boolean,System.Boolean)">Create(PwmChannel, int, GpioController?, bool, bool)</h4>
   <div class="markdown level1 summary"><p>Creates <a class="xref" href="Iot.Device.DCMotor.DCMotor.html">DCMotor</a> instance using two pins which allows to control speed in both directions.</p>
 </div>
@@ -236,7 +287,7 @@
       <tr>
         <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
         <td><span class="parametername">controller</span></td>
-        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to the <code data-dev-comment-type="paramref" class="paramref">directionPin</code></p>
+        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to the <code class="paramref">directionPin</code></p>
 </td>
       </tr>
       <tr>
@@ -271,10 +322,10 @@ false if a controller with two direction inputs is used</p>
     </tbody>
   </table>
   <h5 id="Iot_Device_DCMotor_DCMotor_Create_System_Device_Pwm_PwmChannel_System_Int32_System_Device_Gpio_GpioController_System_Boolean_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><code data-dev-comment-type="paramref" class="paramref">speedControlChannel</code> should be connected to the one of two inputs
+  <div class="markdown level1 remarks"><p><code class="paramref">speedControlChannel</code> should be connected to the one of two inputs
 related with the motor direction (if H-bridge allows inputs to change frequently),
 or to PWM input if a controller with one direction input is used.
-<code data-dev-comment-type="paramref" class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
+<code class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
 or to direction input if a controller with one direction input is used.
 Connecting motor directly to GPIO pin is not recommended and may damage your board.</p>
 </div>
@@ -320,7 +371,7 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
       <tr>
         <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
         <td><span class="parametername">controller</span></td>
-        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to <code data-dev-comment-type="paramref" class="paramref">directionPin</code> and <code data-dev-comment-type="paramref" class="paramref">otherDirectionPin</code></p>
+        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to <code class="paramref">directionPin</code> and <code class="paramref">otherDirectionPin</code></p>
 </td>
       </tr>
       <tr>
@@ -348,60 +399,10 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
     </tbody>
   </table>
   <h5 id="Iot_Device_DCMotor_DCMotor_Create_System_Device_Pwm_PwmChannel_System_Int32_System_Int32_System_Device_Gpio_GpioController_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>When speed is non-zero the value of <code data-dev-comment-type="paramref" class="paramref">otherDirectionPin</code> will always be opposite to that of <code data-dev-comment-type="paramref" class="paramref">directionPin</code>.
-<code data-dev-comment-type="paramref" class="paramref">speedControlChannel</code> should be connected to enable pin of the H-bridge.
-<code data-dev-comment-type="paramref" class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
-<code data-dev-comment-type="paramref" class="paramref">otherDirectionPin</code> should be connected to H-bridge input corresponding to the remaining motor input.
-Connecting motor directly to GPIO pin is not recommended and may damage your board.</p>
-</div>
-
-
-  <a id="Iot_Device_DCMotor_DCMotor_Create_" data-uid="Iot.Device.DCMotor.DCMotor.Create*"></a>
-  <h4 id="Iot_Device_DCMotor_DCMotor_Create_System_Device_Pwm_PwmChannel_" data-uid="Iot.Device.DCMotor.DCMotor.Create(System.Device.Pwm.PwmChannel)">Create(PwmChannel)</h4>
-  <div class="markdown level1 summary"><p>Creates <a class="xref" href="Iot.Device.DCMotor.DCMotor.html">DCMotor</a> instance using only one pin which allows to control speed in one direction.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static DCMotor Create(PwmChannel speedControlChannel)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Pwm.PwmChannel.html">PwmChannel</a></td>
-        <td><span class="parametername">speedControlChannel</span></td>
-        <td><p><a class="xref" href="../api/System.Device.Pwm.PwmChannel.html">PwmChannel</a> used to control the speed of the motor</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.DCMotor.DCMotor.html">DCMotor</a></td>
-        <td><p>DCMotor instance</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_DCMotor_DCMotor_Create_System_Device_Pwm_PwmChannel__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>PWM pin <code data-dev-comment-type="paramref" class="paramref">speedControlChannel</code> can be connected to either enable pin of the H-bridge.
-or directly to the one of two inputs related with the motor direction (if H-bridge allows inputs to change frequently).
+  <div class="markdown level1 remarks"><p>When speed is non-zero the value of <code class="paramref">otherDirectionPin</code> will always be opposite to that of <code class="paramref">directionPin</code>.
+<code class="paramref">speedControlChannel</code> should be connected to enable pin of the H-bridge.
+<code class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
+<code class="paramref">otherDirectionPin</code> should be connected to H-bridge input corresponding to the remaining motor input.
 Connecting motor directly to GPIO pin is not recommended and may damage your board.</p>
 </div>
 
@@ -434,7 +435,7 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
       <tr>
         <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
         <td><span class="parametername">controller</span></td>
-        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to the <code data-dev-comment-type="paramref" class="paramref">speedControlPin</code></p>
+        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to the <code class="paramref">speedControlPin</code></p>
 </td>
       </tr>
       <tr>
@@ -462,7 +463,7 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
     </tbody>
   </table>
   <h5 id="Iot_Device_DCMotor_DCMotor_Create_System_Int32_System_Device_Gpio_GpioController_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><code data-dev-comment-type="paramref" class="paramref">speedControlPin</code> can be connected to either enable pin of the H-bridge.
+  <div class="markdown level1 remarks"><p><code class="paramref">speedControlPin</code> can be connected to either enable pin of the H-bridge.
 or directly to the on of two inputs related with the motor direction (if H-bridge allows inputs to change frequently).
 Connecting motor directly to GPIO pin is not recommended and may damage your board.</p>
 </div>
@@ -502,7 +503,7 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
       <tr>
         <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
         <td><span class="parametername">controller</span></td>
-        <td><p>GPIO controller related to <code data-dev-comment-type="paramref" class="paramref">speedControlPin</code> and <code data-dev-comment-type="paramref" class="paramref">directionPin</code></p>
+        <td><p>GPIO controller related to <code class="paramref">speedControlPin</code> and <code class="paramref">directionPin</code></p>
 </td>
       </tr>
       <tr>
@@ -537,10 +538,10 @@ false if a controller with two direction inputs is used</p>
     </tbody>
   </table>
   <h5 id="Iot_Device_DCMotor_DCMotor_Create_System_Int32_System_Int32_System_Device_Gpio_GpioController_System_Boolean_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><code data-dev-comment-type="paramref" class="paramref">speedControlPin</code> should be connected to the one of two inputs
+  <div class="markdown level1 remarks"><p><code class="paramref">speedControlPin</code> should be connected to the one of two inputs
 related with the motor direction (if H-bridge allows inputs to change frequently),
 or to PWM input if a controller with one direction input is used.
-<code data-dev-comment-type="paramref" class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
+<code class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
 or to direction input if a controller with one direction input is used.
 Connecting motor directly to GPIO pin is not recommended and may damage your board.</p>
 </div>
@@ -586,7 +587,7 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
       <tr>
         <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
         <td><span class="parametername">controller</span></td>
-        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to <code data-dev-comment-type="paramref" class="paramref">speedControlPin</code>, <code data-dev-comment-type="paramref" class="paramref">directionPin</code> and <code data-dev-comment-type="paramref" class="paramref">otherDirectionPin</code></p>
+        <td><p><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a> related to <code class="paramref">speedControlPin</code>, <code class="paramref">directionPin</code> and <code class="paramref">otherDirectionPin</code></p>
 </td>
       </tr>
       <tr>
@@ -614,10 +615,10 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
     </tbody>
   </table>
   <h5 id="Iot_Device_DCMotor_DCMotor_Create_System_Int32_System_Int32_System_Int32_System_Device_Gpio_GpioController_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>When speed is non-zero the value of <code data-dev-comment-type="paramref" class="paramref">otherDirectionPin</code> will always be opposite to that of <code data-dev-comment-type="paramref" class="paramref">directionPin</code>
-PWM pin <code data-dev-comment-type="paramref" class="paramref">speedControlPin</code> should be connected to enable pin of the H-bridge.
-<code data-dev-comment-type="paramref" class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
-<code data-dev-comment-type="paramref" class="paramref">otherDirectionPin</code> should be connected to H-bridge input corresponding to the remaining motor input.
+  <div class="markdown level1 remarks"><p>When speed is non-zero the value of <code class="paramref">otherDirectionPin</code> will always be opposite to that of <code class="paramref">directionPin</code>
+PWM pin <code class="paramref">speedControlPin</code> should be connected to enable pin of the H-bridge.
+<code class="paramref">directionPin</code> should be connected to H-bridge input corresponding to one of the motor inputs.
+<code class="paramref">otherDirectionPin</code> should be connected to H-bridge input corresponding to the remaining motor input.
 Connecting motor directly to GPIO pin is not recommended and may damage your board.</p>
 </div>
 
@@ -631,6 +632,7 @@ Connecting motor directly to GPIO pin is not recommended and may damage your boa
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
   </div>
+
 </article>
           </div>
 

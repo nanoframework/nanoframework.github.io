@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -87,6 +87,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="System.Net.Http.HttpClient">
+
 
 
   <h1 id="System_Net_Http_HttpClient" data-uid="System.Net.Http.HttpClient" class="text-break">Class HttpClient
@@ -437,7 +438,91 @@ This is the .NET nanoFramework equivalent of DeleteAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
+        <td><p>The request message was already sent by the <a class="xref" href="System.Net.Http.HttpClient.html">HttpClient</a> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Net.Http.HttpRequestException.html">HttpRequestException</a></td>
+        <td><p>The request failed due to an underlying issue such as network connectivity, DNS failure, or server certificate validation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Net_Http_HttpClient_Get_" data-uid="System.Net.Http.HttpClient.Get*"></a>
+  <h4 id="System_Net_Http_HttpClient_Get_System_String_" data-uid="System.Net.Http.HttpClient.Get(System.String)">Get(string)</h4>
+  <div class="markdown level1 summary"><p>Sends a GET request to the specified <a class="xref" href="System.Uri.html">Uri</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpResponseMessage Get(string requestUri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">requestUri</span></td>
+        <td><p>The <a class="xref" href="System.Uri.html">Uri</a> the request is sent to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Net.Http.HttpResponseMessage.html">HttpResponseMessage</a></td>
+        <td><p>The <a class="xref" href="System.Net.Http.HttpResponseMessage.html">HttpResponseMessage</a> object resulting from the HTTP request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Net_Http_HttpClient_Get_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This operation will block.
+</p>
+<p>
+This is the .NET nanoFramework equivalent of GetAsync.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
+        <td><p>Request operation has already started.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -526,91 +611,7 @@ This is the .NET nanoFramework equivalent of GetAsync.
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>The request message was already sent by the <a class="xref" href="System.Net.Http.HttpClient.html">HttpClient</a> instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Http.HttpRequestException.html">HttpRequestException</a></td>
-        <td><p>The request failed due to an underlying issue such as network connectivity, DNS failure, or server certificate validation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Net_Http_HttpClient_Get_" data-uid="System.Net.Http.HttpClient.Get*"></a>
-  <h4 id="System_Net_Http_HttpClient_Get_System_String_" data-uid="System.Net.Http.HttpClient.Get(System.String)">Get(string)</h4>
-  <div class="markdown level1 summary"><p>Sends a GET request to the specified <a class="xref" href="System.Uri.html">Uri</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HttpResponseMessage Get(string requestUri)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">requestUri</span></td>
-        <td><p>The <a class="xref" href="System.Uri.html">Uri</a> the request is sent to.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Http.HttpResponseMessage.html">HttpResponseMessage</a></td>
-        <td><p>The <a class="xref" href="System.Net.Http.HttpResponseMessage.html">HttpResponseMessage</a> object resulting from the HTTP request.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_Http_HttpClient_Get_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
-<p>
-This is the .NET nanoFramework equivalent of GetAsync.
-</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>Request operation has already started.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -689,7 +690,7 @@ This is the .NET nanoFramework equivalent of GetByteArrayAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -771,7 +772,7 @@ This is the .NET nanoFramework equivalent of GetStreamAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -853,7 +854,7 @@ This is the .NET nanoFramework equivalent of GetStringAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -938,7 +939,7 @@ This is the .NET nanoFramework equivalent of PatchAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1023,7 +1024,7 @@ This is the .NET nanoFramework equivalent of PostAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1108,7 +1109,7 @@ This is the .NET nanoFramework equivalent of PutAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1185,7 +1186,7 @@ This is the .NET nanoFramework equivalent of PutAsync.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The request is <span class="xref">null</span>.</p>
+        <td><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1235,6 +1236,7 @@ This is the .NET nanoFramework equivalent of PutAsync.
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

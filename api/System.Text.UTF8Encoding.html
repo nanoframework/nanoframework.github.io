@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Text.UTF8Encoding">
 
 
+
   <h1 id="System_Text_UTF8Encoding" data-uid="System.Text.UTF8Encoding" class="text-break">Class UTF8Encoding
 </h1>
   <div class="markdown level0 summary"><p>Represents a UTF-8 encoding of Unicode characters.</p>
@@ -154,6 +155,50 @@
 
 
   <a id="System_Text_UTF8Encoding_GetBytes_" data-uid="System.Text.UTF8Encoding.GetBytes*"></a>
+  <h4 id="System_Text_UTF8Encoding_GetBytes_System_String_" data-uid="System.Text.UTF8Encoding.GetBytes(System.String)">GetBytes(string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override byte[] GetBytes(string s)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">s</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="System.Text.Encoding.html#System_Text_Encoding_GetBytes_System_String_">Encoding.GetBytes(string)</a></div>
+
+
+  <a id="System_Text_UTF8Encoding_GetBytes_" data-uid="System.Text.UTF8Encoding.GetBytes*"></a>
   <h4 id="System_Text_UTF8Encoding_GetBytes_System_String_System_Int32_System_Int32_System_Byte___System_Int32_" data-uid="System.Text.UTF8Encoding.GetBytes(System.String,System.Int32,System.Int32,System.Byte[],System.Int32)">GetBytes(string, int, int, byte[], int)</h4>
   <div class="markdown level1 summary"><p>Encodes a set of characters from the specified <a class="xref" href="System.String.html">string</a> into the specified byte array.</p>
 </div>
@@ -215,7 +260,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The actual number of bytes written into <code data-dev-comment-type="paramref" class="paramref">bytes</code>.</p>
+        <td><p>The actual number of bytes written into <code class="paramref">bytes</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -224,13 +269,14 @@
   <div><a class="xref" href="System.Text.Encoding.html#System_Text_Encoding_GetBytes_System_String_System_Int32_System_Int32_System_Byte___System_Int32_">Encoding.GetBytes(string, int, int, byte[], int)</a></div>
 
 
-  <a id="System_Text_UTF8Encoding_GetBytes_" data-uid="System.Text.UTF8Encoding.GetBytes*"></a>
-  <h4 id="System_Text_UTF8Encoding_GetBytes_System_String_" data-uid="System.Text.UTF8Encoding.GetBytes(System.String)">GetBytes(string)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="System_Text_UTF8Encoding_GetChars_" data-uid="System.Text.UTF8Encoding.GetChars*"></a>
+  <h4 id="System_Text_UTF8Encoding_GetChars_System_Byte___" data-uid="System.Text.UTF8Encoding.GetChars(System.Byte[])">GetChars(byte[])</h4>
+  <div class="markdown level1 summary"><p>Decodes a sequence of bytes from the specified byte array into a set of characters.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override byte[] GetBytes(string s)</code></pre>
+    <pre><code class="lang-csharp hljs">public override char[] GetChars(byte[] bytes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -243,9 +289,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">s</span></td>
-        <td></td>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">bytes</span></td>
+        <td><p>The byte array containing the sequence of bytes to decode.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -259,13 +306,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td></td>
+        <td><a class="xref" href="System.Char.html">char</a>[]</td>
+        <td><p>The actual number of characters returned.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Text.Encoding.html#System_Text_Encoding_GetBytes_System_String_">Encoding.GetBytes(string)</a></div>
+  <div><a class="xref" href="System.Text.Encoding.html#System_Text_Encoding_GetChars_System_Byte___">Encoding.GetChars(byte[])</a></div>
 
 
   <a id="System_Text_UTF8Encoding_GetChars_" data-uid="System.Text.UTF8Encoding.GetChars*"></a>
@@ -327,53 +375,6 @@
   <div><a class="xref" href="System.Text.Encoding.html#System_Text_Encoding_GetChars_System_Byte___System_Int32_System_Int32_">Encoding.GetChars(byte[], int, int)</a></div>
 
 
-  <a id="System_Text_UTF8Encoding_GetChars_" data-uid="System.Text.UTF8Encoding.GetChars*"></a>
-  <h4 id="System_Text_UTF8Encoding_GetChars_System_Byte___" data-uid="System.Text.UTF8Encoding.GetChars(System.Byte[])">GetChars(byte[])</h4>
-  <div class="markdown level1 summary"><p>Decodes a sequence of bytes from the specified byte array into a set of characters.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override char[] GetChars(byte[] bytes)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">bytes</span></td>
-        <td><p>The byte array containing the sequence of bytes to decode.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Char.html">char</a>[]</td>
-        <td><p>The actual number of characters returned.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Text.Encoding.html#System_Text_Encoding_GetChars_System_Byte___">Encoding.GetChars(byte[])</a></div>
-
-
   <a id="System_Text_UTF8Encoding_GetDecoder_" data-uid="System.Text.UTF8Encoding.GetDecoder*"></a>
   <h4 id="System_Text_UTF8Encoding_GetDecoder" data-uid="System.Text.UTF8Encoding.GetDecoder">GetDecoder()</h4>
   <div class="markdown level1 summary"><p>Obtains a decoder that converts a UTF-8 encoded sequence of bytes into a sequence of Unicode characters.</p>
@@ -432,6 +433,7 @@
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

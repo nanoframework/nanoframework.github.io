@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Net.HttpListener">
 
 
+
   <h1 id="System_Net_HttpListener" data-uid="System.Net.HttpListener" class="text-break">Class HttpListener
 </h1>
   <div class="markdown level0 summary"><p>Provides a simple, programmatically controlled HTTP protocol listener.
@@ -124,7 +125,7 @@ This class cannot be inherited.</p>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a></h6>
   <h6><strong>Assembly</strong>: System.Net.Http.dll</h6>
   <h5 id="System_Net_HttpListener_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -136,6 +137,39 @@ protocol.</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
+
+
+  <a id="System_Net_HttpListener__ctor_" data-uid="System.Net.HttpListener.#ctor*"></a>
+  <h4 id="System_Net_HttpListener__ctor_System_String_" data-uid="System.Net.HttpListener.#ctor(System.String)">HttpListener(string)</h4>
+  <div class="markdown level1 summary"><p>Creates an HTTP or HTTPS listener on the standard ports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpListener(string prefix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">prefix</span></td>
+        <td><p>Prefix ( http or https ) to start listen</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Net_HttpListener__ctor_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>In the desktop version of .NET, the constructor for this
+class has no arguments.</p>
+</div>
 
 
   <a id="System_Net_HttpListener__ctor_" data-uid="System.Net.HttpListener.#ctor*"></a>
@@ -174,39 +208,6 @@ default port is used (port 80 for http, or port 443 for https).</p>
     </tbody>
   </table>
   <h5 id="System_Net_HttpListener__ctor_System_String_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>In the desktop version of .NET, the constructor for this
-class has no arguments.</p>
-</div>
-
-
-  <a id="System_Net_HttpListener__ctor_" data-uid="System.Net.HttpListener.#ctor*"></a>
-  <h4 id="System_Net_HttpListener__ctor_System_String_" data-uid="System.Net.HttpListener.#ctor(System.String)">HttpListener(string)</h4>
-  <div class="markdown level1 summary"><p>Creates an HTTP or HTTPS listener on the standard ports.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HttpListener(string prefix)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">prefix</span></td>
-        <td><p>Prefix ( http or https ) to start listen</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_HttpListener__ctor_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>In the desktop version of .NET, the constructor for this
 class has no arguments.</p>
 </div>
@@ -353,7 +354,7 @@ discarding all currently queued requests.</p>
 listener.  Any pending requests are unable to complete.  To shut
 down the <itemref>HttpListener</itemref> object after processing
 currently queued requests, use the
-<a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_Close">Close()</a> method.</p>
+<a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_Close">Close()</a> method.
 <p>
 After calling this method, you will receive an
 <a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a> if you attempt to use this
@@ -408,16 +409,16 @@ represents a client request.</p>
   </table>
   <h5 id="System_Net_HttpListener_GetContext_examples">Examples</h5>
   <p>This example shows how to call the
-<itemref>GetContext</itemref> method.</p>
-<pre><code>HttpListener myListener = new HttpListener(&quot;http&quot;, -1);
+<itemref>GetContext</itemref> method.
+<pre><code class="lang-csharp">HttpListener myListener = new HttpListener(&quot;http&quot;, -1);
 myListener.Start();
 while (true)
 {
-    HttpListenerResponse response = null;
-    try
-    {
-        Debug.Print(&quot;Waiting for requests&quot;);
-        HttpListenerContext context = myListener.GetContext();</code></pre>
+HttpListenerResponse response = null;
+try
+{
+Debug.Print(&quot;Waiting for requests&quot;);
+HttpListenerContext context = myListener.GetContext();</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-condensed">
@@ -479,7 +480,7 @@ the <a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_S
   </div>
   <h5 id="System_Net_HttpListener_Stop_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If this instance is already stopped, calling this method
-has no effect.</p>
+has no effect.
 <p>
 After you have stopped an <itemref>HttpListener</itemref> object,
 you can use the <a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_Start">Start()</a> method
@@ -517,6 +518,7 @@ to restart it.
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

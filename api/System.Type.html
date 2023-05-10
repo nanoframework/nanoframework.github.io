@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -87,6 +87,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="System.Type">
+
 
 
   <h1 id="System_Type" data-uid="System.Type" class="text-break">Class Type
@@ -568,7 +569,7 @@ a generic type definition but contains unresolved type parameters.</p>
       <tr>
         <td><a class="xref" href="System.Type.html">Type</a>[]</td>
         <td><span class="parametername">types</span></td>
-        <td><p>An array of Type objects representing the number, order, and type of the parameters for the desired constructor.</p>
+        <td><p>An array of Type objects representing the number, order, and type of the parameters for the desired constructor.
 <p>-or-</p>
 <p>An empty array of Type objects, to get a constructor that takes no parameters.Such an empty array is provided by the static field Type.EmptyTypes.</p>
 </td>
@@ -649,6 +650,51 @@ not an array or a pointer, or is not passed by reference, or represents a generi
 
 
   <a id="System_Type_GetField_" data-uid="System.Type.GetField*"></a>
+  <h4 id="System_Type_GetField_System_String_" data-uid="System.Type.GetField(System.String)">GetField(string)</h4>
+  <div class="markdown level1 summary"><p>Searches for the public field with the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FieldInfo GetField(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The string containing the name of the data field to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Reflection.FieldInfo.html">FieldInfo</a></td>
+        <td><p>An object representing the public field with the specified name, if found; otherwise, null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Type_GetField_" data-uid="System.Type.GetField*"></a>
   <h4 id="System_Type_GetField_System_String_System_Reflection_BindingFlags_" data-uid="System.Type.GetField(System.String,System.Reflection.BindingFlags)">GetField(string, BindingFlags)</h4>
   <div class="markdown level1 summary"><p>Searches for the specified field, using the specified binding constraints.</p>
 </div>
@@ -699,51 +745,6 @@ not an array or a pointer, or is not passed by reference, or represents a generi
   </table>
 
 
-  <a id="System_Type_GetField_" data-uid="System.Type.GetField*"></a>
-  <h4 id="System_Type_GetField_System_String_" data-uid="System.Type.GetField(System.String)">GetField(string)</h4>
-  <div class="markdown level1 summary"><p>Searches for the public field with the specified name.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FieldInfo GetField(string name)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>The string containing the name of the data field to get.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Reflection.FieldInfo.html">FieldInfo</a></td>
-        <td><p>An object representing the public field with the specified name, if found; otherwise, null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <a id="System_Type_GetFields_" data-uid="System.Type.GetFields*"></a>
   <h4 id="System_Type_GetFields" data-uid="System.Type.GetFields">GetFields()</h4>
   <div class="markdown level1 summary"><p>Returns all the public fields of the current Type.</p>
@@ -764,7 +765,7 @@ not an array or a pointer, or is not passed by reference, or represents a generi
     <tbody>
       <tr>
         <td><a class="xref" href="System.Reflection.FieldInfo.html">FieldInfo</a>[]</td>
-        <td><p>An array of FieldInfo objects representing all the public fields defined for the current Type.</p>
+        <td><p>An array of FieldInfo objects representing all the public fields defined for the current Type.
 <p>-or-</p>
 <p>An empty array of type FieldInfo, if no public fields are defined for the current Type.</p>
 </td>
@@ -811,7 +812,7 @@ not an array or a pointer, or is not passed by reference, or represents a generi
     <tbody>
       <tr>
         <td><a class="xref" href="System.Reflection.FieldInfo.html">FieldInfo</a>[]</td>
-        <td><p>An array of FieldInfo objects representing all the public fields defined for the current Type.</p>
+        <td><p>An array of FieldInfo objects representing all the public fields defined for the current Type.
 <p>-or-</p>
 <p>An empty array of type FieldInfo, if no public fields are defined for the current Type.</p>
 </td>
@@ -840,9 +841,54 @@ not an array or a pointer, or is not passed by reference, or represents a generi
     <tbody>
       <tr>
         <td><a class="xref" href="System.Type.html">Type</a>[]</td>
-        <td><p>An array of Type objects representing all the interfaces implemented or inherited by the current Type.</p>
+        <td><p>An array of Type objects representing all the interfaces implemented or inherited by the current Type.
 <p>-or-</p>
 <p>An empty array of type Type, if no interfaces are implemented or inherited by the current Type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Type_GetMethod_" data-uid="System.Type.GetMethod*"></a>
+  <h4 id="System_Type_GetMethod_System_String_" data-uid="System.Type.GetMethod(System.String)">GetMethod(string)</h4>
+  <div class="markdown level1 summary"><p>Searches for the public method with the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MethodInfo GetMethod(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The string containing the name of the public method to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Reflection.MethodInfo.html">MethodInfo</a></td>
+        <td><p>An object that represents the public method with the specified name, if found; otherwise, null.</p>
 </td>
       </tr>
     </tbody>
@@ -928,7 +974,7 @@ not an array or a pointer, or is not passed by reference, or represents a generi
       <tr>
         <td><a class="xref" href="System.Type.html">Type</a>[]</td>
         <td><span class="parametername">types</span></td>
-        <td><p>An array of Type objects representing the number, order, and type of the parameters for the desired constructor.</p>
+        <td><p>An array of Type objects representing the number, order, and type of the parameters for the desired constructor.
 <p>-or-</p>
 <p>An empty array of Type objects, to get a constructor that takes no parameters.Such an empty array is provided by the static field Type.EmptyTypes.</p>
 </td>
@@ -947,51 +993,6 @@ not an array or a pointer, or is not passed by reference, or represents a generi
       <tr>
         <td><a class="xref" href="System.Reflection.MethodInfo.html">MethodInfo</a></td>
         <td><p>An object representing the public method whose parameters match the specified argument types, if found; otherwise, null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Type_GetMethod_" data-uid="System.Type.GetMethod*"></a>
-  <h4 id="System_Type_GetMethod_System_String_" data-uid="System.Type.GetMethod(System.String)">GetMethod(string)</h4>
-  <div class="markdown level1 summary"><p>Searches for the public method with the specified name.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MethodInfo GetMethod(string name)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>The string containing the name of the public method to get.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Reflection.MethodInfo.html">MethodInfo</a></td>
-        <td><p>An object that represents the public method with the specified name, if found; otherwise, null.</p>
 </td>
       </tr>
     </tbody>
@@ -1018,7 +1019,7 @@ not an array or a pointer, or is not passed by reference, or represents a generi
     <tbody>
       <tr>
         <td><a class="xref" href="System.Reflection.MethodInfo.html">MethodInfo</a>[]</td>
-        <td><p>An array of MethodInfo objects representing all the public methods defined for the current Type.</p>
+        <td><p>An array of MethodInfo objects representing all the public methods defined for the current Type.
 <p>-or-</p>
 <p>An empty array of type MethodInfo, if no public methods are defined for the current Type.</p>
 </td>
@@ -1065,7 +1066,7 @@ not an array or a pointer, or is not passed by reference, or represents a generi
     <tbody>
       <tr>
         <td><a class="xref" href="System.Reflection.MethodInfo.html">MethodInfo</a>[]</td>
-        <td><p>An array of MethodInfo objects representing all the public methods defined for the current Type.</p>
+        <td><p>An array of MethodInfo objects representing all the public methods defined for the current Type.
 <p>-or-</p>
 <p>An empty array of type MethodInfo, if no public methods are defined for the current Type.</p>
 </td>
@@ -1187,7 +1188,7 @@ If the type is in the currently executing assembly or in Mscorlib.dll, it is suf
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The string containing the name of the constructor, method, property, or field member to invoke.</p>
+        <td><p>The string containing the name of the constructor, method, property, or field member to invoke.
 <p>-or-</p>
 <p>An empty string (&quot;&quot;) to invoke the default member.</p>
 <p>-or-</p>
@@ -1205,7 +1206,7 @@ The type of lookup need not be specified. If the type of lookup is omitted, Bind
       <tr>
         <td><a class="xref" href="System.Reflection.Binder.html">Binder</a></td>
         <td><span class="parametername">binder</span></td>
-        <td><p>An object that defines a set of properties and enables binding, which can involve selection of an overloaded method, coercion of argument types, and invocation of a member through reflection.</p>
+        <td><p>An object that defines a set of properties and enables binding, which can involve selection of an overloaded method, coercion of argument types, and invocation of a member through reflection.
 <p>-or-</p>
 <p>A null reference(Nothing in Visual Basic), to use the DefaultBinder.Note that explicitly defining a Binder object may be required for successfully invoking method overloads with variable arguments.</p>
 </td>
@@ -1395,6 +1396,7 @@ false if neither of these conditions is the case, if o is null, or if the curren
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

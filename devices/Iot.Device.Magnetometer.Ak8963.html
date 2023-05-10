@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Iot.Device.Magnetometer.Ak8963">
 
 
+
   <h1 id="Iot_Device_Magnetometer_Ak8963" data-uid="Iot.Device.Magnetometer.Ak8963" class="text-break">Class Ak8963
 </h1>
   <div class="markdown level0 summary"><p>AK8963 class implementing a magnetometer.</p>
@@ -99,7 +100,7 @@
     <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
     <div class="level1"><span class="xref">Ak8963</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Magnetometer.html">Magnetometer</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Magnetometer.html">Magnetometer</a></h6>
   <h6><strong>Assembly</strong>: Iot.Device.Ak8963.dll</h6>
   <h5 id="Iot_Device_Magnetometer_Ak8963_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -108,6 +109,35 @@ public sealed class Ak8963</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
+
+
+  <a id="Iot_Device_Magnetometer_Ak8963__ctor_" data-uid="Iot.Device.Magnetometer.Ak8963.#ctor*"></a>
+  <h4 id="Iot_Device_Magnetometer_Ak8963__ctor_System_Device_I2c_I2cDevice_" data-uid="Iot.Device.Magnetometer.Ak8963.#ctor(System.Device.I2c.I2cDevice)">Ak8963(I2cDevice)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Magnetometer.Ak8963.html">Ak8963</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ak8963(I2cDevice i2CDevice)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
+        <td><span class="parametername">i2CDevice</span></td>
+        <td><p>The I2C device.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="Iot_Device_Magnetometer_Ak8963__ctor_" data-uid="Iot.Device.Magnetometer.Ak8963.#ctor*"></a>
@@ -146,35 +176,6 @@ when used with the MPU9250.</p>
         <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
         <td><span class="parametername">shouldDispose</span></td>
         <td><p>True to dispose the I2C device when class is disposed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="Iot_Device_Magnetometer_Ak8963__ctor_" data-uid="Iot.Device.Magnetometer.Ak8963.#ctor*"></a>
-  <h4 id="Iot_Device_Magnetometer_Ak8963__ctor_System_Device_I2c_I2cDevice_" data-uid="Iot.Device.Magnetometer.Ak8963.#ctor(System.Device.I2c.I2cDevice)">Ak8963(I2cDevice)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Magnetometer.Ak8963.html">Ak8963</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Ak8963(I2cDevice i2CDevice)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
-        <td><span class="parametername">i2CDevice</span></td>
-        <td><p>The I2C device.</p>
 </td>
       </tr>
     </tbody>
@@ -523,6 +524,63 @@ Device ID of AKM. It is described in one byte and fixed value.  48H: fixed.</p>
 
 
   <a id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometer*"></a>
+  <h4 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_System_Boolean_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometer(System.Boolean)">ReadMagnetometer(bool)</h4>
+  <div class="markdown level1 summary"><p>Read the magnetometer with bias correction and can wait for new data to be present.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Telemetry(&quot;Magnetometer&quot;)]
+public Vector3 ReadMagnetometer(bool waitForData = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
+        <td><span class="parametername">waitForData</span></td>
+        <td><p>True to wait for new data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></td>
+        <td><p>The data from the magnetometer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Vector axes are the following:
++X
+\  |  /
+\ | /
+|/
+/|<br>
+/ | <br>
+/  |  <br>
++Z   +Y.</p>
+</div>
+
+
+  <a id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometer*"></a>
   <h4 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_System_Boolean_System_TimeSpan_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometer(System.Boolean,System.TimeSpan)">ReadMagnetometer(bool, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Read the magnetometer with bias correction and can wait for new data to be present.</p>
 </div>
@@ -584,15 +642,14 @@ Device ID of AKM. It is described in one byte and fixed value.  48H: fixed.</p>
 </div>
 
 
-  <a id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometer*"></a>
-  <h4 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_System_Boolean_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometer(System.Boolean)">ReadMagnetometer(bool)</h4>
-  <div class="markdown level1 summary"><p>Read the magnetometer with bias correction and can wait for new data to be present.</p>
+  <a id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometerWithoutCorrection_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometerWithoutCorrection*"></a>
+  <h4 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometerWithoutCorrection_System_Boolean_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometerWithoutCorrection(System.Boolean)">ReadMagnetometerWithoutCorrection(bool)</h4>
+  <div class="markdown level1 summary"><p>Read the magnetometer without Bias correction and can wait for new data to be present.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Telemetry(&quot;Magnetometer&quot;)]
-public Vector3 ReadMagnetometer(bool waitForData = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 ReadMagnetometerWithoutCorrection(bool waitForData = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -628,7 +685,7 @@ public Vector3 ReadMagnetometer(bool waitForData = true)</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometer_System_Boolean__remarks">Remarks</h5>
+  <h5 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometerWithoutCorrection_System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Vector axes are the following:
 +X
 \  |  /
@@ -703,62 +760,6 @@ public Vector3 ReadMagnetometer(bool waitForData = true)</code></pre>
 </div>
 
 
-  <a id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometerWithoutCorrection_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometerWithoutCorrection*"></a>
-  <h4 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometerWithoutCorrection_System_Boolean_" data-uid="Iot.Device.Magnetometer.Ak8963.ReadMagnetometerWithoutCorrection(System.Boolean)">ReadMagnetometerWithoutCorrection(bool)</h4>
-  <div class="markdown level1 summary"><p>Read the magnetometer without Bias correction and can wait for new data to be present.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 ReadMagnetometerWithoutCorrection(bool waitForData = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">waitForData</span></td>
-        <td><p>True to wait for new data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></td>
-        <td><p>The data from the magnetometer.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Magnetometer_Ak8963_ReadMagnetometerWithoutCorrection_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Vector axes are the following:
-+X
-\  |  /
-\ | /
-|/
-/|<br>
-/ | <br>
-/  |  <br>
-+Z   +Y.</p>
-</div>
-
-
   <a id="Iot_Device_Magnetometer_Ak8963_Reset_" data-uid="Iot.Device.Magnetometer.Ak8963.Reset*"></a>
   <h4 id="Iot_Device_Magnetometer_Ak8963_Reset" data-uid="Iot.Device.Magnetometer.Ak8963.Reset">Reset()</h4>
   <div class="markdown level1 summary"><p>Reset the device.</p>
@@ -769,6 +770,7 @@ public Vector3 ReadMagnetometer(bool waitForData = true)</code></pre>
     <pre><code class="lang-csharp hljs">[Command]
 public void Reset()</code></pre>
   </div>
+
 </article>
           </div>
 

@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Uri">
 
 
+
   <h1 id="System_Uri" data-uid="System.Uri" class="text-break">Class Uri
 </h1>
   <div class="markdown level0 summary"><p>Provides an object representation of a uniform resource identifier (URI)
@@ -126,6 +127,86 @@ and easy access to the parts of the URI.</p>
   </div>
   <h3 id="constructors">Constructors
 </h3>
+
+
+  <a id="System_Uri__ctor_" data-uid="System.Uri.#ctor*"></a>
+  <h4 id="System_Uri__ctor_System_String_" data-uid="System.Uri.#ctor(System.String)">Uri(string)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.Uri.html">Uri</a> class
+with the specified URI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Uri(string uriString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">uriString</span></td>
+        <td><p>A URI.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Uri__ctor_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This constructor parses the URI string, therefore it can be used to
+validate a URI.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p>The <code class="paramref">uriString</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p>The <code class="paramref">uriString</code> is empty.</p>
+<p>-or-</p><p>The scheme specified in <code class="paramref">uriString</code>
+is not correctly formed.  </p>
+<p>-or-</p><p><code class="paramref">uriString</code> contains too many
+slashes.</p>
+<p>-or-</p><p>The password specified in <code class="paramref">uriString</code>
+is not valid.</p>
+<p>-or-</p><p>The host name specified in
+<code class="paramref">uriString</code> is not valid.</p>
+<p>-or-</p><p>The file name specified in
+<code class="paramref">uriString</code> is not valid.</p>
+<p>-or-</p><p>The user name specified in
+<code class="paramref">uriString</code> is not valid.</p>
+<p>-or-</p><p>The host or authority name specified in
+<code class="paramref">uriString</code> cannot be terminated by backslashes.
+</p>
+<p>-or-</p><p>The port number specified in
+<code class="paramref">uriString</code> is not valid or cannot be parsed.</p>
+<p>-or-</p><p>The length of <code class="paramref">uriString</code> exceeds
+65534 characters.</p>
+<p>-or-</p><p>The length of the scheme specified in
+<code class="paramref">uriString</code> exceeds 1023 characters.</p>
+<p>-or-</p><p>There is an invalid character sequence in
+<code class="paramref">uriString</code>.</p>
+<p>-or-</p><p>The MS-DOS path specified in
+<code class="paramref">uriString</code> must start with c:\\.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="System_Uri__ctor_" data-uid="System.Uri.#ctor*"></a>
@@ -172,87 +253,7 @@ and easy access to the parts of the URI.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>The scheme specified in the URI formed by combining <code data-dev-comment-type="paramref" class="paramref">baseUri</code> and <code data-dev-comment-type="paramref" class="paramref">relativeUri</code> is not valid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Uri__ctor_" data-uid="System.Uri.#ctor*"></a>
-  <h4 id="System_Uri__ctor_System_String_" data-uid="System.Uri.#ctor(System.String)">Uri(string)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.Uri.html">Uri</a> class
-with the specified URI.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Uri(string uriString)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">uriString</span></td>
-        <td><p>A URI.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Uri__ctor_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This constructor parses the URI string, therefore it can be used to
-validate a URI.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The <code data-dev-comment-type="paramref" class="paramref">uriString</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>The <code data-dev-comment-type="paramref" class="paramref">uriString</code> is empty.</p>
-<p>-or-</p><p>The scheme specified in <code data-dev-comment-type="paramref" class="paramref">uriString</code>
-is not correctly formed.  </p>
-<p>-or-</p><p><code data-dev-comment-type="paramref" class="paramref">uriString</code> contains too many
-slashes.</p>
-<p>-or-</p><p>The password specified in <code data-dev-comment-type="paramref" class="paramref">uriString</code>
-is not valid.</p>
-<p>-or-</p><p>The host name specified in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code> is not valid.</p>
-<p>-or-</p><p>The file name specified in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code> is not valid.</p>
-<p>-or-</p><p>The user name specified in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code> is not valid.</p>
-<p>-or-</p><p>The host or authority name specified in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code> cannot be terminated by backslashes.
-</p>
-<p>-or-</p><p>The port number specified in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code> is not valid or cannot be parsed.</p>
-<p>-or-</p><p>The length of <code data-dev-comment-type="paramref" class="paramref">uriString</code> exceeds
-65534 characters.</p>
-<p>-or-</p><p>The length of the scheme specified in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code> exceeds 1023 characters.</p>
-<p>-or-</p><p>There is an invalid character sequence in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code>.</p>
-<p>-or-</p><p>The MS-DOS path specified in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code> must start with c:\\.</p>
+        <td><p>The scheme specified in the URI formed by combining <code class="paramref">baseUri</code> and <code class="paramref">relativeUri</code> is not valid.</p>
 </td>
       </tr>
     </tbody>
@@ -303,274 +304,23 @@ is not valid.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">baseUri</code> is <span class="xref">null</span>.</p>
+        <td><p><code class="paramref">baseUri</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">baseUri</code> is not an absolute Uri instance.</p>
+        <td><p><code class="paramref">baseUri</code> is not an absolute Uri instance.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.FormatException.html">FormatException</a></td>
-        <td><p>The scheme specified in the URI formed by combining <code data-dev-comment-type="paramref" class="paramref">baseUri</code> and <code data-dev-comment-type="paramref" class="paramref">relativeUri</code> is not valid.</p>
+        <td><p>The scheme specified in the URI formed by combining <code class="paramref">baseUri</code> and <code class="paramref">relativeUri</code> is not valid.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="fields">Fields
 </h3>
-
-
-  <h4 id="System_Uri__AbsolutePath" data-uid="System.Uri._AbsolutePath">_AbsolutePath</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps absolute path.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string _AbsolutePath</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__absoluteUri" data-uid="System.Uri._absoluteUri">_absoluteUri</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps absolute uri (generated in method ParseUriString)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string _absoluteUri</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__Flags" data-uid="System.Uri._Flags">_Flags</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps internal flags/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Uri.Flags _Flags</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Uri.html">Uri</a>.<a class="xref" href="System.Uri.Flags.html">Flags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__host" data-uid="System.Uri._host">_host</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps host name ( http and https ).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string _host</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__hostNameType" data-uid="System.Uri._hostNameType">_hostNameType</h4>
-  <div class="markdown level1 summary"><p>Type of the host.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected UriHostNameType _hostNameType</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.UriHostNameType.html">UriHostNameType</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__isAbsoluteUri" data-uid="System.Uri._isAbsoluteUri">_isAbsoluteUri</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps boolean if Uri is absolute.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected bool _isAbsoluteUri</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__isUnc" data-uid="System.Uri._isUnc">_isUnc</h4>
-  <div class="markdown level1 summary"><p>Member variable that tells if path is UNC ( Universal Naming Convention )
-In this class it is always false, but can be changed in derived classes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected bool _isUnc</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__OriginalUriString" data-uid="System.Uri._OriginalUriString">_OriginalUriString</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps original string passed to Uri constructor.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string _OriginalUriString</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__port" data-uid="System.Uri._port">_port</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps port used by this uri.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int _port</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="System_Uri__scheme" data-uid="System.Uri._scheme">_scheme</h4>
-  <div class="markdown level1 summary"><p>Member variable that keeps scheme of Uri.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string _scheme</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
   <h4 id="System_Uri_HttpDefaultPort" data-uid="System.Uri.HttpDefaultPort">HttpDefaultPort</h4>
@@ -680,6 +430,257 @@ In this class it is always false, but can be changed in derived classes.</p>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const string UriSchemeHttps = &quot;https&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__AbsolutePath" data-uid="System.Uri._AbsolutePath">_AbsolutePath</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps absolute path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string _AbsolutePath</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__Flags" data-uid="System.Uri._Flags">_Flags</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps internal flags/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Uri.Flags _Flags</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Uri.html">Uri</a>.<a class="xref" href="System.Uri.Flags.html">Flags</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__OriginalUriString" data-uid="System.Uri._OriginalUriString">_OriginalUriString</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps original string passed to Uri constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string _OriginalUriString</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__absoluteUri" data-uid="System.Uri._absoluteUri">_absoluteUri</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps absolute uri (generated in method ParseUriString)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string _absoluteUri</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__host" data-uid="System.Uri._host">_host</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps host name ( http and https ).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string _host</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__hostNameType" data-uid="System.Uri._hostNameType">_hostNameType</h4>
+  <div class="markdown level1 summary"><p>Type of the host.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UriHostNameType _hostNameType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.UriHostNameType.html">UriHostNameType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__isAbsoluteUri" data-uid="System.Uri._isAbsoluteUri">_isAbsoluteUri</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps boolean if Uri is absolute.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool _isAbsoluteUri</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__isUnc" data-uid="System.Uri._isUnc">_isUnc</h4>
+  <div class="markdown level1 summary"><p>Member variable that tells if path is UNC ( Universal Naming Convention )
+In this class it is always false, but can be changed in derived classes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool _isUnc</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__port" data-uid="System.Uri._port">_port</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps port used by this uri.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int _port</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_Uri__scheme" data-uid="System.Uri._scheme">_scheme</h4>
+  <div class="markdown level1 summary"><p>Member variable that keeps scheme of Uri.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string _scheme</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -876,7 +877,7 @@ instance is absolute; otherwise, <itemref>false</itemref>.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p><span class="xref">true</span> if the host specified in the Uri is the local computer; otherwise, <span class="xref">false</span>.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the host specified in the Uri is the local computer; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1096,8 +1097,7 @@ for absolute URIs.</p>
 
   <a id="System_Uri_Equals_" data-uid="System.Uri.Equals*"></a>
   <h4 id="System_Uri_Equals_System_Object_" data-uid="System.Uri.Equals(System.Object)">Equals(object)</h4>
-  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1131,8 +1131,7 @@ for absolute URIs.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>true if the specified object is equal to the current object; otherwise, false.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1142,8 +1141,7 @@ for absolute URIs.</p>
 
   <a id="System_Uri_GetHashCode_" data-uid="System.Uri.GetHashCode*"></a>
   <h4 id="System_Uri_GetHashCode" data-uid="System.Uri.GetHashCode">GetHashCode()</h4>
-  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1160,8 +1158,7 @@ for absolute URIs.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>A hash code for the current object.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1244,7 +1241,7 @@ construct a URI with the string.</p>
         <td><a class="xref" href="System.UriKind.html">UriKind</a></td>
         <td><span class="parametername">uriKind</span></td>
         <td><p>The type of the URI in
-<code data-dev-comment-type="paramref" class="paramref">uriString</code>.</p>
+<code class="paramref">uriString</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -1275,7 +1272,7 @@ Briefed syntax abstracted from .NET FX:
 Group 1 - http, https, ftp, file, gopher, nntp, telnet, ldap, net.tcp and net.pipe
 Must be rooted. The 1st segment is authority. Empty path should be replace as '/'</p>
 <p>Group 2 - file
-Reminder: Treat all '&amp;apos; as '/'
+Reminder: Treat all '' as '/'
 If it starts with only one '/', host should be empty
 Otherwise, all leading '/' should be ignored before searching for 1st segment. The 1st segment is host</p>
 <p>Group 3 - news and uuid
@@ -1430,7 +1427,7 @@ The 1st segment is authority iff it was rooted. Empty path should be replace as 
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>The <code data-dev-comment-type="paramref" class="paramref">uriString</code> is null.</p>
+        <td><p>The <code class="paramref">uriString</code> is null.</p>
 </td>
       </tr>
       <tr>
@@ -1617,6 +1614,7 @@ The 1st segment is authority iff it was rooted. Empty path should be replace as 
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

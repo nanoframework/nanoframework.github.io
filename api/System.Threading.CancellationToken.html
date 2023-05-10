@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Threading.CancellationToken">
 
 
+
   <h1 id="System_Threading_CancellationToken" data-uid="System.Threading.CancellationToken" class="text-break">Struct CancellationToken
 </h1>
   <div class="markdown level0 summary"><p>Propagates notification that operations should be canceled.</p>
@@ -118,7 +119,7 @@
   <h5 id="System_Threading_CancellationToken_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 A <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> may be created directly in an unchangeable canceled or non-canceled state
-using the CancellationToken&apos;s constructors. However, to have a CancellationToken that can change 
+using the CancellationToken's constructors. However, to have a CancellationToken that can change 
 from a non-canceled to a canceled state, 
 <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> must be used.
 CancellationTokenSource exposes the associated CancellationToken that may be canceled by the source through its 
@@ -165,9 +166,9 @@ All members of this struct are thread-safe and may be used concurrently from mul
   </table>
   <h5 id="System_Threading_CancellationToken__ctor_System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Tokens created with this constructor will remain in the canceled state specified
-by the <code data-dev-comment-type="paramref" class="paramref">canceled</code> parameter.  If <code data-dev-comment-type="paramref" class="paramref">canceled</code> is false,
+by the <code class="paramref">canceled</code> parameter.  If <code class="paramref">canceled</code> is false,
 both <a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_CanBeCanceled">CanBeCanceled</a> and <a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_IsCancellationRequested">IsCancellationRequested</a> will be false.
-If <code data-dev-comment-type="paramref" class="paramref">canceled</code> is true,
+If <code class="paramref">canceled</code> is true,
 both <a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_CanBeCanceled">CanBeCanceled</a> and <a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_IsCancellationRequested">IsCancellationRequested</a> will be true.</p>
 </div>
   <h3 id="properties">Properties
@@ -235,7 +236,7 @@ return true.</p>
 This property indicates whether cancellation has been requested for this token, 
 either through the token initially being construted in a canceled state, or through
 calling <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a> 
-on the token&apos;s associated <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.
+on the token's associated <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.
 </p>
 <p>
 If this property is true, it only guarantees that cancellation has been requested.  
@@ -365,7 +366,7 @@ specified <a class="xref" href="System.Object.html">object</a>.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>True if <code data-dev-comment-type="paramref" class="paramref">other</code> is a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
+        <td><p>True if <code class="paramref">other</code> is a <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a>
 and if the two instances are equal; otherwise, false. Two tokens are equal if they are associated
 with the same <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> or if they were both constructed
 from public CancellationToken constructors and their <a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_IsCancellationRequested">IsCancellationRequested</a> values are equal.</p>
@@ -537,7 +538,7 @@ along with the delegate and will be used when executing it.
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">callback</code> is null.</p>
+        <td><p><code class="paramref">callback</code> is null.</p>
 </td>
       </tr>
     </tbody>
@@ -546,7 +547,7 @@ along with the delegate and will be used when executing it.
 
   <a id="System_Threading_CancellationToken_ThrowIfCancellationRequested_" data-uid="System.Threading.CancellationToken.ThrowIfCancellationRequested*"></a>
   <h4 id="System_Threading_CancellationToken_ThrowIfCancellationRequested" data-uid="System.Threading.CancellationToken.ThrowIfCancellationRequested">ThrowIfCancellationRequested()</h4>
-  <div class="markdown level1 summary"><p>Throws a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> if
+  <div class="markdown level1 summary"><p>Throws a <span class="xref">OperationCanceledException</span> if
 this token has had cancellation requested.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -556,7 +557,7 @@ this token has had cancellation requested.</p>
   </div>
   <h5 id="System_Threading_CancellationToken_ThrowIfCancellationRequested_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method provides functionality equivalent to:</p>
-<pre><code>if (token.IsCancellationRequested) 
+<pre><code class="lang-csharp">if (token.IsCancellationRequested) 
    throw new OperationCanceledException(token);</code></pre>
 </div>
   <h5 class="exceptions">Exceptions</h5>
@@ -575,6 +576,7 @@ this token has had cancellation requested.</p>
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 

@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,9 +89,10 @@
             <article class="content wrap" id="_content" data-uid="nanoFramework.Networking.Sntp">
 
 
+
   <h1 id="nanoFramework_Networking_Sntp" data-uid="nanoFramework.Networking.Sntp" class="text-break">Class Sntp
 </h1>
-  <div class="markdown level0 summary"><p>Provides a set of methods that help developers to manage the SNTP (Simple Network Time Protocol) client on the target device.</p>
+  <div class="markdown level0 summary"><p>Provides a set of methods that help manage the Simple Network Time Protocol (SNTP) client on the target device.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -123,15 +124,14 @@
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">nanoFramework</span>.<a class="xref" href="nanoFramework.Networking.html">Networking</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.Networking.html">Networking</a></h6>
   <h6><strong>Assembly</strong>: nanoFramework.Networking.Sntp.dll</h6>
   <h5 id="nanoFramework_Networking_Sntp_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class Sntp</code></pre>
   </div>
   <h5 id="nanoFramework_Networking_Sntp_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>For a list of some public NTP servers, see this link :
-<a href="http://support.ntp.org/bin/view/Servers/NTPPoolServers">http://support.ntp.org/bin/view/Servers/NTPPoolServers</a></p>
+  <div class="markdown level0 remarks"><p>This class is specific to .NET nanoFramework.</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -177,7 +177,8 @@
 
   <a id="nanoFramework_Networking_Sntp_Server1_" data-uid="nanoFramework.Networking.Sntp.Server1*"></a>
   <h4 id="nanoFramework_Networking_Sntp_Server1" data-uid="nanoFramework.Networking.Sntp.Server1">Server1</h4>
-  <div class="markdown level1 summary"><p>Gets, sets the address of the SNTP server 1.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the host address of the main SNTP server.
+By default it uses the server '0.pool.ntp.org'.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -199,11 +200,16 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="nanoFramework_Networking_Sntp_Server1_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For a list of some public NTP servers, see this link:
+<a href="http://support.ntp.org/bin/view/Servers/NTPPoolServers">http://support.ntp.org/bin/view/Servers/NTPPoolServers</a></p>
+</div>
 
 
   <a id="nanoFramework_Networking_Sntp_Server2_" data-uid="nanoFramework.Networking.Sntp.Server2*"></a>
   <h4 id="nanoFramework_Networking_Sntp_Server2" data-uid="nanoFramework.Networking.Sntp.Server2">Server2</h4>
-  <div class="markdown level1 summary"><p>Gets, sets the address of the SNTP server 2.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the host address of the backup SNTP server.
+By default it uses the server '1.pool.ntp.org'.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -225,6 +231,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="nanoFramework_Networking_Sntp_Server2_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For a list of some public NTP servers, see this link:
+<a href="http://support.ntp.org/bin/view/Servers/NTPPoolServers">http://support.ntp.org/bin/view/Servers/NTPPoolServers</a></p>
+</div>
   <h3 id="methods">Methods
 </h3>
 
@@ -232,9 +242,7 @@
   <a id="nanoFramework_Networking_Sntp_Start_" data-uid="nanoFramework.Networking.Sntp.Start*"></a>
   <h4 id="nanoFramework_Networking_Sntp_Start" data-uid="nanoFramework.Networking.Sntp.Start">Start()</h4>
   <div class="markdown level1 summary"><p>Starts the SNTP client.
-After this method returns a periodic call to the set SNTP servers is performed providing time synchronization.
-The system time is updated immediately after each successful execution.
-The time synchronization occurs on a hourly rate.</p>
+After this method returns, a periodic call to the set SNTP servers is performed providing time synchronization.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -242,7 +250,12 @@ The time synchronization occurs on a hourly rate.</p>
     <pre><code class="lang-csharp hljs">public static void Start()</code></pre>
   </div>
   <h5 id="nanoFramework_Networking_Sntp_Start_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is specific to nanoFramework.</p>
+  <div class="markdown level1 remarks"><p>
+ The system time is updated immediately after each successful execution.
+</p>
+<p>
+By default the time synchronization occurs on a hourly rate.
+</p>
 </div>
 
 
@@ -301,6 +314,7 @@ The time synchronization will stop.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

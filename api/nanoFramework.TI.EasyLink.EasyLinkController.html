@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="nanoFramework.TI.EasyLink.EasyLinkController">
 
 
+
   <h1 id="nanoFramework_TI_EasyLink_EasyLinkController" data-uid="nanoFramework.TI.EasyLink.EasyLinkController" class="text-break">Class EasyLinkController
 </h1>
   <div class="markdown level0 summary"><p>The CC13xx/CC26xx EasyLink API is a simple abstraction layer on top of the CC13xx/CC26xx RF Driver and is intended as a starting point for developers creating a proprietor Sub1G protocol.</p>
@@ -124,7 +125,7 @@
       <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">nanoFramework</span>.<span class="xref">TI</span>.<a class="xref" href="nanoFramework.TI.EasyLink.html">EasyLink</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.TI.html">TI</a>.<a class="xref" href="nanoFramework.TI.EasyLink.html">EasyLink</a></h6>
   <h6><strong>Assembly</strong>: nanoFramework.TI.EasyLink.dll</h6>
   <h5 id="nanoFramework_TI_EasyLink_EasyLinkController_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -274,7 +275,7 @@ should not be used to get an accurate measure of frequency.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p><span class="xref">true</span> if the EasyLink has been successfully initialized.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the EasyLink has been successfully initialized.</p>
 </td>
       </tr>
     </tbody>
@@ -404,7 +405,8 @@ Addresses are entered as <a class="xref" href="System.Byte.html">byte</a> array.
 
   <a id="nanoFramework_TI_EasyLink_EasyLinkController_Dispose_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Dispose*"></a>
   <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Dispose" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -495,10 +497,56 @@ Addresses are entered as <a class="xref" href="System.Byte.html">byte</a> array.
 
 
   <a id="nanoFramework_TI_EasyLink_EasyLinkController_Receive_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Receive*"></a>
+  <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Receive_nanoFramework_TI_EasyLink_ReceivedPacket__" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Receive(nanoFramework.TI.EasyLink.ReceivedPacket@)">Receive(out ReceivedPacket)</h4>
+  <div class="markdown level1 summary"><p>Waits for packet to be received.
+This method blocks execution of the current thread until a packet is received.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Status Receive(out ReceivedPacket packet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.TI.EasyLink.ReceivedPacket.html">ReceivedPacket</a></td>
+        <td><span class="parametername">packet</span></td>
+        <td><p>The received packet.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.TI.EasyLink.Status.html">Status</a></td>
+        <td><p>The operation result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="nanoFramework_TI_EasyLink_EasyLinkController_Receive_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Receive*"></a>
   <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Receive_nanoFramework_TI_EasyLink_ReceivedPacket__System_TimeSpan_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Receive(nanoFramework.TI.EasyLink.ReceivedPacket@,System.TimeSpan)">Receive(out ReceivedPacket, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Waits for packet to be received.
 This method blocks execution of the current thread until a packet is received.
-If no packet is receive before the <code data-dev-comment-type="paramref" class="paramref">timeout</code> expires an <a class="xref" href="System.Exception.html">Exception</a> is thrown.</p>
+If no packet is receive before the <code class="paramref">timeout</code> expires an <a class="xref" href="System.Exception.html">Exception</a> is thrown.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -525,52 +573,6 @@ If no packet is receive before the <code data-dev-comment-type="paramref" class=
         <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
         <td><span class="parametername">timeout</span></td>
         <td><p>The timeout value for the reception operation to complete successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="nanoFramework.TI.EasyLink.Status.html">Status</a></td>
-        <td><p>The operation result.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_TI_EasyLink_EasyLinkController_Receive_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Receive*"></a>
-  <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Receive_nanoFramework_TI_EasyLink_ReceivedPacket__" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Receive(nanoFramework.TI.EasyLink.ReceivedPacket@)">Receive(out ReceivedPacket)</h4>
-  <div class="markdown level1 summary"><p>Waits for packet to be received.
-This method blocks execution of the current thread until a packet is received.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Status Receive(out ReceivedPacket packet)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="nanoFramework.TI.EasyLink.ReceivedPacket.html">ReceivedPacket</a></td>
-        <td><span class="parametername">packet</span></td>
-        <td><p>The received packet.</p>
 </td>
       </tr>
     </tbody>
@@ -775,13 +777,13 @@ The PA mode is chosen at build time, run-time switching from high PA to default 
 
 
   <a id="nanoFramework_TI_EasyLink_EasyLinkController_Transmit_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Transmit*"></a>
-  <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Transmit_nanoFramework_TI_EasyLink_TransmitPacket_System_TimeSpan_System_TimeSpan_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Transmit(nanoFramework.TI.EasyLink.TransmitPacket,System.TimeSpan,System.TimeSpan)">Transmit(TransmitPacket, TimeSpan, TimeSpan)</h4>
-  <div class="markdown level1 summary"><p>Sends a Packet. This method blocks execution of the current thread until the packet transmission in complete.</p>
+  <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Transmit_nanoFramework_TI_EasyLink_TransmitPacket_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Transmit(nanoFramework.TI.EasyLink.TransmitPacket)">Transmit(TransmitPacket)</h4>
+  <div class="markdown level1 summary"><p>Sends a Packet with blocking call. This method blocks execution of the current thread until the packet transmission in complete.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Status Transmit(TransmitPacket packet, TimeSpan timeout, TimeSpan dueTime)</code></pre>
+    <pre><code class="lang-csharp hljs">public Status Transmit(TransmitPacket packet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -797,19 +799,6 @@ The PA mode is chosen at build time, run-time switching from high PA to default 
         <td><a class="xref" href="nanoFramework.TI.EasyLink.TransmitPacket.html">TransmitPacket</a></td>
         <td><span class="parametername">packet</span></td>
         <td><p>The <a class="xref" href="nanoFramework.TI.EasyLink.TransmitPacket.html">TransmitPacket</a> to be transmitted.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">timeout</span></td>
-        <td><p>The timeout value (in milliseconds) for the transmission operation to complete successfully.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">dueTime</span></td>
-        <td><p>The amount of time to delay before starting the transmission, in milliseconds.
-Specify zero (0) to start the timer immediately.</p>
 </td>
       </tr>
     </tbody>
@@ -884,13 +873,13 @@ Specify zero (0) to start the timer immediately.</p>
 
 
   <a id="nanoFramework_TI_EasyLink_EasyLinkController_Transmit_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Transmit*"></a>
-  <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Transmit_nanoFramework_TI_EasyLink_TransmitPacket_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Transmit(nanoFramework.TI.EasyLink.TransmitPacket)">Transmit(TransmitPacket)</h4>
-  <div class="markdown level1 summary"><p>Sends a Packet with blocking call. This method blocks execution of the current thread until the packet transmission in complete.</p>
+  <h4 id="nanoFramework_TI_EasyLink_EasyLinkController_Transmit_nanoFramework_TI_EasyLink_TransmitPacket_System_TimeSpan_System_TimeSpan_" data-uid="nanoFramework.TI.EasyLink.EasyLinkController.Transmit(nanoFramework.TI.EasyLink.TransmitPacket,System.TimeSpan,System.TimeSpan)">Transmit(TransmitPacket, TimeSpan, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Sends a Packet. This method blocks execution of the current thread until the packet transmission in complete.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Status Transmit(TransmitPacket packet)</code></pre>
+    <pre><code class="lang-csharp hljs">public Status Transmit(TransmitPacket packet, TimeSpan timeout, TimeSpan dueTime)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -906,6 +895,19 @@ Specify zero (0) to start the timer immediately.</p>
         <td><a class="xref" href="nanoFramework.TI.EasyLink.TransmitPacket.html">TransmitPacket</a></td>
         <td><span class="parametername">packet</span></td>
         <td><p>The <a class="xref" href="nanoFramework.TI.EasyLink.TransmitPacket.html">TransmitPacket</a> to be transmitted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>The timeout value (in milliseconds) for the transmission operation to complete successfully.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
+        <td><span class="parametername">dueTime</span></td>
+        <td><p>The amount of time to delay before starting the transmission, in milliseconds.
+Specify zero (0) to start the timer immediately.</p>
 </td>
       </tr>
     </tbody>
@@ -961,6 +963,7 @@ Specify zero (0) to start the timer immediately.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

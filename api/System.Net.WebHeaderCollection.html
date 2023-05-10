@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Net.WebHeaderCollection">
 
 
+
   <h1 id="System_Net_WebHeaderCollection" data-uid="System.Net.WebHeaderCollection" class="text-break">Class WebHeaderCollection
 </h1>
   <div class="markdown level0 summary"><p>Contains protocol headers associated with a request or response.
@@ -121,7 +122,7 @@ Manages name-value pairs for HTTP headers.</p>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a></h6>
   <h6><strong>Assembly</strong>: System.Net.Http.dll</h6>
   <h5 id="System_Net_WebHeaderCollection_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -171,7 +172,7 @@ Headers are validated when attempting to add them.
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a>[]</td>
-        <td><p>An array of type <strong>String</strong> containing all header names in
+        <td><p>An array of type <b>String</b> containing all header names in
 a Web request.</p>
 </td>
       </tr>
@@ -199,7 +200,7 @@ a Web request.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>An <strong>Int32</strong> indicating the number of headers in a
+        <td><p>An <b>Int32</b> indicating the number of headers in a
 request.</p>
 </td>
       </tr>
@@ -256,6 +257,48 @@ returns <itemref>null</itemref>.</p>
 
 
   <a id="System_Net_WebHeaderCollection_Add_" data-uid="System.Net.WebHeaderCollection.Add*"></a>
+  <h4 id="System_Net_WebHeaderCollection_Add_System_String_" data-uid="System.Net.WebHeaderCollection.Add(System.String)">Add(string)</h4>
+  <div class="markdown level1 summary"><p>Inserts a new header into the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(string header)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">header</span></td>
+        <td><p>A header name/value pair, in the format
+&quot;myHeaderName:myValue&quot;.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Net_WebHeaderCollection_Add_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method expects a string with the format &quot;myName:myValue&quot;, and
+parses the two parts out.</p>
+<p>
+If a header with the specified name already exists, the header that
+is being added is concatenated onto the existing header.
+</p>
+<p>
+Throws an exception if the specified header name is the name of a
+special header.
+</p>
+</div>
+
+
+  <a id="System_Net_WebHeaderCollection_Add_" data-uid="System.Net.WebHeaderCollection.Add*"></a>
   <h4 id="System_Net_WebHeaderCollection_Add_System_String_System_String_" data-uid="System.Net.WebHeaderCollection.Add(System.String,System.String)">Add(string, string)</h4>
   <div class="markdown level1 summary"><p>Inserts a header with the specified name and value into the
 collection.</p>
@@ -295,48 +338,6 @@ exists, this value is concatenated onto the existing header.</p>
   <h5 id="System_Net_WebHeaderCollection_Add_System_String_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If a header with the specified name already exists, the header that
 is being added is concatenated onto the existing header.</p>
-<p>
-Throws an exception if the specified header name is the name of a
-special header.
-</p>
-</div>
-
-
-  <a id="System_Net_WebHeaderCollection_Add_" data-uid="System.Net.WebHeaderCollection.Add*"></a>
-  <h4 id="System_Net_WebHeaderCollection_Add_System_String_" data-uid="System.Net.WebHeaderCollection.Add(System.String)">Add(string)</h4>
-  <div class="markdown level1 summary"><p>Inserts a new header into the collection.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Add(string header)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">header</span></td>
-        <td><p>A header name/value pair, in the format
-&quot;myHeaderName:myValue&quot;.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_WebHeaderCollection_Add_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method expects a string with the format &quot;myName:myValue&quot;, and
-parses the two parts out.</p>
-<p>
-If a header with the specified name already exists, the header that
-is being added is concatenated onto the existing header.
-</p>
 <p>
 Throws an exception if the specified header name is the name of a
 special header.
@@ -391,7 +392,7 @@ special header.
   <div class="markdown level1 remarks"><p>Takes a header name and returns a string array representing
 the individual values for that header.  For example, if the headers
 contain the following line:</p>
-<pre><code>Accept: text/plain, text/html</code></pre>
+<pre><code class="lang-csharp">Accept: text/plain, text/html</code></pre>
 <p>then <code>GetValues(&quot;Accept&quot;)</code> returns an array of
 two strings: &quot;text/plain&quot; and &quot;text/html&quot;.</p>
 </div>
@@ -548,7 +549,7 @@ to be sent.</p>
   <h5 id="System_Net_WebHeaderCollection_ToByteArray_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method serializes the headers into a byte array that can be
 sent over the network.  The format looks like:</p>
-<pre><code>Header-Name1: Header-Value1\r\n
+<pre><code class="lang-csharp">Header-Name1: Header-Value1\r\n
 Header-Name2: Header-Value2\r\n
 ...
 Header-NameN: Header-ValueN\r\n
@@ -586,7 +587,7 @@ be sent except for it being in String format.</p>
   <div><a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a></div>
   <h5 id="System_Net_WebHeaderCollection_ToString_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The format looks like the following:</p>
-<pre><code>Header-Name: Header-Value\r\n
+<pre><code class="lang-csharp">Header-Name: Header-Value\r\n
 Header-Name2: Header-Value2\r\n
 ...
 Header-NameN: Header-ValueN\r\n
@@ -623,6 +624,7 @@ Header-NameN: Header-ValueN\r\n
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

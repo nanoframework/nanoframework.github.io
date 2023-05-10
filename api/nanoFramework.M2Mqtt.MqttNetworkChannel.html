@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel">
 
 
+
   <h1 id="nanoFramework_M2Mqtt_MqttNetworkChannel" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel" class="text-break">Class MqttNetworkChannel
 </h1>
   <div class="markdown level0 summary"><p>Channel to communicate over the network</p>
@@ -127,7 +128,7 @@
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">nanoFramework</span>.<a class="xref" href="nanoFramework.M2Mqtt.html">M2Mqtt</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.M2Mqtt.html">M2Mqtt</a></h6>
   <h6><strong>Assembly</strong>: nanoFramework.M2Mqtt.dll</h6>
   <h5 id="nanoFramework_M2Mqtt_MqttNetworkChannel_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -135,6 +136,35 @@
   </div>
   <h3 id="constructors">Constructors
 </h3>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_System_Net_Sockets_Socket_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor(System.Net.Sockets.Socket)">MqttNetworkChannel(Socket)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MqttNetworkChannel(Socket socket)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></td>
+        <td><span class="parametername">socket</span></td>
+        <td><p>Socket opened with the client</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor*"></a>
@@ -185,13 +215,13 @@
 
 
   <a id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_System_Net_Sockets_Socket_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor(System.Net.Sockets.Socket)">MqttNetworkChannel(Socket)</h4>
+  <h4 id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_System_String_System_Int32_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor(System.String,System.Int32)">MqttNetworkChannel(string, int)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MqttNetworkChannel(Socket socket)</code></pre>
+    <pre><code class="lang-csharp hljs">public MqttNetworkChannel(string remoteHostName, int remotePort)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -204,9 +234,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></td>
-        <td><span class="parametername">socket</span></td>
-        <td><p>Socket opened with the client</p>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">remoteHostName</span></td>
+        <td><p>Remote Host name</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">remotePort</span></td>
+        <td><p>Remote port</p>
 </td>
       </tr>
     </tbody>
@@ -266,41 +302,6 @@
         <td><a class="xref" href="nanoFramework.M2Mqtt.MqttSslProtocols.html">MqttSslProtocols</a></td>
         <td><span class="parametername">sslProtocol</span></td>
         <td><p>SSL/TLS protocol version</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttNetworkChannel__ctor_System_String_System_Int32_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.#ctor(System.String,System.Int32)">MqttNetworkChannel(string, int)</h4>
-  <div class="markdown level1 summary"><p>Constructor</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MqttNetworkChannel(string remoteHostName, int remotePort)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">remoteHostName</span></td>
-        <td><p>Remote Host name</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">remotePort</span></td>
-        <td><p>Remote port</p>
 </td>
       </tr>
     </tbody>
@@ -477,6 +478,51 @@ Using the library this way it's unsecured and, therefore, not recommended.</p>
 
 
   <a id="nanoFramework_M2Mqtt_MqttNetworkChannel_Receive_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.Receive*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttNetworkChannel_Receive_System_Byte___" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.Receive(System.Byte[])">Receive(byte[])</h4>
+  <div class="markdown level1 summary"><p>Receive data from the network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>Data buffer for receiving data</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><p>Number of bytes received</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttNetworkChannel_Receive_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.Receive*"></a>
   <h4 id="nanoFramework_M2Mqtt_MqttNetworkChannel_Receive_System_Byte___System_Int32_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.Receive(System.Byte[],System.Int32)">Receive(byte[], int)</h4>
   <div class="markdown level1 summary"><p>Receive data from the network channel with a specified timeout</p>
 </div>
@@ -505,51 +551,6 @@ Using the library this way it's unsecured and, therefore, not recommended.</p>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">timeout</span></td>
         <td><p>Timeout on receiving (in milliseconds)</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>Number of bytes received</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttNetworkChannel_Receive_" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.Receive*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttNetworkChannel_Receive_System_Byte___" data-uid="nanoFramework.M2Mqtt.MqttNetworkChannel.Receive(System.Byte[])">Receive(byte[])</h4>
-  <div class="markdown level1 summary"><p>Receive data from the network</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>Data buffer for receiving data</p>
 </td>
       </tr>
     </tbody>
@@ -650,6 +651,7 @@ Using the library this way it's unsecured and, therefore, not recommended.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

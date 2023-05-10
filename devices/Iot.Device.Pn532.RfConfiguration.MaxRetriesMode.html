@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode">
 
 
+
   <h1 id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode" class="text-break">Class MaxRetriesMode
 </h1>
   <div class="markdown level0 summary"><p>The parameters MxRtyATR, MxRtyPSL and MxRtyPassiveActivation define the
@@ -100,7 +101,7 @@ number of retries that the PN532 will use in case of the following processes</p>
     <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
     <div class="level1"><span class="xref">MaxRetriesMode</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Pn532.html">Pn532</a>.<a class="xref" href="Iot.Device.Pn532.RfConfiguration.html">RfConfiguration</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Pn532.html">Pn532</a>.<a class="xref" href="Iot.Device.Pn532.RfConfiguration.html">RfConfiguration</a></h6>
   <h6><strong>Assembly</strong>: Iot.Device.Pn532.dll</h6>
   <h5 id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -153,19 +154,22 @@ For passive mode, the value is always overruled with 0x02 (two retries).</p>
   </table>
 
 
-  <a id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPassiveActivation_" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPassiveActivation*"></a>
-  <h4 id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPassiveActivation" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPassiveActivation">MaxRetryPassiveActivation</h4>
-  <div class="markdown level1 summary"><p>MxRtyPassiveActivation is a byte containing the number of times that the
-PN532 will retry to activate a target in InListPassiveTarget command
-(§7.3.5, p: 115).
+  <a id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPSL_" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPSL*"></a>
+  <h4 id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPSL" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPSL">MaxRetryPSL</h4>
+  <div class="markdown level1 summary"><p>MxRtyPSL is a byte containing the number of times that:
+• The PN532 will retry to send the PSL_REQ in case of incorrect reception of
+the PSL_RES(or no reception at all) for the NFC IP1 protocol,
+• The PN532 will retry to send the PPS request in case of incorrect reception
+of the PPS response(or no reception at all) for the ISO/IEC14443-4
+protocol.
 Value 0xFF means to try eternally, 0x00 means only once(no retry, only one
-try).
-The default value of this parameter is 0xFF (infinitely).</p>
+try).The default value of this parameter is 0x01 (the PSL_REQ/PPS request is
+sent twice in case of need).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte MaxRetryPassiveActivation { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public byte MaxRetryPSL { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -184,22 +188,19 @@ The default value of this parameter is 0xFF (infinitely).</p>
   </table>
 
 
-  <a id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPSL_" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPSL*"></a>
-  <h4 id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPSL" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPSL">MaxRetryPSL</h4>
-  <div class="markdown level1 summary"><p>MxRtyPSL is a byte containing the number of times that:
-• The PN532 will retry to send the PSL_REQ in case of incorrect reception of
-the PSL_RES(or no reception at all) for the NFC IP1 protocol,
-• The PN532 will retry to send the PPS request in case of incorrect reception
-of the PPS response(or no reception at all) for the ISO/IEC14443-4
-protocol.
+  <a id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPassiveActivation_" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPassiveActivation*"></a>
+  <h4 id="Iot_Device_Pn532_RfConfiguration_MaxRetriesMode_MaxRetryPassiveActivation" data-uid="Iot.Device.Pn532.RfConfiguration.MaxRetriesMode.MaxRetryPassiveActivation">MaxRetryPassiveActivation</h4>
+  <div class="markdown level1 summary"><p>MxRtyPassiveActivation is a byte containing the number of times that the
+PN532 will retry to activate a target in InListPassiveTarget command
+(§7.3.5, p: 115).
 Value 0xFF means to try eternally, 0x00 means only once(no retry, only one
-try).The default value of this parameter is 0x01 (the PSL_REQ/PPS request is
-sent twice in case of need).</p>
+try).
+The default value of this parameter is 0xFF (infinitely).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte MaxRetryPSL { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public byte MaxRetryPassiveActivation { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -239,12 +240,13 @@ sent twice in case of need).</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><p>Serialized value</p>
 </td>
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 

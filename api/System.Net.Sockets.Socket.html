@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Net.Sockets.Socket">
 
 
+
   <h1 id="System_Net_Sockets_Socket" data-uid="System.Net.Sockets.Socket" class="text-break">Class Socket
 </h1>
   <div class="markdown level0 summary"><p>Implements the Berkeley sockets interface.</p>
@@ -127,7 +128,7 @@
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a>.<a class="xref" href="System.Net.Sockets.html">Sockets</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></h6>
   <h6><strong>Assembly</strong>: System.Net.dll</h6>
   <h5 id="System_Net_Sockets_Socket_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -256,7 +257,7 @@ The LocalEndPoint property gets an <a class="xref" href="System.Net.EndPoint.htm
 <a class="xref" href="System.Net.IPEndPoint.html#System_Net_IPEndPoint_Port">Port</a> method to retrieve the local port number.
 </p>
 <p>
-The LocalEndPoint property is usually set after you make a call to the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Bind_System_Net_EndPoint_">Bind(EndPoint)</a> method. If you allow the system to assign your socket&apos;s local IP address and
+The LocalEndPoint property is usually set after you make a call to the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Bind_System_Net_EndPoint_">Bind(EndPoint)</a> method. If you allow the system to assign your socket's local IP address and
 port number, the LocalEndPoint property will be set after the first I/O operation. For connection-oriented protocols, the first I/O operation would be a call 
 to the Connect or <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Accept">Accept()</a> method. For connectionless protocols, the first I/O operation would be any of the send or receive calls.
 </p>
@@ -424,7 +425,7 @@ the value will be changed to 500. The default value is 0, which indicates an inf
   <h5 id="System_Net_Sockets_Socket_Accept_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Accept synchronously extracts the first pending connection request from the connection request queue of the listening socket, and then creates and 
 returns a new <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>. You cannot use this returned <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> to accept any additional connections from the connection queue. However, you can call the 
-<a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_RemoteEndPoint">RemoteEndPoint</a> method of the returned <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> to identify the remote host&apos;s network address and port number.
+<a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_RemoteEndPoint">RemoteEndPoint</a> method of the returned <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> to identify the remote host's network address and port number.
 </p>
 <p>
 <code>Before calling the Accept method, you must first call the Listen method to listen for and queue incoming connection requests.</code>
@@ -477,7 +478,7 @@ connection-oriented protocol, <a class="xref" href="System.Net.Sockets.Socket.ht
 you are using a connectionless protocol, you will not have access to this information until you have completed a send or receive.
 </p>
 <code>If you intend to receive multicast datagrams, you must call the Bind method with a multicast port number.</code>
-<code>You must call the Bind method if you intend to receive connectionless datagrams using the ReceiveFrom method.</code> 
+<code>You must call the Bind method if you intend to receive connectionless datagrams using the ReceiveFrom method.</code>
 </div>
 
 
@@ -538,8 +539,10 @@ set the socket option to <a class="xref" href="System.Net.Sockets.SocketOptionNa
 error code documentation in the MSDN library for a detailed description of the error.
 </p>
 <p>
-<code>If you are using a connection-oriented protocol and did not call Bind before calling Connect, the underlying service provider will assign the local network address and port number. If you are using a connectionless protocol, the service provider will not assign a local network address and port number until you complete a send or receive operation. 
-If you want to change the default remote host, call Connect again with the desired endpoint.</code>
+<code>
+If you are using a connection-oriented protocol and did not call Bind before calling Connect, the underlying service provider will assign the local network address and port number. If you are using a connectionless protocol, the service provider will not assign a local network address and port number until you complete a send or receive operation. 
+If you want to change the default remote host, call Connect again with the desired endpoint.
+</code>
 </p>
 </div>
 
@@ -593,6 +596,83 @@ When the disposing parameter is true, this method releases all resources held by
 
 
   <a id="System_Net_Sockets_Socket_GetSocketOption_" data-uid="System.Net.Sockets.Socket.GetSocketOption*"></a>
+  <h4 id="System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_" data-uid="System.Net.Sockets.Socket.GetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName)">GetSocketOption(SocketOptionLevel, SocketOptionName)</h4>
+  <div class="markdown level1 summary"><p>Returns the value of a <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object GetSocketOption(SocketOptionLevel optionLevel, SocketOptionName optionName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Net.Sockets.SocketOptionLevel.html">SocketOptionLevel</a></td>
+        <td><span class="parametername">optionLevel</span></td>
+        <td><p>One of the <a class="xref" href="System.Net.Sockets.SocketOptionLevel.html">SocketOptionLevel</a> values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Net.Sockets.SocketOptionName.html">SocketOptionName</a></td>
+        <td><span class="parametername">optionName</span></td>
+        <td><p>One of the <a class="xref" href="System.Net.Sockets.SocketOptionName.html">SocketOptionName</a> values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Object.html">object</a></td>
+        <td><p>/// An object that represents the value of the option.</p>
+<p>
+When the <code class="paramref">optionName</code> parameter is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> the return value is an <a class="xref" href="System.Int32.html">int</a> with the value in seconds that the socket will linger after close.
+To check if linger is enabled for the socket the <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a> option should be queried.
+</p>
+<p>
+When optionName is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_ExclusiveAddressUse">ExclusiveAddressUse</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_AcceptConnection">AcceptConnection</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Broadcast">Broadcast</a> or <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_KeepAlive">KeepAlive</a>, the return value is <a class="xref" href="System.Boolean.html">bool</a>.
+</p>
+<p>
+When optionName is any other value, the return value is an integer.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
+        <td><p>When using an <a class="xref" href="System.Net.Sockets.SocketOptionName.html">SocketOptionName</a> that can't be retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Net_Sockets_Socket_GetSocketOption_" data-uid="System.Net.Sockets.Socket.GetSocketOption*"></a>
   <h4 id="System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Byte___" data-uid="System.Net.Sockets.Socket.GetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName,System.Byte[])">GetSocketOption(SocketOptionLevel, SocketOptionName, byte[])</h4>
   <div class="markdown level1 summary"><p>Returns the specified <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> option setting, represented as a byte array.</p>
 </div>
@@ -642,83 +722,6 @@ have obtained this code, refer to the Windows Sockets version 2 API error code d
 Use this overload for any sockets that are represented by Boolean values or integers.
 </p>
 </div>
-
-
-  <a id="System_Net_Sockets_Socket_GetSocketOption_" data-uid="System.Net.Sockets.Socket.GetSocketOption*"></a>
-  <h4 id="System_Net_Sockets_Socket_GetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_" data-uid="System.Net.Sockets.Socket.GetSocketOption(System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName)">GetSocketOption(SocketOptionLevel, SocketOptionName)</h4>
-  <div class="markdown level1 summary"><p>Returns the value of a <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> option.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object GetSocketOption(SocketOptionLevel optionLevel, SocketOptionName optionName)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketOptionLevel.html">SocketOptionLevel</a></td>
-        <td><span class="parametername">optionLevel</span></td>
-        <td><p>One of the <a class="xref" href="System.Net.Sockets.SocketOptionLevel.html">SocketOptionLevel</a> values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketOptionName.html">SocketOptionName</a></td>
-        <td><span class="parametername">optionName</span></td>
-        <td><p>One of the <a class="xref" href="System.Net.Sockets.SocketOptionName.html">SocketOptionName</a> values.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><p>/// An object that represents the value of the option.</p>
-<p>
-When the <code data-dev-comment-type="paramref" class="paramref">optionName</code> parameter is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> the return value is an <a class="xref" href="System.Int32.html">int</a> with the value in seconds that the socket will linger after close.
-To check if linger is enabled for the socket the <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a> option should be queried.
-</p>
-<p>
-When optionName is set to <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_ExclusiveAddressUse">ExclusiveAddressUse</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_AcceptConnection">AcceptConnection</a>, <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Broadcast">Broadcast</a> or <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_KeepAlive">KeepAlive</a>, the return value is <a class="xref" href="System.Boolean.html">bool</a>.
-</p>
-<p>
-When optionName is any other value, the return value is an integer.
-</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
-        <td><p>When using an <a class="xref" href="System.Net.Sockets.SocketOptionName.html">SocketOptionName</a> that can't be retrieved.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
 
 
   <a id="System_Net_Sockets_Socket_Listen_" data-uid="System.Net.Sockets.Socket.Listen*"></a>
@@ -810,7 +813,7 @@ to accept a connection from the queue.
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
         <td><p>The status of the Socket based on the polling mode value passed in the mode parameter.</p>
-<ul><li><a class="xref" href="System.Net.Sockets.SelectMode.html#System_Net_Sockets_SelectMode_SelectRead">SelectRead</a><a class="xref" href="System.Net.Sockets.SelectMode.html#System_Net_Sockets_SelectMode_SelectWrite">SelectWrite</a><a class="xref" href="System.Net.Sockets.SelectMode.html#System_Net_Sockets_SelectMode_SelectError">SelectError</a>
+<ul><li><span class="term"><a class="xref" href="System.Net.Sockets.SelectMode.html#System_Net_Sockets_SelectMode_SelectRead">SelectRead</a></span><span class="term"><a class="xref" href="System.Net.Sockets.SelectMode.html#System_Net_Sockets_SelectMode_SelectWrite">SelectWrite</a></span><span class="term"><a class="xref" href="System.Net.Sockets.SelectMode.html#System_Net_Sockets_SelectMode_SelectError">SelectError</a></span>
 <p>true if Listen has been called and a connection is pending;</p>
 <p>-or-</p>
 <p>true if data is available for reading;</p>
@@ -836,6 +839,71 @@ indefinitely for a response. If you want to check the status of multiple sockets
 </p>
 <p>
 If you receive a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>, use the <a class="xref" href="System.Net.Sockets.SocketException.html#System_Net_Sockets_SocketException_ErrorCode">ErrorCode</a> property to obtain the specific error code. After you have obtained this code, refer to the Windows Sockets version 2 API error code documentation in the MSDN library for a detailed description of the error.
+</p>
+</div>
+
+
+  <a id="System_Net_Sockets_Socket_Receive_" data-uid="System.Net.Sockets.Socket.Receive*"></a>
+  <h4 id="System_Net_Sockets_Socket_Receive_System_Byte___" data-uid="System.Net.Sockets.Socket.Receive(System.Byte[])">Receive(byte[])</h4>
+  <div class="markdown level1 summary"><p>Receives data from a bound <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> into a receive buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>An array of type Byte that is the storage location for the received data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><p>The number of bytes received.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Net_Sockets_Socket_Receive_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> method reads data into the buffer parameter and returns the number of bytes successfully read. You can call <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> from both connection-oriented 
+and connectionless sockets.
+</p>
+<p>
+This overload only requires you to provide a receive buffer. The buffer offset defaults to 0, the size defaults to the length of the buffer parameter, and the 
+<a class="xref" href="System.Net.Sockets.SocketFlags.html">SocketFlags</a> value defaults to <a class="xref" href="System.Net.Sockets.SocketFlags.html#System_Net_Sockets_SocketFlags_None">None</a>.
+</p>
+<p>
+If no data is available for reading, the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> method will block until data is available, unless a time-out value was set by using <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_ReceiveTimeout">ReceiveTimeout</a>. If 
+the time-out value was exceeded, the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> call will throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. If you are in non-blocking mode, and there is no data available in the
+in the protocol stack buffer, the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> method will complete immediately and throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. You can use the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Available">Available</a> property to 
+determine if data is available for reading. When <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Available">Available</a> is non-zero, retry the receive operation.
+</p>
+<p>If you are using a connectionless <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>, <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> will read the first queued datagram from the destination address you specify in the Connect method. If 
+the datagram you receive is larger than the size of the buffer parameter, buffer gets filled with the first part of the message, the excess data is lost and a 
+SocketException is thrown.
 </p>
 </div>
 
@@ -1027,71 +1095,6 @@ You can use the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_
 and connectionless sockets.</p>
 <p>
 This overload only requires you to provide a receive buffer and the necessary <a class="xref" href="System.Net.Sockets.SocketFlags.html">SocketFlags</a>. The buffer offset defaults to 0, and the size defaults to the length of the byte parameter.
-</p>
-</div>
-
-
-  <a id="System_Net_Sockets_Socket_Receive_" data-uid="System.Net.Sockets.Socket.Receive*"></a>
-  <h4 id="System_Net_Sockets_Socket_Receive_System_Byte___" data-uid="System.Net.Sockets.Socket.Receive(System.Byte[])">Receive(byte[])</h4>
-  <div class="markdown level1 summary"><p>Receives data from a bound <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> into a receive buffer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>An array of type Byte that is the storage location for the received data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The number of bytes received.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_Sockets_Socket_Receive_System_Byte____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-The <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> method reads data into the buffer parameter and returns the number of bytes successfully read. You can call <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> from both connection-oriented 
-and connectionless sockets.
-</p>
-<p>
-This overload only requires you to provide a receive buffer. The buffer offset defaults to 0, the size defaults to the length of the buffer parameter, and the 
-<a class="xref" href="System.Net.Sockets.SocketFlags.html">SocketFlags</a> value defaults to <a class="xref" href="System.Net.Sockets.SocketFlags.html#System_Net_Sockets_SocketFlags_None">None</a>.
-</p>
-<p>
-If no data is available for reading, the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> method will block until data is available, unless a time-out value was set by using <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_ReceiveTimeout">ReceiveTimeout</a>. If 
-the time-out value was exceeded, the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> call will throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. If you are in non-blocking mode, and there is no data available in the
-in the protocol stack buffer, the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> method will complete immediately and throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. You can use the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Available">Available</a> property to 
-determine if data is available for reading. When <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Available">Available</a> is non-zero, retry the receive operation.
-</p>
-<p>If you are using a connectionless <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>, <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Receive_System_Byte___">Receive(byte[])</a> will read the first queued datagram from the destination address you specify in the Connect method. If 
-the datagram you receive is larger than the size of the buffer parameter, buffer gets filled with the first part of the message, the excess data is lost and a 
-SocketException is thrown.
 </p>
 </div>
 
@@ -1360,6 +1363,83 @@ The <a class="xref" href="System.Net.Sockets.AddressFamily.html">AddressFamily</
 
 
   <a id="System_Net_Sockets_Socket_Send_" data-uid="System.Net.Sockets.Socket.Send*"></a>
+  <h4 id="System_Net_Sockets_Socket_Send_System_Byte___" data-uid="System.Net.Sockets.Socket.Send(System.Byte[])">Send(byte[])</h4>
+  <div class="markdown level1 summary"><p>Sends data to a connected <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Send(byte[] buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>An array of type Byte that contains the data to be sent</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><p>The number of bytes sent to the <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Net_Sockets_Socket_Send_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Send_System_Byte___">Send(byte[])</a> synchronously sends data to the remote host specified in the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Connect_System_Net_EndPoint_">Connect(EndPoint)</a> or <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Accept">Accept()</a> method and returns the number of bytes successfully sent. <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Send_System_Byte___">Send(byte[])</a> 
+can be used for both connection-oriented and connectionless protocols.</p>
+<p>This overload requires a buffer that contains the data you want to send. The <a class="xref" href="System.Net.Sockets.SocketFlags.html">SocketFlags</a> value defaults to 0, the buffer offset defaults to 0, and the number of bytes to send defaults to the size of the buffer.</p>
+<p>If you are using a connectionless protocol, you must call <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Connect_System_Net_EndPoint_">Connect(EndPoint)</a> before calling this method, or <see cref="o:Send"></see> will throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. If you are using a connection-oriented protocol, you must either 
+use <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Connect_System_Net_EndPoint_">Connect(EndPoint)</a> to establish a remote host connection, or use <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Accept">Accept()</a> to accept an incoming connection.</p>
+<p>If you are using a connectionless protocol and plan to send data to several different hosts, you should use the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SendTo_System_Byte___System_Net_EndPoint_">SendTo(byte[], EndPoint)</a> method. If you do not use the 
+SendTo method, you will have to call Connect before each call to Send. You can use SendTo even after you have established a default remote host with 
+Connect. You can also change the default remote host prior to calling Send by making another call to Connect.</p>
+<p>
+If you are using a connection-oriented protocol, <see cref="o:SendTo()"></see> will block until all of the bytes in the buffer are sent, unless a time-out was set by using 
+<a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SendTimeout">SendTimeout</a>. If the time-out value was exceeded, the <see cref="o:SendTo()"></see> call will throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. In nonblocking mode, Send may complete 
+successfully even if it sends less than the number of bytes in the buffer. It is your application's responsibility to keep track of the number of bytes sent and 
+to retry the operation until the application sends the bytes in the buffer. There is also no guarantee that the data you send will appear on the network 
+immediately. To increase network efficiency, the underlying system may delay transmission until a significant amount of outgoing data is collected. A 
+successful completion of the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Send_System_Byte___">Send(byte[])</a> method means that the underlying system has had room to buffer your data for a network send.
+</p>
+<div class="IMPORTANT"><h5>important</h5><p>
+If you receive a SocketException, use the <a class="xref" href="System.Net.Sockets.SocketException.html#System_Net_Sockets_SocketException_ErrorCode">ErrorCode</a> property to obtain the specific error code. After you have obtained this code, 
+refer to the Windows Sockets version 2 API error code documentation in the MSDN library for a detailed description of the error.
+</p></div>
+<div class="IMPORTANT"><h5>important</h5><p>
+The successful completion of a send does not indicate that the data was successfully delivered. 
+If no buffer space is available within the transport system to hold the data to be transmitted, 
+send will block unless the socket has been placed in nonblocking mode.
+</p></div>
+</div>
+  <h5 id="System_Net_Sockets_Socket_Send_System_Byte____seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></div>
+  </div>
+
+
+  <a id="System_Net_Sockets_Socket_Send_" data-uid="System.Net.Sockets.Socket.Send*"></a>
   <h4 id="System_Net_Sockets_Socket_Send_System_Byte___System_Int32_System_Int32_System_Net_Sockets_SocketFlags_" data-uid="System.Net.Sockets.Socket.Send(System.Byte[],System.Int32,System.Int32,System.Net.Sockets.SocketFlags)">Send(byte[], int, int, SocketFlags)</h4>
   <div class="markdown level1 summary"><p>Sends the specified number of bytes of data to a connected <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>, starting at the specified offset, and using the specified <a class="xref" href="System.Net.Sockets.SocketFlags.html">SocketFlags</a>.</p>
 </div>
@@ -1430,7 +1510,7 @@ send will block unless the socket has been placed in nonblocking mode.
   <h5 id="System_Net_Sockets_Socket_Send_System_Byte___System_Int32_System_Int32_System_Net_Sockets_SocketFlags__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></div>
-      <div><a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a>.<a class="xref" href="System.Net.Sockets.html">Sockets</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></div>
   </div>
 
 
@@ -1506,7 +1586,7 @@ send will block unless the socket has been placed in nonblocking mode.
   <h5 id="System_Net_Sockets_Socket_Send_System_Byte___System_Int32_System_Net_Sockets_SocketFlags__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></div>
-      <div><a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a>.<a class="xref" href="System.Net.Sockets.html">Sockets</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></div>
   </div>
 
 
@@ -1579,84 +1659,7 @@ send will block unless the socket has been placed in nonblocking mode.
   <h5 id="System_Net_Sockets_Socket_Send_System_Byte___System_Net_Sockets_SocketFlags__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></div>
-      <div><a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a>.<a class="xref" href="System.Net.Sockets.html">Sockets</a></div>
-  </div>
-
-
-  <a id="System_Net_Sockets_Socket_Send_" data-uid="System.Net.Sockets.Socket.Send*"></a>
-  <h4 id="System_Net_Sockets_Socket_Send_System_Byte___" data-uid="System.Net.Sockets.Socket.Send(System.Byte[])">Send(byte[])</h4>
-  <div class="markdown level1 summary"><p>Sends data to a connected <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Send(byte[] buffer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>An array of type Byte that contains the data to be sent</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The number of bytes sent to the <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_Sockets_Socket_Send_System_Byte____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Send_System_Byte___">Send(byte[])</a> synchronously sends data to the remote host specified in the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Connect_System_Net_EndPoint_">Connect(EndPoint)</a> or <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Accept">Accept()</a> method and returns the number of bytes successfully sent. <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Send_System_Byte___">Send(byte[])</a> 
-can be used for both connection-oriented and connectionless protocols.</p>
-<p>This overload requires a buffer that contains the data you want to send. The <a class="xref" href="System.Net.Sockets.SocketFlags.html">SocketFlags</a> value defaults to 0, the buffer offset defaults to 0, and the number of bytes to send defaults to the size of the buffer.</p>
-<p>If you are using a connectionless protocol, you must call <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Connect_System_Net_EndPoint_">Connect(EndPoint)</a> before calling this method, or <see cref="o:Send"></see> will throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. If you are using a connection-oriented protocol, you must either 
-use <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Connect_System_Net_EndPoint_">Connect(EndPoint)</a> to establish a remote host connection, or use <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Accept">Accept()</a> to accept an incoming connection.</p>
-<p>If you are using a connectionless protocol and plan to send data to several different hosts, you should use the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SendTo_System_Byte___System_Net_EndPoint_">SendTo(byte[], EndPoint)</a> method. If you do not use the 
-SendTo method, you will have to call Connect before each call to Send. You can use SendTo even after you have established a default remote host with 
-Connect. You can also change the default remote host prior to calling Send by making another call to Connect.</p>
-<p>
-If you are using a connection-oriented protocol, <see cref="o:SendTo()"></see> will block until all of the bytes in the buffer are sent, unless a time-out was set by using 
-<a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SendTimeout">SendTimeout</a>. If the time-out value was exceeded, the <see cref="o:SendTo()"></see> call will throw a <a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a>. In nonblocking mode, Send may complete 
-successfully even if it sends less than the number of bytes in the buffer. It is your application&apos;s responsibility to keep track of the number of bytes sent and 
-to retry the operation until the application sends the bytes in the buffer. There is also no guarantee that the data you send will appear on the network 
-immediately. To increase network efficiency, the underlying system may delay transmission until a significant amount of outgoing data is collected. A 
-successful completion of the <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_Send_System_Byte___">Send(byte[])</a> method means that the underlying system has had room to buffer your data for a network send.
-</p>
-<div class="IMPORTANT"><h5>important</h5><p>
-If you receive a SocketException, use the <a class="xref" href="System.Net.Sockets.SocketException.html#System_Net_Sockets_SocketException_ErrorCode">ErrorCode</a> property to obtain the specific error code. After you have obtained this code, 
-refer to the Windows Sockets version 2 API error code documentation in the MSDN library for a detailed description of the error.
-</p></div>
-<div class="IMPORTANT"><h5>important</h5><p>
-The successful completion of a send does not indicate that the data was successfully delivered. 
-If no buffer space is available within the transport system to hold the data to be transmitted, 
-send will block unless the socket has been placed in nonblocking mode.
-</p></div>
-</div>
-  <h5 id="System_Net_Sockets_Socket_Send_System_Byte____seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></div>
-      <div><a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a>.<a class="xref" href="System.Net.Sockets.html">Sockets</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></div>
   </div>
 
 
@@ -2037,8 +2040,8 @@ In this overload, the buffer offset defaults to 0, and the number of bytes to se
   <div class="markdown level1 remarks"><p><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> options determine the behavior of the current <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a>. For an option with a Boolean data type, specify a nonzero value to enable the option, and a 
 zero value to disable the option. For an option with an integer data type, specify the appropriate value. <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a> options are grouped by level of protocol support.
 </p>
-For <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> option the <code data-dev-comment-type="paramref" class="paramref">optionValue</code> it&apos;s the number of seconds that the socket will linger before closing the connection.
-To disable socket linger call <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Boolean_">SetSocketOption(SocketOptionLevel, SocketOptionName, bool)</a> with <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a> and setting it to <span class="xref">true</span>. 
+For <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_Linger">Linger</a> option the <code class="paramref">optionValue</code> it's the number of seconds that the socket will linger before closing the connection.
+To disable socket linger call <a class="xref" href="System.Net.Sockets.Socket.html#System_Net_Sockets_Socket_SetSocketOption_System_Net_Sockets_SocketOptionLevel_System_Net_Sockets_SocketOptionName_System_Boolean_">SetSocketOption(SocketOptionLevel, SocketOptionName, bool)</a> with <a class="xref" href="System.Net.Sockets.SocketOptionName.html#System_Net_Sockets_SocketOptionName_DontLinger">DontLinger</a> and setting it to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 </div>
   <h3 id="implements">Implements</h3>
   <div>
@@ -2075,6 +2078,7 @@ To disable socket linger call <a class="xref" href="System.Net.Sockets.Socket.ht
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -87,6 +87,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="System.Array">
+
 
 
   <h1 id="System_Array" data-uid="System.Array" class="text-break">Class Array
@@ -335,7 +336,7 @@
       <tr>
         <td><a class="xref" href="System.Collections.IComparer.html">IComparer</a></td>
         <td><span class="parametername">comparer</span></td>
-        <td><p>The IComparer implementation to use when comparing elements.</p>
+        <td><p>The IComparer implementation to use when comparing elements.
 <p>-or-</p>
 <p>nullNothingnullptrunit a null reference(Nothing in Visual Basic) to use the IComparable implementation of each element.</p>
 </td>
@@ -410,7 +411,7 @@
       <tr>
         <td><a class="xref" href="System.Collections.IComparer.html">IComparer</a></td>
         <td><span class="parametername">comparer</span></td>
-        <td><p>The IComparer implementation to use when comparing elements.</p>
+        <td><p>The IComparer implementation to use when comparing elements.
 <p>-or-</p>
 <p>nullNothingnullptrunit a null reference(Nothing in Visual Basic) to use the IComparable implementation of each element.</p>
 </td>
@@ -686,9 +687,9 @@
   </table>
   <h5 id="System_Array_CreateInstance_System_Type_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Unlike most classes, Array provides the CreateInstance method, instead of public constructors, to allow for late bound access.</p>
-<p>Reference-type elements are initialized to nullNothingnullptrunit a null reference(Nothing in Visual Basic). Value-type elements are initialized to zero.</p>
-<p>This method is an O(n) operation, where n is length.</p>
-Available only in mscorlib build with support for System.Reflection.
+            <p>Reference-type elements are initialized to nullNothingnullptrunit a null reference(Nothing in Visual Basic). Value-type elements are initialized to zero.</p>
+            <p>This method is an O(n) operation, where n is length.</p>
+            Available only in mscorlib build with support for System.Reflection.
 </div>
 
 
@@ -765,13 +766,13 @@ Available only in mscorlib build with support for System.Reflection.
 
 
   <a id="System_Array_IndexOf_" data-uid="System.Array.IndexOf*"></a>
-  <h4 id="System_Array_IndexOf_System_Array_System_Object_System_Int32_System_Int32_" data-uid="System.Array.IndexOf(System.Array,System.Object,System.Int32,System.Int32)">IndexOf(Array, object, int, int)</h4>
-  <div class="markdown level1 summary"><p>Searches for the specified object and returns the index of the first occurrence within the range of elements in the one-dimensional Array that starts at the specified index and contains the specified number of elements.</p>
+  <h4 id="System_Array_IndexOf_System_Array_System_Object_" data-uid="System.Array.IndexOf(System.Array,System.Object)">IndexOf(Array, object)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified object and returns the index of the first occurrence within the entire one-dimensional Array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int IndexOf(Array array, object value, int startIndex, int count)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int IndexOf(Array array, object value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -795,18 +796,6 @@ Available only in mscorlib build with support for System.Reflection.
         <td><p>The object to locate in array.</p>
 </td>
       </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">startIndex</span></td>
-        <td><p>The starting index of the search. 0 (zero) is valid in an empty array.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>The number of elements in the section to search.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -820,7 +809,7 @@ Available only in mscorlib build with support for System.Reflection.
     <tbody>
       <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The index of the first occurrence of value within the range of elements in array that starts at startIndex and contains the number of elements specified in count, if found; otherwise, the lower bound of the array minus 1.</p>
+        <td><p>The index of the first occurrence of value within the entire array, if found; otherwise, the lower bound of the array minus 1.</p>
 </td>
       </tr>
     </tbody>
@@ -885,13 +874,13 @@ Available only in mscorlib build with support for System.Reflection.
 
 
   <a id="System_Array_IndexOf_" data-uid="System.Array.IndexOf*"></a>
-  <h4 id="System_Array_IndexOf_System_Array_System_Object_" data-uid="System.Array.IndexOf(System.Array,System.Object)">IndexOf(Array, object)</h4>
-  <div class="markdown level1 summary"><p>Searches for the specified object and returns the index of the first occurrence within the entire one-dimensional Array.</p>
+  <h4 id="System_Array_IndexOf_System_Array_System_Object_System_Int32_System_Int32_" data-uid="System.Array.IndexOf(System.Array,System.Object,System.Int32,System.Int32)">IndexOf(Array, object, int, int)</h4>
+  <div class="markdown level1 summary"><p>Searches for the specified object and returns the index of the first occurrence within the range of elements in the one-dimensional Array that starts at the specified index and contains the specified number of elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int IndexOf(Array array, object value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int IndexOf(Array array, object value, int startIndex, int count)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -915,6 +904,18 @@ Available only in mscorlib build with support for System.Reflection.
         <td><p>The object to locate in array.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>The starting index of the search. 0 (zero) is valid in an empty array.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The number of elements in the section to search.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -928,7 +929,7 @@ Available only in mscorlib build with support for System.Reflection.
     <tbody>
       <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The index of the first occurrence of value within the entire array, if found; otherwise, the lower bound of the array minus 1.</p>
+        <td><p>The index of the first occurrence of value within the range of elements in array that starts at startIndex and contains the number of elements specified in count, if found; otherwise, the lower bound of the array minus 1.</p>
 </td>
       </tr>
     </tbody>
@@ -977,6 +978,7 @@ Available only in mscorlib build with support for System.Reflection.
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

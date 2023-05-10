@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Iot.Device.Ccs811.Ccs811Sensor">
 
 
+
   <h1 id="Iot_Device_Ccs811_Ccs811Sensor" data-uid="Iot.Device.Ccs811.Ccs811Sensor" class="text-break">Class Ccs811Sensor
 </h1>
   <div class="markdown level0 summary"><p>Ultra-Low Power Digital Gas Sensor for Monitoring Indoor Air Quality
@@ -100,7 +101,7 @@ Documentation can be found here: <a href="https://www.sciosense.com/products/env
     <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
     <div class="level1"><span class="xref">Ccs811Sensor</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Ccs811.html">Ccs811</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Ccs811.html">Ccs811</a></h6>
   <h6><strong>Assembly</strong>: Iot.Device.Ccs811.dll</h6>
   <h5 id="Iot_Device_Ccs811_Ccs811Sensor_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -517,7 +518,7 @@ previous baseline: <a href="https://www.sciosense.com/wp-content/uploads/2020/01
 
   <a id="Iot_Device_Ccs811_Ccs811Sensor_Dispose_" data-uid="Iot.Device.Ccs811.Ccs811Sensor.Dispose*"></a>
   <h4 id="Iot_Device_Ccs811_Ccs811Sensor_Dispose" data-uid="Iot.Device.Ccs811.Ccs811Sensor.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -619,6 +620,59 @@ the hysteresis value.</p>
 
 
   <a id="Iot_Device_Ccs811_Ccs811Sensor_TryReadGasData_" data-uid="Iot.Device.Ccs811.Ccs811Sensor.TryReadGasData*"></a>
+  <h4 id="Iot_Device_Ccs811_Ccs811Sensor_TryReadGasData_UnitsNet_VolumeConcentration__UnitsNet_VolumeConcentration__" data-uid="Iot.Device.Ccs811.Ccs811Sensor.TryReadGasData(UnitsNet.VolumeConcentration@,UnitsNet.VolumeConcentration@)">TryReadGasData(out VolumeConcentration, out VolumeConcentration)</h4>
+  <div class="markdown level1 summary"><p>Read the equivalent CO2 in ppm and equivalent Total Volatile Compound in ppb.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryReadGasData(out VolumeConcentration equivalentCO2, out VolumeConcentration equivalentTotalVolatileOrganicCompound)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnitsNet.VolumeConcentration.html">VolumeConcentration</a></td>
+        <td><span class="parametername">equivalentCO2</span></td>
+        <td><p>The equivalent CO2 (eCO2) output range for CCS811 is from
+400ppm up to 29206ppm.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnitsNet.VolumeConcentration.html">VolumeConcentration</a></td>
+        <td><span class="parametername">equivalentTotalVolatileOrganicCompound</span></td>
+        <td><p>The equivalent Total Volatile Organic Compound (eTVOC)
+output range for CCS811 is from 0ppb up to 32768ppb.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
+        <td><p>True if success.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="Iot_Device_Ccs811_Ccs811Sensor_TryReadGasData_" data-uid="Iot.Device.Ccs811.Ccs811Sensor.TryReadGasData*"></a>
   <h4 id="Iot_Device_Ccs811_Ccs811Sensor_TryReadGasData_UnitsNet_VolumeConcentration__UnitsNet_VolumeConcentration__UnitsNet_ElectricCurrent__System_Int32__" data-uid="Iot.Device.Ccs811.Ccs811Sensor.TryReadGasData(UnitsNet.VolumeConcentration@,UnitsNet.VolumeConcentration@,UnitsNet.ElectricCurrent@,System.Int32@)">TryReadGasData(out VolumeConcentration, out VolumeConcentration, out ElectricCurrent, out int)</h4>
   <div class="markdown level1 summary"><p>Read the equivalent CO2 in ppm and equivalent Total Volatile Compound in ppb.</p>
 </div>
@@ -684,59 +738,6 @@ current(1023 = 1.65V) where 1023 is the maximum value.</p>
       </tr>
     </tbody>
   </table>
-
-
-  <a id="Iot_Device_Ccs811_Ccs811Sensor_TryReadGasData_" data-uid="Iot.Device.Ccs811.Ccs811Sensor.TryReadGasData*"></a>
-  <h4 id="Iot_Device_Ccs811_Ccs811Sensor_TryReadGasData_UnitsNet_VolumeConcentration__UnitsNet_VolumeConcentration__" data-uid="Iot.Device.Ccs811.Ccs811Sensor.TryReadGasData(UnitsNet.VolumeConcentration@,UnitsNet.VolumeConcentration@)">TryReadGasData(out VolumeConcentration, out VolumeConcentration)</h4>
-  <div class="markdown level1 summary"><p>Read the equivalent CO2 in ppm and equivalent Total Volatile Compound in ppb.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryReadGasData(out VolumeConcentration equivalentCO2, out VolumeConcentration equivalentTotalVolatileOrganicCompound)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.VolumeConcentration.html">VolumeConcentration</a></td>
-        <td><span class="parametername">equivalentCO2</span></td>
-        <td><p>The equivalent CO2 (eCO2) output range for CCS811 is from
-400ppm up to 29206ppm.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.VolumeConcentration.html">VolumeConcentration</a></td>
-        <td><span class="parametername">equivalentTotalVolatileOrganicCompound</span></td>
-        <td><p>The equivalent Total Volatile Organic Compound (eTVOC)
-output range for CCS811 is from 0ppb up to 32768ppb.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p>True if success.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="events">Events
 </h3>
 
@@ -764,6 +765,7 @@ output range for CCS811 is from 0ppb up to 32768ppb.</p>
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 

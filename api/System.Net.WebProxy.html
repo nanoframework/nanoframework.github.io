@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Net.WebProxy">
 
 
+
   <h1 id="System_Net_WebProxy" data-uid="System.Net.WebProxy" class="text-break">Class WebProxy
 </h1>
   <div class="markdown level0 summary"><p>Contains HTTP proxy settings for the <a class="xref" href="System.Net.WebRequest.html">WebRequest</a>
@@ -128,7 +129,7 @@ class.</p>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a></h6>
   <h6><strong>Assembly</strong>: System.Net.Http.dll</h6>
   <h5 id="System_Net_WebProxy_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -150,6 +151,46 @@ class.</p>
   <h5 id="System_Net_WebProxy__ctor_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The URI of the proxy can be set later, using the
 <a class="xref" href="System.Net.WebProxy.html#System_Net_WebProxy_Address">Address</a> property.</p>
+</div>
+
+
+  <a id="System_Net_WebProxy__ctor_" data-uid="System.Net.WebProxy.#ctor*"></a>
+  <h4 id="System_Net_WebProxy__ctor_System_String_" data-uid="System.Net.WebProxy.#ctor(System.String)">WebProxy(string)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <itemref>WebProxy</itemref> class
+with the specified URI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebProxy(string Address)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">Address</span></td>
+        <td><p>The URI address of the proxy server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Net_WebProxy__ctor_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The <itemref>WebProxy</itemref> instance is initialized with the
+<a class="xref" href="System.Net.WebProxy.html#System_Net_WebProxy_Address">Address</a> property set to a
+<a class="xref" href="System.Uri.html">Uri</a> instance containing the
+<itemref>Address</itemref> string.</p>
+<p>
+For the new instance of the <itemref>WebProxy</itemref> class,
+"Bypass on local addresses" is set to <itemref>false</itemref>.
+</p>
 </div>
 
 
@@ -233,14 +274,14 @@ to a <a class="xref" href="System.Uri.html">Uri</a> instance of the form: http:/
 
 
   <a id="System_Net_WebProxy__ctor_" data-uid="System.Net.WebProxy.#ctor*"></a>
-  <h4 id="System_Net_WebProxy__ctor_System_String_" data-uid="System.Net.WebProxy.#ctor(System.String)">WebProxy(string)</h4>
+  <h4 id="System_Net_WebProxy__ctor_System_Uri_" data-uid="System.Net.WebProxy.#ctor(System.Uri)">WebProxy(Uri)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <itemref>WebProxy</itemref> class
-with the specified URI.</p>
+from the specified <a class="xref" href="System.Uri.html">Uri</a> instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WebProxy(string Address)</code></pre>
+    <pre><code class="lang-csharp hljs">public WebProxy(Uri Address)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -253,23 +294,14 @@ with the specified URI.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><a class="xref" href="System.Uri.html">Uri</a></td>
         <td><span class="parametername">Address</span></td>
-        <td><p>The URI address of the proxy server.</p>
+        <td><p>A <itemref>Uri</itemref> instance that
+contains the address of the proxy server.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="System_Net_WebProxy__ctor_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The <itemref>WebProxy</itemref> instance is initialized with the
-<a class="xref" href="System.Net.WebProxy.html#System_Net_WebProxy_Address">Address</a> property set to a
-<a class="xref" href="System.Uri.html">Uri</a> instance containing the
-<itemref>Address</itemref> string.</p>
-<p>
-For the new instance of the <itemref>WebProxy</itemref> class,
-&quot;Bypass on local addresses&quot; is set to <itemref>false</itemref>.
-</p>
-</div>
 
 
   <a id="System_Net_WebProxy__ctor_" data-uid="System.Net.WebProxy.#ctor*"></a>
@@ -305,37 +337,6 @@ contains the address of the proxy server.</p>
         <td><span class="parametername">BypassOnLocal</span></td>
         <td><p>Indicates whether to bypass the WebProxy
 on local network addresses.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Net_WebProxy__ctor_" data-uid="System.Net.WebProxy.#ctor*"></a>
-  <h4 id="System_Net_WebProxy__ctor_System_Uri_" data-uid="System.Net.WebProxy.#ctor(System.Uri)">WebProxy(Uri)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <itemref>WebProxy</itemref> class
-from the specified <a class="xref" href="System.Uri.html">Uri</a> instance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WebProxy(Uri Address)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Uri.html">Uri</a></td>
-        <td><span class="parametername">Address</span></td>
-        <td><p>A <itemref>Uri</itemref> instance that
-contains the address of the proxy server.</p>
 </td>
       </tr>
     </tbody>
@@ -531,6 +532,7 @@ used for the host; otherwise, <itemref>false</itemref>.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

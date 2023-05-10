@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="Windows.Storage.StorageFolder">
 
 
+
   <h1 id="Windows_Storage_StorageFolder" data-uid="Windows.Storage.StorageFolder" class="text-break">Class StorageFolder
 </h1>
   <div class="markdown level0 summary"><p>Manages folders and their contents and provides information about them.</p>
@@ -125,7 +126,7 @@
       <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Windows</span>.<a class="xref" href="Windows.Storage.html">Storage</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Windows.html">Windows</a>.<a class="xref" href="Windows.Storage.html">Storage</a></h6>
   <h6><strong>Assembly</strong>: Windows.Storage.dll</h6>
   <h5 id="Windows_Storage_StorageFolder_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -334,6 +335,56 @@
 
 
   <a id="Windows_Storage_StorageFolder_CreateFile_" data-uid="Windows.Storage.StorageFolder.CreateFile*"></a>
+  <h4 id="Windows_Storage_StorageFolder_CreateFile_System_String_" data-uid="Windows.Storage.StorageFolder.CreateFile(System.String)">CreateFile(string)</h4>
+  <div class="markdown level1 summary"><p>Creates a new file with the specified name in the current folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StorageFile CreateFile(string desiredName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">desiredName</span></td>
+        <td><p>The name of the new file to create in the current folder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a></td>
+        <td><p>When this method completes, it returns a <a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a> that represents the new file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Storage_StorageFolder_CreateFile_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method uses the FailIfExists value from the <a class="xref" href="Windows.Storage.CreationCollisionOption.html">CreationCollisionOption</a> enumeration by default. That is, this method raises an exception if a subfolder with the same name already exists in the current folder. If you want to handle a folder name collision in a different way, call the <a class="xref" href="Windows.Storage.StorageFolder.html#Windows_Storage_StorageFolder_CreateFile_System_String_Windows_Storage_CreationCollisionOption_">CreateFile(string, CreationCollisionOption)</a> method.</p>
+<p>This method is exclusive of nanoFramework and it's not available in the UWP API.
+The equivalent method would be CreateFileAsync(String).</p>
+</div>
+
+
+  <a id="Windows_Storage_StorageFolder_CreateFile_" data-uid="Windows.Storage.StorageFolder.CreateFile*"></a>
   <h4 id="Windows_Storage_StorageFolder_CreateFile_System_String_Windows_Storage_CreationCollisionOption_" data-uid="Windows.Storage.StorageFolder.CreateFile(System.String,Windows.Storage.CreationCollisionOption)">CreateFile(string, CreationCollisionOption)</h4>
   <div class="markdown level1 summary"><p>Creates a new file with the specified name in the current folder.</p>
 </div>
@@ -388,14 +439,14 @@ The equivalent method would be CreateFileAsync(String, CreationCollisionOption).
 </div>
 
 
-  <a id="Windows_Storage_StorageFolder_CreateFile_" data-uid="Windows.Storage.StorageFolder.CreateFile*"></a>
-  <h4 id="Windows_Storage_StorageFolder_CreateFile_System_String_" data-uid="Windows.Storage.StorageFolder.CreateFile(System.String)">CreateFile(string)</h4>
-  <div class="markdown level1 summary"><p>Creates a new file with the specified name in the current folder.</p>
+  <a id="Windows_Storage_StorageFolder_CreateFolder_" data-uid="Windows.Storage.StorageFolder.CreateFolder*"></a>
+  <h4 id="Windows_Storage_StorageFolder_CreateFolder_System_String_" data-uid="Windows.Storage.StorageFolder.CreateFolder(System.String)">CreateFolder(string)</h4>
+  <div class="markdown level1 summary"><p>Creates a new subfolder with the specified name in the current folder.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StorageFile CreateFile(string desiredName)</code></pre>
+    <pre><code class="lang-csharp hljs">public StorageFolder CreateFolder(string desiredName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -410,7 +461,7 @@ The equivalent method would be CreateFileAsync(String, CreationCollisionOption).
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">desiredName</span></td>
-        <td><p>The name of the new file to create in the current folder.</p>
+        <td><p>The name of the new subfolder to create in the current folder.</p>
 </td>
       </tr>
     </tbody>
@@ -425,16 +476,16 @@ The equivalent method would be CreateFileAsync(String, CreationCollisionOption).
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a></td>
-        <td><p>When this method completes, it returns a <a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a> that represents the new file.</p>
+        <td><a class="xref" href="Windows.Storage.StorageFolder.html">StorageFolder</a></td>
+        <td><p>When this method completes, it returns a <a class="xref" href="Windows.Storage.StorageFolder.html">StorageFolder</a> that represents the new subfolder.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Windows_Storage_StorageFolder_CreateFile_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method uses the FailIfExists value from the <a class="xref" href="Windows.Storage.CreationCollisionOption.html">CreationCollisionOption</a> enumeration by default. That is, this method raises an exception if a subfolder with the same name already exists in the current folder. If you want to handle a folder name collision in a different way, call the <a class="xref" href="Windows.Storage.StorageFolder.html#Windows_Storage_StorageFolder_CreateFile_System_String_Windows_Storage_CreationCollisionOption_">CreateFile(string, CreationCollisionOption)</a> method.</p>
+  <h5 id="Windows_Storage_StorageFolder_CreateFolder_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method uses the FailIfExists value from the <a class="xref" href="Windows.Storage.CreationCollisionOption.html">CreationCollisionOption</a> enumeration by default. That is, this method raises an exception if a subfolder with the same name already exists in the current folder. If you want to handle a folder name collision in a different way, call the <a class="xref" href="Windows.Storage.StorageFolder.html#Windows_Storage_StorageFolder_CreateFolder_System_String_Windows_Storage_CreationCollisionOption_">CreateFolder(string, CreationCollisionOption)</a> method.</p>
 <p>This method is exclusive of nanoFramework and it's not available in the UWP API.
-The equivalent method would be CreateFileAsync(String).</p>
+The equivalent method would be CreateFolderAsync(String).</p>
 </div>
 
 
@@ -489,59 +540,9 @@ The equivalent method would be CreateFileAsync(String).</p>
   </table>
   <h5 id="Windows_Storage_StorageFolder_CreateFolder_System_String_Windows_Storage_CreationCollisionOption__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-This method is exclusive of nanoFramework and it&apos;s not available in the UWP API.
+This method is exclusive of nanoFramework and it's not available in the UWP API.
 The equivalent method would be CreateFolderAsync(String, CreationCollisionOption).
 </p>
-</div>
-
-
-  <a id="Windows_Storage_StorageFolder_CreateFolder_" data-uid="Windows.Storage.StorageFolder.CreateFolder*"></a>
-  <h4 id="Windows_Storage_StorageFolder_CreateFolder_System_String_" data-uid="Windows.Storage.StorageFolder.CreateFolder(System.String)">CreateFolder(string)</h4>
-  <div class="markdown level1 summary"><p>Creates a new subfolder with the specified name in the current folder.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StorageFolder CreateFolder(string desiredName)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">desiredName</span></td>
-        <td><p>The name of the new subfolder to create in the current folder.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Windows.Storage.StorageFolder.html">StorageFolder</a></td>
-        <td><p>When this method completes, it returns a <a class="xref" href="Windows.Storage.StorageFolder.html">StorageFolder</a> that represents the new subfolder.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Windows_Storage_StorageFolder_CreateFolder_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method uses the FailIfExists value from the <a class="xref" href="Windows.Storage.CreationCollisionOption.html">CreationCollisionOption</a> enumeration by default. That is, this method raises an exception if a subfolder with the same name already exists in the current folder. If you want to handle a folder name collision in a different way, call the <a class="xref" href="Windows.Storage.StorageFolder.html#Windows_Storage_StorageFolder_CreateFolder_System_String_Windows_Storage_CreationCollisionOption_">CreateFolder(string, CreationCollisionOption)</a> method.</p>
-<p>This method is exclusive of nanoFramework and it's not available in the UWP API.
-The equivalent method would be CreateFolderAsync(String).</p>
 </div>
 
 
@@ -556,9 +557,9 @@ The equivalent method would be CreateFolderAsync(String).</p>
   </div>
   <h5 id="Windows_Storage_StorageFolder_Delete_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-If the folder doesn&apos;t exist then this method will throw an exception.
+If the folder doesn't exist then this method will throw an exception.
 </p>
-<p>This method is exclusive of nanoFramework and it&apos;s not available in the UWP API.
+<p>This method is exclusive of nanoFramework and it's not available in the UWP API.
 The equivalent method would be DeleteAsync().
 </p>
 </div>
@@ -593,6 +594,57 @@ The list is of type <a class="xref" href="Windows.Storage.StorageFile.html">Stor
   <h5 id="Windows_Storage_StorageFolder_GetFiles_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method is exclusive of nanoFramework and it's not available in the UWP API.
 The equivalent method would be GetFilesAsync().</p>
+</div>
+
+
+  <a id="Windows_Storage_StorageFolder_GetFiles_" data-uid="Windows.Storage.StorageFolder.GetFiles*"></a>
+  <h4 id="Windows_Storage_StorageFolder_GetFiles_Windows_Storage_Search_CommonFileQuery_" data-uid="Windows.Storage.StorageFolder.GetFiles(Windows.Storage.Search.CommonFileQuery)">GetFiles(CommonFileQuery)</h4>
+  <div class="markdown level1 summary"><p>Gets the files in the current folder. Also gets the files from the subfolders of the current folder when the value of the query argument is something other than <a class="xref" href="Windows.Storage.Search.CommonFileQuery.html#Windows_Storage_Search_CommonFileQuery_DefaultQuery">DefaultQuery</a>.
+Files are sorted based on the specified value from the <a class="xref" href="Windows.Storage.Search.CommonFileQuery.html">CommonFileQuery</a> enumeration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StorageFile[] GetFiles(CommonFileQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Storage.Search.CommonFileQuery.html">CommonFileQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td><p>One of the enumeration values that specifies how to sort the files and determines whether the query is shallow or deep.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a>[]</td>
+        <td><p>When this method completes successfully, it returns a flat list of files, sorted as specified by query.
+The list is of type <a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a>. Each file in the list is represented by a <a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Windows_Storage_StorageFolder_GetFiles_Windows_Storage_Search_CommonFileQuery__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is exclusive of nanoFramework and it's not available in the UWP API.
+The equivalent method would be GetFilesAsync(CommonFileQuery).</p>
 </div>
 
 
@@ -658,57 +710,6 @@ The equivalent method would be GetFilesAsync(CommonFileQuery, UInt32, UInt32).</
 </div>
 
 
-  <a id="Windows_Storage_StorageFolder_GetFiles_" data-uid="Windows.Storage.StorageFolder.GetFiles*"></a>
-  <h4 id="Windows_Storage_StorageFolder_GetFiles_Windows_Storage_Search_CommonFileQuery_" data-uid="Windows.Storage.StorageFolder.GetFiles(Windows.Storage.Search.CommonFileQuery)">GetFiles(CommonFileQuery)</h4>
-  <div class="markdown level1 summary"><p>Gets the files in the current folder. Also gets the files from the subfolders of the current folder when the value of the query argument is something other than <a class="xref" href="Windows.Storage.Search.CommonFileQuery.html#Windows_Storage_Search_CommonFileQuery_DefaultQuery">DefaultQuery</a>.
-Files are sorted based on the specified value from the <a class="xref" href="Windows.Storage.Search.CommonFileQuery.html">CommonFileQuery</a> enumeration.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StorageFile[] GetFiles(CommonFileQuery query)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Windows.Storage.Search.CommonFileQuery.html">CommonFileQuery</a></td>
-        <td><span class="parametername">query</span></td>
-        <td><p>One of the enumeration values that specifies how to sort the files and determines whether the query is shallow or deep.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a>[]</td>
-        <td><p>When this method completes successfully, it returns a flat list of files, sorted as specified by query.
-The list is of type <a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a>. Each file in the list is represented by a <a class="xref" href="Windows.Storage.StorageFile.html">StorageFile</a> object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Windows_Storage_StorageFolder_GetFiles_Windows_Storage_Search_CommonFileQuery__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is exclusive of nanoFramework and it's not available in the UWP API.
-The equivalent method would be GetFilesAsync(CommonFileQuery).</p>
-</div>
-
-
   <a id="Windows_Storage_StorageFolder_GetFolder_" data-uid="Windows.Storage.StorageFolder.GetFolder*"></a>
   <h4 id="Windows_Storage_StorageFolder_GetFolder_System_String_" data-uid="Windows.Storage.StorageFolder.GetFolder(System.String)">GetFolder(string)</h4>
   <div class="markdown level1 summary"><p>Gets the subfolder with the specified name from the current folder.</p>
@@ -754,10 +755,10 @@ The equivalent method would be GetFilesAsync(CommonFileQuery).</p>
   </table>
   <h5 id="Windows_Storage_StorageFolder_GetFolder_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-If the folder doesn&apos;t exist it will throw an exception.
+If the folder doesn't exist it will throw an exception.
 </p>
 <p>
-This method is exclusive of nanoFramework and it&apos;s not available in the UWP API.
+This method is exclusive of nanoFramework and it's not available in the UWP API.
 The equivalent method would be GetFolderAsync(String name).
 </p>
 </div>
@@ -869,9 +870,9 @@ The equivalent method would be GetFoldersAsync().</p>
   </table>
   <h5 id="Windows_Storage_StorageFolder_Rename_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If the name you specify is invalid or a folder with the same name already exists, 
-this method throws an exception. If the target device doesn&apos;t support folders then this will also
+this method throws an exception. If the target device doesn't support folders then this will also
 throw an exception.</p>
-<p>This method is exclusive of nanoFramework and it&apos;s not available in the UWP API.
+<p>This method is exclusive of nanoFramework and it's not available in the UWP API.
 The equivalent method would be RenameAsync(String desiredName).</p>
 </div>
   <h3 id="implements">Implements</h3>
@@ -912,6 +913,7 @@ The equivalent method would be RenameAsync(String desiredName).</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

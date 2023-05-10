@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Text.StringBuilder">
 
 
+
   <h1 id="System_Text_StringBuilder" data-uid="System.Text.StringBuilder" class="text-break">Class StringBuilder
 </h1>
   <div class="markdown level0 summary"><p>A Micro Framework port of the Full Framework StringBuilder. Contributed by Julius Friedman.
@@ -140,6 +141,35 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
 
 
   <a id="System_Text_StringBuilder__ctor_" data-uid="System.Text.StringBuilder.#ctor*"></a>
+  <h4 id="System_Text_StringBuilder__ctor_System_Int32_" data-uid="System.Text.StringBuilder.#ctor(System.Int32)">StringBuilder(int)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the StringBuilder class using the specified capacity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringBuilder(int capacity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>The suggested starting size of this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_StringBuilder__ctor_" data-uid="System.Text.StringBuilder.#ctor*"></a>
   <h4 id="System_Text_StringBuilder__ctor_System_Int32_System_Int32_" data-uid="System.Text.StringBuilder.#ctor(System.Int32,System.Int32)">StringBuilder(int, int)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the StringBuilder class that starts with a specified capacity and can grow to a specified maximum.</p>
 </div>
@@ -175,13 +205,13 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
 
 
   <a id="System_Text_StringBuilder__ctor_" data-uid="System.Text.StringBuilder.#ctor*"></a>
-  <h4 id="System_Text_StringBuilder__ctor_System_Int32_" data-uid="System.Text.StringBuilder.#ctor(System.Int32)">StringBuilder(int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the StringBuilder class using the specified capacity.</p>
+  <h4 id="System_Text_StringBuilder__ctor_System_String_" data-uid="System.Text.StringBuilder.#ctor(System.String)">StringBuilder(string)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the StringBuilder class using the specified string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder(int capacity)</code></pre>
+    <pre><code class="lang-csharp hljs">public StringBuilder(string value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -194,9 +224,44 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
     </thead>
     <tbody>
       <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The string used to initialize the value of the instance. If value is null, the new StringBuilder will contain the empty string (that is, it contains Empty).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_StringBuilder__ctor_" data-uid="System.Text.StringBuilder.#ctor*"></a>
+  <h4 id="System_Text_StringBuilder__ctor_System_String_System_Int32_" data-uid="System.Text.StringBuilder.#ctor(System.String,System.Int32)">StringBuilder(string, int)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the StringBuilder class using the specified string and capacity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringBuilder(string value, int capacity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The string used to initialize the value of the instance. If value is null, the new StringBuilder will contain the empty string (that is, it contains Empty).</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">capacity</span></td>
-        <td><p>The suggested starting size of this instance.</p>
+        <td><p>The suggested starting size of the StringBuilder.</p>
 </td>
       </tr>
     </tbody>
@@ -244,70 +309,6 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">capacity</span></td>
         <td><p>The suggested starting size of the StringBuilder.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_StringBuilder__ctor_" data-uid="System.Text.StringBuilder.#ctor*"></a>
-  <h4 id="System_Text_StringBuilder__ctor_System_String_System_Int32_" data-uid="System.Text.StringBuilder.#ctor(System.String,System.Int32)">StringBuilder(string, int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the StringBuilder class using the specified string and capacity.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder(string value, int capacity)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The string used to initialize the value of the instance. If value is null, the new StringBuilder will contain the empty string (that is, it contains Empty).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">capacity</span></td>
-        <td><p>The suggested starting size of the StringBuilder.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_StringBuilder__ctor_" data-uid="System.Text.StringBuilder.#ctor*"></a>
-  <h4 id="System_Text_StringBuilder__ctor_System_String_" data-uid="System.Text.StringBuilder.#ctor(System.String)">StringBuilder(string)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the StringBuilder class using the specified string.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder(string value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The string used to initialize the value of the instance. If value is null, the new StringBuilder will contain the empty string (that is, it contains Empty).</p>
 </td>
       </tr>
     </tbody>
@@ -565,6 +566,51 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
 
 
   <a id="System_Text_StringBuilder_Append_" data-uid="System.Text.StringBuilder.Append*"></a>
+  <h4 id="System_Text_StringBuilder_Append_System_Char_" data-uid="System.Text.StringBuilder.Append(System.Char)">Append(char)</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of a specified Unicode character to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringBuilder Append(char value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Char.html">char</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The UTF-16-encoded code unit to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
+        <td><p>A reference to this instance after the append operation has completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_StringBuilder_Append_" data-uid="System.Text.StringBuilder.Append*"></a>
   <h4 id="System_Text_StringBuilder_Append_System_Char_System_Int32_" data-uid="System.Text.StringBuilder.Append(System.Char,System.Int32)">Append(char, int)</h4>
   <div class="markdown level1 summary"><p>Appends a specified number of copies of the string representation of a Unicode character to this instance.</p>
 </div>
@@ -616,13 +662,13 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
 
 
   <a id="System_Text_StringBuilder_Append_" data-uid="System.Text.StringBuilder.Append*"></a>
-  <h4 id="System_Text_StringBuilder_Append_System_Char_" data-uid="System.Text.StringBuilder.Append(System.Char)">Append(char)</h4>
-  <div class="markdown level1 summary"><p>Appends the string representation of a specified Unicode character to this instance.</p>
+  <h4 id="System_Text_StringBuilder_Append_System_Char___" data-uid="System.Text.StringBuilder.Append(System.Char[])">Append(char[])</h4>
+  <div class="markdown level1 summary"><p>Appends the string representation of the Unicode characters in a specified array to this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder Append(char value)</code></pre>
+    <pre><code class="lang-csharp hljs">public StringBuilder Append(char[] value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -635,9 +681,9 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Char.html">char</a></td>
+        <td><a class="xref" href="System.Char.html">char</a>[]</td>
         <td><span class="parametername">value</span></td>
-        <td><p>The UTF-16-encoded code unit to append.</p>
+        <td><p>The array of characters to append.</p>
 </td>
       </tr>
     </tbody>
@@ -695,51 +741,6 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">charCount</span></td>
         <td><p>The number of characters to append.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
-        <td><p>A reference to this instance after the append operation has completed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_StringBuilder_Append_" data-uid="System.Text.StringBuilder.Append*"></a>
-  <h4 id="System_Text_StringBuilder_Append_System_Char___" data-uid="System.Text.StringBuilder.Append(System.Char[])">Append(char[])</h4>
-  <div class="markdown level1 summary"><p>Appends the string representation of the Unicode characters in a specified array to this instance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder Append(char[] value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Char.html">char</a>[]</td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The array of characters to append.</p>
 </td>
       </tr>
     </tbody>
@@ -1078,6 +1079,51 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
 
 
   <a id="System_Text_StringBuilder_Append_" data-uid="System.Text.StringBuilder.Append*"></a>
+  <h4 id="System_Text_StringBuilder_Append_System_String_" data-uid="System.Text.StringBuilder.Append(System.String)">Append(string)</h4>
+  <div class="markdown level1 summary"><p>Appends a copy of the specified string to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringBuilder Append(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The string to append.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
+        <td><p>A reference to this instance after the append operation has completed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_StringBuilder_Append_" data-uid="System.Text.StringBuilder.Append*"></a>
   <h4 id="System_Text_StringBuilder_Append_System_String_System_Int32_System_Int32_" data-uid="System.Text.StringBuilder.Append(System.String,System.Int32,System.Int32)">Append(string, int, int)</h4>
   <div class="markdown level1 summary"><p>Appends a copy of a specified substring to this instance.</p>
 </div>
@@ -1112,51 +1158,6 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">count</span></td>
         <td><p>The number of characters in value to append.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
-        <td><p>A reference to this instance after the append operation has completed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_StringBuilder_Append_" data-uid="System.Text.StringBuilder.Append*"></a>
-  <h4 id="System_Text_StringBuilder_Append_System_String_" data-uid="System.Text.StringBuilder.Append(System.String)">Append(string)</h4>
-  <div class="markdown level1 summary"><p>Appends a copy of the specified string to this instance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder Append(string value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The string to append.</p>
 </td>
       </tr>
     </tbody>
@@ -1584,6 +1585,57 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
 
 
   <a id="System_Text_StringBuilder_Replace_" data-uid="System.Text.StringBuilder.Replace*"></a>
+  <h4 id="System_Text_StringBuilder_Replace_System_Char_System_Char_" data-uid="System.Text.StringBuilder.Replace(System.Char,System.Char)">Replace(char, char)</h4>
+  <div class="markdown level1 summary"><p>Replaces all occurrences of a specified character in this instance with another specified character.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringBuilder Replace(char oldChar, char newChar)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Char.html">char</a></td>
+        <td><span class="parametername">oldChar</span></td>
+        <td><p>The character to replace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Char.html">char</a></td>
+        <td><span class="parametername">newChar</span></td>
+        <td><p>The character that replaces oldChar.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
+        <td><p>A reference to this instance with oldChar replaced by newChar.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_StringBuilder_Replace_" data-uid="System.Text.StringBuilder.Replace*"></a>
   <h4 id="System_Text_StringBuilder_Replace_System_Char_System_Char_System_Int32_System_Int32_" data-uid="System.Text.StringBuilder.Replace(System.Char,System.Char,System.Int32,System.Int32)">Replace(char, char, int, int)</h4>
   <div class="markdown level1 summary"><p>Replaces, within a substring of this instance, all occurrences of a specified character with another specified character.</p>
 </div>
@@ -1647,13 +1699,13 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
 
 
   <a id="System_Text_StringBuilder_Replace_" data-uid="System.Text.StringBuilder.Replace*"></a>
-  <h4 id="System_Text_StringBuilder_Replace_System_Char_System_Char_" data-uid="System.Text.StringBuilder.Replace(System.Char,System.Char)">Replace(char, char)</h4>
-  <div class="markdown level1 summary"><p>Replaces all occurrences of a specified character in this instance with another specified character.</p>
+  <h4 id="System_Text_StringBuilder_Replace_System_String_System_String_" data-uid="System.Text.StringBuilder.Replace(System.String,System.String)">Replace(string, string)</h4>
+  <div class="markdown level1 summary"><p>Replaces all occurrences of a specified string in this instance with another specified string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder Replace(char oldChar, char newChar)</code></pre>
+    <pre><code class="lang-csharp hljs">public StringBuilder Replace(string oldValue, string newValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1666,15 +1718,15 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Char.html">char</a></td>
-        <td><span class="parametername">oldChar</span></td>
-        <td><p>The character to replace.</p>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">oldValue</span></td>
+        <td><p>The string to replace.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="System.Char.html">char</a></td>
-        <td><span class="parametername">newChar</span></td>
-        <td><p>The character that replaces oldChar.</p>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">newValue</span></td>
+        <td><p>The string that replaces oldValue, or null.</p>
 </td>
       </tr>
     </tbody>
@@ -1690,7 +1742,7 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
-        <td><p>A reference to this instance with oldChar replaced by newChar.</p>
+        <td><p>A reference to this instance with all instances of oldValue replaced by newValue.</p>
 </td>
       </tr>
     </tbody>
@@ -1754,57 +1806,6 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
       <tr>
         <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
         <td><p>A reference to this instance with all instances of oldValue replaced by newValue in the range from startIndex to startIndex + count - 1.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_StringBuilder_Replace_" data-uid="System.Text.StringBuilder.Replace*"></a>
-  <h4 id="System_Text_StringBuilder_Replace_System_String_System_String_" data-uid="System.Text.StringBuilder.Replace(System.String,System.String)">Replace(string, string)</h4>
-  <div class="markdown level1 summary"><p>Replaces all occurrences of a specified string in this instance with another specified string.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder Replace(string oldValue, string newValue)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">oldValue</span></td>
-        <td><p>The string to replace.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">newValue</span></td>
-        <td><p>The string that replaces oldValue, or null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Text.StringBuilder.html">StringBuilder</a></td>
-        <td><p>A reference to this instance with all instances of oldValue replaced by newValue.</p>
 </td>
       </tr>
     </tbody>
@@ -1920,6 +1921,7 @@ Represents a mutable string of characters. This class cannot be inherited.</p>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

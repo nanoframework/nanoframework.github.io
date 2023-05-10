@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -87,6 +87,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="System.Text.Encoding">
+
 
 
   <h1 id="System_Text_Encoding" data-uid="System.Text.Encoding" class="text-break">Class Encoding
@@ -176,6 +177,51 @@
 
 
   <a id="System_Text_Encoding_GetBytes_" data-uid="System.Text.Encoding.GetBytes*"></a>
+  <h4 id="System_Text_Encoding_GetBytes_System_String_" data-uid="System.Text.Encoding.GetBytes(System.String)">GetBytes(string)</h4>
+  <div class="markdown level1 summary"><p>When overridden in a derived class, encodes all the characters in the specified string into a sequence of bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual byte[] GetBytes(string s)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>The string containing the characters to encode.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><p>A byte array containing the results of encoding the specified set of characters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Text_Encoding_GetBytes_" data-uid="System.Text.Encoding.GetBytes*"></a>
   <h4 id="System_Text_Encoding_GetBytes_System_String_System_Int32_System_Int32_System_Byte___System_Int32_" data-uid="System.Text.Encoding.GetBytes(System.String,System.Int32,System.Int32,System.Byte[],System.Int32)">GetBytes(string, int, int, byte[], int)</h4>
   <div class="markdown level1 summary"><p>When overridden in a derived class, encodes a set of characters from the specified string into the specified byte array.</p>
 </div>
@@ -259,14 +305,14 @@
   </table>
 
 
-  <a id="System_Text_Encoding_GetBytes_" data-uid="System.Text.Encoding.GetBytes*"></a>
-  <h4 id="System_Text_Encoding_GetBytes_System_String_" data-uid="System.Text.Encoding.GetBytes(System.String)">GetBytes(string)</h4>
-  <div class="markdown level1 summary"><p>When overridden in a derived class, encodes all the characters in the specified string into a sequence of bytes.</p>
+  <a id="System_Text_Encoding_GetChars_" data-uid="System.Text.Encoding.GetChars*"></a>
+  <h4 id="System_Text_Encoding_GetChars_System_Byte___" data-uid="System.Text.Encoding.GetChars(System.Byte[])">GetChars(byte[])</h4>
+  <div class="markdown level1 summary"><p>When overridden in a derived class, decodes all the bytes in the specified byte array into a set of characters.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual byte[] GetBytes(string s)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual char[] GetChars(byte[] bytes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -279,9 +325,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">s</span></td>
-        <td><p>The string containing the characters to encode.</p>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">bytes</span></td>
+        <td><p>The byte array containing the sequence of bytes to decode.</p>
 </td>
       </tr>
     </tbody>
@@ -296,9 +342,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><p>A byte array containing the results of encoding the specified set of characters.</p>
+        <td><a class="xref" href="System.Char.html">char</a>[]</td>
+        <td><p>A character array containing the results of decoding the specified sequence of bytes.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.NotImplementedException.html">NotImplementedException</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -339,66 +400,6 @@
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">byteCount</span></td>
         <td><p>The number of bytes to decode.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Char.html">char</a>[]</td>
-        <td><p>A character array containing the results of decoding the specified sequence of bytes.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.NotImplementedException.html">NotImplementedException</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Text_Encoding_GetChars_" data-uid="System.Text.Encoding.GetChars*"></a>
-  <h4 id="System_Text_Encoding_GetChars_System_Byte___" data-uid="System.Text.Encoding.GetChars(System.Byte[])">GetChars(byte[])</h4>
-  <div class="markdown level1 summary"><p>When overridden in a derived class, decodes all the bytes in the specified byte array into a set of characters.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual char[] GetChars(byte[] bytes)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">bytes</span></td>
-        <td><p>The byte array containing the sequence of bytes to decode.</p>
 </td>
       </tr>
     </tbody>
@@ -549,6 +550,7 @@
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

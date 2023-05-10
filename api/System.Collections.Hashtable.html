@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="System.Collections.Hashtable">
 
 
+
   <h1 id="System_Collections_Hashtable" data-uid="System.Collections.Hashtable" class="text-break">Class Hashtable
 </h1>
   <div class="markdown level0 summary"><p>Initializes a new instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class.</p>
@@ -154,7 +155,7 @@
   </div>
   <h5 id="System_Collections_Hashtable__ctor_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-A hash table&apos;s capacity is used to calculate the optimal number of hash table buckets based on the load factor. Capacity is automatically increased as required.
+A hash table's capacity is used to calculate the optimal number of hash table buckets based on the load factor. Capacity is automatically increased as required.
 </p>
 <p>
 The load factor is the maximum ratio of elements to buckets. A smaller load factor means faster lookup at the cost of increased memory consumption.
@@ -163,10 +164,70 @@ The load factor is the maximum ratio of elements to buckets. A smaller load fact
 When the actual load factor reaches the specified load factor, the number of buckets is automatically increased to the smallest prime number that is larger than twice the current number of buckets.
 </p>
 <p>
-The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key&apos;s implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
+The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key's implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
 </p>
-The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key&apos;s.
+The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key's.
 </div>
+
+
+  <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
+  <h4 id="System_Collections_Hashtable__ctor_System_Int32_" data-uid="System.Collections.Hashtable.#ctor(System.Int32)">Hashtable(int)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the specified initial capacity and load factor, and the default hash code provider and comparer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Hashtable(int capacity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="System_Collections_Hashtable__ctor_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Specifying the initial capacity eliminates the need to perform a number of resizing operations while adding elements to the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. Capacity is automatically increased as required based on the load factor.
+</p>
+<p>
+The load factor is the maximum ratio of elements to buckets. A smaller load factor means faster lookup at the cost of increased memory consumption.
+</p>
+<p>
+When the actual load factor reaches the specified load factor, the number of buckets is automatically increased to the smallest prime number that is larger than twice the current number of buckets.
+</p>
+<p>
+The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key's implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
+</p>
+The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key's.
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code class="paramref">capacity</code> is causing an overflow.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
@@ -214,9 +275,9 @@ The load factor is the maximum ratio of elements to buckets. A smaller load fact
 When the actual load factor reaches the specified load factor, the number of buckets is automatically increased to the smallest prime number that is larger than twice the current number of buckets.
 </p>
 <p>
-The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key&apos;s implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
+The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key's implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
 </p>
-The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key&apos;s.
+The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key's.
 </div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-condensed">
@@ -230,85 +291,25 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
         <td><p>
-<code data-dev-comment-type="paramref" class="paramref">capacity</code> is less than zero.
+<code class="paramref">capacity</code> is less than zero.
 </p>
 <p>
--or>
+-or&gt;
 </p>
 <p>
-<code data-dev-comment-type="paramref" class="paramref">loadFactor</code> is less than 0.1.
+<code class="paramref">loadFactor</code> is less than 0.1.
 </p>
 <p>
--or>
+-or&gt;
 </p>
 <p>
-<code data-dev-comment-type="paramref" class="paramref">loadFactor</code> is greater than 1.0.
+<code class="paramref">loadFactor</code> is greater than 1.0.
 </p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">capacity</code> is causing an overflow.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
-  <h4 id="System_Collections_Hashtable__ctor_System_Int32_" data-uid="System.Collections.Hashtable.#ctor(System.Int32)">Hashtable(int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the specified initial capacity and load factor, and the default hash code provider and comparer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Hashtable(int capacity)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">capacity</span></td>
-        <td><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Collections_Hashtable__ctor_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-Specifying the initial capacity eliminates the need to perform a number of resizing operations while adding elements to the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. Capacity is automatically increased as required based on the load factor.
-</p>
-<p>
-The load factor is the maximum ratio of elements to buckets. A smaller load factor means faster lookup at the cost of increased memory consumption.
-</p>
-<p>
-When the actual load factor reaches the specified load factor, the number of buckets is automatically increased to the smallest prime number that is larger than twice the current number of buckets.
-</p>
-<p>
-The hash code provider dispenses hash codes for keys in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. The default hash code provider is the key&apos;s implementation of <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.
-</p>
-The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key&apos;s.
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">capacity</code> is causing an overflow.</p>
+        <td><p><code class="paramref">capacity</code> is causing an overflow.</p>
 </td>
       </tr>
     </tbody>
@@ -346,8 +347,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
 
   <a id="System_Collections_Hashtable_IsFixedSize_" data-uid="System.Collections.Hashtable.IsFixedSize*"></a>
   <h4 id="System_Collections_Hashtable_IsFixedSize" data-uid="System.Collections.Hashtable.IsFixedSize">IsFixedSize</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether the IDictionary object has a fixed size.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -364,8 +364,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>true if the IDictionary object has a fixed size; otherwise, false.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -373,8 +372,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
 
   <a id="System_Collections_Hashtable_IsReadOnly_" data-uid="System.Collections.Hashtable.IsReadOnly*"></a>
   <h4 id="System_Collections_Hashtable_IsReadOnly" data-uid="System.Collections.Hashtable.IsReadOnly">IsReadOnly</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether the IDictionary object is read-only.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -391,8 +389,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>true if the IDictionary object is read-only; otherwise, false.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -463,7 +460,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
     <tbody>
       <tr>
         <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><p>The element with the specified key, or <span class="xref">null</span> if the key does not exist.</p>
+        <td><p>The element with the specified key, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the key does not exist.</p>
 </td>
       </tr>
     </tbody>
@@ -472,8 +469,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
 
   <a id="System_Collections_Hashtable_Keys_" data-uid="System.Collections.Hashtable.Keys*"></a>
   <h4 id="System_Collections_Hashtable_Keys" data-uid="System.Collections.Hashtable.Keys">Keys</h4>
-  <div class="markdown level1 summary"><p>Gets an ICollection object containing the keys of the IDictionary object.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -490,8 +486,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
     <tbody>
       <tr>
         <td><a class="xref" href="System.Collections.ICollection.html">ICollection</a></td>
-        <td><p>An ICollection object containing the keys of the IDictionary object.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -526,8 +521,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
 
   <a id="System_Collections_Hashtable_Values_" data-uid="System.Collections.Hashtable.Values*"></a>
   <h4 id="System_Collections_Hashtable_Values" data-uid="System.Collections.Hashtable.Values">Values</h4>
-  <div class="markdown level1 summary"><p>Gets an ICollection object containing the values in the IDictionary object.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -544,8 +538,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
     <tbody>
       <tr>
         <td><a class="xref" href="System.Collections.ICollection.html">ICollection</a></td>
-        <td><p>An ICollection object containing the values in the IDictionary object.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -581,7 +574,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
       <tr>
         <td><a class="xref" href="System.Object.html">object</a></td>
         <td><span class="parametername">value</span></td>
-        <td><p>The value of the element to add. The value can be <span class="xref">null</span>.</p>
+        <td><p>The value of the element to add. The value can be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -597,7 +590,7 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">key</code> is <span class="xref">null</span>.</p>
+        <td><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
@@ -699,7 +692,7 @@ The <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> clone
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p><span class="xref">true</span> if the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> contains an element with the specified key; otherwise, <span class="xref">false</span>.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> contains an element with the specified key; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -709,7 +702,7 @@ The <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> clone
 <a class="xref" href="System.Collections.Hashtable.html#System_Collections_Hashtable_Contains_System_Object_">Contains(object)</a> implements <a class="xref" href="System.Collections.IDictionary.html#System_Collections_IDictionary_Contains_System_Object_">Contains(object)</a>.
 </p>
 <p>
-This method uses the collection&apos;s objects&apos; <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> method on item to determine whether item exists.
+This method uses the collection's objects' <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> method on item to determine whether item exists.
 </p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
@@ -723,7 +716,7 @@ This method uses the collection&apos;s objects&apos; <a class="xref" href="Syste
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">key</code> is <span class="xref">null</span>.</p>
+        <td><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -779,17 +772,17 @@ The elements are copied to the <a class="xref" href="System.Array.html">Array</a
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">array</code> is <span class="xref">null</span>.</p>
+        <td><p><code class="paramref">array</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">arrayIndex</code> is less than zero.</p>
+        <td><p><code class="paramref">arrayIndex</code> is less than zero.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>The number of elements in the source <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> is greater than the available space from <code data-dev-comment-type="paramref" class="paramref">arrayIndex</code> to the end of the destination array.</p>
+        <td><p>The number of elements in the source <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> is greater than the available space from <code class="paramref">arrayIndex</code> to the end of the destination array.</p>
 </td>
       </tr>
     </tbody>
@@ -823,7 +816,7 @@ The elements are copied to the <a class="xref" href="System.Array.html">Array</a
   </table>
   <h5 id="System_Collections_Hashtable_GetEnumerator_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-The <span class="xref">foreach</span> statement of the C# language (for each in Visual Basic) hides the complexity of the enumerators. Therefore, using <span class="xref">foreach</span> is recommended, instead of directly manipulating the enumerator.
+The <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements#the-foreach-statement">foreach</a> statement of the C# language (for each in Visual Basic) hides the complexity of the enumerators. Therefore, using <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements#the-foreach-statement">foreach</a> is recommended, instead of directly manipulating the enumerator.
 </p>
 <p>
 Enumerators can be used to read the data in the collection, but they cannot be used to modify the underlying collection.
@@ -884,7 +877,7 @@ The enumerator does not have exclusive access to the collection; therefore, enum
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">key</code> is <span class="xref">null</span>.</p>
+        <td><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -933,6 +926,7 @@ The enumerator does not have exclusive access to the collection; therefore, enum
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 

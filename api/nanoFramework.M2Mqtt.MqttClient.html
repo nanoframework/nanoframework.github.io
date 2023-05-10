@@ -16,7 +16,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
       <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicons/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
       <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
       <meta name="msapplication-config" content="../favicons/browserconfig.xml">
       <meta name="msapplication-TileColor" content="#222222">
@@ -89,6 +89,7 @@
             <article class="content wrap" id="_content" data-uid="nanoFramework.M2Mqtt.MqttClient">
 
 
+
   <h1 id="nanoFramework_M2Mqtt_MqttClient" data-uid="nanoFramework.M2Mqtt.MqttClient" class="text-break">Class MqttClient
 </h1>
   <div class="markdown level0 summary"><p>MQTT Client</p>
@@ -127,7 +128,7 @@
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">nanoFramework</span>.<a class="xref" href="nanoFramework.M2Mqtt.html">M2Mqtt</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.M2Mqtt.html">M2Mqtt</a></h6>
   <h6><strong>Assembly</strong>: nanoFramework.M2Mqtt.dll</h6>
   <h5 id="nanoFramework_M2Mqtt_MqttClient_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -135,6 +136,35 @@
   </div>
   <h3 id="constructors">Constructors
 </h3>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttClient__ctor_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient__ctor_System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor(System.String)">MqttClient(string)</h4>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MqttClient(string brokerHostName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">brokerHostName</span></td>
+        <td><p>Broker Host Name or IP Address</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="nanoFramework_M2Mqtt_MqttClient__ctor_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor*"></a>
@@ -190,35 +220,6 @@
         <td><a class="xref" href="nanoFramework.M2Mqtt.MqttSslProtocols.html">MqttSslProtocols</a></td>
         <td><span class="parametername">sslProtocol</span></td>
         <td><p>SSL/TLS protocol</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttClient__ctor_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttClient__ctor_System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor(System.String)">MqttClient(string)</h4>
-  <div class="markdown level1 summary"><p>Constructor</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MqttClient(string brokerHostName)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">brokerHostName</span></td>
-        <td><p>Broker Host Name or IP Address</p>
 </td>
       </tr>
     </tbody>
@@ -761,6 +762,51 @@
 
 
   <a id="nanoFramework_M2Mqtt_MqttClient_Connect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_Connect_System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect(System.String)">Connect(string)</h4>
+  <div class="markdown level1 summary"><p>Connect to broker</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MqttReasonCode Connect(string clientId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>Client identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttReasonCode.html">MqttReasonCode</a></td>
+        <td><p>Return code of CONNACK message from broker</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttClient_Connect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect*"></a>
   <h4 id="nanoFramework_M2Mqtt_MqttClient_Connect_System_String_System_Boolean_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect(System.String,System.Boolean)">Connect(string, bool)</h4>
   <div class="markdown level1 summary"><p>Connect to broker</p>
 </div>
@@ -789,6 +835,132 @@
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
         <td><span class="parametername">cleanSession</span></td>
         <td><p>Clean sessione flag</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttReasonCode.html">MqttReasonCode</a></td>
+        <td><p>Return code of CONNACK message from broker</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttClient_Connect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_Connect_System_String_System_String_System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect(System.String,System.String,System.String)">Connect(string, string, string)</h4>
+  <div class="markdown level1 summary"><p>Connect to broker</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MqttReasonCode Connect(string clientId, string username, string password)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>Client identifier</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">username</span></td>
+        <td><p>Username</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttReasonCode.html">MqttReasonCode</a></td>
+        <td><p>Return code of CONNACK message from broker</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttClient_Connect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_Connect_System_String_System_String_System_String_System_Boolean_System_UInt16_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect(System.String,System.String,System.String,System.Boolean,System.UInt16)">Connect(string, string, string, bool, ushort)</h4>
+  <div class="markdown level1 summary"><p>Connect to broker</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MqttReasonCode Connect(string clientId, string username, string password, bool cleanSession, ushort keepAlivePeriod)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>Client identifier</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">username</span></td>
+        <td><p>Username</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td><span class="parametername">cleanSession</span></td>
+        <td><p>Clean sessione flag</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
+        <td><span class="parametername">keepAlivePeriod</span></td>
+        <td><p>Keep alive period</p>
 </td>
       </tr>
     </tbody>
@@ -910,177 +1082,6 @@
   </table>
 
 
-  <a id="nanoFramework_M2Mqtt_MqttClient_Connect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttClient_Connect_System_String_System_String_System_String_System_Boolean_System_UInt16_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect(System.String,System.String,System.String,System.Boolean,System.UInt16)">Connect(string, string, string, bool, ushort)</h4>
-  <div class="markdown level1 summary"><p>Connect to broker</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MqttReasonCode Connect(string clientId, string username, string password, bool cleanSession, ushort keepAlivePeriod)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">clientId</span></td>
-        <td><p>Client identifier</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">username</span></td>
-        <td><p>Username</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">password</span></td>
-        <td><p>Password</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><span class="parametername">cleanSession</span></td>
-        <td><p>Clean sessione flag</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
-        <td><span class="parametername">keepAlivePeriod</span></td>
-        <td><p>Keep alive period</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttReasonCode.html">MqttReasonCode</a></td>
-        <td><p>Return code of CONNACK message from broker</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttClient_Connect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttClient_Connect_System_String_System_String_System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect(System.String,System.String,System.String)">Connect(string, string, string)</h4>
-  <div class="markdown level1 summary"><p>Connect to broker</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MqttReasonCode Connect(string clientId, string username, string password)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">clientId</span></td>
-        <td><p>Client identifier</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">username</span></td>
-        <td><p>Username</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">password</span></td>
-        <td><p>Password</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttReasonCode.html">MqttReasonCode</a></td>
-        <td><p>Return code of CONNACK message from broker</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttClient_Connect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttClient_Connect_System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.Connect(System.String)">Connect(string)</h4>
-  <div class="markdown level1 summary"><p>Connect to broker</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MqttReasonCode Connect(string clientId)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">clientId</span></td>
-        <td><p>Client identifier</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttReasonCode.html">MqttReasonCode</a></td>
-        <td><p>Return code of CONNACK message from broker</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <a id="nanoFramework_M2Mqtt_MqttClient_Disconnect_" data-uid="nanoFramework.M2Mqtt.MqttClient.Disconnect*"></a>
   <h4 id="nanoFramework_M2Mqtt_MqttClient_Disconnect" data-uid="nanoFramework.M2Mqtt.MqttClient.Disconnect">Disconnect()</h4>
   <div class="markdown level1 summary"><p>Disconnect from broker</p>
@@ -1094,13 +1095,220 @@
 
   <a id="nanoFramework_M2Mqtt_MqttClient_Dispose_" data-uid="nanoFramework.M2Mqtt.MqttClient.Dispose*"></a>
   <h4 id="nanoFramework_M2Mqtt_MqttClient_Dispose" data-uid="nanoFramework.M2Mqtt.MqttClient.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_Publish_System_String_System_Byte___" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish(System.String,System.Byte[])">Publish(string, byte[])</h4>
+  <div class="markdown level1 summary"><p>Publish a message asynchronously (QoS Level <a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttQoSLevel.html#nanoFramework_M2Mqtt_Messages_MqttQoSLevel_AtMostOnce">AtMostOnce</a> and not retained).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort Publish(string topic, byte[] message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">topic</span></td>
+        <td><p>Message topic.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Message data (payload).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
+        <td><p>Message Id related to PUBLISH message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_Publish_System_String_System_Byte___System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish(System.String,System.Byte[],System.String)">Publish(string, byte[], string)</h4>
+  <div class="markdown level1 summary"><p>Publish a message asynchronously (QoS Level <a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttQoSLevel.html#nanoFramework_M2Mqtt_Messages_MqttQoSLevel_AtMostOnce">AtMostOnce</a> and not retained).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort Publish(string topic, byte[] message, string contentType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">topic</span></td>
+        <td><p>Message topic.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Message data (payload).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">contentType</span></td>
+        <td><p>Content of the application message. This is only available for MQTT v5.0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
+        <td><p>Message Id related to PUBLISH message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
+        <td><p>If setting a parameter that is not supported in the MQTT version set for this <a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_Publish_System_String_System_Byte___System_String_System_Collections_ArrayList_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish(System.String,System.Byte[],System.String,System.Collections.ArrayList)">Publish(string, byte[], string, ArrayList)</h4>
+  <div class="markdown level1 summary"><p>Publish a message asynchronously (QoS Level <a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttQoSLevel.html#nanoFramework_M2Mqtt_Messages_MqttQoSLevel_AtMostOnce">AtMostOnce</a> and not retained).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort Publish(string topic, byte[] message, string contentType, ArrayList userProperties)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">topic</span></td>
+        <td><p>Message topic.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Message data (payload).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">contentType</span></td>
+        <td><p>Content of the application message. This is only available for MQTT v5.0.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Collections.ArrayList.html">ArrayList</a></td>
+        <td><span class="parametername">userProperties</span></td>
+        <td><p>User properties for the application message. This is only available for MQTT v5.0</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
+        <td><p>Message Id related to PUBLISH message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p>If <code class="paramref">userProperties</code> elements aren't of type <a class="xref" href="nanoFramework.M2Mqtt.Messages.UserProperty.html">UserProperty</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
+        <td><p>If setting a parameter that is not supported in the MQTT version set for this <a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
@@ -1187,220 +1395,12 @@
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If <code data-dev-comment-type="paramref" class="paramref">userProperties</code> elements aren't of type <a class="xref" href="nanoFramework.M2Mqtt.Messages.UserProperty.html">UserProperty</a>.</p>
+        <td><p>If <code class="paramref">userProperties</code> elements aren't of type <a class="xref" href="nanoFramework.M2Mqtt.Messages.UserProperty.html">UserProperty</a>.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
         <td><p>If setting a parameter that is not supported in the MQTT version set for this <a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttClient_Publish_System_String_System_Byte___System_String_System_Collections_ArrayList_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish(System.String,System.Byte[],System.String,System.Collections.ArrayList)">Publish(string, byte[], string, ArrayList)</h4>
-  <div class="markdown level1 summary"><p>Publish a message asynchronously (QoS Level <a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttQoSLevel.html#nanoFramework_M2Mqtt_Messages_MqttQoSLevel_AtMostOnce">AtMostOnce</a> and not retained).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ushort Publish(string topic, byte[] message, string contentType, ArrayList userProperties)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">topic</span></td>
-        <td><p>Message topic.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">message</span></td>
-        <td><p>Message data (payload).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">contentType</span></td>
-        <td><p>Content of the application message. This is only available for MQTT v5.0.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Collections.ArrayList.html">ArrayList</a></td>
-        <td><span class="parametername">userProperties</span></td>
-        <td><p>User properties for the application message. This is only available for MQTT v5.0</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
-        <td><p>Message Id related to PUBLISH message.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If <code data-dev-comment-type="paramref" class="paramref">userProperties</code> elements aren't of type <a class="xref" href="nanoFramework.M2Mqtt.Messages.UserProperty.html">UserProperty</a>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
-        <td><p>If setting a parameter that is not supported in the MQTT version set for this <a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttClient_Publish_System_String_System_Byte___System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish(System.String,System.Byte[],System.String)">Publish(string, byte[], string)</h4>
-  <div class="markdown level1 summary"><p>Publish a message asynchronously (QoS Level <a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttQoSLevel.html#nanoFramework_M2Mqtt_Messages_MqttQoSLevel_AtMostOnce">AtMostOnce</a> and not retained).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ushort Publish(string topic, byte[] message, string contentType)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">topic</span></td>
-        <td><p>Message topic.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">message</span></td>
-        <td><p>Message data (payload).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">contentType</span></td>
-        <td><p>Content of the application message. This is only available for MQTT v5.0.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
-        <td><p>Message Id related to PUBLISH message.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></td>
-        <td><p>If setting a parameter that is not supported in the MQTT version set for this <a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
-  <h4 id="nanoFramework_M2Mqtt_MqttClient_Publish_System_String_System_Byte___" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish(System.String,System.Byte[])">Publish(string, byte[])</h4>
-  <div class="markdown level1 summary"><p>Publish a message asynchronously (QoS Level <a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttQoSLevel.html#nanoFramework_M2Mqtt_Messages_MqttQoSLevel_AtMostOnce">AtMostOnce</a> and not retained).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ushort Publish(string topic, byte[] message)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">topic</span></td>
-        <td><p>Message topic.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">message</span></td>
-        <td><p>Message data (payload).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.UInt16.html">ushort</a></td>
-        <td><p>Message Id related to PUBLISH message.</p>
 </td>
       </tr>
     </tbody>
@@ -1605,31 +1605,6 @@
   </table>
 
 
-  <h4 id="nanoFramework_M2Mqtt_MqttClient_MqttMsgPublished" data-uid="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublished">MqttMsgPublished</h4>
-  <div class="markdown level1 summary"><p>The event for published message</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event MqttClient.MqttMsgPublishedEventHandler MqttMsgPublished</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublishedEventHandler.html">MqttMsgPublishedEventHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <h4 id="nanoFramework_M2Mqtt_MqttClient_MqttMsgPublishReceived" data-uid="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublishReceived">MqttMsgPublishReceived</h4>
   <div class="markdown level1 summary"><p>The event for PUBLISH message received</p>
 </div>
@@ -1649,6 +1624,31 @@
     <tbody>
       <tr>
         <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublishEventHandler.html">MqttMsgPublishEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_MqttMsgPublished" data-uid="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublished">MqttMsgPublished</h4>
+  <div class="markdown level1 summary"><p>The event for published message</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event MqttClient.MqttMsgPublishedEventHandler MqttMsgPublished</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublishedEventHandler.html">MqttMsgPublishedEventHandler</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1738,6 +1738,7 @@
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+
 </article>
           </div>
 
