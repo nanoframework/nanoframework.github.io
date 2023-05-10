@@ -18,9 +18,16 @@ You can check Espressif [Product Selector](https://products.espressif.com/#/prod
 
 [ESP32-C3-DevKitC-02 Product page](https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/hw-reference/esp32c3/user-guide-devkitc-02.html)
 
+## Seeed Studio XIAO ESP32C3
+
+![Seeed Studio XIAO ESP32C3](../../images/reference-targets/xiao_esp32c3.jpg)
+
+[Seeed Studio XIAO ESP32C3 Product page](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html)
+
 ## Firmware images (ready to deploy)
 
 | Target | Firmware |
 |:---|---|
 | ESP32_C3_REV2 | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_C3_REV2/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_C3_REV2/latest/) |
 | ESP32_C3_REV3 | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_C3_REV3/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_C3_REV3/latest/) |
+| XIAO_ESP32C3 | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/XIAO_ESP32C3/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/XIAO_ESP32C3/latest/) |
