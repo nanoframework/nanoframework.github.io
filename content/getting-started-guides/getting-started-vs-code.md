@@ -58,7 +58,7 @@ If you're having issues with the deployment, you can use an _alternative_ method
 You will need to make sure you'll have the following elements installed:
 
 - [.NET 6.0](https://dotnet.microsoft.com/download/dotnet)
-- [Visual Studio build tools](https://visualstudio.microsoft.com/en/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) on Windows, `mono-complete` on [Linux/macOS](https://www.mono-project.com/../../images/vs-code/getting-started/install/)
+- [Visual Studio build tools](https://visualstudio.microsoft.com/en/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) on Windows, `mono-complete` on [Linux/macOS](https://www.mono-project.com/)
 
 ## Known Issues
 

@@ -129,7 +129,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 
 ## Update the dependency upwards
 
-As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the [`azure-pipelines.yml`](https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml) file there and add this new repo to the `repositoriesToUpdate` list.
+As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the [`azure-pipelines.yml`](https://github.com/nanoframework/CoreLibrary/blob/main/azure-pipelines.yml) file there and add this new repo to the `repositoriesToUpdate` list.
 Now, if it depends on others, you have to figure out which one of those is **at the end** of the dependency chain and add this new repo to **that** `azure-pipelines.yml` file. For example, `System.Device.Gpio` depends on `CoreLibrary` and `Runtime.Events` (which, in turn, depends on `CoreLibrary`). Updating it's dependencies has to the triggered at `Runtime.Events` not on `CoreLibrary` because of the chained dependency.
 
 ## Add the class library to the documentation project
