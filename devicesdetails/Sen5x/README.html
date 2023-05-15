@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Sensirion SEN5x series module | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Sensirion SEN5x series module | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+      <link rel="mask-icon" href="../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sensirion-sen5x-series-module">Sensirion SEN5x series module</h1>
+
+<p>This is a library to interact with the Sensirion SEN5x Environmental Node.</p>
+<p>Description from its <a href="https://developer.sensirion.com/sensirion-products/sen5x-environmental-sensor-node/">product page</a>:</p>
+<blockquote>
+<p>The SEN5x environmental node is a straightforward, all-in-one sensor solution platform for the accurate measurement of various environmental parameters, such as particulate matter, volatile organic compounds (VOCs), oxidizing gases, such as nitrogen oxide compounds (NOx), as well as humidity &amp; temperature. Thanks to proprietary algorithms, the module enables straightforward integration into various applications. This allows device manufacturers to save valuable project time and personnel resources and focus on their core competencies. End customers receive reliable air quality measurement data based on the SEN5x and benefit from improved air quality to increase health and comfort.</p>
+</blockquote>
+<p><img src="../../devicesimages/Sen5x/Sen5x-image.png" alt="Sen5x-image.png"></p>
+<h2 id="documentation">Documentation</h2>
+<p>For the implementation of this library the official <a href="https://developer.sensirion.com/fileadmin/user_upload/customers/sensirion/Dokumente/15_Environmental_Sensor_Node/Datasheets/Sensirion_Environmental_Sensor_Node_SEN5x_Datasheet.pdf">datasheet</a>. Any other documentation can be found on its <a href="https://developer.sensirion.com/sensirion-products/sen5x-environmental-sensor-node/">product page</a>.</p>
+<p>There are three variants at the time of this writing:</p>
+<ul>
+<li><code>SEN50-SDN-T</code>, which outputs: Particulate Matter</li>
+<li><code>SEN54-SDN-T</code>, which outputs: Particulate Matter, Relative Humidity, Temperature, VOC Index</li>
+<li><code>SEN55-SDN-T</code>, which outputs: Particulate Matter, Relative Humidity, Temperature, VOC Index, NOx Index</li>
+</ul>
+<p><strong>Note that only the <code>SEN54-SDN-T</code> variant has been tested at this time.</strong> Even though the NOx-specific methods have been made available, they have not been tested.</p>
+<h2 id="usage">Usage</h2>
+<p>The example project is built for ESP32 and therefor it uses the <code>nanoFramework.Hardware.Esp32</code> package to configure the correct pins for the I2C interface:</p>
+<pre><code class="lang-csharp">Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>Create the <code>I2cConnectionSettings</code> using correct I2C bus, address and speed. You can use the constants on the <code>Sen5xSensor</code> class for the defaults. Create the <code>I2cDevice</code> and pass that to the <code>Sen5xSensor</code> to create the instance to work with:</p>
+<pre><code class="lang-csharp">var settings = new I2cConnectionSettings(1, Sen5xSensor.DefaultI2cAddress, Sen5xSensor.DefaultI2cBusSpeed);
+var i2c = new I2cDevice(settings);
+var sensor = new Sen5xSensor(i2c);
+</code></pre>
+<p>Use <code>sensor</code> for all interactions with the SEN5x sensor. The following starts the measurements, reads and prints measurements as they become ready:</p>
+<pre><code class="lang-csharp">sensor.StartMeasurement();
+while (true)
+{
+    if (sensor.ReadDataReadyFlag())
+    {
+        var measurement = sensor.ReadMeasurement();
+        Debug.WriteLine(measurement.ToString());
+    }
+    Thread.Sleep(1000);
+}
+</code></pre>
+<p>Make sure to refer to the datasheet when using the more advanced features.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails/Sen5x/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

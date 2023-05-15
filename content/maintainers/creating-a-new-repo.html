@@ -226,7 +226,7 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 </li>
 </ol>
 <h2 id="update-the-dependency-upwards">Update the dependency upwards</h2>
-<p>As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the <a href="https://github.com/nanoframework/CoreLibrary/blob/develop/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> file there and add this new repo to the <code>repositoriesToUpdate</code> list.
+<p>As a minimum, the new class library depends on mscorlib. If that's the only dependency, edit the <a href="https://github.com/nanoframework/CoreLibrary/blob/main/azure-pipelines.yml"><code>azure-pipelines.yml</code></a> file there and add this new repo to the <code>repositoriesToUpdate</code> list.
 Now, if it depends on others, you have to figure out which one of those is <strong>at the end</strong> of the dependency chain and add this new repo to <strong>that</strong> <code>azure-pipelines.yml</code> file. For example, <code>System.Device.Gpio</code> depends on <code>CoreLibrary</code> and <code>Runtime.Events</code> (which, in turn, depends on <code>CoreLibrary</code>). Updating it's dependencies has to the triggered at <code>Runtime.Events</code> not on <code>CoreLibrary</code> because of the chained dependency.</p>
 <h2 id="add-the-class-library-to-the-documentation-project">Add the class library to the documentation project</h2>
 <p>If this class library has documentation that has to be published as part of nanoFramework documentation (which is most likely) it needs to be referenced in the documentation project.</p>
