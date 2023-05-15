@@ -41,6 +41,6 @@ _Note: You are not allowed to use the USB Vendor from a third party without thei
 ## USB Product ID
 
 ```idProduct``` in the ```vcom_device_descriptor_data``` structure.
-In this setting it's defined the [USB Product ID](http://www.usb.org/developers/usbfaq#12) of the USB device. Hexadecimal 0x5740 in the reference boards (that's STM USB product ID used in the Discovery and Nucleo boards).
+In this setting it's defined the [USB Product ID](http://www.usb.org/developers) of the USB device. Hexadecimal 0x5740 in the reference boards (that's STM USB product ID used in the Discovery and Nucleo boards).
 
 _Note: You are not allowed to use the USB Vendor ID + Product from a third party without their express consent. If you want to use your own Vendor ID + Product ID you have to apply for one with the USB organization._
