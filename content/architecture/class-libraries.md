@@ -112,7 +112,7 @@ The example is for adding System.Device.Gpio library.
 
 1. In the CMake [NF_NativeAssemblies.cmake](https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindNF_NativeAssemblies.cmake) find the text `WHEN ADDING A NEW API add the corresponding block below` and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.
 
-1. Update the template file for the CMake presets [here](../building/cmake-presets.md) to include the respective options. For the System.Device.Gpio example you would add to the _OPTION1..._ and _OPTION2..._ (under _linkage_) the following line: "API_System.Device.Gpio" : "OFF"
+1. Update the CMake presets file (or files, if this is to be added to multiple targets) e.g. for the ST_STM32F769I_DISCOVERY [here](https://github.com/nanoframework/nf-interpreter/blob/main/targets/ChibiOS/ST_STM32F769I_DISCOVERY/CMakePresets.json) to include the respective option. For the System.Device.Gpio example you would add in the _cacheVariables_ collection the following entry: "API_System.Device.Gpio" : "ON".
 
 1. If the API requires enabling hardware or SoC peripherals in the target HAL/PAL make the required changes to the appropriate files.
 For System.Device.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
