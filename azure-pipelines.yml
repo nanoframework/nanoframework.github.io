@@ -537,7 +537,7 @@ steps:
   displayName: Zipping _site directory
   condition: >-
     and(
-      succeeded(), 
+      succeeded(),
       or(
         eq(variables['BUILD_ALL'], 'true'),
         contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
@@ -567,7 +567,7 @@ steps:
     ArtifactName: site
     ArtifactType: Container
 
-# commit changes
+# commit changes (only if this is NOT a PR build)
 - powershell: |
     git clone https://github.com/nanoframework/nanoframework.github.io.git -b master origin_site -q
     Copy-Item _site/* origin_site -recurse -Force
@@ -583,7 +583,8 @@ steps:
   ignoreLASTEXITCODE: true
   condition: >-
     and(
-      succeeded(), 
+      succeeded(),
+      ne(variables['System.PullRequest.PullRequestId'], ''),
       or(
         eq(variables['BUILD_ALL'], 'true'),
         contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
