@@ -131,6 +131,11 @@
 <td>-DAPI_nanoFramework.Graphics=ON</td>
 </tr>
 <tr>
+<td>nanoFramework.GiantGecko.Adc</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.GiantGecko.Adc/"><img src="https://img.shields.io/nuget/v/nanoFramework.GiantGecko.Adc.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_nanoFramework.GiantGecko.Adc=ON</td>
+</tr>
+<tr>
 <td>nanoFramework.M5Stack</td>
 <td><a href="https://www.nuget.org/packages/nanoFramework.M5Stack/"><img src="https://img.shields.io/nuget/v/nanoFramework.M5Stack.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_nanoFramework.M5Stack=ON</td>
@@ -144,6 +149,11 @@
 <td>nanoFramework.Hardware.Esp32.Rmt</td>
 <td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.Esp32.Rmt/"><img src="https://img.shields.io/nuget/v/nanoFramework.Hardware.Esp32.Rmt.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_Hardware.Esp32.Rmt=ON</td>
+</tr>
+<tr>
+<td>nanoFramework.Hardware.GiantGecko</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hardware.GiantGecko/"><img src="https://img.shields.io/nuget/v/nanoFramework.Hardware.GiantGecko.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_Hardware.GiantGecko=ON</td>
 </tr>
 <tr>
 <td>nanoFramework.Hardware.Stm32</td>
@@ -196,6 +206,11 @@
 <td>-DAPI_System.Device.I2c=ON</td>
 </tr>
 <tr>
+<td>System.Device.I2s</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.I2s/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.I2s.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.Device.I2s=ON</td>
+</tr>
+<tr>
 <td>System.Device.Gpio</td>
 <td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.Gpio/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.Gpio.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_System.Device.Gpio=ON</td>
@@ -229,6 +244,11 @@
 <td>System.Device.WiFi</td>
 <td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.WiFi/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.WiFi.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>-DAPI_System.Device.WiFi=ON</td>
+</tr>
+<tr>
+<td>System.Device.UsbStream</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Device.UsbClient/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Device.UsbClient.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>-DAPI_System.Device.UsbStream=ON</td>
 </tr>
 <tr>
 <td>Windows.Storage</td>
@@ -283,6 +303,11 @@
 <tr>
 <td>System.Net.Sockets.TcpClient</td>
 <td><a href="https://www.nuget.org/packages/nanoFramework.System.Net.Sockets.TcpClient/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Net.Sockets.TcpClient.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+<td>no native code</td>
+</tr>
+<tr>
+<td>System.Runtime.Serialization</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.System.Runtime.Serialization/"><img src="https://img.shields.io/nuget/v/nanoFramework.System.Runtime.Serialization.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 <td>no native code</td>
 </tr>
 <tr>
@@ -354,6 +379,10 @@
 <tr>
 <td>nanoFramework.DependencyInjection</td>
 <td><a href="https://www.nuget.org/packages/nanoFramework.DependencyInjection/"><img src="https://img.shields.io/nuget/v/nanoFramework.DependencyInjection.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
+</tr>
+<tr>
+<td>nanoFramework.Hosting</td>
+<td><a href="https://www.nuget.org/packages/nanoFramework.Hosting/"><img src="https://img.shields.io/nuget/v/nanoFramework.Hosting.svg?label=NuGet&amp;style=flat&amp;logo=nuget" alt="NuGet"></a></td>
 </tr>
 </tbody>
 </table>
@@ -435,7 +464,7 @@
 </li>
 <li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindNF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> find the text <code>WHEN ADDING A NEW API add the corresponding block below</code> and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.</p>
 </li>
-<li><p>Update the template file for the CMake presets <a href="../building/cmake-presets.html">here</a> to include the respective options. For the System.Device.Gpio example you would add to the <em>OPTION1...</em> and <em>OPTION2...</em> (under <em>linkage</em>) the following line: &quot;API_System.Device.Gpio&quot; : &quot;OFF&quot;</p>
+<li><p>Update the CMake presets file (or files, if this is to be added to multiple targets) e.g. for the ST_STM32F769I_DISCOVERY <a href="https://github.com/nanoframework/nf-interpreter/blob/main/targets/ChibiOS/ST_STM32F769I_DISCOVERY/CMakePresets.json">here</a> to include the respective option. For the System.Device.Gpio example you would add in the <em>cacheVariables</em> collection the following entry: &quot;API_System.Device.Gpio&quot; : &quot;ON&quot;.</p>
 </li>
 <li><p>If the API requires enabling hardware or SoC peripherals in the target HAL/PAL make the required changes to the appropriate files.
 For System.Device.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
