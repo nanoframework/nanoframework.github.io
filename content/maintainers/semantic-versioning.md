@@ -20,7 +20,7 @@ Builds from pull requests have a suffix of test$BuildNumber and are not automati
 
 ## Release Builds
 
-Builds from the master branch do not have a suffix and GitVersion is configured in [Continuous Delivery](http://gitversion.readthedocs.io/en/stable/reference/continuous-delivery/) mode. If a commit is tagged, the version in the tag overrides the automatic versioning strategies.
+Builds from the master branch do not have a suffix and GitVersion is configured in [Continuous Delivery](https://gitversion.net/docs/reference/configuration/) mode. If a commit is tagged, the version in the tag overrides the automatic versioning strategies.
 
 ## Versioning
 

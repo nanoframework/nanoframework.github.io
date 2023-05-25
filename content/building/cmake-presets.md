@@ -54,7 +54,7 @@ Below is a list of the build options available (last updated October 2022). Thes
 
 - "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
   - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md#l13)
-  - This can be used to workaround "[Found assemblies mismatches when checking for deployment pre-check](build-instructions.md#buildversion-matching)" error during deployment.
+  - This can be used to workaround "[Found assemblies mismatches when checking for deployment pre-check](build-instructions.md#preparation)" error during deployment.
 - "BUILD_VERBOSE"
   - Option to output verbose messages during build. Useful for debugging issues with build system.
 - "TOOL_HEX2DFU_PREFIX" : "**absolute-path-to-hex2dfu-utility-mind-the-forward-slash**"
@@ -138,7 +138,7 @@ Below is a list of the build options available (last updated October 2022). Thes
 - "SWO_OUTPUT" : **`OFF`**
   - Allows specifying whether to include, or not, support for Cortex-M Single Wire Output (SWO). Default is `OFF`. Check the documentation [here](../contributing/developing-native/arm-swo.md) for more details on how to use SWO.
 - "NF_BUILD_RTM" : **`OFF`**
-  - Sets if the build is of **R**eady **T**o **M**arket type. Meaning that all debug helpers and code blocks will be removed from compilation and the build will be compiled and linked with all possible code reducing options enabled.
+  - Sets the build to be **R**elease **T**o **M**anufacturing type. Meaning that all debugger features, instrumentation and debug helper code will be removed from compilation. The build will be compiled and linked with all possible code reducing options enabled. An RTM build doesn't have debugging capabilities, meaning that a debug session can not be started. In order to deploy to a device running an RTM build `nanoff` CLI should be used or any other mean that can flash the deployment region.
 - "NF_TRACE_TO_STDIO": **`OFF`**
   - Set to ON to enable trace messages to stdio.
 - "NF_WP_TRACE_ERRORS" : **`OFF`**

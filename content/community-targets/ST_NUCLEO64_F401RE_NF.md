@@ -2,7 +2,7 @@
 
 ![ST Nucleo 64_F401RE NF](https://www.st.com/bin/ecommerce/api/image.PF260000.en.feature-description-include-personalized-no-cpn-medium.jpg)
 
-The board used in this community contribution is the NUCLEO64_F401RE board from ST. The board can be purchased from various sources and should be about 20 euros. Further information on the Nucleo64 boards can be found in the user manual UM1724 on the ST side (www.st.com). The board used here is of revision c as can be found on the board's lower backside sticker. The board MB1136 C-02 is configured to use ST-LINK MCO as clock input for HSE so we have an HSE of 8 MHz. Plus X2 is mounted so we do have an LSE as well. This is reflected in the mcuconf.h in both nanoBooter and nanoCLR paths. If it is chosen to activate LSE as this is a for more accurate clock for RTC, the board.h file needs to be adjusted accordingly to use 32768 frequency for LSE.
+The board used in this community contribution is the NUCLEO64_F401RE board from ST. The board can be purchased from various sources and should be about 20 euros. Further information on the Nucleo64 boards can be found in the user manual UM1724 over at the [ST website](https://www.st.com). The board used here is of revision c as can be found on the board's lower backside sticker. The board MB1136 C-02 is configured to use ST-LINK MCO as clock input for HSE so we have an HSE of 8 MHz. Plus X2 is mounted so we do have an LSE as well. This is reflected in the mcuconf.h in both nanoBooter and nanoCLR paths. If it is chosen to activate LSE as this is a for more accurate clock for RTC, the board.h file needs to be adjusted accordingly to use 32768 frequency for LSE.
 
 I prepared a custom made a 4-wire jumper to USB cable by cutting off one end (Type A part) and figuring out the required D+, D-, 5V and GND. These need to be connected as follows:
 
@@ -15,7 +15,7 @@ Once these are connected and nanoFramework is flashed using the STM32 ST-LINK Ut
 
 We can now fire up Visual Studio and view the Device explorer window the board should be visible there as well. Select the board (if not done already) and hit the device capabilities button. The board specifics can than be seen in the output window.
 
-Now you can start your adventure in the nanoFramework world and use one of the samples and adjust to the board specific features. Try to make a sample of yourself and publish it on f.e. www.hackster.io to show your achievement.
+Now you can start your adventure in the nanoFramework world and use one of the samples and adjust to the board specific features. Try to make a sample of yourself and publish it, for example, on [Hackster.IO](https://www.hackster.io) to show your achievement.
 
 For your convenience I've listed below the features and on what pins they can be found to help you out for an easy start.
 
