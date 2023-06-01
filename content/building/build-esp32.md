@@ -31,8 +31,9 @@ You'll need:
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [ESP-IDF Tools](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html).
 - Driver for the USB to UART Bridge. This depends on the ESP32 hardware. After installing it, use Windows Device Manager to determine the COM port as this is needed to complete the setup. Follows the most common drivers (all these are available along with ESP-IDF tools installer):
-  - [CP210x USB to UART Bridge VCP Drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) used in the standard ESP32 DevKitC.
+  - [CP210x USB to UART Bridge VCP Drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads).
   - [FTDI Virtual COM Port Drivers](https://www.ftdichip.com/Drivers/VCP.htm).
+  - [WHC CH34x](https://www.wch.cn/download/CH341SER_ZIP.html).
 
 ## Overview
 
