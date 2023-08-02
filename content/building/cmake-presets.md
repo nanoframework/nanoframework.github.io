@@ -277,6 +277,8 @@ Below is a list of the build options available (last updated October 2022). Thes
   - Set to `OFF` to signal that target does not have nanoBooter.
 - "USE_FPU" : **`OFF`**
   - Set to ON to enable FP usage. Depends on platform and MCU availability.
+- "GECKO_DEVICE_CLASS_VENDOR_DESCRIPTION_LENGTH" : **""**
+  - Set to a value <= 256 to override the allowed length of USB device class vendor description. Only available on Giant Gecko S1 platform.
 
 ## Updating from CMake Variants
 
