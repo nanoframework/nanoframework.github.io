@@ -426,7 +426,8 @@
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_FrameBuffer_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.FrameBuffer*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_FrameBuffer" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.FrameBuffer">FrameBuffer</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the frame buffer.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -447,6 +448,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_FrameBuffer_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This frame buffer instance could be pointing to a portion of the full display frame
+as a measure to reduce memory footprint. See the ctor documentation for more info.</p>
+</div>
 
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_FrameBuffer2bpp_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.FrameBuffer2bpp*"></a>
@@ -477,7 +482,8 @@
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Height_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Height*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Height" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Height">Height</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the height of the drawable area on the display.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -502,7 +508,8 @@
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_PagedFrameDrawEnabled_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.PagedFrameDrawEnabled*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_PagedFrameDrawEnabled" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.PagedFrameDrawEnabled">PagedFrameDrawEnabled</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether drawing to a frame is paged to save on memory space.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -579,7 +586,8 @@
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Width_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Width*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Width" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Width">Width</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the width of the drawable area on the display.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -606,7 +614,13 @@
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_BeginFrameDraw_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.BeginFrameDraw*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_BeginFrameDraw" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.BeginFrameDraw">BeginFrameDraw()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Begins a frame draw operation with frame paging support.</p>
+<pre><code class="lang-csharp">BeginFrameDraw();
+do {
+    // Drawing calls
+} while (NextFramePage());
+EndFrameDraw();</code></pre>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -627,7 +641,8 @@
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Clear_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Clear*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Clear_System_Boolean_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Clear(System.Boolean)">Clear(bool)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Clears the display frame buffer by resetting it to its default state.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -646,7 +661,8 @@
       <tr>
         <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
         <td><span class="parametername">triggerPageRefresh</span></td>
-        <td></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to also flush the buffer to the display and trigger the refresh sequence.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -738,7 +754,8 @@ Call <a class="xref" href="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.html#Iot_De
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Dispose_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Dispose*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Dispose" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -798,7 +815,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_DrawPixel_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.DrawPixel*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_DrawPixel_System_Int32_System_Int32_System_Drawing_Color_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.DrawPixel(System.Int32,System.Int32,System.Drawing.Color)">DrawPixel(int, int, Color)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Draws a single pixel to the appropriate frame buffer based on the specified color.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -817,17 +835,20 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
       <tr>
         <td><a class="xref" href="../api/System.Int32.html">int</a></td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>The X Position.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="../api/System.Int32.html">int</a></td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>The Y Position.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="../api/System.Drawing.Color.html">Color</a></td>
         <td><span class="parametername">color</span></td>
-        <td></td>
+        <td><p>Pixel color. See the remarks for how a buffer is selected based on the color value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -844,7 +865,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_EndFrameDraw_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.EndFrameDraw*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_EndFrameDraw" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.EndFrameDraw">EndFrameDraw()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Ends the frame draw and flushes the current page to the device.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -889,12 +911,16 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Flush_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Flush*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Flush" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.Flush">Flush()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Flushes the content of the internal frame buffer to the display.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void Flush()</code></pre>
   </div>
+  <h5 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_Flush_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You will only need to use this method if you have disabled frame paged draws.</p>
+</div>
 
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_GetFrameBufferIndex_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.GetFrameBufferIndex*"></a>
@@ -1119,7 +1145,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_NextFramePage_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.NextFramePage*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_NextFramePage" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.NextFramePage">NextFramePage()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Moves the current buffers to the next frame page and returns true if successful.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1136,7 +1163,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
+        <td><p>True if the next frame page is available and the internal buffers have moved to it, otherwise; false.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1144,7 +1172,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_PerformFullRefresh_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.PerformFullRefresh*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_PerformFullRefresh" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.PerformFullRefresh">PerformFullRefresh()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initiates the full refresh sequence on the display.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1154,7 +1183,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_PerformPartialRefresh_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.PerformPartialRefresh*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_PerformPartialRefresh" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.PerformPartialRefresh">PerformPartialRefresh()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initiates the partial refresh sequence on the display if the panel supports it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1204,7 +1234,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_SendCommand_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.SendCommand*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_SendCommand_System_Byte___" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.SendCommand(System.Byte[])">SendCommand(params byte[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends a command byte(s) to the display.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1223,7 +1254,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">command</span></td>
-        <td></td>
+        <td><p>The command bytes to send. See the command enum within the driver implementation and consult the datasheet.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1231,7 +1263,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_SendData_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.SendData*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_SendData_System_Byte___" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.SendData(System.Byte[])">SendData(params byte[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Send frame data to the display.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1250,7 +1283,8 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">data</span></td>
-        <td></td>
+        <td><p>The frame data to send.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1290,7 +1324,8 @@ to persist the frame to the display's RAM before calling this method.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_SetPosition_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.SetPosition*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_SetPosition_System_Int32_System_Int32_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.SetPosition(System.Int32,System.Int32)">SetPosition(int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets the drawing position on the display.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1309,12 +1344,14 @@ to persist the frame to the display's RAM before calling this method.</p>
       <tr>
         <td><a class="xref" href="../api/System.Int32.html">int</a></td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>The X position.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="../api/System.Int32.html">int</a></td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>The Y position.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1362,7 +1399,8 @@ to persist the frame to the display's RAM before calling this method.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_WaitReady_" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.WaitReady*"></a>
   <h4 id="Iot_Device_EPaper_Drivers_Ssd168x_Ssd168x_WaitReady" data-uid="Iot.Device.EPaper.Drivers.Ssd168x.Ssd168x.WaitReady">WaitReady()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Blocks the current thread until the display is in idle mode again.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">

@@ -466,7 +466,8 @@ Some copies may not have a proper version but would just work.</p>
 
   <a id="Iot_Device_Mfrc522_MfRc522_Dispose_" data-uid="Iot.Device.Mfrc522.MfRc522.Dispose*"></a>
   <h4 id="Iot_Device_Mfrc522_MfRc522_Dispose" data-uid="Iot.Device.Mfrc522.MfRc522.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -676,7 +677,10 @@ Some copies may not have a proper version but would just work.</p>
 
   <a id="Iot_Device_Mfrc522_MfRc522_ReselectTarget_" data-uid="Iot.Device.Mfrc522.MfRc522.ReselectTarget*"></a>
   <h4 id="Iot_Device_Mfrc522_MfRc522_ReselectTarget_System_Byte_" data-uid="Iot.Device.Mfrc522.MfRc522.ReselectTarget(System.Byte)">ReselectTarget(byte)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Once you have an authentication operation failing with Mifare cards or a read/write, the card stop.
+TYhe only way to have it back is to send the unselect and anti collision.
+This function provides this feature</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -695,7 +699,8 @@ Some copies may not have a proper version but would just work.</p>
       <tr>
         <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
         <td><span class="parametername">targetNumber</span></td>
-        <td></td>
+        <td><p>The target number to reselect</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -710,7 +715,8 @@ Some copies may not have a proper version but would just work.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
+        <td><p>True if success</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -799,7 +805,9 @@ terminates when finished.</p>
 
   <a id="Iot_Device_Mfrc522_MfRc522_Transceive_" data-uid="Iot.Device.Mfrc522.MfRc522.Transceive*"></a>
   <h4 id="Iot_Device_Mfrc522_MfRc522_Transceive_System_Byte_System_SpanByte_System_SpanByte_" data-uid="Iot.Device.Mfrc522.MfRc522.Transceive(System.Byte,System.SpanByte,System.SpanByte)">Transceive(byte, SpanByte, SpanByte)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This function has to be implemented by all NFC/RFID/Card readers. This function is used in exchange of data with
+the reader and the cards.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -818,17 +826,20 @@ terminates when finished.</p>
       <tr>
         <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
         <td><span class="parametername">targetNumber</span></td>
-        <td></td>
+        <td><p>Some readers have a notion of target number for the cards as they can read multiple ones</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
         <td><span class="parametername">dataToSend</span></td>
-        <td></td>
+        <td><p>A standardized raw buffer with the command at the position 0 in the array</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
         <td><span class="parametername">dataFromCard</span></td>
-        <td></td>
+        <td><p>If any data are read from the card, they will be put into this array</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -843,7 +854,8 @@ terminates when finished.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
+        <td><p>-1 in case of error, otherwise the number of bytes read and copied into the <code class="paramref">dataFromCard</code> array</p>
+</td>
       </tr>
     </tbody>
   </table>
