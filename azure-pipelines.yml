@@ -532,6 +532,29 @@ steps:
       )
     )
 
+# Replace the links to improve doc for dynamic content
+- powershell: |
+      # Set the source and target strings
+      $sourceString = "https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails"
+      $targetString = "https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices"
+
+      # Set the root directory where you want to perform the search and replace
+      $rootDirectory = "_site/devicesdetails"
+
+      # Recursively find and replace strings in files
+      Get-ChildItem -Recurse -File $rootDirectory | ForEach-Object {
+          $filePath = $_.FullName
+          $content = Get-Content -Path $filePath -Raw
+          $newContent = $content -replace [regex]::Escape($sourceString), $targetString
+
+          if ($content -ne $newContent) {
+              Write-Host "Replacing in $filePath"
+              Set-Content -Path $filePath -Value $newContent
+          }
+      }
+
+      Write-Host "String replacement completed."
+
 # Make an artifact for debug purpose
 - task: ArchiveFiles@2
   displayName: Zipping _site directory
