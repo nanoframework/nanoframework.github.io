@@ -1,6 +1,6 @@
 # NESHTEC NeshNode
 
-NeshNode is a flexible, high performance board featuring a powerful STM32F7 dual core microcontroller, on-board ethernet, LiPo battery charger, lot's of I/Os and most important, two MikroE Click™ sockets. 
+NeshNode is a flexible, high performance board featuring a powerful STM32F7 dual core microcontroller, on-board ethernet, LiPo battery charger, lots of I/Os and another powerful feature: two MikroE Click™ sockets.
 
 This board has also been tested by [TÜV Nord](https://www.tuev-nord.de/), which means that it is fully compliant with EU regulations (CE).
 
