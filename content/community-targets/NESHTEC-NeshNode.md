@@ -1,6 +1,6 @@
 # NESHTEC NeshNode
 
-NeshNode is a flexible, high performance board featuring a powerful STM32F7 dual core microcontroller, on-board ethernet, LiPo battery charger, lots of I/Os and another powerful feature: two MikroE Click™ sockets.
+NeshNode is a flexible, high performance board featuring a powerful STM32F7 dual core microcontroller, on-board ethernet, LiPo battery charger, lots of I/Os and another powerful feature: two MikroE® Click™ sockets.
 
 This board has also been tested by [TÜV Nord](https://www.tuev-nord.de/), which means that it is fully compliant with EU regulations (CE).
 
@@ -26,15 +26,15 @@ See here for more details: https://www.st.com/en/microcontrollers-microprocessor
 
 Ethernet is supplied by a Microchip LAN8720A, which is a high performance 10BASE-T/100BASE-TX transceiver delivering up to 100 MBit/s, working on a large temperature range: https://www.microchip.com/en-us/product/lan8720a
 
-### MikroE Click / MikroBus 
+### MikroE® Click™ / MikroBus™
 
-MikroE has designed a compact interface for which, as of today, there are over 1,000 different so-called "click boards" of very high quality - giving you the flexibility to easily add whatever kind of additional functionality you might need. 
+MikroE® has designed a compact interface for which, as of today, there are over 1,000 different so-called Click™ boards of very high quality - giving you the flexibility to easily add whatever kind of additional functionality you might need.
 
-See above (pinout) for a sample of MikroEs MikroBus layout.
+See above (pinout) for a sample of MikroE®s MikroBus™ layout.
 
-Check out MikroE's click store for some awesome addon boards: https://www.mikroe.com/click
+Check out MikroE®'s Click™ board store for some awesome addon boards: https://www.mikroe.com/click
 
-More information about the click standard can be found on the MikroE website: https://www.mikroe.com
+More information about the Click™ standard can be found on the MikroE®s website: https://www.mikroe.com
 
 ### LTC3586 power management
 
@@ -52,8 +52,8 @@ The board features a physical power switch, thus it can be completely turned off
 #### GPIO / side headers 
 ![NESHTEC NeshNode Pinout GPIO / side headers](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-sides.png)
 
-#### MikroE MikroBus 
-![NESHTEC NeshNode Pinout MikroE MikroBus](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-mikrobus.png)
+#### MikroE® MikroBus™ 
+![NESHTEC NeshNode Pinout MikroE® MikroBus™](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-mikrobus.png)
 
 
 #### LEDs & buttons
@@ -68,6 +68,6 @@ Should you find an error, we would be pleased to hear from you! Just drop us an 
 
 ### Trademark disclaimer
 
-All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. 
+All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.
 
 MikroE® is a registered trademark and MikroBus™ a trademark of MikroElektronika d.o.o.
