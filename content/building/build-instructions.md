@@ -34,7 +34,7 @@ You'll need:
 
 If you are using VS Code as your development platform we suggest that you use the CMake Tools extension. This will allow you to run the builds without leaving VS Code.
 
-- [Visual Studio Code](http://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [CMake Extension](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
 - [CMake Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 
