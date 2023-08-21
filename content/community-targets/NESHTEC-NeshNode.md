@@ -1,8 +1,8 @@
 # NESHTEC NeshNode
 
-NeshNode is a flexible, high performance board featuring a powerful STM32F7 dual core microcontroller, on-board ethernet, LiPo battery charger, lots of I/Os and another powerful feature: two MikroE® Click™ sockets.
+NeshNode is a flexible, high performance board featuring a powerful STM32F7 dual core RISC based microcontroller, on-board ethernet, battery charger, lots of I/Os and two MikroE® Click™ sockets.
 
-This board has also been tested by [TÜV Nord](https://www.tuev-nord.de/), which means that it is fully compliant with EU regulations (CE).
+Furthermore, our board has been extensively tested by the independent testing institute [TÜV Nord](https://www.tuev-nord.de/) for EMC/EMI (electromagnetic compatibility / interference), which means that it is fully compliant with EU regulations (CE).
 
 ![NESHTEC NeshNode](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-nf.png)
 
@@ -14,7 +14,7 @@ https://neshtec.eu/products/neshnode-controllerplatine
 
 ## Hardware
 
-NeshNode was designed to be used as flexible as possible in professional projects, without having to develop a new board every time. The board is powerful enough for extensive cryptographic tasks and offers a lot of interfaces.
+NeshNode was designed to be used as flexible as possible in professional projects, without having to develop a new board every time. The board is powerful enough for extensive cryptographic tasks, cloud connectivity (like Microsoft Azure IoT Hub) and offers a lot of interfaces.
 
 ### STM32F765VGT6 microcontroller
 
@@ -36,13 +36,19 @@ Check out MikroE®'s Click™ board store for some awesome addon boards: https:/
 
 More information about the Click™ standard can be found on the MikroE®s website: https://www.mikroe.com
 
+### External I2C connector
+There's a dedicated connector sporting 3V3, GND, SCL, SDA and RST. This is supposed to be used for I2C, but you may also reconfigure the pins to act as GPIO.
+
+### Programming and debug interface
+A fully connected programming and debug interface, which comes without headers by default, can be used by native STMicroelectronics tools for the STM32 line of MCUs. For example, you may use STLink for flashing.
+
 ### LTC3586 power management
+We use a LTC®3586 (LTC3586) from Linear Technology, which is a highly efficient USB power management and battery charger IC for LiIon and LiPo batteries.
 
-We use a LTC3586 from Linear Technology, which is a highly efficient USB power manager and battery charger for LiIon and LiPo battery charging IC.
+### Buttons, LEDs, power switch
+There are three LEDs of which one is used by the power management IC and two can be used at your own discretion. Also, there are 3 buttons of which two can be used for your own needs and one is used for resetting the MCU.
 
-### Physical power switch
-
-The board features a physical power switch, thus it can be completely turned off (or on).
+Finally, the board features a physical power switch, thus it can be completely turned off (or on). 
 
 ### Pinout
 
@@ -52,9 +58,14 @@ The board features a physical power switch, thus it can be completely turned off
 #### GPIO / side headers 
 ![NESHTEC NeshNode Pinout GPIO / side headers](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-sides.png)
 
+### Programming and debug interface
+![NESHTEC NeshNode Pinout Programming and debug interface](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-debuginterface.png)
+
 #### MikroE® MikroBus™ 
 ![NESHTEC NeshNode Pinout MikroE® MikroBus™](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-mikrobus.png)
 
+#### External I2C connector
+![NESHTEC NeshNode Pinout External I2C connector](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-i2cconnector.png)
 
 #### LEDs & buttons
 ![NESHTEC NeshNode Pinout LEDs and buttons](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-pinout-led-button.png)
@@ -70,4 +81,10 @@ Should you find an error, we would be pleased to hear from you! Just drop us an 
 
 All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.
 
-MikroE® is a registered trademark and MikroBus™ a trademark of MikroElektronika d.o.o.
+* STM32 is a registered trademark of STMicroelectronics International N.V.
+* MikroE is a registered trademark and MikroBus a trademark of MikroElektronika d.o.o.
+* Microsoft, Azure and IoT Hub are trademarks or registered trademarks of the Microsoft group of companies.
+* Microchip is a trademark belonging to Microchip Technology Inc. or one of Microchip’s subsidiaries.
+* LT, LTC and LTM are registered trademarks of Linear Technology Corporation.
+
+All other trademarks are the property of their respective owners
