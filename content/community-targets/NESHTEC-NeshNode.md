@@ -37,7 +37,7 @@ Check out MikroE®'s Click™ board store for some awesome addon boards: https:/
 More information about the Click™ standard can be found on the MikroE®s website: https://www.mikroe.com
 
 ### External I2C connector
-There's a dedicated connector sporting 3V3, GND, SCL, SDA and RST. This is supposed to be used for I2C, but you may also reconfigure the pins to act as GPIO.
+There's a dedicated connector sporting 3V3, GND, SCL, SDA and RST on the rear side of the board. This is supposed to be used for I2C, but you may also reconfigure the pins to act as GPIO.
 
 ### Programming and debug interface
 A fully connected programming and debug interface, which comes without headers by default, can be used by native STMicroelectronics tools for the STM32 line of MCUs. For example, you may use STLink for flashing.
