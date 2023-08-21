@@ -42,7 +42,7 @@ To simplify: this guide we will put all our tools and source in easily accessibl
    - `C:\nftools`
    - `C:\nanoFramework`
 
-1. Download and install [Visual Studio Code](http://code.visualstudio.com).
+1. Download and install [Visual Studio Code](https://code.visualstudio.com).
 
 1. Clone [`nf-interpreter`](https://github.com/nanoframework/nf-interpreter) repository into `C:\nanoFramework\nf-interpreter`. See next section for more info.
 
@@ -177,4 +177,4 @@ Follow the instructions [here](../stm32/flash-cube-programmer.md) to install STM
 
 ## Next Steps
 
-See [Getting Started](http://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html) for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.
+See [Getting Started](https://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html) for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.
