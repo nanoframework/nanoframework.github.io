@@ -30,7 +30,7 @@ Ethernet is supplied by a Microchip LAN8720A, which is a high performance 10BASE
 
 MikroE® has designed a compact interface for which, as of today, there are over 1,000 different so-called Click™ boards of very high quality - giving you the flexibility to easily add whatever kind of additional functionality you might need.
 
-See above ([Pinout](#pinout)) for a sample of MikroE®s MikroBus™ layout.
+See below ([Pinout](#pinout)) for a sample of MikroE®s MikroBus™ layout.
 
 Check out MikroE®'s Click™ board store for some awesome addon boards: https://www.mikroe.com/click
 
