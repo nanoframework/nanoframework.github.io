@@ -21,7 +21,7 @@ If you prefer to install all the tools needed on your Windows machine, you shoul
 
 You'll need:
 
-- [Visual Studio Code](http://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - Visual Studio Code Extensions
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
@@ -42,7 +42,7 @@ To simplify: this guide we will put all our tools and source in easily accessibl
    - `C:\nftools`
    - `C:\nanoFramework`
 
-1. Download and install [Visual Studio Code](http://code.visualstudio.com).
+1. Download and install [Visual Studio Code](https://code.visualstudio.com).
 
 1. Clone [`nf-interpreter`](https://github.com/nanoframework/nf-interpreter) repository into `C:\nanoFramework\nf-interpreter`. See next section for more info.
 
@@ -73,7 +73,7 @@ To simplify, this guide we will put all our tools and source in easily accessibl
    - `C:\nftools`
    - `C:\nanoFramework`
 
-2. [Download](http://code.visualstudio.com/) and install Visual Studio Code.
+2. [Download](https://code.visualstudio.com/) and install Visual Studio Code.
 
 3. [Download](https://cmake.org/download/) and install CMake to `C:\nftools\CMake`.
 
@@ -206,4 +206,4 @@ If you want to view CPU register values in real time and use more advanced debug
 
 ## Next Steps
 
-See [Getting Started](http://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html) for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.
+See [Getting Started](https://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html) for instructions on creating and running a 'Hello World' managed application on your nanoFramework board.
