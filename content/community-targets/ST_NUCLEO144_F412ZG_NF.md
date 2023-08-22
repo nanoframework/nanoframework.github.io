@@ -2,6 +2,10 @@
 
 ![F12ZG](https://www.st.com/bin/ecommerce/api/image.PF262641.en.feature-description-include-personalized-no-cpn-medium.jpg)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_NUCLEO144_F412ZG_NF/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_NUCLEO144_F412ZG_NF/latest/)
+
 The board used in this community contribution is the NUCLEO144_F412ZG board from ST. The board can be purchased from various sources and should be about 20 euros. Further information on the Nucleo144 boards can be found in the user manuals UM1727 or UM1974 over at the [ST website](https://www.st.com).
 
 Some basic information abstracted from ST:

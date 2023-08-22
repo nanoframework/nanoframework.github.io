@@ -6,6 +6,10 @@ Furthermore, our board has been extensively tested by the independent testing in
 
 ![NESHTEC NeshNode](../../images/community-targets/NESHTEC-NeshNode-STM32F7-1.1-nf.png)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/NESHTEC_NESHNODE_V1/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/NESHTEC_NESHNODE_V1/latest/)
+
 ## How to get one?
 
 Just check out our shop, we'll ship the board from Germany:

@@ -2,6 +2,10 @@
 
 ![STM32F411E-DISC0](https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/ST_STM32F411_DISCOVERY/resources/STM32F411E-DISC0.jpg?raw=true)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_STM32F4_DISCOVERY/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_STM32F4_DISCOVERY/latest/)
+
 The STM32F411 Discovery board offers the following features:
 
 * STM32F411VET6 microcontroller featuring 512 KB of Flash memory, 128 KB of RAM in an LQFP100 package

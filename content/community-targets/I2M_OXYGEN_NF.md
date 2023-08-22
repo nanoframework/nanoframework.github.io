@@ -2,6 +2,10 @@
 
 ![I2M Oxygen](https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/I2M_OXYGEN_NF/resources/oxygen.jpeg?raw=true)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/I2M_OXYGEN_NF/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/I2M_OXYGEN_NF/latest/)
+
 The board used in this community contribution is a STM32F411CEU6 based board from IngenuityMicro called Oxygen. The board has 20 pins for your use. The pins on the opposite side of the USB connector can be used for several add-on boards for f.e. BLE, WiFi (ESP8266).
 
 The pins can be used for several purposes, GPIO, PWM, I2C, SPI, SERIAL, etc.

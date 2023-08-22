@@ -2,6 +2,10 @@
 
 ![ST Nucleo 64_F401RE NF](https://www.st.com/bin/ecommerce/api/image.PF260000.en.feature-description-include-personalized-no-cpn-medium.jpg)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_NUCLEO64_F401RE_NF/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_NUCLEO64_F401RE_NF/latest/)
+
 The board used in this community contribution is the NUCLEO64_F401RE board from ST. The board can be purchased from various sources and should be about 20 euros. Further information on the Nucleo64 boards can be found in the user manual UM1724 over at the [ST website](https://www.st.com). The board used here is of revision c as can be found on the board's lower backside sticker. The board MB1136 C-02 is configured to use ST-LINK MCO as clock input for HSE so we have an HSE of 8 MHz. Plus X2 is mounted so we do have an LSE as well. This is reflected in the mcuconf.h in both nanoBooter and nanoCLR paths. If it is chosen to activate LSE as this is a for more accurate clock for RTC, the board.h file needs to be adjusted accordingly to use 32768 frequency for LSE.
 
 I prepared a custom made a 4-wire jumper to USB cable by cutting off one end (Type A part) and figuring out the required D+, D-, 5V and GND. These need to be connected as follows:
