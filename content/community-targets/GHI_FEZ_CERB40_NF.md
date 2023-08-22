@@ -4,6 +4,8 @@
 
 -----
 
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/GHI_FEZ_CERB40_NF/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/GHI_FEZ_CERB40_NF/latest/)
+
 ## Board introduction
 
 The board here used is a GHI Fez Cerb40 based upon an STM32F405RGT6 supporting a 1MB Flash and up to 192KB RAM in a LQFP64 package. On this board the LSE is soldered in case you have a board without the LSE please make sure you have it configured correctly in both the mcuconf.h files for nanoBooter as well as nanoCLR.

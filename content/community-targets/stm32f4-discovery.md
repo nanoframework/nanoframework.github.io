@@ -4,6 +4,10 @@
 
 [Product page](http://www.st.com/en/evaluation-tools/stm32f4discovery.html)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_STM32F4_DISCOVERY/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_STM32F4_DISCOVERY/latest/)
+
 The board used in this community contribution is the STM32F4DISCOVERY board from STM. The board can be purchased from various sources and should be about 20 euros. Further information on this board and links for the user and programming manuals can be found at the product page in ST [website](https://www.st.com/en/evaluation-tools/stm32f4discovery.html).
 
 Some basic information abstracted from ST:
@@ -58,10 +62,6 @@ I2C buses available:
 
 The current build is set to add support for single-precision floating point.
 Meaning that `System.Math` API supports only the `float` overloads. The `double` ones will throw a `NotImplementedException`.
-
-## Firmware images (ready to deploy)
-
-[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_STM32F4_DISCOVERY/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_STM32F4_DISCOVERY/latest/)
 
 ## Managed helpers
 

@@ -4,6 +4,10 @@
 
 [Product page](http://www.st.com/en/evaluation-tools/nucleo-f746zg.html)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_NUCLEO144_F746ZG/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_NUCLEO144_F746ZG/latest/)
+
 The board used in this community contribution is the NUCLEO144 F746ZG board from STM. The board can be purchased from various sources and should be about 23 euros. Further information on this board and links for the user and programming manuals can be found at the product page in ST [website](http://www.st.com/en/evaluation-tools/nucleo-f746zg.html).
 
 Some basic information abstracted from ST:
@@ -32,10 +36,6 @@ This board has two micro USB connectors. One is exposing the embedded ST-Link in
 
 The current build is set to add support for single-precision floating point.
 Meaning that `System.Math` API supports only the `float` overloads. The `double` ones will throw a `NotImplementedException`.
-
-## Firmware images (ready to deploy)
-
-[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_NUCLEO144_F746ZG/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_NUCLEO144_F746ZG/latest/)
 
 ## Managed helpers
 

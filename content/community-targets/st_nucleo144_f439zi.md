@@ -2,6 +2,10 @@
 
 ![STM NUCLEO144 F439ZI board](../../images/community-targets/nucleo144-f439zi.jpg)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_NUCLEO144_F439ZI/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_NUCLEO144_F439ZI/latest/)
+
 The board used in this community contribution is the NUCLEO144 F439ZI board from STM. The board can be purchased from various sources and should be about 23 euros. Further information on this board and links for the user and programming manuals can be found at the product page in ST [website](http://www.st.com/en/evaluation-tools/nucleo-f439zi.html).
 
 Some basic information abstracted from ST:
