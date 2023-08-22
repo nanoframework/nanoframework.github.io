@@ -611,14 +611,9 @@ steps:
   condition: >-
     and(
       succeeded(),
-      ne(variables['System.PullRequest.PullRequestId'], ''),
-      or(
-        eq(variables['BUILD_ALL'], 'true'),
-        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
-        eq(variables['BuildOptions.BUILD_ALL'], 'true')
-      )
+      eq(variables['System.PullRequest.PullRequestId'], '')
     )
-  displayName: Commit changes
+  displayName: Commit changes in website
 
 # step from template @ nf-tools repo
 # report error
