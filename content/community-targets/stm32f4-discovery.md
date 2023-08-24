@@ -2,7 +2,7 @@
 
 ![stm32f4 discovery](../../images/community-targets/stm32f4_discovery.jpg)
 
-[Product page](http://www.st.com/en/evaluation-tools/stm32f4discovery.html)
+[Product page](https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
 
 -----
 
