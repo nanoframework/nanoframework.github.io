@@ -2,7 +2,7 @@
 
 ![TI CC1352P1](../../images/community-targets/ti_cc1352p1_shield.jpg)
 
-[Product page](http://www.ti.com/tool/LAUNCHXL-CC1352P)
+[Product page](https://www.ti.com/tool/LAUNCHXL-CC1352P)
 
 -----
 
