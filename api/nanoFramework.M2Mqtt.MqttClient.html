@@ -102,6 +102,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.html">IMqttClient</a></div>
     <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
   </div>
   <div class="inheritedMembers">
@@ -132,7 +133,7 @@
   <h6><strong>Assembly</strong>: nanoFramework.M2Mqtt.dll</h6>
   <h5 id="nanoFramework_M2Mqtt_MqttClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MqttClient : IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class MqttClient : IMqttClient, IDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -140,7 +141,7 @@
 
   <a id="nanoFramework_M2Mqtt_MqttClient__ctor_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor*"></a>
   <h4 id="nanoFramework_M2Mqtt_MqttClient__ctor_System_String_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor(System.String)">MqttClient(string)</h4>
-  <div class="markdown level1 summary"><p>Constructor</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a> class with default port and non-secure connection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -160,7 +161,7 @@
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">brokerHostName</span></td>
-        <td><p>Broker Host Name or IP Address</p>
+        <td><p>The Broker Host Name or IP Address.</p>
 </td>
       </tr>
     </tbody>
@@ -169,7 +170,7 @@
 
   <a id="nanoFramework_M2Mqtt_MqttClient__ctor_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor*"></a>
   <h4 id="nanoFramework_M2Mqtt_MqttClient__ctor_System_String_System_Int32_System_Boolean_System_Security_Cryptography_X509Certificates_X509Certificate_System_Security_Cryptography_X509Certificates_X509Certificate_nanoFramework_M2Mqtt_MqttSslProtocols_" data-uid="nanoFramework.M2Mqtt.MqttClient.#ctor(System.String,System.Int32,System.Boolean,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Certificate,nanoFramework.M2Mqtt.MqttSslProtocols)">MqttClient(string, int, bool, X509Certificate, X509Certificate, MqttSslProtocols)</h4>
-  <div class="markdown level1 summary"><p>Constructor</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -189,37 +190,37 @@
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">brokerHostName</span></td>
-        <td><p>Broker Host Name or IP Address</p>
+        <td><p>The Broker Host Name or IP Address.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.Int32.html">int</a></td>
         <td><span class="parametername">brokerPort</span></td>
-        <td><p>Broker port</p>
+        <td><p>The Broker port.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
         <td><span class="parametername">secure</span></td>
-        <td><p>Using secure connection</p>
+        <td><p>A value indicating whether to use a secure connection (SSL/TLS).</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.Security.Cryptography.X509Certificates.X509Certificate.html">X509Certificate</a></td>
         <td><span class="parametername">caCert</span></td>
-        <td><p>CA certificate for secure connection</p>
+        <td><p>The CA (Certificate Authority) certificate for secure connection.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.Security.Cryptography.X509Certificates.X509Certificate.html">X509Certificate</a></td>
         <td><span class="parametername">clientCert</span></td>
-        <td><p>Client certificate</p>
+        <td><p>The client certificate for secure connection.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="nanoFramework.M2Mqtt.MqttSslProtocols.html">MqttSslProtocols</a></td>
         <td><span class="parametername">sslProtocol</span></td>
-        <td><p>SSL/TLS protocol</p>
+        <td><p>The SSL/TLS protocol to use.</p>
 </td>
       </tr>
     </tbody>
@@ -1104,6 +1105,67 @@
   </div>
 
 
+  <a id="nanoFramework_M2Mqtt_MqttClient_Init_" data-uid="nanoFramework.M2Mqtt.MqttClient.Init*"></a>
+  <h4 id="nanoFramework_M2Mqtt_MqttClient_Init_System_String_System_Int32_System_Boolean_System_Byte___System_Byte___nanoFramework_M2Mqtt_MqttSslProtocols_" data-uid="nanoFramework.M2Mqtt.MqttClient.Init(System.String,System.Int32,System.Boolean,System.Byte[],System.Byte[],nanoFramework.M2Mqtt.MqttSslProtocols)">Init(string, int, bool, byte[], byte[], MqttSslProtocols)</h4>
+  <div class="markdown level1 summary"><p>MqttClient initialization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Init(string brokerHostName, int brokerPort, bool secure, byte[] caCert, byte[] clientCert, MqttSslProtocols sslProtocol)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.String.html">string</a></td>
+        <td><span class="parametername">brokerHostName</span></td>
+        <td><p>Broker Host Name or IP Address</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">brokerPort</span></td>
+        <td><p>Broker port</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Boolean.html">bool</a></td>
+        <td><span class="parametername">secure</span></td>
+        <td><blockquote>
+<p>Using secure connection</p>
+</blockquote>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">caCert</span></td>
+        <td><p>CA certificate for secure connection</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
+        <td><span class="parametername">clientCert</span></td>
+        <td><p>Client certificate</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttSslProtocols.html">MqttSslProtocols</a></td>
+        <td><span class="parametername">sslProtocol</span></td>
+        <td><p>SSL/TLS protocol version</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="nanoFramework_M2Mqtt_MqttClient_Publish_" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish*"></a>
   <h4 id="nanoFramework_M2Mqtt_MqttClient_Publish_System_String_System_Byte___" data-uid="nanoFramework.M2Mqtt.MqttClient.Publish(System.String,System.Byte[])">Publish(string, byte[])</h4>
   <div class="markdown level1 summary"><p>Publish a message asynchronously (QoS Level <a class="xref" href="nanoFramework.M2Mqtt.Messages.MqttQoSLevel.html#nanoFramework_M2Mqtt_Messages_MqttQoSLevel_AtMostOnce">AtMostOnce</a> and not retained).</p>
@@ -1537,7 +1599,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event MqttClient.ConnectionClosedEventHandler ConnectionClosed</code></pre>
+    <pre><code class="lang-csharp hljs">public event IMqttClient.ConnectionClosedEventHandler ConnectionClosed</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-condensed">
@@ -1549,7 +1611,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.ConnectionClosedEventHandler.html">ConnectionClosedEventHandler</a></td>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.html">IMqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.ConnectionClosedEventHandler.html">ConnectionClosedEventHandler</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1612,7 +1674,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event MqttClient.MqttMsgPublishEventHandler MqttMsgPublishReceived</code></pre>
+    <pre><code class="lang-csharp hljs">public event IMqttClient.MqttMsgPublishEventHandler MqttMsgPublishReceived</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-condensed">
@@ -1624,7 +1686,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublishEventHandler.html">MqttMsgPublishEventHandler</a></td>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.html">IMqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.MqttMsgPublishEventHandler.html">MqttMsgPublishEventHandler</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1637,7 +1699,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event MqttClient.MqttMsgPublishedEventHandler MqttMsgPublished</code></pre>
+    <pre><code class="lang-csharp hljs">public event IMqttClient.MqttMsgPublishedEventHandler MqttMsgPublished</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-condensed">
@@ -1649,7 +1711,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.MqttMsgPublishedEventHandler.html">MqttMsgPublishedEventHandler</a></td>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.html">IMqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.MqttMsgPublishedEventHandler.html">MqttMsgPublishedEventHandler</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1662,7 +1724,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event MqttClient.MqttMsgSubscribedEventHandler MqttMsgSubscribed</code></pre>
+    <pre><code class="lang-csharp hljs">public event IMqttClient.MqttMsgSubscribedEventHandler MqttMsgSubscribed</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-condensed">
@@ -1674,7 +1736,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.MqttMsgSubscribedEventHandler.html">MqttMsgSubscribedEventHandler</a></td>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.html">IMqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.MqttMsgSubscribedEventHandler.html">MqttMsgSubscribedEventHandler</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1687,7 +1749,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event MqttClient.MqttMsgUnsubscribedEventHandler MqttMsgUnsubscribed</code></pre>
+    <pre><code class="lang-csharp hljs">public event IMqttClient.MqttMsgUnsubscribedEventHandler MqttMsgUnsubscribed</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-condensed">
@@ -1699,12 +1761,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="nanoFramework.M2Mqtt.MqttClient.html">MqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.MqttClient.MqttMsgUnsubscribedEventHandler.html">MqttMsgUnsubscribedEventHandler</a></td>
+        <td><a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.html">IMqttClient</a>.<a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.MqttMsgUnsubscribedEventHandler.html">MqttMsgUnsubscribedEventHandler</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="nanoFramework.M2Mqtt.IMqttClient.html">IMqttClient</a>
+  </div>
   <div>
       <a class="xref" href="System.IDisposable.html">IDisposable</a>
   </div>
@@ -1750,7 +1815,7 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
