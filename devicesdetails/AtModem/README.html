@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Generic AT Modem SIM800 and SIM7070, SIM7080, SIM7090 - Dual Mode Wireless Module CatM, LTE modems | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Generic AT Modem SIM800 and SIM7070, SIM7080, SIM7090 - Dual Mode Wireless Module CatM, LTE modems | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+      <link rel="mask-icon" href="../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="generic-at-modem-sim800-and-sim7070-sim7080-sim7090---dual-mode-wireless-module-catm-lte-modems">Generic AT Modem SIM800 and SIM7070, SIM7080, SIM7090 - Dual Mode Wireless Module CatM, LTE modems</h1>
+
+<p>This binding is a generic AT Modem handler that can be extended for different usage. The first implementation is for the <code>Sim7080</code> which supports both <code>CAT-M</code> and <code>NB-IoT</code>. It can be controlled through AT command via a Serial/UART interface. There is as well a partial implementation of <code>SIM800</code>.</p>
+<blockquote>
+<p>Note: The module is tested on a <code>Sim7080</code> but is also compatible with Sim7070 and Sim7090 and with a <code>SIM800H</code>.</p>
+</blockquote>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://www.simcom.com/index.php/product/SIM7080G.html">SIM7080 Product details</a></li>
+<li><a href="https://www.simcom.com/product/SIM800C.html">SIM800 Product details</a></li>
+</ul>
+<p>Supported features for the different modems are the following:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>SIM800</th>
+<th>SIM7080</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMS</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Call</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>HTTP and HTTPS</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>MQTT and MQTTS</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>IP Network connection</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<p>Most modems supports other features like MMS, Sockets with TCP/UDP, FTP, email, GNSS and more. So far, those features are not implemented. They can be added later. All the mechanism is present to add them and described in the documentation bellow especially regarding the <a href="#the-channel-property">Channel property</a>.</p>
+<p>Note that a more complete implementation for the SIM800H is available in <a href="https://github.com/Eclo/nanoFramework.SIM800H">Eclo Solutions github repository</a>.</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the RT/RX pins especially for ESP32 before creating the <code>SerialPort</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">SerialPort _serialPort;
+OpenSerialPort(&quot;COM3&quot;);
+
+_serialPort.NewLine = &quot;\r\n&quot;;
+AtChannel atChannel = AtChannel.Create(_serialPort);
+Sim7080 modem = new(atChannel);
+
+private static void OpenSerialPort(
+    string port = &quot;COM3&quot;,
+    int baudRate = 115200,
+    Parity parity = Parity.None,
+    StopBits stopBits = StopBits.One,
+    Handshake handshake = Handshake.None,
+    int dataBits = 8,
+    int readTimeout = Timeout.Infinite,
+    int writeTimeout = Timeout.Infinite)
+{
+    // This section is specific to ESP32 targets
+    // Configure GPIOs 16 and 17 to be used in UART2 (that's refered as COM3)
+    Configuration.SetPinFunction(32, DeviceFunction.COM3_RX);
+    Configuration.SetPinFunction(33, DeviceFunction.COM3_TX);
+
+    _serialPort = new(port)
+    {
+        //Set parameters
+        BaudRate = baudRate,
+        Parity = parity,
+        StopBits = stopBits,
+        Handshake = handshake,
+        DataBits = dataBits,
+        ReadTimeout = readTimeout,
+        WriteTimeout = writeTimeout
+    };
+
+    // Open the serial port
+    _serialPort.Open();
+}
+</code></pre>
+<p>Note that each modem can support multiple baud rates and have automatic baud rates. You can set it up once the modem is awake using the <code>SetBaudRate</code> function.</p>
+<p>Some modems like the SIM800 can have an external pin to set high/low. This binding does not handle this behavior. You should use <a href="https://github.com/nanoframework/System.Device.Gpio">GpioController</a> to adjust those pins. It is also recommended for those to have a proper hardware reset pattern in case.</p>
+<p>Each modem derives from a <code>ModemBase</code>. It does offers to access the different features through properties. For example, accessing to the File Storage will be through the property <code>FileStorage</code> once the modem is open. If your modem does not implement this feature, it will throw a non implemented exception.</p>
+<p>All modems should implement the <code>ISmsProver</code> and <code>ICall</code> as those are standards. So you should be safe using them. Those properties <code>SmsProvider</code> and <code>Call</code> implements, by default a standard class that will work with the standard. Each modem can later derive and override those classes to add more features for example.</p>
+<h2 id="the-channel-property">The Channel property</h2>
+<p>The <code>Channel</code> property which is an <code>AtChannel</code> class allows you to control and write your own features when not implemented already. The class implement specific functions allowing to send and received AT commands but also raw data. There is an always running thread to read continuously the modem output that can be stopped and started on demand as well.</p>
+<p>Most of the time, you will be using simple commands that allow you to send just a command and wait for a OK or Error or for a specific text. This is done through the following functions:</p>
+<pre><code class="lang-csharp">// This command is sending a simple command and waiting for OR or ERROR.
+// Internally it uses a default timeout. A specific one can be passed as well.
+AtResponse response = Channel.SendCommand($&quot;AT+IPR={baudRate}&quot;);
+if (response.Success)
+{
+    Console.WriteLine(&quot;The command returned OK&quot;);
+    // You can proceed and do something else
+}
+else
+{
+    Console.WriteLine(&quot;The command returned ERROR!&quot;);
+    // You may retry or do anything else
+}
+</code></pre>
+<p>You can wait as well to get a specific partial answer with one or multiple lines:</p>
+<pre><code class="lang-csharp">AtResponse response = Channel.SendCommandReadSingleLine($&quot;AT+CSCS=?&quot;, &quot;+CSCS:&quot;);
+if (response.Success)
+{
+    // This means we have read 1 line stating with &quot;+CSCS:&quot;
+    // We have ignore all the rest up to a OK
+}
+else
+{
+    // In this case, there is ERROR at the end or it does not contains &quot;+CSCS:&quot; or a timeout
+}
+</code></pre>
+<p>This is an example for reading multiple lines:</p>
+<pre><code class="lang-csharp">AtResponse response = Channel.SendCommandReadMultiline(&quot;ATI&quot;, null);
+// Here, we don't wait for a specific answer, any will be taken up to OK or ERROR or a timeout
+if (response.Success)
+{
+    // This means that there is a OK at the end
+    StringBuilder builder = new StringBuilder();
+    foreach (string line in response.Intermediates)
+    {
+        builder.AppendLine(line);
+    }
+
+    Console.WriteLine(builder.ToString());
+}
+</code></pre>
+<p>As an example of something more advance, you can stop the main receiving thread, add your own logic and restart it after, you can do something like this:</p>
+<pre><code class="lang-csharp">Modem.Channel.Stop();
+Modem.Channel.SendBytesWithoutAck(Encoding.UTF8.GetBytes($&quot;AT+SHREAD=0,{_httpActionResult.DataLenght}\r\n&quot;));
+
+// Do a lot of things here like reading manually
+var chunk = Modem.Channel.ReadRawBytes(42);
+
+// Then clean the output and restart the receiving thread
+Modem.Channel.Clear();
+Modem.Channel.Start();
+</code></pre>
+<h2 id="internal-storage">Internal storage</h2>
+<p>Each modem may contain an internal storage. Some does have basic file support only, some may contains directory as well and or multiple drives/storage area.</p>
+<p>The implementation should be done through the <code>IFileStorage</code> interface and can be accessed with the property <code>FileStorage</code>. Some devices will have support for folder, this will be indicated by the property <code>HasDirectorySupport</code>.</p>
+<p>You can create, read files, delete and rename them and have the size of a file and storage:</p>
+<pre><code class="lang-csharp">const string FileName = &quot;test.txt&quot;;
+const string Content = &quot;Hello from nanoFramework&quot;;
+
+// Available storage
+var size = modem.FileStorage.GetAvailableStorage();
+Console.WriteLine($&quot;Available storage: {size}&quot;);
+
+// Create a file
+var respCreate = modem.FileStorage.WriteFile(FileName, Content);
+Console.WriteLine($&quot;Create file: {(respCreate ? &quot;success&quot; : &quot;failure&quot;)}&quot;);
+
+// Get file size
+Console.WriteLine($&quot;File size: {modem.FileStorage.GetFileSize(FileName)}&quot;);
+
+// Read file
+var respRead = modem.FileStorage.ReadFile(FileName);
+if (respRead != null &amp;&amp; respRead == Content)
+{
+    Console.WriteLine($&quot;Read file: success&quot;);
+}
+else
+{
+    if (respRead != null)
+    {
+        Console.WriteLine($&quot;Read file: failure, content is {respRead}&quot;);
+    }
+    else
+    {
+        Console.WriteLine($&quot;Read file: failure&quot;);
+    }
+}
+
+bool respDelete = false;
+
+// Rename file
+var respRename = modem.FileStorage.RenameFile(FileName, &quot;test2.txt&quot;);
+if (respRename)
+{
+    Console.WriteLine($&quot;Rename file: success&quot;);
+    // Delete file
+    respDelete = modem.FileStorage.DeleteFile(&quot;test2.txt&quot;);
+}
+else
+{
+    Console.WriteLine($&quot;Rename file: failure&quot;);
+    // Delete file
+    respDelete = modem.FileStorage.DeleteFile(FileName);
+}
+
+Console.WriteLine($&quot;Delete file: {(respDelete ? &quot;success&quot; : &quot;failure&quot;)}&quot;);
+</code></pre>
+<p>Assuming we have directory support, you can create, list and delete directories:</p>
+<pre><code class="lang-csharp">const string DirectoryName = &quot;Test&quot;;
+const string Content = &quot; nanoFramework!&quot;;
+// Create a directory
+var respCreateDir = modem.FileStorage.CreateDirectory(DirectoryName);
+Console.WriteLine($&quot;Create directory: {(respCreateDir ? &quot;success&quot; : &quot;failure&quot;)}&quot;);
+
+// You can create file in it
+res = modem.FileStorage.WriteFile($&quot;{DirectoryName}\\test.txt&quot;, Content);
+if (!res)
+{
+    Console.WriteLine($&quot;Create file: failure&quot;);
+}
+else
+{
+    Console.WriteLine($&quot;Create file: success&quot;);
+}
+
+// List the directory
+var respListDir = modem.FileStorage.ListDirectory(DirectoryName);
+if (respListDir != null)
+{
+    Console.WriteLine($&quot;List directory: success&quot;);
+    foreach (var file in respListDir)
+    {
+        Console.WriteLine($&quot;  {file}&quot;);
+    }
+}
+else
+{
+    Console.WriteLine($&quot;List directory: failure&quot;);
+}
+
+// Delete the directory
+var respDeleteDir = modem.FileStorage.DeleteDirectory(DirectoryName);
+Console.WriteLine($&quot;Delete directory: {(respDeleteDir ? &quot;success&quot; : &quot;failure&quot;)}, failure is normal if the directory is not empty.&quot;);
+</code></pre>
+<h2 id="sms">SMS</h2>
+<p>SMS features are almost fully supported. This implementation does not <em>yet</em> support UCS2. All the rest is supported. The property <code>SmsProvider</code> allow to access the SMS features.</p>
+<blockquote>
+<p><strong>Important</strong>: you need to make sure you have a proper network connection before being able to send or receive SMS. See the <a href="#networking">networking section</a>.</p>
+</blockquote>
+<p>Even when the connection is available, you may not have the SMS engine ready, check it with the <code>IsSmsReady</code> property:</p>
+<pre><code class="lang-csharp">while (true)
+{
+    if (modem.SmsProvider.IsSmsReady)
+    {
+        Console.WriteLine($&quot;SMS is ready!&quot;);
+        break;
+    }
+
+    Console.WriteLine($&quot;Waiting for SMS to be ready...&quot;);
+    Thread.Sleep(1000);
+}
+</code></pre>
+<p>You can list the SMS like this:</p>
+<pre><code class="lang-csharp">var resplistSms = modem.SmsProvider.ListSmss(SmsStatus.ALL);
+if (resplistSms.IsSuccess)
+{
+    Console.WriteLine($&quot;SMS list:&quot;);
+    foreach (SmsWithIndex sms in (ArrayList)resplistSms.Result)
+    {
+        Console.WriteLine($&quot;  Sender: {sms.Sender}&quot;);
+        Console.WriteLine($&quot;  Date: {sms.ReceiveTime}&quot;);
+        Console.WriteLine($&quot;  Message: {sms.Message}&quot;);
+        Console.WriteLine($&quot;  Status: {sms.Status}&quot;);
+        Console.WriteLine($&quot;  Index: {sms.Index}&quot;);
+    }
+}
+</code></pre>
+<p>You can read a specific SMS knowing its index:</p>
+<pre><code class="lang-csharp">// Assuming in this example that the SMS index is 1
+var respSmsRead = modem.SmsProvider.ReadSms(1, SmsTextFormat.PDU);
+if (respSmsRead.IsSuccess)
+{
+    Sms sms = (Sms)respSmsRead.Result;
+    Console.WriteLine($&quot;SMS read successfully:&quot;);
+    Console.WriteLine($&quot;  Sender: {sms.Sender}&quot;);
+    Console.WriteLine($&quot;  Date: {sms.ReceiveTime}&quot;);
+    Console.WriteLine($&quot;  Message: {sms.Message}&quot;);
+    Console.WriteLine($&quot;  Status: {sms.Status}&quot;);
+}
+else
+{
+    Console.WriteLine($&quot;SMS read failed: {respSmsRead.ErrorMessage}&quot;);
+}
+</code></pre>
+<p>You can send an SMS using the Text or the PDU format. PDU will allow you to specify a specific encoding (note: UCS2 is not <em>yet</em> supported):</p>
+<pre><code class="lang-csharp">ModemResponse respSmsSend;
+respSmsSend = modem.SmsProvider.SendSmsInTextFormat(new PhoneNumber(&quot;+33664404676&quot;), &quot;Hello from nanoFramework text&quot;);
+if (respSmsSend.IsSuccess)
+{
+    Console.WriteLine($&quot;SMS sent successfully: {respSmsSend.Result}&quot;);
+}
+else
+{
+    Console.WriteLine($&quot;SMS sent failed: {respSmsSend.ErrorMessage}&quot;);
+}
+
+respSmsSend = modem.SmsProvider.SendSmsInPduFormat(new PhoneNumber(&quot;+33664404676&quot;), &quot;Hello from nanoFramework pdu&quot;, IoT.Device.AtModem.CodingSchemes.CodingScheme.Gsm7, true);
+if (respSmsSend.IsSuccess)
+{
+    Console.WriteLine($&quot;SMS sent successfully: {respSmsSend.Result}&quot;);
+}
+else
+{
+    Console.WriteLine($&quot;SMS sent failed: {respSmsSend.ErrorMessage}&quot;);
+}
+</code></pre>
+<h2 id="networking">Networking</h2>
+<p>Your SIM card may be with a pin code. You can check this with the <code>GetSimStatus</code> function.</p>
+<pre><code class="lang-csharp">var pinStatus = modem.GetSimStatus();
+if (pinStatus.IsSuccess)
+{
+    Console.WriteLine($&quot;SIM status: {(SimStatus)pinStatus.Result}&quot;);
+    // Do we need a pin code?
+    if ((SimStatus)pinStatus.Result == SimStatus.PinRequired)
+    {
+        // Provide the pin code
+        var pinRes = modem.EnterSimPin(new PersonalIdentificationNumber(&quot;1234&quot;));
+        if (pinRes.IsSuccess)
+        {
+            Console.WriteLine(&quot;PIN entered successfully&quot;);
+        }
+        else
+        {
+            Console.WriteLine(&quot;PIN entered failed&quot;);
+        }
+    }
+}
+</code></pre>
+<p>Depending on your provider, you may have to provide APN details and have a manual way of connecting to the network. You can achieve this like this:</p>
+<pre><code class="lang-csharp">var network = modem.Network;
+// If you have a pin code, you should pass it
+// var connectRes = network.Connect(new PersonalIdentificationNumber(&quot;1234&quot;), new AccessPointConfiguration(&quot;free&quot;));
+var connectRes = network.Connect(apn: new AccessPointConfiguration(&quot;orange&quot;));
+if (connectRes)
+{
+    Console.WriteLine($&quot;Connected to network.&quot;);
+}
+else
+{
+    Console.WriteLine($&quot;Connected to network failed! Trying to reconnect...&quot;);
+    connectRes = network.Reconnect();
+    if (connectRes)
+    {
+        Console.WriteLine($&quot;Reconnected to network.&quot;);
+    }
+    else
+    {
+        Console.WriteLine($&quot;Reconnected to network failed!&quot;);
+    }
+}
+
+NetworkInformation networkInformation = network.NetworkInformation;
+Console.WriteLine($&quot;Network information:&quot;);
+Console.WriteLine($&quot;  Operator: {networkInformation.NetworkOperator}&quot;);
+Console.WriteLine($&quot;  Connextion status: {networkInformation.ConnectionStatus}&quot;);
+Console.WriteLine($&quot;  IP Address: {networkInformation.IPAddress}&quot;);
+Console.WriteLine($&quot;  Signal quality RSSI: {networkInformation.SignalQuality.Rssi}&quot;);
+Console.WriteLine($&quot;  Signal quality BER: {networkInformation.SignalQuality.Ber}&quot;);
+</code></pre>
+<p>A high level function is also available to wait for a connection to happen. You should test how things work with your provider.</p>
+<pre><code class="lang-csharp">// Wait for network registration for 2 minutes max, if not connected, then something is most likely very wrong
+var isConnected = modem.WaitForNetworkRegistration(new CancellationTokenSource(120_000).Token);
+</code></pre>
+<p>And you also have functions to understand how you are connected to the network:</p>
+<pre><code class="lang-csharp">var networkReg = GetNetworkRegistration();
+if (networkReg.IsSuccess)
+{
+    if ((NetworkRegistration)networkReg.Result == NetworkRegistration.RegisteredHomeNetwork || (NetworkRegistration)networkReg.Result == NetworkRegistration.RegisteredRoaming)
+    {
+        // We are connected
+    }
+}
+</code></pre>
+<p>Once connected to the network, you have also an event that gives you date and time update. This is convenient to set your device date time:</p>
+<pre><code class="lang-csharp">var network = modem.Network;
+network.DateTimeChanged += NetworkDateTimeChanged;
+
+void NetworkDateTimeChanged(object sender, DateTimeEventArgs e)
+{
+    // Set the native date time
+    Rtc.SetSystemTime(e.DateTime);
+    Console.WriteLine($&quot;Date and time received, it is now {DateTime.UtcNow}&quot;);
+}
+</code></pre>
+<p>Other events are available related to the state of the connection. The network connection is the connection to the operator while the application network is typically the IP connection:</p>
+<pre><code class="lang-csharp">modem.NetworkConnectionChanged += ModemNetworkConnectionChanged;
+// This will set the modem to reconnect when disconnected
+modem.Network.AutoReconnect = true;
+modem.Network.ApplicationNetworkEvent += NetworkApplicationNetworkEvent;
+
+void ModemNetworkConnectionChanged(object sender, NetworkConnectionEventArgs e)
+{
+    Console.WriteLine($&quot;Network connection changed to: {e.NetworkRegistration}&quot;);
+}
+
+void NetworkApplicationNetworkEvent(object sender, ApplicationNetworkEventArgs e)
+{
+    Console.WriteLine($&quot;Application network event received, connection is: {e.IsConnected}&quot;);
+}
+</code></pre>
+<p>Note that you may have to handle reconnection mechanism also even if a lot is already done for you in the modem and in the code.</p>
+<p>You can also list the operators. Like when you do this on your phone, this may take minutes!</p>
+<pre><code class="lang-csharp">var network = modem.Network;
+
+Console.WriteLine(&quot;Getting the list of operators, this may take a while, up to 5 minutes...&quot;);
+// Get the operators
+var operators = network.GetOperators();
+if (operators != null)
+{
+    foreach (var op in operators)
+    {
+        Console.WriteLine($&quot;Operator:&quot;);
+        Console.WriteLine($&quot;  Name: {op.Name}&quot;);
+        Console.WriteLine($&quot;  Long name: {op.ShortName}&quot;);
+        Console.WriteLine($&quot;  Format: {op.Format}&quot;);
+        Console.WriteLine($&quot;  System Mode: {op.SystemMode}&quot;);
+    }
+}
+</code></pre>
+<p>You have additional functions to execute USSD codes, get the battery level, get the signal strength, get the subscriber number and more!</p>
+<h2 id="call">Call</h2>
+<p>You can manage calls with any modem. A generic implementation is provided through the <code>Call</code> property. You can be notified with events on the call status and take action on them:</p>
+<pre><code class="lang-csharp">var call = modem.Call;
+call.IncomingCall += CallIncomingCall;
+call.CallStarted += CallCallStarted;
+call.CallEnded += CallCallEnded;
+call.MissedCall += CallMissedCall;
+
+// Let's do a call now and being anonymous ;-)
+call.Dial(new PhoneNumber(&quot;+33123456789&quot;), true);
+
+void CallCallStarted(object sender, CallStartedEventArgs e)
+{
+    Console.WriteLine(&quot;A call has started&quot;);
+}
+
+void CallMissedCall(object sender, MissedCallEventArgs e)
+{
+    Console.WriteLine($&quot;Missed call from {e.PhoneNumber} at {e.Time}&quot;);
+}
+
+void CallIncomingCall(object sender, IncomingCallEventArgs e)
+{
+    Console.WriteLine($&quot;Incoming!&quot;);
+    // We have an incoming call, we answer it
+    modem.Call.AnswerIncomingCall();
+}
+
+void CallCallEnded(object sender, CallEndedEventArgs e)
+{
+    Console.WriteLine($&quot;Call ended!&quot;);
+}
+</code></pre>
+<blockquote>
+<p>Note: You may have to add a microphone and speakers in order to use those features. They may not be exposed in your hardware depending on what you are getting as board.</p>
+</blockquote>
+<h2 id="mqtt-and-mqtt-secured">MQTT and MQTT Secured</h2>
+<p>You can use a MQTT client implementing the <a href="https://github.com/nanoframework/nanoFramework.m2mqtt/blob/main/nanoFramework.M2Mqtt.Core/IMqttClient.cs">IMqttClient</a> interface.</p>
+<blockquote>
+<p><strong>Important</strong>: Each modem may not support all the features or have limitations with the topic and payload length. Make sure you check the limitations especially if you want to use those with Azure or AWS IoT.</p>
+</blockquote>
+<p>Because of the interface, you can use the MQTT client provided by the <code>MqttClient</code> client property like you can do with the existing nanoFramework MQTT Client.</p>
+<p>As an example, you can use the <a href="https://github.com/nanoframework/nanoFramework.Azure.Devices">Azure IoT fully managed nuget</a> and pass the MqttClient property plus the certificate:</p>
+<pre><code class="lang-csharp">// This specific modem only support binary DER certificate format (not PEM):
+DeviceClient azureIoT = new DeviceClient(modem.MqttClient, IotBrokerAddress, DeviceID, SasKey, azureCert: Resource.GetBytes(Resource.BinaryResources.DigiCertGlobalRootG2));
+</code></pre>
+<p>The fact that the <code>MqttClient</code> uses this <code>IMqttClient</code> interface will allow you to reuse the almost same code between different implementations, though Wifi, Ethernet and AT Modem. A full Azure sample is provided in the <a href="https://github.com/nanoframewrok/Samples">Samples</a> repository.</p>
+<h3 id="mqtts-certificate-validation">MQTTS Certificate validation</h3>
+<p>The certificate validation for MQTT secured connections happens only if you provide a certificate. If you pass a null server certificate, the server certificate verification will be ignored.</p>
+<p>In the SIM7070/7080/7090, the only certificate format supported is DER, meaning, the binary representation of the certificate (usually with .crt extension) and not the PEM format (that is a base64 text encoded representation).</p>
+<blockquote>
+<p><strong>Important</strong>: A <code>X509Certificate</code> fully managed code implementation is available for convenience. It does <strong>not</strong> provide any property like getting the certificate validate time. It is just a wrapper to make code reuse simpler. It does <strong>not</strong> parse the certificate neither or transform it. If you pass a PEM certificate, getting the data will always be a PEM certificate, it is not going to transform it as a DER and vice versa.</p>
+</blockquote>
+<h2 id="http-and-https">HTTP and HTTPS</h2>
+<p>A code compatible implementation of <code>HttpClient</code> that is present in the nanoFramework System.Net is provided through the <code>HttpClient</code> property. This will allow you to reuse code across different implementations though Wifi, Ethernet and AT Modem.</p>
+<p>You will find below few examples of Get and Post below:</p>
+<pre><code class="lang-csharp">var httpClient = modem.HttpClient;
+HttpResponseMessage resp;
+resp = httpClient.Get(&quot;http://www.ellerbach.net/DateHeure/&quot;);
+Console.WriteLine($&quot;Status should be OK 200: {resp.StatusCode}&quot;);
+Console.WriteLine($&quot;HTTP GET: {resp.Content?.ReadAsString()}&quot;);
+Console.WriteLine();
+
+resp = httpClient.Get(&quot;http://www.ellerbach.net/DateHeure&quot;);
+Console.WriteLine($&quot;Status should be MovedPermanently 301: {resp.StatusCode}&quot;);
+Console.WriteLine($&quot;HTTP GET: {resp.Content?.ReadAsString()}&quot;);
+Console.WriteLine();
+
+resp = httpClient.Get(&quot;http://www.ellerbach.net/DateTime&quot;);
+Console.WriteLine($&quot;Status should be NotFound 404: {resp.StatusCode}&quot;);
+Console.WriteLine($&quot;HTTP GET: {resp.Content?.ReadAsString()}&quot;);
+Console.WriteLine();
+
+resp = httpClient.Get(&quot;https://www.ellerbach.net/DateHeure/&quot;);
+Console.WriteLine($&quot;Status should be OK 200: {resp.StatusCode}&quot;);
+Console.WriteLine($&quot;HTTP GET: {resp.Content?.ReadAsString()}&quot;);
+Console.WriteLine();
+
+resp = httpClient.Post(&quot;https://httpbin.org/post&quot;, new StringContent(&quot;{\&quot;title\&quot;:\&quot;nano\&quot;,\&quot;body\&quot;:\&quot;Framework\&quot;,\&quot;userId\&quot;:101}&quot;, System.Text.Encoding.UTF8, &quot;application/json&quot;));
+Console.WriteLine($&quot;Status should be OK 200: {resp.StatusCode}&quot;);
+Console.WriteLine($&quot;HTTP POST: {resp.Content?.ReadAsString()}&quot;);
+Console.WriteLine();
+</code></pre>
+<h3 id="https-certificate-validation">HTTPS Certificate validation</h3>
+<p>The certificate validation for HTTPS secured connections happens only if you provide a certificate. If you pass a null server certificate, the server certificate verification will be ignored.</p>
+<p>In the SIM7070/7080/7090, the only certificate format supported is DER, meaning, the binary representation of the certificate (usually with .crt extension) and not the PEM format (that is a base64 text encoded representation).</p>
+<blockquote>
+<p><strong>Important</strong>: A <code>X509Certificate</code> fully managed code implementation is available for convenience. It does <strong>not</strong> provide any property like getting the certificate validate time. It is just a wrapper to make code reuse simpler. It does <strong>not</strong> parse the certificate neither or transform it. If you pass a PEM certificate, getting the data will always be a PEM certificate, it is not going to transform it as a DER and vice versa.</p>
+</blockquote>
+<h2 id="articles">Articles</h2>
+<p>Part of this code is adaptation and port of <a href="https://github.com/hbjorgo/ATLib">ATLib</a>.</p>
+<ul>
+<li><a href="https://medium.com/itnext/when-machines-talk-bccba9a8c049">Starting a Narrowband IoT project with nanoFramework</a></li>
+<li><a href="https://medium.com/itnext/establishing-a-connection-to-azure-iot-hub-using-an-mqtt-client-with-nanoframework-d9c2e1b4ebbe">Establishing a connection to Azure IoT Hub using an MQTT client with nanoFramework</a></li>
+<li><a href="https://medium.com/itnext/creating-a-tracking-device-with-nanoframework-6d27b5b4e7ab">Creating a tracking device with nanoFramework</a></li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/AtModem/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
+

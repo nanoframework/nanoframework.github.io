@@ -92,7 +92,7 @@
 
   <h1 id="System_Device_Adc_AdcControllerBase" data-uid="System.Device.Adc.AdcControllerBase" class="text-break">Class AdcControllerBase
 </h1>
-  <div class="markdown level0 summary"><p>Base class for <a class="xref" href="System.Device.Adc.AdcController.html">AdcController</a>.</p>
+  <div class="markdown level0 summary"><p>Base class for <a class="xref" href="nanoFramework.GiantGecko.Adc.AdcController.html">AdcController</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -100,6 +100,7 @@
     <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
     <div class="level1"><span class="xref">AdcControllerBase</span></div>
       <div class="level2"><a class="xref" href="System.Device.Adc.AdcController.html">AdcController</a></div>
+      <div class="level2"><a class="xref" href="nanoFramework.GiantGecko.Adc.AdcController.html">AdcController</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -126,7 +127,7 @@
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Device.html">Device</a>.<a class="xref" href="System.Device.Adc.html">Adc</a></h6>
-  <h6><strong>Assembly</strong>: System.Device.Adc.dll</h6>
+  <h6><strong>Assembly</strong>: nanoFramework.GiantGecko.Adc.dll</h6>
   <h5 id="System_Device_Adc_AdcControllerBase_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class AdcControllerBase</code></pre>
@@ -149,7 +150,7 @@
 
   <a id="System_Device_Adc_AdcControllerBase_ChannelCount_" data-uid="System.Device.Adc.AdcControllerBase.ChannelCount*"></a>
   <h4 id="System_Device_Adc_AdcControllerBase_ChannelCount" data-uid="System.Device.Adc.AdcControllerBase.ChannelCount">ChannelCount</h4>
-  <div class="markdown level1 summary"><p>The number of channels available on the <a class="xref" href="System.Device.Adc.AdcController.html">AdcController</a>.</p>
+  <div class="markdown level1 summary"><p>The number of channels available on the <a class="xref" href="nanoFramework.GiantGecko.Adc.AdcController.html">AdcController</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -280,6 +281,33 @@
       </tr>
     </tbody>
   </table>
+
+
+  <a id="System_Device_Adc_AdcControllerBase_SupportedResolutionsInBits_" data-uid="System.Device.Adc.AdcControllerBase.SupportedResolutionsInBits*"></a>
+  <h4 id="System_Device_Adc_AdcControllerBase_SupportedResolutionsInBits" data-uid="System.Device.Adc.AdcControllerBase.SupportedResolutionsInBits">SupportedResolutionsInBits</h4>
+  <div class="markdown level1 summary"><p>Gets the resolution(s) of the controller as number of bits it has. For example, if we have a 10-bit ADC, that means it can detect 1024 (2^10) discrete levels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract SampleResolution[] SupportedResolutionsInBits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.GiantGecko.Adc.SampleResolution.html">SampleResolution</a>[]</td>
+        <td><p>Array with the resolution(s) that the ADC has support for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
 
@@ -366,7 +394,58 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Device.Adc.AdcChannel.html">AdcChannel</a></td>
+        <td><a class="xref" href="nanoFramework.GiantGecko.Adc.AdcChannel.html">AdcChannel</a></td>
+        <td><p>The ADC channel.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="System_Device_Adc_AdcControllerBase_OpenChannel_" data-uid="System.Device.Adc.AdcControllerBase.OpenChannel*"></a>
+  <h4 id="System_Device_Adc_AdcControllerBase_OpenChannel_System_Int32_nanoFramework_GiantGecko_Adc_AdcChannelConfiguration_" data-uid="System.Device.Adc.AdcControllerBase.OpenChannel(System.Int32,nanoFramework.GiantGecko.Adc.AdcChannelConfiguration)">OpenChannel(int, AdcChannelConfiguration)</h4>
+  <div class="markdown level1 summary"><p>Opens a connection to the specified ADC channel with the specified configurations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract AdcChannel OpenChannel(int channelNumber, AdcChannelConfiguration configuration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Int32.html">int</a></td>
+        <td><span class="parametername">channelNumber</span></td>
+        <td><p>The channel to connect to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="nanoFramework.GiantGecko.Adc.AdcChannelConfiguration.html">AdcChannelConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>Initial configuration for ADC channel.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="nanoFramework.GiantGecko.Adc.AdcChannel.html">AdcChannel</a></td>
         <td><p>The ADC channel.</p>
 </td>
       </tr>
