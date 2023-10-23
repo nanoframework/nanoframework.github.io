@@ -29,7 +29,7 @@ We would like to have .NET **nanoFramework** in full conformance with the style 
 
 ## Commit Messages
 
-Please format commit messages as follows (based on this [excellent post](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)):
+Please format commit messages as follows (based on this [excellent post](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)):
 
 ```text
 Summarize change in 50 characters or less
@@ -184,11 +184,11 @@ We suggest that you go through some basic tutorial and give it a try on a test r
 
 Here are a few resources that we've compiled to get you up to speed. No claims that these are, by any stretch, the only or the better ones! You can find a bunch of these out there!
 
-- [GitHub trial site](http://try.github.io/). Gives you a nice tour of git. Get your feet wet without even installing software!
+- [GitHub trial site](https://docs.github.com/en/get-started/quickstart/set-up-git). Gives you a nice tour of git. Get your feet wet without even installing software!
 
-- [GitHub help page](http://help.github.com/) Deals with basic usage, concepts and terms of git and github. Good to get a first idea.
+- [GitHub help page](https://support.github.com/) Deals with basic usage, concepts and terms of git and github. Good to get a first idea.
 
-- [Git Reference](http://git.github.io/git-reference/). Nice and concise reference of the essential functions of git. Takes about 30min to read through, you'll come out smarter at the end.
+- [Git Reference](https://git.github.io/git-reference/). Nice and concise reference of the essential functions of git. Takes about 30min to read through, you'll come out smarter at the end.
 
 - The git [community book](https://git-scm.com/book/en/v2). This book is meant to help you learn how to use Git as quickly and easily as possible.
 
