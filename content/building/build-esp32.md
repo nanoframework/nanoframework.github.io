@@ -41,7 +41,7 @@ You'll need:
 
       `C:\nanoFramework`
 
--**Step 2**: Download and install [Visual Studio Code](http://code.visualstudio.com).
+-**Step 2**: Download and install [Visual Studio Code](https://code.visualstudio.com).
 
 -**Step 3**: Clone [`nf-interpreter`](https://github.com/nanoframework/nf-interpreter) repository into `C:\nanoFramework\nf-interpreter`. See next section for more info.
 
@@ -234,7 +234,7 @@ If flashing nanoCLR via a COM port (default), then be aware that you need to dis
 
 You may have to add the `IRAM_ATTR` attribute to a function that you want to debug, so it can be loaded in RAM. When launched the debugger will normally stop at the main task. Its not possible to set a break point on code that is not yet loaded so either step down to a point that it is loaded or temporarily set the method with the IRAM_ATTR attribute.
 
-For more information on JTAG debugging see [Espressif documentation](http://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/).
+For more information on JTAG debugging see [Espressif documentation](https://esp-idf.readthedocs.io/en/latest/api-guides/jtag-debugging/).
 
 ### Debugging nanoCLR without special hardware
 

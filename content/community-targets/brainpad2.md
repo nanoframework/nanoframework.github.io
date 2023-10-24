@@ -2,6 +2,10 @@
 
 ![BrainPad2](https://www.brainpad.com/wp-content/uploads/2021/06/PulseScreenAnimated.gif)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/BrainPad2/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/BrainPad2/latest/)
+
 The board used in this community contribution is a STM32F401RE based board from GHI Electronics called BrainPad.
 
 These pins can be used for:

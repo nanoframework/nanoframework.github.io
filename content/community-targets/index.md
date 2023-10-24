@@ -22,3 +22,4 @@ These boards are NOT maintained by the core team and any related questions or is
 - [BrainPad2](brainpad2.md)
 - [QUAIL](mbn-quail.md)
 - [NETDUINO3_WIFI](netduino3-wifi.md)
+- [NESHTEC NeshNode](NESHTEC-NeshNode.md)

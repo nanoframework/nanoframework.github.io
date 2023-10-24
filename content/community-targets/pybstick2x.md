@@ -2,6 +2,10 @@
 
 ![PYBStick standard 26](https://raw.githubusercontent.com/mchobby/pyboard-driver/master/PYBStick/docs/_static/PYBStick-STD-26.jpg)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/PybStick2x/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/PybStick2x/latest/)
+
 The board used in this community contribution is a STM32F411RE based board from [MCHobby](https://github.com/mchobby) and Garatronic.
 
 This board has multiple functions and they are pre setup like this in the picture.

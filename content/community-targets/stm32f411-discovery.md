@@ -2,6 +2,10 @@
 
 ![STM32F411E-DISC0](https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/ST_STM32F411_DISCOVERY/resources/STM32F411E-DISC0.jpg?raw=true)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/ST_STM32F4_DISCOVERY/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/ST_STM32F4_DISCOVERY/latest/)
+
 The STM32F411 Discovery board offers the following features:
 
 * STM32F411VET6 microcontroller featuring 512 KB of Flash memory, 128 KB of RAM in an LQFP100 package
@@ -23,7 +27,7 @@ The STM32F411 Discovery board offers the following features:
 * USB OTG with micro-AB connector
 * Extension header for LQFP100 I/Os for a quick connection to the prototyping board and an easy probing
 
-More info about the board can be found at the [product website](http://www.st.com/en/evaluation-tools/32f411ediscovery.html)
+More info about the board can be found at the [product website](https://www.st.com/en/evaluation-tools/32f411ediscovery.html)
 
 ## Hardware
 
@@ -50,8 +54,8 @@ The STM32F411E-DISC0 Discovery board contains the following components:
 
 More information about **STM32F411VE** can be found here:
 
-* [STM32F411VE website](http://www.st.com/en/microcontrollers/stm32f411ve.html)
-* [STM32F411x reference manual](http://www.st.com/resource/en/reference_manual/dm00119316.pdf)
+* [STM32F411VE website](https://www.st.com/en/microcontrollers-microprocessors/stm32f411ve.html)
+* [STM32F411x reference manual](https://www.st.com/resource/en/reference_manual/dm00119316-stm32f411xc-e-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf)
 
 ## Supported features
 
@@ -74,7 +78,7 @@ Basic peripherals available in nanoFramework:
 
 *Please note that I2C1, SPI1 and I2S3 are used by the on board sensors, audio DAC and can not be used for generic use therefore I2C3 and SPI2 have been made available.*
 
-For more details on what pins the on board sensors can be addressed please refer to the board's [user manual](http://www.st.com/resource/en/user_manual/dm00148985.pdf) and the previous mentioned [header file](https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/ST_STM32F411_DISCOVERY/board.h) or the corresponding configuration file in the board's root folder.
+For more details on what pins the on board sensors can be addressed please refer to the board's [user manual](https://www.st.com/resource/en/user_manual/dm00148985-discovery-kit-with-stm32f411ve-mcu-stmicroelectronics.pdf) and the previous mentioned [header file](https://github.com/nanoframework/nf-Community-Targets/blob/main/ChibiOS/ST_STM32F411_DISCOVERY/board.h) or the corresponding configuration file in the board's root folder.
 
 ## MCU Clock usage
 

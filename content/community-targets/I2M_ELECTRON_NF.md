@@ -2,6 +2,10 @@
 
 ![I2M Electron](https://raw.githubusercontent.com/nanoframework/nf-Community-Targets/main/ChibiOS/I2M_ELECTRON_NF/resources/IngenuityMicro_Logo.svg)
 
+-----
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images-community-targets/raw/I2M_ELECTRON_NF/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images-community-targets/packages/detail/raw/I2M_ELECTRON_NF/latest/)
+
 ## Electron community board
 
 The board used in this community contribution is a STM32F411CEU6 based board from IngenuityMicro called Electron. The board has only 12 pins of which 3 are already used for 3.3V, 5V and GND, leaving use of only 9 pins.
