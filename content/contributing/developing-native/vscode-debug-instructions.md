@@ -9,7 +9,7 @@ This document describes how to debug .NET **nanoFramework** native code using VS
 You'll need:
 
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
-- [Visual Studio Code](http://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - OpenOCD. Suggest the [xPack OpenOCD](https://github.com/xpack-dev-tools/openocd-xpack/releases) that kindly maintains a Windows distribution.
 

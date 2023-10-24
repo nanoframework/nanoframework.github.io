@@ -38,9 +38,9 @@ The 'runtime license' is an option for the use of parts of ChibiOS in software p
 
 ## What about the .NET **nanoFramework** firmware
 
-The [nanoframwork firmware](nanoframework/nf-interpreter) is released under Apache 2 license and has no implications of using ChibiOS as the RTOS.
+The [nanoframwork firmware](https://github.com/nanoframework/nf-interpreter) is released under MIT license and has no implications of using ChibiOS as the RTOS.
 
 ## What about managed apps (C#) running on .NET **nanoFramework**
 
-Applications (the C# code) that are _loaded_ into and _executed by_ the [nanoframwork firmware](nanoframework/nf-interpreter) firmware image are not compiled or built by it due to the fact that it is interpreted on the fly from memory. As such, it can be deemed as a seperate component and _your_ C# managed code from a licensing perspective can be deemed seperate from the firmware. For discussion sake imagine that you won't ever load a managed app on the firmware image. .NET **nanoFramework** would still be perfectly working software, just not doing much.
+Applications (the C# code) that are _loaded_ into and _executed by_ the [nanoframwork firmware](https://github.com/nanoframework/nf-interpreter) firmware image are not compiled or built by it due to the fact that it is interpreted on the fly from memory. As such, it can be deemed as a seperate component and _your_ C# managed code from a licensing perspective can be deemed seperate from the firmware. For discussion sake imagine that you won't ever load a managed app on the firmware image. .NET **nanoFramework** would still be perfectly working software, just not doing much.
 As such this means that ChibiOS licensing doesn't apply to C# managed apps and it's use is not affected by the ChibiOS licensing terms.
