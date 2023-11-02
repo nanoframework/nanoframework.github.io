@@ -4,7 +4,7 @@ For non code files (xml etc) our current best guidance is consistency. When edit
 
 The general rule we follow is "use Visual Studio defaults". For details check the [Naming Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines) of .NET guide.
 
-1. We use [Allman style](http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, where each brace begins on a new line. Even a single line statement block should go with braces and nested in other statement blocks that use braces.
+1. We use [Allman style](https://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, where each brace begins on a new line. Even a single line statement block should go with braces and nested in other statement blocks that use braces.
 2. We use four spaces of indentation (no tabs).
 3. We use `_camelCase` for internal and private fields and use `readonly` where possible. Prefix static fields can be used with `s_` and thread static fields with `t_`. When used on static fields, `readonly` should come after `static` (i.e. `static readonly` not `readonly static`).
 4. We avoid `this.` unless absolutely necessary.

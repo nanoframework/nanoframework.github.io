@@ -56,7 +56,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 ## Setup Azure DevOps
 
 1. Open a new browser window on which you are signed in to GitHub as `nfbot`.
-1. On the repo Settings, navigate to "Integrations & Services".
+1. On the repo Settings, navigate to "GitHub Apps".
 1. Click "Configure" button for Azure Pipelines.
 1. The next step will take you to the [Azure DevOps](https://dev.azure.com/nanoframework) website.
 1. Click on "Create New Project".
@@ -74,6 +74,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 1. Cline the "Save" button at the top right and go through the commit message.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
 1. Make sure that the option to override YAML is **not** checked for "Continuous integration". Uncheck the same option for "Pull request validation" and check the "Make secrets available to builds of forks".
+1. Unckeck "Shallow fetch" in YAML tab.
 1. Click "Save" in the toolbar (NOT "Save & Queue").
 1. Go to the `General Project` project and navigate to Project Settings - Service Connections.
 1. Open each of the service connections there, click on the 3 vertical dots (again at the top right) and then "Security". Scroll down to "Project permissions", click on the + icon at the right hand side and select the newlly created project. This will add a permission to use this shared service connection.
@@ -88,7 +89,6 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
     - azure-pipelines.yml
     - LICENSE.md **(no changes required)**
     - README.md
-    - template.vssettings **(no changes required)**
     - version.json
     - NuGet.Config
     - assets\readme.txt
