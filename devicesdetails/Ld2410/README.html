@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>HLK-LD2410 24Ghz Human Presence Radar Sensor Module | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="HLK-LD2410 24Ghz Human Presence Radar Sensor Module | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+      <link rel="mask-icon" href="../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="hlk-ld2410-24ghz-human-presence-radar-sensor-module">HLK-LD2410 24Ghz Human Presence Radar Sensor Module</h1>
+
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://hlktech.net/index.php?id=988">Product Page</a></li>
+<li><a href="https://make.net.za/wp-content/datasheets/HLK%20LD2410B%20Product%20Manual%20V1.07%20-%20Translated.pdf">Manual - English</a></li>
+<li><a href="https://make.net.za/wp-content/datasheets/HLK%20LD2410B%20Product%20Manual%20V1.07.pdf">Manual - Chinese</a></li>
+<li><a href="https://make.net.za/wp-content/datasheets/HLK%20LD2410%20Serial%20Communication%20Protocol%20V1.05%20-%20Translated.pdf">Communication Protocol - English</a></li>
+<li><a href="https://make.net.za/wp-content/datasheets/HLK%20LD2410%20Serial%20Communication%20Protocol%20V1.05.pdf">Communication Protocol - Chinese</a></li>
+</ul>
+<hr>
+<p><img src="https://github.com/nanoFramework/nanoFramework.IoT.Device/Ld2410/Ld2410B.webp" alt="Radar Module"></p>
+<hr>
+<h2 id="usage">Usage</h2>
+<p>Initialize the radar module:</p>
+<pre><code class="lang-csharp">var radar = new Radar(&quot;COM2&quot;);
+radar.OnMeasurementReceived += OnMeasurement;
+radar.Connect();
+</code></pre>
+<p>The <code>OnMeasurement</code> event handler is responsible for receiving measurement reports from the radar. The report object instance contains distance and energy measurements for targets within the detection range of the radar.</p>
+<p>An example on how to print out some of this data to the console through the event handler:</p>
+<pre><code class="lang-csharp">private static void OnMeasurement(object sender, ReportFrame e)
+{
+    if (e is EngineeringModeReportFrame engineeringModeReportFrame)
+    {
+        Debug.WriteLine($&quot;Target State (Engineering Mode): {engineeringModeReportFrame.TargetState} | Movement Target Distance (CM): {engineeringModeReportFrame.MovementTargetDistance.Centimeters} | &quot; +
+            $&quot;Movement Target Energy: {engineeringModeReportFrame.MovementTargetEnergy} | Stationary Target Distance (CM): {engineeringModeReportFrame.StationaryTargetDistance.Centimeters} | &quot; +
+            $&quot;Stationary Target Energy: {engineeringModeReportFrame.StationaryTargetEnergy} | Detection Distance (CM): {engineeringModeReportFrame.DetectionDistance.Centimeters}&quot;);
+
+        var gateNumber = 0;
+        foreach (var gate in engineeringModeReportFrame.GateData)
+        {
+            Debug.WriteLine($&quot;Gate: {gateNumber} - Movement Energy: {gate.MovementEnergy} - Static Energy: {gate.StaticEnergy}&quot;);
+            gateNumber++;
+        }
+    }
+    else if (e is BasicReportFrame basicReportFrame)
+    {
+        Debug.WriteLine($&quot;Target State: {basicReportFrame.TargetState} | Movement Target Distance (CM): {basicReportFrame.MovementTargetDistance.Centimeters} | &quot; +
+            $&quot;Movement Target Energy: {basicReportFrame.MovementTargetEnergy} | Stationary Target Distance (CM): {basicReportFrame.StationaryTargetDistance.Centimeters} | &quot; +
+            $&quot;Stationary Target Energy: {basicReportFrame.StationaryTargetEnergy} | Detection Distance (CM): {basicReportFrame.DetectionDistance.Centimeters}&quot;);
+    }
+}
+</code></pre>
+<p>Calling <code>Connect()</code> on an instance of the radar object will initialize a new <code>SerialPort</code> (or use the <code>SerialPort</code> instance passed to the <code>Radar</code> constructor) and open a serial connection with the radar module. The radar will immediately start reporting measurements which are received in the event handler detailed above.</p>
+<p>Issuing commands to the radar to read or change configurations requires the radar to be put into <code>Configuration</code> mode. This can be achieved by calling <code>Radar.EnterConfigurationMode()</code>. The following example shows how to enable the engineering mode on the radar to receive target energy levels at every supported distance gate:</p>
+<pre><code class="lang-csharp">radar.EnterConfigurationMode();
+radar.SetEngineeringMode(true);
+radar.ExitConfigurationMode();
+</code></pre>
+<p>Additionally, when <code>Radar.Connect()</code> is executed successfully, the <code>Radar</code> class will read the current configurations stored on the module. This data will be available through <code>Radar.Configuration</code> and <code>Radar.FirmwareVersion</code>.</p>
+<p>To change the configuration on the radar, make the changes directly to <code>Radar.Configuration</code> and then call <code>Radar.CommitConfigurations()</code> to store them on the radar module.</p>
+<p>The radar module can be restored to factory settings using <code>Radar.RestoreFactorySettings()</code> and restarted (power-cycled) using <code>Radar.Restart()</code>.</p>
+<p>For more information on what this radar can do, please refer to the documentation listed above.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices\Ld2410\README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
+
