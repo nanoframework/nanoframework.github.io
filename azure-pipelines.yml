@@ -258,10 +258,12 @@ steps:
       eq(variables['BuildOptions.BUILD_ALL'], 'true')
     )
 
-# clone IoT bindings repo
+# clone IoT bindings repo and Samples
 - powershell: |
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
-  displayName: Clone IoT binding repo
+
+      git clone https://github.com/nanoframework/Samples.git -b main Samples
+  displayName: Clone IoT binding repo and Samples
   condition: >-
     and(
       succeeded(),
@@ -327,10 +329,41 @@ steps:
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices -i packages,tests,bin,obj'
 
 - powershell: |
     &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\devicesdetails -si
+  displayName: 'Building automatically toc.yml for devices'
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+
+# Create the README in /samples folder with all Samples readme
+# Run the Generator to physically move the files first
+- task: DotNetCoreCLI@2
+  displayName: 'Generate all the samples README files'
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    command: 'run'
+    projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\samples -m $(System.DefaultWorkingDirectory)\samplesimages -s Samples/samples -v -r https://github.com/nanoframework/Samples/tree/main/samples -i packages,tests,bin,obj'
+
+- powershell: |
+    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\samples -si
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     and(
