@@ -321,8 +321,20 @@ steps:
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
     arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices -i packages,tests,bin,obj'
 
+# build the TOC and adjust the README.md
 - powershell: |
     &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\devicesdetails -si
+    # Define the file path
+    $filePath = "$(System.DefaultWorkingDirectory)\devicesdetails\README.md"
+
+    # Read the content of the file
+    $content = Get-Content -Path $filePath -Raw
+
+    # Perform the replacement using regex to add /README.md to all the device links
+    $newContent = $content -replace '\(([a-zA-Z\d\.]+)\)', '($1/README.md)'
+
+    # Write the updated content back to the file
+    Set-Content -Path $filePath -Value $newContent
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     and(
@@ -633,15 +645,24 @@ steps:
       $rootDirectory = "_site/devicesdetails"
 
       if (Test-Path -Path $rootDirectory -PathType Container) {
-        # Recursively find and replace strings in files
+                # Recursively find and replace strings in files
         Get-ChildItem -Recurse -File $rootDirectory | ForEach-Object {
             $filePath = $_.FullName
-            $content = Get-Content -Path $filePath -Raw
+
+            # Get the original encoding of the file
+            $fileEncoding = [System.Text.Encoding]::GetEncoding([System.Text.Encoding]::Default.CodePage)
+            
+            # Read the content of the file using the original encoding
+            $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+            
+            # Perform the replacement
             $newContent = $content -replace [regex]::Escape($sourceString), $targetString
 
             if ($content -ne $newContent) {
                 Write-Host "Replacing in $filePath"
-                Set-Content -Path $filePath -Value $newContent
+                
+                # Save the modified content back to the file using the original encoding
+                Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
             }
         }
 
@@ -663,12 +684,21 @@ steps:
         # Recursively find and replace strings in files
         Get-ChildItem -Recurse -File $rootDirectory | ForEach-Object {
             $filePath = $_.FullName
-            $content = Get-Content -Path $filePath -Raw
+
+            # Get the original encoding of the file
+            $fileEncoding = [System.Text.Encoding]::GetEncoding([System.Text.Encoding]::Default.CodePage)
+            
+            # Read the content of the file using the original encoding
+            $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+            
+            # Perform the replacement
             $newContent = $content -replace [regex]::Escape($sourceString), $targetString
 
             if ($content -ne $newContent) {
                 Write-Host "Replacing in $filePath"
-                Set-Content -Path $filePath -Value $newContent
+                
+                # Save the modified content back to the file using the original encoding
+                Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
             }
         }
 
