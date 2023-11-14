@@ -360,10 +360,28 @@ steps:
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\samples -m $(System.DefaultWorkingDirectory)\samplesimages -s Samples/samples -v -r https://github.com/nanoframework/Samples/tree/main/samples -i packages,tests,bin,obj'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\samplesdetails -m $(System.DefaultWorkingDirectory)\samplesimages -s Samples/samples -v -r https://github.com/nanoframework/Samples/tree/main/samples -i packages,tests,bin,obj'
+
+# Create the README index
+- task: DotNetCoreCLI@2
+  displayName: Adjust READMEs
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    command: custom
+    custom: run
+    projects: '**/device-listing.csproj'
+    workingDirectory: 'samplesdetails'
 
 - powershell: |
-    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\samples -si
+    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\samplesdetails -si
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     and(
@@ -572,7 +590,7 @@ steps:
       )
     )
 
-# Replace the links to improve doc for dynamic content
+# Replace the links to improve doc for dynamic content in devicedetails
 - powershell: |
       # Set the source and target strings
       $sourceString = "https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails"
@@ -598,6 +616,34 @@ steps:
       } else {
         Write-Host "The folder does not exist most likely because the devices hasn't been built."
       }
+
+# Replace the links to improve doc for dynamic content in samples
+- powershell: |
+      # Set the source and target strings
+      $sourceString = "https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/samplesdetails"
+      $targetString = "https://github.com/nanoframework/Samples/blob/main/samples"
+
+      # Set the root directory where you want to perform the search and replace
+      $rootDirectory = "_site/samplesdetails"
+
+      if (Test-Path -Path $rootDirectory -PathType Container) {
+        # Recursively find and replace strings in files
+        Get-ChildItem -Recurse -File $rootDirectory | ForEach-Object {
+            $filePath = $_.FullName
+            $content = Get-Content -Path $filePath -Raw
+            $newContent = $content -replace [regex]::Escape($sourceString), $targetString
+
+            if ($content -ne $newContent) {
+                Write-Host "Replacing in $filePath"
+                Set-Content -Path $filePath -Value $newContent
+            }
+        }
+
+        Write-Host "String replacement completed."
+      } else {
+        Write-Host "The folder does not exist most likely because the devices hasn't been built."
+      }
+
 
 # Make an artifact for debug purpose
 - task: ArchiveFiles@2
