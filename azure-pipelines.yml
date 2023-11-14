@@ -378,7 +378,21 @@ steps:
       )
     )
 
-# 2. generate dynamically the list
+# 2. copy the README to the Sampes/samples folder
+- powershell: |
+    Copy-Item -Path "$(System.DefaultWorkingDirectory)\samplesdetails\README.md" -Destination "$(System.DefaultWorkingDirectory)\Samples\samples\README.md"
+  displayName: Adjust READMEs
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+
+# 3. generate dynamically the list
 - task: DotNetCoreCLI@2
   displayName: Adjust READMEs
   condition: >-
@@ -394,10 +408,11 @@ steps:
     command: custom
     custom: run
     projects: '$(System.DefaultWorkingDirectory)/Samples/device-listing/device-listing.csproj'
-    workingDirectory: '$(System.DefaultWorkingDirectory)\samplesdetails'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\Samples\samples'
 
-# 3. rename the README to index
+# 4. copy the generated README to /samplesdetails and rename it to index.md 
 - powershell: |
+    Copy-Item -Path "$(System.DefaultWorkingDirectory)\Samples\samples\README.md" -Destination "$(System.DefaultWorkingDirectory)\samplesdetails\README.md"
     Rename-Item -Path "$(System.DefaultWorkingDirectory)\samplesdetails\README.md" -NewName "index.md"
   displayName: Adjust READMEs
   condition: >-
