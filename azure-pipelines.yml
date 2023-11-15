@@ -430,7 +430,7 @@ steps:
     $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
     
     # Perform the replacement using regex to add /README.md to all the device links
-    $newContent = $content -replace '/samples/', '/'
+    $newContent = $content -replace '\(samples/', '\('
 
     # Write the updated content back to the file
     Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
