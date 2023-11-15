@@ -356,7 +356,6 @@ steps:
     $jsonContent = Get-Content -Path $jsonFilePath | ConvertFrom-Json
 
     # Update the values
-    $jsonContent.SamplesPath = "."
     $jsonContent.AddReadme = $true
 
     # Convert the updated object back to JSON
@@ -374,7 +373,7 @@ steps:
 
 # 2. copy the README to the Sampes/samples folder
 - powershell: |
-    Copy-Item -Path $(System.DefaultWorkingDirectory)\samplesdetails\README.md -Destination $(System.DefaultWorkingDirectory)\Samples\samples\README.md
+    Copy-Item -Path $(System.DefaultWorkingDirectory)\samplesdetails\README.md -Destination $(System.DefaultWorkingDirectory)\Samples\README.md
     Remove-Item -Force $(System.DefaultWorkingDirectory)\samplesdetails\README.md
   displayName: Copy samples README to samples folder
   condition: >-
@@ -404,6 +403,47 @@ steps:
     custom: run
     projects: '$(System.DefaultWorkingDirectory)/Samples/device-listing/device-listing.csproj'
     workingDirectory: '$(System.DefaultWorkingDirectory)\Samples\samples'
+
+# 4. copy the README to the Sampes/samples folder
+- powershell: |
+    Copy-Item -Path $(System.DefaultWorkingDirectory)\Samples\README.md -Destination $(System.DefaultWorkingDirectory)\Samples\samples\README.md
+    # adjust all the links to point to the right place so removing /samples/ from the links
+
+    $filePath = "$(System.DefaultWorkingDirectory)\samplesdetails\README.md"
+
+    # Get the original encoding of the file
+    $sr = New-Object System.IO.StreamReader($filePath, $true)
+    [char[]] $buffer = new-object char[] 3
+    $sr.Read($buffer, 0, 3)  
+    $originalEncoding = $sr.CurrentEncoding
+    $sr.Close()
+
+    # Making it simple as we only want to preserve UTF8 encoding
+    if ( $originalEncoding.BodyName -eq "utf-8" ) {
+      $fileEncoding = "UTF8" 
+    }
+    else {
+      $fileEncoding = "ASCII" 
+    }
+    
+    # Read the content of the file using the original encoding
+    $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+    
+    # Perform the replacement using regex to add /README.md to all the device links
+    $newContent = $content -replace '/samples/', '/'
+
+    # Write the updated content back to the file
+    Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
+  displayName: Copy samples README to samples folder
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
 
 # Create the README in /samples folder with all Samples readme
 # Run the Generator to physically move the files first
