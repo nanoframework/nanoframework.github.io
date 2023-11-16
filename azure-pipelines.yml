@@ -771,6 +771,23 @@ steps:
         Write-Host "The folder does not exist most likely because the devices hasn't been built."
       }
 
+# Patch the transformed samplesdetails/README.html as margdig used by DocFX do not transform the links properly
+- powershell: |
+      # Definte the file path to adjust
+      $filePath = "$(System.DefaultWorkingDirectory)/_site/samplesdetails/README.html"
+
+      # Making it simple as we only want to preserve UTF8 encoding
+      $fileEncoding = "UTF8"
+
+      # Read the content of the file using the original encoding
+      $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+
+      # Perform the replacement using regex to replace the MArkdown links by HTML links
+      $newContent = $content -replace '\[(.*)\]\((.*)\.md\)', '<a href="$2.html">$1</a>'
+
+      # Write the updated content back to the file
+      Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
+
 # Make an artifact for debug purpose
 - task: ArchiveFiles@2
   displayName: Zipping _site directory
