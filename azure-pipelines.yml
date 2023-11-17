@@ -148,12 +148,6 @@ steps:
 
       git clone https://github.com/nanoframework/System.Device.Gpio.git --depth 100 -b main libs/System.Device.Gpio 
 
-      # removing as this one is deprecated and is not building in VS2022
-      # git clone https://github.com/nanoframework/Windows.Devices.Gpio.git --depth 100 -b main libs/Windows.Devices.Gpio 
-
-      # removing as this one is deprecated and is not building in VS2022
-      # git clone https://github.com/nanoframework/Windows.Devices.I2c.git --depth 100 -b main libs/Windows.Devices.I2c 
-
       git clone https://github.com/nanoframework/System.Device.I2c.git --depth 100 -b main libs/System.Device.I2c
 
       git clone https://github.com/nanoframework/System.Device.I2s.git --depth 100 -b main libs/System.Device.I2s
@@ -164,25 +158,13 @@ steps:
 
       git clone https://github.com/nanoframework/System.Runtime.Serialization.git --depth 100 -b main libs/System.Runtime.Serialization
 
-      # removing as this one is deprecated and is not building in VS2022
-      # git clone https://github.com/nanoframework/Windows.Devices.Pwm.git --depth 100 -b main libs/Windows.Devices.Pwm 
-
       git clone https://github.com/nanoframework/System.Device.Pwm.git --depth 100 -b main libs/System.Device.Pwm
-
-      # removing as this one is deprecated and is not building in VS2022
-      # git clone https://github.com/nanoframework/Windows.Devices.SerialCommunication.git -b main libs/Windows.Devices.SerialCommunication 
-
-      # removing as this one is deprecated and is not building in VS2022
-      # git clone https://github.com/nanoframework/Windows.Devices.Spi.git --depth 100 -b main libs/Windows.Devices.Spi 
 
       git clone https://github.com/nanoframework/System.Device.Spi.git --depth 100 -b main libs/System.Device.Spi
 
       git clone https://github.com/nanoframework/Windows.Storage.git --depth 100 -b main libs/Windows.Storage 
 
       git clone https://github.com/nanoframework/Windows.Storage.Streams.git --depth 100 -b main libs/Windows.Storage.Streams 
-
-      # removing as this one is deprecated and is not building in VS2022
-      # git clone https://github.com/nanoframework/Windows.Devices.Adc.git --depth 100 -b main libs/Windows.Devices.Adc 
       
       git clone https://github.com/nanoframework/System.Device.Adc.git --depth 100 -b main libs/System.Device.Adc 
 
@@ -230,7 +212,7 @@ steps:
 
       git clone https://github.com/nanoframework/System.IO.Ports.git --depth 100 -b main libs/System.IO.Ports
 
-      git clone https://github.com/nanoframework/nanoFramework.m2mqtt.git --depth 100 -b main libs/nanoFramework.M2Mqtt
+      git clone https://github.com/nanoframework/nanoFramework.m2mqtt.git -b main libs/nanoFramework.M2Mqtt
 
       git clone https://github.com/nanoframework/System.Text.RegularExpressions.git --depth 100 -b main libs/System.Text.RegularExpressions
 
@@ -249,6 +231,14 @@ steps:
       git clone https://github.com/nanoframework/nanoFramework.GiantGecko.Adc.git -b main libs/nanoFramework.GiantGecko.Adc
       
       git clone https://github.com/nanoframework/nanoFramework.Hardware.GiantGecko.git -b main libs/nanoFramework.Hardware.GiantGecko
+
+      git clone https://github.com/nanoframework/System.IO.Hashing.git -b main libs/System.IO.Hashing
+
+      git clone https://github.com/nanoframework/System.Security.Cryptography.git -b main libs/System.Security.Cryptography
+
+      git clone https://github.com/nanoframework/System.Device.I2c.Slave.git -b main libs/System.Device.I2c.Slave
+
+      git clone https://github.com/nanoframework/nanoFramework.System.Runtime.git -b main libs/nanoFramework.System.Runtime
       
   displayName: Clone repos of class libs
   condition: >-
@@ -258,10 +248,12 @@ steps:
       eq(variables['BuildOptions.BUILD_ALL'], 'true')
     )
 
-# clone IoT bindings repo
+# clone IoT bindings repo and Samples
 - powershell: |
       git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
-  displayName: Clone IoT binding repo
+
+      git clone https://github.com/nanoframework/Samples.git -b main Samples
+  displayName: Clone IoT binding repo and Samples
   condition: >-
     and(
       succeeded(),
@@ -327,10 +319,22 @@ steps:
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device -i packages,tests'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices -i packages,tests,bin,obj'
 
+# build the TOC and adjust the README.md
 - powershell: |
     &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\devicesdetails -si
+    # Define the file path
+    $filePath = "$(System.DefaultWorkingDirectory)\devicesdetails\README.md"
+
+    # Read the content of the file
+    $content = Get-Content -Path $filePath -Raw
+
+    # Perform the replacement using regex to add /README.md to all the device links
+    $newContent = $content -replace '\(([a-zA-Z\d\.]+)\)', '($1/README.md)'
+
+    # Write the updated content back to the file
+    Set-Content -Path $filePath -Value $newContent
   displayName: 'Building automatically toc.yml for devices'
   condition: >-
     and(
@@ -342,6 +346,138 @@ steps:
       )
     )
 
+# Create the README index
+# 1. adjust the settings
+- powershell: |
+    # Define the path to the Configuration.json file
+    $jsonFilePath = "$(System.DefaultWorkingDirectory)/Samples/device-listing/Configuration.json"
+
+    # Read the content of the JSON file
+    $jsonContent = Get-Content -Path $jsonFilePath | ConvertFrom-Json
+
+    # Update the values
+    $jsonContent.AddReadme = $true
+
+    # Convert the updated object back to JSON
+    $jsonContent | ConvertTo-Json | Set-Content -Path $jsonFilePath
+  displayName: Adjust configuration to build README
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+
+# 2. copy the README to the Sampes/samples folder
+- powershell: |
+    Copy-Item -Path $(System.DefaultWorkingDirectory)\samplesdetails\README.md -Destination $(System.DefaultWorkingDirectory)\Samples\README.md
+    Remove-Item -Force $(System.DefaultWorkingDirectory)\samplesdetails\README.md
+  displayName: Copy samples README to samples folder
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+
+# 3. generate dynamically the list
+- task: DotNetCoreCLI@2
+  displayName: Generate samples README
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    command: custom
+    custom: run
+    projects: '$(System.DefaultWorkingDirectory)/Samples/device-listing/device-listing.csproj'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\Samples\samples'
+
+# 4. copy the README to the Sampes/samples folder
+- powershell: |
+    Copy-Item -Path $(System.DefaultWorkingDirectory)\Samples\README.md -Destination $(System.DefaultWorkingDirectory)\Samples\samples\README.md
+    # adjust all the links to point to the right place so removing /samples/ from the links
+
+    $filePath = "$(System.DefaultWorkingDirectory)\Samples\samples\README.md"
+
+    # Get the original encoding of the file
+    $sr = New-Object System.IO.StreamReader($filePath, $true)
+    [char[]] $buffer = new-object char[] 3
+    $sr.Read($buffer, 0, 3)  
+    $originalEncoding = $sr.CurrentEncoding
+    $sr.Close()
+
+    # Making it simple as we only want to preserve UTF8 encoding
+    if ( $originalEncoding.BodyName -eq "utf-8" ) {
+      $fileEncoding = "UTF8" 
+    }
+    else {
+      $fileEncoding = "ASCII" 
+    }
+    
+    # Read the content of the file using the original encoding
+    $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+    
+    # Perform the replacement using regex to add /README.md to all the device links
+    $newContent = $content -replace '\(samples/', '\('
+
+    # Write the updated content back to the file
+    Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
+  displayName: Copy samples README to samples folder
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+
+# Create the README in /samples folder with all Samples readme
+# Run the Generator to physically move the files first
+- task: DotNetCoreCLI@2
+  displayName: 'Generate all the samples README files'
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+  inputs:
+    command: 'run'
+    projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\samplesdetails -m $(System.DefaultWorkingDirectory)\samplesimages -s Samples/samples -v -r https://github.com/nanoframework/Samples/tree/main/samples -i packages,tests,bin,obj'
+
+# 5. Build the TOC
+- powershell: |
+    &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\samplesdetails -si
+  displayName: 'Building automatically toc.yml for samples'
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
+
+# Build the TOC for all the content folder
 - powershell: |
     &DocFxTocGenerator -d $(System.DefaultWorkingDirectory)\content -s -r -g
   displayName: 'Building automatically toc.yml for main content'
@@ -539,7 +675,7 @@ steps:
       )
     )
 
-# Replace the links to improve doc for dynamic content
+# Replace the links to improve doc for dynamic content in devicedetails
 - powershell: |
       # Set the source and target strings
       $sourceString = "https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails"
@@ -552,12 +688,33 @@ steps:
         # Recursively find and replace strings in files
         Get-ChildItem -Recurse -File $rootDirectory | ForEach-Object {
             $filePath = $_.FullName
-            $content = Get-Content -Path $filePath -Raw
+
+            # Get the original encoding of the file
+            $sr = New-Object System.IO.StreamReader($filePath, $true)
+            [char[]] $buffer = new-object char[] 3
+            $sr.Read($buffer, 0, 3)  
+            $originalEncoding = $sr.CurrentEncoding
+            $sr.Close()
+
+            # Making it simple as we only want to preserve UTF8 encoding
+            if ( $originalEncoding.BodyName -eq "utf-8" ) {
+              $fileEncoding = "UTF8" 
+            }
+            else {
+              $fileEncoding = "ASCII" 
+            }
+            
+            # Read the content of the file using the original encoding
+            $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+            
+            # Perform the replacement
             $newContent = $content -replace [regex]::Escape($sourceString), $targetString
 
             if ($content -ne $newContent) {
                 Write-Host "Replacing in $filePath"
-                Set-Content -Path $filePath -Value $newContent
+                
+                # Save the modified content back to the file using the original encoding
+                Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
             }
         }
 
@@ -565,6 +722,71 @@ steps:
       } else {
         Write-Host "The folder does not exist most likely because the devices hasn't been built."
       }
+
+# Replace the links to improve doc for dynamic content in samples
+- powershell: |
+      # Set the source and target strings
+      $sourceString = "https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/samplesdetails"
+      $targetString = "https://github.com/nanoframework/Samples/blob/main/samples"
+
+      # Set the root directory where you want to perform the search and replace
+      $rootDirectory = "_site/samplesdetails"
+
+            if (Test-Path -Path $rootDirectory -PathType Container) {
+        # Recursively find and replace strings in files
+        Get-ChildItem -Recurse -File $rootDirectory | ForEach-Object {
+            $filePath = $_.FullName
+
+            # Get the original encoding of the file
+            $sr = New-Object System.IO.StreamReader($filePath, $true)
+            [char[]] $buffer = new-object char[] 3
+            $sr.Read($buffer, 0, 3)  
+            $originalEncoding = $sr.CurrentEncoding
+            $sr.Close()
+
+            # Making it simple as we only want to preserve UTF8 encoding
+            if ( $originalEncoding.BodyName -eq "utf-8" ) {
+              $fileEncoding = "UTF8" 
+            }
+            else {
+              $fileEncoding = "ASCII" 
+            }
+            
+            # Read the content of the file using the original encoding
+            $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+            
+            # Perform the replacement
+            $newContent = $content -replace [regex]::Escape($sourceString), $targetString
+
+            if ($content -ne $newContent) {
+                Write-Host "Replacing in $filePath"
+                
+                # Save the modified content back to the file using the original encoding
+                Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
+            }
+        }
+
+        Write-Host "String replacement completed."
+      } else {
+        Write-Host "The folder does not exist most likely because the devices hasn't been built."
+      }
+
+# Patch the transformed samplesdetails/README.html as margdig used by DocFX do not transform the links properly
+- powershell: |
+      # Definte the file path to adjust
+      $filePath = "$(System.DefaultWorkingDirectory)/_site/samplesdetails/README.html"
+
+      # Making it simple as we only want to preserve UTF8 encoding
+      $fileEncoding = "UTF8"
+
+      # Read the content of the file using the original encoding
+      $content = Get-Content -Path $filePath -Raw -Encoding $fileEncoding
+
+      # Perform the replacement using regex to replace the MArkdown links by HTML links
+      $newContent = $content -replace '\[(.*)\]\((.*)\.md\)', '<a href="$2.html">$1</a>'
+
+      # Write the updated content back to the file
+      Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
 
 # Make an artifact for debug purpose
 - task: ArchiveFiles@2
