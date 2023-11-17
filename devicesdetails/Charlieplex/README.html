@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -104,7 +104,7 @@ for (int i = 0; i &lt; ledCount; i++)
     charlie.Write(i, 0);
 }
 </code></pre>
-<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Charlieplex/samples/Program.cs">charlieplex-test sample</a> exercises a broader use of the API.</p>
+<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Charlieplex/samples/Program.cs">charlieplex-test sample</a> exercises a broader use of the API.</p>
 <h2 id="using-with-leds">Using with LEDs</h2>
 <p>The following image demonstrates a 3-pin charlieplex circuit, which is the starting point for charlieplexing. There are 6 LEDs in the circuit in groups of two. In each group of two, the LEDs connect to the same two GPIO pins, but with the opposite polarity (anode and cathodes are switched).</p>
 <p><img src="https://user-images.githubusercontent.com/2608468/88128814-90e46000-cb8b-11ea-82a3-43cd8d2ce98d.jpg" alt="charlieplex"></p>
@@ -114,9 +114,9 @@ for (int i = 0; i &lt; ledCount; i++)
 <p><img src="https://user-images.githubusercontent.com/2608468/88133056-09e8b500-cb96-11ea-806b-374a9881e10d.jpg" alt="charlieplex"></p>
 <p><a href="https://youtu.be/INu0yyVbmho">Video</a></p>
 <h2 id="circuit-addressing-scheme">Circuit addressing scheme</h2>
-<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Charlieplex/CharlieplexSegment.cs">CharlieplexSegment</a> type uses an addressing scheme that can be thought of as depth then breadth. Between each pair of pins, there are a pair of LEDs or other loads. The first LED is placed anode-first and the second is placed cathode-first. You start with the first two pins for the first pair of LEDs, and then the second and third pins for the second pair. This continues until you run out of pins. After that, you start from the first pin again, but this time pair with the third pin. This pattern continues until you reach the desired number of LEDs or run out of pins.</p>
+<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Charlieplex/CharlieplexSegment.cs">CharlieplexSegment</a> type uses an addressing scheme that can be thought of as depth then breadth. Between each pair of pins, there are a pair of LEDs or other loads. The first LED is placed anode-first and the second is placed cathode-first. You start with the first two pins for the first pair of LEDs, and then the second and third pins for the second pair. This continues until you run out of pins. After that, you start from the first pin again, but this time pair with the third pin. This pattern continues until you reach the desired number of LEDs or run out of pins.</p>
 <p>It is critical to understand the difference between anode (typically longer) and cathode legs of LEDs. You will be checking these with each placement.</p>
-<p>The binding includes an API that returns a description of the circuit you need to use. The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Charlieplex/samples/Program.cs">sample</a> calls this API and prints this information to the terminal, using the same pins as the code example above. This information is very helpful to have to configure the circuit correctly.</p>
+<p>The binding includes an API that returns a description of the circuit you need to use. The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Charlieplex/samples/Program.cs">sample</a> calls this API and prints this information to the terminal, using the same pins as the code example above. This information is very helpful to have to configure the circuit correctly.</p>
 <pre><code class="lang-console">Node 0 -- Anode: 6; Cathode: 13
 Node 1 -- Anode: 13; Cathode: 6
 Node 2 -- Anode: 13; Cathode: 19
@@ -124,7 +124,7 @@ Node 3 -- Anode: 19; Cathode: 13
 Node 4 -- Anode: 6; Cathode: 19
 Node 5 -- Anode: 19; Cathode: 6
 </code></pre>
-<p>The tests in <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Charlieplex/tests/CharlieplexLayout.cs">CharlieplexLayout.cs</a> call this same API and demonstrate the circuit address scheme with varying numbers of pins.</p>
+<p>The tests in <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Charlieplex/tests/CharlieplexLayout.cs">CharlieplexLayout.cs</a> call this same API and demonstrate the circuit address scheme with varying numbers of pins.</p>
 <p>Given a 6 LED circut, <code>charlie.Write(5,1)</code> will light LED6 in the diagram. The API uses a 0-based scheme. As a result, <code>charlie.Write(6,1)</code> will throw an exception.</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/2-pin_Charlieplexing_with_common_resistor.svg/1200px-2-pin_Charlieplexing_with_common_resistor.svg.png" alt="Two LED charlieplex circuit"></p>
 <p>This image demonstrates a 2-pin circuit. There isn't any reason to use a 2-pin charlieplex circuit other than as a learning exercise.</p>
@@ -144,7 +144,7 @@ Node 5 -- Anode: 19; Cathode: 6
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices\Charlieplex\README.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/Charlieplex/README.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
@@ -165,7 +165,7 @@ Node 5 -- Anode: 19; Cathode: 6
               <a href="#top">Back to top</a>
             </span>
       
-      <span>Copyright � 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>    </div>

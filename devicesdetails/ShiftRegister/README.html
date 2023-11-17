@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -88,15 +88,15 @@
 <h1 id="generic-shift-register">Generic shift register</h1>
 
 <p>A shift register enables controlling multiple devices, like LEDs, using a small number of pins (minimum of 3 -- data, data clock and register latch). Shift registers can be daisy-chained without requiring using additional pins, enabling addressing a large number of devices, limited only by current and the algorithms you use.</p>
-<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/ShiftRegister/ShiftRegister.Shared/ShiftRegister.cs">ShiftRegister</a> binding abstracts the interaction with the storage register, the storage clock, the register clock and other shift register capabilities. This binding enables interaction via GPIO or SPI.</p>
-<p><a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/ShiftRegister/ShiftRegister.Shared/ShiftRegister.cs">ShiftRegister</a> is used as the base class for <a href="../Sn74hc595/README.html">Sn74hc595</a> and <a href="../Mbi5027/README.html">Mbi5027</a> bindings. It can be used directly, or you can rely on it as an implementation detail of those more specific bindings. It has been tested with with <a href="https://www.ti.com/lit/ds/symlink/sn74hc595.pdf">SN74HC595</a>, <a href="http://archive.fairchip.com/pdf/MACROBLOCK/MBI5027.pdf">MBI5027</a>, and <a href="http://archive.fairchip.com/pdf/MACROBLOCK/MBI5168.pdf">MBI5168</a> shift registers.</p>
+<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/ShiftRegister/ShiftRegister.Shared/ShiftRegister.cs">ShiftRegister</a> binding abstracts the interaction with the storage register, the storage clock, the register clock and other shift register capabilities. This binding enables interaction via GPIO or SPI.</p>
+<p><a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/ShiftRegister/ShiftRegister.Shared/ShiftRegister.cs">ShiftRegister</a> is used as the base class for <a href="../Sn74hc595/README.html">Sn74hc595</a> and <a href="../Mbi5027/README.html">Mbi5027</a> bindings. It can be used directly, or you can rely on it as an implementation detail of those more specific bindings. It has been tested with with <a href="https://www.ti.com/lit/ds/symlink/sn74hc595.pdf">SN74HC595</a>, <a href="http://archive.fairchip.com/pdf/MACROBLOCK/MBI5027.pdf">MBI5027</a>, and <a href="http://archive.fairchip.com/pdf/MACROBLOCK/MBI5168.pdf">MBI5168</a> shift registers.</p>
 <p>The following image is of the popular SN74HC595 8-bit shift register:</p>
 <p><img src="https://user-images.githubusercontent.com/2608468/84733283-ac3bca00-af52-11ea-8520-67c91a45c0f0.png" alt="shift-register"></p>
 <p>The following image is of the larger MBI5027 16-bit shift register:</p>
 <p><img src="https://user-images.githubusercontent.com/2608468/89208974-4216cd00-d572-11ea-98eb-14a9a9b4614f.png" alt="MBI5027"></p>
-<p>The <a href="samples">sample</a> demonstrates how to use the shift register in some basic ways.</p>
+<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/ShiftRegister/samples">sample</a> demonstrates how to use the shift register in some basic ways.</p>
 <h2 id="using-gpio">Using GPIO</h2>
-<p>The binding can use <code>GpioController</code> pins to control the shift register. It uses <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/ShiftRegister/ShiftRegister.Shared/ShiftRegisterPinMapping.cs">ShiftRegisterPinMapping</a> to describe the pins that will be used.</p>
+<p>The binding can use <code>GpioController</code> pins to control the shift register. It uses <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/ShiftRegister/ShiftRegister.Shared/ShiftRegisterPinMapping.cs">ShiftRegisterPinMapping</a> to describe the pins that will be used.</p>
 <p>The following example code demonstrates how to use a shift register with GPIO.</p>
 <pre><code class="lang-csharp">ShiftRegister sr = new(ShiftRegisterPinMapping.Minimal, 8);
 
@@ -114,7 +114,7 @@ Thread.Sleep(1000);
 // ShiftByte latches data by default
 sr.ShiftByte(0b_1000_1101);
 </code></pre>
-<p>The following <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Sn74hc595/sn74hc595-minimal-led-bar-graph.fzz">diagram</a> demonstrates the required wiring for using the SN74HC595 with minimal mapping. Other shift registers will be similar.</p>
+<p>The following <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Sn74hc595/sn74hc595-minimal-led-bar-graph.fzz">diagram</a> demonstrates the required wiring for using the SN74HC595 with minimal mapping. Other shift registers will be similar.</p>
 <p><img src="../../devicesimages/Sn74hc595/sn74hc595-minimal-led-bar-graph_bb.png" alt="sn74hc595-led-bar-graph-spi_bb"></p>
 <h2 id="using-spi">Using SPI</h2>
 <p><strong>Important</strong>: make sure you properly setup the SPI pins especially for ESP32 before creating the <code>SpiDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
@@ -143,7 +143,7 @@ sr.ShiftClear();
 // Write to all 8 registers with a byte value
 sr.ShiftByte(0b_1010_1010);
 </code></pre>
-<p>The following <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Sn74hc595/sn74hc595-led-bar-graph-spi.fzz">diagram</a> demonstrates the required wiring for using the SN74HC595 with SPI. Other shift registers will be similar.</p>
+<p>The following <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Sn74hc595/sn74hc595-led-bar-graph-spi.fzz">diagram</a> demonstrates the required wiring for using the SN74HC595 with SPI. Other shift registers will be similar.</p>
 <p><img src="../../devicesimages/Sn74hc595/sn74hc595-led-bar-graph-spi_bb.png" alt="sn74hc595-led-bar-graph-spi_bb"></p>
 <h2 id="daisy-chaining">Daisy-chaining</h2>
 <p>The binding supports daisy chaining, using either GPIO or SPI. The GPIO-based example below demonstrates how to instantiate the binding for controlling/addressing two -- daisy-chained -- 8-bit shift registers. This is specified by the integer value in the constructor.</p>
@@ -187,7 +187,7 @@ foreach (var b in bytes)
     sr.ShiftByte(b);
 }
 </code></pre>
-<p>The following <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/Sn74hc595/sn74hc595-minimal-led-bar-graph-double-up.fzz">diagram</a> demonstrates the required wiring for using the SN74HC595 with daisy-chaining. Other shift registers will be similar. This diagram uses the <code>Minimal</code> mapping. The <code>Complete</code> mapping will differ.</p>
+<p>The following <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Sn74hc595/sn74hc595-minimal-led-bar-graph-double-up.fzz">diagram</a> demonstrates the required wiring for using the SN74HC595 with daisy-chaining. Other shift registers will be similar. This diagram uses the <code>Minimal</code> mapping. The <code>Complete</code> mapping will differ.</p>
 <p><img src="../../devicesimages/Sn74hc595/sn74hc595-minimal-led-bar-graph-double-up_bb.png" alt="sn74hc595-minimal-led-bar-graph-double-up_bb"></p>
 <h2 id="resources">Resources</h2>
 <ul>
@@ -206,7 +206,7 @@ foreach (var b in bytes)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices\ShiftRegister\README.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/ShiftRegister/README.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
@@ -227,7 +227,7 @@ foreach (var b in bytes)
               <a href="#top">Back to top</a>
             </span>
       
-      <span>Copyright � 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>    </div>

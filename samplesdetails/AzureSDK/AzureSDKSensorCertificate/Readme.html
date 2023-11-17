@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>&#127798;️&#127798;️&#127798;️ - Using Azure SDK with BMP280 on M5Stack with .NET nanoFramework | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="&#127798;️&#127798;️&#127798;️ - Using Azure SDK with BMP280 on M5Stack with .NET nanoFramework | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+      <link rel="mask-icon" href="../../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="---using-azure-sdk-with-bmp280-on-m5stack-with-net-nanoframework">🌶️🌶️🌶️ - Using Azure SDK with BMP280 on M5Stack with .NET nanoFramework</h1>
+
+<p>M5Stack is a modular, stackable, and portable device which is powered with an ESP-32 core. And .NET nanoFramework image can be loaded in the board to enable the writing of managed code applications.</p>
+<p>In this sample <a href="https://docs.m5stack.com/en/core/gray">M5Stack Gray</a> will be used but same sample code can run on any ESP32 and  any other nanoFramework supported devices.</p>
+<p>This sample application includes a scenario:
+Every 3 seconds application reads temperature value from BMP280 sensor and turns on LED after reading the value. Then this temperature value is pushed to IoT Hub with device name and after every successfull push LED will turn off. Data will be handled by IoT Hub message routing and will be pushed to blob storage to store.</p>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/M5Stack-Azure-flow.png" alt="M5Stack with nanoFramework to Azure Iot Hub"></p>
+<blockquote>
+<p><strong>Note</strong>: this sample requires a good understanding on how certificate authentication works. And how to set them up properly in Azure IoT.</p>
+</blockquote>
+<p>The sample is <a href="https://github.com/nanoframework/Samples/tree/main/samples/AzureSDK/AzureSDKSensorCertificate/">located here</a>.</p>
+<h2 id="getting-started-with-nanoframework">Getting Started with nanoFramework</h2>
+<ul>
+<li><a href="https://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html">Getting Started Guide for managed code (C#)</a></li>
+<li><a href="https://github.com/nanoframework/nanoFramework.Azure.Devices">List of suported devices/sensors by NanoFramework</a></li>
+<li><a href="https://github.com/nanoframework/Samples">nanoFramework Samples</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>M5Stack with nanoFramework installed</li>
+<li>BMP280 Pressure/Temperature sensor breakout</li>
+<li>Jumper wires</li>
+<li>5 mm LED</li>
+<li>330 Ω resistor</li>
+<li>Breadboard (optional)</li>
+</ul>
+<h2 id="prepare-the-hardware">Prepare the hardware</h2>
+<p>Use the hardware components to build the circuit as depicted in the following diagram:</p>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/M5Stack-BMP280_bb.png" alt="M5Stack with nanoFramework diagram"></p>
+<h2 id="pins">Pins</h2>
+<p>The following are the connections from the M5Stack to the BME280 breakout:</p>
+<ul>
+<li>3.3V to VIN OR 3V3 (shown in red)</li>
+<li>Ground to GND (grey)</li>
+<li>SDA (GPIO 21 for ESP32) to SDI (blue)</li>
+<li>SCL (GPIO 22 for ESP32) to SCK (yellow)</li>
+<li>GPIO 18 to LED anode (longer, positive lead)</li>
+<li>LED cathode (shorter, negative lead) to 330 Ω resistor (either end)</li>
+<li>330 Ω resistor (other end) to ground</li>
+</ul>
+<h2 id="run-the-solution">Run the Solution</h2>
+<p>Use your Azure Subscription for following steps:</p>
+<ol>
+<li><p>Make sure your <a href="#-Pins">Pins</a> are correctly connected.</p>
+</li>
+<li><p>Create an IoT Hub using your Azure Subscription, you can use free tier of IoT Hub. You'll need IoT Hub name in the next steps in your code.</p>
+</li>
+<li><p>Create certificate using OpenSLL following <a href="create-certificate.html">Create test certificate using OpenSSL</a> documentation. Don't forget to change <code>raspberry-pi</code> to a unique name to your m5stack device in the tutorial commands.</p>
+</li>
+<li><p>If you followed above tutorial, you'll already have your device, if not create a device in your IoT Hub</p>
+<ul>
+<li><p>Go to IoT Devices in Azure IoT Hub
+<img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/iot-hub-create-iot-device-1.png" alt="Create a Device in your IoT Hub"></p>
+</li>
+<li><p>Give a unique name to your device and select <code>X.509 CA Signed</code> as Authentication type
+<img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/iot-hub-create-iot-device-2.png" alt="Create a Device in your IoT Hub"></p>
+</li>
+</ul>
+</li>
+<li><p>Provide your IoT Hub details, <code>Device ID</code> and <code>IoT Hub Name</code> into <code>Program.cs</code>. Open your solution with Microsoft Visual Studio 2019.</p>
+<pre><code class="lang-csharp">const string DeviceID = &quot;&lt;replace-with-your-device-id&gt;&quot;;
+const string IotBrokerAddress = &quot;&lt;replace-with-your-iot-hub-name&gt;.azure-devices.net&quot;;
+</code></pre>
+</li>
+<li><p>Provide your <code>PEM</code> certificate, <code>Private Key</code> and <code>Azure Root CA</code> in string formats into  <code>Program.cs</code>. You can access these values from &quot;Step 3 - <a href="create-certificate.html">Create test certificate using OpenSSL</a>&quot;</p>
+<pre><code class="lang-csharp">/ X509Certificate certificates in PEM format and key
+const string cert =
+@&quot;-----BEGIN CERTIFICATE-----
+&lt;replace-with-your-pem-certificate-value&gt;
+-----END CERTIFICATE-----&quot;;
+
+const string privateKey =
+@&quot;-----BEGIN ENCRYPTED PRIVATE KEY-----
+&lt;replace-with-your-encrypted-private-key-value&gt;
+-----END ENCRYPTED PRIVATE KEY-----&quot;;
+
+const string rootCA =
+@&quot;-----BEGIN CERTIFICATE-----
+&lt;replace-with-your-azurePEMCertBaltimore-value&gt;
+-----END CERTIFICATE-----&quot;;
+</code></pre>
+</li>
+<li><p>Enter your Wifi Settings in the <code>Program.cs</code> file</p>
+<pre><code class="lang-csharp">const string  MySsid = &quot;&lt;replace-with-valid-ssid&quot;;
+const string  MyPassword = &quot;&lt;replace-with-valid-password&gt;&quot;;
+</code></pre>
+</li>
+</ol>
+<h3 id="building-the-sample">Building the sample</h3>
+<ol>
+<li>Go to sample and Double-click the Visual Studio Solution (.sln) file.</li>
+<li>Press <code>Ctrl+Shift+B</code>, or select <strong>Build</strong> &gt; <strong>Build Solution</strong>.</li>
+<li>Make sure to click on device explorer and select your device.</li>
+</ol>
+<p>The next steps depend on whether you just want to deploy the sample or you want to both deploy and run it.</p>
+<h3 id="deploying-the-sample">Deploying the sample</h3>
+<ul>
+<li>Select Build &gt; Deploy Solution.</li>
+</ul>
+<h3 id="deploying-and-running-the-sample">Deploying and running the sample</h3>
+<ul>
+<li>To debug the sample and then run it, press F5 or select Debug &gt;  Start Debugging.</li>
+</ul>
+<h2 id="result">Result</h2>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/M5Stack-BMP280_integration.png" alt="Result M5Stack circuit"></p>
+<p>If you enable Message routing with Custom endpoint, you can save all inputs into an Azure Blob Storage</p>
+<ul>
+<li><p>First Create a route</p>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/iot-hub-message-routing-1.png" alt="Iot Hub Message Routing"></p>
+</li>
+<li><p>Create a custom endpoint to connect to your blob storage data will be save in below format:
+<code>{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}</code> Once connection is succesfull you can see the status as healty</p>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/iot-hub-message-routing-2.png" alt="Iot Hub Message Routing"></p>
+</li>
+<li><p>Blob storage contains all data from IoT Hub in a container</p>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/iot-hub-message-routing-3.png" alt="Iot Hub Message Routing"></p>
+</li>
+</ul>
+<p>and single JSON file structure looks like below:</p>
+<pre><code class="lang-json">{
+    &quot;EnqueuedTimeUtc&quot;: &quot;2021-09-09T13:12:18.3950000Z&quot;,
+    &quot;Properties&quot;: {},
+    &quot;SystemProperties&quot;: {
+        &quot;connectionDeviceId&quot;: &quot;m5stack&quot;,
+        &quot;connectionAuthMethod&quot;: &quot;{\&quot;scope\&quot;:\&quot;device\&quot;,\&quot;type\&quot;:\&quot;sas\&quot;,\&quot;issuer\&quot;:\&quot;iothub\&quot;,\&quot;acceptingIpFilterRule\&quot;:null}&quot;,
+        &quot;connectionDeviceGenerationId&quot;: &quot;637667231818779957&quot;,
+        &quot;contentType&quot;: &quot;application/json&quot;,
+        &quot;contentEncoding&quot;: &quot;&quot;,
+        &quot;enqueuedTime&quot;: &quot;2021-09-09T13:12:18.3950000Z&quot;
+    },
+    &quot;Body&quot;: &quot;eyJUZW1wZXJhdHVyZSI6MjcuNTYsIlByZXNzdXJlIjoxMDA2LjY5LCJEZXZpY2VJRCI6Im01c3RhY2sifQ==&quot;
+}
+</code></pre>
+<p>Body message is encoded with Base64 format, if you decode the value, you'll retrieve the message we sent to Azure IoT Hub:</p>
+<pre><code class="lang-json">{
+    &quot;Temperature&quot;: 27.56,
+    &quot;Pressure&quot;: 1006.69,
+    &quot;DeviceID&quot;: &quot;m5stack&quot;
+}
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/nanoframework/Samples/tree/main/samples/AMQP">nanoFramework AMQP sample</a></li>
+<li><a href="https://github.com/nanoframework/nanoFramework.Azure.Devices">nanoFramework Azure SDK</a></li>
+<li><a href="https://github.com/nanoframework/Samples/tree/main/samples/AzureMQTTTwinsBMP280Sleep">Complete Azure MQTT sample using BMP280 sensor</a></li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/Samples/blob/main/samples/AzureSDK/AzureSDKSensorCertificate/Readme.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
+

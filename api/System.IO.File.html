@@ -179,7 +179,7 @@ routines such as Delete, etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>sourceFileName or destFileName is null or empty</p>
+        <td><p><code class="paramref">sourceFileName</code> or <code class="paramref">destFileName</code> is null or empty.</p>
 </td>
       </tr>
     </tbody>
@@ -220,7 +220,7 @@ routines such as Delete, etc.</p>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
         <td><span class="parametername">overwrite</span></td>
-        <td><p>true if the destination file can be overwritten; otherwise, false.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the destination file can be overwritten; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -236,7 +236,7 @@ routines such as Delete, etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>sourceFileName or destFileName is null or empty</p>
+        <td><p><code class="paramref">sourceFileName</code> or <code class="paramref">destFileName</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty.</p>
 </td>
       </tr>
     </tbody>
@@ -309,7 +309,7 @@ routines such as Delete, etc.</p>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td><p>The name of the file to be deleted. Wild-card characters are not supported.</p>
+        <td><p>The name of the file to be deleted. Wildcard characters are not supported.</p>
 </td>
       </tr>
     </tbody>
@@ -324,13 +324,13 @@ routines such as Delete, etc.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>Path must be defined.</p>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code class="paramref">path</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
-        <td><p>Directory not found. or Not allowed to delete ReadOnly Files. or Not allowed to delete Directories.</p>
+        <td><p>Directory is not found or <code class="paramref">path</code> is read-only or a directory.</p>
 </td>
       </tr>
     </tbody>
@@ -375,7 +375,8 @@ routines such as Delete, etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
+        <td><p><code>true</code> if the file exists; otherwise <code>false</code>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -383,7 +384,7 @@ routines such as Delete, etc.</p>
 
   <a id="System_IO_File_GetAttributes_" data-uid="System.IO.File.GetAttributes*"></a>
   <h4 id="System_IO_File_GetAttributes_System_String_" data-uid="System.IO.File.GetAttributes(System.String)">GetAttributes(string)</h4>
-  <div class="markdown level1 summary"><p>Gets the FileAttributes of the file on the path.</p>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="System.IO.FileAttributes.html">FileAttributes</a> of the file on the path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -419,8 +420,7 @@ routines such as Delete, etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.IO.FileAttributes.html">FileAttributes</a></td>
-        <td><p>The FileAttributes of the file on the path.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -435,7 +435,7 @@ routines such as Delete, etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
-        <td><p>File not found.</p>
+        <td><p><code class="paramref">path</code> cannot be not found.</p>
 </td>
       </tr>
     </tbody>
@@ -444,7 +444,7 @@ routines such as Delete, etc.</p>
 
   <a id="System_IO_File_GetLastWriteTime_" data-uid="System.IO.File.GetLastWriteTime*"></a>
   <h4 id="System_IO_File_GetLastWriteTime_System_String_" data-uid="System.IO.File.GetLastWriteTime(System.String)">GetLastWriteTime(string)</h4>
-  <div class="markdown level1 summary"><p>Determines the time of the last write/modification to file under given path.</p>
+  <div class="markdown level1 summary"><p>Returns the date and time the specified file or directory was last written to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -464,7 +464,8 @@ routines such as Delete, etc.</p>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td></td>
+        <td><p>The file or directory for which to obtain write date and time information.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -479,7 +480,7 @@ routines such as Delete, etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.DateTime.html">DateTime</a></td>
-        <td><p>Time of the last write/modification.</p>
+        <td><p>A <a class="xref" href="System.DateTime.html">DateTime</a> structure set to the last write date and time for the specified file or directory.</p>
 </td>
       </tr>
     </tbody>
@@ -495,7 +496,7 @@ routines such as Delete, etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
-        <td><p>Logical drive or a file under given path does not exist.</p>
+        <td><p><code class="paramref">path</code> cannot be not found.</p>
 </td>
       </tr>
     </tbody>
@@ -524,7 +525,7 @@ routines such as Delete, etc.</p>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">sourceFileName</span></td>
-        <td><p>The name of the file to move. Absolute path.</p>
+        <td><p>The name of the file to move. Must be an absolute path.</p>
 </td>
       </tr>
       <tr>
@@ -535,6 +536,9 @@ routines such as Delete, etc.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="System_IO_File_Move_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>.NET nanoFramework implementation differs from the full framework as it requires that <code class="paramref">sourceFileName</code> be an absolute path. This is a limitation coming from the platform.</p>
+</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-condensed">
     <thead>
@@ -545,8 +549,13 @@ routines such as Delete, etc.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Exception.html">Exception</a></td>
-        <td><p>Source File not existing or Destination File already existing.</p>
+        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
+        <td><p><code class="paramref">sourceFileName</code> or <code class="paramref">destFileName</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
+        <td><p><code class="paramref">sourceFileName</code> does not exist or <code class="paramref">destFileName</code> exists.</p>
 </td>
       </tr>
     </tbody>
@@ -793,7 +802,7 @@ routines such as Delete, etc.</p>
 
   <a id="System_IO_File_SetAttributes_" data-uid="System.IO.File.SetAttributes*"></a>
   <h4 id="System_IO_File_SetAttributes_System_String_System_IO_FileAttributes_" data-uid="System.IO.File.SetAttributes(System.String,System.IO.FileAttributes)">SetAttributes(string, FileAttributes)</h4>
-  <div class="markdown level1 summary"><p>Sets the specified FileAttributes of the file on the specified path.</p>
+  <div class="markdown level1 summary"><p>Sets the specified <a class="xref" href="System.IO.FileAttributes.html">FileAttributes</a> of the file on the specified path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Create test certificate using OpenSSL and Azure IoT Hub | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Create test certificate using OpenSSL and Azure IoT Hub | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+      <link rel="mask-icon" href="../../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="create-test-certificate-using-openssl-and-azure-iot-hub">Create test certificate using OpenSSL and Azure IoT Hub</h1>
+
+<p>This documentation is created following <a href="https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-x509-openssl">Tutorial: Using OpenSSL to create test certificates</a> document.</p>
+<blockquote>
+<p>NOTE: This example was created using <a href="https://cygwin.com/install.html">Cygwin64 for Windows</a>. Cygwin is an open source tool collection that allows Unix or Linux applications to be run on Windows from within a Linux-like interface. CygWin64 is bundled with OpenSSL. If you are using Linux, you probably already have OpenSSL installed.</p>
+</blockquote>
+<p>Although you can purchase X.509 certificates from a trusted certification authority, creating your own test certificate hierarchy or using self-signed certificates is adequate for testing IoT hub device authentication. The following example uses <a href="https://www.openssl.org/">OpenSSL</a> and the <a href="https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html">OpenSSL Cookbook</a> to create a certification authority (CA) and a device certificate. The example then signs the CA and the device certificate into a certificate hierarchy. This is presented for example purposes only.</p>
+<h2 id="step-1---create-the-root-ca-directory-structure">Step 1 - Create the root CA directory structure</h2>
+<p>In Cygwin specify the folder you'll be creating your certificates, for accessing easily to certificates you can select Documents folder with following command:</p>
+<pre><code class="lang-bash">cd /cygdrive/c/Users/{your-username}/Documents
+</code></pre>
+<p>Create a directory structure for the certification authority.</p>
+<ul>
+<li>The <strong>certs</strong> directory stores new certificates.</li>
+<li>The <strong>db</strong> directory is used for the certificate database.</li>
+<li>The <strong>private</strong> directory stores the CA private key.</li>
+</ul>
+<pre><code class="lang-bash">mkdir rootca
+cd rootca
+mkdir certs db private
+touch db/index
+openssl rand -hex 16 &gt; db/serial
+echo 1001 &gt; db/crlnumber
+</code></pre>
+<h2 id="step-2---create-a-root-ca-configuration-file">Step 2 - Create a root CA configuration file</h2>
+<p>Before creating a CA, create a configuration file and save it as <code>rootca.conf</code> in the rootca directory.</p>
+<pre><code class="lang-xml">[default]
+name                     = rootca
+domain_suffix            = example.com
+aia_url                  = http://$name.$domain_suffix/$name.crt
+crl_url                  = http://$name.$domain_suffix/$name.crl
+default_ca               = ca_default
+name_opt                 = utf8,esc_ctrl,multiline,lname,align
+
+[ca_dn]
+commonName               = &quot;Test Root CA&quot;
+
+[ca_default]
+home                     = ../rootca 
+database                 = $home/db/index
+serial                   = $home/db/serial
+crlnumber                = $home/db/crlnumber
+certificate              = $home/$name.crt
+private_key              = $home/private/$name.key
+RANDFILE                 = $home/private/random
+new_certs_dir            = $home/certs
+unique_subject           = no
+copy_extensions          = none
+default_days             = 3650
+default_crl_days         = 365
+default_md               = sha256
+policy                   = policy_c_o_match
+
+[policy_c_o_match]
+countryName              = optional
+stateOrProvinceName      = optional
+organizationName         = optional
+organizationalUnitName   = optional
+commonName               = supplied
+emailAddress             = optional
+
+[req]
+default_bits             = 2048
+encrypt_key              = yes
+default_md               = sha256
+utf8                     = yes
+string_mask              = utf8only
+prompt                   = no
+distinguished_name       = ca_dn
+req_extensions           = ca_ext
+
+[ca_ext]
+basicConstraints         = critical,CA:true
+keyUsage                 = critical,keyCertSign,cRLSign
+subjectKeyIdentifier     = hash
+
+[sub_ca_ext]
+authorityKeyIdentifier   = keyid:always
+basicConstraints         = critical,CA:true,pathlen:0
+extendedKeyUsage         = clientAuth,serverAuth
+keyUsage                 = critical,keyCertSign,cRLSign
+subjectKeyIdentifier     = hash
+
+[client_ext]
+authorityKeyIdentifier   = keyid:always
+basicConstraints         = critical,CA:false
+extendedKeyUsage         = clientAuth
+keyUsage                 = critical,digitalSignature
+subjectKeyIdentifier     = hash
+
+</code></pre>
+<h2 id="step-3---create-a-root-ca">Step 3 - Create a root CA</h2>
+<p>First, generate the key and the certificate signing request (CSR) in the rootca directory. This step will ask you PEM pass phrase, enter the value twice</p>
+<pre><code class="lang-bash">openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
+</code></pre>
+<p>Next, create a self-signed CA certificate. Self-signing is suitable for testing purposes. Specify the ca_ext configuration file extensions on the command line. These indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). Sign the certificate, and commit it to the database.</p>
+<pre><code class="lang-bash">openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
+</code></pre>
+<h2 id="step-4---demonstrate-proof-of-possession">Step 4 - Demonstrate proof of possession</h2>
+<p>You now have a root CA certificate. You can use it to sign device certificates. This certifate must be uploaded to your IoT Hub. To upload and register your CA certificate to your IoT Hub:</p>
+<ol>
+<li><p>In the Azure portal, navigate to your IoTHub and select <strong>Settings &gt; Certificates</strong>.</p>
+</li>
+<li><p>Select <strong>Add</strong> to add your new CA certificate.</p>
+</li>
+<li><p>Enter a display name in the <strong>Certificate Name</strong> field, and select the PEM  certificate file you created previously.</p>
+<blockquote>
+<p>NOTE: The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:</p>
+</blockquote>
+<pre><code class="lang-bash">openssl x509 -in rootca.crt -out rootca.pem -outform PEM
+</code></pre>
+</li>
+<li><p>Select <strong>Save</strong>. Your certificate is shown in the certificate list with a status of <strong>Unverified</strong>. The verification process will prove that you own the certificate.</p>
+</li>
+<li><p>Select the certificate to view the <strong>Certificate Details</strong> dialog.</p>
+</li>
+<li><p>Select <strong>Generate Verification Code</strong>. For more information, see <a href="https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-x509-prove-possession">Prove Possession of a CA certificate</a>.</p>
+</li>
+</ol>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/certificate-iot-hub-ca.png" alt="Certificate Azure IoT Hub CA"></p>
+<ol start="7">
+<li><p>Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, add that as the subject of your certificate as shown in step 9.</p>
+</li>
+<li><p>Generate a private key.</p>
+<pre><code class="lang-bash">openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+</code></pre>
+</li>
+<li><p>Generate a certificate signing request (CSR) from the private key. Add the verification code as the subject of your certificate.</p>
+<pre><code class="lang-bash">openssl req -new -key pop.key -out pop.csr
+
+  -----
+  Country Name (2 letter code) [XX]:.
+  State or Province Name (full name) []:.
+  Locality Name (eg, city) [Default City]:.
+  Organization Name (eg, company) [Default Company Ltd]:.
+  Organizational Unit Name (eg, section) []:.
+  Common Name (eg, your name or your server hostname) []:BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A
+  Email Address []: 
+  Please enter the following 'extra' attributes
+  to be sent with your certificate request
+  A challenge password []:
+  An optional company name []:
+
+</code></pre>
+</li>
+</ol>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/certificate-iot-hub-ca-csr.png" alt="Certificate Azure IoT Hub CA"></p>
+<ol start="10">
+<li><p>Create a certificate using the root CA configuration file and the CSR for the proof of possession certificate.</p>
+<pre><code class="lang-bash">openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
+</code></pre>
+</li>
+<li><p>Select the new certificate in the <strong>Certificate Details</strong> view. To find the PEM file, navigate to the certs folder.</p>
+</li>
+<li><p>After the certificate uploads, select <strong>Verify</strong>. The CA certificate status should change to <strong>Verified</strong>.</p>
+</li>
+</ol>
+<h2 id="step-8---create-a-device-in-your-iot-hub">Step 8 - Create a device in your IoT Hub</h2>
+<p>Navigate to your IoT Hub in the Azure portal and create a new IoT device identity with the following values:</p>
+<ol>
+<li><p>Provide the <strong>Device ID</strong> that matches the subject name of your device certificates. In the following sample we'll use <strong>&quot;raspberry-pi&quot;</strong> as device id.</p>
+</li>
+<li><p>Select the <strong>X.509 CA Signed</strong> authentication type.</p>
+</li>
+<li><p>Select <strong>Save</strong>.</p>
+</li>
+</ol>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/create-a-device-ca-certificate.png" alt="Certificate Azure IoT Hub CA"></p>
+<h2 id="step-9---create-a-client-device-certificate">Step 9 - Create a client device certificate</h2>
+<p>To generate a client certificate, you must first generate a private key. The following command shows how to use OpenSSL to create a private key. Create the key in the subca directory.</p>
+<pre><code class="lang-bash">openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+</code></pre>
+<p>Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field. In our case we picked <strong>&quot;raspberry-pi&quot;</strong> as device ID, we'll use this id in the common name field.</p>
+<pre><code class="lang-bash">openssl req -new -key device.key -out device.csr
+
+-----
+Country Name (2 letter code) [XX]:.
+State or Province Name (full name) []:.
+Locality Name (eg, city) [Default City]:.
+Organization Name (eg, company) [Default Company Ltd]:.
+Organizational Unit Name (eg, section) []:
+Common Name (eg, your name or your server hostname) []: raspberry-pi
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+
+</code></pre>
+<p><img src="../../../samplesimages/AzureSDK/AzureSDKSensorCertificate/images/certificate-iot-hub-csr.png" alt="Certificate Azure IoT Hub CA"></p>
+<p>Check that the CSR is what you expect.</p>
+<pre><code class="lang-bash">openssl req -text -in device.csr -noout
+</code></pre>
+<p>Send the CSR to the CA for signing. Specify <code>client_ext</code> in the <code>-extensions</code> switch. Notice that the <code>Basic Constraints</code> in the issued certificate indicate that this certificate is not for a CA. If you are signing multiple certificates, be sure to update the serial number before generating each certificate by using the openssl <code>rand -hex 16 &gt; db/serial</code> command.</p>
+<pre><code class="lang-bash">openssl ca -config rootca.conf -in device.csr -out device.crt -extensions client_ext
+</code></pre>
+<h2 id="step-10---create-pfx-certificate-for-device">Step 10 - Create <code>pfx</code> certificate for device</h2>
+<p>After creating certificates and keys using <code>openssl</code>, now it is time to create PFX certificate files for devices using PEM and Key files. When you run these commands, you're prompted to create a password. Make a note of the password, you need it in the next step.</p>
+<p>Use key and the latest pem file in certs folder.</p>
+<pre><code class="lang-bash">openssl pkcs12 -export -out raspberry-pi.pfx -inkey device.key -in certs/***.pem
+</code></pre>
+<h2 id="step-11---test-pfx-device-certificate">Step 11 - Test <code>pfx</code> device certificate</h2>
+<p>Go to <a href="https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-x509-test-certificate">Testing Certificate Authentication</a> to determine if your certificate can authenticate your device to your IoT Hub.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/Samples/blob/main/samples/AzureSDK/AzureSDKSensorCertificate/create-certificate.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
+

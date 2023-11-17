@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Azure IoT Device Provisioning Service (DPS) example | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Azure IoT Device Provisioning Service (DPS) example | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+      <link rel="mask-icon" href="../../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="azure-iot-device-provisioning-service-dps-example">Azure IoT Device Provisioning Service (DPS) example</h1>
+
+<p>You will find a sample to show how to connect to Azure IoT Device Provisioning Service (DPS). DPS allows you to provision devices individually, by group with authentication with SAS token or X.509 certificates. Those 4 scenarios are fully supported and described below.</p>
+<p><strong>IMPORTANT:</strong> please refer to the DPS documentation to understand how to create each provisioning. Uncomment the provisioning type you want to use.</p>
+<p>The documentation can be found <a href="https://docs.microsoft.com/en-us/azure/iot-dps/">here</a>.</p>
+<p>Refer to the main <a href="https://github.com/nanoframework/nanoFramework.Azure.Devices">.NET nanoFramework SDK</a> to understand the usage.</p>
+<p>The sample is <a href="https://github.com/nanoframework/Samples/tree/main/samples/AzureSDK/DpsSampleApp/">located here</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>The device <strong>must</strong> be connected to the Internet and have a valid date and time.</p>
+<h3 id="provisioning-using-symmetric-key">Provisioning using symmetric key</h3>
+<p>For symmetric key provisioning you need the following elements:</p>
+<ul>
+<li>A registration ID</li>
+<li>The ID Scope</li>
+<li>The device name</li>
+<li>The key or the derived key for group provisioning</li>
+</ul>
+<p>The code is then straight forward:</p>
+<pre><code class="lang-csharp">const string RegistrationID = &quot;nanoDPStTest&quot;;
+const string DpsAddress = &quot;global.azure-devices-provisioning.net&quot;;
+const string IdScope = &quot;0ne01234567&quot;;
+const string SasKey = &quot;alongkeyencodedbase64&quot;;
+
+// See the previous sections in the SDK help, you either need to have the Azure certificate embedded
+// Either passing it in the constructor
+X509Certificate azureCA = new X509Certificate(DpsSampleApp.Resources.GetBytes(DpsSampleApp.Resources.BinaryResources.BaltimoreRootCA_crt));
+var provisioning = ProvisioningDeviceClient.Create(DpsAddress, IdScope, RegistrationID, SasKey, azureCA);
+var myDevice = provisioning.Register(new CancellationTokenSource(60000).Token);
+
+if(myDevice.Status != ProvisioningRegistrationStatusType.Assigned)
+{
+    Debug.WriteLine($&quot;Registration is not assigned: {myDevice.Status}, error message: {myDevice.ErrorMessage}&quot;);
+    return;
+}
+
+// You can then create the device
+var device = new DeviceClient(myDevice.AssignedHub, myDevice.DeviceId, SasKey, nanoFramework.M2Mqtt.Messages.MqttQoSLevel.AtMostOnce, azureCA);
+
+// Open it and continue like for the previous sections
+var res = device.Open();
+if(!res)
+{
+    Debug.WriteLine($&quot;can't open the device&quot;);
+    return;
+}
+</code></pre>
+<p>Note: like for the <code>DeviceClient</code> you need to make sure you are connected to a network and that the system has a valid date and time.</p>
+<h3 id="provisioning-using-x509-certificates">Provisioning using X.509 certificates</h3>
+<p>For provisioning using a X.509 certificate you need the following elements:</p>
+<ul>
+<li>A registration ID</li>
+<li>The ID Scope</li>
+<li>The device name</li>
+<li>A X.509 device certificate</li>
+<li>Make sure that your IoT Hub is as well aware of the root/intermediate certificate you are using otherwise you won't be able to connect to your IoT Hub once your device is provisioned</li>
+</ul>
+<p>The code is then straight forward:</p>
+<pre><code class="lang-csharp">const string RegistrationID = &quot;nanoCertTest&quot;;
+const string DpsAddress = &quot;global.azure-devices-provisioning.net&quot;;
+const string IdScope = &quot;0ne0034F11A&quot;;
+
+const string cert = @&quot;
+-----BEGIN CERTIFICATE-----
+Your certificate
+-----END CERTIFICATE-----
+&quot;;
+
+const string privateKey = @&quot;
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+the encrypted private key
+-----END ENCRYPTED PRIVATE KEY-----
+&quot;;
+
+// See the previous sections in the SDK help, you either need to have the Azure certificate embedded
+// Either passing it in the constructor
+X509Certificate azureCA = new X509Certificate(DpsSampleApp.Resources.GetBytes(DpsSampleApp.Resources.BinaryResources.BaltimoreRootCA_crt));
+
+// Note: if the private key is not encrypted with a password, use an empty string for the password parameter
+// You can as well store your certificate directly in the device certificate store
+// And you can store it as a resource as well if needed
+X509Certificate2 deviceCert = new X509Certificate2(cert, privateKey, &quot;1234&quot;);
+
+var provisioning = ProvisioningDeviceClient.Create(DpsAddress, IdScope, RegistrationID, deviceCert, azureCA);
+var myDevice = provisioning.Register(new CancellationTokenSource(60000).Token);
+
+if(myDevice.Status != ProvisioningRegistrationStatusType.Assigned)
+{
+    Debug.WriteLine($&quot;Registration is not assigned: {myDevice.Status}, error message: {myDevice.ErrorMessage}&quot;);
+    return;
+}
+
+// You can then create the device
+var device = new DeviceClient(myDevice.AssignedHub, myDevice.DeviceId, deviceCert, nanoFramework.M2Mqtt.Messages.MqttQoSLevel.AtMostOnce, azureCA);
+// Open it and continue like for the previous sections
+var res = device.Open();
+if(!res)
+{
+    Debug.WriteLine($&quot;can't open the device&quot;);
+    return;
+}
+</code></pre>
+<h3 id="additional-payload">Additional payload</h3>
+<p>Additional payload is supported as well. You can set it up as as json string in the <code>ProvisioningRegistrationAdditionalData</code> class when calling the <code>Register</code> function. When the device has been provisioned, you may have as well additional payload provided.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/Samples/blob/main/samples/AzureSDK/DpsSampleApp/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
+

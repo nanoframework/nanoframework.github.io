@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>&#127798;️&#127798;️&#127798;️ - Azure Edge OTA example | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="&#127798;️&#127798;️&#127798;️ - Azure Edge OTA example | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+      <link rel="mask-icon" href="../../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="---azure-edge-ota-example">🌶️🌶️🌶️ - Azure Edge OTA example</h1>
+
+<p>This examples is a complete code Over the Air (OTA) example using Azure IoT. You have a detailed explanation on <a href="https://www.nanoframework.net/over-the-air-net-nanoframework-code-update-using-azure-iot/">this blog post</a>.</p>
+<p><img src="../../../samplesimages/AzureSDK/AzureEdgeOta/architecture.png" alt="Architecture"></p>
+<p>The sample is <a href="https://github.com/nanoframework/Samples/tree/main/samples/AzureSDK/AzureEdgeOta/">located here</a>.</p>
+<h2 id="hardware-requirements">Hardware requirements</h2>
+<p>An hardware device with networking capabilities running a nanoFramework image.
+This code has been tested with ESP32 boards. Note that there is a specific section to enable serial port logging. This can be replaced by any other board with networking capabilities.</p>
+<p>The sample uses wifi, this part can be as well replaced with an ethernet connection. It will work the exact same way.</p>
+<h3 id="azure-requirements">Azure requirements</h3>
+<p>You'll need an <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub">Azure IoT Hub</a> and a <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/">Blob storage</a>. Make sure you select a standard Azure IoT Hub as you'll need the twin mechanism.</p>
+<h3 id="project-structure">Project structure</h3>
+<p>You'll find 4 different projects:</p>
+<ul>
+<li>The main application that runs on the device <code>AzureEdgeOTAEngine</code>. It does contains all the logic to connect to Azure IoT, get the device twins, download the code, check the integrity, run it dynamically.</li>
+<li>The sample application that is downloaded and loaded dynamically <code>CountMeasurement</code>. This is a very simple counter, you can of course take it and fully adjust it!</li>
+<li>An application that will upload on a blob storage what's needed and prepare the twin.</li>
+<li>A share project <code>OtaInterface</code> which contains shared elements for the PE file settings. This can be used more broadly across all projects if needed.s</li>
+</ul>
+<h3 id="secrets-in-azureedgeotaengine">Secrets in AzureEdgeOTAEngine</h3>
+<p>You'll need few secrets to have this application working:</p>
+<pre><code class="lang-csharp">public const string DeviceID = &quot;your_device_id&quot;;
+public const string IotBrokerAddress = &quot;your_iot_hub.azure-devices.net&quot;;
+public const string SasKey = &quot;your_device_sas_key&quot;;
+public const string Ssid = &quot;your_wifi_ssid&quot;;
+public const string Password = &quot;your_wifi_password&quot;;
+</code></pre>
+<p>While this sample uses SAS token, you can use the same way certificates. If you're using certificates, they can be uploaded in the device directly. See in the <a href="https://github.com/nanoframework/nanoFramework.Azure.Devices#storing-the-certificate-on-the-device">Azure library here</a>.</p>
+<p>You can the same way store your wifi secrets directly on the device as well. In this case, you'll have to adjust the few lines of code used for the wifi helper.</p>
+<h3 id="twin-setup">Twin setup</h3>
+<p>You'll need to adjust your device twin to contain at minimum a <code>Files</code> array entry in the desired properties AND a <code>Token</code> to read the blob storage AND a <code>CodeVersion</code>:</p>
+<pre><code class="lang-json">&quot;Files&quot;:[{&quot;FileName&quot;:&quot;https://ellerbachiotstorage.blob.core.windows.net/nano-containers/CountMeasurement.pe&quot;,&quot;Signature&quot;:&quot;7C-32-82-6D-00-17-E3-33-00-BE-E2-7C-06-EB-C1-E5-1F-09-2D-BF-4F-D6-E7-30-98-5A-2B-BE-E8-AC-CC-E9&quot;}],
+&quot;Token&quot;:&quot;a_long_sas_token&quot;,
+&quot;CodeVersion&quot;: 12,
+</code></pre>
+<p>The blob file will only be downloaded if there is a change in the <code>CodeVersion</code>. When downloading the file from the blob storage, the SHA256 signature will be verified. Once saved in the internal storage, it won't be checked again.</p>
+<p>You can add more desired properties and use them of course. The sample counter application uses <code>&quot;UpdateTime&quot;: 120000,</code> giving in milliseconds how often the counter should send the data to Azure.</p>
+<h3 id="find-pe-files-and-upload-to-blob-storage">Find PE files and upload to blob storage</h3>
+<p>The <code>FindPeFiles</code> project will allow you to find the PE files which needs to be uploaded to a blob storage, upload them and give you the twin that needs to be added into your device. You can use this tool as command line or in debug. This is an example of the command line:</p>
+<pre><code class="lang-shell">-e &quot;C:\Repos\nanoFramework\Azure SDK\AzureEdgeOta\AzureEdgeOTAEngine\bin\Debug&quot; -a &quot;C:\Repos\nanoFramework\Azure SDK\AzureEdgeOta\CountMeasurement\bin\Debug&quot; -c &quot;https://yourblob.blob.core.windows.net/nano-containers&quot; -t &quot;sp=racwd&amp;st=2022-02-23T08:36:22Z&amp;se=2022-05-01T15:36:22Z&amp;spr=https&amp;sv=2020-08-04&amp;sr=c&amp;sig=somehtingsecrethere&quot;
+</code></pre>
+<ul>
+<li>The <code>-e</code> argument takes the core directory where your running OTA code has been build. It will look at the PE files here and assume all of them are deployed on the device.</li>
+<li>The <code>-a</code> argument points on the directory where the application you want to dynamically download and run is located. It will assume that the versions of the PE files that exist in the <code>-e</code> arguments is the same as those ones and only upload the PE files that are not present in the <code>-e</code> directory.</li>
+<li>The <code>-c</code> argument is the full path to the blob where the PE files will be uploaded.</li>
+<li>The <code>t</code> is the token to write, delete and update the blob storage. You can generate it automatically or thru the Azure portal.</li>
+</ul>
+<p>The output will look like this:</p>
+<pre><code class="lang-text">Input directory: C:\Repos\nanoFramework\Azure SDK\AzureEdgeOta\CountMeasurement\bin\Debug
+Input directory: C:\Repos\nanoFramework\Azure SDK\AzureEdgeOta\AzureEdgeOTAEngine\bin\Debug
+Connecting to Blob storage
+Files to add to blob storage:
+  C:\Repos\nanoFramework\Azure SDK\AzureEdgeOta\CountMeasurement\bin\Debug\CountMeasurement.pe
+    File name: CountMeasurement.pe
+    sha256: 7C-32-82-6D-00-17-E3-33-00-BE-E2-7C-06-EB-C1-E5-1F-09-2D-BF-4F-D6-E7-30-98-5A-2B-BE-E8-AC-CC-E9
+    File uploaded: 0x8D9FAA6B7AAD97B
+
+Twin for the device:
+[{&quot;FileName&quot;:&quot;https://ellerbachiotstorage.blob.core.windows.net/nano-containers/CountMeasurement.pe&quot;,&quot;Signature&quot;:&quot;7C-32-82-6D-00-17-E3-33-00-BE-E2-7C-06-EB-C1-E5-1F-09-2D-BF-4F-D6-E7-30-98-5A-2B-BE-E8-AC-CC-E9&quot;}]
+</code></pre>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://github.com/nanoframework/nanoFramework.IoT.Device/tree/develop/devices/Bmxx80">nanoFramework.IoT.Device Bmxx80 devices</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support">Azure IoT documentation for MQTT</a>.</li>
+<li><a href="https://github.com/nanoframework/System.Device.Wifi">nanoFramework Network helpers</a></li>
+</ul>
+<h2 id="build-the-sample">Build the sample</h2>
+<ol>
+<li>Simply adjust the device IoT Hub elements and your network</li>
+<li>Start Microsoft Visual Studio 2019 by opening the solution</li>
+<li>Add the connection information to the program.</li>
+<li>Press Ctrl+Shift+B, or select <strong>Build</strong> &gt; <strong>Build Solution</strong>.</li>
+</ol>
+<h2 id="run-the-sample">Run the sample</h2>
+<p>The next steps depend on whether you just want to deploy the sample or you want to both deploy and run it.</p>
+<p><strong>Important</strong>: You won't be able to debug this sample as the device will very quickly go to sleep. If you want to debug, comment the part where it goes to sleep and replace with and infinite thread sleep timeout.</p>
+<h3 id="deploying-the-sample">Deploying the sample</h3>
+<ul>
+<li>Select Build &gt; Deploy Solution.</li>
+</ul>
+<h3 id="deploying-and-running-the-sample">Deploying and running the sample</h3>
+<ul>
+<li>To debug the sample and then run it, press F5 or select Debug &gt;  Start Debugging.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/Samples/blob/main/samples/AzureSDK/AzureEdgeOta/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
+

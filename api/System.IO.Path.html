@@ -92,7 +92,9 @@
 
   <h1 id="System_IO_Path" data-uid="System.IO.Path" class="text-break">Class Path
 </h1>
-  <div class="markdown level0 summary"><p>Performs operations on String instances that contain file or directory path information.</p>
+  <div class="markdown level0 summary"><p>Provides methods for processing file system strings in a cross-platform manner.
+Most of the methods don't do a complete parsing (such as examining a UNC hostname),
+but they will handle most string operations.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -120,15 +122,43 @@
     <div>
       <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
     </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.IO.html">IO</a></h6>
   <h6><strong>Assembly</strong>: System.IO.FileSystem.dll</h6>
   <h5 id="System_IO_Path_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Path</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Path</code></pre>
   </div>
   <h3 id="fields">Fields
 </h3>
+
+
+  <h4 id="System_IO_Path_AltDirectorySeparatorChar" data-uid="System.IO.Path.AltDirectorySeparatorChar">AltDirectorySeparatorChar</h4>
+  <div class="markdown level1 summary"><p>Provides a platform-specific alternate character used to separate directory levels in a path string that reflects a hierarchical file system organization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly char AltDirectorySeparatorChar</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Char.html">char</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <h4 id="System_IO_Path_DirectorySeparatorChar" data-uid="System.IO.Path.DirectorySeparatorChar">DirectorySeparatorChar</h4>
@@ -156,13 +186,13 @@
   </table>
 
 
-  <h4 id="System_IO_Path_InvalidPathChars" data-uid="System.IO.Path.InvalidPathChars">InvalidPathChars</h4>
-  <div class="markdown level1 summary"><p>Provides a platform-specific array of characters that cannot be specified in path string arguments passed to members of the Path class.</p>
+  <h4 id="System_IO_Path_PathSeparator" data-uid="System.IO.Path.PathSeparator">PathSeparator</h4>
+  <div class="markdown level1 summary"><p>A platform-specific separator character used to separate path strings in environment variables.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly char[] InvalidPathChars</code></pre>
+    <pre><code class="lang-csharp hljs">public static readonly char PathSeparator</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -174,7 +204,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.Char.html">char</a>[]</td>
+        <td><a class="xref" href="System.Char.html">char</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="System_IO_Path_VolumeSeparatorChar" data-uid="System.IO.Path.VolumeSeparatorChar">VolumeSeparatorChar</h4>
+  <div class="markdown level1 summary"><p>Provides a platform-specific volume separator character.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly char VolumeSeparatorChar</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Char.html">char</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -185,16 +240,7 @@
 
   <a id="System_IO_Path_ChangeExtension_" data-uid="System.IO.Path.ChangeExtension*"></a>
   <h4 id="System_IO_Path_ChangeExtension_System_String_System_String_" data-uid="System.IO.Path.ChangeExtension(System.String,System.String)">ChangeExtension(string, string)</h4>
-  <div class="markdown level1 summary"><p>Changes the extension of a file path. The <pre><code class="lang-csharp">path</code></pre> parameter
-specifies a file path, and the<pre><code class="lang-csharp">extension</code></pre> parameter
-specifies a file extension (with a leading period, such as
-<pre><code class="lang-csharp">".exe"</code></pre> or<pre><code class="lang-csharp">".cool"</code></pre>).
-<p>The function returns a file path with the same root, directory, and base
-name parts as <pre><code class="lang-csharp">path</code></pre>, but with the file extension changed to
-the specified extension.If<pre><code class="lang-csharp">path</code></pre> is null, the function
-returns null. If<pre><code class="lang-csharp">path</code></pre> does not contain a file extension,
-the new file extension is appended to the path.If<pre><code class="lang-csharp">extension</code></pre>
-is null, any existing extension is removed from <pre><code class="lang-csharp">path</code></pre>.
+  <div class="markdown level1 summary"><p>Changes the extension of a path string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -214,13 +260,13 @@ is null, any existing extension is removed from <pre><code class="lang-csharp">p
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td><p>The path for which to change file extension.</p>
+        <td><p>The path information to modify.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">extension</span></td>
-        <td><p>The new file extension (with a leading period), or null to remove the extension.</p>
+        <td><p>The new extension (with or without a leading period). Specify <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to remove an existing extension from <code class="paramref">path</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -236,7 +282,12 @@ is null, any existing extension is removed from <pre><code class="lang-csharp">p
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
+        <td><p>The modified path information.</p>
+<p>If <code class="paramref">path</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or an empty string (&quot;&quot;), the path information is returned unmodified.
+If <code class="paramref">extension</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the returned string contains the specified path with its extension removed.
+If <code class="paramref">path</code> has no extension, and <code class="paramref">extension</code> is not <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the returned path string
+contains <code class="paramref">extension</code> appended to the end of <code class="paramref">path</code>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -286,7 +337,25 @@ is null, any existing extension is removed from <pre><code class="lang-csharp">p
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
+        <td><p>The combined paths. If one of the specified paths is a zero-length string, this method returns the other path.
+If <code class="paramref">path2</code> contains an absolute path, this method returns <code class="paramref">path2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
+        <td><p><code class="paramref">path1</code> or <code class="paramref">path2</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -294,11 +363,11 @@ is null, any existing extension is removed from <pre><code class="lang-csharp">p
 
   <a id="System_IO_Path_GetDirectoryName_" data-uid="System.IO.Path.GetDirectoryName*"></a>
   <h4 id="System_IO_Path_GetDirectoryName_System_String_" data-uid="System.IO.Path.GetDirectoryName(System.String)">GetDirectoryName(string)</h4>
-  <div class="markdown level1 summary"><p>Returns the directory path of a file path. This method effectively
-removes the last element of the given file path, i.e.it returns a
+  <div class="markdown level1 summary"><p>Returns the directory portion of a file path. This method effectively
+removes the last segment of the given file path, i.e. it returns a
 string consisting of all characters up to but not including the last
-backslash(&quot;&quot;) in the file path. The returned value is null if the file
-path is null or if the file path denotes a root (such as &quot;&quot;, &quot;C:&quot;, or
+backslash (&quot;&quot;) in the file path. The returned value is null if the
+specified path is null, empty, or a root (such as &quot;&quot;, &quot;C:&quot;, or
 &quot;\server\share&quot;).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -319,8 +388,7 @@ path is null or if the file path denotes a root (such as &quot;&quot;, &quot;C:&
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td><p>The path of a file or directory.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -335,19 +403,18 @@ path is null or if the file path denotes a root (such as &quot;&quot;, &quot;C:&
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><p>The directory path of the given path, or null if the given path denotes a root.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 id="System_IO_Path_GetDirectoryName_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Directory separators are normalized in the returned string.</p>
+</div>
 
 
   <a id="System_IO_Path_GetExtension_" data-uid="System.IO.Path.GetExtension*"></a>
   <h4 id="System_IO_Path_GetExtension_System_String_" data-uid="System.IO.Path.GetExtension(System.String)">GetExtension(string)</h4>
-  <div class="markdown level1 summary"><p>Returns the extension of the given path. The returned value includes the
-period(&quot;.&quot;) character of the extension except when you have a terminal period when you get String.Empty, such as <pre><code class="lang-csharp">&quot;.exe&quot;</code></pre> or
-<pre><code class="lang-csharp">".cpp"</code></pre>. The returned value is null if the given path is
-<p>null or if the given path does not include an extension.</p>
+  <div class="markdown level1 summary"><p>Returns the extension (including the period &quot;.&quot;) of the specified path string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -367,7 +434,7 @@ period(&quot;.&quot;) character of the extension except when you have a terminal
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td><p>The path of a file or directory.</p>
+        <td><p>The path string from which to get the extension.</p>
 </td>
       </tr>
     </tbody>
@@ -383,23 +450,9 @@ period(&quot;.&quot;) character of the extension except when you have a terminal
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><p>The extension of the given path, or null if the given path does not include an extension.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>if <var>path</var> contains invalid characters.</p>
+        <td><p>The extension of the specified path (including the period &quot;.&quot;), or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, or <a class="xref" href="System.String.html#System_String_Empty">Empty</a>.
+If <code class="paramref">path</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, <a class="xref" href="System.IO.Path.html#System_IO_Path_GetExtension_System_String_">GetExtension(string)</a> returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+If path does not have extension information, <a class="xref" href="System.IO.Path.html#System_IO_Path_GetExtension_System_String_">GetExtension(string)</a> returns <a class="xref" href="System.String.html#System_String_Empty">Empty</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -408,12 +461,7 @@ period(&quot;.&quot;) character of the extension except when you have a terminal
 
   <a id="System_IO_Path_GetFileName_" data-uid="System.IO.Path.GetFileName*"></a>
   <h4 id="System_IO_Path_GetFileName_System_String_" data-uid="System.IO.Path.GetFileName(System.String)">GetFileName(string)</h4>
-  <div class="markdown level1 summary"><p>Returns the name and extension parts of the given path. The resulting
-string contains the characters of<pre><code class="lang-csharp">path</code></pre> that follow the last
-backslash (&quot;&quot;), slash (&quot;/&quot;), or colon (&quot;:&quot;) character in
-<pre><code class="lang-csharp">path</code></pre>.The resulting string is the entire path if <pre><code class="lang-csharp">path</code></pre>
-<p>contains no backslash after removing trailing slashes, slash, or colon characters.The resulting
-string is null if <pre><code class="lang-csharp">path</code></pre> is null.
+  <div class="markdown level1 summary"><p>Returns the file name and extension of the specified path string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -433,7 +481,7 @@ string is null if <pre><code class="lang-csharp">path</code></pre> is null.
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td><p>The path of a file or directory.</p>
+        <td><p>The path string from which to obtain the file name and extension.</p>
 </td>
       </tr>
     </tbody>
@@ -449,23 +497,9 @@ string is null if <pre><code class="lang-csharp">path</code></pre> is null.
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><p>The name and extension parts of the given path.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>if <var>path</var> contains invalid characters.</p>
+        <td><p>The characters after the last directory separator character in <code class="paramref">path</code>.
+If the last character of <code class="paramref">path</code> is a directory or volume separator character, this method returns <a class="xref" href="System.String.html#System_String_Empty">Empty</a>.
+If <code class="paramref">path</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, this method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -510,39 +544,22 @@ string is null if <pre><code class="lang-csharp">path</code></pre> is null.
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="System_IO_Path_GetFullPath_" data-uid="System.IO.Path.GetFullPath*"></a>
-  <h4 id="System_IO_Path_GetFullPath_System_String_" data-uid="System.IO.Path.GetFullPath(System.String)">GetFullPath(string)</h4>
-  <div class="markdown level1 summary"><p>Returns the absolute path for the specified path string.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GetFullPath(string path)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">path</span></td>
-        <td><p>The file or directory for which to obtain absolute path information.</p>
+        <td><p>The string returned by <a class="xref" href="System.IO.Path.html#System_IO_Path_GetFileName_System_String_">GetFileName(string)</a>, minus the last period (.) and all characters following it.</p>
 </td>
       </tr>
     </tbody>
   </table>
+
+
+  <a id="System_IO_Path_GetInvalidFileNameChars_" data-uid="System.IO.Path.GetInvalidFileNameChars*"></a>
+  <h4 id="System_IO_Path_GetInvalidFileNameChars" data-uid="System.IO.Path.GetInvalidFileNameChars">GetInvalidFileNameChars()</h4>
+  <div class="markdown level1 summary"><p>Gets an array containing the characters that are not allowed in file names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static char[] GetInvalidFileNameChars()</code></pre>
+  </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
     <thead>
@@ -553,8 +570,9 @@ string is null if <pre><code class="lang-csharp">path</code></pre> is null.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
+        <td><a class="xref" href="System.Char.html">char</a>[]</td>
+        <td><p>An array containing the characters that are not allowed in file names.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -589,10 +607,7 @@ string is null if <pre><code class="lang-csharp">path</code></pre> is null.
 
   <a id="System_IO_Path_GetPathRoot_" data-uid="System.IO.Path.GetPathRoot*"></a>
   <h4 id="System_IO_Path_GetPathRoot_System_String_" data-uid="System.IO.Path.GetPathRoot(System.String)">GetPathRoot(string)</h4>
-  <div class="markdown level1 summary"><p>Tests if a path includes a file extension. The result is</p>
-<pre><code class="lang-csharp">true</code></pre> if the characters that follow the last directory
-<p>separator('\' or '/') or volume separator(':') in the path include
-a period(&quot;.&quot;) other than a terminal period.The result is <pre><code class="lang-csharp">false</code></pre> otherwise.
+  <div class="markdown level1 summary"><p>Gets the root directory information from the path contained in the specified string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -612,7 +627,7 @@ a period(&quot;.&quot;) other than a terminal period.The result is <pre><code cl
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td><p>The path of a file or directory.</p>
+        <td><p>A string containing the path from which to obtain root directory information.</p>
 </td>
       </tr>
     </tbody>
@@ -628,23 +643,11 @@ a period(&quot;.&quot;) other than a terminal period.The result is <pre><code cl
     <tbody>
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
-        <td><p>The root portion of the given path.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>if <var>path</var> contains invalid characters.</p>
+        <td><p>The root directory of <code class="paramref">path</code> if it is rooted.</p>
+<p>-or-</p>
+<p><a class="xref" href="System.String.html#System_String_Empty">Empty</a> if <code class="paramref">path</code> does not contain root directory information.</p>
+<p>-or-</p>
+<p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if <code class="paramref">path</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or is effectively empty.</p>
 </td>
       </tr>
     </tbody>
@@ -653,10 +656,7 @@ a period(&quot;.&quot;) other than a terminal period.The result is <pre><code cl
 
   <a id="System_IO_Path_HasExtension_" data-uid="System.IO.Path.HasExtension*"></a>
   <h4 id="System_IO_Path_HasExtension_System_String_" data-uid="System.IO.Path.HasExtension(System.String)">HasExtension(string)</h4>
-  <div class="markdown level1 summary"><p>Tests if a path includes a file extension. The result is</p>
-<pre><code class="lang-csharp">true</code></pre> if the characters that follow the last directory
-<p>separator('\' or '/') or volume separator(':') in the path include
-a period(&quot;.&quot;) other than a terminal period.The result is <pre><code class="lang-csharp">false</code></pre> otherwise.
+  <div class="markdown level1 summary"><p>Determines whether a path includes a file name extension.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -676,7 +676,7 @@ a period(&quot;.&quot;) other than a terminal period.The result is <pre><code cl
       <tr>
         <td><a class="xref" href="System.String.html">string</a></td>
         <td><span class="parametername">path</span></td>
-        <td><p>The path to test.</p>
+        <td><p>The path to search for an extension.</p>
 </td>
       </tr>
     </tbody>
@@ -692,23 +692,8 @@ a period(&quot;.&quot;) other than a terminal period.The result is <pre><code cl
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>Boolean indicating whether the path includes a file extension.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>if <var>path</var> contains invalid characters.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the characters that follow the last directory separator (\ or /) or volume separator (:)
+in the path include a period (.) followed by one or more characters; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -717,8 +702,7 @@ a period(&quot;.&quot;) other than a terminal period.The result is <pre><code cl
 
   <a id="System_IO_Path_IsPathRooted_" data-uid="System.IO.Path.IsPathRooted*"></a>
   <h4 id="System_IO_Path_IsPathRooted_System_String_" data-uid="System.IO.Path.IsPathRooted(System.String)">IsPathRooted(string)</h4>
-  <div class="markdown level1 summary"><p>Tests if the given path contains a root. A path is considered rooted
-if it starts with a backslash(&quot;&quot;) or a drive letter and a colon (&quot;:&quot;).</p>
+  <div class="markdown level1 summary"><p>Returns a value indicating whether the specified path string contains a root.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -754,58 +738,11 @@ if it starts with a backslash(&quot;&quot;) or a drive letter and a colon (&quot
     <tbody>
       <tr>
         <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>Boolean indicating whether the path is rooted.</p>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">path</code> contains a root; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>if <var>path</var> contains invalid characters.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
 
 </article>
           </div>

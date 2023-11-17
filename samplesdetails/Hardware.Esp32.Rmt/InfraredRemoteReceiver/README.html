@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>&#127798;️&#127798;️ - Infrared remote receiver based on VS1838 with RMT | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="&#127798;️&#127798;️ - Infrared remote receiver based on VS1838 with RMT | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+      <link rel="mask-icon" href="../../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="---infrared-remote-receiver-based-on-vs1838-with-rmt">🌶️🌶️ - Infrared remote receiver based on VS1838 with RMT</h1>
+
+<p>Shows how to use ESP32 RMT with VS1838 infrared receiver to create remote. Nec protocol parser is defined with base class for other protocols.</p>
+<p>See explanation of Nec protocol: <a href="https://www.sbprojects.net/knowledge/ir/nec.php">Nec protocol doc</a></p>
+<p>The sample is <a href="https://github.com/nanoframework/Samples/tree/main/samples/Hardware.Esp32.Rmt/InfraredRemoteReceiver/InfraredRemoteReceiverSample/">located here</a>.</p>
+<h2 id="connections">Connections</h2>
+<ul>
+<li>DATA - Any available GPIO pin, D15 in this case</li>
+<li>VCC -  3.3V</li>
+<li>GND -  Ground signal</li>
+</ul>
+<p><img src="../../../samplesimages/Hardware.Esp32.Rmt/InfraredRemoteReceiver/VS1838.png" alt="Connections"></p>
+<h2 id="hardware-requirements">Hardware requirements</h2>
+<p>Any ESP32 hardware device running a nanoFramework image.</p>
+<h2 id="behavior-of-application">Behavior of application</h2>
+<p>It may happen, especially with poor quality remotes, that signal won't be recognized at first trial. With Arduino DevKit remote, which uses Nec protocol, it works better when buttons are pressed once an shortly as otherwise it will send repeat command. That repeat might be included into origin message by RMT.</p>
+<p>Example of correct message:</p>
+<pre><code>Length:34
+new RmtCommand(9375,false,4441,true),
+new RmtCommand(666,false,515,true),
+new RmtCommand(665,false,511,true),
+new RmtCommand(665,false,512,true),
+new RmtCommand(666,false,512,true),
+new RmtCommand(666,false,511,true),
+new RmtCommand(649,false,529,true),
+new RmtCommand(664,false,513,true),
+new RmtCommand(663,false,513,true),
+new RmtCommand(664,false,1595,true),
+new RmtCommand(665,false,1592,true),
+new RmtCommand(665,false,1593,true),
+new RmtCommand(661,false,1596,true),
+new RmtCommand(660,false,1597,true),
+new RmtCommand(661,false,1594,true),
+new RmtCommand(636,false,1621,true),
+new RmtCommand(644,false,1612,true),
+new RmtCommand(633,false,543,true),
+new RmtCommand(631,false,1626,true),
+new RmtCommand(633,false,543,true),
+new RmtCommand(630,false,1626,true),
+new RmtCommand(659,false,1598,true),
+new RmtCommand(656,false,520,true),
+new RmtCommand(629,false,1627,true),
+new RmtCommand(634,false,542,true),
+new RmtCommand(629,false,1628,true),
+new RmtCommand(655,false,521,true),
+new RmtCommand(629,false,1628,true),
+new RmtCommand(655,false,521,true),
+new RmtCommand(630,false,545,true),
+new RmtCommand(630,false,1627,true),
+new RmtCommand(633,false,544,true),
+new RmtCommand(647,false,1612,true),
+new RmtCommand(658,false,0,true),
+
+Protocol: 1 Address: 0 Command: 90 from Payload: 00000000111111110101101010100101
+</code></pre>
+<p>Example of correct repeat message:</p>
+<pre><code>Length:2
+new RmtCommand(9371,false,2178,true),
+new RmtCommand(661,false,0,true),
+
+Protocol: 1 Address: 0 Command: 90 from Payload: 00000000111111110101101010100101
+</code></pre>
+<p>Example of correct message mixed with repeat, see length = 36 pulses:</p>
+<pre><code>Length:36
+new RmtCommand(9288,false,4530,true),
+new RmtCommand(572,false,585,true),
+new RmtCommand(592,false,606,true),
+new RmtCommand(572,false,606,true),
+new RmtCommand(596,false,581,true),
+new RmtCommand(572,false,583,true),
+new RmtCommand(620,false,560,true),
+new RmtCommand(593,false,606,true),
+new RmtCommand(573,false,604,true),
+new RmtCommand(595,false,1662,true),
+new RmtCommand(572,false,1687,true),
+new RmtCommand(570,false,1663,true),
+new RmtCommand(620,false,1660,true),
+new RmtCommand(573,false,1685,true),
+new RmtCommand(596,false,1660,true),
+new RmtCommand(571,false,1662,true),
+new RmtCommand(621,false,1660,true),
+new RmtCommand(572,false,605,true),
+new RmtCommand(571,false,606,true),
+new RmtCommand(598,false,1637,true),
+new RmtCommand(593,false,1686,true),
+new RmtCommand(596,false,580,true),
+new RmtCommand(571,false,606,true),
+new RmtCommand(596,false,558,true),
+new RmtCommand(593,false,590,true),
+new RmtCommand(585,false,1686,true),
+new RmtCommand(571,false,1687,true),
+new RmtCommand(596,false,581,true),
+new RmtCommand(594,false,584,true),
+new RmtCommand(595,false,1665,true),
+new RmtCommand(595,false,1663,true),
+new RmtCommand(595,false,1663,true),
+new RmtCommand(569,false,1689,true),
+new RmtCommand(570,false,6751,true),
+new RmtCommand(9340,false,2214,true),
+new RmtCommand(624,false,0,true),
+
+Protocol: 0 Address: -1 Command: -1 from Payload: 
+</code></pre>
+<h2 id="build-the-sample">Build the sample</h2>
+<ol>
+<li>Start Microsoft Visual Studio 2022 and select <code>File &gt; Open &gt; Project/Solution</code>.</li>
+<li>Starting in the folder where you unzipped the samples/cloned the repository, go to the subfolder for this specific sample. Double-click the Visual Studio Solution (.sln) file.</li>
+<li>Press <code>Ctrl+Shift+B</code>, or select <code>Build &gt; Build Solution</code>.</li>
+</ol>
+<h2 id="run-the-sample">Run the sample</h2>
+<p>The next steps depend on whether you just want to deploy the sample or you want to both deploy and run it.</p>
+<h3 id="deploying-the-sample">Deploying the sample</h3>
+<ul>
+<li>Select <code>Build &gt; Deploy Solution</code>.</li>
+</ul>
+<h3 id="deploying-and-running-the-sample">Deploying and running the sample</h3>
+<ul>
+<li>To debug the sample and then run it, press F5 or select <code>Debug &gt; Start Debugging</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Important</strong>: Before deploying or running the sample, please make sure your device is visible in the Device Explorer.
+<strong>Tip</strong>: To display the Device Explorer, go to Visual Studio menus: <code>View &gt; Other Windows &gt; Device Explorer</code>.</p>
+</blockquote>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/Samples/blob/main/samples/Hardware.Esp32.Rmt/InfraredRemoteReceiver/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
+
