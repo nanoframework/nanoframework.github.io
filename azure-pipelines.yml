@@ -677,6 +677,8 @@ steps:
 
 # Replace the links to improve doc for dynamic content in devicedetails
 - powershell: |
+      . ./common.ps1
+      
       # Set the source and target strings
       $sourceString = "https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails"
       $targetString = "https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices"
@@ -689,7 +691,7 @@ steps:
       } else {
           Write-HostMessage -message "Directory $rootDirectory does not exist."
       }
-      
+
   displayName: Replace dynamically links in devicesdetails
   condition: >-
     and(
