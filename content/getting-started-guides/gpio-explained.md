@@ -15,7 +15,7 @@ Programmers can write code to configure these GPIO pins based on the specific re
 
 Overall, GPIO provides a flexible way to interact with the physical world by allowing a microcontroller to interface with various external devices and components in an embedded system.
 
-## A bit of electronic
+## A bit of electronics theory
 
 One of the most important law in electronic is the [Ohms law](https://en.wikipedia.org/wiki/Ohm%27s_law). The law is quite simple:
 
@@ -27,11 +27,11 @@ Where:
 - `R` = resistor in Ohms
 - `I` = intensity in Amperes (A)
 
-Seems like useless but it's what really matter when you connect elements together.
+Seems like useless but it's what really matter when you connect the elements together.
 
 > [!IMPORTANT]
-> Playing with electricity is sensitive for MCU, the maximum voltage is a real maximum voltage, go over and you'll damage the pin and possibly the MCU
-> Check in the documentation what is the maximum level of the pin
+> Playing with electricity is sensitive for MCU, the maximum voltage is a real maximum voltage, go over and you'll damage the pin and possibly the MCU.
+> Check in the documentation what is the maximum voltage the pins are tolerant to.
 > ESP32, STM32 and most MCU are 3.3V, some can be 1.8V and some even tolerant to higher voltages like 5V, meaning that they are 3.3V but you can apply in their input 5V (sometimes more) and they'll be perfectly fine!
 
 Also, few terms we will use:
@@ -39,12 +39,12 @@ Also, few terms we will use:
 - Ground = 0V = 0 = Low
 - VCC = +Power, can be +5V, more often in MCU world +3.3V = 1 = High
 
-## Controlling a led with GPIO a bit more theory
+## Controlling a LED with GPIO a bit more theory
 
-The basic hello world in the embedded space is blinking a led. For this, we need a bit of electronic knowledge and some hardware:
+The basic hello world in the embedded space is blinking a LED. For this, we need a bit of electronic knowledge and some hardware:
 
 - 1 GPIO pin available as output on a MCU
-- 1 Led
+- 1 LED
 - 1 Resistor
 
 And here is how look like the electronic schema, we will take the assumption our MCU provides 3.3V:
@@ -53,7 +53,7 @@ And here is how look like the electronic schema, we will take the assumption our
 
 Each electronic component has a limit either in terms ov voltage you can apply/it can handle, either in terms of intensity or both. That is the case for any led. It does vary a bit depending on the led and its color but overall, 1 led is approximately 2 V and can handle a current of 0,02 A maximum.
 
-Applying the Ohms law: `R = (3,3 - 2)/0,02 = 65 Ohms`
+Applying Ohm's law: `R = (3,3 - 2)/0,02 = 65 Ohms`
 You can safely take a 70 or 100 Ohms or even more. If the resistor's value is too high, the light won't be bright or can even stay fully dark.
 
 > ![IMPORTANT]
