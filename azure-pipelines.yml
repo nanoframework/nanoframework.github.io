@@ -722,6 +722,16 @@ steps:
       } else {
         Write-Host "The folder does not exist most likely because the devices hasn't been built."
       }
+  displayName: Replace dynamically links in devicesdetails
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
 
 # Replace the links to improve doc for dynamic content in samples
 - powershell: |
@@ -770,6 +780,16 @@ steps:
       } else {
         Write-Host "The folder does not exist most likely because the devices hasn't been built."
       }
+  displayName: Replace dynamically links in samplesdetails
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
 
 # Patch the transformed samplesdetails/README.html as margdig used by DocFX do not transform the links properly
 - powershell: |
@@ -787,6 +807,16 @@ steps:
 
       # Write the updated content back to the file
       Set-Content -Path $filePath -Value $newContent -Encoding $fileEncoding
+  displayName: Fixing the samplesdetails/README.html links
+  condition: >-
+    and(
+      succeeded(),
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
 
 # Make an artifact for debug purpose
 - task: ArchiveFiles@2
