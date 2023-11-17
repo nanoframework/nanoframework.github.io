@@ -691,16 +691,6 @@ steps:
       } else {
           Write-HostMessage -message "Directory $rootDirectory does not exist."
       }
-  displayName: Replace dynamically links in devicesdetails
-  condition: >-
-    and(
-      succeeded(),
-      or(
-        eq(variables['BUILD_ALL'], 'true'),
-        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
-        eq(variables['BuildOptions.BUILD_ALL'], 'true')
-      )
-    )
 
   displayName: Replace dynamically links in devicesdetails
   condition: >-
@@ -729,16 +719,6 @@ steps:
       } else {
           Write-HostMessage -message "Directory $rootDirectory does not exist."
       }
-  displayName: Replace dynamically links in samplesdetails
-  condition: >-
-    and(
-      succeeded(),
-      or(
-        eq(variables['BUILD_ALL'], 'true'),
-        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
-        eq(variables['BuildOptions.BUILD_ALL'], 'true')
-      )
-    )
 
   displayName: Replace dynamically links in samplesdetails
   condition: >-
