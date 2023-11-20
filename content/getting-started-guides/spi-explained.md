@@ -130,6 +130,13 @@ You have a [detailed example here](https://github.com/nanoframework/Samples/blob
 
 [SpiConnectionSettings](https://docs.nanoframework.net/api/System.Device.Spi.SpiConnectionSettings.html) is a class specifying an immutable configuration for SPI. This class includes the clock frequency, in Hertz, the data bit length, the data flow and the SPI Mode. Note that all the devices on the same bus will have to share the same configuration.
 
+For ESP32 MCU, you can setup most of the pins as SDA or SCL pins. You will need to use the [ESP32 hardware nuget](https://docs.nanoframework.net/api/nanoFramework.Hardware.Esp32.html). Then the code is quite straight forward to define pins:
+
+```csharp
+// Define MOSI pin for SPI2 as GPIO 15
+Configuration.SetPinFunction(15, DeviceFunction.SPI2_MOSI);
+```
+
 Once created, the [SpiDevice](https://docs.nanoframework.net/api/System.Device.Spi.SpiDevice.html) will allow you through functions to read, write or transfer (writes and reads data at the same time).
 
 ## Specific SPI challenges
