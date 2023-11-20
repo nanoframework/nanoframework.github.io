@@ -214,3 +214,7 @@ These pins can alternate between being used for reading and writing, facilitatin
 
 Protocols like SPI, I2C, USB, and UART are established upon GPIO principles, agreeing on signal sequences to define data transfer protocols.
 Typically, these communication protocols involve at least two GPIO wires, each carrying specific signals or data, allowing devices to exchange information reliably. They also requires a Ground wire. The Power one can be derivate from one of the signal one in some protocols. So in general, you need a minimum of 3 wires for any of those protocols connecting 2 different devices!
+
+## GPIO specific challenges
+
+Changing GPIO in any language to simulate a specific protocol can be a challenge. Every MCU has lower, hardware embedded implementation for most protocols. So it is not recommended to use directly GPIO with adjusting their states and reading their values to implement a protocol like I2C. You rather have to use the lower hardware capacity and use the exposed classes for this purpose.
