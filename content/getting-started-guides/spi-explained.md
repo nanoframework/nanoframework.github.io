@@ -40,6 +40,8 @@ The rest of the protocol is **not** determined:
 - The operation frequency is not determined,
 - Can be [LSB (Least Significant Bit) or MSB (Most Significant Bit) communication](#lsb-and-msb-communication).
 
+SPI is used a lot to communicate with screens. You can use the MOSI pin for other purpose like creating a wave form and outputting it at a very precise cadence. It is used for the LED strips or even used for infrared output. The wave form is prepared as a buffer and then output. In those cases, the only pin really used is MOSI!
+
 ## SPI Mode
 
 It is important to understand the different SPI modes. To have a better view, let's look at the following picture:
