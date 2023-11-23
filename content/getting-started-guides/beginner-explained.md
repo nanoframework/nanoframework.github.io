@@ -1,0 +1,12 @@
+# All what you have ever wanted to know about GPIO, I2C, SPI, DAC, ADC, UART and more
+
+In this series of beginner content, you will get a better understanding of hardware and protocols. To start with, have this set of content ready for you all mixing theory and concrete examples using .NET nanoFramework:
+
+- [GPIO (General Purpose Input/Output) explained](./gpio-explained.md): GPIO allows microcontrollers to interact with other devices and components. It explains how GPIO pins can be configured as input or output, and the concept of pull-up and pull-down resistors.
+- [ADC (Analog-to-Digital Converter) explained](./adc-explained.md): ADC is a system that converts an analog signal, such as a sound picked up by a microphone or light entering a digital camera, into a digital signal. ADCs are commonly used in many electronic devices to allow the processing of analog data by digital circuits.
+- [DAC (Digital-to-Analog Converter) explained](./dac-explained.md): DAC is a system that converts a digital signal into an analog signal. DACs are often used in music players to convert digital data streams into analog audio signals. It is basically the opposite of ADC!.
+- [UART (Universal Asynchronous Receiver/Transmitter) or Serial Port Communication](./uart-explained.md): UART covers the concept of baud rates, the use of RTS (Request to Send) and CTS (Clear to Send) for hardware flow control, and the use of XON and XOFF for software flow control. It also discusses the practical use of Serial Port Communication in devices like sensors, modems, and GPS modules.
+- [I2C (Inter-Integrated Circuit) communication explained](./i2c-explained.md): I2C, which operates on a master-slave architecture, utilizes the SDA (Serial Data Line) and SCL (Serial Clock Line) for communication. However, using I2C presents certain challenges such as managing multiple devices, dealing with clock speed limitations, and handling bus capacitance.
+- [SPI (Serial Peripheral Interface) explained](./spi-explained.md): SPI is a synchronous serial communication protocol. It covers the use of MOSI (Master Out Slave In), MISO (Master In Slave Out), and SCLK (Serial Clock) lines, and the concept of chip select (CS) line. It also discusses the advantages and disadvantages of using SPI.
+
+Each of these documents provides a detailed explanation of the respective communication protocol or concept, making them a great resource for anyone looking to understand or implement these protocols in their projects and more specifically with .NET nanoFramework examples.
