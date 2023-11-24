@@ -22,6 +22,10 @@ This electronic representation is one of the possible. There are other possible 
 
 Here, as you can see in the example, you have a resolution in bits. The high the number is, the more precise the resolution is. In out simple example, a 4 bits resolution will represent a poor 16 different values between negative and positive and positive reference voltage. If like most sound sound cards, you go for 16 bits, you'll already get 65536 possible values!
 
+> [!Note]
+>
+> If you want to use higher voltages you have to use a voltage level shifter or equivalent. This device will transform your applied voltage to another one, usually higher. Now, be careful in the choice as the response time for such device can be slow and only tolerate small changes. So chose them wisely depending on your usage.
+
 ## DAC in practice
 
 Most of the time you will use DAC to represent a signal that is not a simple square one as for this you have better opportunities like PWM. You can for example represent sinusoidal, triangles and even more!

@@ -10,7 +10,7 @@ An ADC pin is a special [GPIO](./gpio-explained.md) pin that is used only in inp
 
 > [!Important]
 >
-> ADC pins are able to read low current and voltage. Connecting high  current and/or voltage devices may lead to destroy them!
+> ADC pins are able to read low current and voltage. Connecting high  current and/or voltage devices may lead to destroy them! If you want to measure high voltages, you have to use a voltage divider or equivalent. This device will transform the high voltage into a smaller one. Now, be careful as the response time may be slower than what you need in the conversion.
 
 ## A bit of electronics theory
 

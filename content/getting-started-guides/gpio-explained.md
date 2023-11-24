@@ -63,7 +63,7 @@ You can safely take a 70 or 100 Ohms or even more. If the resistor's value is to
 
 > ![IMPORTANT]
 >
-> We are assuming that we can safely connect the LED and the resistor to your MCU and that it is in the limit of current that it can provide. It's in general for a simple LED like this one a safe assumption. It is not the case for a motor for example. NEver directly connect motors to MCU pins!
+> We are assuming that we can safely connect the LED and the resistor to your MCU and that it is in the limit of current that it can provide. It's in general for a simple LED like this one a safe assumption. It is not the case for a motor for example. Never directly connect motors to MCU pins!
 > Make sure you properly **always** do those kind of math and **always** check the maximum input and out intensity of any pin you'll connect!
 
 And the physical schema now looks like:
