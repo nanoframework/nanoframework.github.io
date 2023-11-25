@@ -4,7 +4,7 @@ This beginner document will explain what is ADC and how to properly use it with 
 
 ## A bit of theory
 
-An Analog-to-Digital Converter (ADC) in the realm of microcontrollers (MCU) is a fundamental component that translates analog signals, like temperature or voltage, into digital data that the MCU can understand and process. It enables MCU to interact with and interpret real-world analog signals, converting them into a digital format for analysis, storage, or further manipulation within the digital realm of the MCU. ADC is is opposite of [Digital-to-Analog Converter (DAC)](./dac-explained.md).
+An Analog-to-Digital Converter (ADC) in the realm of microcontrollers (MCU) is a fundamental component that translates analog signals, a voltage, into digital data that the MCU can understand and process. That voltag can represent a temperature or humidity coming out of an analog sensor. It enables MCU to interact with and interpret real-world analog signals, converting them into a digital format for analysis, storage, or further manipulation within the digital realm of the MCU. ADC is is opposite of [Digital-to-Analog Converter (DAC)](./dac-explained.md).
 
 An ADC pin is a special [GPIO](./gpio-explained.md) pin that is used only in input and can read more values than High and Low.
 
