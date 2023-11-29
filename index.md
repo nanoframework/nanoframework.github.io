@@ -58,6 +58,8 @@ Explore our knowledge base, API documentation, samples, guides and tutorials.
 - [STM32 specific content](content/stm32/index.md)
 - [TI specific content](content/ti-simplelink/index.md)
 
+Make sure you go thought our [beginner series](./content/getting-started-guides/beginner-explained.md) guiding you with theory and practice to know more about GPIO, ADC, DAC, I2C, SPI, UART/Serial Ports.
+
 Know how to contribute to .NET **nanoFramework** project.
 
 - [Contribute to .NET **nanoFramework**](content/contributing/index.md)
