@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>All you&#39;ve always wanted to know about PWM | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="All you&#39;ve always wanted to know about PWM | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+      <link rel="mask-icon" href="../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="all-youve-always-wanted-to-know-about-pwm">All you've always wanted to know about PWM</h1>
+
+<p>This beginner document will explain what is PWM and how to properly use it with concrete examples using .NET nanoFramework. You're in a perfect place if you want to control the amount of power delivered to a device, such as an LED or motor.</p>
+<h2 id="a-bit-of-theory">A bit of theory</h2>
+<p>In the world of microcontrollers (MCU), a Pulse Width Modulation (PWM) serves as a technique for getting analog results with digital means. Digital control is used to create a square wave, a signal switched between on and off. This on-off pattern can simulate voltages in between full on (for example 5 Volts) and off (typically 0 Volts) by changing the portion of the time the signal spends on versus the time that the signal spends off. The duration of &quot;on time&quot; is called the pulse width.</p>
+<p>PWMs are used a lot in scenarios where the MCU needs to control the intensity of devices such as LEDs or speed of motors motors. They allow the MCU to control the power level of devices, enabling the control and manipulation of device behavior.</p>
+<h2 id="a-bit-of-electronics-theory">A bit of electronics theory</h2>
+<p>PWM signals are generated by switching the output pin high and low. The ratio of the time the signal is high (on) to the total period of the signal is called the duty cycle. The duty cycle can be varied between 0% (always off) and 100% (always on), to create the effect of varying power levels.</p>
+<p><img src="../../images/getting-started/pwm-duty-cycle.jpg" alt="duty cycle"></p>
+<p>We will not explained how those signals are generated.</p>
+<h2 id="pwm-in-practice">PWM in practice</h2>
+<p>PWM pin is a special <a href="gpio-explained.html">GPIO pin</a>. Most of the time you will use PWM to control the power delivered to a device. For example, you can control the brightness of an LED or the speed of a motor. You can also use PWM to create analog signals from a digital source, such as creating audio signals.</p>
+<p>PWM are used as well as clocks for various protocols with a duty cycle of 50%.</p>
+<p>Another usage is to modulate a signal. You can mix a signal with a PWM. You will get an encoded signal that you can later decode by removing removing the clock. Those are more advance cases and we will focus on the main ones.</p>
+<p>The electronic needed to control the brightness of a LED is the exact same as just blinking it in the <a href="gpio-explained.html#controlling-a-led-with-gpio-a-bit-more-theory">GPIO example</a>. So, the electronic schema is:</p>
+<p><img src="../../images/getting-started/gpio-pin-schema.png" alt="electronic schema"></p>
+<p>And the cabling is the exact same as well:</p>
+<p><img src="../../images/getting-started/gpio-pin-theory.png" alt="an MCU connected to a LED and a resistor"></p>
+<p>The exact same math can be done for the LED and the resistor. And same warnings apply:</p>
+<blockquote>
+<p>![IMPORTANT]</p>
+<p>We are assuming that we can safely connect the LED and the resistor to your MCU and that it is in the limit of current that it can provide. It's in general for a simple LED like this one a safe assumption. It is not the case for a motor for example. NEver directly connect motors to MCU pins!
+Make sure you properly <strong>always</strong> do those kind of math and <strong>always</strong> check the maximum input and out intensity of any pin you'll connect!</p>
+</blockquote>
+<p>The only difference is the code assuming here, we are using the pin 18.</p>
+<pre><code class="lang-csharp">PwmChannel pwmPin = PwmChannel.CreateFromPin(18, 40000, 0.3);
+pwmPin.Start();
+// Do something here
+// You can even adjust the duty cycle
+pwmPin.DutyCycle = 0.5
+// And at the end, you can stop it
+pwmPin.Stop();
+</code></pre>
+<p>Yes, it is that simple! The second parameter in the <code>CreateFromPin</code> function is the frequency in Hertz and the last one the the period. The period varies between 0.0 (representing 0%) and 1.0 (representing 100%).</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In some MCU only <strong>specific</strong> pins can be used as PWM. Also only a specific set of frequencies can be used. Please refer to the specifications of your board to know more about it.</p>
+</div>
+<p>The full sample with PWM is <a href="https://github.com/nanoframework/Samples/blob/main/samples/PWM/System.Device.Pwm/Program.cs">located here</a>.</p>
+<h2 id="impact-of-the-frequency-on-pwm">Impact of the frequency on PWM</h2>
+<p>The frequency of a PWM signal determines how fast the PWM completes a cycle (i.e., a single period), and is measured in cycles per second, or Hertz (Hz). The frequency of a PWM signal significantly affects how the connected device behaves.</p>
+<p>For instance, if you're using PWM to control the brightness of an LED, a low-frequency PWM signal (e.g., 100 Hz) might cause the LED to visibly flicker, as it's being turned on and off 100 times per second. Even more, if you are using a 1 Hz frequency and a duty cycle of 0.5, you will see the LED blinking every half second! On the other hand, a high-frequency PWM signal (e.g., 10,000 Hz or 10 kHz) would cause the LED to appear to glow steadily, as it's being turned on and off so quickly that the human eye can't perceive the flickering.</p>
+<p>In the case of motors, a low-frequency PWM signal might cause the motor to jerk or vibrate, as it's being powered on and off slowly. A high-frequency PWM signal would result in smoother motion.</p>
+<p>However, it's important to note that the optimal PWM frequency can vary depending on the specific device and application. Some devices might not respond well to high frequencies, or might require a specific frequency to operate correctly. Therefore, it's <strong>always</strong> a good idea to check the device's datasheet or consult with the manufacturer if you're unsure.</p>
+<h2 id="how-to-use-pwmchannel">How to use PwmChannel</h2>
+<p>The use of <a href="https://docs.nanoframework.net/api/System.Device.Pwm.PwmChannel.html">PwmChannel</a> as shown in the example is very straight forward. It is recommended to use the <code>CreateFromPin</code> function as it simplifies your life. PWM are on the MCU based on channels and chips. This is abstracted for you!</p>
+<p>Then, there are functions to <code>Start</code> and <code>Stop</code> the PWM. And properties<code>Frequency</code> and <code>DutyCyle</code> to adjust respectively the frequency and the duty cycle (from 0.0 to 1.0 representing 0% to 100%).</p>
+<p>For ESP32 MCU, you can setup specific pins as PWM. Not all pins can be setup but some. You can use this function by installing the <a href="https://docs.nanoframework.net/api/nanoFramework.Hardware.Esp32.html">ESP32 hardware nuget</a>:</p>
+<pre><code class="lang-csharp">// Define LED PWM channel 1 GPIO 16
+Configuration.SetPinFunction(16, DeviceFunction.PWM1);
+</code></pre>
+<p>Refer to the documentation to understand which pin can be setup. Also, some of the pins can only be low resolution and others high resolutions timers.</p>
+<h2 id="specific-pwm-challenges">Specific PWM challenges</h2>
+<p>The resolution of a PWM signal is determined by the number of distinct steps that can be represented in one period of the signal. If the resolution is too low, the output might not be smooth enough for the application. Also switching quickly the resolution and adjusting it can be quite complex and not very efficient.</p>
+<p>Some MCU may only support PWM signals within a certain frequency range. This can limit the types of applications that can be supported. Not all pins on a MCU may support PWM output. This can limit the design of your circuit. It is important to check the documentation to understand which pin can be used.</p>
+<p>PWM signals can consume more power than a steady DC signal, particularly at higher frequencies. This can be a concern in low-power applications.</p>
+<p>The rapid switching of a PWM signal can generate EMI (Electromagnetic Interference), which can interfere with other electronics in the vicinity.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/getting-started-guides/pwm-explained.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

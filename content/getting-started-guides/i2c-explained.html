@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>All you&#39;ve always wanted to know about I2C | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="All you&#39;ve always wanted to know about I2C | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+      <link rel="mask-icon" href="../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="all-youve-always-wanted-to-know-about-i2c">All you've always wanted to know about I2C</h1>
+
+<p>This beginner document will explain what is I2C (Inter-Integrated Circuit) and how to properly use it with concrete examples using .NET nanoFramework. You're in a perfect place if you want to communicate with devices that support I2C communication.</p>
+<h2 id="a-bit-of-theory">A bit of theory</h2>
+<p>I2C (Inter-Integrated Circuit), pronounced I-squared-C (or I-too-C is also accepted), is a synchronous, multi-master, multi-slave, packet switched, single-ended, serial communication bus invented by Philips Semiconductor (now NXP Semiconductors).</p>
+<p>It is widely used for attaching lower-speed peripheral ICs to processors and microcontrollers (MCU) in short-distance, intra-board communication.</p>
+<h2 id="a-bit-of-electronics-theory">A bit of electronics theory</h2>
+<p>I2C communication involves two signals represented by 2 special <a href="gpio-explained.html">GPIO</a>:</p>
+<ul>
+<li><strong>SDA</strong>: Serial Data Line.</li>
+<li><strong>SCL</strong>: Serial Clock Line.</li>
+</ul>
+<p>You technically needs as well a ground and in most cases a power line (this one can sometime be replaced by just using the 2 SDA and SCL lines).</p>
+<p>Here is an architecture schema for I2C:</p>
+<p><img src="../../images/getting-started/i2c-schema.jpg" alt="i2c electronic schema"></p>
+<p>As you can see, there is a notion of bus. A bus is basically the name giving to the couple SDA and SCL where devices are connecting.</p>
+<p>Both SDA and SCL require a pull up on both line, not always present in sensors or in MCU, without, the bus communication will fail! So always check this specific point!</p>
+<p>The SDA and SCL pins are setup in <a href="gpio-explained.html#pull-up-pull-down-and-other-pin-mode">Open Drain</a>. And the communication for SDA is bidirectional.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Those master and slave names are not inclusive. Those are the ones used in the datasheet and the industry. Some work and some resolution are ongoing to replace master by controller and slave by target.</p>
+</div>
+<h2 id="i2c-in-practice">I2C in practice</h2>
+<p>I2C is used for communication between the MCU and other devices like sensors, EEPROMs, and RTCs (Real Time Clocks), accelerometers and many more! I2C is a good choice for communication between chips on a board because the protocol is simple and the wires are only 2 plus power and ground. I2C can also achieve moderate data rates, which is beneficial in applications where data throughput is a concern.</p>
+<p>First, let's have a look at the bus speed, there are couple of different speeds allowed 100 Kbits/s (standard), 400 Kbits/s (fast mode) and 1 Mbits/s (super fast mode). Some other speed may be supported, included faster speed but most of the type the standard and fast modes as used.</p>
+<p>Each device on the bus has its own and using address</p>
+<p>One master, in the traditional I2C, can handle about 0x70 (112 decimal) slaves maximum. That's the theory, practically, no more than 10 are connected. It then creates a lot of communication noise and all will be slower as each device can only request the bus after each others.</p>
+<p>Each device has its own address, the address <strong>must</strong> be unique.</p>
+<p>In I2C communication, the master device initiates the process by generating a start condition and sending the address of the target slave device. The address is followed by a read/write bit indicating the operation to be performed. The slave device acknowledges receipt of the address and read/write bit by pulling the SDA line low during the next clock pulse, a condition known as an Acknowledge (ACK). The master and slave then exchange data, with the receiver sending an ACK after each byte. When all data has been transferred, the master generates a stop condition to release the bus.</p>
+<p><img src="../../images/getting-started/i2c-communication.jpg" alt="i2c explained"></p>
+<p>I2C is a real communication protocol with strict rules on how to communicate (<a href="spi-explained.html#lsb-and-msb-communication">MSB communication</a> for example). The usage of this protocol is transparent in .NET nanoFramework with high classes and ability to read and write.</p>
+<p>You need to understand what the device expect as commands and what it is replying to commands. This is usually located in the datasheet of your device. Note that even if the protocol is MSB itself, it doesn't mean that the data sent by the device are MSB, they can also be LSB.</p>
+<p>One of the most challenging aspects of using I2C is understanding the sensor's datasheet to determine the correct communication protocol. Some devices support both SPI and I2C, and while the commands are typically the same, minor adjustments may be needed at the communication layer. However, the rest of the implementation can remain the same. Another crucial aspect to ensure reliable I2C communication is to properly set up the pull-up resistors on your bus, as this can significantly affect the signal integrity and overall performance.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>I2C scanner exists! A device always respond to its address, no answer means no device in general. There are few cases where the device need to be woke up. But in general the scanner will give you devices connected to your bus. See here for <a href="https://github.com/nanoframework/Samples/blob/main/samples/I2C/NanoI2cScanner/Program.cs">.NET nanoFramework I2C scanner</a>.</p>
+</div>
+<p>In .NET nanoFramework, you simply have to create a device and then you can read and write on it assuming in this case that the device address is 0x42:</p>
+<pre><code class="lang-csharp">using System.Device.I2c;
+I2cDevice i2c = new(new I2cConnectionSettings(1, 0x42));
+// Example of writing a byte
+var res = i2c.WriteByte(0x07);
+// Example of reading 5 bytes
+SpanByte span = new byte[5];
+res = i2c.Read(span);
+// res does contain the status.
+Console.Write($&quot;0x42 read status: {res.Status}, number of bytes transferred: {res.BytesTransferred}&quot;);
+// Success is when res.STatus is equal to I2cTransferStatus.FullTransfer
+</code></pre>
+<h2 id="how-to-use-i2cconnectionsettings-and-i2cdevice">How to use I2cConnectionSettings and I2cDevice</h2>
+<p><a href="https://docs.nanoframework.net/api/System.Device.I2c.I2cConnectionSettings.html">I2cConnectionSettings</a> is an immutable configuration file containing mainly the bus ID and the address of the device. Please check your MCU datasheet to understand which SDA/SCL pins are connected to which bus ID.</p>
+<p>For ESP32 MCU, you can setup most of the pins as SDA or SCL pins. You will need to use the <a href="https://docs.nanoframework.net/api/nanoFramework.Hardware.Esp32.html">ESP32 hardware nuget</a>. Then the code is quite straight forward to define pins:</p>
+<pre><code class="lang-csharp">// Redefine I2C2 data pin (SDA) from GPIO 25 (default) to GPIO 17
+Configuration.SetPinFunction(17, DeviceFunction.I2C2_DATA);
+</code></pre>
+<p><a href="https://docs.nanoframework.net/api/System.Device.I2c.I2cConnectionSettings.html">I2cConnectionSettings</a> is an immutable configuration file containing mainly the bus ID and the address of the device. Please check your MCU datasheet to understand which SDA/SCL pins are connected to which bus ID.
+<a href="https://docs.nanoframework.net/api/System.Device.I2c.I2cDevice.html">I2cDevice</a> represents a device, once created with an I2cConnectionSettings, you can use the <code>Read</code> and <code>Write</code> functions either individual byte either a <a href="https://docs.nanoframework.net/api/System.SpanByte.html">SapnByte</a>. A <code>SpanByte</code> is in short, a smart byte array.</p>
+<h2 id="i2c-specific-challenges">I2C specific challenges</h2>
+<p>Managing multiple devices on the same I2C bus can be challenging. Each device needs a unique address, and all devices on the bus must be able to operate at the same clock frequency. If you have 2 devices with the same address, you will have to use specific hardware to handle this.</p>
+<p>The clock speed of the I2C bus is often limited by the slowest device on the bus. If you have a mix of slow and fast devices, you may not be able to communicate with the fast devices at their maximum speed. In that case, use one bus running at a lower speed for the slower devices and one bus for the high speed devices.</p>
+<p>The total capacitance of the I2C bus can affect the signal quality and the maximum speed of the bus. This can be a problem in designs with long bus wires or a large number of devices. As well as I2C requires pull-up resistors on the SDA and SCL lines. Choosing the correct resistor values is important to ensure reliable communication. Some devices will come with their own pull up, some not and you will have to understand and calculate the overall resistor of the bus to check and potentially correct to be in proper values.</p>
+<p>I2C is not as noise-resistant as some other communication protocols. Noise on the SDA or SCL lines can cause data corruption. Most devices do not offer checksum in the data they provide. So pay attention to this phenomena.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/getting-started-guides/i2c-explained.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

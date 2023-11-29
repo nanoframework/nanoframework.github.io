@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>All what you&#39;ve always wanted to know about ADC | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="All what you&#39;ve always wanted to know about ADC | .NET nanoFramework Documentation ">
+    
+
+      <link rel="apple-touch-icon" sizes="180x180" href="../../favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../../favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../favicons/favicon-16x16.png">
+      <link rel="manifest" href="../../favicons/site.webmanifest">
+      <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+      <link rel="mask-icon" href="../../favicons/safari-pinned-tab.svg" color="#179b88">
+      <meta name="msapplication-config" content="../../favicons/browserconfig.xml">
+      <meta name="msapplication-TileColor" content="#222222">
+      <meta name="theme-color" content="#222222">
+
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../../x-cross/toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="all-what-youve-always-wanted-to-know-about-adc">All what you've always wanted to know about ADC</h1>
+
+<p>This beginner document will explain what is ADC and how to properly use it with concrete examples using .NET nanoFramework. You're in a perfect place if you want to have analogic work done and reading analogic values from a pin.</p>
+<h2 id="a-bit-of-theory">A bit of theory</h2>
+<p>An Analog-to-Digital Converter (ADC) in the realm of microcontrollers (MCU) is a fundamental component that translates analog signals, a voltage, into digital data that the MCU can understand and process. That voltag can represent a temperature or humidity coming out of an analog sensor. It enables MCU to interact with and interpret real-world analog signals, converting them into a digital format for analysis, storage, or further manipulation within the digital realm of the MCU. ADC is is opposite of <a href="dac-explained.html">Digital-to-Analog Converter (DAC)</a>.</p>
+<p>An ADC pin is a special <a href="gpio-explained.html">GPIO</a> pin that is used only in input and can read more values than High and Low.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>ADC pins are able to read low current and voltage. Connecting high  current and/or voltage devices may lead to destroy them! If you want to measure high voltages, you have to use a voltage divider or equivalent. This device will transform the high voltage into a smaller one. Now, be careful as the response time may be slower than what you need in the conversion.</p>
+</div>
+<h2 id="a-bit-of-electronics-theory">A bit of electronics theory</h2>
+<p>Like for <a href="gpio-explained.html">GPIO</a>, the Ohms law is the one we will have to use to understand the electronics theory behind all this and how it's working.</p>
+<p>As a reminder, Ohms law states: <code>V = R x I</code>.</p>
+<p>And the typical schema used in such electronics cna be summarize as:</p>
+<p><img src="../../images/getting-started/adc-schema.png" alt="resistor, pin and variable resistor"></p>
+<p>In this schema, we have a first fix resistor between the power and the measuring ADC pin and another variable resistor between the ADC pin and the ground. What we will then measure is the voltage at the ADC pin. This voltage will vary from VCC and Ground. So taking the example of a typical MCU, from 3.3V and 0V. Reality can be more complex as some MCU do have the ability to set different voltages for the VCC and ground for ADC. But the exact same logic will of course apply.</p>
+<p>Applying Ohms law, you will then get:</p>
+<ul>
+<li><code>Vpin = Rl x I</code></li>
+<li><code>Vcc = Vpin + R x I</code></li>
+<li><code>Vcc = (R + Rl) x I</code></li>
+</ul>
+<p>So, in short, solving this will lead to: <code>Vpin = Vcc / (1 + R/Rl)</code></p>
+<p>This does mean that Vpin is a direct function of the variation of Rl with known elements which are R and Vcc. By convention, because it can be adjusted in some MCU, Vcc is called Reference Voltage (Vref).</p>
+<p>Note that the variable resistor can be either on the <a href="gpio-explained.html#pull-up-pull-down-and-other-pin-mode">Pull-up or Pull-down</a> side, the reading values will just be inverted.</p>
+<p>The electronics doing this <a href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">ADC conversion is quite complex</a>. We will not explained how it is working under the hook as it is not useful for using it.</p>
+<p>The analogic voltage is then converted into bytes with a resolution in bits. The more precise is the ADC, the higher the resolution is. So, if you have a 8 bits resolution, you will get 1024 possible values going from 0 to 1023. If you have a 12 bits resolution, you will get 4096 values going from 0 to 4095.</p>
+<h2 id="adc-in-practice">ADC in practice</h2>
+<p>For this example, we are going to use a light sensitive analogic resistor. It typically looks like this:</p>
+<p><img src="../../images/getting-started/adc-pho-resistor.jpg" alt="photo resistor"></p>
+<p>And the associates schema will be:</p>
+<p><img src="../../images/getting-started/adc-practice.png" alt="variable photo resistor schema"></p>
+<p>For this specific photo resistor, its datasheet (the documentation) says the resistor varies from 1M Ω in full dark to 100 Ω in full light. The question is now, what is the best value for our R resistor from the previous equation?</p>
+<p>A simple way, for most sensor is to apply this simple formula: <code>R = √(Rlmax x Rlmin)</code></p>
+<p>Where Rlmax is the maximum resistor of the sensor and Rlmin is the minimum one. So this will give us: <code>R = √(1_000_000 x 100) = 10_000 Ω</code> so 10K Ω.</p>
+<p>Assuming our reference voltage is 3.3V, looking now at the equation and applying all those values to it: <code>ADC pin voltage = 3.3 / (1 + 10K / Rl)</code></p>
+<p>The measure voltage will go from 0.0323V (full light) to 3.23V (dark).</p>
+<pre><code class="lang-csharp">AdcController adc = new AdcController();
+int max1 = adc.MaxValue;
+int min1 = adc.MinValue;
+Console.WriteLine(&quot;min1=&quot; + min1.ToString() + &quot; max1=&quot; + max1.ToString());
+AdcChannel ac0 = adc.OpenChannel(0);
+int value = ac0.ReadValue();
+double percent = ac0.ReadRatio();
+Console.WriteLine(&quot;value0=&quot; + value.ToString() + &quot; ratio=&quot; + percent.ToString());
+</code></pre>
+<p>Each board and MCU have different channels associated to a specific pin number. It is important to read the documentation to understand which channel is related to which pin number. Keep in mind that the number displayed on your board, the <a href="gpio-explained.html#physical-and-logical-pin-numbering">physical numbering may be different than the logical pin number</a> which is the one used by your MCU!</p>
+<h2 id="how-to-use-adccontroller-and-adcchannel">How to use AdcController and AdcChannel</h2>
+<p>.NET nanoFramework exposes an <code>AdcController</code> which should be unique and represent an <a href="https://docs.nanoframework.net/api/System.Device.Adc.AdcController.html">AdcController</a> class exposing functions to mainly open and gets the channels specificities like the minimum and maximum reference voltage.</p>
+<p>The <code>AdcChannel</code> represent an <a href="https://docs.nanoframework.net/api/System.Device.Adc.AdcChannel.html">AdcChannel</a> that can mainly read values, get the ratio (the percentage of of the value) and the ability to to averaging for a specific number of reads.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You need to refer to the documentation of your MCU to understand which channel to use. There may not be the same number as the pin number.</p>
+</div>
+<h2 id="adc-specific-challenges">ADC specific challenges</h2>
+<p>As the technology used to read convert the value and as the ADC sensors accuracy may vary, when reading one and only one value, you may have quite some error. It is then recommended to read quickly a series of values and average them to have a better value. This is possible with .NET nanoFramework and the <a href="https://docs.nanoframework.net/api/System.Device.Adc.AdcChannelBase.html#System_Device_Adc_AdcChannelBase_ReadValueAveraged_System_Int32_">ReadValueAveraged</a> function.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/getting-started-guides/adc-explained.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

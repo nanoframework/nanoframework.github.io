@@ -109,9 +109,10 @@ DisplayControl.Initialize(new SpiConfiguration(1, chipSelect, dataCommand, reset
 // GpioController.OpenPin(backLightPin, PinMode.Output);
 // GpioController.Write(backLightPin, PinValue.High);
 </code></pre>
-<blockquote>
-<p><strong>IMPORTANT</strong>: If your ESP32 does not have SPRAM, you won't be able to get a full frame buffer. In this case, you can only use the primitives to write text, draw (small rectangles) and points. You can adjust the amount of memory you are requesting.</p>
-</blockquote>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>If your ESP32 does not have SPRAM, you won't be able to get a full frame buffer. In this case, you can only use the primitives to write text, draw (small rectangles) and points. You can adjust the amount of memory you are requesting.</p>
+</div>
 <p>For STM32 devices the pins setup are by default in most cases, you can directly use:</p>
 <pre><code class="lang-csharp">//WARNING: Invalid pin mappings will never be returned, and may need you to reflash the device!
 DisplayControl.Initialize(new SpiConfiguration(), new ScreenConfiguration());
@@ -153,7 +154,7 @@ DisplayControl.Initialize(new SpiConfiguration(), new ScreenConfiguration());
 <p>Those samples will show you how to use the generic driver capabilities. One of the example shows how to crate fully a driver and the other one how to use it once created from our nuget library.</p>
 <h2 id="build-the-sample">Build the sample</h2>
 <ol>
-<li>Start Microsoft Visual Studio 2019 (VS 2017 should be OK too) and select <code>File &gt; Open &gt; Project/Solution</code>.</li>
+<li>Start Microsoft Visual Studio 2022 or Visual Studio 2019 (Visual Studio 2017 should be OK too) and select <code>File &gt; Open &gt; Project/Solution</code>.</li>
 <li>Starting in the folder where you unzipped the samples/cloned the repository, go to the subfolder for this specific sample. Double-click the Visual Studio Solution (.sln) file.</li>
 <li>Press <code>Ctrl+Shift+B</code>, or select <code>Build &gt; Build Solution</code>.</li>
 </ol>
@@ -167,10 +168,11 @@ DisplayControl.Initialize(new SpiConfiguration(), new ScreenConfiguration());
 <ul>
 <li>To debug the sample and then run it, press F5 or select <code>Debug &gt; Start Debugging</code>.</li>
 </ul>
-<blockquote>
-<p><strong>Important</strong>: Before deploying or running the sample, please make sure your device is visible in the Device Explorer.
-<strong>Tip</strong>: To display the Device Explorer, go to Visual Studio menus: <code>View &gt; Other Windows &gt; Device Explorer</code>.</p>
-</blockquote>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>Important</strong>: Before deploying or running the sample, please make sure your device is visible in the Device Explorer.</p>
+<p><strong>Tip</strong>: To display the Device Explorer, go to Visual Studio menus: <code>View &gt; Other Windows &gt; Device Explorer</code>.</p>
+</div>
 
 </article>
           </div>
