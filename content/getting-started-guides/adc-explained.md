@@ -38,7 +38,7 @@ Note that the variable resistor can be either on the [Pull-up or Pull-down](./gp
 
 The electronics doing this [ADC conversion is quite complex](https://en.wikipedia.org/wiki/Analog-to-digital_converter). We will not explained how it is working under the hook as it is not useful for using it.
 
-The analogic voltage is then converted into bytes with a resolution in bits. The more precise is the ADC, the higher the resolution is. So, if you have a 8 bits resolution, you will get 1024 possible values going from 0 to 1023. If you have a 12 bits resolution, you will get 4096 values going from 0 to 4095.
+The analogic voltage is then converted into bytes with a resolution in bits. The more precise is the ADC, the higher the resolution is. So, if you have a 8 bits resolution, you will get 256 possible values going from 0 to 255. If you have a 12 bits resolution, you will get 4096 values going from 0 to 4095.
 
 ## ADC in practice
 
