@@ -116,7 +116,7 @@ Let's go back to our Ohms law:
 You now discover what pull-up and pull-down are:
 
 - Pull-up is the pattern where a pin is connected through a resistor to the power. That is our case 2.
-- Pull-down is the pattern where the pin is connected though a resistor to the ground. That is our case 1.
+- Pull-down is the pattern where the pin is connected though a resistor to the ground. That is our case 3.
 
 Looking at the nanoFramework options, you will find few more:
 
