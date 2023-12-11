@@ -17,6 +17,6 @@ To have access to this, you're expected to make a monetary contribution to the p
 
 ### HIVE from LINKIT
 
-<a href="https://hive.linkit.nl/"><img src="https://docs.nanoframework.net/images/logos/LINKIT.png" alt="LINKIT" height="100" /></a>
+<a href="https://hive.linkit.nl/"><img src="https://docs.nanoframework.net/images/logos/LINKIT.png" alt="LINKIT" height="100" width="300"/></a>
 
 Looking for [community help](community-help.md)?
