@@ -1,387 +1,441 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class LcdValueUnitDisplay
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class LcdValueUnitDisplay
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay">
+
+        <article data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay">
 
 
 
-  <h1 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay" class="text-break">Class LcdValueUnitDisplay
-</h1>
-  <div class="markdown level0 summary"><p>Displays a value and an unit in a big font on an LCD Display.
+  <h1 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay" class="text-break">
+    Class LcdValueUnitDisplay
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.CharacterLcd.html">CharacterLcd</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.CharacterLcd.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Displays a value and an unit in a big font on an LCD Display.
 Requires a display with at least 20x4 characters</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">LcdValueUnitDisplay</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.CharacterLcd.html">CharacterLcd</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.CharacterLcd.dll</h6>
-  <h5 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class LcdValueUnitDisplay</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">LcdValueUnitDisplay</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay__ctor_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.#ctor*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay__ctor_Iot_Device_CharacterLcd_ICharacterLcd_System_String_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.#ctor(Iot.Device.CharacterLcd.ICharacterLcd,System.String)">LcdValueUnitDisplay(ICharacterLcd, string)</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay__ctor_Iot_Device_CharacterLcd_ICharacterLcd_System_String_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.#ctor(Iot.Device.CharacterLcd.ICharacterLcd,System.String)">
+  LcdValueUnitDisplay(ICharacterLcd, string)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates an instance of <a class="xref" href="Iot.Device.CharacterLcd.LcdValueUnitDisplay.html">LcdValueUnitDisplay</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LcdValueUnitDisplay(ICharacterLcd lcd, string culture)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.CharacterLcd.ICharacterLcd.html">ICharacterLcd</a></td>
-        <td><span class="parametername">lcd</span></td>
-        <td><p>Interface to the display</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">culture</span></td>
-        <td><p>User culture</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lcd</code> <a class="xref" href="Iot.Device.CharacterLcd.ICharacterLcd.html">ICharacterLcd</a></dt>
+    <dd><p>Interface to the display</p>
+</dd>
+    <dt><code>culture</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>User culture</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_Culture_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.Culture*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_Culture" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.Culture">Culture</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_Culture" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.Culture">
+  Culture
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the active culture.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string Culture { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_Clear_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.Clear*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_Clear" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.Clear">Clear()</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_Clear" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.Clear">
+  Clear()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears the display</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayBigTextAsync_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayBigTextAsync*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayBigTextAsync_System_String_System_TimeSpan_System_Threading_CancellationToken_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayBigTextAsync(System.String,System.TimeSpan,System.Threading.CancellationToken)">DisplayBigTextAsync(string, TimeSpan, CancellationToken)</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayBigTextAsync_System_String_System_TimeSpan_System_Threading_CancellationToken_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayBigTextAsync(System.String,System.TimeSpan,System.Threading.CancellationToken)">
+  DisplayBigTextAsync(string, TimeSpan, CancellationToken)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Scrolls a text in big font trough the display</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisplayBigTextAsync(string text, TimeSpan scrollSpeed, CancellationToken cancellationToken)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">text</span></td>
-        <td><p>Text to display</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">scrollSpeed</span></td>
-        <td><p>Speed between scroll steps (one step being one display cell width)</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Token for cancelling the operation</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>Text to display</p>
+</dd>
+    <dt><code>scrollSpeed</code> <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>Speed between scroll steps (one step being one display cell width)</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd><p>Token for cancelling the operation</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayTime_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayTime*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayTime_System_DateTime_System_String_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayTime(System.DateTime,System.String)">DisplayTime(DateTime, string)</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayTime_System_DateTime_System_String_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayTime(System.DateTime,System.String)">
+  DisplayTime(DateTime, string)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Display the current time</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisplayTime(DateTime dateTime, string format = &quot;t&quot;)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.DateTime.html">DateTime</a></td>
-        <td><span class="parametername">dateTime</span></td>
-        <td><p>Time to display</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">format</span></td>
-        <td><p>Time format specifier, default &quot;t&quot; (default short time format with hours and minutes and eventually AM/PM).
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dateTime</code> <a class="xref" href="../api/System.DateTime.html">DateTime</a></dt>
+    <dd><p>Time to display</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>Time format specifier, default &quot;t&quot; (default short time format with hours and minutes and eventually AM/PM).
 Anything after the first space in the formatted string is printed as small text. This will for instance be AM/PM when the format specifier &quot;T&quot; is used,
 since only 6 chars (and two separators) fit on the display.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayValue_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayValue*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayValue_System_String_System_String_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayValue(System.String,System.String)">DisplayValue(string, string)</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_DisplayValue_System_String_System_String_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.DisplayValue(System.String,System.String)">
+  DisplayValue(string, string)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Display the given value/unit pair. The value must be pre-formatted with the required number of digits, ie. &quot;2.01&quot;.
 The value should only contain one of &quot;.&quot;, &quot;:&quot; or &quot;,&quot;, or the printed result may be unexpected.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisplayValue(string formattedValue, string unitText = &quot;&quot;)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">formattedValue</span></td>
-        <td><p>Pre-formatted value to print</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">unitText</span></td>
-        <td><p>Unit or name of value. This is printed in normal small font on the bottom right corner of the display.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>formattedValue</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>Pre-formatted value to print</p>
+</dd>
+    <dt><code>unitText</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>Unit or name of value. This is printed in normal small font on the bottom right corner of the display.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_InitForRom_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.InitForRom*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_InitForRom_System_String_Iot_Device_Graphics_LcdCharacterEncodingFactory_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.InitForRom(System.String,Iot.Device.Graphics.LcdCharacterEncodingFactory)">InitForRom(string, LcdCharacterEncodingFactory?)</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_InitForRom_System_String_Iot_Device_Graphics_LcdCharacterEncodingFactory_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.InitForRom(System.String,Iot.Device.Graphics.LcdCharacterEncodingFactory)">
+  InitForRom(string, LcdCharacterEncodingFactory?)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes the display for use as a big-number display.
 Configures the display with some graphic blocks for the display of big numbers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void InitForRom(string romName, LcdCharacterEncodingFactory? factory = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">romName</span></td>
-        <td><p>Name of the character Rom, required to properly print culture-specific characters in the small text display</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Graphics.LcdCharacterEncodingFactory.html">LcdCharacterEncodingFactory</a></td>
-        <td><span class="parametername">factory</span></td>
-        <td><p>Encoding factory or null</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>romName</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>Name of the character Rom, required to properly print culture-specific characters in the small text display</p>
+</dd>
+    <dt><code>factory</code> <a class="xref" href="Iot.Device.Graphics.LcdCharacterEncodingFactory.html">LcdCharacterEncodingFactory</a></dt>
+    <dd><p>Encoding factory or null</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_StopShowing_" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.StopShowing*"></a>
-  <h4 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_StopShowing" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.StopShowing">StopShowing()</h4>
+
+  <h3 id="Iot_Device_CharacterLcd_LcdValueUnitDisplay_StopShowing" data-uid="Iot.Device.CharacterLcd.LcdValueUnitDisplay.StopShowing">
+  StopShowing()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Stop showing big characters.
 This method can be used to signal that the display will be used for different purposes. Before a Display method is used,
 <a class="xref" href="Iot.Device.CharacterLcd.LcdValueUnitDisplay.html#Iot_Device_CharacterLcd_LcdValueUnitDisplay_InitForRom_System_String_Iot_Device_Graphics_LcdCharacterEncodingFactory_">InitForRom(string, LcdCharacterEncodingFactory?)</a> needs to be called again. This clears the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StopShowing()</code></pre>
   </div>
 
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

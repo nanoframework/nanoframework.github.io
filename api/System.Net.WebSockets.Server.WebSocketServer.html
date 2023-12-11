@@ -1,111 +1,134 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class WebSocketServer
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class WebSocketServer
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="System.Net.WebSockets.Server.WebSocketServer">
+
+        <article data-uid="System.Net.WebSockets.Server.WebSocketServer">
 
 
 
-  <h1 id="System_Net_WebSockets_Server_WebSocketServer" data-uid="System.Net.WebSockets.Server.WebSocketServer" class="text-break">Class WebSocketServer
-</h1>
-  <div class="markdown level0 summary"><p>The WebSocketServer class is a WebSocket Server to which WebSocket Clients can connect.</p>
+  <h1 id="System_Net_WebSockets_Server_WebSocketServer" data-uid="System.Net.WebSockets.Server.WebSocketServer" class="text-break">
+    Class WebSocketServer
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a>.<a class="xref" href="System.Net.WebSockets.html">WebSockets</a>.<a class="xref" href="System.Net.WebSockets.Server.html">Server</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>System.Net.WebSockets.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The WebSocketServer class is a WebSocket Server to which WebSocket Clients can connect.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">WebSocketServer</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebSocketServer : IDisposable</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">WebSocketServer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
     </div>
@@ -127,786 +150,923 @@
     <div>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Net.html">Net</a>.<a class="xref" href="System.Net.WebSockets.html">WebSockets</a>.<a class="xref" href="System.Net.WebSockets.Server.html">Server</a></h6>
-  <h6><strong>Assembly</strong>: System.Net.WebSockets.dll</h6>
-  <h5 id="System_Net_WebSockets_Server_WebSocketServer_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WebSocketServer : IDisposable</code></pre>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer__ctor_" data-uid="System.Net.WebSockets.Server.WebSocketServer.#ctor*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer__ctor_System_Net_WebSockets_Server_WebSocketServerOptions_" data-uid="System.Net.WebSockets.Server.WebSocketServer.#ctor(System.Net.WebSockets.Server.WebSocketServerOptions)">WebSocketServer(WebSocketServerOptions)</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer__ctor_System_Net_WebSockets_Server_WebSocketServerOptions_" data-uid="System.Net.WebSockets.Server.WebSocketServer.#ctor(System.Net.WebSockets.Server.WebSocketServerOptions)">
+  WebSocketServer(WebSocketServerOptions)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates an instance of the System.Net.WebSockets.WebSocketServer class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public WebSocketServer(WebSocketServerOptions options = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.WebSockets.Server.WebSocketServerOptions.html">WebSocketServerOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td><p>Optional <a class="xref" href="System.Net.WebSockets.Server.WebSocketServerOptions.html">WebSocketServerOptions</a> where extra options can be defined.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="System.Net.WebSockets.Server.WebSocketServerOptions.html">WebSocketServerOptions</a></dt>
+    <dd><p>Optional <a class="xref" href="System.Net.WebSockets.Server.WebSocketServerOptions.html">WebSocketServerOptions</a> where extra options can be defined.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_ClientsCount_" data-uid="System.Net.WebSockets.Server.WebSocketServer.ClientsCount*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_ClientsCount" data-uid="System.Net.WebSockets.Server.WebSocketServer.ClientsCount">ClientsCount</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_ClientsCount" data-uid="System.Net.WebSockets.Server.WebSocketServer.ClientsCount">
+  ClientsCount
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The number of Clients connected to the WebSocketServer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int ClientsCount { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_FragmentSize_" data-uid="System.Net.WebSockets.Server.WebSocketServer.FragmentSize*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_FragmentSize" data-uid="System.Net.WebSockets.Server.WebSocketServer.FragmentSize">FragmentSize</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_FragmentSize" data-uid="System.Net.WebSockets.Server.WebSocketServer.FragmentSize">
+  FragmentSize
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the maximum allowed byte length of a partial message send by the WebSocketServer.
 By default if a message that exceeds the size limit it will be broken up in smaller partial messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int FragmentSize { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_KeepAliveInterval_" data-uid="System.Net.WebSockets.Server.WebSocketServer.KeepAliveInterval*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_KeepAliveInterval" data-uid="System.Net.WebSockets.Server.WebSocketServer.KeepAliveInterval">KeepAliveInterval</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_KeepAliveInterval" data-uid="System.Net.WebSockets.Server.WebSocketServer.KeepAliveInterval">
+  KeepAliveInterval
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The WebSocketServer protocol keep-alive interval.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TimeSpan KeepAliveInterval { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.TimeSpan.html">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_ListClients_" data-uid="System.Net.WebSockets.Server.WebSocketServer.ListClients*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_ListClients" data-uid="System.Net.WebSockets.Server.WebSocketServer.ListClients">ListClients</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_ListClients" data-uid="System.Net.WebSockets.Server.WebSocketServer.ListClients">
+  ListClients
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets an array of all connected client IPEndPoints.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string[] ListClients { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_MaxClients_" data-uid="System.Net.WebSockets.Server.WebSocketServer.MaxClients*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_MaxClients" data-uid="System.Net.WebSockets.Server.WebSocketServer.MaxClients">MaxClients</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_MaxClients" data-uid="System.Net.WebSockets.Server.WebSocketServer.MaxClients">
+  MaxClients
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The maximum number of clients that can connect to the server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int MaxClients { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_MaxReceiveFrameSize_" data-uid="System.Net.WebSockets.Server.WebSocketServer.MaxReceiveFrameSize*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_MaxReceiveFrameSize" data-uid="System.Net.WebSockets.Server.WebSocketServer.MaxReceiveFrameSize">MaxReceiveFrameSize</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_MaxReceiveFrameSize" data-uid="System.Net.WebSockets.Server.WebSocketServer.MaxReceiveFrameSize">
+  MaxReceiveFrameSize
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The maximum allowed byte length of messages received by the WebSocket.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int MaxReceiveFrameSize { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_Port_" data-uid="System.Net.WebSockets.Server.WebSocketServer.Port*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_Port" data-uid="System.Net.WebSockets.Server.WebSocketServer.Port">Port</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_Port" data-uid="System.Net.WebSockets.Server.WebSocketServer.Port">
+  Port
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The local Port to listen on.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Port { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_Prefix_" data-uid="System.Net.WebSockets.Server.WebSocketServer.Prefix*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_Prefix" data-uid="System.Net.WebSockets.Server.WebSocketServer.Prefix">Prefix</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_Prefix" data-uid="System.Net.WebSockets.Server.WebSocketServer.Prefix">
+  Prefix
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The remote Prefix clients need to connect to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string Prefix { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_ServerName_" data-uid="System.Net.WebSockets.Server.WebSocketServer.ServerName*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_ServerName" data-uid="System.Net.WebSockets.Server.WebSocketServer.ServerName">ServerName</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_ServerName" data-uid="System.Net.WebSockets.Server.WebSocketServer.ServerName">
+  ServerName
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The server name that is presented to the client during the handshake.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string ServerName { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_ServerTimeout_" data-uid="System.Net.WebSockets.Server.WebSocketServer.ServerTimeout*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_ServerTimeout" data-uid="System.Net.WebSockets.Server.WebSocketServer.ServerTimeout">ServerTimeout</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_ServerTimeout" data-uid="System.Net.WebSockets.Server.WebSocketServer.ServerTimeout">
+  ServerTimeout
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The WebSocketServer timeout which specifies how long to wait for a message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TimeSpan ServerTimeout { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.TimeSpan.html">TimeSpan</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.TimeSpan.html">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_Started_" data-uid="System.Net.WebSockets.Server.WebSocketServer.Started*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_Started" data-uid="System.Net.WebSockets.Server.WebSocketServer.Started">Started</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_Started" data-uid="System.Net.WebSockets.Server.WebSocketServer.Started">
+  Started
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>True, server is started. False, means server is not active.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Started { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_Abort_" data-uid="System.Net.WebSockets.Server.WebSocketServer.Abort*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_Abort" data-uid="System.Net.WebSockets.Server.WebSocketServer.Abort">Abort()</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_Abort" data-uid="System.Net.WebSockets.Server.WebSocketServer.Abort">
+  Abort()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Aborts the server and all WebSocket connections and any pending IO operations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Abort()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_WebSockets_Server_WebSocketServer_AddWebSocket_" data-uid="System.Net.WebSockets.Server.WebSocketServer.AddWebSocket*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_AddWebSocket_System_Net_HttpListenerContext_" data-uid="System.Net.WebSockets.Server.WebSocketServer.AddWebSocket(System.Net.HttpListenerContext)">AddWebSocket(HttpListenerContext)</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_AddWebSocket_System_Net_HttpListenerContext_" data-uid="System.Net.WebSockets.Server.WebSocketServer.AddWebSocket(System.Net.HttpListenerContext)">
+  AddWebSocket(HttpListenerContext)
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool AddWebSocket(HttpListenerContext context)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.HttpListenerContext.html">HttpListenerContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="System.Net.HttpListenerContext.html">HttpListenerContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_" data-uid="System.Net.WebSockets.Server.WebSocketServer.BroadCast*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_Byte___System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.BroadCast(System.Byte[],System.Int32)">BroadCast(byte[], int)</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_Byte___System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.BroadCast(System.Byte[],System.Int32)">
+  BroadCast(byte[], int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Broadcast a binary message to all connected clients</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void BroadCast(byte[] buffer, int fragmentSize = -1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>The data content of the message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">fragmentSize</span></td>
-        <td><p>Override the maxFragmentSize used.Default -1 will use the maxFragmentSize .</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_Byte___System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>The data content of the message.</p>
+</dd>
+    <dt><code>fragmentSize</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Override the maxFragmentSize used.Default -1 will use the maxFragmentSize .</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_Byte___System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Messages are buffered send synchronously using a single send thread.
 The send message is not awaited.</p>
 </div>
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_" data-uid="System.Net.WebSockets.Server.WebSocketServer.BroadCast*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_String_System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.BroadCast(System.String,System.Int32)">BroadCast(string, int)</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_String_System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.BroadCast(System.String,System.Int32)">
+  BroadCast(string, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Broadcast a text message to all connected clients</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void BroadCast(string message, int fragmentSize = -1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">message</span></td>
-        <td><p>The text message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">fragmentSize</span></td>
-        <td><p>Override the maxFragmentSize used.Default -1 will use the maxFragmentSize .</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_String_System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The text message.</p>
+</dd>
+    <dt><code>fragmentSize</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Override the maxFragmentSize used.Default -1 will use the maxFragmentSize .</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_WebSockets_Server_WebSocketServer_BroadCast_System_String_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Messages are buffered send synchronously using a single send thread.
 The send message is not awaited.</p>
 </div>
 
 
+
+
   <a id="System_Net_WebSockets_Server_WebSocketServer_DisconnectClient_" data-uid="System.Net.WebSockets.Server.WebSocketServer.DisconnectClient*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_DisconnectClient_System_String_System_Net_WebSockets_WebSocketFrame_WebSocketCloseStatus_System_Boolean_" data-uid="System.Net.WebSockets.Server.WebSocketServer.DisconnectClient(System.String,System.Net.WebSockets.WebSocketFrame.WebSocketCloseStatus,System.Boolean)">DisconnectClient(string, WebSocketCloseStatus, bool)</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_DisconnectClient_System_String_System_Net_WebSockets_WebSocketFrame_WebSocketCloseStatus_System_Boolean_" data-uid="System.Net.WebSockets.Server.WebSocketServer.DisconnectClient(System.String,System.Net.WebSockets.WebSocketFrame.WebSocketCloseStatus,System.Boolean)">
+  DisconnectClient(string, WebSocketCloseStatus, bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Will start closing the WebSocket connection to the client using
 handshake defined in the WebSocket protocol specification section 7.
 After connection is closed the client will be removed from the clientpool</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisconnectClient(string endPoint, WebSocketCloseStatus closeStatus, bool abort = false)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">endPoint</span></td>
-        <td><p>The IP endpoint of the connected client.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.WebSockets.WebSocketFrame.WebSocketCloseStatus.html">WebSocketCloseStatus</a></td>
-        <td><span class="parametername">closeStatus</span></td>
-        <td><p>Indicates the reason for closing the WebSocket connection.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><span class="parametername">abort</span></td>
-        <td><p>Optional, set to true to direct abort client connection in contrary to close connection.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_WebSockets_Server_WebSocketServer_DisconnectClient_System_String_System_Net_WebSockets_WebSocketFrame_WebSocketCloseStatus_System_Boolean__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endPoint</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The IP endpoint of the connected client.</p>
+</dd>
+    <dt><code>closeStatus</code> <a class="xref" href="System.Net.WebSockets.WebSocketFrame.WebSocketCloseStatus.html">WebSocketCloseStatus</a></dt>
+    <dd><p>Indicates the reason for closing the WebSocket connection.</p>
+</dd>
+    <dt><code>abort</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>Optional, set to true to direct abort client connection in contrary to close connection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_WebSockets_Server_WebSocketServer_DisconnectClient_System_String_System_Net_WebSockets_WebSocketFrame_WebSocketCloseStatus_System_Boolean__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>WebSocketCloseStatus.EndpointUnavailable will close the WebSocket synchronous without awaiting response.</p>
 </div>
 
 
+
+
   <a id="System_Net_WebSockets_Server_WebSocketServer_Dispose_" data-uid="System.Net.WebSockets.Server.WebSocketServer.Dispose*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_Dispose" data-uid="System.Net.WebSockets.Server.WebSocketServer.Dispose">Dispose()</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_Dispose" data-uid="System.Net.WebSockets.Server.WebSocketServer.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the System.Net.WebSockets.WebSocketServer
 instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_WebSockets_Server_WebSocketServer_SendData_" data-uid="System.Net.WebSockets.Server.WebSocketServer.SendData*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_SendData_System_String_System_Byte___System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.SendData(System.String,System.Byte[],System.Int32)">SendData(string, byte[], int)</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_SendData_System_String_System_Byte___System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.SendData(System.String,System.Byte[],System.Int32)">
+  SendData(string, byte[], int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a binary message to the specified client</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SendData(string endPoint, byte[] buffer, int fragmentSize = -1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">endPoint</span></td>
-        <td><p>The IP endpoint of the connected client.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>The data content of the message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">fragmentSize</span></td>
-        <td><p>Override the maxFragmentSize used.Default -1 will use the maxFragmentSize.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_WebSockets_Server_WebSocketServer_SendData_System_String_System_Byte___System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endPoint</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The IP endpoint of the connected client.</p>
+</dd>
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>The data content of the message.</p>
+</dd>
+    <dt><code>fragmentSize</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Override the maxFragmentSize used.Default -1 will use the maxFragmentSize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_WebSockets_Server_WebSocketServer_SendData_System_String_System_Byte___System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Messages are buffered send synchronously using a single send thread.
 The send message is not awaited.</p>
 </div>
+
+
 
 
   <a id="System_Net_WebSockets_Server_WebSocketServer_SendText_" data-uid="System.Net.WebSockets.Server.WebSocketServer.SendText*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_SendText_System_String_System_String_System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.SendText(System.String,System.String,System.Int32)">SendText(string, string, int)</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_SendText_System_String_System_String_System_Int32_" data-uid="System.Net.WebSockets.Server.WebSocketServer.SendText(System.String,System.String,System.Int32)">
+  SendText(string, string, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a text message to the specified client</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SendText(string endPoint, string message, int fragmentSize = -1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">endPoint</span></td>
-        <td><p>The IP endpoint of the connected client.Default -1 will use the maxFragmentSize.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">message</span></td>
-        <td><p>The text message.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">fragmentSize</span></td>
-        <td><p>Override the maxFragmentSize used.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_WebSockets_Server_WebSocketServer_SendText_System_String_System_String_System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endPoint</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The IP endpoint of the connected client.Default -1 will use the maxFragmentSize.</p>
+</dd>
+    <dt><code>message</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The text message.</p>
+</dd>
+    <dt><code>fragmentSize</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Override the maxFragmentSize used.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_WebSockets_Server_WebSocketServer_SendText_System_String_System_String_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Messages are buffered send synchronously using a single send thread.
 The send message is not awaited.</p>
 </div>
 
 
+
+
   <a id="System_Net_WebSockets_Server_WebSocketServer_Start_" data-uid="System.Net.WebSockets.Server.WebSocketServer.Start*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_Start" data-uid="System.Net.WebSockets.Server.WebSocketServer.Start">Start()</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_Start" data-uid="System.Net.WebSockets.Server.WebSocketServer.Start">
+  Start()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Starts the server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Start()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_WebSockets_Server_WebSocketServer_Stop_" data-uid="System.Net.WebSockets.Server.WebSocketServer.Stop*"></a>
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_Stop" data-uid="System.Net.WebSockets.Server.WebSocketServer.Stop">Stop()</h4>
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_Stop" data-uid="System.Net.WebSockets.Server.WebSocketServer.Stop">
+  Stop()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Stops the server and disconnects all connected clients with code WebSocketCloseStatus.EndpointUnavailable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
   </div>
-  <h3 id="events">Events
-</h3>
 
 
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_MessageReceived" data-uid="System.Net.WebSockets.Server.WebSocketServer.MessageReceived">MessageReceived</h4>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_MessageReceived" data-uid="System.Net.WebSockets.Server.WebSocketServer.MessageReceived">
+  MessageReceived
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Occurs when a message is received by the server. The argument contains the received message frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event WebSocketServer.MessageReceivedEventhandler MessageReceived</code></pre>
   </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.html">WebSocketServer</a>.<a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.MessageReceivedEventhandler.html">MessageReceivedEventhandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_WebSockets_Server_WebSocketServer_MessageReceived_remarks">Remarks</h5>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.html">WebSocketServer</a>.<a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.MessageReceivedEventhandler.html">MessageReceivedEventhandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="System_Net_WebSockets_Server_WebSocketServer_MessageReceived_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The WebSocketServer will stop to receiving any incoming messages including controller messages until
 the included MessageStream is completely read till the end.</p>
 </div>
 
 
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_WebSocketClosed" data-uid="System.Net.WebSockets.Server.WebSocketServer.WebSocketClosed">WebSocketClosed</h4>
+
+
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_WebSocketClosed" data-uid="System.Net.WebSockets.Server.WebSocketServer.WebSocketClosed">
+  WebSocketClosed
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Occurs when a Client is disconnected. The argument contains the disconnected clients endpoint.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event WebSocketServer.WebSocketClosedEventhandler WebSocketClosed</code></pre>
   </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.html">WebSocketServer</a>.<a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.WebSocketClosedEventhandler.html">WebSocketClosedEventhandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="System_Net_WebSockets_Server_WebSocketServer_WebSocketOpened" data-uid="System.Net.WebSockets.Server.WebSocketServer.WebSocketOpened">WebSocketOpened</h4>
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.html">WebSocketServer</a>.<a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.WebSocketClosedEventhandler.html">WebSocketClosedEventhandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="System_Net_WebSockets_Server_WebSocketServer_WebSocketOpened" data-uid="System.Net.WebSockets.Server.WebSocketServer.WebSocketOpened">
+  WebSocketOpened
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Occurs when a new Client is connected. The argument contains the connected clients endpoint.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event WebSocketServer.WebSocketOpenedEventhandler WebSocketOpened</code></pre>
   </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.html">WebSocketServer</a>.<a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.WebSocketOpenedEventhandler.html">WebSocketOpenedEventhandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="System.IDisposable.html">IDisposable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.html">WebSocketServer</a>.<a class="xref" href="System.Net.WebSockets.Server.WebSocketServer.WebSocketOpenedEventhandler.html">WebSocketOpenedEventhandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

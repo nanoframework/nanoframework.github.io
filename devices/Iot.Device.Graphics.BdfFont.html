@@ -1,535 +1,607 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class BdfFont
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class BdfFont
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.Graphics.BdfFont">
+
+        <article data-uid="Iot.Device.Graphics.BdfFont">
 
 
 
-  <h1 id="Iot_Device_Graphics_BdfFont" data-uid="Iot.Device.Graphics.BdfFont" class="text-break">Class BdfFont
-</h1>
-  <div class="markdown level0 summary"><p>Represents Bitmap Distribution Format (BDF) font, partial implementation of specifications.
+  <h1 id="Iot_Device_Graphics_BdfFont" data-uid="Iot.Device.Graphics.BdfFont" class="text-break">
+    Class BdfFont
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.CharacterLcd.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents Bitmap Distribution Format (BDF) font, partial implementation of specifications.
 Specifications can be found here: <a href="https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5005.BDF_Spec.pdf">https://www.adobe.com/content/dam/acom/en/devnet/font/pdfs/5005.BDF_Spec.pdf</a></p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">BdfFont</span></div>
-      <div class="level2"><a class="xref" href="Iot.Device.Graphics.Font5x8.html">Font5x8</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Graphics.html">Graphics</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.CharacterLcd.dll</h6>
-  <h5 id="Iot_Device_Graphics_BdfFont_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class BdfFont</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">BdfFont</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Iot.Device.Graphics.Font5x8.html">Font5x8</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_Graphics_BdfFont__ctor_" data-uid="Iot.Device.Graphics.BdfFont.#ctor*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont__ctor" data-uid="Iot.Device.Graphics.BdfFont.#ctor">BdfFont()</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont__ctor" data-uid="Iot.Device.Graphics.BdfFont.#ctor">
+  BdfFont()
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public BdfFont()</code></pre>
   </div>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_Graphics_BdfFont_CharsCount_" data-uid="Iot.Device.Graphics.BdfFont.CharsCount*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_CharsCount" data-uid="Iot.Device.Graphics.BdfFont.CharsCount">CharsCount</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_CharsCount" data-uid="Iot.Device.Graphics.BdfFont.CharsCount">
+  CharsCount
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Number of characters</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int CharsCount { get; protected set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_DefaultChar_" data-uid="Iot.Device.Graphics.BdfFont.DefaultChar*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_DefaultChar" data-uid="Iot.Device.Graphics.BdfFont.DefaultChar">DefaultChar</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_DefaultChar" data-uid="Iot.Device.Graphics.BdfFont.DefaultChar">
+  DefaultChar
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Default character</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int DefaultChar { get; protected set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_GlyphMapper_" data-uid="Iot.Device.Graphics.BdfFont.GlyphMapper*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_GlyphMapper" data-uid="Iot.Device.Graphics.BdfFont.GlyphMapper">GlyphMapper</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_GlyphMapper" data-uid="Iot.Device.Graphics.BdfFont.GlyphMapper">
+  GlyphMapper
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>GlyphMapper is mapping from the character number to the index of the character bitmap data in the buffer GlyphUshortData.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Hashtable? GlyphMapper { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Collections.Hashtable.html">Hashtable</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Collections.Hashtable.html">Hashtable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_GlyphUshortData_" data-uid="Iot.Device.Graphics.BdfFont.GlyphUshortData*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_GlyphUshortData" data-uid="Iot.Device.Graphics.BdfFont.GlyphUshortData">GlyphUshortData</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_GlyphUshortData" data-uid="Iot.Device.Graphics.BdfFont.GlyphUshortData">
+  GlyphUshortData
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The buffer containing all the data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected ushort[]? GlyphUshortData { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_Height_" data-uid="Iot.Device.Graphics.BdfFont.Height*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_Height" data-uid="Iot.Device.Graphics.BdfFont.Height">Height</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_Height" data-uid="Iot.Device.Graphics.BdfFont.Height">
+  Height
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Character height</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Height { get; protected set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_SupportedChars_" data-uid="Iot.Device.Graphics.BdfFont.SupportedChars*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_SupportedChars" data-uid="Iot.Device.Graphics.BdfFont.SupportedChars">SupportedChars</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_SupportedChars" data-uid="Iot.Device.Graphics.BdfFont.SupportedChars">
+  SupportedChars
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Characters supported by this font</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int[] SupportedChars { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
-        <td><p>Array of supported characters</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd><p>Array of supported characters</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_Width_" data-uid="Iot.Device.Graphics.BdfFont.Width*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_Width" data-uid="Iot.Device.Graphics.BdfFont.Width">Width</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_Width" data-uid="Iot.Device.Graphics.BdfFont.Width">
+  Width
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Character width</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Width { get; protected set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_XDisplacement_" data-uid="Iot.Device.Graphics.BdfFont.XDisplacement*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_XDisplacement" data-uid="Iot.Device.Graphics.BdfFont.XDisplacement">XDisplacement</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_XDisplacement" data-uid="Iot.Device.Graphics.BdfFont.XDisplacement">
+  XDisplacement
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>X displacement of the character</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int XDisplacement { get; protected set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_YDisplacement_" data-uid="Iot.Device.Graphics.BdfFont.YDisplacement*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_YDisplacement" data-uid="Iot.Device.Graphics.BdfFont.YDisplacement">YDisplacement</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_YDisplacement" data-uid="Iot.Device.Graphics.BdfFont.YDisplacement">
+  YDisplacement
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Y Displacement of the character</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int YDisplacement { get; protected set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_Graphics_BdfFont_GetCharData_" data-uid="Iot.Device.Graphics.BdfFont.GetCharData*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_GetCharData_System_Char_System_SpanUshort__" data-uid="Iot.Device.Graphics.BdfFont.GetCharData(System.Char,System.SpanUshort@)">GetCharData(char, out SpanUshort)</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_GetCharData_System_Char_System_SpanUshort__" data-uid="Iot.Device.Graphics.BdfFont.GetCharData(System.Char,System.SpanUshort@)">
+  GetCharData(char, out SpanUshort)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get character data or data for default character</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void GetCharData(char character, out SpanUshort charData)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Char.html">char</a></td>
-        <td><span class="parametername">character</span></td>
-        <td><p>Character whose data needs to be retrieved</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.SpanUshort.html">SpanUshort</a></td>
-        <td><span class="parametername">charData</span></td>
-        <td><p>Character data</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>character</code> <a class="xref" href="../api/System.Char.html">char</a></dt>
+    <dd><p>Character whose data needs to be retrieved</p>
+</dd>
+    <dt><code>charData</code> <a class="xref" href="System.SpanUshort.html">SpanUshort</a></dt>
+    <dd><p>Character data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_GetCharData_" data-uid="Iot.Device.Graphics.BdfFont.GetCharData*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_GetCharData_System_Int32_System_SpanInt__System_Boolean_" data-uid="Iot.Device.Graphics.BdfFont.GetCharData(System.Int32,System.SpanInt@,System.Boolean)">GetCharData(int, ref SpanInt, bool)</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_GetCharData_System_Int32_System_SpanInt__System_Boolean_" data-uid="Iot.Device.Graphics.BdfFont.GetCharData(System.Int32,System.SpanInt@,System.Boolean)">
+  GetCharData(int, ref SpanInt, bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get character data</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool GetCharData(int charOrdinal, ref SpanInt data, bool useDefaultChar = true)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">charOrdinal</span></td>
-        <td><p>Character ordinal</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.SpanInt.html">SpanInt</a></td>
-        <td><span class="parametername">data</span></td>
-        <td><p>Buffer to be sliced and filled with character data</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">useDefaultChar</span></td>
-        <td><p>Use default character if not found</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p>True if data could be retrieved</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>charOrdinal</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Character ordinal</p>
+</dd>
+    <dt><code>data</code> <a class="xref" href="System.SpanInt.html">SpanInt</a></dt>
+    <dd><p>Buffer to be sliced and filled with character data</p>
+</dd>
+    <dt><code>useDefaultChar</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Use default character if not found</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if data could be retrieved</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Graphics_BdfFont_Load_" data-uid="Iot.Device.Graphics.BdfFont.Load*"></a>
-  <h4 id="Iot_Device_Graphics_BdfFont_Load_System_String_" data-uid="Iot.Device.Graphics.BdfFont.Load(System.String)">Load(string)</h4>
+
+  <h3 id="Iot_Device_Graphics_BdfFont_Load_System_String_" data-uid="Iot.Device.Graphics.BdfFont.Load(System.String)">
+  Load(string)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Loads BdfFont from a specified path</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static BdfFont Load(string fontFilePath)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">fontFilePath</span></td>
-        <td><p>Path of the file representing the font</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Graphics.BdfFont.html">BdfFont</a></td>
-        <td><p>BdfFont instance</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fontFilePath</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>Path of the file representing the font</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Graphics.BdfFont.html">BdfFont</a></dt>
+    <dd><p>BdfFont instance</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

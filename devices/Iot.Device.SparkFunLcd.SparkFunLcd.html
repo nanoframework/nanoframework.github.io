@@ -1,1167 +1,1385 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class SparkFunLcd
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SparkFunLcd
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd">
+
+        <article data-uid="Iot.Device.SparkFunLcd.SparkFunLcd">
 
 
 
-  <h1 id="Iot_Device_SparkFunLcd_SparkFunLcd" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd" class="text-break">Class SparkFunLcd
-</h1>
-  <div class="markdown level0 summary"><p>LCD library for SparkFun RGB Serial Open LCD display (sizes 20x4 or 16x2) with I2C connection
+  <h1 id="Iot_Device_SparkFunLcd_SparkFunLcd" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd" class="text-break">
+    Class SparkFunLcd
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.SparkFunLcd.html">SparkFunLcd</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.SparkFunLcd.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>LCD library for SparkFun RGB Serial Open LCD display (sizes 20x4 or 16x2) with I2C connection
 for product information see <a href="https://www.sparkfun.com/products/16398">https://www.sparkfun.com/products/16398</a>
 code based on <a href="https://github.com/sparkfun/OpenLCD">https://github.com/sparkfun/OpenLCD</a>.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">SparkFunLcd</span></div>
-  </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Iot.Device.CharacterLcd.ICharacterLcd.html">ICharacterLcd</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.SparkFunLcd.html">SparkFunLcd</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.SparkFunLcd.dll</h6>
-  <h5 id="Iot_Device_SparkFunLcd_SparkFunLcd_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class SparkFunLcd : ICharacterLcd</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">SparkFunLcd</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Iot.Device.CharacterLcd.ICharacterLcd.html">ICharacterLcd</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd__ctor_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.#ctor*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd__ctor_System_Device_I2c_I2cDevice_Iot_Device_SparkFunLcd_SparkFunLcd_DisplaySizeEnum_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.#ctor(System.Device.I2c.I2cDevice,Iot.Device.SparkFunLcd.SparkFunLcd.DisplaySizeEnum)">SparkFunLcd(I2cDevice, DisplaySizeEnum)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd__ctor_System_Device_I2c_I2cDevice_Iot_Device_SparkFunLcd_SparkFunLcd_DisplaySizeEnum_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.#ctor(System.Device.I2c.I2cDevice,Iot.Device.SparkFunLcd.SparkFunLcd.DisplaySizeEnum)">
+  SparkFunLcd(I2cDevice, DisplaySizeEnum)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html">SparkFunLcd</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SparkFunLcd(I2cDevice i2cDevice, SparkFunLcd.DisplaySizeEnum displaySize = DisplaySizeEnum.Size20x4)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
-        <td><span class="parametername">i2cDevice</span></td>
-        <td><p>Existing I2C connection to display.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html">SparkFunLcd</a>.<a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.DisplaySizeEnum.html">DisplaySizeEnum</a></td>
-        <td><span class="parametername">displaySize</span></td>
-        <td><p>Display size.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>Existing I2C connection to display.</p>
+</dd>
+    <dt><code>displaySize</code> <a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html">SparkFunLcd</a>.<a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.DisplaySizeEnum.html">DisplaySizeEnum</a></dt>
+    <dd><p>Display size.</p>
+</dd>
+  </dl>
 
 
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_DefaultI2cAddress" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.DefaultI2cAddress">DefaultI2cAddress</h4>
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_DefaultI2cAddress" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.DefaultI2cAddress">
+  DefaultI2cAddress
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Default I2C address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const byte DefaultI2cAddress = 114</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_BacklightOn_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.BacklightOn*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_BacklightOn" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.BacklightOn">BacklightOn</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_BacklightOn" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.BacklightOn">
+  BacklightOn
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the backlight is turned on.
 To set the backlight color use <a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_SetBacklight_System_Drawing_Color_">SetBacklight(Color)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool BacklightOn { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_BlinkingCursorVisible_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.BlinkingCursorVisible*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_BlinkingCursorVisible" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.BlinkingCursorVisible">BlinkingCursorVisible</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_BlinkingCursorVisible" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.BlinkingCursorVisible">
+  BlinkingCursorVisible
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the cursor is blinking.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool BlinkingCursorVisible { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_DisplayOn_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.DisplayOn*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_DisplayOn" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.DisplayOn">DisplayOn</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_DisplayOn" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.DisplayOn">
+  DisplayOn
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the display is turned on.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool DisplayOn { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_NumberOfCustomCharactersSupported_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.NumberOfCustomCharactersSupported*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_NumberOfCustomCharactersSupported" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.NumberOfCustomCharactersSupported">NumberOfCustomCharactersSupported</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_NumberOfCustomCharactersSupported" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.NumberOfCustomCharactersSupported">
+  NumberOfCustomCharactersSupported
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the number of custom characters supported.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int NumberOfCustomCharactersSupported { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Size_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Size*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Size" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Size">Size</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Size" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Size">
+  Size
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the size of the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Size Size { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.CharacterLcd.Size.html">Size</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.CharacterLcd.Size.html">Size</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_UnderlineCursorVisible_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.UnderlineCursorVisible*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_UnderlineCursorVisible" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.UnderlineCursorVisible">UnderlineCursorVisible</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_UnderlineCursorVisible" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.UnderlineCursorVisible">
+  UnderlineCursorVisible
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the underline cursor is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool UnderlineCursorVisible { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Clear_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Clear*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Clear" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Clear">Clear()</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Clear" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Clear">
+  Clear()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Clear display and force cursor to beginning.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
-  <h5 id="Iot_Device_SparkFunLcd_SparkFunLcd_Clear_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_Home">Home()</a></div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_Home">Home()</a></div>
+    </dd>
+  </dl>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.CreateCustomCharacter*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_Byte___" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.CreateCustomCharacter(System.Int32,System.Byte[])">CreateCustomCharacter(int, byte[])</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_Byte___" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.CreateCustomCharacter(System.Int32,System.Byte[])">
+  CreateCustomCharacter(int, byte[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Create a custom character, eight custom characters are available numbered 0 through 7.
 After character is created in LCD memory it can be written to display by sending byte in the range 0x0 to 0x7 using <a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Byte_">Write(byte)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CreateCustomCharacter(int location, byte[] characterMap)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">location</span></td>
-        <td><p>Character number 0 thru 7, 8 locations are available.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><span class="parametername">characterMap</span></td>
-        <td><p>Byte array for custom character refer to datasheet for specific information, or see <a href="https://www.quinapalus.com/hd44780udg.html">https://www.quinapalus.com/hd44780udg.html</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_Byte____seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_Byte___">CreateCustomCharacter(int, byte[])</a></div>
-      <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_SpanByte_">CreateCustomCharacter(int, SpanByte)</a></div>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Character number 0 thru 7, 8 locations are available.</p>
+</dd>
+    <dt><code>characterMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>Byte array for custom character refer to datasheet for specific information, or see <a href="https://www.quinapalus.com/hd44780udg.html">https://www.quinapalus.com/hd44780udg.html</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_Byte___">CreateCustomCharacter(int, byte[])</a></div>
+    <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_SpanByte_">CreateCustomCharacter(int, SpanByte)</a></div>
+    </dd>
+  </dl>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.CreateCustomCharacter*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_SpanByte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.CreateCustomCharacter(System.Int32,System.SpanByte)">CreateCustomCharacter(int, SpanByte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_SpanByte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.CreateCustomCharacter(System.Int32,System.SpanByte)">
+  CreateCustomCharacter(int, SpanByte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Create a custom character.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CreateCustomCharacter(int location, SpanByte characterMap)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">location</span></td>
-        <td><p>Character number 0 thru 7, 8 locations are available.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">characterMap</span></td>
-        <td><p>Byte array for custom character refer to datasheet for specific information.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_SpanByte__seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_Byte___">CreateCustomCharacter(int, byte[])</a></div>
-      <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_SpanByte_">CreateCustomCharacter(int, SpanByte)</a></div>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Character number 0 thru 7, 8 locations are available.</p>
+</dd>
+    <dt><code>characterMap</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>Byte array for custom character refer to datasheet for specific information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_Byte___">CreateCustomCharacter(int, byte[])</a></div>
+    <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_CreateCustomCharacter_System_Int32_System_SpanByte_">CreateCustomCharacter(int, SpanByte)</a></div>
+    </dd>
+  </dl>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Dispose_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Dispose*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Dispose" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Dispose">Dispose()</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Dispose" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Disposes of an instance of the class, implements <a class="xref" href="../api/System.IDisposable.html">IDisposable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Finalize_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Finalize*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Finalize" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Finalize">Finalize()</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Finalize" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Finalize">
+  Finalize()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Finalizes an instance of the <a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html">SparkFunLcd</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Finalize()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Home_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Home*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Home" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Home">Home()</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Home" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Home">
+  Home()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Return cursor to beginning of the display, without clearing the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Home()</code></pre>
   </div>
-  <h5 id="Iot_Device_SparkFunLcd_SparkFunLcd_Home_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_Clear">Clear()</a></div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_Clear">Clear()</a></div>
+    </dd>
+  </dl>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_MoveCursorLeft_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.MoveCursorLeft*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_MoveCursorLeft_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.MoveCursorLeft(System.Byte)">MoveCursorLeft(byte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_MoveCursorLeft_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.MoveCursorLeft(System.Byte)">
+  MoveCursorLeft(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Move the cursor multiple characters to the left.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void MoveCursorLeft(byte count = 1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>Number of characters to move.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Number of characters to move.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_MoveCursorRight_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.MoveCursorRight*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_MoveCursorRight_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.MoveCursorRight(System.Byte)">MoveCursorRight(byte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_MoveCursorRight_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.MoveCursorRight(System.Byte)">
+  MoveCursorRight(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Move the cursor multiple characters to the right.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void MoveCursorRight(byte count = 1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>Number of characters to move.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Number of characters to move.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SaveSplashScreen_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SaveSplashScreen*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SaveSplashScreen" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SaveSplashScreen">SaveSplashScreen()</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SaveSplashScreen" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SaveSplashScreen">
+  SaveSplashScreen()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Save the current display as the splash screen at power on, setting takes effect at next power on.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SaveSplashScreen()</code></pre>
   </div>
-  <h5 id="Iot_Device_SparkFunLcd_SparkFunLcd_SaveSplashScreen_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_SetSplashScreenState_System_Boolean_">SetSplashScreenState(bool)</a></div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html#Iot_Device_SparkFunLcd_SparkFunLcd_SetSplashScreenState_System_Boolean_">SetSplashScreenState(bool)</a></div>
+    </dd>
+  </dl>
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_ScrollDisplayLeft_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.ScrollDisplayLeft*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_ScrollDisplayLeft_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.ScrollDisplayLeft(System.Byte)">ScrollDisplayLeft(byte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_ScrollDisplayLeft_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.ScrollDisplayLeft(System.Byte)">
+  ScrollDisplayLeft(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Scroll the display multiple characters to the left, without changing the text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ScrollDisplayLeft(byte count = 1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>Number of characters to scroll.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Number of characters to scroll.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_ScrollDisplayRight_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.ScrollDisplayRight*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_ScrollDisplayRight_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.ScrollDisplayRight(System.Byte)">ScrollDisplayRight(byte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_ScrollDisplayRight_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.ScrollDisplayRight(System.Byte)">
+  ScrollDisplayRight(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Scroll the display multiple characters to the right, without changing the text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ScrollDisplayRight(byte count = 1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>Number of characters to scroll.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Number of characters to scroll.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetAutoScrollingState_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetAutoScrollingState*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetAutoScrollingState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetAutoScrollingState(System.Boolean)">SetAutoScrollingState(bool)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetAutoScrollingState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetAutoScrollingState(System.Boolean)">
+  SetAutoScrollingState(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Change state of auto-scrolling, when enabled text will be right justified.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetAutoScrollingState(bool state)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p><code>true</code> to enable auto-scrolling, else <code>false</code> to disable.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><code>true</code> to enable auto-scrolling, else <code>false</code> to disable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetBacklight_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetBacklight*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetBacklight_System_Drawing_Color_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetBacklight(System.Drawing.Color)">SetBacklight(Color)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetBacklight_System_Drawing_Color_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetBacklight(System.Drawing.Color)">
+  SetBacklight(Color)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set backlight color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetBacklight(Color color)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Drawing.Color.html">Color</a></td>
-        <td><span class="parametername">color</span></td>
-        <td><p>Color to set.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="../api/System.Drawing.Color.html">Color</a></dt>
+    <dd><p>Color to set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetContrast_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetContrast*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetContrast_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetContrast(System.Byte)">SetContrast(byte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetContrast_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetContrast(System.Byte)">
+  SetContrast(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set display contrast, default value is 120.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetContrast(byte contrastValue)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">contrastValue</span></td>
-        <td><p>New contrast value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contrastValue</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>New contrast value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorBlinkState_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorBlinkState*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorBlinkState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorBlinkState(System.Boolean)">SetCursorBlinkState(bool)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorBlinkState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorBlinkState(System.Boolean)">
+  SetCursorBlinkState(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set the state of the blink cursor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetCursorBlinkState(bool enable)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">enable</span></td>
-        <td><p><code>true</code> to enable cursor blink, else <code>false</code> to disable.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enable</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><code>true</code> to enable cursor blink, else <code>false</code> to disable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorPosition_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorPosition*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorPosition_System_Byte_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorPosition(System.Byte,System.Byte)">SetCursorPosition(byte, byte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorPosition_System_Byte_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorPosition(System.Byte,System.Byte)">
+  SetCursorPosition(byte, byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set the cursor position to a particular column and row.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetCursorPosition(byte col, byte row)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">col</span></td>
-        <td><p>Column 0 to 19.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">row</span></td>
-        <td><p>Row 0 to 3.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>col</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Column 0 to 19.</p>
+</dd>
+    <dt><code>row</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Row 0 to 3.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorPosition_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorPosition*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorPosition_System_Int32_System_Int32_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorPosition(System.Int32,System.Int32)">SetCursorPosition(int, int)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorPosition_System_Int32_System_Int32_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorPosition(System.Int32,System.Int32)">
+  SetCursorPosition(int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set the cursor position to a particular column and row.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetCursorPosition(int col, int row)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">col</span></td>
-        <td><p>Column 0 to 19.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">row</span></td>
-        <td><p>Row 0 to 3.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>col</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Column 0 to 19.</p>
+</dd>
+    <dt><code>row</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Row 0 to 3.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorUnderlineState_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorUnderlineState*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorUnderlineState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorUnderlineState(System.Boolean)">SetCursorUnderlineState(bool)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetCursorUnderlineState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetCursorUnderlineState(System.Boolean)">
+  SetCursorUnderlineState(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set state of cursor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetCursorUnderlineState(bool enable)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">enable</span></td>
-        <td><p><code>true</code> to enable cursor, else <code>false</code> to disable.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enable</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><code>true</code> to enable cursor, else <code>false</code> to disable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetDisplayState_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetDisplayState*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetDisplayState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetDisplayState(System.Boolean)">SetDisplayState(bool)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetDisplayState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetDisplayState(System.Boolean)">
+  SetDisplayState(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Change state of display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetDisplayState(bool enable)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">enable</span></td>
-        <td><p><code>true</code> to enable display, else <code>false</code> to disable.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enable</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><code>true</code> to enable display, else <code>false</code> to disable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetSplashScreenState_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetSplashScreenState*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetSplashScreenState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetSplashScreenState(System.Boolean)">SetSplashScreenState(bool)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetSplashScreenState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetSplashScreenState(System.Boolean)">
+  SetSplashScreenState(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Change state of splash screen at power on, setting takes effect at next power on.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetSplashScreenState(bool state)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p><code>true</code> to enable splash screen at power on, else <code>false</code> to disable.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><code>true</code> to enable splash screen at power on, else <code>false</code> to disable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetSystemMessagesState_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetSystemMessagesState*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetSystemMessagesState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetSystemMessagesState(System.Boolean)">SetSystemMessagesState(bool)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetSystemMessagesState_System_Boolean_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetSystemMessagesState(System.Boolean)">
+  SetSystemMessagesState(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Change state of system messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetSystemMessagesState(bool state)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">state</span></td>
-        <td><p><code>true</code> to enable system messages, else <code>false</code> to disable.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><code>true</code> to enable system messages, else <code>false</code> to disable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_SetTextFlowDirectionState_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetTextFlowDirectionState*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetTextFlowDirectionState_Iot_Device_SparkFunLcd_SparkFunLcd_TextFlowDirectionEnum_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetTextFlowDirectionState(Iot.Device.SparkFunLcd.SparkFunLcd.TextFlowDirectionEnum)">SetTextFlowDirectionState(TextFlowDirectionEnum)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_SetTextFlowDirectionState_Iot_Device_SparkFunLcd_SparkFunLcd_TextFlowDirectionEnum_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.SetTextFlowDirectionState(Iot.Device.SparkFunLcd.SparkFunLcd.TextFlowDirectionEnum)">
+  SetTextFlowDirectionState(TextFlowDirectionEnum)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set state of text flow direction.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetTextFlowDirectionState(SparkFunLcd.TextFlowDirectionEnum textFlowDirection)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html">SparkFunLcd</a>.<a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.TextFlowDirectionEnum.html">TextFlowDirectionEnum</a></td>
-        <td><span class="parametername">textFlowDirection</span></td>
-        <td><p>Text flow direction, note that left to right is the direction common to most Western languages.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textFlowDirection</code> <a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.html">SparkFunLcd</a>.<a class="xref" href="Iot.Device.SparkFunLcd.SparkFunLcd.TextFlowDirectionEnum.html">TextFlowDirectionEnum</a></dt>
+    <dd><p>Text flow direction, note that left to right is the direction common to most Western languages.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Byte)">Write(byte)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Byte_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Byte)">
+  Write(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Write a byte to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Write(byte b)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">b</span></td>
-        <td><p>Byte to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>b</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Byte to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Byte_System_Byte_System_String_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Byte,System.Byte,System.String)">Write(byte, byte, string)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Byte_System_Byte_System_String_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Byte,System.Byte,System.String)">
+  Write(byte, byte, string)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set cursor position and write string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Write(byte col, byte row, string str)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">col</span></td>
-        <td><p>Column 0 to 19.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">row</span></td>
-        <td><p>Row 0 to 3.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">str</span></td>
-        <td><p>String to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>col</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Column 0 to 19.</p>
+</dd>
+    <dt><code>row</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Row 0 to 3.</p>
+</dd>
+    <dt><code>str</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>String to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Char___" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Char[])">Write(char[])</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Char___" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Char[])">
+  Write(char[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Write a character buffer to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Write(char[] buffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>Buffer to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</dt>
+    <dd><p>Buffer to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Char___System_Int32_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Char[],System.Int32)">Write(char[], int)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_Char___System_Int32_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.Char[],System.Int32)">
+  Write(char[], int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Write a character buffer to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Write(char[] buffer, int bufferSize)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>Buffer to write.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">bufferSize</span></td>
-        <td><p>Size of buffer to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</dt>
+    <dd><p>Buffer to write.</p>
+</dd>
+    <dt><code>bufferSize</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Size of buffer to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_SpanChar_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.SpanChar)">Write(SpanChar)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_SpanChar_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.SpanChar)">
+  Write(SpanChar)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Write a character buffer to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Write(SpanChar buffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.SpanChar.html">SpanChar</a></td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>Buffer to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.SpanChar.html">SpanChar</a></dt>
+    <dd><p>Buffer to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write*"></a>
-  <h4 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_String_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.String)">Write(string)</h4>
+
+  <h3 id="Iot_Device_SparkFunLcd_SparkFunLcd_Write_System_String_" data-uid="Iot.Device.SparkFunLcd.SparkFunLcd.Write(System.String)">
+  Write(string)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Write a string to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Write(string str)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">str</span></td>
-        <td><p>String to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Iot.Device.CharacterLcd.ICharacterLcd.html">ICharacterLcd</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>String to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

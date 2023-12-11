@@ -1,272 +1,221 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Enum Facility
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum Facility
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="nanoFramework.Logging.Syslog.Facility">
+
+        <article data-uid="nanoFramework.Logging.Syslog.Facility">
 
 
 
 
-  <h1 id="nanoFramework_Logging_Syslog_Facility" data-uid="nanoFramework.Logging.Syslog.Facility" class="text-break">Enum Facility
-</h1>
-  <div class="markdown level0 summary"><p>Available facility types (RFC 3164).</p>
+  <h1 id="nanoFramework_Logging_Syslog_Facility" data-uid="nanoFramework.Logging.Syslog.Facility" class="text-break">
+    Enum Facility
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.Logging.html">Logging</a>.<a class="xref" href="nanoFramework.Logging.Syslog.html">Syslog</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>nanoFramework.Logging.Syslog.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Available facility types (RFC 3164).</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.Logging.html">Logging</a>.<a class="xref" href="nanoFramework.Logging.Syslog.html">Syslog</a></h6>
-  <h6><strong>Assembly</strong>: nanoFramework.Logging.Syslog.dll</h6>
-  <h5 id="nanoFramework_Logging_Syslog_Facility_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public enum Facility</code></pre>
   </div>
-  <h3 id="fields">Fields
-</h3>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Audit">Audit</td>
-        <td><p>log audit</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Audit2">Audit2</td>
-        <td><p>log alert</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Auth">Auth</td>
-        <td><p>security/authorization messages</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_AuthPriv">AuthPriv</td>
-        <td><p>security/authorization messages</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Cron">Cron</td>
-        <td><p>clock daemon</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Cron2">Cron2</td>
-        <td><p>clock daemon</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Daemon">Daemon</td>
-        <td><p>system daemons</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_FTP">FTP</td>
-        <td><p>FTP daemon</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Kern">Kern</td>
-        <td><p>kernel messages</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_LPR">LPR</td>
-        <td><p>line printer subsystem</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local0">Local0</td>
-        <td><p>local use 0  (local0)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local1">Local1</td>
-        <td><p>local use 1  (local1)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local2">Local2</td>
-        <td><p>local use 2  (local2)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local3">Local3</td>
-        <td><p>local use 3  (local3)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local4">Local4</td>
-        <td><p>local use 4  (local4)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local5">Local5</td>
-        <td><p>local use 5  (local5)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local6">Local6</td>
-        <td><p>local use 6  (local6)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Local7">Local7</td>
-        <td><p>local use 7  (local7)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Mail">Mail</td>
-        <td><p>mail system</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_NTP">NTP</td>
-        <td><p>NTP subsystem</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_News">News</td>
-        <td><p>network news subsystem</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_Syslog">Syslog</td>
-        <td><p>messages generated internally by syslogd</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_UUCP">UUCP</td>
-        <td><p>UUCP subsystem</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_Logging_Syslog_Facility_User">User</td>
-        <td><p>user-level messages</p>
-</td>
-      </tr>
-    </tbody>
-  </thead></thead></table>
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="nanoFramework_Logging_Syslog_Facility_Audit"><code>Audit = 13</code></dt>
+    <dd><p>log audit</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Audit2"><code>Audit2 = 14</code></dt>
+    <dd><p>log alert</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Auth"><code>Auth = 4</code></dt>
+    <dd><p>security/authorization messages</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_AuthPriv"><code>AuthPriv = 10</code></dt>
+    <dd><p>security/authorization messages</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Cron"><code>Cron = 9</code></dt>
+    <dd><p>clock daemon</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Cron2"><code>Cron2 = 15</code></dt>
+    <dd><p>clock daemon</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Daemon"><code>Daemon = 3</code></dt>
+    <dd><p>system daemons</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_FTP"><code>FTP = 11</code></dt>
+    <dd><p>FTP daemon</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Kern"><code>Kern = 0</code></dt>
+    <dd><p>kernel messages</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_LPR"><code>LPR = 6</code></dt>
+    <dd><p>line printer subsystem</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local0"><code>Local0 = 16</code></dt>
+    <dd><p>local use 0  (local0)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local1"><code>Local1 = 17</code></dt>
+    <dd><p>local use 1  (local1)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local2"><code>Local2 = 18</code></dt>
+    <dd><p>local use 2  (local2)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local3"><code>Local3 = 19</code></dt>
+    <dd><p>local use 3  (local3)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local4"><code>Local4 = 20</code></dt>
+    <dd><p>local use 4  (local4)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local5"><code>Local5 = 21</code></dt>
+    <dd><p>local use 5  (local5)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local6"><code>Local6 = 22</code></dt>
+    <dd><p>local use 6  (local6)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Local7"><code>Local7 = 23</code></dt>
+    <dd><p>local use 7  (local7)</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Mail"><code>Mail = 2</code></dt>
+    <dd><p>mail system</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_NTP"><code>NTP = 12</code></dt>
+    <dd><p>NTP subsystem</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_News"><code>News = 7</code></dt>
+    <dd><p>network news subsystem</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_Syslog"><code>Syslog = 5</code></dt>
+    <dd><p>messages generated internally by syslogd</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_UUCP"><code>UUCP = 8</code></dt>
+    <dd><p>UUCP subsystem</p>
+</dd>
+    <dt id="nanoFramework_Logging_Syslog_Facility_User"><code>User = 1</code></dt>
+    <dd><p>user-level messages</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

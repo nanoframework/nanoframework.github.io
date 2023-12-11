@@ -1,113 +1,136 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class MemoryStream
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class MemoryStream
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="System.IO.MemoryStream">
+
+        <article data-uid="System.IO.MemoryStream">
 
 
 
-  <h1 id="System_IO_MemoryStream" data-uid="System.IO.MemoryStream" class="text-break">Class MemoryStream
-</h1>
-  <div class="markdown level0 summary"><p>Creates a stream whose backing store is memory.</p>
+  <h1 id="System_IO_MemoryStream" data-uid="System.IO.MemoryStream" class="text-break">
+    Class MemoryStream
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="System.html">System</a>.<a class="xref" href="System.IO.html">IO</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>System.IO.Streams.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Creates a stream whose backing store is memory.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
-    <div class="level1"><a class="xref" href="System.MarshalByRefObject.html">MarshalByRefObject</a></div>
-    <div class="level2"><a class="xref" href="System.IO.Stream.html">Stream</a></div>
-    <div class="level3"><span class="xref">MemoryStream</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MemoryStream : Stream, IDisposable</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><a class="xref" href="System.MarshalByRefObject.html">MarshalByRefObject</a></div>
+      <div><a class="xref" href="System.IO.Stream.html">Stream</a></div>
+      <div><span class="xref">MemoryStream</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="System.IO.Stream.html#System_IO_Stream_Close">Stream.Close()</a>
     </div>
@@ -150,27 +173,75 @@
     <div>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.IO.html">IO</a></h6>
-  <h6><strong>Assembly</strong>: System.IO.Streams.dll</h6>
-  <h5 id="System_IO_MemoryStream_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MemoryStream : Stream, IDisposable</code></pre>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="System_IO_MemoryStream__ctor_" data-uid="System.IO.MemoryStream.#ctor*"></a>
-  <h4 id="System_IO_MemoryStream__ctor" data-uid="System.IO.MemoryStream.#ctor">MemoryStream()</h4>
+
+  <h3 id="System_IO_MemoryStream__ctor" data-uid="System.IO.MemoryStream.#ctor">
+  MemoryStream()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> class with an expandable capacity initialized to zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public MemoryStream()</code></pre>
   </div>
-  <h5 id="System_IO_MemoryStream__ctor_remarks">Remarks</h5>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_IO_MemoryStream__ctor_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanRead">CanRead</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanSeek">CanSeek</a>, and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanWrite">CanWrite</a> properties are all set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 </p>
@@ -178,36 +249,40 @@ The <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Can
 The capacity of the current stream automatically increases when you use the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(long)</a> method to set the length to a value larger than the capacity of the current stream.
 </p>
 </div>
+
+
 
 
   <a id="System_IO_MemoryStream__ctor_" data-uid="System.IO.MemoryStream.#ctor*"></a>
-  <h4 id="System_IO_MemoryStream__ctor_System_Byte___" data-uid="System.IO.MemoryStream.#ctor(System.Byte[])">MemoryStream(byte[])</h4>
+
+  <h3 id="System_IO_MemoryStream__ctor_System_Byte___" data-uid="System.IO.MemoryStream.#ctor(System.Byte[])">
+  MemoryStream(byte[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new non-resizable instance of the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> class based on the specified byte array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public MemoryStream(byte[] buffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>The array of unsigned bytes from which to create the current stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_IO_MemoryStream__ctor_System_Byte____remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>The array of unsigned bytes from which to create the current stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_IO_MemoryStream__ctor_System_Byte____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanRead">CanRead</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanSeek">CanSeek</a>, and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanWrite">CanWrite</a> properties are all set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 </p>
@@ -215,54 +290,50 @@ The <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Can
 The capacity of the current stream automatically increases when you use the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(long)</a> method to set the length to a value larger than the capacity of the current stream.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">buffer</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">buffer</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="System_IO_MemoryStream_CanRead_" data-uid="System.IO.MemoryStream.CanRead*"></a>
-  <h4 id="System_IO_MemoryStream_CanRead" data-uid="System.IO.MemoryStream.CanRead">CanRead</h4>
+
+  <h3 id="System_IO_MemoryStream_CanRead" data-uid="System.IO.MemoryStream.CanRead">
+  CanRead
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the current stream supports reading.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool CanRead { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>/// <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the stream is open.///</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanRead">Stream.CanRead</a></div>
-  <h5 id="System_IO_MemoryStream_CanRead_remarks">Remarks</h5>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>/// <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the stream is open.///</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="System_IO_MemoryStream_CanRead_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 If a class derived from <a class="xref" href="System.IO.Stream.html">Stream</a> does not support reading, calls to the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Read_System_SpanByte_">Read(SpanByte)</a> and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_ReadByte">ReadByte()</a> methods throw a <a class="xref" href="System.NotSupportedException.html">NotSupportedException</a>.
 </p>
@@ -272,34 +343,38 @@ If the stream is closed, this property returns <a href="https://learn.microsoft.
 </div>
 
 
+
+
   <a id="System_IO_MemoryStream_CanSeek_" data-uid="System.IO.MemoryStream.CanSeek*"></a>
-  <h4 id="System_IO_MemoryStream_CanSeek" data-uid="System.IO.MemoryStream.CanSeek">CanSeek</h4>
+
+  <h3 id="System_IO_MemoryStream_CanSeek" data-uid="System.IO.MemoryStream.CanSeek">
+  CanSeek
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the current stream supports seeking.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool CanSeek { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the stream is open.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanSeek">Stream.CanSeek</a></div>
-  <h5 id="System_IO_MemoryStream_CanSeek_remarks">Remarks</h5>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the stream is open.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="System_IO_MemoryStream_CanSeek_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 If a class derived from <a class="xref" href="System.IO.Stream.html">Stream</a> does not support reading, calls to the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Length">Length</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(long)</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Position">Position</a> and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Seek_System_Int64_System_IO_SeekOrigin_">Seek(long, SeekOrigin)</a> throw a <a class="xref" href="System.NotSupportedException.html">NotSupportedException</a>.
 </p>
@@ -309,34 +384,38 @@ If the stream is closed, this property returns <a href="https://learn.microsoft.
 </div>
 
 
+
+
   <a id="System_IO_MemoryStream_CanWrite_" data-uid="System.IO.MemoryStream.CanWrite*"></a>
-  <h4 id="System_IO_MemoryStream_CanWrite" data-uid="System.IO.MemoryStream.CanWrite">CanWrite</h4>
+
+  <h3 id="System_IO_MemoryStream_CanWrite" data-uid="System.IO.MemoryStream.CanWrite">
+  CanWrite
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the current stream supports writing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool CanWrite { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the stream supports writing; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanWrite">Stream.CanWrite</a></div>
-  <h5 id="System_IO_MemoryStream_CanWrite_remarks">Remarks</h5>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the stream supports writing; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="System_IO_MemoryStream_CanWrite_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 If a class derived from <a class="xref" href="System.IO.Stream.html">Stream</a> does not support reading, calls to the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(long)</a> and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_Write_System_Byte___System_Int32_System_Int32_">Write(byte[], int, int)</a> or <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_WriteByte_System_Byte_">WriteByte(byte)</a> methods throw a <a class="xref" href="System.NotSupportedException.html">NotSupportedException</a>.
 </p>
@@ -346,157 +425,177 @@ If the stream is closed, this property returns <a href="https://learn.microsoft.
 </div>
 
 
+
+
   <a id="System_IO_MemoryStream_Length_" data-uid="System.IO.MemoryStream.Length*"></a>
-  <h4 id="System_IO_MemoryStream_Length" data-uid="System.IO.MemoryStream.Length">Length</h4>
+
+  <h3 id="System_IO_MemoryStream_Length" data-uid="System.IO.MemoryStream.Length">
+  Length
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, gets the length in bytes of the stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override long Length { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><p>A long value representing the length of the stream in bytes.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Length">Stream.Length</a></div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>A long value representing the length of the stream in bytes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_IO_MemoryStream_Position_" data-uid="System.IO.MemoryStream.Position*"></a>
-  <h4 id="System_IO_MemoryStream_Position" data-uid="System.IO.MemoryStream.Position">Position</h4>
+
+  <h3 id="System_IO_MemoryStream_Position" data-uid="System.IO.MemoryStream.Position">
+  Position
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, gets or sets the position within the current stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override long Position { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><p>The current position within the stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Position">Stream.Position</a></div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
-        <td><p>Can't adjust position out of the buffer size for fixed size buffer</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>Position can't be negative or higher than the stream allocated size.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>The current position within the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
+    <dd><p>Can't adjust position out of the buffer size for fixed size buffer</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Position can't be negative or higher than the stream allocated size.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="System_IO_MemoryStream_Dispose_" data-uid="System.IO.MemoryStream.Dispose*"></a>
-  <h4 id="System_IO_MemoryStream_Dispose_System_Boolean_" data-uid="System.IO.MemoryStream.Dispose(System.Boolean)">Dispose(bool)</h4>
+
+  <h3 id="System_IO_MemoryStream_Dispose_System_Boolean_" data-uid="System.IO.MemoryStream.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the Stream and optionally releases the managed resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose_System_Boolean_">Stream.Dispose(bool)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_MemoryStream_Flush_" data-uid="System.IO.MemoryStream.Flush*"></a>
-  <h4 id="System_IO_MemoryStream_Flush" data-uid="System.IO.MemoryStream.Flush">Flush()</h4>
+
+  <h3 id="System_IO_MemoryStream_Flush" data-uid="System.IO.MemoryStream.Flush">
+  Flush()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, clears all buffers for this stream and causes any buffered data to be written to the underlying device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Flush()</code></pre>
   </div>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Flush">Stream.Flush()</a></div>
+
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_MemoryStream_GetBuffer_" data-uid="System.IO.MemoryStream.GetBuffer*"></a>
-  <h4 id="System_IO_MemoryStream_GetBuffer" data-uid="System.IO.MemoryStream.GetBuffer">GetBuffer()</h4>
+
+  <h3 id="System_IO_MemoryStream_GetBuffer" data-uid="System.IO.MemoryStream.GetBuffer">
+  GetBuffer()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the array of unsigned bytes from which this stream was created.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual byte[] GetBuffer()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><p>The byte array from which this stream was created, or the underlying array if a byte array was not provided to the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> constructor during construction of the current instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_IO_MemoryStream_GetBuffer_remarks">Remarks</h5>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>The byte array from which this stream was created, or the underlying array if a byte array was not provided to the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> constructor during construction of the current instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_IO_MemoryStream_GetBuffer_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Note that the buffer contains allocated bytes which might be unused. For example, if the string "test" is written into the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> object, the length of the buffer returned from <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_GetBuffer">GetBuffer()</a> is 256, not 4, with 252 bytes unused. To obtain only the data in the buffer, use the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_ToArray">ToArray()</a> method; however, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_ToArray">ToArray()</a> creates a copy of the data in memory.
 </p>
@@ -506,541 +605,413 @@ The buffer can also be <a href="https://learn.microsoft.com/dotnet/csharp/langua
 </div>
 
 
+
+
   <a id="System_IO_MemoryStream_Read_" data-uid="System.IO.MemoryStream.Read*"></a>
-  <h4 id="System_IO_MemoryStream_Read_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.MemoryStream.Read(System.Byte[],System.Int32,System.Int32)">Read(byte[], int, int)</h4>
+
+  <h3 id="System_IO_MemoryStream_Read_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.MemoryStream.Read(System.Byte[],System.Int32,System.Int32)">
+  Read(byte[], int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int Read(byte[] buffer, int offset, int count)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>An array of bytes. When this method returns, the buffer contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>The zero-based byte offset in buffer at which to begin storing the data read from the current stream.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>The maximum number of bytes to be read from the current stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Read_System_Byte___System_Int32_System_Int32_">Stream.Read(byte[], int, int)</a></div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p>The current stream instance is closed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">buffer</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code class="paramref">offset</code> or <code class="paramref">count</code> is negative.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">offset</code> subtracted from the buffer length is less than <code class="paramref">count</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>An array of bytes. When this method returns, the buffer contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The zero-based byte offset in buffer at which to begin storing the data read from the current stream.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The maximum number of bytes to be read from the current stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p>The current stream instance is closed.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">buffer</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">offset</code> or <code class="paramref">count</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">offset</code> subtracted from the buffer length is less than <code class="paramref">count</code>.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_IO_MemoryStream_Read_" data-uid="System.IO.MemoryStream.Read*"></a>
-  <h4 id="System_IO_MemoryStream_Read_System_SpanByte_" data-uid="System.IO.MemoryStream.Read(System.SpanByte)">Read(SpanByte)</h4>
+
+  <h3 id="System_IO_MemoryStream_Read_System_SpanByte_" data-uid="System.IO.MemoryStream.Read(System.SpanByte)">
+  Read(SpanByte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int Read(SpanByte buffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>A region of memory. When this method returns, the contents of this region are replaced by the bytes read from the current source.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Read_System_SpanByte_">Stream.Read(SpanByte)</a></div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p>The current stream instance is closed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code class="paramref">offset</code> or <code class="paramref">count</code> is negative.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">offset</code> subtracted from the buffer length is less than <code class="paramref">count</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>A region of memory. When this method returns, the contents of this region are replaced by the bytes read from the current source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p>The current stream instance is closed.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">offset</code> or <code class="paramref">count</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">offset</code> subtracted from the buffer length is less than <code class="paramref">count</code>.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_IO_MemoryStream_ReadByte_" data-uid="System.IO.MemoryStream.ReadByte*"></a>
-  <h4 id="System_IO_MemoryStream_ReadByte" data-uid="System.IO.MemoryStream.ReadByte">ReadByte()</h4>
+
+  <h3 id="System_IO_MemoryStream_ReadByte" data-uid="System.IO.MemoryStream.ReadByte">
+  ReadByte()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int ReadByte()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The unsigned byte cast to an Int32, or -1 if at the end of the stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_ReadByte">Stream.ReadByte()</a></div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p>The current stream instance is closed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The unsigned byte cast to an Int32, or -1 if at the end of the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p>The current stream instance is closed.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_IO_MemoryStream_Seek_" data-uid="System.IO.MemoryStream.Seek*"></a>
-  <h4 id="System_IO_MemoryStream_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="System.IO.MemoryStream.Seek(System.Int64,System.IO.SeekOrigin)">Seek(long, SeekOrigin)</h4>
+
+  <h3 id="System_IO_MemoryStream_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="System.IO.MemoryStream.Seek(System.Int64,System.IO.SeekOrigin)">
+  Seek(long, SeekOrigin)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, sets the position within the current stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override long Seek(long offset, SeekOrigin origin)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>A byte offset relative to the origin parameter.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a></td>
-        <td><span class="parametername">origin</span></td>
-        <td><p>A value of type SeekOrigin indicating the reference point used to obtain the new position.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><p>The new position within the current stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Seek_System_Int64_System_IO_SeekOrigin_">Stream.Seek(long, SeekOrigin)</a></div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code class="paramref">offset</code> is greater than <a class="xref" href="System.Int32.html#System_Int32_MaxValue">MaxValue</a>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.IO.IOException.html">IOException</a></td>
-        <td><p>Seeking is attempted before the beginning of the stream.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>There is an invalid <a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a>.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offset</code> <a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>A byte offset relative to the origin parameter.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a></dt>
+    <dd><p>A value of type SeekOrigin indicating the reference point used to obtain the new position.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>The new position within the current stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd></dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">offset</code> is greater than <a class="xref" href="System.Int32.html#System_Int32_MaxValue">MaxValue</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
+    <dd><p>Seeking is attempted before the beginning of the stream.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>There is an invalid <a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a>.
 -or-
 <code class="paramref">offset</code> caused an arithmetic overflow.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+</dd>
+  </dl>
+
 
 
   <a id="System_IO_MemoryStream_SetLength_" data-uid="System.IO.MemoryStream.SetLength*"></a>
-  <h4 id="System_IO_MemoryStream_SetLength_System_Int64_" data-uid="System.IO.MemoryStream.SetLength(System.Int64)">SetLength(long)</h4>
+
+  <h3 id="System_IO_MemoryStream_SetLength_System_Int64_" data-uid="System.IO.MemoryStream.SetLength(System.Int64)">
+  SetLength(long)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, sets the length of the current stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void SetLength(long value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The desired length of the current stream in bytes.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_SetLength_System_Int64_">Stream.SetLength(long)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>The desired length of the current stream in bytes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_MemoryStream_ToArray_" data-uid="System.IO.MemoryStream.ToArray*"></a>
-  <h4 id="System_IO_MemoryStream_ToArray" data-uid="System.IO.MemoryStream.ToArray">ToArray()</h4>
+
+  <h3 id="System_IO_MemoryStream_ToArray" data-uid="System.IO.MemoryStream.ToArray">
+  ToArray()
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual byte[] ToArray()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_MemoryStream_Write_" data-uid="System.IO.MemoryStream.Write*"></a>
-  <h4 id="System_IO_MemoryStream_Write_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.MemoryStream.Write(System.Byte[],System.Int32,System.Int32)">Write(byte[], int, int)</h4>
+
+  <h3 id="System_IO_MemoryStream_Write_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.MemoryStream.Write(System.Byte[],System.Int32,System.Int32)">
+  Write(byte[], int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Write(byte[] buffer, int offset, int count)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>An array of bytes. This method copies count bytes from buffer to the current stream.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>The zero-based byte offset in buffer at which to begin copying bytes to the current stream.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>The number of bytes to be written to the current stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Write_System_Byte___System_Int32_System_Int32_">Stream.Write(byte[], int, int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>An array of bytes. This method copies count bytes from buffer to the current stream.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The zero-based byte offset in buffer at which to begin copying bytes to the current stream.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The number of bytes to be written to the current stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_MemoryStream_WriteByte_" data-uid="System.IO.MemoryStream.WriteByte*"></a>
-  <h4 id="System_IO_MemoryStream_WriteByte_System_Byte_" data-uid="System.IO.MemoryStream.WriteByte(System.Byte)">WriteByte(byte)</h4>
+
+  <h3 id="System_IO_MemoryStream_WriteByte_System_Byte_" data-uid="System.IO.MemoryStream.WriteByte(System.Byte)">
+  WriteByte(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a byte to the current position in the stream and advances the position within the stream by one byte.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void WriteByte(byte value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The byte to write to the stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteByte_System_Byte_">Stream.WriteByte(byte)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd><p>The byte to write to the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_MemoryStream_WriteTo_" data-uid="System.IO.MemoryStream.WriteTo*"></a>
-  <h4 id="System_IO_MemoryStream_WriteTo_System_IO_Stream_" data-uid="System.IO.MemoryStream.WriteTo(System.IO.Stream)">WriteTo(Stream)</h4>
+
+  <h3 id="System_IO_MemoryStream_WriteTo_System_IO_Stream_" data-uid="System.IO.MemoryStream.WriteTo(System.IO.Stream)">
+  WriteTo(Stream)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes this MemoryStream to another stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void WriteTo(Stream stream)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.IO.Stream.html">Stream</a></td>
-        <td><span class="parametername">stream</span></td>
-        <td><p>Stream to write into.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>If <code class="paramref">stream</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="System.IDisposable.html">IDisposable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="System.IO.Stream.html">Stream</a></dt>
+    <dd><p>Stream to write into.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">stream</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

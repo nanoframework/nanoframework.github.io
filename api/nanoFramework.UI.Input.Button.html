@@ -1,1255 +1,802 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Enum Button
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum Button
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="nanoFramework.UI.Input.Button">
+
+        <article data-uid="nanoFramework.UI.Input.Button">
 
 
 
 
-  <h1 id="nanoFramework_UI_Input_Button" data-uid="nanoFramework.UI.Input.Button" class="text-break">Enum Button
-</h1>
-  <div class="markdown level0 summary"><p>The button or key.</p>
+  <h1 id="nanoFramework_UI_Input_Button" data-uid="nanoFramework.UI.Input.Button" class="text-break">
+    Enum Button
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.UI.html">UI</a>.<a class="xref" href="nanoFramework.UI.Input.html">Input</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>nanoFramework.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The button or key.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.UI.html">UI</a>.<a class="xref" href="nanoFramework.UI.Input.html">Input</a></h6>
-  <h6><strong>Assembly</strong>: nanoFramework.Graphics.dll</h6>
-  <h5 id="nanoFramework_UI_Input_Button_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public enum Button</code></pre>
   </div>
-  <h3 id="fields">Fields
-</h3>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined1">AppDefined1</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined2">AppDefined2</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined3">AppDefined3</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined4">AppDefined4</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined5">AppDefined5</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined6">AppDefined6</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined7">AppDefined7</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_AppDefined8">AppDefined8</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_LastSystemDefinedButton">LastSystemDefinedButton</td>
-        <td><p>Last in the standard MF buttons enumeration</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_None">None</td>
-        <td><p>None.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_0">VK_0</td>
-        <td><p>0 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_1">VK_1</td>
-        <td><p>1 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_2">VK_2</td>
-        <td><p>2 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_3">VK_3</td>
-        <td><p>3 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_4">VK_4</td>
-        <td><p>4 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_5">VK_5</td>
-        <td><p>5 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_6">VK_6</td>
-        <td><p>6 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_7">VK_7</td>
-        <td><p>7 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_8">VK_8</td>
-        <td><p>8 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_9">VK_9</td>
-        <td><p>9 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_A">VK_A</td>
-        <td><p>A key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ACCEPT">VK_ACCEPT</td>
-        <td><p>IME accept</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ADD">VK_ADD</td>
-        <td><p>Add key (+)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_APOSTROPHE">VK_APOSTROPHE</td>
-        <td><p>Apostrophe key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_APPS">VK_APPS</td>
-        <td><p>Applications key (Natural keyboard)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ATTN">VK_ATTN</td>
-        <td><p>Attn key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_B">VK_B</td>
-        <td><p>B key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BACK">VK_BACK</td>
-        <td><p>BACKSPACE key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BACKQUOTE">VK_BACKQUOTE</td>
-        <td><p>Back quote key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BACKSLASH">VK_BACKSLASH</td>
-        <td><p>Back slash key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BROWSER_BACK">VK_BROWSER_BACK</td>
-        <td><p>Browser back key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BROWSER_FAVORITES">VK_BROWSER_FAVORITES</td>
-        <td><p>Browser favorites key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BROWSER_FORWARD">VK_BROWSER_FORWARD</td>
-        <td><p>Browser forward key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BROWSER_HOME">VK_BROWSER_HOME</td>
-        <td><p>Browser home key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BROWSER_REFRESH">VK_BROWSER_REFRESH</td>
-        <td><p>Browser refresh key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BROWSER_SEARCH">VK_BROWSER_SEARCH</td>
-        <td><p>Browser search key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_BROWSER_STOP">VK_BROWSER_STOP</td>
-        <td><p>Browser stop key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_C">VK_C</td>
-        <td><p>C key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_CANCEL">VK_CANCEL</td>
-        <td><p>Control-break processing</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_CAPITAL">VK_CAPITAL</td>
-        <td><p>CAPS LOCK key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_CLEAR">VK_CLEAR</td>
-        <td><p>CLEAR key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_COMMA">VK_COMMA</td>
-        <td><p>Coma key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_CONTROL">VK_CONTROL</td>
-        <td><p>CTRL key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_CONVERT">VK_CONVERT</td>
-        <td><p>IME convert</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_CRSEL">VK_CRSEL</td>
-        <td><p>CrSel key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_D">VK_D</td>
-        <td><p>D key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_ALPHANUMERIC">VK_DBE_ALPHANUMERIC</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_CODEINPUT">VK_DBE_CODEINPUT</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_DBCSCHAR">VK_DBE_DBCSCHAR</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_DETERMINESTRING">VK_DBE_DETERMINESTRING</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_ENTERDLGCONVERSIONMODE">VK_DBE_ENTERDLGCONVERSIONMODE</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_ENTERIMECONFIGMODE">VK_DBE_ENTERIMECONFIGMODE</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_ENTERWORDREGISTERMODE">VK_DBE_ENTERWORDREGISTERMODE</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_FLUSHSTRING">VK_DBE_FLUSHSTRING</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_HIRAGANA">VK_DBE_HIRAGANA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_KATAKANA">VK_DBE_KATAKANA</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_NOCODEINPUT">VK_DBE_NOCODEINPUT</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_NOROMAN">VK_DBE_NOROMAN</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_ROMAN">VK_DBE_ROMAN</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DBE_SBCSCHAR">VK_DBE_SBCSCHAR</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DECIMAL">VK_DECIMAL</td>
-        <td><p>Decimal key (. or ,)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DELETE">VK_DELETE</td>
-        <td><p>DEL key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DIVIDE">VK_DIVIDE</td>
-        <td><p>Divide key (/)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_DOWN">VK_DOWN</td>
-        <td><p>DOWN ARROW key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_E">VK_E</td>
-        <td><p>E key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_END">VK_END</td>
-        <td><p>END key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_EQUAL">VK_EQUAL</td>
-        <td><p>Equal key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_EREOF">VK_EREOF</td>
-        <td><p>Erase EOF key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ESCAPE">VK_ESCAPE</td>
-        <td><p>ESC key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_EXECUTE">VK_EXECUTE</td>
-        <td><p>EXECUTE key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_EXSEL">VK_EXSEL</td>
-        <td><p>ExSel key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F">VK_F</td>
-        <td><p>F key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F1">VK_F1</td>
-        <td><p>F1 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F10">VK_F10</td>
-        <td><p>F10 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F11">VK_F11</td>
-        <td><p>F11 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F12">VK_F12</td>
-        <td><p>F12 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F13">VK_F13</td>
-        <td><p>F13 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F14">VK_F14</td>
-        <td><p>F14 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F15">VK_F15</td>
-        <td><p>F15 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F16">VK_F16</td>
-        <td><p>F16 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F17">VK_F17</td>
-        <td><p>F17 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F18">VK_F18</td>
-        <td><p>F18 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F19">VK_F19</td>
-        <td><p>F19 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F2">VK_F2</td>
-        <td><p>F2 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F20">VK_F20</td>
-        <td><p>F20 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F21">VK_F21</td>
-        <td><p>F21 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F22">VK_F22</td>
-        <td><p>F22 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F23">VK_F23</td>
-        <td><p>F23 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F24">VK_F24</td>
-        <td><p>F24 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F3">VK_F3</td>
-        <td><p>F3 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F4">VK_F4</td>
-        <td><p>F4 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F5">VK_F5</td>
-        <td><p>F5 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F6">VK_F6</td>
-        <td><p>F6 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F7">VK_F7</td>
-        <td><p>F7 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F8">VK_F8</td>
-        <td><p>F8 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_F9">VK_F9</td>
-        <td><p>F9 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_FINAL">VK_FINAL</td>
-        <td><p>IME final mode</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_G">VK_G</td>
-        <td><p>G key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_H">VK_H</td>
-        <td><p>H key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_HANGEUL">VK_HANGEUL</td>
-        <td><p>IME Hanguel mode (maintained for compatibility; use VK_HANGUL)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_HANGUL">VK_HANGUL</td>
-        <td><p>IME Hangul mode</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_HANJA">VK_HANJA</td>
-        <td><p>IME Hanja mode</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_HELP">VK_HELP</td>
-        <td><p>HELP key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_HOME">VK_HOME</td>
-        <td><p>HOME key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_HYPHEN">VK_HYPHEN</td>
-        <td><p>Hyphen key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_I">VK_I</td>
-        <td><p>I key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ICO_00">VK_ICO_00</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ICO_CLEAR">VK_ICO_CLEAR</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ICO_HELP">VK_ICO_HELP</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_INSERT">VK_INSERT</td>
-        <td><p>INS key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_J">VK_J</td>
-        <td><p>J key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_JUNJA">VK_JUNJA</td>
-        <td><p>IME Junja mode</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_K">VK_K</td>
-        <td><p>K key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_KANA">VK_KANA</td>
-        <td><p>IME Kana mode</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_KANJI">VK_KANJI</td>
-        <td><p>IME Kanji mode</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_L">VK_L</td>
-        <td><p>L key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LAUNCH_APP1">VK_LAUNCH_APP1</td>
-        <td><p>Launch application 1 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LAUNCH_APP2">VK_LAUNCH_APP2</td>
-        <td><p>Launch application 2 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LAUNCH_MAIL">VK_LAUNCH_MAIL</td>
-        <td><p>Launch mail key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LAUNCH_MEDIA_SELECT">VK_LAUNCH_MEDIA_SELECT</td>
-        <td><p>Launch media select key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LBRACKET">VK_LBRACKET</td>
-        <td><p>Left backet key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LBUTTON">VK_LBUTTON</td>
-        <td><p>Left mouse button</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LCONTROL">VK_LCONTROL</td>
-        <td><p>Left control key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LEFT">VK_LEFT</td>
-        <td><p>LEFT ARROW key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LMENU">VK_LMENU</td>
-        <td><p>Left menu key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LSHIFT">VK_LSHIFT</td>
-        <td><p>Left shift key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_LWIN">VK_LWIN</td>
-        <td><p>Left Windows key (Microsoft Natural keyboard)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_M">VK_M</td>
-        <td><p>M key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MBUTTON">VK_MBUTTON</td>
-        <td><p>Middle mouse button (three-button mouse)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MEDIA_NEXT_TRACK">VK_MEDIA_NEXT_TRACK</td>
-        <td><p>Media next track key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MEDIA_PLAY_PAUSE">VK_MEDIA_PLAY_PAUSE</td>
-        <td><p>Media play pause key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MEDIA_PREV_TRACK">VK_MEDIA_PREV_TRACK</td>
-        <td><p>Media previous track key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MEDIA_STOP">VK_MEDIA_STOP</td>
-        <td><p>Media stop key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MENU">VK_MENU</td>
-        <td><p>ALT key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MODECHANGE">VK_MODECHANGE</td>
-        <td><p>IME mode change request</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_MULTIPLY">VK_MULTIPLY</td>
-        <td><p>Multiply key (*)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_N">VK_N</td>
-        <td><p>N key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NEXT">VK_NEXT</td>
-        <td><p>PAGE DOWN key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NONAME">VK_NONAME</td>
-        <td><p>Reserved</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NONCONVERT">VK_NONCONVERT</td>
-        <td><p>IME nonconvert</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMLOCK">VK_NUMLOCK</td>
-        <td><p>NUM LOCK key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD0">VK_NUMPAD0</td>
-        <td><p>Numeric keypad 0 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD1">VK_NUMPAD1</td>
-        <td><p>Numeric keypad 1 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD2">VK_NUMPAD2</td>
-        <td><p>Numeric keypad 2 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD3">VK_NUMPAD3</td>
-        <td><p>Numeric keypad 3 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD4">VK_NUMPAD4</td>
-        <td><p>Numeric keypad 4 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD5">VK_NUMPAD5</td>
-        <td><p>Numeric keypad 5 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD6">VK_NUMPAD6</td>
-        <td><p>Numeric keypad 6 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD7">VK_NUMPAD7</td>
-        <td><p>Numeric keypad 7 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD8">VK_NUMPAD8</td>
-        <td><p>Numeric keypad 8 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_NUMPAD9">VK_NUMPAD9</td>
-        <td><p>Numeric keypad 9 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_O">VK_O</td>
-        <td><p>O key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_1">VK_OEM_1</td>
-        <td><p>OEM 1 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_102">VK_OEM_102</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_2">VK_OEM_2</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_3">VK_OEM_3</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_4">VK_OEM_4</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_5">VK_OEM_5</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_6">VK_OEM_6</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_7">VK_OEM_7</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_8">VK_OEM_8</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_ATTN">VK_OEM_ATTN</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_AUTO">VK_OEM_AUTO</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_AX">VK_OEM_AX</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_CLEAR">VK_OEM_CLEAR</td>
-        <td><p>Clear key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_COMMA">VK_OEM_COMMA</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_COPY">VK_OEM_COPY</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_CUSEL">VK_OEM_CUSEL</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_ENLW">VK_OEM_ENLW</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_FINISH">VK_OEM_FINISH</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_JUMP">VK_OEM_JUMP</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_MINUS">VK_OEM_MINUS</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_PA1">VK_OEM_PA1</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_PA2">VK_OEM_PA2</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_PA3">VK_OEM_PA3</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_PERIOD">VK_OEM_PERIOD</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_PLUS">VK_OEM_PLUS</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_RESET">VK_OEM_RESET</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OEM_WSCTRL">VK_OEM_WSCTRL</td>
-        <td><p>OEM specific</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_OFF">VK_OFF</td>
-        <td><p>Off key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_P">VK_P</td>
-        <td><p>P key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PA1">VK_PA1</td>
-        <td><p>PA1 key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PACKET">VK_PACKET</td>
-        <td><p>Packet key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PAUSE">VK_PAUSE</td>
-        <td><p>PAUSE key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PERIOD">VK_PERIOD</td>
-        <td><p>Period key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PLAY">VK_PLAY</td>
-        <td><p>Play key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PRINT">VK_PRINT</td>
-        <td><p>PRINT key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PRIOR">VK_PRIOR</td>
-        <td><p>PAGE UP key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_PROCESSKEY">VK_PROCESSKEY</td>
-        <td><p>Clear key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_Q">VK_Q</td>
-        <td><p>Q key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_R">VK_R</td>
-        <td><p>R key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RBRACKET">VK_RBRACKET</td>
-        <td><p>Righ bracket key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RBUTTON">VK_RBUTTON</td>
-        <td><p>Right mouse button</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RCONTROL">VK_RCONTROL</td>
-        <td><p>Right control key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RETURN">VK_RETURN</td>
-        <td><p>ENTER key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RIGHT">VK_RIGHT</td>
-        <td><p>RIGHT ARROW key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RMENU">VK_RMENU</td>
-        <td><p>Right menu key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RSHIFT">VK_RSHIFT</td>
-        <td><p>Right shift key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_RWIN">VK_RWIN</td>
-        <td><p>Right Windows key (Natural keyboard)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_S">VK_S</td>
-        <td><p>S key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SCROLL">VK_SCROLL</td>
-        <td><p>Scroll lock key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SELECT">VK_SELECT</td>
-        <td><p>SELECT key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SEMICOLON">VK_SEMICOLON</td>
-        <td><p>Semicolon key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SEPARATOR">VK_SEPARATOR</td>
-        <td><p>Separator key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SHIFT">VK_SHIFT</td>
-        <td><p>SHIFT key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SLASH">VK_SLASH</td>
-        <td><p>Slash key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SLEEP">VK_SLEEP</td>
-        <td><p>Computer Sleep key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SNAPSHOT">VK_SNAPSHOT</td>
-        <td><p>PRINT SCREEN key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SPACE">VK_SPACE</td>
-        <td><p>SPACEBAR</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_SUBTRACT">VK_SUBTRACT</td>
-        <td><p>Subtract key (-)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_T">VK_T</td>
-        <td><p>T key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_TAB">VK_TAB</td>
-        <td><p>TAB key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_U">VK_U</td>
-        <td><p>U key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_UP">VK_UP</td>
-        <td><p>UP ARROW key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_V">VK_V</td>
-        <td><p>V key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_VOLUME_DOWN">VK_VOLUME_DOWN</td>
-        <td><p>Volume down key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_VOLUME_MUTE">VK_VOLUME_MUTE</td>
-        <td><p>Volume mute key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_VOLUME_UP">VK_VOLUME_UP</td>
-        <td><p>Volume up key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_W">VK_W</td>
-        <td><p>W key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_X">VK_X</td>
-        <td><p>X key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_XBUTTON1">VK_XBUTTON1</td>
-        <td><p>X1 mouse button</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_XBUTTON2">VK_XBUTTON2</td>
-        <td><p>X2 mouse button</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_Y">VK_Y</td>
-        <td><p>Y key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_Z">VK_Z</td>
-        <td><p>Z key</p>
-</td>
-      </tr>
-      <tr>
-        <td id="nanoFramework_UI_Input_Button_VK_ZOOM">VK_ZOOM</td>
-        <td><p>Zoom key</p>
-</td>
-      </tr>
-    </tbody>
-  </thead></thead></table>
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="nanoFramework_UI_Input_Button_AppDefined1"><code>AppDefined1 = 273</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_AppDefined2"><code>AppDefined2 = 274</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_AppDefined3"><code>AppDefined3 = 275</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_AppDefined4"><code>AppDefined4 = 276</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_AppDefined5"><code>AppDefined5 = 277</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_AppDefined6"><code>AppDefined6 = 278</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_AppDefined7"><code>AppDefined7 = 279</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_AppDefined8"><code>AppDefined8 = 280</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_LastSystemDefinedButton"><code>LastSystemDefinedButton = 272</code></dt>
+    <dd><p>Last in the standard MF buttons enumeration</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_None"><code>None = 0</code></dt>
+    <dd><p>None.</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_0"><code>VK_0 = 48</code></dt>
+    <dd><p>0 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_1"><code>VK_1 = 49</code></dt>
+    <dd><p>1 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_2"><code>VK_2 = 50</code></dt>
+    <dd><p>2 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_3"><code>VK_3 = 51</code></dt>
+    <dd><p>3 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_4"><code>VK_4 = 52</code></dt>
+    <dd><p>4 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_5"><code>VK_5 = 53</code></dt>
+    <dd><p>5 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_6"><code>VK_6 = 54</code></dt>
+    <dd><p>6 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_7"><code>VK_7 = 55</code></dt>
+    <dd><p>7 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_8"><code>VK_8 = 56</code></dt>
+    <dd><p>8 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_9"><code>VK_9 = 57</code></dt>
+    <dd><p>9 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_A"><code>VK_A = 65</code></dt>
+    <dd><p>A key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ACCEPT"><code>VK_ACCEPT = 30</code></dt>
+    <dd><p>IME accept</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ADD"><code>VK_ADD = 107</code></dt>
+    <dd><p>Add key (+)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_APOSTROPHE"><code>VK_APOSTROPHE = 222</code></dt>
+    <dd><p>Apostrophe key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_APPS"><code>VK_APPS = 93</code></dt>
+    <dd><p>Applications key (Natural keyboard)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ATTN"><code>VK_ATTN = 246</code></dt>
+    <dd><p>Attn key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_B"><code>VK_B = 66</code></dt>
+    <dd><p>B key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BACK"><code>VK_BACK = 8</code></dt>
+    <dd><p>BACKSPACE key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BACKQUOTE"><code>VK_BACKQUOTE = 192</code></dt>
+    <dd><p>Back quote key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BACKSLASH"><code>VK_BACKSLASH = 220</code></dt>
+    <dd><p>Back slash key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BROWSER_BACK"><code>VK_BROWSER_BACK = 166</code></dt>
+    <dd><p>Browser back key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BROWSER_FAVORITES"><code>VK_BROWSER_FAVORITES = 171</code></dt>
+    <dd><p>Browser favorites key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BROWSER_FORWARD"><code>VK_BROWSER_FORWARD = 167</code></dt>
+    <dd><p>Browser forward key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BROWSER_HOME"><code>VK_BROWSER_HOME = 172</code></dt>
+    <dd><p>Browser home key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BROWSER_REFRESH"><code>VK_BROWSER_REFRESH = 168</code></dt>
+    <dd><p>Browser refresh key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BROWSER_SEARCH"><code>VK_BROWSER_SEARCH = 170</code></dt>
+    <dd><p>Browser search key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_BROWSER_STOP"><code>VK_BROWSER_STOP = 169</code></dt>
+    <dd><p>Browser stop key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_C"><code>VK_C = 67</code></dt>
+    <dd><p>C key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_CANCEL"><code>VK_CANCEL = 3</code></dt>
+    <dd><p>Control-break processing</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_CAPITAL"><code>VK_CAPITAL = 20</code></dt>
+    <dd><p>CAPS LOCK key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_CLEAR"><code>VK_CLEAR = 12</code></dt>
+    <dd><p>CLEAR key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_COMMA"><code>VK_COMMA = 188</code></dt>
+    <dd><p>Coma key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_CONTROL"><code>VK_CONTROL = 17</code></dt>
+    <dd><p>CTRL key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_CONVERT"><code>VK_CONVERT = 28</code></dt>
+    <dd><p>IME convert</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_CRSEL"><code>VK_CRSEL = 247</code></dt>
+    <dd><p>CrSel key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_D"><code>VK_D = 68</code></dt>
+    <dd><p>D key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_ALPHANUMERIC"><code>VK_DBE_ALPHANUMERIC = 240</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_CODEINPUT"><code>VK_DBE_CODEINPUT = 250</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_DBCSCHAR"><code>VK_DBE_DBCSCHAR = 244</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_DETERMINESTRING"><code>VK_DBE_DETERMINESTRING = 252</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_ENTERDLGCONVERSIONMODE"><code>VK_DBE_ENTERDLGCONVERSIONMODE = 253</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_ENTERIMECONFIGMODE"><code>VK_DBE_ENTERIMECONFIGMODE = 248</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_ENTERWORDREGISTERMODE"><code>VK_DBE_ENTERWORDREGISTERMODE = 247</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_FLUSHSTRING"><code>VK_DBE_FLUSHSTRING = 249</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_HIRAGANA"><code>VK_DBE_HIRAGANA = 242</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_KATAKANA"><code>VK_DBE_KATAKANA = 241</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_NOCODEINPUT"><code>VK_DBE_NOCODEINPUT = 251</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_NOROMAN"><code>VK_DBE_NOROMAN = 246</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_ROMAN"><code>VK_DBE_ROMAN = 245</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DBE_SBCSCHAR"><code>VK_DBE_SBCSCHAR = 243</code></dt>
+    <dd></dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DECIMAL"><code>VK_DECIMAL = 110</code></dt>
+    <dd><p>Decimal key (. or ,)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DELETE"><code>VK_DELETE = 46</code></dt>
+    <dd><p>DEL key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DIVIDE"><code>VK_DIVIDE = 111</code></dt>
+    <dd><p>Divide key (/)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_DOWN"><code>VK_DOWN = 40</code></dt>
+    <dd><p>DOWN ARROW key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_E"><code>VK_E = 69</code></dt>
+    <dd><p>E key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_END"><code>VK_END = 35</code></dt>
+    <dd><p>END key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_EQUAL"><code>VK_EQUAL = 187</code></dt>
+    <dd><p>Equal key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_EREOF"><code>VK_EREOF = 249</code></dt>
+    <dd><p>Erase EOF key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ESCAPE"><code>VK_ESCAPE = 27</code></dt>
+    <dd><p>ESC key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_EXECUTE"><code>VK_EXECUTE = 43</code></dt>
+    <dd><p>EXECUTE key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_EXSEL"><code>VK_EXSEL = 248</code></dt>
+    <dd><p>ExSel key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F"><code>VK_F = 70</code></dt>
+    <dd><p>F key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F1"><code>VK_F1 = 112</code></dt>
+    <dd><p>F1 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F10"><code>VK_F10 = 121</code></dt>
+    <dd><p>F10 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F11"><code>VK_F11 = 122</code></dt>
+    <dd><p>F11 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F12"><code>VK_F12 = 123</code></dt>
+    <dd><p>F12 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F13"><code>VK_F13 = 124</code></dt>
+    <dd><p>F13 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F14"><code>VK_F14 = 125</code></dt>
+    <dd><p>F14 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F15"><code>VK_F15 = 126</code></dt>
+    <dd><p>F15 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F16"><code>VK_F16 = 127</code></dt>
+    <dd><p>F16 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F17"><code>VK_F17 = 128</code></dt>
+    <dd><p>F17 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F18"><code>VK_F18 = 129</code></dt>
+    <dd><p>F18 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F19"><code>VK_F19 = 130</code></dt>
+    <dd><p>F19 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F2"><code>VK_F2 = 113</code></dt>
+    <dd><p>F2 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F20"><code>VK_F20 = 131</code></dt>
+    <dd><p>F20 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F21"><code>VK_F21 = 132</code></dt>
+    <dd><p>F21 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F22"><code>VK_F22 = 133</code></dt>
+    <dd><p>F22 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F23"><code>VK_F23 = 134</code></dt>
+    <dd><p>F23 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F24"><code>VK_F24 = 135</code></dt>
+    <dd><p>F24 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F3"><code>VK_F3 = 114</code></dt>
+    <dd><p>F3 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F4"><code>VK_F4 = 115</code></dt>
+    <dd><p>F4 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F5"><code>VK_F5 = 116</code></dt>
+    <dd><p>F5 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F6"><code>VK_F6 = 117</code></dt>
+    <dd><p>F6 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F7"><code>VK_F7 = 118</code></dt>
+    <dd><p>F7 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F8"><code>VK_F8 = 119</code></dt>
+    <dd><p>F8 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_F9"><code>VK_F9 = 120</code></dt>
+    <dd><p>F9 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_FINAL"><code>VK_FINAL = 24</code></dt>
+    <dd><p>IME final mode</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_G"><code>VK_G = 71</code></dt>
+    <dd><p>G key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_H"><code>VK_H = 72</code></dt>
+    <dd><p>H key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_HANGEUL"><code>VK_HANGEUL = 21</code></dt>
+    <dd><p>IME Hanguel mode (maintained for compatibility; use VK_HANGUL)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_HANGUL"><code>VK_HANGUL = 21</code></dt>
+    <dd><p>IME Hangul mode</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_HANJA"><code>VK_HANJA = 25</code></dt>
+    <dd><p>IME Hanja mode</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_HELP"><code>VK_HELP = 47</code></dt>
+    <dd><p>HELP key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_HOME"><code>VK_HOME = 36</code></dt>
+    <dd><p>HOME key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_HYPHEN"><code>VK_HYPHEN = 189</code></dt>
+    <dd><p>Hyphen key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_I"><code>VK_I = 73</code></dt>
+    <dd><p>I key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ICO_00"><code>VK_ICO_00 = 228</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ICO_CLEAR"><code>VK_ICO_CLEAR = 230</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ICO_HELP"><code>VK_ICO_HELP = 227</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_INSERT"><code>VK_INSERT = 45</code></dt>
+    <dd><p>INS key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_J"><code>VK_J = 74</code></dt>
+    <dd><p>J key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_JUNJA"><code>VK_JUNJA = 23</code></dt>
+    <dd><p>IME Junja mode</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_K"><code>VK_K = 75</code></dt>
+    <dd><p>K key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_KANA"><code>VK_KANA = 21</code></dt>
+    <dd><p>IME Kana mode</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_KANJI"><code>VK_KANJI = 25</code></dt>
+    <dd><p>IME Kanji mode</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_L"><code>VK_L = 76</code></dt>
+    <dd><p>L key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LAUNCH_APP1"><code>VK_LAUNCH_APP1 = 182</code></dt>
+    <dd><p>Launch application 1 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LAUNCH_APP2"><code>VK_LAUNCH_APP2 = 183</code></dt>
+    <dd><p>Launch application 2 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LAUNCH_MAIL"><code>VK_LAUNCH_MAIL = 180</code></dt>
+    <dd><p>Launch mail key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LAUNCH_MEDIA_SELECT"><code>VK_LAUNCH_MEDIA_SELECT = 181</code></dt>
+    <dd><p>Launch media select key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LBRACKET"><code>VK_LBRACKET = 219</code></dt>
+    <dd><p>Left backet key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LBUTTON"><code>VK_LBUTTON = 1</code></dt>
+    <dd><p>Left mouse button</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LCONTROL"><code>VK_LCONTROL = 162</code></dt>
+    <dd><p>Left control key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LEFT"><code>VK_LEFT = 37</code></dt>
+    <dd><p>LEFT ARROW key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LMENU"><code>VK_LMENU = 164</code></dt>
+    <dd><p>Left menu key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LSHIFT"><code>VK_LSHIFT = 160</code></dt>
+    <dd><p>Left shift key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_LWIN"><code>VK_LWIN = 91</code></dt>
+    <dd><p>Left Windows key (Microsoft Natural keyboard)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_M"><code>VK_M = 77</code></dt>
+    <dd><p>M key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MBUTTON"><code>VK_MBUTTON = 4</code></dt>
+    <dd><p>Middle mouse button (three-button mouse)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MEDIA_NEXT_TRACK"><code>VK_MEDIA_NEXT_TRACK = 176</code></dt>
+    <dd><p>Media next track key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MEDIA_PLAY_PAUSE"><code>VK_MEDIA_PLAY_PAUSE = 179</code></dt>
+    <dd><p>Media play pause key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MEDIA_PREV_TRACK"><code>VK_MEDIA_PREV_TRACK = 177</code></dt>
+    <dd><p>Media previous track key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MEDIA_STOP"><code>VK_MEDIA_STOP = 178</code></dt>
+    <dd><p>Media stop key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MENU"><code>VK_MENU = 18</code></dt>
+    <dd><p>ALT key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MODECHANGE"><code>VK_MODECHANGE = 31</code></dt>
+    <dd><p>IME mode change request</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_MULTIPLY"><code>VK_MULTIPLY = 106</code></dt>
+    <dd><p>Multiply key (*)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_N"><code>VK_N = 78</code></dt>
+    <dd><p>N key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NEXT"><code>VK_NEXT = 34</code></dt>
+    <dd><p>PAGE DOWN key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NONAME"><code>VK_NONAME = 252</code></dt>
+    <dd><p>Reserved</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NONCONVERT"><code>VK_NONCONVERT = 29</code></dt>
+    <dd><p>IME nonconvert</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMLOCK"><code>VK_NUMLOCK = 144</code></dt>
+    <dd><p>NUM LOCK key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD0"><code>VK_NUMPAD0 = 96</code></dt>
+    <dd><p>Numeric keypad 0 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD1"><code>VK_NUMPAD1 = 97</code></dt>
+    <dd><p>Numeric keypad 1 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD2"><code>VK_NUMPAD2 = 98</code></dt>
+    <dd><p>Numeric keypad 2 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD3"><code>VK_NUMPAD3 = 99</code></dt>
+    <dd><p>Numeric keypad 3 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD4"><code>VK_NUMPAD4 = 100</code></dt>
+    <dd><p>Numeric keypad 4 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD5"><code>VK_NUMPAD5 = 101</code></dt>
+    <dd><p>Numeric keypad 5 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD6"><code>VK_NUMPAD6 = 102</code></dt>
+    <dd><p>Numeric keypad 6 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD7"><code>VK_NUMPAD7 = 103</code></dt>
+    <dd><p>Numeric keypad 7 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD8"><code>VK_NUMPAD8 = 104</code></dt>
+    <dd><p>Numeric keypad 8 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_NUMPAD9"><code>VK_NUMPAD9 = 105</code></dt>
+    <dd><p>Numeric keypad 9 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_O"><code>VK_O = 79</code></dt>
+    <dd><p>O key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_1"><code>VK_OEM_1 = 186</code></dt>
+    <dd><p>OEM 1 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_102"><code>VK_OEM_102 = 226</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_2"><code>VK_OEM_2 = 191</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_3"><code>VK_OEM_3 = 192</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_4"><code>VK_OEM_4 = 219</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_5"><code>VK_OEM_5 = 220</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_6"><code>VK_OEM_6 = 221</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_7"><code>VK_OEM_7 = 222</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_8"><code>VK_OEM_8 = 223</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_ATTN"><code>VK_OEM_ATTN = 240</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_AUTO"><code>VK_OEM_AUTO = 243</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_AX"><code>VK_OEM_AX = 225</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_CLEAR"><code>VK_OEM_CLEAR = 254</code></dt>
+    <dd><p>Clear key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_COMMA"><code>VK_OEM_COMMA = 188</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_COPY"><code>VK_OEM_COPY = 242</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_CUSEL"><code>VK_OEM_CUSEL = 239</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_ENLW"><code>VK_OEM_ENLW = 244</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_FINISH"><code>VK_OEM_FINISH = 241</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_JUMP"><code>VK_OEM_JUMP = 234</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_MINUS"><code>VK_OEM_MINUS = 189</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_PA1"><code>VK_OEM_PA1 = 235</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_PA2"><code>VK_OEM_PA2 = 236</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_PA3"><code>VK_OEM_PA3 = 237</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_PERIOD"><code>VK_OEM_PERIOD = 190</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_PLUS"><code>VK_OEM_PLUS = 187</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_RESET"><code>VK_OEM_RESET = 233</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OEM_WSCTRL"><code>VK_OEM_WSCTRL = 238</code></dt>
+    <dd><p>OEM specific</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_OFF"><code>VK_OFF = 223</code></dt>
+    <dd><p>Off key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_P"><code>VK_P = 80</code></dt>
+    <dd><p>P key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PA1"><code>VK_PA1 = 253</code></dt>
+    <dd><p>PA1 key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PACKET"><code>VK_PACKET = 231</code></dt>
+    <dd><p>Packet key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PAUSE"><code>VK_PAUSE = 19</code></dt>
+    <dd><p>PAUSE key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PERIOD"><code>VK_PERIOD = 190</code></dt>
+    <dd><p>Period key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PLAY"><code>VK_PLAY = 250</code></dt>
+    <dd><p>Play key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PRINT"><code>VK_PRINT = 42</code></dt>
+    <dd><p>PRINT key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PRIOR"><code>VK_PRIOR = 33</code></dt>
+    <dd><p>PAGE UP key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_PROCESSKEY"><code>VK_PROCESSKEY = 229</code></dt>
+    <dd><p>Clear key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_Q"><code>VK_Q = 81</code></dt>
+    <dd><p>Q key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_R"><code>VK_R = 82</code></dt>
+    <dd><p>R key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RBRACKET"><code>VK_RBRACKET = 221</code></dt>
+    <dd><p>Righ bracket key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RBUTTON"><code>VK_RBUTTON = 2</code></dt>
+    <dd><p>Right mouse button</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RCONTROL"><code>VK_RCONTROL = 163</code></dt>
+    <dd><p>Right control key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RETURN"><code>VK_RETURN = 13</code></dt>
+    <dd><p>ENTER key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RIGHT"><code>VK_RIGHT = 39</code></dt>
+    <dd><p>RIGHT ARROW key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RMENU"><code>VK_RMENU = 165</code></dt>
+    <dd><p>Right menu key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RSHIFT"><code>VK_RSHIFT = 161</code></dt>
+    <dd><p>Right shift key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_RWIN"><code>VK_RWIN = 92</code></dt>
+    <dd><p>Right Windows key (Natural keyboard)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_S"><code>VK_S = 83</code></dt>
+    <dd><p>S key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SCROLL"><code>VK_SCROLL = 145</code></dt>
+    <dd><p>Scroll lock key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SELECT"><code>VK_SELECT = 41</code></dt>
+    <dd><p>SELECT key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SEMICOLON"><code>VK_SEMICOLON = 186</code></dt>
+    <dd><p>Semicolon key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SEPARATOR"><code>VK_SEPARATOR = 108</code></dt>
+    <dd><p>Separator key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SHIFT"><code>VK_SHIFT = 16</code></dt>
+    <dd><p>SHIFT key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SLASH"><code>VK_SLASH = 191</code></dt>
+    <dd><p>Slash key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SLEEP"><code>VK_SLEEP = 95</code></dt>
+    <dd><p>Computer Sleep key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SNAPSHOT"><code>VK_SNAPSHOT = 44</code></dt>
+    <dd><p>PRINT SCREEN key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SPACE"><code>VK_SPACE = 32</code></dt>
+    <dd><p>SPACEBAR</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_SUBTRACT"><code>VK_SUBTRACT = 109</code></dt>
+    <dd><p>Subtract key (-)</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_T"><code>VK_T = 84</code></dt>
+    <dd><p>T key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_TAB"><code>VK_TAB = 9</code></dt>
+    <dd><p>TAB key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_U"><code>VK_U = 85</code></dt>
+    <dd><p>U key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_UP"><code>VK_UP = 38</code></dt>
+    <dd><p>UP ARROW key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_V"><code>VK_V = 86</code></dt>
+    <dd><p>V key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_VOLUME_DOWN"><code>VK_VOLUME_DOWN = 174</code></dt>
+    <dd><p>Volume down key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_VOLUME_MUTE"><code>VK_VOLUME_MUTE = 173</code></dt>
+    <dd><p>Volume mute key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_VOLUME_UP"><code>VK_VOLUME_UP = 175</code></dt>
+    <dd><p>Volume up key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_W"><code>VK_W = 87</code></dt>
+    <dd><p>W key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_X"><code>VK_X = 88</code></dt>
+    <dd><p>X key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_XBUTTON1"><code>VK_XBUTTON1 = 5</code></dt>
+    <dd><p>X1 mouse button</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_XBUTTON2"><code>VK_XBUTTON2 = 6</code></dt>
+    <dd><p>X2 mouse button</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_Y"><code>VK_Y = 89</code></dt>
+    <dd><p>Y key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_Z"><code>VK_Z = 90</code></dt>
+    <dd><p>Z key</p>
+</dd>
+    <dt id="nanoFramework_UI_Input_Button_VK_ZOOM"><code>VK_ZOOM = 251</code></dt>
+    <dd><p>Zoom key</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

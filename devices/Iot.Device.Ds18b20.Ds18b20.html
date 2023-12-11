@@ -1,551 +1,589 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class Ds18b20
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Ds18b20
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.Ds18b20.Ds18b20">
+
+        <article data-uid="Iot.Device.Ds18b20.Ds18b20">
 
 
 
-  <h1 id="Iot_Device_Ds18b20_Ds18b20" data-uid="Iot.Device.Ds18b20.Ds18b20" class="text-break">Class Ds18b20
-</h1>
-  <div class="markdown level0 summary"><p>DS18B20 - Temperature sensor.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">Ds18b20</span></div>
+  <h1 id="Iot_Device_Ds18b20_Ds18b20" data-uid="Iot.Device.Ds18b20.Ds18b20" class="text-break">
+    Class Ds18b20
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Ds18b20.html">Ds18b20</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Ds18b20.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Ds18b20.html">Ds18b20</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.Ds18b20.dll</h6>
-  <h5 id="Iot_Device_Ds18b20_Ds18b20_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>DS18B20 - Temperature sensor.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Interface(&quot;DS18B20 - Temperature sensor&quot;)]
 public class Ds18b20</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Ds18b20</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20__ctor_" data-uid="Iot.Device.Ds18b20.Ds18b20.#ctor*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20__ctor_nanoFramework_Device_OneWire_OneWireHost_System_Byte___System_Boolean_Iot_Device_Ds18b20_TemperatureResolution_" data-uid="Iot.Device.Ds18b20.Ds18b20.#ctor(nanoFramework.Device.OneWire.OneWireHost,System.Byte[],System.Boolean,Iot.Device.Ds18b20.TemperatureResolution)">Ds18b20(OneWireHost, byte[], bool, TemperatureResolution)</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20__ctor_nanoFramework_Device_OneWire_OneWireHost_System_Byte___System_Boolean_Iot_Device_Ds18b20_TemperatureResolution_" data-uid="Iot.Device.Ds18b20.Ds18b20.#ctor(nanoFramework.Device.OneWire.OneWireHost,System.Byte[],System.Boolean,Iot.Device.Ds18b20.TemperatureResolution)">
+  Ds18b20(OneWireHost, byte[], bool, TemperatureResolution)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Ds18b20.Ds18b20.html">Ds18b20</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Ds18b20(OneWireHost oneWireHost, byte[] deviceAddress = null, bool manyDevicesConnected = false, TemperatureResolution temperatureResolution = TemperatureResolution.VeryHigh)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/nanoFramework.Device.OneWire.OneWireHost.html">OneWireHost</a></td>
-        <td><span class="parametername">oneWireHost</span></td>
-        <td><p>One wire host (logical bus) to use.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><span class="parametername">deviceAddress</span></td>
-        <td><p>The device address (if null, then this device will search for one on the bus and latch on to the first one found).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">manyDevicesConnected</span></td>
-        <td><p>True for more than one sensor connected to bus.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Ds18b20.TemperatureResolution.html">TemperatureResolution</a></td>
-        <td><span class="parametername">temperatureResolution</span></td>
-        <td><p>Sensor resolution.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>When device address length is not equal to 8 characters.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>When device address is not Ds18b20 sensors family address.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oneWireHost</code> <a class="xref" href="../api/nanoFramework.Device.OneWire.OneWireHost.html">OneWireHost</a></dt>
+    <dd><p>One wire host (logical bus) to use.</p>
+</dd>
+    <dt><code>deviceAddress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The device address (if null, then this device will search for one on the bus and latch on to the first one found).</p>
+</dd>
+    <dt><code>manyDevicesConnected</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True for more than one sensor connected to bus.</p>
+</dd>
+    <dt><code>temperatureResolution</code> <a class="xref" href="Iot.Device.Ds18b20.TemperatureResolution.html">TemperatureResolution</a></dt>
+    <dd><p>Sensor resolution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>When device address length is not equal to 8 characters.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>When device address is not Ds18b20 sensors family address.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_Address_" data-uid="Iot.Device.Ds18b20.Ds18b20.Address*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_Address" data-uid="Iot.Device.Ds18b20.Ds18b20.Address">Address</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_Address" data-uid="Iot.Device.Ds18b20.Ds18b20.Address">
+  Address
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the 8-byte address of selected device
 (since there could be more than one such devices on the bus).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[] Address { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_AddressNet_" data-uid="Iot.Device.Ds18b20.Ds18b20.AddressNet*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_AddressNet" data-uid="Iot.Device.Ds18b20.Ds18b20.AddressNet">AddressNet</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_AddressNet" data-uid="Iot.Device.Ds18b20.Ds18b20.AddressNet">
+  AddressNet
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets an array of addresses of all Ds18B20 devices on network or only
 devices in alarm if alarm mode is set on.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[][] AddressNet { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[][]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[][]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_IsAlarmSearchCommandEnabled_" data-uid="Iot.Device.Ds18b20.Ds18b20.IsAlarmSearchCommandEnabled*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_IsAlarmSearchCommandEnabled" data-uid="Iot.Device.Ds18b20.Ds18b20.IsAlarmSearchCommandEnabled">IsAlarmSearchCommandEnabled</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_IsAlarmSearchCommandEnabled" data-uid="Iot.Device.Ds18b20.Ds18b20.IsAlarmSearchCommandEnabled">
+  IsAlarmSearchCommandEnabled
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether alarm search mode is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property(&quot;IsAlarmSearchCommandEnabled&quot;)]
 public bool IsAlarmSearchCommandEnabled { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_IsParasitePowered_" data-uid="Iot.Device.Ds18b20.Ds18b20.IsParasitePowered*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_IsParasitePowered" data-uid="Iot.Device.Ds18b20.Ds18b20.IsParasitePowered">IsParasitePowered</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_IsParasitePowered" data-uid="Iot.Device.Ds18b20.Ds18b20.IsParasitePowered">
+  IsParasitePowered
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether it's powered as parasite of the board.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property(&quot;IsParasitePowered&quot;)]
 public bool IsParasitePowered { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_TemperatureHighAlarm_" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureHighAlarm*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_TemperatureHighAlarm" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureHighAlarm">TemperatureHighAlarm</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_TemperatureHighAlarm" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureHighAlarm">
+  TemperatureHighAlarm
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets high temperature alarm. Min -55C, Max 125C.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property(&quot;TemperatureHighAlarm&quot;)]
 public Temperature TemperatureHighAlarm { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>When high alarm temperature is not between -55 and 125 degrees.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>When high alarm temperature is not between -55 and 125 degrees.</p>
+</dd>
+  </dl>
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_TemperatureLowAlarm_" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureLowAlarm*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_TemperatureLowAlarm" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureLowAlarm">TemperatureLowAlarm</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_TemperatureLowAlarm" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureLowAlarm">
+  TemperatureLowAlarm
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets low temperature alarm. Min -55C, Max 125C.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property(&quot;TemperatureLowAlarm&quot;)]
 public Temperature TemperatureLowAlarm { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>When low alarm temperature is not between -55 and 125 degrees.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>When low alarm temperature is not between -55 and 125 degrees.</p>
+</dd>
+  </dl>
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_TemperatureResolution_" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureResolution*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_TemperatureResolution" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureResolution">TemperatureResolution</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_TemperatureResolution" data-uid="Iot.Device.Ds18b20.Ds18b20.TemperatureResolution">
+  TemperatureResolution
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets temperature resolution.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Property(&quot;TemperatureResolution&quot;)]
 public TemperatureResolution TemperatureResolution { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Ds18b20.TemperatureResolution.html">TemperatureResolution</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Ds18b20.TemperatureResolution.html">TemperatureResolution</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_BeginTrackChanges_" data-uid="Iot.Device.Ds18b20.Ds18b20.BeginTrackChanges*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_BeginTrackChanges_System_TimeSpan_" data-uid="Iot.Device.Ds18b20.Ds18b20.BeginTrackChanges(System.TimeSpan)">BeginTrackChanges(TimeSpan)</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_BeginTrackChanges_System_TimeSpan_" data-uid="Iot.Device.Ds18b20.Ds18b20.BeginTrackChanges(System.TimeSpan)">
+  BeginTrackChanges(TimeSpan)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Starts tracking the changes of temperature.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void BeginTrackChanges(TimeSpan trackingInterval)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">trackingInterval</span></td>
-        <td><p>Interval to track the changes to sensor values.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>When tracking is already enabled.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>When tracking interval is shorter than 50 milliseconds.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.NotSupportedException.html">NotSupportedException</a></td>
-        <td><p>When event handler is not assigned.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>trackingInterval</code> <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>Interval to track the changes to sensor values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>When tracking is already enabled.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>When tracking interval is shorter than 50 milliseconds.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.NotSupportedException.html">NotSupportedException</a></dt>
+    <dd><p>When event handler is not assigned.</p>
+</dd>
+  </dl>
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_ConfigurationRead_" data-uid="Iot.Device.Ds18b20.Ds18b20.ConfigurationRead*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_ConfigurationRead_System_Boolean_" data-uid="Iot.Device.Ds18b20.Ds18b20.ConfigurationRead(System.Boolean)">ConfigurationRead(bool)</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_ConfigurationRead_System_Boolean_" data-uid="Iot.Device.Ds18b20.Ds18b20.ConfigurationRead(System.Boolean)">
+  ConfigurationRead(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads sensor configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool ConfigurationRead(bool restoreRegisterFromEEPROM = false)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">restoreRegisterFromEEPROM</span></td>
-        <td><p>Flag indicating if configuration should be restored from EEPROM.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p><b>true</b> on success, else <b>false</b></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>restoreRegisterFromEEPROM</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Flag indicating if configuration should be restored from EEPROM.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><b>true</b> on success, else <b>false</b></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_ConfigurationWrite_" data-uid="Iot.Device.Ds18b20.Ds18b20.ConfigurationWrite*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_ConfigurationWrite_System_Boolean_" data-uid="Iot.Device.Ds18b20.Ds18b20.ConfigurationWrite(System.Boolean)">ConfigurationWrite(bool)</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_ConfigurationWrite_System_Boolean_" data-uid="Iot.Device.Ds18b20.Ds18b20.ConfigurationWrite(System.Boolean)">
+  ConfigurationWrite(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes sensor configuration. The unchanged registers will be overwritten.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ConfigurationWrite(bool writeToEEPROM = false)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">writeToEEPROM</span></td>
-        <td><p>Flag indicating if configuration should be written also to EEPROM.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writeToEEPROM</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Flag indicating if configuration should be written also to EEPROM.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_EndTrackChanges_" data-uid="Iot.Device.Ds18b20.Ds18b20.EndTrackChanges*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_EndTrackChanges" data-uid="Iot.Device.Ds18b20.Ds18b20.EndTrackChanges">EndTrackChanges()</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_EndTrackChanges" data-uid="Iot.Device.Ds18b20.Ds18b20.EndTrackChanges">
+  EndTrackChanges()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Stops tracking changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void EndTrackChanges()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Ds18b20_Ds18b20_Initialize_" data-uid="Iot.Device.Ds18b20.Ds18b20.Initialize*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_Initialize" data-uid="Iot.Device.Ds18b20.Ds18b20.Initialize">Initialize()</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_Initialize" data-uid="Iot.Device.Ds18b20.Ds18b20.Initialize">
+  Initialize()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes the sensor. This step will perform a reset of the 1-wire bus.
 It will check for existence of a 1-wire device. If no address was provided, then the
 1-wire bus will be searched and the first device that matches the family code will be latched on to.
@@ -553,172 +591,187 @@ Developer should check for successful initialization by checking the value retur
 If ManyDevicesConnected is set it will keep searching until find last device, saving all in AddressNet array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Initialize()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p><b>true</b> on success, else <b>false</b></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><b>true</b> on success, else <b>false</b></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_Reset_" data-uid="Iot.Device.Ds18b20.Ds18b20.Reset*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_Reset" data-uid="Iot.Device.Ds18b20.Ds18b20.Reset">Reset()</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_Reset" data-uid="Iot.Device.Ds18b20.Ds18b20.Reset">
+  Reset()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reset the sensor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Ds18b20_Ds18b20_SearchForAlarmCondition_" data-uid="Iot.Device.Ds18b20.Ds18b20.SearchForAlarmCondition*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_SearchForAlarmCondition" data-uid="Iot.Device.Ds18b20.Ds18b20.SearchForAlarmCondition">SearchForAlarmCondition()</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_SearchForAlarmCondition" data-uid="Iot.Device.Ds18b20.Ds18b20.SearchForAlarmCondition">
+  SearchForAlarmCondition()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Search for alarm condition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool SearchForAlarmCondition()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p><b>true</b> on success, else <b>false</b></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><b>true</b> on success, else <b>false</b></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Ds18b20_Ds18b20_TryReadTemperature_" data-uid="Iot.Device.Ds18b20.Ds18b20.TryReadTemperature*"></a>
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_TryReadTemperature_UnitsNet_Temperature__" data-uid="Iot.Device.Ds18b20.Ds18b20.TryReadTemperature(UnitsNet.Temperature@)">TryReadTemperature(out Temperature)</h4>
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_TryReadTemperature_UnitsNet_Temperature__" data-uid="Iot.Device.Ds18b20.Ds18b20.TryReadTemperature(UnitsNet.Temperature@)">
+  TryReadTemperature(out Temperature)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the temperature. A return value indicates whether the reading succeeded.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Telemetry(&quot;Temperature&quot;)]
 public bool TryReadTemperature(out Temperature temperature)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Temperature.html">Temperature</a></td>
-        <td><span class="parametername">temperature</span></td>
-        <td><p>Contains the measured temperature if the sensor reacted on request.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>temperature</code> <a class="xref" href="UnitsNet.Temperature.html">Temperature</a></dt>
+    <dd><p>Contains the measured temperature if the sensor reacted on request.
 Contains -999.99 otherwise.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><pre><code class="lang-csharp">true</code></pre> if measurement was not skipped, otherwise <pre><code class="lang-csharp">false</code></pre>.
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="events">Events
-</h3>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><pre><code class="lang-csharp">true</code></pre> if measurement was not skipped, otherwise <pre><code class="lang-csharp">false</code></pre>.
+</dd>
+  </dl>
 
 
-  <h4 id="Iot_Device_Ds18b20_Ds18b20_SensorValueChanged" data-uid="Iot.Device.Ds18b20.Ds18b20.SensorValueChanged">SensorValueChanged</h4>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Iot_Device_Ds18b20_Ds18b20_SensorValueChanged" data-uid="Iot.Device.Ds18b20.Ds18b20.SensorValueChanged">
+  SensorValueChanged
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Event that is called when the sensor value changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event Ds18b20.OnSensorChanged SensorValueChanged</code></pre>
   </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Ds18b20.Ds18b20.html">Ds18b20</a>.<a class="xref" href="Iot.Device.Ds18b20.Ds18b20.OnSensorChanged.html">OnSensorChanged</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Ds18b20.Ds18b20.html">Ds18b20</a>.<a class="xref" href="Iot.Device.Ds18b20.Ds18b20.OnSensorChanged.html">OnSensorChanged</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

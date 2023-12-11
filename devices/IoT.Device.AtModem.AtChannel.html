@@ -1,923 +1,978 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class AtChannel
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AtChannel
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="IoT.Device.AtModem.AtChannel">
+
+        <article data-uid="IoT.Device.AtModem.AtChannel">
 
 
 
-  <h1 id="IoT_Device_AtModem_AtChannel" data-uid="IoT.Device.AtModem.AtChannel" class="text-break">Class AtChannel
-</h1>
-  <div class="markdown level0 summary"><p>Represents an AT channel for communication with a SIM7080 module.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">AtChannel</span></div>
+  <h1 id="IoT_Device_AtModem_AtChannel" data-uid="IoT.Device.AtModem.AtChannel" class="text-break">
+    Class AtChannel
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="IoT.html">IoT</a>.<a class="xref" href="IoT.Device.html">Device</a>.<a class="xref" href="IoT.Device.AtModem.html">AtModem</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.AtModem.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="IoT.html">IoT</a>.<a class="xref" href="IoT.Device.html">Device</a>.<a class="xref" href="IoT.Device.AtModem.html">AtModem</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.AtModem.dll</h6>
-  <h5 id="IoT_Device_AtModem_AtChannel_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>Represents an AT channel for communication with a SIM7080 module.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class AtChannel</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">AtChannel</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="IoT_Device_AtModem_AtChannel__ctor_" data-uid="IoT.Device.AtModem.AtChannel.#ctor*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel__ctor_IoT_Device_AtModem_IAtReader_IoT_Device_AtModem_IAtWriter_" data-uid="IoT.Device.AtModem.AtChannel.#ctor(IoT.Device.AtModem.IAtReader,IoT.Device.AtModem.IAtWriter)">AtChannel(IAtReader, IAtWriter)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel__ctor_IoT_Device_AtModem_IAtReader_IoT_Device_AtModem_IAtWriter_" data-uid="IoT.Device.AtModem.AtChannel.#ctor(IoT.Device.AtModem.IAtReader,IoT.Device.AtModem.IAtWriter)">
+  AtChannel(IAtReader, IAtWriter)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the AtChannel class with the specified AT reader and writer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AtChannel(IAtReader atReader, IAtWriter atWriter)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.IAtReader.html">IAtReader</a></td>
-        <td><span class="parametername">atReader</span></td>
-        <td><p>The AT reader for reading responses.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.IAtWriter.html">IAtWriter</a></td>
-        <td><span class="parametername">atWriter</span></td>
-        <td><p>The AT writer for sending commands.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atReader</code> <a class="xref" href="IoT.Device.AtModem.IAtReader.html">IAtReader</a></dt>
+    <dd><p>The AT reader for reading responses.</p>
+</dd>
+    <dt><code>atWriter</code> <a class="xref" href="IoT.Device.AtModem.IAtWriter.html">IAtWriter</a></dt>
+    <dd><p>The AT writer for sending commands.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="IoT_Device_AtModem_AtChannel_DebugEnabled_" data-uid="IoT.Device.AtModem.AtChannel.DebugEnabled*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_DebugEnabled" data-uid="IoT.Device.AtModem.AtChannel.DebugEnabled">DebugEnabled</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_DebugEnabled" data-uid="IoT.Device.AtModem.AtChannel.DebugEnabled">
+  DebugEnabled
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the debug mode is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool DebugEnabled { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the debug mode is enabled; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the debug mode is enabled; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_DefaultCommandTimeout_" data-uid="IoT.Device.AtModem.AtChannel.DefaultCommandTimeout*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_DefaultCommandTimeout" data-uid="IoT.Device.AtModem.AtChannel.DefaultCommandTimeout">DefaultCommandTimeout</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_DefaultCommandTimeout" data-uid="IoT.Device.AtModem.AtChannel.DefaultCommandTimeout">
+  DefaultCommandTimeout
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the default timeout duration for AT commands.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TimeSpan DefaultCommandTimeout { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_IsOpen_" data-uid="IoT.Device.AtModem.AtChannel.IsOpen*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_IsOpen" data-uid="IoT.Device.AtModem.AtChannel.IsOpen">IsOpen</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_IsOpen" data-uid="IoT.Device.AtModem.AtChannel.IsOpen">
+  IsOpen
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the AT channel is open.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsOpen { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_IsRunning_" data-uid="IoT.Device.AtModem.AtChannel.IsRunning*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_IsRunning" data-uid="IoT.Device.AtModem.AtChannel.IsRunning">IsRunning</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_IsRunning" data-uid="IoT.Device.AtModem.AtChannel.IsRunning">
+  IsRunning
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the AT channel is running.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsRunning { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="IoT_Device_AtModem_AtChannel_Clear_" data-uid="IoT.Device.AtModem.AtChannel.Clear*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Clear_System_Threading_CancellationToken_" data-uid="IoT.Device.AtModem.AtChannel.Clear(System.Threading.CancellationToken)">Clear(CancellationToken)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Clear_System_Threading_CancellationToken_" data-uid="IoT.Device.AtModem.AtChannel.Clear(System.Threading.CancellationToken)">
+  Clear(CancellationToken)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears all available items from the AT reader.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear(CancellationToken cancellationToken = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The cancellation token to cancel operation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd><p>The cancellation token to cancel operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_Close_" data-uid="IoT.Device.AtModem.AtChannel.Close*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Close" data-uid="IoT.Device.AtModem.AtChannel.Close">Close()</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Close" data-uid="IoT.Device.AtModem.AtChannel.Close">
+  Close()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Closes the AT channel.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Close()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="IoT_Device_AtModem_AtChannel_Create_" data-uid="IoT.Device.AtModem.AtChannel.Create*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Create_System_IO_Ports_SerialPort_" data-uid="IoT.Device.AtModem.AtChannel.Create(System.IO.Ports.SerialPort)">Create(SerialPort)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Create_System_IO_Ports_SerialPort_" data-uid="IoT.Device.AtModem.AtChannel.Create(System.IO.Ports.SerialPort)">
+  Create(SerialPort)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates an instance of AtChannel using the specified input and output streams.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static AtChannel Create(SerialPort stream)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.IO.Ports.SerialPort.html">SerialPort</a></td>
-        <td><span class="parametername">stream</span></td>
-        <td><p>The stream used for both input and output.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a></td>
-        <td><p>An instance of AtChannel.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="../api/System.IO.Ports.SerialPort.html">SerialPort</a></dt>
+    <dd><p>The stream used for both input and output.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a></dt>
+    <dd><p>An instance of AtChannel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_Create_" data-uid="IoT.Device.AtModem.AtChannel.Create*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Create_System_IO_Ports_SerialPort_System_IO_Ports_SerialPort_" data-uid="IoT.Device.AtModem.AtChannel.Create(System.IO.Ports.SerialPort,System.IO.Ports.SerialPort)">Create(SerialPort, SerialPort)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Create_System_IO_Ports_SerialPort_System_IO_Ports_SerialPort_" data-uid="IoT.Device.AtModem.AtChannel.Create(System.IO.Ports.SerialPort,System.IO.Ports.SerialPort)">
+  Create(SerialPort, SerialPort)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates an instance of AtChannel using the specified input and output streams.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static AtChannel Create(SerialPort inputStream, SerialPort outputStream)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.IO.Ports.SerialPort.html">SerialPort</a></td>
-        <td><span class="parametername">inputStream</span></td>
-        <td><p>The stream used for input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.IO.Ports.SerialPort.html">SerialPort</a></td>
-        <td><span class="parametername">outputStream</span></td>
-        <td><p>The stream used for output.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a></td>
-        <td><p>An instance of AtChannel.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputStream</code> <a class="xref" href="../api/System.IO.Ports.SerialPort.html">SerialPort</a></dt>
+    <dd><p>The stream used for input.</p>
+</dd>
+    <dt><code>outputStream</code> <a class="xref" href="../api/System.IO.Ports.SerialPort.html">SerialPort</a></dt>
+    <dd><p>The stream used for output.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a></dt>
+    <dd><p>An instance of AtChannel.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_Dispose_" data-uid="IoT.Device.AtModem.AtChannel.Dispose*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Dispose" data-uid="IoT.Device.AtModem.AtChannel.Dispose">Dispose()</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Dispose" data-uid="IoT.Device.AtModem.AtChannel.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="IoT_Device_AtModem_AtChannel_Dispose_" data-uid="IoT.Device.AtModem.AtChannel.Dispose*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Dispose_System_Boolean_" data-uid="IoT.Device.AtModem.AtChannel.Dispose(System.Boolean)">Dispose(bool)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Dispose_System_Boolean_" data-uid="IoT.Device.AtModem.AtChannel.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">disposing</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_Open_" data-uid="IoT.Device.AtModem.AtChannel.Open*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Open" data-uid="IoT.Device.AtModem.AtChannel.Open">Open()</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Open" data-uid="IoT.Device.AtModem.AtChannel.Open">
+  Open()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Opens the AT channel.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Open()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="IoT_Device_AtModem_AtChannel_ReadLine_" data-uid="IoT.Device.AtModem.AtChannel.ReadLine*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_ReadLine_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.ReadLine(System.TimeSpan)">ReadLine(TimeSpan)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_ReadLine_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.ReadLine(System.TimeSpan)">
+  ReadLine(TimeSpan)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads a single line from the AT reader.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual string ReadLine(TimeSpan timeout = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">timeout</span></td>
-        <td><p>The optional timeout duration for the command.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><p>A string containing a line.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeout</code> <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>The optional timeout duration for the command.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A string containing a line.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_ReadRawBytes_" data-uid="IoT.Device.AtModem.AtChannel.ReadRawBytes*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_ReadRawBytes_System_Int32_" data-uid="IoT.Device.AtModem.AtChannel.ReadRawBytes(System.Int32)">ReadRawBytes(int)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_ReadRawBytes_System_Int32_" data-uid="IoT.Device.AtModem.AtChannel.ReadRawBytes(System.Int32)">
+  ReadRawBytes(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads bytes in a raw format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual byte[] ReadRawBytes(int length)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">length</span></td>
-        <td><p>The number of bytes to read.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><p>A buffer with the bytes read of the desired size even if there has been less data read.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The number of bytes to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>A buffer with the bytes read of the desired size even if there has been less data read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_SendBytesWithoutAck_" data-uid="IoT.Device.AtModem.AtChannel.SendBytesWithoutAck*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_SendBytesWithoutAck_System_Byte___" data-uid="IoT.Device.AtModem.AtChannel.SendBytesWithoutAck(System.Byte[])">SendBytesWithoutAck(byte[])</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_SendBytesWithoutAck_System_Byte___" data-uid="IoT.Device.AtModem.AtChannel.SendBytesWithoutAck(System.Byte[])">
+  SendBytesWithoutAck(byte[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Send bytes in a raw format without waiting for an acknowledgement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void SendBytesWithoutAck(byte[] content)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><span class="parametername">content</span></td>
-        <td><p>The byte array to send.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>content</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The byte array to send.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_SendCommand_" data-uid="IoT.Device.AtModem.AtChannel.SendCommand*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_SendCommand_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendCommand(System.String,System.TimeSpan)">SendCommand(string, TimeSpan)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_SendCommand_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendCommand(System.String,System.TimeSpan)">
+  SendCommand(string, TimeSpan)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a command and retrieves the command response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual AtResponse SendCommand(string command, TimeSpan timeout = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">command</span></td>
-        <td><p>The AT command string to send.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">timeout</span></td>
-        <td><p>The optional timeout duration for the command.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></td>
-        <td><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The AT command string to send.</p>
+</dd>
+    <dt><code>timeout</code> <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>The optional timeout duration for the command.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></dt>
+    <dd><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_SendCommandReadMultiline_" data-uid="IoT.Device.AtModem.AtChannel.SendCommandReadMultiline*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_SendCommandReadMultiline_System_String_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendCommandReadMultiline(System.String,System.String,System.TimeSpan)">SendCommandReadMultiline(string, string, TimeSpan)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_SendCommandReadMultiline_System_String_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendCommandReadMultiline(System.String,System.String,System.TimeSpan)">
+  SendCommandReadMultiline(string, string, TimeSpan)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a multi-line command and retrieves the command response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual AtResponse SendCommandReadMultiline(string command, string responsePrefix, TimeSpan timeout = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">command</span></td>
-        <td><p>The AT command string to send.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">responsePrefix</span></td>
-        <td><p>The expected response prefix.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">timeout</span></td>
-        <td><p>The optional timeout duration for the command.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></td>
-        <td><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The AT command string to send.</p>
+</dd>
+    <dt><code>responsePrefix</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The expected response prefix.</p>
+</dd>
+    <dt><code>timeout</code> <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>The optional timeout duration for the command.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></dt>
+    <dd><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_SendCommandReadSingleLine_" data-uid="IoT.Device.AtModem.AtChannel.SendCommandReadSingleLine*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_SendCommandReadSingleLine_System_String_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendCommandReadSingleLine(System.String,System.String,System.TimeSpan)">SendCommandReadSingleLine(string, string, TimeSpan)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_SendCommandReadSingleLine_System_String_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendCommandReadSingleLine(System.String,System.String,System.TimeSpan)">
+  SendCommandReadSingleLine(string, string, TimeSpan)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a single-line command and retrieves the command response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual AtResponse SendCommandReadSingleLine(string command, string responsePrefix, TimeSpan timeout = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">command</span></td>
-        <td><p>The AT command string to send.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">responsePrefix</span></td>
-        <td><p>The expected response prefix.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">timeout</span></td>
-        <td><p>The optional timeout duration for the command.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></td>
-        <td><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The AT command string to send.</p>
+</dd>
+    <dt><code>responsePrefix</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The expected response prefix.</p>
+</dd>
+    <dt><code>timeout</code> <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>The optional timeout duration for the command.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></dt>
+    <dd><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_SendFullCommand_" data-uid="IoT.Device.AtModem.AtChannel.SendFullCommand*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_SendFullCommand_IoT_Device_AtModem_AtCommand_System_Threading_CancellationToken_" data-uid="IoT.Device.AtModem.AtChannel.SendFullCommand(IoT.Device.AtModem.AtCommand,System.Threading.CancellationToken)">SendFullCommand(AtCommand, CancellationToken)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_SendFullCommand_IoT_Device_AtModem_AtCommand_System_Threading_CancellationToken_" data-uid="IoT.Device.AtModem.AtChannel.SendFullCommand(IoT.Device.AtModem.AtCommand,System.Threading.CancellationToken)">
+  SendFullCommand(AtCommand, CancellationToken)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a custom command and retrieves the command response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AtResponse SendFullCommand(AtCommand command, CancellationToken cancellationToken = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtCommand.html">AtCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td><p>The command.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A cancellation token for receiving the response.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></td>
-        <td><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="IoT.Device.AtModem.AtCommand.html">AtCommand</a></dt>
+    <dd><p>The command.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd><p>A cancellation token for receiving the response.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></dt>
+    <dd><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_SendSms_" data-uid="IoT.Device.AtModem.AtChannel.SendSms*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_SendSms_System_String_System_String_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendSms(System.String,System.String,System.String,System.TimeSpan)">SendSms(string, string, string, TimeSpan)</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_SendSms_System_String_System_String_System_String_System_TimeSpan_" data-uid="IoT.Device.AtModem.AtChannel.SendSms(System.String,System.String,System.String,System.TimeSpan)">
+  SendSms(string, string, string, TimeSpan)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends an SMS command and retrieves the command response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual AtResponse SendSms(string command, string pdu, string responsePrefix, TimeSpan timeout = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">command</span></td>
-        <td><p>The AT command string to send.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">pdu</span></td>
-        <td><p>The SMS Protocol Data Unit (PDU).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.String.html">string</a></td>
-        <td><span class="parametername">responsePrefix</span></td>
-        <td><p>The expected response prefix.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></td>
-        <td><span class="parametername">timeout</span></td>
-        <td><p>The optional timeout duration for the command.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></td>
-        <td><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The AT command string to send.</p>
+</dd>
+    <dt><code>pdu</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The SMS Protocol Data Unit (PDU).</p>
+</dd>
+    <dt><code>responsePrefix</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The expected response prefix.</p>
+</dd>
+    <dt><code>timeout</code> <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>The optional timeout duration for the command.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a></dt>
+    <dd><p>The <a class="xref" href="IoT.Device.AtModem.AtResponse.html">AtResponse</a> class representing the answer. The content of the answer will vary depending on the request.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="IoT_Device_AtModem_AtChannel_Start_" data-uid="IoT.Device.AtModem.AtChannel.Start*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Start" data-uid="IoT.Device.AtModem.AtChannel.Start">Start()</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Start" data-uid="IoT.Device.AtModem.AtChannel.Start">
+  Start()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Starts the reading thread.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Start()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="IoT_Device_AtModem_AtChannel_Stop_" data-uid="IoT.Device.AtModem.AtChannel.Stop*"></a>
-  <h4 id="IoT_Device_AtModem_AtChannel_Stop" data-uid="IoT.Device.AtModem.AtChannel.Stop">Stop()</h4>
+
+  <h3 id="IoT_Device_AtModem_AtChannel_Stop" data-uid="IoT.Device.AtModem.AtChannel.Stop">
+  Stop()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Stops the reading thread.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
   </div>
-  <h3 id="events">Events
-</h3>
 
 
-  <h4 id="IoT_Device_AtModem_AtChannel_UnsolicitedEvent" data-uid="IoT.Device.AtModem.AtChannel.UnsolicitedEvent">UnsolicitedEvent</h4>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="IoT_Device_AtModem_AtChannel_UnsolicitedEvent" data-uid="IoT.Device.AtModem.AtChannel.UnsolicitedEvent">
+  UnsolicitedEvent
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Occurs when an unsolicited event is raised.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event AtChannel.UnsolicitedEventHandler UnsolicitedEvent</code></pre>
   </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a>.<a class="xref" href="IoT.Device.AtModem.AtChannel.UnsolicitedEventHandler.html">UnsolicitedEventHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a>.<a class="xref" href="IoT.Device.AtModem.AtChannel.UnsolicitedEventHandler.html">UnsolicitedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

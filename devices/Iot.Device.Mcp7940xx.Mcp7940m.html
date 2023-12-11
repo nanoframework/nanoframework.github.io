@@ -1,1019 +1,1274 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class Mcp7940m
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Mcp7940m
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.Mcp7940xx.Mcp7940m">
+
+        <article data-uid="Iot.Device.Mcp7940xx.Mcp7940m">
 
 
 
-  <h1 id="Iot_Device_Mcp7940xx_Mcp7940m" data-uid="Iot.Device.Mcp7940xx.Mcp7940m" class="text-break">Class Mcp7940m
-</h1>
-  <div class="markdown level0 summary"><p>I2C Real-Time Clock/Calendar with SRAM.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">Mcp7940m</span></div>
-      <div class="level2"><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940n.html">Mcp7940n</a></div>
+  <h1 id="Iot_Device_Mcp7940xx_Mcp7940m" data-uid="Iot.Device.Mcp7940xx.Mcp7940m" class="text-break">
+    Class Mcp7940m
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Mcp7940xx.html">Mcp7940xx</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Mcp7940xx.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Mcp7940xx.html">Mcp7940xx</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.Mcp7940xx.dll</h6>
-  <h5 id="Iot_Device_Mcp7940xx_Mcp7940m_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>I2C Real-Time Clock/Calendar with SRAM.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class Mcp7940m</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Mcp7940m</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940n.html">Mcp7940n</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m__ctor_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.#ctor*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m__ctor_System_Device_I2c_I2cDevice_Iot_Device_Mcp7940xx_ClockSource_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.#ctor(System.Device.I2c.I2cDevice,Iot.Device.Mcp7940xx.ClockSource)">Mcp7940m(I2cDevice, ClockSource)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m__ctor_System_Device_I2c_I2cDevice_Iot_Device_Mcp7940xx_ClockSource_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.#ctor(System.Device.I2c.I2cDevice,Iot.Device.Mcp7940xx.ClockSource)">
+  Mcp7940m(I2cDevice, ClockSource)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Mcp7940m(I2cDevice i2cDevice, ClockSource clockSource)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
-        <td><span class="parametername">i2cDevice</span></td>
-        <td><p>The I2C device to use for communication.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.ClockSource.html">ClockSource</a></td>
-        <td><span class="parametername">clockSource</span></td>
-        <td><p>The oscillator configuration of the clock.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>Thrown when <code class="paramref">i2cDevice</code> is <code>null</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>The I2C device to use for communication.</p>
+</dd>
+    <dt><code>clockSource</code> <a class="xref" href="Iot.Device.Mcp7940xx.ClockSource.html">ClockSource</a></dt>
+    <dd><p>The oscillator configuration of the clock.</p>
+</dd>
+  </dl>
 
 
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_DefaultI2cAddress" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DefaultI2cAddress">DefaultI2cAddress</h4>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">i2cDevice</code> is <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_DefaultI2cAddress" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DefaultI2cAddress">
+  DefaultI2cAddress
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Default I2C address for the Mcp7940xx family.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const byte DefaultI2cAddress = 111</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m__i2cDevice" data-uid="Iot.Device.Mcp7940xx.Mcp7940m._i2cDevice">_i2cDevice</h4>
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m__i2cDevice" data-uid="Iot.Device.Mcp7940xx.Mcp7940m._i2cDevice">
+  _i2cDevice
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The underlying I2C device used for communication.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected readonly I2cDevice _i2cDevice</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_AlarmInterruptPolarity_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.AlarmInterruptPolarity*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_AlarmInterruptPolarity" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.AlarmInterruptPolarity">AlarmInterruptPolarity</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_AlarmInterruptPolarity" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.AlarmInterruptPolarity">
+  AlarmInterruptPolarity
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the output polarity of the MFP pin when an alarm interrupt is asserted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue AlarmInterruptPolarity { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_GeneralPurposeOutput_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GeneralPurposeOutput*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_GeneralPurposeOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GeneralPurposeOutput">GeneralPurposeOutput</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_GeneralPurposeOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GeneralPurposeOutput">
+  GeneralPurposeOutput
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the MFP pin level when in general purpose output mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue GeneralPurposeOutput { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Mcp7940xx_Mcp7940m_GeneralPurposeOutput_remarks">Remarks</h5>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Iot_Device_Mcp7940xx_Mcp7940m_GeneralPurposeOutput_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>General purpose output can only be used when Alarm1, Alarm2 and square wave output are all disabled.</p>
 </div>
 
 
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledAlarm1_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledAlarm1*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledAlarm1">IsEnabledAlarm1</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledAlarm1">
+  IsEnabledAlarm1
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether Alarm 1 is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsEnabledAlarm1 { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledAlarm2_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledAlarm2*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledAlarm2">IsEnabledAlarm2</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledAlarm2">
+  IsEnabledAlarm2
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether Alarm 2 is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsEnabledAlarm2 { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledGeneralPurposeOutput_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledGeneralPurposeOutput*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledGeneralPurposeOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledGeneralPurposeOutput">IsEnabledGeneralPurposeOutput</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledGeneralPurposeOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledGeneralPurposeOutput">
+  IsEnabledGeneralPurposeOutput
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the general purpose output is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsEnabledGeneralPurposeOutput { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledSquareWaveOutput_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledSquareWaveOutput*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledSquareWaveOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledSquareWaveOutput">IsEnabledSquareWaveOutput</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_IsEnabledSquareWaveOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsEnabledSquareWaveOutput">
+  IsEnabledSquareWaveOutput
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the square wave output is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsEnabledSquareWaveOutput { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_IsHalted_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsHalted*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_IsHalted" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsHalted">IsHalted</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_IsHalted" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsHalted">
+  IsHalted
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the clocks oscillator has been halted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsHalted { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_IsTriggeredAlarm1_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsTriggeredAlarm1*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_IsTriggeredAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsTriggeredAlarm1">IsTriggeredAlarm1</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_IsTriggeredAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsTriggeredAlarm1">
+  IsTriggeredAlarm1
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether Alarm 1 is triggered.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsTriggeredAlarm1 { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_IsTriggeredAlarm2_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsTriggeredAlarm2*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_IsTriggeredAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsTriggeredAlarm2">IsTriggeredAlarm2</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_IsTriggeredAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.IsTriggeredAlarm2">
+  IsTriggeredAlarm2
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether Alarm 2 is triggered.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsTriggeredAlarm2 { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_SquareWaveOutputFrequency_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SquareWaveOutputFrequency*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_SquareWaveOutputFrequency" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SquareWaveOutputFrequency">SquareWaveOutputFrequency</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_SquareWaveOutputFrequency" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SquareWaveOutputFrequency">
+  SquareWaveOutputFrequency
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the frequency of the square wave output on the MFP pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SquareWaveFrequency SquareWaveOutputFrequency { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.SquareWaveFrequency.html">SquareWaveFrequency</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Mcp7940xx.SquareWaveFrequency.html">SquareWaveFrequency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_ClearTimeAdjustment_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ClearTimeAdjustment*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_ClearTimeAdjustment" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ClearTimeAdjustment">ClearTimeAdjustment()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_ClearTimeAdjustment" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ClearTimeAdjustment">
+  ClearTimeAdjustment()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Requests time trimming correction not be performed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ClearTimeAdjustment()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_DisableAlarm1_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableAlarm1*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_DisableAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableAlarm1">DisableAlarm1()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_DisableAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableAlarm1">
+  DisableAlarm1()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Disables Alarm 1.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisableAlarm1()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_DisableAlarm2_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableAlarm2*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_DisableAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableAlarm2">DisableAlarm2()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_DisableAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableAlarm2">
+  DisableAlarm2()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Disables Alarm 2.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisableAlarm2()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_DisableSquareWaveOutput_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableSquareWaveOutput*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_DisableSquareWaveOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableSquareWaveOutput">DisableSquareWaveOutput()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_DisableSquareWaveOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.DisableSquareWaveOutput">
+  DisableSquareWaveOutput()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Disables square wave output from the MFP pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisableSquareWaveOutput()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_Dispose_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.Dispose*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_Dispose" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.Dispose">Dispose()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_Dispose" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm1_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableAlarm1*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableAlarm1">EnableAlarm1()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableAlarm1">
+  EnableAlarm1()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Enables Alarm 1.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void EnableAlarm1()</code></pre>
   </div>
-  <h5 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm1_remarks">Remarks</h5>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm1_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Alarm interrupt output can only be used when general purpose output and square wave output are both disabled.</p>
 </div>
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm2_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableAlarm2*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableAlarm2">EnableAlarm2()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableAlarm2">
+  EnableAlarm2()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Enables Alarm 2.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void EnableAlarm2()</code></pre>
   </div>
-  <h5 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm2_remarks">Remarks</h5>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Mcp7940xx_Mcp7940m_EnableAlarm2_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Alarm interrupt output can only be used when general purpose output and square wave output are both disabled.</p>
 </div>
 
 
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_EnableSquareWaveOutput_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableSquareWaveOutput*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableSquareWaveOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableSquareWaveOutput">EnableSquareWaveOutput()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_EnableSquareWaveOutput" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.EnableSquareWaveOutput">
+  EnableSquareWaveOutput()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Enables square wave output from the MFP pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void EnableSquareWaveOutput()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_GetAlarm1_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetAlarm1*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_GetAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetAlarm1">GetAlarm1()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_GetAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetAlarm1">
+  GetAlarm1()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the settings of Alarm 1 from the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Mcp7940m.Alarm GetAlarm1()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></td>
-        <td><p>An <a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Mcp7940m.Alarm</a> object whose value is the current settings of Alarm 1.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></dt>
+    <dd><p>An <a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Mcp7940m.Alarm</a> object whose value is the current settings of Alarm 1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_GetAlarm2_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetAlarm2*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_GetAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetAlarm2">GetAlarm2()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_GetAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetAlarm2">
+  GetAlarm2()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the settings of Alarm 2 from the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Mcp7940m.Alarm GetAlarm2()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></td>
-        <td><p>An <a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Mcp7940m.Alarm</a> object whose value is the current settings of Alarm 2.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></dt>
+    <dd><p>An <a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Mcp7940m.Alarm</a> object whose value is the current settings of Alarm 2.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_GetTime_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetTime*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_GetTime" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetTime">GetTime()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_GetTime" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.GetTime">
+  GetTime()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.DateTime.html">DateTime</a> object that is set to the current date and time of the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DateTime GetTime()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.DateTime.html">DateTime</a></td>
-        <td><p>A <a class="xref" href="../api/System.DateTime.html">DateTime</a> object whose value is the current device date and time.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.DateTime.html">DateTime</a></dt>
+    <dd><p>A <a class="xref" href="../api/System.DateTime.html">DateTime</a> object whose value is the current device date and time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_Halt_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.Halt*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_Halt_System_Boolean_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.Halt(System.Boolean)">Halt(bool)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_Halt_System_Boolean_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.Halt(System.Boolean)">
+  Halt(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Stops the clocks oscillator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Halt(bool blockUntilOscillatorInactive = false)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">blockUntilOscillatorInactive</span></td>
-        <td><p>Determins if the function should block execution until the clocks oscillator is fully stopped.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blockUntilOscillatorInactive</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Determins if the function should block execution until the clocks oscillator is fully stopped.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_ReadByteFromSRAM_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ReadByteFromSRAM*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_ReadByteFromSRAM_System_Byte_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ReadByteFromSRAM(System.Byte)">ReadByteFromSRAM(byte)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_ReadByteFromSRAM_System_Byte_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ReadByteFromSRAM(System.Byte)">
+  ReadByteFromSRAM(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads a single byte from the devices SRAM at the given address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte ReadByteFromSRAM(byte address)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The address to read from.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><p>The byte read from the device.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Mcp7940xx_Mcp7940m_ReadByteFromSRAM_System_Byte__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The address to read from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The byte read from the device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Mcp7940xx_Mcp7940m_ReadByteFromSRAM_System_Byte__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Parameter <code class="paramref">address</code> must be in the range 0 to 63.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>Thrown when address falls outside of the addressable range for this device.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when address falls outside of the addressable range for this device.</p>
+</dd>
+  </dl>
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_ResetAlarm1_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ResetAlarm1*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_ResetAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ResetAlarm1">ResetAlarm1()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_ResetAlarm1" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ResetAlarm1">
+  ResetAlarm1()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears the triggered state of Alarm 1.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetAlarm1()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_ResetAlarm2_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ResetAlarm2*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_ResetAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ResetAlarm2">ResetAlarm2()</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_ResetAlarm2" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.ResetAlarm2">
+  ResetAlarm2()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears the triggered state of Alarm 2.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetAlarm2()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_SetAlarm1_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetAlarm1*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_SetAlarm1_Iot_Device_Mcp7940xx_Mcp7940m_Alarm_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetAlarm1(Iot.Device.Mcp7940xx.Mcp7940m.Alarm)">SetAlarm1(Alarm)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_SetAlarm1_Iot_Device_Mcp7940xx_Mcp7940m_Alarm_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetAlarm1(Iot.Device.Mcp7940xx.Mcp7940m.Alarm)">
+  SetAlarm1(Alarm)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets Alarm 1 on the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetAlarm1(Mcp7940m.Alarm alarm)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></td>
-        <td><span class="parametername">alarm</span></td>
-        <td><p>The new settings for Alarm 1.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>alarm</code> <a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></dt>
+    <dd><p>The new settings for Alarm 1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_SetAlarm2_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetAlarm2*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_SetAlarm2_Iot_Device_Mcp7940xx_Mcp7940m_Alarm_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetAlarm2(Iot.Device.Mcp7940xx.Mcp7940m.Alarm)">SetAlarm2(Alarm)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_SetAlarm2_Iot_Device_Mcp7940xx_Mcp7940m_Alarm_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetAlarm2(Iot.Device.Mcp7940xx.Mcp7940m.Alarm)">
+  SetAlarm2(Alarm)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets Alarm 2 on the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetAlarm2(Mcp7940m.Alarm alarm)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></td>
-        <td><span class="parametername">alarm</span></td>
-        <td><p>The new settings for Alarm 2.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>alarm</code> <a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.html">Mcp7940m</a>.<a class="xref" href="Iot.Device.Mcp7940xx.Mcp7940m.Alarm.html">Alarm</a></dt>
+    <dd><p>The new settings for Alarm 2.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_SetTime_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetTime*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_SetTime_System_DateTime_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetTime(System.DateTime)">SetTime(DateTime)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_SetTime_System_DateTime_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetTime(System.DateTime)">
+  SetTime(DateTime)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetTime(DateTime time)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.DateTime.html">DateTime</a></td>
-        <td><span class="parametername">time</span></td>
-        <td><p>The new time.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="../api/System.DateTime.html">DateTime</a></dt>
+    <dd><p>The new time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_SetTimeAdjustment_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetTimeAdjustment*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_SetTimeAdjustment_System_Int32_Iot_Device_Mcp7940xx_SquareWaveFrequency_Iot_Device_Mcp7940xx_TrimmingMode_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetTimeAdjustment(System.Int32,Iot.Device.Mcp7940xx.SquareWaveFrequency,Iot.Device.Mcp7940xx.TrimmingMode)">SetTimeAdjustment(int, SquareWaveFrequency, TrimmingMode)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_SetTimeAdjustment_System_Int32_Iot_Device_Mcp7940xx_SquareWaveFrequency_Iot_Device_Mcp7940xx_TrimmingMode_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.SetTimeAdjustment(System.Int32,Iot.Device.Mcp7940xx.SquareWaveFrequency,Iot.Device.Mcp7940xx.TrimmingMode)">
+  SetTimeAdjustment(int, SquareWaveFrequency, TrimmingMode)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the time trimming correction to compensate for a clock frequency mismatch.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetTimeAdjustment(int measuredFrequency, SquareWaveFrequency idealFrequency, TrimmingMode mode = TrimmingMode.NormalTrimMode)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">measuredFrequency</span></td>
-        <td><p>The measured frequency of the clocks external crystal oscillator from the MFP pin.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.SquareWaveFrequency.html">SquareWaveFrequency</a></td>
-        <td><span class="parametername">idealFrequency</span></td>
-        <td><p>The desired clock frequency.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp7940xx.TrimmingMode.html">TrimmingMode</a></td>
-        <td><span class="parametername">mode</span></td>
-        <td><p>The rate that oscillator trimming adjustments are applied.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>measuredFrequency</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The measured frequency of the clocks external crystal oscillator from the MFP pin.</p>
+</dd>
+    <dt><code>idealFrequency</code> <a class="xref" href="Iot.Device.Mcp7940xx.SquareWaveFrequency.html">SquareWaveFrequency</a></dt>
+    <dd><p>The desired clock frequency.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Iot.Device.Mcp7940xx.TrimmingMode.html">TrimmingMode</a></dt>
+    <dd><p>The rate that oscillator trimming adjustments are applied.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_StartClock_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.StartClock*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_StartClock_System_Boolean_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.StartClock(System.Boolean)">StartClock(bool)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_StartClock_System_Boolean_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.StartClock(System.Boolean)">
+  StartClock(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Starts the clocks oscillator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StartClock(bool blockUntilOscillatorActive = false)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">blockUntilOscillatorActive</span></td>
-        <td><p>Determins if the function should block execution until the clocks oscillator is fully active.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blockUntilOscillatorActive</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Determins if the function should block execution until the clocks oscillator is fully active.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp7940xx_Mcp7940m_WriteByteToSRAM_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.WriteByteToSRAM*"></a>
-  <h4 id="Iot_Device_Mcp7940xx_Mcp7940m_WriteByteToSRAM_System_Byte_System_Byte_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.WriteByteToSRAM(System.Byte,System.Byte)">WriteByteToSRAM(byte, byte)</h4>
+
+  <h3 id="Iot_Device_Mcp7940xx_Mcp7940m_WriteByteToSRAM_System_Byte_System_Byte_" data-uid="Iot.Device.Mcp7940xx.Mcp7940m.WriteByteToSRAM(System.Byte,System.Byte)">
+  WriteByteToSRAM(byte, byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a single byte to the devices SRAM at the given address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void WriteByteToSRAM(byte address, byte value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The address to write to.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The byte to be written into the device.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Mcp7940xx_Mcp7940m_WriteByteToSRAM_System_Byte_System_Byte__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The address to write to.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The byte to be written into the device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Mcp7940xx_Mcp7940m_WriteByteToSRAM_System_Byte_System_Byte__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Parameter <code class="paramref">address</code> must be in the range 0 to 63.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>Thrown when address falls outside of the addressable range for this device.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when address falls outside of the addressable range for this device.</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

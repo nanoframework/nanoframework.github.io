@@ -1,552 +1,665 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class LidarLiteV3
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class LidarLiteV3
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.DistanceSensor.LidarLiteV3">
+
+        <article data-uid="Iot.Device.DistanceSensor.LidarLiteV3">
 
 
 
-  <h1 id="Iot_Device_DistanceSensor_LidarLiteV3" data-uid="Iot.Device.DistanceSensor.LidarLiteV3" class="text-break">Class LidarLiteV3
-</h1>
-  <div class="markdown level0 summary"><p>Lidar Lite v3 is a long-range fixed position distance sensor by Garmin.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">LidarLiteV3</span></div>
+  <h1 id="Iot_Device_DistanceSensor_LidarLiteV3" data-uid="Iot.Device.DistanceSensor.LidarLiteV3" class="text-break">
+    Class LidarLiteV3
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.DistanceSensor.html">DistanceSensor</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.LidarLiteV3.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.DistanceSensor.html">DistanceSensor</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.LidarLiteV3.dll</h6>
-  <h5 id="Iot_Device_DistanceSensor_LidarLiteV3_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>Lidar Lite v3 is a long-range fixed position distance sensor by Garmin.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class LidarLiteV3</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">LidarLiteV3</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3__ctor_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.#ctor*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3__ctor_System_Device_I2c_I2cDevice_System_Device_Gpio_GpioController_System_Int32_System_Boolean_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.#ctor(System.Device.I2c.I2cDevice,System.Device.Gpio.GpioController,System.Int32,System.Boolean)">LidarLiteV3(I2cDevice, GpioController?, int, bool)</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3__ctor_System_Device_I2c_I2cDevice_System_Device_Gpio_GpioController_System_Int32_System_Boolean_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.#ctor(System.Device.I2c.I2cDevice,System.Device.Gpio.GpioController,System.Int32,System.Boolean)">
+  LidarLiteV3(I2cDevice, GpioController?, int, bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initialize the LidarLiteV3</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LidarLiteV3(I2cDevice i2cDevice, GpioController? gpioController = null, int powerEnablePin = -1, bool shouldDispose = true)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
-        <td><span class="parametername">i2cDevice</span></td>
-        <td><p>I2C device</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
-        <td><span class="parametername">gpioController</span></td>
-        <td><p>GPIO controller</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">powerEnablePin</span></td>
-        <td><p>The pin number used to control power to the device</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">shouldDispose</span></td>
-        <td><p>True (the default) if the GPIO controller shall be disposed when disposing this instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>I2C device</p>
+</dd>
+    <dt><code>gpioController</code> <a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></dt>
+    <dd><p>GPIO controller</p>
+</dd>
+    <dt><code>powerEnablePin</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number used to control power to the device</p>
+</dd>
+    <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True (the default) if the GPIO controller shall be disposed when disposing this instance.</p>
+</dd>
+  </dl>
 
 
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_DefaultI2cAddress" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.DefaultI2cAddress">DefaultI2cAddress</h4>
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_DefaultI2cAddress" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.DefaultI2cAddress">
+  DefaultI2cAddress
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Default address for LidarLiteV3</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const byte DefaultI2cAddress = 98</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_AcquisitionSettings_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.AcquisitionSettings*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_AcquisitionSettings" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.AcquisitionSettings">AcquisitionSettings</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_AcquisitionSettings" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.AcquisitionSettings">
+  AcquisitionSettings
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get or set the various settings to control the acquistion behavior.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AcquisitionSettings AcquisitionSettings { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.AcquisitionSettings.html">AcquisitionSettings</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.AcquisitionSettings.html">AcquisitionSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_AlgorithmBypassThreshold_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.AlgorithmBypassThreshold*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_AlgorithmBypassThreshold" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.AlgorithmBypassThreshold">AlgorithmBypassThreshold</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_AlgorithmBypassThreshold" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.AlgorithmBypassThreshold">
+  AlgorithmBypassThreshold
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get or set the threshold of peak value that bypasses the internal algorithm.</p>
 <p>Recommended non-default values are 32 for higher sensitivity
 but higher erronenous measurement and 96 for reduced
 sensitivity and fewer erroneous measurements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int AlgorithmBypassThreshold { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_DifferenceBetweenLastTwoDistances_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.DifferenceBetweenLastTwoDistances*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_DifferenceBetweenLastTwoDistances" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.DifferenceBetweenLastTwoDistances">DifferenceBetweenLastTwoDistances</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_DifferenceBetweenLastTwoDistances" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.DifferenceBetweenLastTwoDistances">
+  DifferenceBetweenLastTwoDistances
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get the difference between the current and last measurement resulting
 in a signed (2's complement) 8-bit number.
 Positive is away from the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length DifferenceBetweenLastTwoDistances { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_LastDistance_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.LastDistance*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_LastDistance" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.LastDistance">LastDistance</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_LastDistance" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.LastDistance">
+  LastDistance
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get the last distance measurement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length LastDistance { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_PowerMode_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerMode*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_PowerMode" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerMode">PowerMode</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_PowerMode" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerMode">
+  PowerMode
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get or set the power control option.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PowerMode PowerMode { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.PowerMode.html">PowerMode</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.PowerMode.html">PowerMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_Status_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Status*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_Status" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Status">Status</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_Status" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Status">
+  Status
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get the system status</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SystemStatus Status { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.SystemStatus.html">SystemStatus</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.SystemStatus.html">SystemStatus</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_Dispose_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Dispose*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_Dispose" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Dispose">Dispose()</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_Dispose" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_MeasureDistance_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.MeasureDistance*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_MeasureDistance_System_Boolean_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.MeasureDistance(System.Boolean)">MeasureDistance(bool)</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_MeasureDistance_System_Boolean_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.MeasureDistance(System.Boolean)">
+  MeasureDistance(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Measure distance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length MeasureDistance(bool withReceiverBiasCorrection = true)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">withReceiverBiasCorrection</span></td>
-        <td><p>Faster without bias correction, but more prone to errors if condition changes.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td><p>Distance as a length unit.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_DistanceSensor_LidarLiteV3_MeasureDistance_System_Boolean__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>withReceiverBiasCorrection</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Faster without bias correction, but more prone to errors if condition changes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd><p>Distance as a length unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_DistanceSensor_LidarLiteV3_MeasureDistance_System_Boolean__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Note: Do not call if running while in repetition mode.  It will block until
 repetition finishes (forever if infinite).</p>
 </div>
 
 
+
+
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_PowerOff_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerOff*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_PowerOff" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerOff">PowerOff()</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_PowerOff" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerOff">
+  PowerOff()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Power off the device if GPIO controller and power enable pin is provided.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void PowerOff()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_PowerOn_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerOn*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_PowerOn" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerOn">PowerOn()</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_PowerOn" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.PowerOn">
+  PowerOn()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Power on the device if GPIO controller and power enable pin is provided.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void PowerOn()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_Reset_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Reset*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_Reset" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Reset">Reset()</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_Reset" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.Reset">
+  Reset()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reset FPGA, all registers return to default values</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_SetI2cAddressAndDispose_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.SetI2cAddressAndDispose*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_SetI2cAddressAndDispose_System_Byte_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.SetI2cAddressAndDispose(System.Byte)">SetI2cAddressAndDispose(byte)</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_SetI2cAddressAndDispose_System_Byte_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.SetI2cAddressAndDispose(System.Byte)">
+  SetI2cAddressAndDispose(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set a new I2C address and dispose the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetI2cAddressAndDispose(byte address)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>new address, valid values are 7-bit values with 0 in the LSB.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_DistanceSensor_LidarLiteV3_SetI2cAddressAndDispose_System_Byte__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>new address, valid values are 7-bit values with 0 in the LSB.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_DistanceSensor_LidarLiteV3_SetI2cAddressAndDispose_System_Byte__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Note, if the device is powered off or reset, the IC2 address will reset to the default address.</p>
 </div>
 
 
+
+
   <a id="Iot_Device_DistanceSensor_LidarLiteV3_SetMeasurementRepetitionMode_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.SetMeasurementRepetitionMode*"></a>
-  <h4 id="Iot_Device_DistanceSensor_LidarLiteV3_SetMeasurementRepetitionMode_Iot_Device_DistanceSensor_Models_LidarLiteV3_MeasurementRepetition_System_Int32_System_Int32_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.SetMeasurementRepetitionMode(Iot.Device.DistanceSensor.Models.LidarLiteV3.MeasurementRepetition,System.Int32,System.Int32)">SetMeasurementRepetitionMode(MeasurementRepetition, int, int)</h4>
+
+  <h3 id="Iot_Device_DistanceSensor_LidarLiteV3_SetMeasurementRepetitionMode_Iot_Device_DistanceSensor_Models_LidarLiteV3_MeasurementRepetition_System_Int32_System_Int32_" data-uid="Iot.Device.DistanceSensor.LidarLiteV3.SetMeasurementRepetitionMode(Iot.Device.DistanceSensor.Models.LidarLiteV3.MeasurementRepetition,System.Int32,System.Int32)">
+  SetMeasurementRepetitionMode(MeasurementRepetition, int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set the repetition mode to enable automatic measurement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetMeasurementRepetitionMode(MeasurementRepetition measurementRepetition, int count = -1, int delay = -1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.MeasurementRepetition.html">MeasurementRepetition</a></td>
-        <td><span class="parametername">measurementRepetition</span></td>
-        <td><p>Repetition mode, either Off, Repeat, or RepeatInfinitely.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>If Repeat, the number of times to repeat the measurement.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">delay</span></td>
-        <td><p>The delay between each measurements. Note the unit does not directly to hz, a value of 20 maps to about 100 hz.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>measurementRepetition</code> <a class="xref" href="Iot.Device.DistanceSensor.Models.LidarLiteV3.MeasurementRepetition.html">MeasurementRepetition</a></dt>
+    <dd><p>Repetition mode, either Off, Repeat, or RepeatInfinitely.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>If Repeat, the number of times to repeat the measurement.</p>
+</dd>
+    <dt><code>delay</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The delay between each measurements. Note the unit does not directly to hz, a value of 20 maps to about 100 hz.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

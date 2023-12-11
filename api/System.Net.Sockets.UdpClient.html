@@ -1,111 +1,134 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class UdpClient
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class UdpClient
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="System.Net.Sockets.UdpClient">
+
+        <article data-uid="System.Net.Sockets.UdpClient">
 
 
 
-  <h1 id="System_Net_Sockets_UdpClient" data-uid="System.Net.Sockets.UdpClient" class="text-break">Class UdpClient
-</h1>
-  <div class="markdown level0 summary"><p>Provides User Datagram Protocol (UDP) network services. Can be used for both client and server roles.</p>
+  <h1 id="System_Net_Sockets_UdpClient" data-uid="System.Net.Sockets.UdpClient" class="text-break">
+    Class UdpClient
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>System.Net.Sockets.UdpClient.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides User Datagram Protocol (UDP) network services. Can be used for both client and server roles.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">UdpClient</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UdpClient : IDisposable</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">UdpClient</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
     </div>
@@ -127,14 +150,46 @@
     <div>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></h6>
-  <h6><strong>Assembly</strong>: System.Net.Sockets.UdpClient.dll</h6>
-  <h5 id="System_Net_Sockets_UdpClient_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class UdpClient : IDisposable</code></pre>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h5 id="System_Net_Sockets_UdpClient_remarks"><strong>Remarks</strong></h5>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="System_Net_Sockets_UdpClient_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
 For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
 the buffer size without warning. Indeed "lwIP", the TCP/IP stack used commonly by RTOS, doesn't
@@ -147,1582 +202,1281 @@ Once established, you do not have to specify a remote host in each call to the <
 Additionally, once a remote host is established the datagram received from other hosts will be discarded.
 
 </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="System_Net_Sockets_UdpClient__ctor_" data-uid="System.Net.Sockets.UdpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_UdpClient__ctor" data-uid="System.Net.Sockets.UdpClient.#ctor">UdpClient()</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient__ctor" data-uid="System.Net.Sockets.UdpClient.#ctor">
+  UdpClient()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Create a new <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> that is not bind to any local port at this time.
 Requires a call to connect to be bind locally on some udp port.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UdpClient()</code></pre>
   </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient__ctor_" data-uid="System.Net.Sockets.UdpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_UdpClient__ctor_System_Int32_" data-uid="System.Net.Sockets.UdpClient.#ctor(System.Int32)">UdpClient(int)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient__ctor_System_Int32_" data-uid="System.Net.Sockets.UdpClient.#ctor(System.Int32)">
+  UdpClient(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Create a new <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> and bind it to the local port number provided on
 all IP addresses (<a class="xref" href="System.Net.IPAddress.html#System_Net_IPAddress_Any">Any</a>)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UdpClient(int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>The local port number from which you intend to communicate.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>The port parameter is not between 0 and 65535.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The local port number from which you intend to communicate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The port parameter is not between 0 and 65535.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient__ctor_" data-uid="System.Net.Sockets.UdpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_UdpClient__ctor_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.#ctor(System.Net.IPEndPoint)">UdpClient(IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient__ctor_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.#ctor(System.Net.IPEndPoint)">
+  UdpClient(IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Create a new <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> and bind it to the specified local endpoint.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UdpClient(IPEndPoint localEP)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">localEP</span></td>
-        <td><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that represents the local endpoint to which bind the UDP connection.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p>locelEP is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>localEP isn't an IPv4 Address</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>localEP</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that represents the local endpoint to which bind the UDP connection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>locelEP is null.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>localEP isn't an IPv4 Address</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient__ctor_" data-uid="System.Net.Sockets.UdpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_" data-uid="System.Net.Sockets.UdpClient.#ctor(System.String,System.Int32)">UdpClient(string, int)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_" data-uid="System.Net.Sockets.UdpClient.#ctor(System.String,System.Int32)">
+  UdpClient(string, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the UdpClient class and establishes a default remote host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UdpClient(string hostname, int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">hostname</span></td>
-        <td><p>The name of the remote DNS host to which you intend to connect.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>The remote port number to which you intend to connect.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_Sockets_UdpClient__ctor_System_String_System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hostname</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The name of the remote DNS host to which you intend to connect.</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The remote port number to which you intend to connect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_Sockets_UdpClient__ctor_System_String_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This constructor initializes a new <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> and establishes a remote host using the
 hostname and port parameters.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">hostname</code> is null</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">hostname</code> is null</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="System_Net_Sockets_UdpClient_Active_" data-uid="System.Net.Sockets.UdpClient.Active*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Active" data-uid="System.Net.Sockets.UdpClient.Active">Active</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Active" data-uid="System.Net.Sockets.UdpClient.Active">
+  Active
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether a default remote host has been established.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected bool Active { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_UdpClient_Available_" data-uid="System.Net.Sockets.UdpClient.Available*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Available" data-uid="System.Net.Sockets.UdpClient.Available">Available</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Available" data-uid="System.Net.Sockets.UdpClient.Available">
+  Available
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Amount of data received from the network that is available to read.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Available { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Client_" data-uid="System.Net.Sockets.UdpClient.Client*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Client" data-uid="System.Net.Sockets.UdpClient.Client">Client</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Client" data-uid="System.Net.Sockets.UdpClient.Client">
+  Client
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get underlying <a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Socket Client { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_UdpClient_DontFragment_" data-uid="System.Net.Sockets.UdpClient.DontFragment*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_DontFragment" data-uid="System.Net.Sockets.UdpClient.DontFragment">DontFragment</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_DontFragment" data-uid="System.Net.Sockets.UdpClient.DontFragment">
+  DontFragment
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Allows fragmentation of IP datagram send through this <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a>. This controls the IP DF flag.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool DontFragment { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_EnableBroadcast_" data-uid="System.Net.Sockets.UdpClient.EnableBroadcast*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_EnableBroadcast" data-uid="System.Net.Sockets.UdpClient.EnableBroadcast">EnableBroadcast</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_EnableBroadcast" data-uid="System.Net.Sockets.UdpClient.EnableBroadcast">
+  EnableBroadcast
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Specify if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> can send broadcast packet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool EnableBroadcast { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_ExclusiveAddressUse_" data-uid="System.Net.Sockets.UdpClient.ExclusiveAddressUse*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_ExclusiveAddressUse" data-uid="System.Net.Sockets.UdpClient.ExclusiveAddressUse">ExclusiveAddressUse</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_ExclusiveAddressUse" data-uid="System.Net.Sockets.UdpClient.ExclusiveAddressUse">
+  ExclusiveAddressUse
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Specify if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> allows only one client per port.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool ExclusiveAddressUse { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_MulticastLoopback_" data-uid="System.Net.Sockets.UdpClient.MulticastLoopback*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_MulticastLoopback" data-uid="System.Net.Sockets.UdpClient.MulticastLoopback">MulticastLoopback</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_MulticastLoopback" data-uid="System.Net.Sockets.UdpClient.MulticastLoopback">
+  MulticastLoopback
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Specify if multicast packets delivered to the sending application.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool MulticastLoopback { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Ttl_" data-uid="System.Net.Sockets.UdpClient.Ttl*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Ttl" data-uid="System.Net.Sockets.UdpClient.Ttl">Ttl</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Ttl" data-uid="System.Net.Sockets.UdpClient.Ttl">
+  Ttl
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Time To Live (TTL) value of the IP packets sent through the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public short Ttl { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int16.html">short</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>TTl must be a value between 0 and 255</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int16.html">short</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>TTl must be a value between 0 and 255</p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="System_Net_Sockets_UdpClient_Close_" data-uid="System.Net.Sockets.UdpClient.Close*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Close" data-uid="System.Net.Sockets.UdpClient.Close">Close()</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Close" data-uid="System.Net.Sockets.UdpClient.Close">
+  Close()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Close the connection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Close()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_Sockets_UdpClient_Connect_" data-uid="System.Net.Sockets.UdpClient.Connect*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Connect_System_Net_IPAddress_System_Int32_" data-uid="System.Net.Sockets.UdpClient.Connect(System.Net.IPAddress,System.Int32)">Connect(IPAddress, int)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Connect_System_Net_IPAddress_System_Int32_" data-uid="System.Net.Sockets.UdpClient.Connect(System.Net.IPAddress,System.Int32)">
+  Connect(IPAddress, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Establishes a default remote host using the specified IP address and port number.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Connect(IPAddress addr, int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></td>
-        <td><span class="parametername">addr</span></td>
-        <td><p>The <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the remote host to which you intend to send data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>The port number to which you intend send data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code class="paramref">port</code> is not between 0 and 65535</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">addr</code> is null</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>addr</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>The <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the remote host to which you intend to send data.</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The port number to which you intend send data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">port</code> is not between 0 and 65535</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">addr</code> is null</p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Connect_" data-uid="System.Net.Sockets.UdpClient.Connect*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Connect_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.Connect(System.Net.IPEndPoint)">Connect(IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Connect_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.Connect(System.Net.IPEndPoint)">
+  Connect(IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Establishes a default remote host using the specified IP address and port number.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Connect(IPEndPoint endPoint)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">endPoint</span></td>
-        <td><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that specifies the network endpoint to which you intend to send data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">endPoint</code> is null</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endPoint</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that specifies the network endpoint to which you intend to send data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">endPoint</code> is null</p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Connect_" data-uid="System.Net.Sockets.UdpClient.Connect*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Connect_System_String_System_Int32_" data-uid="System.Net.Sockets.UdpClient.Connect(System.String,System.Int32)">Connect(string, int)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Connect_System_String_System_Int32_" data-uid="System.Net.Sockets.UdpClient.Connect(System.String,System.Int32)">
+  Connect(string, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Establishes a default remote host using the specified IP address and port number.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Connect(string hostname, int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">hostname</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_Sockets_UdpClient_Connect_System_String_System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hostname</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_Sockets_UdpClient_Connect_System_String_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The Connect method establishes a default remote host using the values specified in the port and hostname parameters.
 Once established, you do not have to specify a remote host in each call to the <a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient_Send_System_Byte___">Send(byte[])</a> method.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code class="paramref">port</code> is not between 0 and 65535</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">hostname</code> is null</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">hostname</code> is not resolvable to an IPv4 address</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">port</code> is not between 0 and 65535</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">hostname</code> is null</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">hostname</code> is not resolvable to an IPv4 address</p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Dispose_" data-uid="System.Net.Sockets.UdpClient.Dispose*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Dispose" data-uid="System.Net.Sockets.UdpClient.Dispose">Dispose()</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Dispose" data-uid="System.Net.Sockets.UdpClient.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_Sockets_UdpClient_DropMulticastGroup_" data-uid="System.Net.Sockets.UdpClient.DropMulticastGroup*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_DropMulticastGroup_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.DropMulticastGroup(System.Net.IPAddress)">DropMulticastGroup(IPAddress)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_DropMulticastGroup_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.DropMulticastGroup(System.Net.IPAddress)">
+  DropMulticastGroup(IPAddress)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Leaves a multicast group address</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DropMulticastGroup(IPAddress multicastAddr)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></td>
-        <td><span class="parametername">multicastAddr</span></td>
-        <td><p><a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the multicast group to leave.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">multicastAddr</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">multicastAddr</code> isn't an IPv4 address.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>multicastAddr</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p><a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the multicast group to leave.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">multicastAddr</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multicastAddr</code> isn't an IPv4 address.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_JoinMulticastGroup_" data-uid="System.Net.Sockets.UdpClient.JoinMulticastGroup*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_JoinMulticastGroup_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Net.IPAddress)">JoinMulticastGroup(IPAddress)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_JoinMulticastGroup_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Net.IPAddress)">
+  JoinMulticastGroup(IPAddress)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> to a multicast group.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void JoinMulticastGroup(IPAddress multicastAddr)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></td>
-        <td><span class="parametername">multicastAddr</span></td>
-        <td><p><a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the multicast group to join.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">multicastAddr</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">multicastAddr</code> isn't an IPv4 address.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>multicastAddr</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p><a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the multicast group to join.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">multicastAddr</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">multicastAddr</code> isn't an IPv4 address.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_JoinMulticastGroup_" data-uid="System.Net.Sockets.UdpClient.JoinMulticastGroup*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_JoinMulticastGroup_System_Net_IPAddress_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Net.IPAddress,System.Net.IPAddress)">JoinMulticastGroup(IPAddress, IPAddress)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_JoinMulticastGroup_System_Net_IPAddress_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Net.IPAddress,System.Net.IPAddress)">
+  JoinMulticastGroup(IPAddress, IPAddress)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> to a multicast group.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void JoinMulticastGroup(IPAddress multicastAddr, IPAddress localAddress)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></td>
-        <td><span class="parametername">multicastAddr</span></td>
-        <td><p><a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the multicast group to join.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></td>
-        <td><span class="parametername">localAddress</span></td>
-        <td><p>Local <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> for joining the group.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">localAddress</code> or <code class="paramref">multicastAddr</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">localAddress</code> or <code class="paramref">multicastAddr</code> isn't an IPv4 address.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>multicastAddr</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p><a class="xref" href="System.Net.IPAddress.html">IPAddress</a> of the multicast group to join.</p>
+</dd>
+    <dt><code>localAddress</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>Local <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> for joining the group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">localAddress</code> or <code class="paramref">multicastAddr</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">localAddress</code> or <code class="paramref">multicastAddr</code> isn't an IPv4 address.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Receive_" data-uid="System.Net.Sockets.UdpClient.Receive*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Int32_System_Int32_System_Net_IPEndPoint__" data-uid="System.Net.Sockets.UdpClient.Receive(System.Byte[],System.Int32,System.Int32,System.Net.IPEndPoint@)">Receive(byte[], int, int, ref IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Int32_System_Int32_System_Net_IPEndPoint__" data-uid="System.Net.Sockets.UdpClient.Receive(System.Byte[],System.Int32,System.Int32,System.Net.IPEndPoint@)">
+  Receive(byte[], int, int, ref IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Receive an UDP datagram that was sent by a remote host and store it in buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer, int offset, int size, ref IPEndPoint remoteEP)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>A byte array to store the datagram data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>Offset where the datagram received must be stored in <code class="paramref">buffer</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td><p>Maximum size of the datagram to receive.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">remoteEP</span></td>
-        <td><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that represents the remote host from which the data was sent.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>Length of the datagram received. Will be equal to the size of <code class="paramref">buffer</code> if the datagram size was equal or bigger than the <code class="paramref">buffer</code> size.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Int32_System_Int32_System_Net_IPEndPoint___remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>A byte array to store the datagram data.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Offset where the datagram received must be stored in <code class="paramref">buffer</code>.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Maximum size of the datagram to receive.</p>
+</dd>
+    <dt><code>remoteEP</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that represents the remote host from which the data was sent.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Length of the datagram received. Will be equal to the size of <code class="paramref">buffer</code> if the datagram size was equal or bigger than the <code class="paramref">buffer</code> size.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Int32_System_Int32_System_Net_IPEndPoint___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code class="paramref">size</code> is smaller than the packet to receive it will be truncated to
 a length of <code class="paramref">size</code> without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn't
 support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
 when it is longer than the passed buffer opposite to common Un*x implementations.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">buffer</code> is null</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">buffer</code> length is too short compared to <code class="paramref">offset</code> and <code class="paramref">size</code></p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">buffer</code> is null</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">buffer</code> length is too short compared to <code class="paramref">offset</code> and <code class="paramref">size</code></p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Receive_" data-uid="System.Net.Sockets.UdpClient.Receive*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Net_IPEndPoint__" data-uid="System.Net.Sockets.UdpClient.Receive(System.Byte[],System.Net.IPEndPoint@)">Receive(byte[], ref IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Net_IPEndPoint__" data-uid="System.Net.Sockets.UdpClient.Receive(System.Byte[],System.Net.IPEndPoint@)">
+  Receive(byte[], ref IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Receive an UDP datagram that was sent by a remote host and store it in buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Receive(byte[] buffer, ref IPEndPoint remoteEP)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>A byte array to store the datagram data</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">remoteEP</span></td>
-        <td><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that represents the remote host from which the data was sent.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>Length of the datagram received. Will be equal to the size of <code class="paramref">buffer</code> if the datagram size was equal or bigger than the <code class="paramref">buffer</code> size.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Net_IPEndPoint___remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>A byte array to store the datagram data</p>
+</dd>
+    <dt><code>remoteEP</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd><p>An <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a> that represents the remote host from which the data was sent.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Length of the datagram received. Will be equal to the size of <code class="paramref">buffer</code> if the datagram size was equal or bigger than the <code class="paramref">buffer</code> size.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_Sockets_UdpClient_Receive_System_Byte___System_Net_IPEndPoint___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If the buffer is smaller than the packet to receive it will be truncated to
 the buffer size without warning. Indeed &quot;lwIP&quot;, the TCP/IP stack used commonly by RTOS, doesn't
 support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
 when it is longer than the passed buffer opposite to common Un*x implementations.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Send_" data-uid="System.Net.Sockets.UdpClient.Send*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Send_System_Byte___" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[])">Send(byte[])</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Send_System_Byte___" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[])">
+  Send(byte[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Send an UDP datagram to the connected host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">dgram</span></td>
-        <td><p>ByteArray containing the datagram to send</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>Number of byte sent</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">dgram</code> is null</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>The <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is not connected.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dgram</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>ByteArray containing the datagram to send</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Number of byte sent</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dgram</code> is null</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>The <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is not connected.</p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Send_" data-uid="System.Net.Sockets.UdpClient.Send*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Int32_System_Int32_" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32,System.Int32)">Send(byte[], int, int)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Int32_System_Int32_" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32,System.Int32)">
+  Send(byte[], int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Send an UDP datagram to the connected host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram, int offset, int size)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">dgram</span></td>
-        <td><p>ByteArray containing the datagram to send.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>Offset where the datagram start in <code class="paramref">dgram</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td><p>Length of the datagram.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>Number of byte sent</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">dgram</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">dgram</code> length is too short compared to <code class="paramref">offset</code> and <code class="paramref">size</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>The <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is not connected.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dgram</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>ByteArray containing the datagram to send.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Offset where the datagram start in <code class="paramref">dgram</code>.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Length of the datagram.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Number of byte sent</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dgram</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">dgram</code> length is too short compared to <code class="paramref">offset</code> and <code class="paramref">size</code>.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>The <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is not connected.</p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Send_" data-uid="System.Net.Sockets.UdpClient.Send*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Int32_System_Int32_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32,System.Int32,System.Net.IPEndPoint)">Send(byte[], int, int, IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Int32_System_Int32_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32,System.Int32,System.Net.IPEndPoint)">
+  Send(byte[], int, int, IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a UDP datagram to the specified remote host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram, int offset, int size, IPEndPoint endPoint)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">dgram</span></td>
-        <td><p>ByteArray containing the datagram to send.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>Offset where the datagram start in <code class="paramref">dgram</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td><p>Length of the datagram.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">endPoint</span></td>
-        <td><p>Remote endpoint to send the datagram to. Must be <pre><code class="lang-csharp">null</code></pre> if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>Number of byte sent</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">dgram</code> is null</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">dgram</code> length is too short compared to <code class="paramref">offset</code> and <code class="paramref">size</code></p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>A remote <code class="paramref">endPoint</code> is specified but the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already connected.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dgram</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>ByteArray containing the datagram to send.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Offset where the datagram start in <code class="paramref">dgram</code>.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Length of the datagram.</p>
+</dd>
+    <dt><code>endPoint</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd><p>Remote endpoint to send the datagram to. Must be <pre><code class="lang-csharp">null</code></pre> if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Number of byte sent</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dgram</code> is null</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">dgram</code> length is too short compared to <code class="paramref">offset</code> and <code class="paramref">size</code></p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>A remote <code class="paramref">endPoint</code> is specified but the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already connected.
 Or remote <code class="paramref">endPoint</code> is null but <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is not connected.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_Send_" data-uid="System.Net.Sockets.UdpClient.Send*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[],System.Net.IPEndPoint)">Send(byte[], IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_Send_System_Byte___System_Net_IPEndPoint_" data-uid="System.Net.Sockets.UdpClient.Send(System.Byte[],System.Net.IPEndPoint)">
+  Send(byte[], IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a UDP datagram to the specified remote host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Send(byte[] dgram, IPEndPoint endPoint)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">dgram</span></td>
-        <td><p>ByteArray containing the datagram to send</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">endPoint</span></td>
-        <td><p>Remote endpoint to send the datagram to. Must be <pre><code class="lang-csharp">null</code></pre> if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>Number of byte sent</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">dgram</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></td>
-        <td><p>A remote <code class="paramref">endPoint</code> is specified but the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already connected.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dgram</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>ByteArray containing the datagram to send</p>
+</dd>
+    <dt><code>endPoint</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd><p>Remote endpoint to send the datagram to. Must be <pre><code class="lang-csharp">null</code></pre> if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Number of byte sent</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dgram</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>A remote <code class="paramref">endPoint</code> is specified but the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already connected.
 Or remote <code class="paramref">endPoint</code> is null but <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is not connected.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></td>
-        <td><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p><a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is already disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Net_Sockets_UdpClient_SetMulticastInterface_" data-uid="System.Net.Sockets.UdpClient.SetMulticastInterface*"></a>
-  <h4 id="System_Net_Sockets_UdpClient_SetMulticastInterface_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.SetMulticastInterface(System.Net.IPAddress)">SetMulticastInterface(IPAddress)</h4>
+
+  <h3 id="System_Net_Sockets_UdpClient_SetMulticastInterface_System_Net_IPAddress_" data-uid="System.Net.Sockets.UdpClient.SetMulticastInterface(System.Net.IPAddress)">
+  SetMulticastInterface(IPAddress)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Define the local address (and thus interface) used to send multicast packets from this UdpClient
 This is only recommended on multi-homed systems</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetMulticastInterface(IPAddress localAddress)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></td>
-        <td><span class="parametername">localAddress</span></td>
-        <td><p>IP address of the interface used to send multicast packets</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">localAddress</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">localAddress</code> isn't an IPv4 address.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></td>
-        <td><p>Error on the underlying socket.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="System.IDisposable.html">IDisposable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>localAddress</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>IP address of the interface used to send multicast packets</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">localAddress</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">localAddress</code> isn't an IPv4 address.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Sockets.SocketException.html">SocketException</a></dt>
+    <dd><p>Error on the underlying socket.</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

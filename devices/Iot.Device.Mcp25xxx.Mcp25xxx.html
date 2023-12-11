@@ -1,817 +1,884 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class Mcp25xxx
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Mcp25xxx
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx">
+
+        <article data-uid="Iot.Device.Mcp25xxx.Mcp25xxx">
 
 
 
-  <h1 id="Iot_Device_Mcp25xxx_Mcp25xxx" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx" class="text-break">Class Mcp25xxx
-</h1>
-  <div class="markdown level0 summary"><p>A general purpose driver for the Microchip MCP25 CAN controller device family.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">Mcp25xxx</span></div>
-      <div class="level2"><a class="xref" href="Iot.Device.Mcp25xxx.Mcp2515.html">Mcp2515</a></div>
-      <div class="level2"><a class="xref" href="Iot.Device.Mcp25xxx.Mcp25625.html">Mcp25625</a></div>
+  <h1 id="Iot_Device_Mcp25xxx_Mcp25xxx" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx" class="text-break">
+    Class Mcp25xxx
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Mcp25xxx.html">Mcp25xxx</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Mcp25xxx.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Mcp25xxx.html">Mcp25xxx</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.Mcp25xxx.dll</h6>
-  <h5 id="Iot_Device_Mcp25xxx_Mcp25xxx_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>A general purpose driver for the Microchip MCP25 CAN controller device family.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class Mcp25xxx</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Mcp25xxx</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Iot.Device.Mcp25xxx.Mcp2515.html">Mcp2515</a></div>
+      <div><a class="xref" href="Iot.Device.Mcp25xxx.Mcp25625.html">Mcp25625</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx__ctor_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.#ctor*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx__ctor_System_Device_Spi_SpiDevice_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Device_Gpio_GpioController_System_Boolean_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.#ctor(System.Device.Spi.SpiDevice,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Device.Gpio.GpioController,System.Boolean)">Mcp25xxx(SpiDevice, int, int, int, int, int, int, int, int, GpioController?, bool)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx__ctor_System_Device_Spi_SpiDevice_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Device_Gpio_GpioController_System_Boolean_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.#ctor(System.Device.Spi.SpiDevice,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Device.Gpio.GpioController,System.Boolean)">
+  Mcp25xxx(SpiDevice, int, int, int, int, int, int, int, int, GpioController?, bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>A general purpose driver for the Microchip MCP25 CAN controller device family.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Mcp25xxx(SpiDevice spiDevice, int reset = -1, int tx0rts = -1, int tx1rts = -1, int tx2rts = -1, int interrupt = -1, int rx0bf = -1, int rx1bf = -1, int clkout = -1, GpioController? gpioController = null, bool shouldDispose = true)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Spi.SpiDevice.html">SpiDevice</a></td>
-        <td><span class="parametername">spiDevice</span></td>
-        <td><p>The SPI device used for communication.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">reset</span></td>
-        <td><p>The output pin number that is connected to Reset.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">tx0rts</span></td>
-        <td><p>The output pin number that is connected to Tx0RTS.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">tx1rts</span></td>
-        <td><p>The output pin number that is connected to Tx1RTS.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">tx2rts</span></td>
-        <td><p>The output pin number that is connected to Tx2RTS.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">interrupt</span></td>
-        <td><p>The input pin number that is connected to INT.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">rx0bf</span></td>
-        <td><p>The input pin number that is connected to Rx0BF.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">rx1bf</span></td>
-        <td><p>The input pin number that is connected to Rx1BF.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">clkout</span></td>
-        <td><p>The input pin number that is connected to CLKOUT.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
-        <td><span class="parametername">gpioController</span></td>
-        <td><p>The GPIO controller for defined external pins. If not specified, the default controller will be used.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">shouldDispose</span></td>
-        <td><p>True to dispose the Gpio Controller</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spiDevice</code> <a class="xref" href="../api/System.Device.Spi.SpiDevice.html">SpiDevice</a></dt>
+    <dd><p>The SPI device used for communication.</p>
+</dd>
+    <dt><code>reset</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The output pin number that is connected to Reset.</p>
+</dd>
+    <dt><code>tx0rts</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The output pin number that is connected to Tx0RTS.</p>
+</dd>
+    <dt><code>tx1rts</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The output pin number that is connected to Tx1RTS.</p>
+</dd>
+    <dt><code>tx2rts</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The output pin number that is connected to Tx2RTS.</p>
+</dd>
+    <dt><code>interrupt</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The input pin number that is connected to INT.</p>
+</dd>
+    <dt><code>rx0bf</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The input pin number that is connected to Rx0BF.</p>
+</dd>
+    <dt><code>rx1bf</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The input pin number that is connected to Rx1BF.</p>
+</dd>
+    <dt><code>clkout</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The input pin number that is connected to CLKOUT.</p>
+</dd>
+    <dt><code>gpioController</code> <a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></dt>
+    <dd><p>The GPIO controller for defined external pins. If not specified, the default controller will be used.</p>
+</dd>
+    <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True to dispose the Gpio Controller</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_InterruptPin_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.InterruptPin*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_InterruptPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.InterruptPin">InterruptPin</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_InterruptPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.InterruptPin">
+  InterruptPin
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the current value of Interrupt pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue InterruptPin { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_ResetPin_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ResetPin*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_ResetPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ResetPin">ResetPin</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_ResetPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ResetPin">
+  ResetPin
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a value to Reset pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue ResetPin { set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Rx0BfPin_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Rx0BfPin*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Rx0BfPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Rx0BfPin">Rx0BfPin</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Rx0BfPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Rx0BfPin">
+  Rx0BfPin
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the current value of Rx0BF pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue Rx0BfPin { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Rx1BfPin_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Rx1BfPin*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Rx1BfPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Rx1BfPin">Rx1BfPin</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Rx1BfPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Rx1BfPin">
+  Rx1BfPin
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the current value of Rx1BF pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue Rx1BfPin { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx0RtsPin_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx0RtsPin*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx0RtsPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx0RtsPin">Tx0RtsPin</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx0RtsPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx0RtsPin">
+  Tx0RtsPin
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a value to Tx0RTS pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue Tx0RtsPin { set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx1RtsPin_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx1RtsPin*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx1RtsPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx1RtsPin">Tx1RtsPin</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx1RtsPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx1RtsPin">
+  Tx1RtsPin
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a value to Tx1RTS pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue Tx1RtsPin { set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx2RtsPin_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx2RtsPin*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx2RtsPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx2RtsPin">Tx2RtsPin</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Tx2RtsPin" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Tx2RtsPin">
+  Tx2RtsPin
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a value to Tx2RTS pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue Tx2RtsPin { set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_BitModify_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.BitModify*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_BitModify_Iot_Device_Mcp25xxx_Register_Address_System_Byte_System_Byte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.BitModify(Iot.Device.Mcp25xxx.Register.Address,System.Byte,System.Byte)">BitModify(Address, byte, byte)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_BitModify_Iot_Device_Mcp25xxx_Register_Address_System_Byte_System_Byte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.BitModify(Iot.Device.Mcp25xxx.Register.Address,System.Byte,System.Byte)">
+  BitModify(Address, byte, byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Allows the user to set or clear individual bits in a particular register.
 Not all registers can be bit modified with this command.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void BitModify(Address address, byte mask, byte value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The address to write data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">mask</span></td>
-        <td><p>The mask to determine which bits in the register will be allowed to change.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></dt>
+    <dd><p>The address to write data.</p>
+</dd>
+    <dt><code>mask</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The mask to determine which bits in the register will be allowed to change.
 A '1' will allow a bit to change while a '0' will not.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The value to be written.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+</dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The value to be written.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Dispose_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Dispose*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Dispose" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Dispose">Dispose()</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Dispose" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_LoadTxBuffer_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.LoadTxBuffer*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_LoadTxBuffer_Iot_Device_Mcp25xxx_TxBufferAddressPointer_System_SpanByte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.LoadTxBuffer(Iot.Device.Mcp25xxx.TxBufferAddressPointer,System.SpanByte)">LoadTxBuffer(TxBufferAddressPointer, SpanByte)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_LoadTxBuffer_Iot_Device_Mcp25xxx_TxBufferAddressPointer_System_SpanByte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.LoadTxBuffer(Iot.Device.Mcp25xxx.TxBufferAddressPointer,System.SpanByte)">
+  LoadTxBuffer(TxBufferAddressPointer, SpanByte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When loading a transmit buffer, reduces the overhead of a normal WRITE
 command by placing the Address Pointer at one of six locations for transmit buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void LoadTxBuffer(TxBufferAddressPointer addressPointer, SpanByte buffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.TxBufferAddressPointer.html">TxBufferAddressPointer</a></td>
-        <td><span class="parametername">addressPointer</span></td>
-        <td><p>The Address Pointer to one of six locations for the transmit buffer.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>The data to load in transmit buffer.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>addressPointer</code> <a class="xref" href="Iot.Device.Mcp25xxx.TxBufferAddressPointer.html">TxBufferAddressPointer</a></dt>
+    <dd><p>The Address Pointer to one of six locations for the transmit buffer.</p>
+</dd>
+    <dt><code>buffer</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The data to load in transmit buffer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Read_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Read*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Read_Iot_Device_Mcp25xxx_Register_Address_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Read(Iot.Device.Mcp25xxx.Register.Address)">Read(Address)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Read_Iot_Device_Mcp25xxx_Register_Address_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Read(Iot.Device.Mcp25xxx.Register.Address)">
+  Read(Address)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads data from the register beginning at the selected address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte Read(Address address)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The address to read.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><p>The value of address read.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></dt>
+    <dd><p>The address to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The value of address read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_ReadRxBuffer_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ReadRxBuffer*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_ReadRxBuffer_Iot_Device_Mcp25xxx_RxBufferAddressPointer_System_Int32_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ReadRxBuffer(Iot.Device.Mcp25xxx.RxBufferAddressPointer,System.Int32)">ReadRxBuffer(RxBufferAddressPointer, int)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_ReadRxBuffer_Iot_Device_Mcp25xxx_RxBufferAddressPointer_System_Int32_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ReadRxBuffer(Iot.Device.Mcp25xxx.RxBufferAddressPointer,System.Int32)">
+  ReadRxBuffer(RxBufferAddressPointer, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When reading a receive buffer, reduces the overhead of a normal READ
 command by placing the Address Pointer at one of four locations for the receive buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte[] ReadRxBuffer(RxBufferAddressPointer addressPointer, int byteCount = 1)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.RxBufferAddressPointer.html">RxBufferAddressPointer</a></td>
-        <td><span class="parametername">addressPointer</span></td>
-        <td><p>The Address Pointer to one of four locations for the receive buffer.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">byteCount</span></td>
-        <td><p>Number of bytes to read.  This must be one or more to read.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><p>The value of address read.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>addressPointer</code> <a class="xref" href="Iot.Device.Mcp25xxx.RxBufferAddressPointer.html">RxBufferAddressPointer</a></dt>
+    <dd><p>The Address Pointer to one of four locations for the receive buffer.</p>
+</dd>
+    <dt><code>byteCount</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Number of bytes to read.  This must be one or more to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The value of address read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_ReadStatus_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ReadStatus*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_ReadStatus" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ReadStatus">ReadStatus()</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_ReadStatus" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.ReadStatus">
+  ReadStatus()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Quick polling command that reads several Status bits for transmit and receive functions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ReadStatusResponse ReadStatus()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.ReadStatusResponse.html">ReadStatusResponse</a></td>
-        <td><p>The response from READ STATUS instruction.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Mcp25xxx.ReadStatusResponse.html">ReadStatusResponse</a></dt>
+    <dd><p>The response from READ STATUS instruction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_RequestToSend_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.RequestToSend*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_RequestToSend_System_Boolean_System_Boolean_System_Boolean_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.RequestToSend(System.Boolean,System.Boolean,System.Boolean)">RequestToSend(bool, bool, bool)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_RequestToSend_System_Boolean_System_Boolean_System_Boolean_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.RequestToSend(System.Boolean,System.Boolean,System.Boolean)">
+  RequestToSend(bool, bool, bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Instructs the controller to begin the message transmission sequence for any of the transmit buffers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RequestToSend(bool txb0, bool txb1, bool txb2)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">txb0</span></td>
-        <td><p>Instructs the controller to begin the message transmission sequence for TxB0.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">txb1</span></td>
-        <td><p>Instructs the controller to begin the message transmission sequence for TxB1.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">txb2</span></td>
-        <td><p>Instructs the controller to begin the message transmission sequence for TxB2.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>txb0</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Instructs the controller to begin the message transmission sequence for TxB0.</p>
+</dd>
+    <dt><code>txb1</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Instructs the controller to begin the message transmission sequence for TxB1.</p>
+</dd>
+    <dt><code>txb2</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Instructs the controller to begin the message transmission sequence for TxB2.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Reset_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Reset*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Reset" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Reset">Reset()</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Reset" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Reset">
+  Reset()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Resets the internal registers to the default state and sets Configuration mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_RxStatus_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.RxStatus*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_RxStatus" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.RxStatus">RxStatus()</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_RxStatus" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.RxStatus">
+  RxStatus()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Quick polling command that indicates a filter match and message type
 (standard, extended and/or remote) of the received message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public RxStatusResponse RxStatus()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.RxStatusResponse.html">RxStatusResponse</a></td>
-        <td><p>Response from RX STATUS instruction.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Mcp25xxx.RxStatusResponse.html">RxStatusResponse</a></dt>
+    <dd><p>Response from RX STATUS instruction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_Write_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Write*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_Write_Iot_Device_Mcp25xxx_Register_Address_System_SpanByte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Write(Iot.Device.Mcp25xxx.Register.Address,System.SpanByte)">Write(Address, SpanByte)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_Write_Iot_Device_Mcp25xxx_Register_Address_System_SpanByte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.Write(Iot.Device.Mcp25xxx.Register.Address,System.SpanByte)">
+  Write(Address, SpanByte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes data to the register beginning at the selected address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Write(Address address, SpanByte buffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The starting address to write data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>The buffer that contains the data to be written.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></dt>
+    <dd><p>The starting address to write data.</p>
+</dd>
+    <dt><code>buffer</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The buffer that contains the data to be written.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_WriteByte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.WriteByte*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_WriteByte_Iot_Device_Mcp25xxx_Register_Address_System_Byte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.WriteByte(Iot.Device.Mcp25xxx.Register.Address,System.Byte)">WriteByte(Address, byte)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_WriteByte_Iot_Device_Mcp25xxx_Register_Address_System_Byte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.WriteByte(Iot.Device.Mcp25xxx.Register.Address,System.Byte)">
+  WriteByte(Address, byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes one byte to the register beginning at the selected address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void WriteByte(Address address, byte value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The address to write the data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The value to be written.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="Iot.Device.Mcp25xxx.Register.Address.html">Address</a></dt>
+    <dd><p>The address to write the data.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The value to be written.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp25xxx_Mcp25xxx_WriteByte_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.WriteByte*"></a>
-  <h4 id="Iot_Device_Mcp25xxx_Mcp25xxx_WriteByte_Iot_Device_Mcp25xxx_Register_IRegister_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.WriteByte(Iot.Device.Mcp25xxx.Register.IRegister)">WriteByte(IRegister)</h4>
+
+  <h3 id="Iot_Device_Mcp25xxx_Mcp25xxx_WriteByte_Iot_Device_Mcp25xxx_Register_IRegister_" data-uid="Iot.Device.Mcp25xxx.Mcp25xxx.WriteByte(Iot.Device.Mcp25xxx.Register.IRegister)">
+  WriteByte(IRegister)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a byte to the selected register address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void WriteByte(IRegister register)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp25xxx.Register.IRegister.html">IRegister</a></td>
-        <td><span class="parametername">register</span></td>
-        <td><p>The register to write the data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp25xxx.Register.IRegister.html">IRegister</a></dt>
+    <dd><p>The register to write the data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

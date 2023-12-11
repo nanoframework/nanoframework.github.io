@@ -1,535 +1,649 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class Vl53L0X
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Vl53L0X
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.Vl53L0X.Vl53L0X">
+
+        <article data-uid="Iot.Device.Vl53L0X.Vl53L0X">
 
 
 
-  <h1 id="Iot_Device_Vl53L0X_Vl53L0X" data-uid="Iot.Device.Vl53L0X.Vl53L0X" class="text-break">Class Vl53L0X
-</h1>
-  <div class="markdown level0 summary"><p>Represents Vl53L0X.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">Vl53L0X</span></div>
+  <h1 id="Iot_Device_Vl53L0X_Vl53L0X" data-uid="Iot.Device.Vl53L0X.Vl53L0X" class="text-break">
+    Class Vl53L0X
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Vl53L0X.html">Vl53L0X</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Vl53L0X.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Vl53L0X.html">Vl53L0X</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.Vl53L0X.dll</h6>
-  <h5 id="Iot_Device_Vl53L0X_Vl53L0X_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>Represents Vl53L0X.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class Vl53L0X</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Vl53L0X</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X__ctor_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.#ctor*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X__ctor_System_Device_I2c_I2cDevice_System_Int32_System_Boolean_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.#ctor(System.Device.I2c.I2cDevice,System.Int32,System.Boolean)">Vl53L0X(I2cDevice, int, bool)</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X__ctor_System_Device_I2c_I2cDevice_System_Int32_System_Boolean_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.#ctor(System.Device.I2c.I2cDevice,System.Int32,System.Boolean)">
+  Vl53L0X(I2cDevice, int, bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Vl53L0X.Vl53L0X.html">Vl53L0X</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Vl53L0X(I2cDevice i2cDevice, int operationTimeoutMilliseconds = 500, bool shouldDispose = true)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
-        <td><span class="parametername">i2cDevice</span></td>
-        <td><p>The I2C Device.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">operationTimeoutMilliseconds</span></td>
-        <td><p>Timeout for reading data, by default 500 milliseonds.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">shouldDispose</span></td>
-        <td><p>True to dispose the I2C Device at dispose.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>The I2C Device.</p>
+</dd>
+    <dt><code>operationTimeoutMilliseconds</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Timeout for reading data, by default 500 milliseonds.</p>
+</dd>
+    <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True to dispose the I2C Device at dispose.</p>
+</dd>
+  </dl>
 
 
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_DefaultI2cAddress" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DefaultI2cAddress">DefaultI2cAddress</h4>
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_DefaultI2cAddress" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DefaultI2cAddress">
+  DefaultI2cAddress
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The default I2C Address.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const byte DefaultI2cAddress = 41</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_Distance_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Distance*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_Distance" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Distance">Distance</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_Distance" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Distance">
+  Distance
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get the distance depending on the measurement mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ushort Distance { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.UInt16.html">ushort</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_DistanceContinuous_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DistanceContinuous*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_DistanceContinuous" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DistanceContinuous">DistanceContinuous</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_DistanceContinuous" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DistanceContinuous">
+  DistanceContinuous
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a distance in millimeters from the continous measurement feature.
 It is recommended to used this method to gethigher quality measurements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ushort DistanceContinuous { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.UInt16.html">ushort</a></td>
-        <td><p>Returns the distance in millimeters, if any error, returns the maximum range so 8190.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd><p>Returns the distance in millimeters, if any error, returns the maximum range so 8190.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_DistanceSingleMeasurement_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DistanceSingleMeasurement*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_DistanceSingleMeasurement" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DistanceSingleMeasurement">DistanceSingleMeasurement</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_DistanceSingleMeasurement" data-uid="Iot.Device.Vl53L0X.Vl53L0X.DistanceSingleMeasurement">
+  DistanceSingleMeasurement
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a single-shot range measurement and returns the reading in millimeters.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ushort DistanceSingleMeasurement { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.UInt16.html">ushort</a></td>
-        <td><p>Returns distance in millimeters.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd><p>Returns distance in millimeters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_HighResolution_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.HighResolution*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_HighResolution" data-uid="Iot.Device.Vl53L0X.Vl53L0X.HighResolution">HighResolution</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_HighResolution" data-uid="Iot.Device.Vl53L0X.Vl53L0X.HighResolution">
+  HighResolution
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the high resolution measurement is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HighResolution { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_Information_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Information*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_Information" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Information">Information</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_Information" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Information">
+  Information
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the sensor information including internal signal and distance offsets.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Information Information { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Vl53L0X.Information.html">Information</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Vl53L0X.Information.html">Information</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_MaxTryReadSingle_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.MaxTryReadSingle*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_MaxTryReadSingle" data-uid="Iot.Device.Vl53L0X.Vl53L0X.MaxTryReadSingle">MaxTryReadSingle</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_MaxTryReadSingle" data-uid="Iot.Device.Vl53L0X.Vl53L0X.MaxTryReadSingle">
+  MaxTryReadSingle
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether a clean measurement when reading in single shot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int MaxTryReadSingle { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_MeasurementMode_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.MeasurementMode*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_MeasurementMode" data-uid="Iot.Device.Vl53L0X.Vl53L0X.MeasurementMode">MeasurementMode</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_MeasurementMode" data-uid="Iot.Device.Vl53L0X.Vl53L0X.MeasurementMode">
+  MeasurementMode
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the measurement mode used to return the distance property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public MeasurementMode MeasurementMode { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Vl53L0X.MeasurementMode.html">MeasurementMode</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Vl53L0X.MeasurementMode.html">MeasurementMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_Precision_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Precision*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_Precision" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Precision">Precision</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_Precision" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Precision">
+  Precision
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the type of precision needed for measurement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Precision Precision { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Vl53L0X.Precision.html">Precision</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Vl53L0X.Precision.html">Precision</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_ChangeI2cAddress_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.ChangeI2cAddress*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_ChangeI2cAddress_System_Device_I2c_I2cDevice_System_Byte_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.ChangeI2cAddress(System.Device.I2c.I2cDevice,System.Byte)">ChangeI2cAddress(I2cDevice, byte)</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_ChangeI2cAddress_System_Device_I2c_I2cDevice_System_Byte_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.ChangeI2cAddress(System.Device.I2c.I2cDevice,System.Byte)">
+  ChangeI2cAddress(I2cDevice, byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The sensor can be changed for other I2C Address, this function allows to change it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void ChangeI2cAddress(I2cDevice i2cDevice, byte newAddress)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></td>
-        <td><span class="parametername">i2cDevice</span></td>
-        <td><p>The current I2C Device.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">newAddress</span></td>
-        <td><p>The new I2C Address from 0x00 to 0x7F.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>The current I2C Device.</p>
+</dd>
+    <dt><code>newAddress</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The new I2C Address from 0x00 to 0x7F.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_Dispose_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Dispose*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_Dispose" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Dispose">Dispose()</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_Dispose" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Vl53L0X_Vl53L0X_GetDistanceOnce_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.GetDistanceOnce*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_GetDistanceOnce_System_Boolean_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.GetDistanceOnce(System.Boolean)">GetDistanceOnce(bool)</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_GetDistanceOnce_System_Boolean_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.GetDistanceOnce(System.Boolean)">
+  GetDistanceOnce(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Get a distance in millimeters.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ushort GetDistanceOnce(bool multipleReads = false)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">multipleReads</span></td>
-        <td><p>True if you want multiple try to get a clean value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.UInt16.html">ushort</a></td>
-        <td><p>Returns the distance in millimeters, if any error, returns the maximum range so 8190.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>multipleReads</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if you want multiple try to get a clean value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd><p>Returns the distance in millimeters, if any error, returns the maximum range so 8190.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_Reset_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Reset*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_Reset" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Reset">Reset()</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_Reset" data-uid="Iot.Device.Vl53L0X.Vl53L0X.Reset">
+  Reset()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Performs a soft reset of the sensor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
   </div>
-  <h5 id="Iot_Device_Vl53L0X_Vl53L0X_Reset_remarks">Remarks</h5>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Vl53L0X_Vl53L0X_Reset_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If you change the I2C address and perform a soft reset, the default.
 I2C address will be setup again.</p>
 </div>
 
 
+
+
   <a id="Iot_Device_Vl53L0X_Vl53L0X_SetSignalRateLimit_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.SetSignalRateLimit*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_SetSignalRateLimit_System_Double_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.SetSignalRateLimit(System.Double)">SetSignalRateLimit(double)</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_SetSignalRateLimit_System_Double_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.SetSignalRateLimit(System.Double)">
+  SetSignalRateLimit(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Set the signal rate limit in MCPS.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetSignalRateLimit(double limitMcps)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">limitMcps</span></td>
-        <td><p>The limit in MCPS, minimum value 0, maximum value 511.99.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>limitMcps</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The limit in MCPS, minimum value 0, maximum value 511.99.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Vl53L0X_Vl53L0X_StartContinuousMeasurement_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.StartContinuousMeasurement*"></a>
-  <h4 id="Iot_Device_Vl53L0X_Vl53L0X_StartContinuousMeasurement_System_Int32_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.StartContinuousMeasurement(System.Int32)">StartContinuousMeasurement(int)</h4>
+
+  <h3 id="Iot_Device_Vl53L0X_Vl53L0X_StartContinuousMeasurement_System_Int32_" data-uid="Iot.Device.Vl53L0X.Vl53L0X.StartContinuousMeasurement(System.Int32)">
+  StartContinuousMeasurement(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Start continuous ranging measurements. If periodMilliseconds is 0
 continuous back-to-back mode is used (the sensor takes measurements as
 often as possible) otherwise, continuous timed mode is used, with the given
@@ -537,62 +651,51 @@ inter-measurement period in milliseconds determining how often the sensor
 takes a measurement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void StartContinuousMeasurement(int periodMilliseconds = 0)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">periodMilliseconds</span></td>
-        <td><p>The interval period between 2 measurements. Default is 0.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>periodMilliseconds</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The interval period between 2 measurements. Default is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,222 +1,271 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Interface IEPaperDisplay
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IEPaperDisplay
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay">
+
+        <article data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay">
 
 
 
-  <h1 id="Iot_Device_EPaper_Drivers_IEPaperDisplay" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay" class="text-break">Interface IEPaperDisplay
-</h1>
-  <div class="markdown level0 summary"><p>Represents an ePaper Display device.</p>
+  <h1 id="Iot_Device_EPaper_Drivers_IEPaperDisplay" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay" class="text-break">
+    Interface IEPaperDisplay
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.EPaper.html">EPaper</a>.<a class="xref" href="Iot.Device.EPaper.Drivers.html">Drivers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.ePaper.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an ePaper Display device.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.EPaper.html">EPaper</a>.<a class="xref" href="Iot.Device.EPaper.Drivers.html">Drivers</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.ePaper.dll</h6>
-  <h5 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IEPaperDisplay</code></pre>
   </div>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_FrameBuffer_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.FrameBuffer*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_FrameBuffer" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.FrameBuffer">FrameBuffer</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_FrameBuffer" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.FrameBuffer">
+  FrameBuffer
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the frame buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">IFrameBuffer FrameBuffer { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.EPaper.Buffers.IFrameBuffer.html">IFrameBuffer</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_FrameBuffer_remarks">Remarks</h5>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.EPaper.Buffers.IFrameBuffer.html">IFrameBuffer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Iot_Device_EPaper_Drivers_IEPaperDisplay_FrameBuffer_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This frame buffer instance could be pointing to a portion of the full display frame
 as a measure to reduce memory footprint. See the ctor documentation for more info.</p>
 </div>
 
 
+
+
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Height_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Height*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Height" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Height">Height</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Height" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Height">
+  Height
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the height of the drawable area on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">int Height { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PagedFrameDrawEnabled_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PagedFrameDrawEnabled*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PagedFrameDrawEnabled" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PagedFrameDrawEnabled">PagedFrameDrawEnabled</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PagedFrameDrawEnabled" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PagedFrameDrawEnabled">
+  PagedFrameDrawEnabled
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether drawing to a frame is paged to save on memory space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">bool PagedFrameDrawEnabled { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Width_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Width*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Width" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Width">Width</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Width" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Width">
+  Width
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the width of the drawable area on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">int Width { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_BeginFrameDraw_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.BeginFrameDraw*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_BeginFrameDraw" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.BeginFrameDraw">BeginFrameDraw()</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_BeginFrameDraw" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.BeginFrameDraw">
+  BeginFrameDraw()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Begins a frame draw operation with frame paging support.</p>
 <pre><code class="lang-csharp">BeginFrameDraw();
 do {
@@ -225,292 +274,390 @@ do {
 EndFrameDraw();</code></pre>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void BeginFrameDraw()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Clear_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Clear*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Clear_System_Boolean_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Clear(System.Boolean)">Clear(bool)</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Clear_System_Boolean_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Clear(System.Boolean)">
+  Clear(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears the display frame buffer by resetting it to its default state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void Clear(bool triggerPageRefresh = false)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">triggerPageRefresh</span></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to also flush the buffer to the display and trigger the refresh sequence.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>triggerPageRefresh</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to also flush the buffer to the display and trigger the refresh sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_DrawPixel_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.DrawPixel*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_DrawPixel_System_Int32_System_Int32_System_Drawing_Color_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.DrawPixel(System.Int32,System.Int32,System.Drawing.Color)">DrawPixel(int, int, Color)</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_DrawPixel_System_Int32_System_Int32_System_Drawing_Color_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.DrawPixel(System.Int32,System.Int32,System.Drawing.Color)">
+  DrawPixel(int, int, Color)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Draws a single pixel to the appropriate frame buffer based on the specified color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void DrawPixel(int x, int y, Color color)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">x</span></td>
-        <td><p>The X Position.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">y</span></td>
-        <td><p>The Y Position.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Drawing.Color.html">Color</a></td>
-        <td><span class="parametername">color</span></td>
-        <td><p>Pixel color. See the remarks for how a buffer is selected based on the color value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The X Position.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The Y Position.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="../api/System.Drawing.Color.html">Color</a></dt>
+    <dd><p>Pixel color. See the remarks for how a buffer is selected based on the color value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_EndFrameDraw_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.EndFrameDraw*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_EndFrameDraw" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.EndFrameDraw">EndFrameDraw()</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_EndFrameDraw" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.EndFrameDraw">
+  EndFrameDraw()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Ends the frame draw and flushes the current page to the device.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void EndFrameDraw()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Flush_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Flush*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Flush" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Flush">Flush()</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Flush" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.Flush">
+  Flush()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Flushes the content of the internal frame buffer to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void Flush()</code></pre>
   </div>
-  <h5 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Flush_remarks">Remarks</h5>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_EPaper_Drivers_IEPaperDisplay_Flush_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>You will only need to use this method if you have disabled frame paged draws.</p>
 </div>
 
 
+
+
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_NextFramePage_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.NextFramePage*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_NextFramePage" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.NextFramePage">NextFramePage()</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_NextFramePage" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.NextFramePage">
+  NextFramePage()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Moves the current buffers to the next frame page and returns true if successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">bool NextFramePage()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p>True if the next frame page is available and the internal buffers have moved to it, otherwise; false.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the next frame page is available and the internal buffers have moved to it, otherwise; false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PerformFullRefresh_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PerformFullRefresh*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PerformFullRefresh" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PerformFullRefresh">PerformFullRefresh()</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PerformFullRefresh" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PerformFullRefresh">
+  PerformFullRefresh()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initiates the full refresh sequence on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void PerformFullRefresh()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PerformPartialRefresh_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PerformPartialRefresh*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PerformPartialRefresh" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PerformPartialRefresh">PerformPartialRefresh()</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_PerformPartialRefresh" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.PerformPartialRefresh">
+  PerformPartialRefresh()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initiates the partial refresh sequence on the display if the panel supports it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void PerformPartialRefresh()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SendCommand_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SendCommand*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SendCommand_System_Byte___" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SendCommand(System.Byte[])">SendCommand(params byte[])</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SendCommand_System_Byte___" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SendCommand(System.Byte[])">
+  SendCommand(params byte[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sends a command byte(s) to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void SendCommand(params byte[] command)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><span class="parametername">command</span></td>
-        <td><p>The command bytes to send. See the command enum within the driver implementation and consult the datasheet.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The command bytes to send. See the command enum within the driver implementation and consult the datasheet.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SendData_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SendData*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SendData_System_Byte___" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SendData(System.Byte[])">SendData(params byte[])</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SendData_System_Byte___" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SendData(System.Byte[])">
+  SendData(params byte[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Send frame data to the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void SendData(params byte[] data)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
-        <td><span class="parametername">data</span></td>
-        <td><p>The frame data to send.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The frame data to send.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SetPosition_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SetPosition*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SetPosition_System_Int32_System_Int32_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SetPosition(System.Int32,System.Int32)">SetPosition(int, int)</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_SetPosition_System_Int32_System_Int32_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.SetPosition(System.Int32,System.Int32)">
+  SetPosition(int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the drawing position on the display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void SetPosition(int x, int y)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">x</span></td>
-        <td><p>The X position.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">y</span></td>
-        <td><p>The Y position.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The X position.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The Y position.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_EPaper_Drivers_IEPaperDisplay_WaitReady_" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.WaitReady*"></a>
-  <h4 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_WaitReady" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.WaitReady">WaitReady()</h4>
+
+  <h3 id="Iot_Device_EPaper_Drivers_IEPaperDisplay_WaitReady" data-uid="Iot.Device.EPaper.Drivers.IEPaperDisplay.WaitReady">
+  WaitReady()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Blocks the current thread until the display is in idle mode again.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void WaitReady()</code></pre>
   </div>
 
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

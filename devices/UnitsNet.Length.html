@@ -1,3976 +1,3584 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Struct Length
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct Length
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="UnitsNet.Length">
+
+        <article data-uid="UnitsNet.Length">
 
 
 
-  <h1 id="UnitsNet_Length" data-uid="UnitsNet.Length" class="text-break">Struct Length
-</h1>
-  <div class="markdown level0 summary"><p>Many different units of length have been used around the world. The main units in modern use are U.S. customary units in the United States and the Metric system elsewhere. British Imperial units are still used for some purposes in the United Kingdom and some other countries. The metric system is sub-divided into SI and non-SI units.</p>
+  <h1 id="UnitsNet_Length" data-uid="UnitsNet.Length" class="text-break">
+    Struct Length
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnitsNet.html">UnitsNet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>UnitsNet.Length.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Many different units of length have been used around the world. The main units in modern use are U.S. customary units in the United States and the Metric system elsewhere. British Imperial units are still used for some purposes in the United Kingdom and some other countries. The metric system is sub-divided into SI and non-SI units.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="UnitsNet.html">UnitsNet</a></h6>
-  <h6><strong>Assembly</strong>: UnitsNet.Length.dll</h6>
-  <h5 id="UnitsNet_Length_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public struct Length</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="UnitsNet_Length__ctor_" data-uid="UnitsNet.Length.#ctor*"></a>
-  <h4 id="UnitsNet_Length__ctor_System_Double_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.#ctor(System.Double,UnitsNet.Units.LengthUnit)">Length(double, LengthUnit)</h4>
+
+  <h3 id="UnitsNet_Length__ctor_System_Double_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.#ctor(System.Double,UnitsNet.Units.LengthUnit)">
+  Length(double, LengthUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates the quantity with the given numeric value and unit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length(double value, LengthUnit unit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The numeric value to construct this quantity with.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></td>
-        <td><span class="parametername">unit</span></td>
-        <td><p>The unit representation to construct this quantity with.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The numeric value to construct this quantity with.</p>
+</dd>
+    <dt><code>unit</code> <a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></dt>
+    <dd><p>The unit representation to construct this quantity with.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="UnitsNet_Length_Angstroms_" data-uid="UnitsNet.Length.Angstroms*"></a>
-  <h4 id="UnitsNet_Length_Angstroms" data-uid="UnitsNet.Length.Angstroms">Angstroms</h4>
+
+  <h3 id="UnitsNet_Length_Angstroms" data-uid="UnitsNet.Length.Angstroms">
+  Angstroms
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Angstrom">Angstrom</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Angstroms { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_AstronomicalUnits_" data-uid="UnitsNet.Length.AstronomicalUnits*"></a>
-  <h4 id="UnitsNet_Length_AstronomicalUnits" data-uid="UnitsNet.Length.AstronomicalUnits">AstronomicalUnits</h4>
+
+  <h3 id="UnitsNet_Length_AstronomicalUnits" data-uid="UnitsNet.Length.AstronomicalUnits">
+  AstronomicalUnits
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_AstronomicalUnit">AstronomicalUnit</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double AstronomicalUnits { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_BaseUnit_" data-uid="UnitsNet.Length.BaseUnit*"></a>
-  <h4 id="UnitsNet_Length_BaseUnit" data-uid="UnitsNet.Length.BaseUnit">BaseUnit</h4>
+
+  <h3 id="UnitsNet_Length_BaseUnit" data-uid="UnitsNet.Length.BaseUnit">
+  BaseUnit
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The base unit of Duration, which is Second. All conversions go via this value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static LengthUnit BaseUnit { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Centimeters_" data-uid="UnitsNet.Length.Centimeters*"></a>
-  <h4 id="UnitsNet_Length_Centimeters" data-uid="UnitsNet.Length.Centimeters">Centimeters</h4>
+
+  <h3 id="UnitsNet_Length_Centimeters" data-uid="UnitsNet.Length.Centimeters">
+  Centimeters
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Centimeter">Centimeter</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Centimeters { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Chains_" data-uid="UnitsNet.Length.Chains*"></a>
-  <h4 id="UnitsNet_Length_Chains" data-uid="UnitsNet.Length.Chains">Chains</h4>
+
+  <h3 id="UnitsNet_Length_Chains" data-uid="UnitsNet.Length.Chains">
+  Chains
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Chain">Chain</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Chains { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_DataMiles_" data-uid="UnitsNet.Length.DataMiles*"></a>
-  <h4 id="UnitsNet_Length_DataMiles" data-uid="UnitsNet.Length.DataMiles">DataMiles</h4>
+
+  <h3 id="UnitsNet_Length_DataMiles" data-uid="UnitsNet.Length.DataMiles">
+  DataMiles
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_DataMile">DataMile</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double DataMiles { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Decameters_" data-uid="UnitsNet.Length.Decameters*"></a>
-  <h4 id="UnitsNet_Length_Decameters" data-uid="UnitsNet.Length.Decameters">Decameters</h4>
+
+  <h3 id="UnitsNet_Length_Decameters" data-uid="UnitsNet.Length.Decameters">
+  Decameters
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Decameter">Decameter</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Decameters { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Decimeters_" data-uid="UnitsNet.Length.Decimeters*"></a>
-  <h4 id="UnitsNet_Length_Decimeters" data-uid="UnitsNet.Length.Decimeters">Decimeters</h4>
+
+  <h3 id="UnitsNet_Length_Decimeters" data-uid="UnitsNet.Length.Decimeters">
+  Decimeters
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Decimeter">Decimeter</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Decimeters { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_DtpPicas_" data-uid="UnitsNet.Length.DtpPicas*"></a>
-  <h4 id="UnitsNet_Length_DtpPicas" data-uid="UnitsNet.Length.DtpPicas">DtpPicas</h4>
+
+  <h3 id="UnitsNet_Length_DtpPicas" data-uid="UnitsNet.Length.DtpPicas">
+  DtpPicas
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_DtpPica">DtpPica</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double DtpPicas { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_DtpPoints_" data-uid="UnitsNet.Length.DtpPoints*"></a>
-  <h4 id="UnitsNet_Length_DtpPoints" data-uid="UnitsNet.Length.DtpPoints">DtpPoints</h4>
+
+  <h3 id="UnitsNet_Length_DtpPoints" data-uid="UnitsNet.Length.DtpPoints">
+  DtpPoints
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_DtpPoint">DtpPoint</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double DtpPoints { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Fathoms_" data-uid="UnitsNet.Length.Fathoms*"></a>
-  <h4 id="UnitsNet_Length_Fathoms" data-uid="UnitsNet.Length.Fathoms">Fathoms</h4>
+
+  <h3 id="UnitsNet_Length_Fathoms" data-uid="UnitsNet.Length.Fathoms">
+  Fathoms
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Fathom">Fathom</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Fathoms { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Feet_" data-uid="UnitsNet.Length.Feet*"></a>
-  <h4 id="UnitsNet_Length_Feet" data-uid="UnitsNet.Length.Feet">Feet</h4>
+
+  <h3 id="UnitsNet_Length_Feet" data-uid="UnitsNet.Length.Feet">
+  Feet
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Foot">Foot</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Feet { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Femtometers_" data-uid="UnitsNet.Length.Femtometers*"></a>
-  <h4 id="UnitsNet_Length_Femtometers" data-uid="UnitsNet.Length.Femtometers">Femtometers</h4>
+
+  <h3 id="UnitsNet_Length_Femtometers" data-uid="UnitsNet.Length.Femtometers">
+  Femtometers
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Femtometer">Femtometer</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Femtometers { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Gigameters_" data-uid="UnitsNet.Length.Gigameters*"></a>
-  <h4 id="UnitsNet_Length_Gigameters" data-uid="UnitsNet.Length.Gigameters">Gigameters</h4>
+
+  <h3 id="UnitsNet_Length_Gigameters" data-uid="UnitsNet.Length.Gigameters">
+  Gigameters
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Gigameter">Gigameter</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Gigameters { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Hands_" data-uid="UnitsNet.Length.Hands*"></a>
-  <h4 id="UnitsNet_Length_Hands" data-uid="UnitsNet.Length.Hands">Hands</h4>
+
+  <h3 id="UnitsNet_Length_Hands" data-uid="UnitsNet.Length.Hands">
+  Hands
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Hand">Hand</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Hands { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Hectometers_" data-uid="UnitsNet.Length.Hectometers*"></a>
-  <h4 id="UnitsNet_Length_Hectometers" data-uid="UnitsNet.Length.Hectometers">Hectometers</h4>
+
+  <h3 id="UnitsNet_Length_Hectometers" data-uid="UnitsNet.Length.Hectometers">
+  Hectometers
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Hectometer">Hectometer</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Hectometers { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Inches_" data-uid="UnitsNet.Length.Inches*"></a>
-  <h4 id="UnitsNet_Length_Inches" data-uid="UnitsNet.Length.Inches">Inches</h4>
+
+  <h3 id="UnitsNet_Length_Inches" data-uid="UnitsNet.Length.Inches">
+  Inches
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Inch">Inch</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Inches { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Kilofeet_" data-uid="UnitsNet.Length.Kilofeet*"></a>
-  <h4 id="UnitsNet_Length_Kilofeet" data-uid="UnitsNet.Length.Kilofeet">Kilofeet</h4>
+
+  <h3 id="UnitsNet_Length_Kilofeet" data-uid="UnitsNet.Length.Kilofeet">
+  Kilofeet
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Kilofoot">Kilofoot</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Kilofeet { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_KilolightYears_" data-uid="UnitsNet.Length.KilolightYears*"></a>
-  <h4 id="UnitsNet_Length_KilolightYears" data-uid="UnitsNet.Length.KilolightYears">KilolightYears</h4>
+
+  <h3 id="UnitsNet_Length_KilolightYears" data-uid="UnitsNet.Length.KilolightYears">
+  KilolightYears
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_KilolightYear">KilolightYear</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double KilolightYears { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Kilometers_" data-uid="UnitsNet.Length.Kilometers*"></a>
-  <h4 id="UnitsNet_Length_Kilometers" data-uid="UnitsNet.Length.Kilometers">Kilometers</h4>
+
+  <h3 id="UnitsNet_Length_Kilometers" data-uid="UnitsNet.Length.Kilometers">
+  Kilometers
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Kilometer">Kilometer</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Kilometers { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Kiloparsecs_" data-uid="UnitsNet.Length.Kiloparsecs*"></a>
-  <h4 id="UnitsNet_Length_Kiloparsecs" data-uid="UnitsNet.Length.Kiloparsecs">Kiloparsecs</h4>
+
+  <h3 id="UnitsNet_Length_Kiloparsecs" data-uid="UnitsNet.Length.Kiloparsecs">
+  Kiloparsecs
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Kiloparsec">Kiloparsec</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Kiloparsecs { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_LightYears_" data-uid="UnitsNet.Length.LightYears*"></a>
-  <h4 id="UnitsNet_Length_LightYears" data-uid="UnitsNet.Length.LightYears">LightYears</h4>
+
+  <h3 id="UnitsNet_Length_LightYears" data-uid="UnitsNet.Length.LightYears">
+  LightYears
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_LightYear">LightYear</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double LightYears { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_MaxValue_" data-uid="UnitsNet.Length.MaxValue*"></a>
-  <h4 id="UnitsNet_Length_MaxValue" data-uid="UnitsNet.Length.MaxValue">MaxValue</h4>
+
+  <h3 id="UnitsNet_Length_MaxValue" data-uid="UnitsNet.Length.MaxValue">
+  MaxValue
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Represents the largest possible value of Duration</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length MaxValue { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_MegalightYears_" data-uid="UnitsNet.Length.MegalightYears*"></a>
-  <h4 id="UnitsNet_Length_MegalightYears" data-uid="UnitsNet.Length.MegalightYears">MegalightYears</h4>
+
+  <h3 id="UnitsNet_Length_MegalightYears" data-uid="UnitsNet.Length.MegalightYears">
+  MegalightYears
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_MegalightYear">MegalightYear</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double MegalightYears { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Megameters_" data-uid="UnitsNet.Length.Megameters*"></a>
-  <h4 id="UnitsNet_Length_Megameters" data-uid="UnitsNet.Length.Megameters">Megameters</h4>
+
+  <h3 id="UnitsNet_Length_Megameters" data-uid="UnitsNet.Length.Megameters">
+  Megameters
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Megameter">Megameter</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Megameters { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Megaparsecs_" data-uid="UnitsNet.Length.Megaparsecs*"></a>
-  <h4 id="UnitsNet_Length_Megaparsecs" data-uid="UnitsNet.Length.Megaparsecs">Megaparsecs</h4>
+
+  <h3 id="UnitsNet_Length_Megaparsecs" data-uid="UnitsNet.Length.Megaparsecs">
+  Megaparsecs
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Megaparsec">Megaparsec</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Megaparsecs { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Meters_" data-uid="UnitsNet.Length.Meters*"></a>
-  <h4 id="UnitsNet_Length_Meters" data-uid="UnitsNet.Length.Meters">Meters</h4>
+
+  <h3 id="UnitsNet_Length_Meters" data-uid="UnitsNet.Length.Meters">
+  Meters
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Meter">Meter</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Meters { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Microinches_" data-uid="UnitsNet.Length.Microinches*"></a>
-  <h4 id="UnitsNet_Length_Microinches" data-uid="UnitsNet.Length.Microinches">Microinches</h4>
+
+  <h3 id="UnitsNet_Length_Microinches" data-uid="UnitsNet.Length.Microinches">
+  Microinches
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Microinch">Microinch</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Microinches { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Micrometers_" data-uid="UnitsNet.Length.Micrometers*"></a>
-  <h4 id="UnitsNet_Length_Micrometers" data-uid="UnitsNet.Length.Micrometers">Micrometers</h4>
+
+  <h3 id="UnitsNet_Length_Micrometers" data-uid="UnitsNet.Length.Micrometers">
+  Micrometers
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Micrometer">Micrometer</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Micrometers { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Miles_" data-uid="UnitsNet.Length.Miles*"></a>
-  <h4 id="UnitsNet_Length_Miles" data-uid="UnitsNet.Length.Miles">Miles</h4>
+
+  <h3 id="UnitsNet_Length_Miles" data-uid="UnitsNet.Length.Miles">
+  Miles
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Mile">Mile</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Miles { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Millimeters_" data-uid="UnitsNet.Length.Millimeters*"></a>
-  <h4 id="UnitsNet_Length_Millimeters" data-uid="UnitsNet.Length.Millimeters">Millimeters</h4>
+
+  <h3 id="UnitsNet_Length_Millimeters" data-uid="UnitsNet.Length.Millimeters">
+  Millimeters
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Millimeter">Millimeter</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Millimeters { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Mils_" data-uid="UnitsNet.Length.Mils*"></a>
-  <h4 id="UnitsNet_Length_Mils" data-uid="UnitsNet.Length.Mils">Mils</h4>
+
+  <h3 id="UnitsNet_Length_Mils" data-uid="UnitsNet.Length.Mils">
+  Mils
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Mil">Mil</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Mils { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_MinValue_" data-uid="UnitsNet.Length.MinValue*"></a>
-  <h4 id="UnitsNet_Length_MinValue" data-uid="UnitsNet.Length.MinValue">MinValue</h4>
+
+  <h3 id="UnitsNet_Length_MinValue" data-uid="UnitsNet.Length.MinValue">
+  MinValue
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Represents the smallest possible value of Duration</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length MinValue { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Nanometers_" data-uid="UnitsNet.Length.Nanometers*"></a>
-  <h4 id="UnitsNet_Length_Nanometers" data-uid="UnitsNet.Length.Nanometers">Nanometers</h4>
+
+  <h3 id="UnitsNet_Length_Nanometers" data-uid="UnitsNet.Length.Nanometers">
+  Nanometers
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Nanometer">Nanometer</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Nanometers { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_NauticalMiles_" data-uid="UnitsNet.Length.NauticalMiles*"></a>
-  <h4 id="UnitsNet_Length_NauticalMiles" data-uid="UnitsNet.Length.NauticalMiles">NauticalMiles</h4>
+
+  <h3 id="UnitsNet_Length_NauticalMiles" data-uid="UnitsNet.Length.NauticalMiles">
+  NauticalMiles
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_NauticalMile">NauticalMile</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double NauticalMiles { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Parsecs_" data-uid="UnitsNet.Length.Parsecs*"></a>
-  <h4 id="UnitsNet_Length_Parsecs" data-uid="UnitsNet.Length.Parsecs">Parsecs</h4>
+
+  <h3 id="UnitsNet_Length_Parsecs" data-uid="UnitsNet.Length.Parsecs">
+  Parsecs
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Parsec">Parsec</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Parsecs { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Picometers_" data-uid="UnitsNet.Length.Picometers*"></a>
-  <h4 id="UnitsNet_Length_Picometers" data-uid="UnitsNet.Length.Picometers">Picometers</h4>
+
+  <h3 id="UnitsNet_Length_Picometers" data-uid="UnitsNet.Length.Picometers">
+  Picometers
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Picometer">Picometer</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Picometers { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_PrinterPicas_" data-uid="UnitsNet.Length.PrinterPicas*"></a>
-  <h4 id="UnitsNet_Length_PrinterPicas" data-uid="UnitsNet.Length.PrinterPicas">PrinterPicas</h4>
+
+  <h3 id="UnitsNet_Length_PrinterPicas" data-uid="UnitsNet.Length.PrinterPicas">
+  PrinterPicas
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_PrinterPica">PrinterPica</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double PrinterPicas { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_PrinterPoints_" data-uid="UnitsNet.Length.PrinterPoints*"></a>
-  <h4 id="UnitsNet_Length_PrinterPoints" data-uid="UnitsNet.Length.PrinterPoints">PrinterPoints</h4>
+
+  <h3 id="UnitsNet_Length_PrinterPoints" data-uid="UnitsNet.Length.PrinterPoints">
+  PrinterPoints
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_PrinterPoint">PrinterPoint</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double PrinterPoints { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Shackles_" data-uid="UnitsNet.Length.Shackles*"></a>
-  <h4 id="UnitsNet_Length_Shackles" data-uid="UnitsNet.Length.Shackles">Shackles</h4>
+
+  <h3 id="UnitsNet_Length_Shackles" data-uid="UnitsNet.Length.Shackles">
+  Shackles
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Shackle">Shackle</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Shackles { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_SolarRadiuses_" data-uid="UnitsNet.Length.SolarRadiuses*"></a>
-  <h4 id="UnitsNet_Length_SolarRadiuses" data-uid="UnitsNet.Length.SolarRadiuses">SolarRadiuses</h4>
+
+  <h3 id="UnitsNet_Length_SolarRadiuses" data-uid="UnitsNet.Length.SolarRadiuses">
+  SolarRadiuses
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_SolarRadius">SolarRadius</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double SolarRadiuses { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Twips_" data-uid="UnitsNet.Length.Twips*"></a>
-  <h4 id="UnitsNet_Length_Twips" data-uid="UnitsNet.Length.Twips">Twips</h4>
+
+  <h3 id="UnitsNet_Length_Twips" data-uid="UnitsNet.Length.Twips">
+  Twips
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Twip">Twip</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Twips { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Unit_" data-uid="UnitsNet.Length.Unit*"></a>
-  <h4 id="UnitsNet_Length_Unit" data-uid="UnitsNet.Length.Unit">Unit</h4>
+
+  <h3 id="UnitsNet_Length_Unit" data-uid="UnitsNet.Length.Unit">
+  Unit
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LengthUnit Unit { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_UsSurveyFeet_" data-uid="UnitsNet.Length.UsSurveyFeet*"></a>
-  <h4 id="UnitsNet_Length_UsSurveyFeet" data-uid="UnitsNet.Length.UsSurveyFeet">UsSurveyFeet</h4>
+
+  <h3 id="UnitsNet_Length_UsSurveyFeet" data-uid="UnitsNet.Length.UsSurveyFeet">
+  UsSurveyFeet
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_UsSurveyFoot">UsSurveyFoot</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double UsSurveyFeet { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Value_" data-uid="UnitsNet.Length.Value*"></a>
-  <h4 id="UnitsNet_Length_Value" data-uid="UnitsNet.Length.Value">Value</h4>
+
+  <h3 id="UnitsNet_Length_Value" data-uid="UnitsNet.Length.Value">
+  Value
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The numeric value this quantity was constructed with.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Value { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Yards_" data-uid="UnitsNet.Length.Yards*"></a>
-  <h4 id="UnitsNet_Length_Yards" data-uid="UnitsNet.Length.Yards">Yards</h4>
+
+  <h3 id="UnitsNet_Length_Yards" data-uid="UnitsNet.Length.Yards">
+  Yards
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Yard">Yard</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Yards { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_Zero_" data-uid="UnitsNet.Length.Zero*"></a>
-  <h4 id="UnitsNet_Length_Zero" data-uid="UnitsNet.Length.Zero">Zero</h4>
+
+  <h3 id="UnitsNet_Length_Zero" data-uid="UnitsNet.Length.Zero">
+  Zero
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets an instance of this quantity with a value of 0 in the base unit Second.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length Zero { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="UnitsNet_Length_As_" data-uid="UnitsNet.Length.As*"></a>
-  <h4 id="UnitsNet_Length_As_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.As(UnitsNet.Units.LengthUnit)">As(LengthUnit)</h4>
+
+  <h3 id="UnitsNet_Length_As_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.As(UnitsNet.Units.LengthUnit)">
+  As(LengthUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Convert to the unit representation <code class="paramref">unit</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double As(LengthUnit unit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></td>
-        <td><span class="parametername">unit</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><p>Value converted to the specified unit.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>Value converted to the specified unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_From_" data-uid="UnitsNet.Length.From*"></a>
-  <h4 id="UnitsNet_Length_From_System_Double_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.From(System.Double,UnitsNet.Units.LengthUnit)">From(double, LengthUnit)</h4>
+
+  <h3 id="UnitsNet_Length_From_System_Double_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.From(System.Double,UnitsNet.Units.LengthUnit)">
+  From(double, LengthUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Dynamically convert from value and unit enum <a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a> to <a class="xref" href="UnitsNet.Length.html">Length</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length From(double value, LengthUnit fromUnit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>Value to convert from.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></td>
-        <td><span class="parametername">fromUnit</span></td>
-        <td><p>Unit to convert from.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td><p>Length unit value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>Value to convert from.</p>
+</dd>
+    <dt><code>fromUnit</code> <a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></dt>
+    <dd><p>Unit to convert from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd><p>Length unit value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Length_FromAngstroms_" data-uid="UnitsNet.Length.FromAngstroms*"></a>
-  <h4 id="UnitsNet_Length_FromAngstroms_System_Double_" data-uid="UnitsNet.Length.FromAngstroms(System.Double)">FromAngstroms(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromAngstroms_System_Double_" data-uid="UnitsNet.Length.FromAngstroms(System.Double)">
+  FromAngstroms(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Angstrom">Angstrom</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromAngstroms(double angstroms)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">angstroms</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angstroms</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromAstronomicalUnits_" data-uid="UnitsNet.Length.FromAstronomicalUnits*"></a>
-  <h4 id="UnitsNet_Length_FromAstronomicalUnits_System_Double_" data-uid="UnitsNet.Length.FromAstronomicalUnits(System.Double)">FromAstronomicalUnits(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromAstronomicalUnits_System_Double_" data-uid="UnitsNet.Length.FromAstronomicalUnits(System.Double)">
+  FromAstronomicalUnits(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_AstronomicalUnit">AstronomicalUnit</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromAstronomicalUnits(double astronomicalunits)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">astronomicalunits</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>astronomicalunits</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromCentimeters_" data-uid="UnitsNet.Length.FromCentimeters*"></a>
-  <h4 id="UnitsNet_Length_FromCentimeters_System_Double_" data-uid="UnitsNet.Length.FromCentimeters(System.Double)">FromCentimeters(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromCentimeters_System_Double_" data-uid="UnitsNet.Length.FromCentimeters(System.Double)">
+  FromCentimeters(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Centimeter">Centimeter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromCentimeters(double centimeters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">centimeters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>centimeters</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromChains_" data-uid="UnitsNet.Length.FromChains*"></a>
-  <h4 id="UnitsNet_Length_FromChains_System_Double_" data-uid="UnitsNet.Length.FromChains(System.Double)">FromChains(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromChains_System_Double_" data-uid="UnitsNet.Length.FromChains(System.Double)">
+  FromChains(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Chain">Chain</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromChains(double chains)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">chains</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>chains</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromDataMiles_" data-uid="UnitsNet.Length.FromDataMiles*"></a>
-  <h4 id="UnitsNet_Length_FromDataMiles_System_Double_" data-uid="UnitsNet.Length.FromDataMiles(System.Double)">FromDataMiles(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromDataMiles_System_Double_" data-uid="UnitsNet.Length.FromDataMiles(System.Double)">
+  FromDataMiles(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_DataMile">DataMile</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromDataMiles(double datamiles)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">datamiles</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>datamiles</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromDecameters_" data-uid="UnitsNet.Length.FromDecameters*"></a>
-  <h4 id="UnitsNet_Length_FromDecameters_System_Double_" data-uid="UnitsNet.Length.FromDecameters(System.Double)">FromDecameters(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromDecameters_System_Double_" data-uid="UnitsNet.Length.FromDecameters(System.Double)">
+  FromDecameters(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Decameter">Decameter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromDecameters(double decameters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">decameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>decameters</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromDecimeters_" data-uid="UnitsNet.Length.FromDecimeters*"></a>
-  <h4 id="UnitsNet_Length_FromDecimeters_System_Double_" data-uid="UnitsNet.Length.FromDecimeters(System.Double)">FromDecimeters(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromDecimeters_System_Double_" data-uid="UnitsNet.Length.FromDecimeters(System.Double)">
+  FromDecimeters(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Decimeter">Decimeter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromDecimeters(double decimeters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">decimeters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>decimeters</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromDtpPicas_" data-uid="UnitsNet.Length.FromDtpPicas*"></a>
-  <h4 id="UnitsNet_Length_FromDtpPicas_System_Double_" data-uid="UnitsNet.Length.FromDtpPicas(System.Double)">FromDtpPicas(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromDtpPicas_System_Double_" data-uid="UnitsNet.Length.FromDtpPicas(System.Double)">
+  FromDtpPicas(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_DtpPica">DtpPica</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromDtpPicas(double dtppicas)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">dtppicas</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dtppicas</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromDtpPoints_" data-uid="UnitsNet.Length.FromDtpPoints*"></a>
-  <h4 id="UnitsNet_Length_FromDtpPoints_System_Double_" data-uid="UnitsNet.Length.FromDtpPoints(System.Double)">FromDtpPoints(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromDtpPoints_System_Double_" data-uid="UnitsNet.Length.FromDtpPoints(System.Double)">
+  FromDtpPoints(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_DtpPoint">DtpPoint</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromDtpPoints(double dtppoints)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">dtppoints</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dtppoints</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromFathoms_" data-uid="UnitsNet.Length.FromFathoms*"></a>
-  <h4 id="UnitsNet_Length_FromFathoms_System_Double_" data-uid="UnitsNet.Length.FromFathoms(System.Double)">FromFathoms(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromFathoms_System_Double_" data-uid="UnitsNet.Length.FromFathoms(System.Double)">
+  FromFathoms(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Fathom">Fathom</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromFathoms(double fathoms)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">fathoms</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fathoms</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromFeet_" data-uid="UnitsNet.Length.FromFeet*"></a>
-  <h4 id="UnitsNet_Length_FromFeet_System_Double_" data-uid="UnitsNet.Length.FromFeet(System.Double)">FromFeet(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromFeet_System_Double_" data-uid="UnitsNet.Length.FromFeet(System.Double)">
+  FromFeet(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Foot">Foot</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromFeet(double feet)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">feet</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feet</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromFemtometers_" data-uid="UnitsNet.Length.FromFemtometers*"></a>
-  <h4 id="UnitsNet_Length_FromFemtometers_System_Double_" data-uid="UnitsNet.Length.FromFemtometers(System.Double)">FromFemtometers(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromFemtometers_System_Double_" data-uid="UnitsNet.Length.FromFemtometers(System.Double)">
+  FromFemtometers(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Femtometer">Femtometer</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromFemtometers(double femtometers)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">femtometers</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>femtometers</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromGigameters_" data-uid="UnitsNet.Length.FromGigameters*"></a>
-  <h4 id="UnitsNet_Length_FromGigameters_System_Double_" data-uid="UnitsNet.Length.FromGigameters(System.Double)">FromGigameters(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromGigameters_System_Double_" data-uid="UnitsNet.Length.FromGigameters(System.Double)">
+  FromGigameters(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Gigameter">Gigameter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromGigameters(double gigameters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">gigameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gigameters</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromHands_" data-uid="UnitsNet.Length.FromHands*"></a>
-  <h4 id="UnitsNet_Length_FromHands_System_Double_" data-uid="UnitsNet.Length.FromHands(System.Double)">FromHands(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromHands_System_Double_" data-uid="UnitsNet.Length.FromHands(System.Double)">
+  FromHands(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Hand">Hand</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromHands(double hands)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">hands</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hands</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromHectometers_" data-uid="UnitsNet.Length.FromHectometers*"></a>
-  <h4 id="UnitsNet_Length_FromHectometers_System_Double_" data-uid="UnitsNet.Length.FromHectometers(System.Double)">FromHectometers(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromHectometers_System_Double_" data-uid="UnitsNet.Length.FromHectometers(System.Double)">
+  FromHectometers(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Hectometer">Hectometer</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromHectometers(double hectometers)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">hectometers</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hectometers</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromInches_" data-uid="UnitsNet.Length.FromInches*"></a>
-  <h4 id="UnitsNet_Length_FromInches_System_Double_" data-uid="UnitsNet.Length.FromInches(System.Double)">FromInches(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromInches_System_Double_" data-uid="UnitsNet.Length.FromInches(System.Double)">
+  FromInches(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Inch">Inch</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromInches(double inches)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">inches</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inches</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromKilofeet_" data-uid="UnitsNet.Length.FromKilofeet*"></a>
-  <h4 id="UnitsNet_Length_FromKilofeet_System_Double_" data-uid="UnitsNet.Length.FromKilofeet(System.Double)">FromKilofeet(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromKilofeet_System_Double_" data-uid="UnitsNet.Length.FromKilofeet(System.Double)">
+  FromKilofeet(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Kilofoot">Kilofoot</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromKilofeet(double kilofeet)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">kilofeet</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kilofeet</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromKilolightYears_" data-uid="UnitsNet.Length.FromKilolightYears*"></a>
-  <h4 id="UnitsNet_Length_FromKilolightYears_System_Double_" data-uid="UnitsNet.Length.FromKilolightYears(System.Double)">FromKilolightYears(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromKilolightYears_System_Double_" data-uid="UnitsNet.Length.FromKilolightYears(System.Double)">
+  FromKilolightYears(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_KilolightYear">KilolightYear</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromKilolightYears(double kilolightyears)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">kilolightyears</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kilolightyears</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromKilometers_" data-uid="UnitsNet.Length.FromKilometers*"></a>
-  <h4 id="UnitsNet_Length_FromKilometers_System_Double_" data-uid="UnitsNet.Length.FromKilometers(System.Double)">FromKilometers(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromKilometers_System_Double_" data-uid="UnitsNet.Length.FromKilometers(System.Double)">
+  FromKilometers(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Kilometer">Kilometer</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromKilometers(double kilometers)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">kilometers</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kilometers</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromKiloparsecs_" data-uid="UnitsNet.Length.FromKiloparsecs*"></a>
-  <h4 id="UnitsNet_Length_FromKiloparsecs_System_Double_" data-uid="UnitsNet.Length.FromKiloparsecs(System.Double)">FromKiloparsecs(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromKiloparsecs_System_Double_" data-uid="UnitsNet.Length.FromKiloparsecs(System.Double)">
+  FromKiloparsecs(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Kiloparsec">Kiloparsec</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromKiloparsecs(double kiloparsecs)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">kiloparsecs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kiloparsecs</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromLightYears_" data-uid="UnitsNet.Length.FromLightYears*"></a>
-  <h4 id="UnitsNet_Length_FromLightYears_System_Double_" data-uid="UnitsNet.Length.FromLightYears(System.Double)">FromLightYears(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromLightYears_System_Double_" data-uid="UnitsNet.Length.FromLightYears(System.Double)">
+  FromLightYears(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_LightYear">LightYear</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromLightYears(double lightyears)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">lightyears</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lightyears</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMegalightYears_" data-uid="UnitsNet.Length.FromMegalightYears*"></a>
-  <h4 id="UnitsNet_Length_FromMegalightYears_System_Double_" data-uid="UnitsNet.Length.FromMegalightYears(System.Double)">FromMegalightYears(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMegalightYears_System_Double_" data-uid="UnitsNet.Length.FromMegalightYears(System.Double)">
+  FromMegalightYears(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_MegalightYear">MegalightYear</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMegalightYears(double megalightyears)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">megalightyears</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>megalightyears</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMegameters_" data-uid="UnitsNet.Length.FromMegameters*"></a>
-  <h4 id="UnitsNet_Length_FromMegameters_System_Double_" data-uid="UnitsNet.Length.FromMegameters(System.Double)">FromMegameters(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMegameters_System_Double_" data-uid="UnitsNet.Length.FromMegameters(System.Double)">
+  FromMegameters(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Megameter">Megameter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMegameters(double megameters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">megameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>megameters</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMegaparsecs_" data-uid="UnitsNet.Length.FromMegaparsecs*"></a>
-  <h4 id="UnitsNet_Length_FromMegaparsecs_System_Double_" data-uid="UnitsNet.Length.FromMegaparsecs(System.Double)">FromMegaparsecs(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMegaparsecs_System_Double_" data-uid="UnitsNet.Length.FromMegaparsecs(System.Double)">
+  FromMegaparsecs(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Megaparsec">Megaparsec</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMegaparsecs(double megaparsecs)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">megaparsecs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>megaparsecs</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMeters_" data-uid="UnitsNet.Length.FromMeters*"></a>
-  <h4 id="UnitsNet_Length_FromMeters_System_Double_" data-uid="UnitsNet.Length.FromMeters(System.Double)">FromMeters(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMeters_System_Double_" data-uid="UnitsNet.Length.FromMeters(System.Double)">
+  FromMeters(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Meter">Meter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMeters(double meters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">meters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>meters</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMicroinches_" data-uid="UnitsNet.Length.FromMicroinches*"></a>
-  <h4 id="UnitsNet_Length_FromMicroinches_System_Double_" data-uid="UnitsNet.Length.FromMicroinches(System.Double)">FromMicroinches(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMicroinches_System_Double_" data-uid="UnitsNet.Length.FromMicroinches(System.Double)">
+  FromMicroinches(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Microinch">Microinch</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMicroinches(double microinches)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">microinches</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>microinches</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMicrometers_" data-uid="UnitsNet.Length.FromMicrometers*"></a>
-  <h4 id="UnitsNet_Length_FromMicrometers_System_Double_" data-uid="UnitsNet.Length.FromMicrometers(System.Double)">FromMicrometers(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMicrometers_System_Double_" data-uid="UnitsNet.Length.FromMicrometers(System.Double)">
+  FromMicrometers(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Micrometer">Micrometer</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMicrometers(double micrometers)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">micrometers</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>micrometers</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMiles_" data-uid="UnitsNet.Length.FromMiles*"></a>
-  <h4 id="UnitsNet_Length_FromMiles_System_Double_" data-uid="UnitsNet.Length.FromMiles(System.Double)">FromMiles(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMiles_System_Double_" data-uid="UnitsNet.Length.FromMiles(System.Double)">
+  FromMiles(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Mile">Mile</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMiles(double miles)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">miles</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>miles</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMillimeters_" data-uid="UnitsNet.Length.FromMillimeters*"></a>
-  <h4 id="UnitsNet_Length_FromMillimeters_System_Double_" data-uid="UnitsNet.Length.FromMillimeters(System.Double)">FromMillimeters(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMillimeters_System_Double_" data-uid="UnitsNet.Length.FromMillimeters(System.Double)">
+  FromMillimeters(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Millimeter">Millimeter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMillimeters(double millimeters)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">millimeters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>millimeters</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromMils_" data-uid="UnitsNet.Length.FromMils*"></a>
-  <h4 id="UnitsNet_Length_FromMils_System_Double_" data-uid="UnitsNet.Length.FromMils(System.Double)">FromMils(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromMils_System_Double_" data-uid="UnitsNet.Length.FromMils(System.Double)">
+  FromMils(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Mil">Mil</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromMils(double mils)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">mils</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mils</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromNanometers_" data-uid="UnitsNet.Length.FromNanometers*"></a>
-  <h4 id="UnitsNet_Length_FromNanometers_System_Double_" data-uid="UnitsNet.Length.FromNanometers(System.Double)">FromNanometers(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromNanometers_System_Double_" data-uid="UnitsNet.Length.FromNanometers(System.Double)">
+  FromNanometers(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Nanometer">Nanometer</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromNanometers(double nanometers)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">nanometers</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nanometers</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromNauticalMiles_" data-uid="UnitsNet.Length.FromNauticalMiles*"></a>
-  <h4 id="UnitsNet_Length_FromNauticalMiles_System_Double_" data-uid="UnitsNet.Length.FromNauticalMiles(System.Double)">FromNauticalMiles(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromNauticalMiles_System_Double_" data-uid="UnitsNet.Length.FromNauticalMiles(System.Double)">
+  FromNauticalMiles(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_NauticalMile">NauticalMile</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromNauticalMiles(double nauticalmiles)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">nauticalmiles</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nauticalmiles</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromParsecs_" data-uid="UnitsNet.Length.FromParsecs*"></a>
-  <h4 id="UnitsNet_Length_FromParsecs_System_Double_" data-uid="UnitsNet.Length.FromParsecs(System.Double)">FromParsecs(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromParsecs_System_Double_" data-uid="UnitsNet.Length.FromParsecs(System.Double)">
+  FromParsecs(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Parsec">Parsec</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromParsecs(double parsecs)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">parsecs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parsecs</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromPicometers_" data-uid="UnitsNet.Length.FromPicometers*"></a>
-  <h4 id="UnitsNet_Length_FromPicometers_System_Double_" data-uid="UnitsNet.Length.FromPicometers(System.Double)">FromPicometers(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromPicometers_System_Double_" data-uid="UnitsNet.Length.FromPicometers(System.Double)">
+  FromPicometers(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Picometer">Picometer</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromPicometers(double picometers)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">picometers</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>picometers</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromPrinterPicas_" data-uid="UnitsNet.Length.FromPrinterPicas*"></a>
-  <h4 id="UnitsNet_Length_FromPrinterPicas_System_Double_" data-uid="UnitsNet.Length.FromPrinterPicas(System.Double)">FromPrinterPicas(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromPrinterPicas_System_Double_" data-uid="UnitsNet.Length.FromPrinterPicas(System.Double)">
+  FromPrinterPicas(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_PrinterPica">PrinterPica</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromPrinterPicas(double printerpicas)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">printerpicas</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>printerpicas</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromPrinterPoints_" data-uid="UnitsNet.Length.FromPrinterPoints*"></a>
-  <h4 id="UnitsNet_Length_FromPrinterPoints_System_Double_" data-uid="UnitsNet.Length.FromPrinterPoints(System.Double)">FromPrinterPoints(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromPrinterPoints_System_Double_" data-uid="UnitsNet.Length.FromPrinterPoints(System.Double)">
+  FromPrinterPoints(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_PrinterPoint">PrinterPoint</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromPrinterPoints(double printerpoints)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">printerpoints</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>printerpoints</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromShackles_" data-uid="UnitsNet.Length.FromShackles*"></a>
-  <h4 id="UnitsNet_Length_FromShackles_System_Double_" data-uid="UnitsNet.Length.FromShackles(System.Double)">FromShackles(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromShackles_System_Double_" data-uid="UnitsNet.Length.FromShackles(System.Double)">
+  FromShackles(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Shackle">Shackle</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromShackles(double shackles)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">shackles</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shackles</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromSolarRadiuses_" data-uid="UnitsNet.Length.FromSolarRadiuses*"></a>
-  <h4 id="UnitsNet_Length_FromSolarRadiuses_System_Double_" data-uid="UnitsNet.Length.FromSolarRadiuses(System.Double)">FromSolarRadiuses(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromSolarRadiuses_System_Double_" data-uid="UnitsNet.Length.FromSolarRadiuses(System.Double)">
+  FromSolarRadiuses(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_SolarRadius">SolarRadius</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromSolarRadiuses(double solarradiuses)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">solarradiuses</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>solarradiuses</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromTwips_" data-uid="UnitsNet.Length.FromTwips*"></a>
-  <h4 id="UnitsNet_Length_FromTwips_System_Double_" data-uid="UnitsNet.Length.FromTwips(System.Double)">FromTwips(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromTwips_System_Double_" data-uid="UnitsNet.Length.FromTwips(System.Double)">
+  FromTwips(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Twip">Twip</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromTwips(double twips)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">twips</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>twips</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromUsSurveyFeet_" data-uid="UnitsNet.Length.FromUsSurveyFeet*"></a>
-  <h4 id="UnitsNet_Length_FromUsSurveyFeet_System_Double_" data-uid="UnitsNet.Length.FromUsSurveyFeet(System.Double)">FromUsSurveyFeet(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromUsSurveyFeet_System_Double_" data-uid="UnitsNet.Length.FromUsSurveyFeet(System.Double)">
+  FromUsSurveyFeet(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_UsSurveyFoot">UsSurveyFoot</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromUsSurveyFeet(double ussurveyfeet)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">ussurveyfeet</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ussurveyfeet</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_FromYards_" data-uid="UnitsNet.Length.FromYards*"></a>
-  <h4 id="UnitsNet_Length_FromYards_System_Double_" data-uid="UnitsNet.Length.FromYards(System.Double)">FromYards(double)</h4>
+
+  <h3 id="UnitsNet_Length_FromYards_System_Double_" data-uid="UnitsNet.Length.FromYards(System.Double)">
+  FromYards(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Length.html">Length</a> from <a class="xref" href="UnitsNet.Units.LengthUnit.html#UnitsNet_Units_LengthUnit_Yard">Yard</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Length FromYards(double yards)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">yards</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>yards</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Length_ToUnit_" data-uid="UnitsNet.Length.ToUnit*"></a>
-  <h4 id="UnitsNet_Length_ToUnit_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.ToUnit(UnitsNet.Units.LengthUnit)">ToUnit(LengthUnit)</h4>
+
+  <h3 id="UnitsNet_Length_ToUnit_UnitsNet_Units_LengthUnit_" data-uid="UnitsNet.Length.ToUnit(UnitsNet.Units.LengthUnit)">
+  ToUnit(LengthUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Converts this Duration to another Duration with the unit representation <code class="paramref">unit</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Length ToUnit(LengthUnit unit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></td>
-        <td><span class="parametername">unit</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Length.html">Length</a></td>
-        <td><p>A Duration with the specified unit.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="UnitsNet.Units.LengthUnit.html">LengthUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Length.html">Length</a></dt>
+    <dd><p>A Duration with the specified unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

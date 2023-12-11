@@ -1,113 +1,136 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class FileStream
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class FileStream
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="System.IO.FileStream">
+
+        <article data-uid="System.IO.FileStream">
 
 
 
-  <h1 id="System_IO_FileStream" data-uid="System.IO.FileStream" class="text-break">Class FileStream
-</h1>
-  <div class="markdown level0 summary"><p>Provides a Stream for a file, supporting both synchronous and asynchronous read and write operations.</p>
+  <h1 id="System_IO_FileStream" data-uid="System.IO.FileStream" class="text-break">
+    Class FileStream
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="System.html">System</a>.<a class="xref" href="System.IO.html">IO</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>System.IO.FileSystem.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides a Stream for a file, supporting both synchronous and asynchronous read and write operations.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
-    <div class="level1"><a class="xref" href="System.MarshalByRefObject.html">MarshalByRefObject</a></div>
-    <div class="level2"><a class="xref" href="System.IO.Stream.html">Stream</a></div>
-    <div class="level3"><span class="xref">FileStream</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FileStream : Stream, IDisposable</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><a class="xref" href="System.MarshalByRefObject.html">MarshalByRefObject</a></div>
+      <div><a class="xref" href="System.IO.Stream.html">Stream</a></div>
+      <div><span class="xref">FileStream</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="System.IO.Stream.html#System_IO_Stream_CopyTo_System_IO_Stream_">Stream.CopyTo(Stream)</a>
     </div>
@@ -144,719 +167,758 @@
     <div>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.IO.html">IO</a></h6>
-  <h6><strong>Assembly</strong>: System.IO.FileSystem.dll</h6>
-  <h5 id="System_IO_FileStream_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class FileStream : Stream, IDisposable</code></pre>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="System_IO_FileStream__ctor_" data-uid="System.IO.FileStream.#ctor*"></a>
-  <h4 id="System_IO_FileStream__ctor_System_String_System_IO_FileMode_" data-uid="System.IO.FileStream.#ctor(System.String,System.IO.FileMode)">FileStream(string, FileMode)</h4>
+
+  <h3 id="System_IO_FileStream__ctor_System_String_System_IO_FileMode_" data-uid="System.IO.FileStream.#ctor(System.String,System.IO.FileMode)">
+  FileStream(string, FileMode)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the FileStream class with the specified path and creation mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public FileStream(string path, FileMode mode)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">path</span></td>
-        <td><p>A relative or absolute path for the file that the current FileStream object will encapsulate.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.IO.FileMode.html">FileMode</a></td>
-        <td><span class="parametername">mode</span></td>
-        <td><p>One of the enumeration values that determines how to open or create the file.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>A relative or absolute path for the file that the current FileStream object will encapsulate.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="System.IO.FileMode.html">FileMode</a></dt>
+    <dd><p>One of the enumeration values that determines how to open or create the file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream__ctor_" data-uid="System.IO.FileStream.#ctor*"></a>
-  <h4 id="System_IO_FileStream__ctor_System_String_System_IO_FileMode_System_IO_FileAccess_" data-uid="System.IO.FileStream.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">FileStream(string, FileMode, FileAccess)</h4>
+
+  <h3 id="System_IO_FileStream__ctor_System_String_System_IO_FileMode_System_IO_FileAccess_" data-uid="System.IO.FileStream.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">
+  FileStream(string, FileMode, FileAccess)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the FileStream class with the specified path, creation mode, and read/write permission.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public FileStream(string path, FileMode mode, FileAccess access)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">path</span></td>
-        <td><p>A relative or absolute path for the file that the current FileStream object will encapsulate.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.IO.FileMode.html">FileMode</a></td>
-        <td><span class="parametername">mode</span></td>
-        <td><p>One of the enumeration values that determines how to open or create the file.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.IO.FileAccess.html">FileAccess</a></td>
-        <td><span class="parametername">access</span></td>
-        <td><p>A bitwise combination of the enumeration values that determines how the file can be accessed by the FileStream object. This also determines the values returned by the CanRead and CanWrite properties of the FileStream object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>A relative or absolute path for the file that the current FileStream object will encapsulate.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="System.IO.FileMode.html">FileMode</a></dt>
+    <dd><p>One of the enumeration values that determines how to open or create the file.</p>
+</dd>
+    <dt><code>access</code> <a class="xref" href="System.IO.FileAccess.html">FileAccess</a></dt>
+    <dd><p>A bitwise combination of the enumeration values that determines how the file can be accessed by the FileStream object. This also determines the values returned by the CanRead and CanWrite properties of the FileStream object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="System_IO_FileStream_CanRead_" data-uid="System.IO.FileStream.CanRead*"></a>
-  <h4 id="System_IO_FileStream_CanRead" data-uid="System.IO.FileStream.CanRead">CanRead</h4>
+
+  <h3 id="System_IO_FileStream_CanRead" data-uid="System.IO.FileStream.CanRead">
+  CanRead
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value that indicates whether the current stream supports reading.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool CanRead { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanRead">Stream.CanRead</a></div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_CanSeek_" data-uid="System.IO.FileStream.CanSeek*"></a>
-  <h4 id="System_IO_FileStream_CanSeek" data-uid="System.IO.FileStream.CanSeek">CanSeek</h4>
+
+  <h3 id="System_IO_FileStream_CanSeek" data-uid="System.IO.FileStream.CanSeek">
+  CanSeek
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value that indicates whether the current stream supports seeking.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool CanSeek { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanSeek">Stream.CanSeek</a></div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_CanWrite_" data-uid="System.IO.FileStream.CanWrite*"></a>
-  <h4 id="System_IO_FileStream_CanWrite" data-uid="System.IO.FileStream.CanWrite">CanWrite</h4>
+
+  <h3 id="System_IO_FileStream_CanWrite" data-uid="System.IO.FileStream.CanWrite">
+  CanWrite
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value that indicates whether the current stream supports writing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override bool CanWrite { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_CanWrite">Stream.CanWrite</a></div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_FilePath_" data-uid="System.IO.FileStream.FilePath*"></a>
-  <h4 id="System_IO_FileStream_FilePath" data-uid="System.IO.FileStream.FilePath">FilePath</h4>
+
+  <h3 id="System_IO_FileStream_FilePath" data-uid="System.IO.FileStream.FilePath">
+  FilePath
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the full file-system path of the current file, if the file has a path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string FilePath { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Length_" data-uid="System.IO.FileStream.Length*"></a>
-  <h4 id="System_IO_FileStream_Length" data-uid="System.IO.FileStream.Length">Length</h4>
+
+  <h3 id="System_IO_FileStream_Length" data-uid="System.IO.FileStream.Length">
+  Length
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the length in bytes of the stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override long Length { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Length">Stream.Length</a></div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Name_" data-uid="System.IO.FileStream.Name*"></a>
-  <h4 id="System_IO_FileStream_Name" data-uid="System.IO.FileStream.Name">Name</h4>
+
+  <h3 id="System_IO_FileStream_Name" data-uid="System.IO.FileStream.Name">
+  Name
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the name of the file including the file name extension.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><p>The name of the file including the file name extension.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The name of the file including the file name extension.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Position_" data-uid="System.IO.FileStream.Position*"></a>
-  <h4 id="System_IO_FileStream_Position" data-uid="System.IO.FileStream.Position">Position</h4>
+
+  <h3 id="System_IO_FileStream_Position" data-uid="System.IO.FileStream.Position">
+  Position
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the current position of this stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override long Position { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Position">Stream.Position</a></div>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="System_IO_FileStream_Close_" data-uid="System.IO.FileStream.Close*"></a>
-  <h4 id="System_IO_FileStream_Close" data-uid="System.IO.FileStream.Close">Close()</h4>
+
+  <h3 id="System_IO_FileStream_Close" data-uid="System.IO.FileStream.Close">
+  Close()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Closes the current stream and releases any resources associated with the current stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Close()</code></pre>
   </div>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Close">Stream.Close()</a></div>
+
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Dispose_" data-uid="System.IO.FileStream.Dispose*"></a>
-  <h4 id="System_IO_FileStream_Dispose_System_Boolean_" data-uid="System.IO.FileStream.Dispose(System.Boolean)">Dispose(bool)</h4>
+
+  <h3 id="System_IO_FileStream_Dispose_System_Boolean_" data-uid="System.IO.FileStream.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the FileStream and optionally releases the managed resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Dispose_System_Boolean_">Stream.Dispose(bool)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Finalize_" data-uid="System.IO.FileStream.Finalize*"></a>
-  <h4 id="System_IO_FileStream_Finalize" data-uid="System.IO.FileStream.Finalize">Finalize()</h4>
+
+  <h3 id="System_IO_FileStream_Finalize" data-uid="System.IO.FileStream.Finalize">
+  Finalize()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Destructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Finalize()</code></pre>
   </div>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Finalize">Stream.Finalize()</a></div>
+
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Flush_" data-uid="System.IO.FileStream.Flush*"></a>
-  <h4 id="System_IO_FileStream_Flush" data-uid="System.IO.FileStream.Flush">Flush()</h4>
+
+  <h3 id="System_IO_FileStream_Flush" data-uid="System.IO.FileStream.Flush">
+  Flush()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Clears buffers for this stream and causes any buffered data to be written to the file.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Flush()</code></pre>
   </div>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Flush">Stream.Flush()</a></div>
+
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Read_" data-uid="System.IO.FileStream.Read*"></a>
-  <h4 id="System_IO_FileStream_Read_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.FileStream.Read(System.Byte[],System.Int32,System.Int32)">Read(byte[], int, int)</h4>
+
+  <h3 id="System_IO_FileStream_Read_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.FileStream.Read(System.Byte[],System.Int32,System.Int32)">
+  Read(byte[], int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads a block of bytes from the stream and writes the data in a given buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int Read(byte[] buffer, int offset, int count)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>When this method returns, contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>The byte offset in array at which the read bytes will be placed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>The maximum number of bytes to read.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Read_System_Byte___System_Int32_System_Int32_">Stream.Read(byte[], int, int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>When this method returns, contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The byte offset in array at which the read bytes will be placed.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The maximum number of bytes to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Read_" data-uid="System.IO.FileStream.Read*"></a>
-  <h4 id="System_IO_FileStream_Read_System_SpanByte_" data-uid="System.IO.FileStream.Read(System.SpanByte)">Read(SpanByte)</h4>
+
+  <h3 id="System_IO_FileStream_Read_System_SpanByte_" data-uid="System.IO.FileStream.Read(System.SpanByte)">
+  Read(SpanByte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int Read(SpanByte buffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>A region of memory. When this method returns, the contents of this region are replaced by the bytes read from the current source.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Read_System_SpanByte_">Stream.Read(SpanByte)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>A region of memory. When this method returns, the contents of this region are replaced by the bytes read from the current source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_ReadByte_" data-uid="System.IO.FileStream.ReadByte*"></a>
-  <h4 id="System_IO_FileStream_ReadByte" data-uid="System.IO.FileStream.ReadByte">ReadByte()</h4>
+
+  <h3 id="System_IO_FileStream_ReadByte" data-uid="System.IO.FileStream.ReadByte">
+  ReadByte()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads a byte from the file and advances the read position one byte.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override int ReadByte()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_ReadByte">Stream.ReadByte()</a></div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Seek_" data-uid="System.IO.FileStream.Seek*"></a>
-  <h4 id="System_IO_FileStream_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="System.IO.FileStream.Seek(System.Int64,System.IO.SeekOrigin)">Seek(long, SeekOrigin)</h4>
+
+  <h3 id="System_IO_FileStream_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="System.IO.FileStream.Seek(System.Int64,System.IO.SeekOrigin)">
+  Seek(long, SeekOrigin)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the current position of this stream to the given value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override long Seek(long offset, SeekOrigin origin)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>The point relative to origin from which to begin seeking.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a></td>
-        <td><span class="parametername">origin</span></td>
-        <td><p>Specifies the beginning, the end, or the current position as a reference point for offset, using a value of type SeekOrigin.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><p>The new position in the stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Seek_System_Int64_System_IO_SeekOrigin_">Stream.Seek(long, SeekOrigin)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offset</code> <a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>The point relative to origin from which to begin seeking.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a></dt>
+    <dd><p>Specifies the beginning, the end, or the current position as a reference point for offset, using a value of type SeekOrigin.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>The new position in the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_SetLength_" data-uid="System.IO.FileStream.SetLength*"></a>
-  <h4 id="System_IO_FileStream_SetLength_System_Int64_" data-uid="System.IO.FileStream.SetLength(System.Int64)">SetLength(long)</h4>
+
+  <h3 id="System_IO_FileStream_SetLength_System_Int64_" data-uid="System.IO.FileStream.SetLength(System.Int64)">
+  SetLength(long)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the length of this stream to the given value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void SetLength(long value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int64.html">long</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The new length of the stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_SetLength_System_Int64_">Stream.SetLength(long)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>The new length of the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_Write_" data-uid="System.IO.FileStream.Write*"></a>
-  <h4 id="System_IO_FileStream_Write_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.FileStream.Write(System.Byte[],System.Int32,System.Int32)">Write(byte[], int, int)</h4>
+
+  <h3 id="System_IO_FileStream_Write_System_Byte___System_Int32_System_Int32_" data-uid="System.IO.FileStream.Write(System.Byte[],System.Int32,System.Int32)">
+  Write(byte[], int, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a block of bytes to the file stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Write(byte[] buffer, int offset, int count)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a>[]</td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>The buffer containing data to write to the stream.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>The zero-based byte offset in array from which to begin copying bytes to the stream.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>The maximum number of bytes to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_Write_System_Byte___System_Int32_System_Int32_">Stream.Write(byte[], int, int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>The buffer containing data to write to the stream.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The zero-based byte offset in array from which to begin copying bytes to the stream.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The maximum number of bytes to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_IO_FileStream_WriteByte_" data-uid="System.IO.FileStream.WriteByte*"></a>
-  <h4 id="System_IO_FileStream_WriteByte_System_Byte_" data-uid="System.IO.FileStream.WriteByte(System.Byte)">WriteByte(byte)</h4>
+
+  <h3 id="System_IO_FileStream_WriteByte_System_Byte_" data-uid="System.IO.FileStream.WriteByte(System.Byte)">
+  WriteByte(byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a byte to the current position in the file stream.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void WriteByte(byte value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Byte.html">byte</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>A byte to write to the stream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.IO.Stream.html#System_IO_Stream_WriteByte_System_Byte_">Stream.WriteByte(byte)</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="System.IDisposable.html">IDisposable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd><p>A byte to write to the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

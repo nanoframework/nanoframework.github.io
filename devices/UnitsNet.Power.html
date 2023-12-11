@@ -1,2701 +1,2459 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Struct Power
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct Power
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="UnitsNet.Power">
+
+        <article data-uid="UnitsNet.Power">
 
 
 
-  <h1 id="UnitsNet_Power" data-uid="UnitsNet.Power" class="text-break">Struct Power
-</h1>
-  <div class="markdown level0 summary"><p>In physics, power is the rate of doing work. It is equivalent to an amount of energy consumed per unit time.</p>
+  <h1 id="UnitsNet_Power" data-uid="UnitsNet.Power" class="text-break">
+    Struct Power
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnitsNet.html">UnitsNet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>UnitsNet.Power.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>In physics, power is the rate of doing work. It is equivalent to an amount of energy consumed per unit time.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="UnitsNet.html">UnitsNet</a></h6>
-  <h6><strong>Assembly</strong>: UnitsNet.Power.dll</h6>
-  <h5 id="UnitsNet_Power_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public struct Power</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="UnitsNet_Power__ctor_" data-uid="UnitsNet.Power.#ctor*"></a>
-  <h4 id="UnitsNet_Power__ctor_System_Double_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.#ctor(System.Double,UnitsNet.Units.PowerUnit)">Power(double, PowerUnit)</h4>
+
+  <h3 id="UnitsNet_Power__ctor_System_Double_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.#ctor(System.Double,UnitsNet.Units.PowerUnit)">
+  Power(double, PowerUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates the quantity with the given numeric value and unit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Power(double value, PowerUnit unit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The numeric value to construct this quantity with.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></td>
-        <td><span class="parametername">unit</span></td>
-        <td><p>The unit representation to construct this quantity with.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The numeric value to construct this quantity with.</p>
+</dd>
+    <dt><code>unit</code> <a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></dt>
+    <dd><p>The unit representation to construct this quantity with.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="UnitsNet_Power_BaseUnit_" data-uid="UnitsNet.Power.BaseUnit*"></a>
-  <h4 id="UnitsNet_Power_BaseUnit" data-uid="UnitsNet.Power.BaseUnit">BaseUnit</h4>
+
+  <h3 id="UnitsNet_Power_BaseUnit" data-uid="UnitsNet.Power.BaseUnit">
+  BaseUnit
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The base unit of Duration, which is Second. All conversions go via this value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static PowerUnit BaseUnit { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_BoilerHorsepower_" data-uid="UnitsNet.Power.BoilerHorsepower*"></a>
-  <h4 id="UnitsNet_Power_BoilerHorsepower" data-uid="UnitsNet.Power.BoilerHorsepower">BoilerHorsepower</h4>
+
+  <h3 id="UnitsNet_Power_BoilerHorsepower" data-uid="UnitsNet.Power.BoilerHorsepower">
+  BoilerHorsepower
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_BoilerHorsepower">BoilerHorsepower</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double BoilerHorsepower { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_BritishThermalUnitsPerHour_" data-uid="UnitsNet.Power.BritishThermalUnitsPerHour*"></a>
-  <h4 id="UnitsNet_Power_BritishThermalUnitsPerHour" data-uid="UnitsNet.Power.BritishThermalUnitsPerHour">BritishThermalUnitsPerHour</h4>
+
+  <h3 id="UnitsNet_Power_BritishThermalUnitsPerHour" data-uid="UnitsNet.Power.BritishThermalUnitsPerHour">
+  BritishThermalUnitsPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_BritishThermalUnitPerHour">BritishThermalUnitPerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double BritishThermalUnitsPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Decawatts_" data-uid="UnitsNet.Power.Decawatts*"></a>
-  <h4 id="UnitsNet_Power_Decawatts" data-uid="UnitsNet.Power.Decawatts">Decawatts</h4>
+
+  <h3 id="UnitsNet_Power_Decawatts" data-uid="UnitsNet.Power.Decawatts">
+  Decawatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Decawatt">Decawatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Decawatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Deciwatts_" data-uid="UnitsNet.Power.Deciwatts*"></a>
-  <h4 id="UnitsNet_Power_Deciwatts" data-uid="UnitsNet.Power.Deciwatts">Deciwatts</h4>
+
+  <h3 id="UnitsNet_Power_Deciwatts" data-uid="UnitsNet.Power.Deciwatts">
+  Deciwatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Deciwatt">Deciwatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Deciwatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_ElectricalHorsepower_" data-uid="UnitsNet.Power.ElectricalHorsepower*"></a>
-  <h4 id="UnitsNet_Power_ElectricalHorsepower" data-uid="UnitsNet.Power.ElectricalHorsepower">ElectricalHorsepower</h4>
+
+  <h3 id="UnitsNet_Power_ElectricalHorsepower" data-uid="UnitsNet.Power.ElectricalHorsepower">
+  ElectricalHorsepower
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_ElectricalHorsepower">ElectricalHorsepower</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double ElectricalHorsepower { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Femtowatts_" data-uid="UnitsNet.Power.Femtowatts*"></a>
-  <h4 id="UnitsNet_Power_Femtowatts" data-uid="UnitsNet.Power.Femtowatts">Femtowatts</h4>
+
+  <h3 id="UnitsNet_Power_Femtowatts" data-uid="UnitsNet.Power.Femtowatts">
+  Femtowatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Femtowatt">Femtowatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Femtowatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_GigajoulesPerHour_" data-uid="UnitsNet.Power.GigajoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_GigajoulesPerHour" data-uid="UnitsNet.Power.GigajoulesPerHour">GigajoulesPerHour</h4>
+
+  <h3 id="UnitsNet_Power_GigajoulesPerHour" data-uid="UnitsNet.Power.GigajoulesPerHour">
+  GigajoulesPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_GigajoulePerHour">GigajoulePerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double GigajoulesPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Gigawatts_" data-uid="UnitsNet.Power.Gigawatts*"></a>
-  <h4 id="UnitsNet_Power_Gigawatts" data-uid="UnitsNet.Power.Gigawatts">Gigawatts</h4>
+
+  <h3 id="UnitsNet_Power_Gigawatts" data-uid="UnitsNet.Power.Gigawatts">
+  Gigawatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Gigawatt">Gigawatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Gigawatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_HydraulicHorsepower_" data-uid="UnitsNet.Power.HydraulicHorsepower*"></a>
-  <h4 id="UnitsNet_Power_HydraulicHorsepower" data-uid="UnitsNet.Power.HydraulicHorsepower">HydraulicHorsepower</h4>
+
+  <h3 id="UnitsNet_Power_HydraulicHorsepower" data-uid="UnitsNet.Power.HydraulicHorsepower">
+  HydraulicHorsepower
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_HydraulicHorsepower">HydraulicHorsepower</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double HydraulicHorsepower { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_JoulesPerHour_" data-uid="UnitsNet.Power.JoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_JoulesPerHour" data-uid="UnitsNet.Power.JoulesPerHour">JoulesPerHour</h4>
+
+  <h3 id="UnitsNet_Power_JoulesPerHour" data-uid="UnitsNet.Power.JoulesPerHour">
+  JoulesPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_JoulePerHour">JoulePerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double JoulesPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_KilobritishThermalUnitsPerHour_" data-uid="UnitsNet.Power.KilobritishThermalUnitsPerHour*"></a>
-  <h4 id="UnitsNet_Power_KilobritishThermalUnitsPerHour" data-uid="UnitsNet.Power.KilobritishThermalUnitsPerHour">KilobritishThermalUnitsPerHour</h4>
+
+  <h3 id="UnitsNet_Power_KilobritishThermalUnitsPerHour" data-uid="UnitsNet.Power.KilobritishThermalUnitsPerHour">
+  KilobritishThermalUnitsPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_KilobritishThermalUnitPerHour">KilobritishThermalUnitPerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double KilobritishThermalUnitsPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_KilojoulesPerHour_" data-uid="UnitsNet.Power.KilojoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_KilojoulesPerHour" data-uid="UnitsNet.Power.KilojoulesPerHour">KilojoulesPerHour</h4>
+
+  <h3 id="UnitsNet_Power_KilojoulesPerHour" data-uid="UnitsNet.Power.KilojoulesPerHour">
+  KilojoulesPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_KilojoulePerHour">KilojoulePerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double KilojoulesPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Kilowatts_" data-uid="UnitsNet.Power.Kilowatts*"></a>
-  <h4 id="UnitsNet_Power_Kilowatts" data-uid="UnitsNet.Power.Kilowatts">Kilowatts</h4>
+
+  <h3 id="UnitsNet_Power_Kilowatts" data-uid="UnitsNet.Power.Kilowatts">
+  Kilowatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Kilowatt">Kilowatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Kilowatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_MaxValue_" data-uid="UnitsNet.Power.MaxValue*"></a>
-  <h4 id="UnitsNet_Power_MaxValue" data-uid="UnitsNet.Power.MaxValue">MaxValue</h4>
+
+  <h3 id="UnitsNet_Power_MaxValue" data-uid="UnitsNet.Power.MaxValue">
+  MaxValue
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Represents the largest possible value of Duration</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power MaxValue { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_MechanicalHorsepower_" data-uid="UnitsNet.Power.MechanicalHorsepower*"></a>
-  <h4 id="UnitsNet_Power_MechanicalHorsepower" data-uid="UnitsNet.Power.MechanicalHorsepower">MechanicalHorsepower</h4>
+
+  <h3 id="UnitsNet_Power_MechanicalHorsepower" data-uid="UnitsNet.Power.MechanicalHorsepower">
+  MechanicalHorsepower
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MechanicalHorsepower">MechanicalHorsepower</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double MechanicalHorsepower { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_MegabritishThermalUnitsPerHour_" data-uid="UnitsNet.Power.MegabritishThermalUnitsPerHour*"></a>
-  <h4 id="UnitsNet_Power_MegabritishThermalUnitsPerHour" data-uid="UnitsNet.Power.MegabritishThermalUnitsPerHour">MegabritishThermalUnitsPerHour</h4>
+
+  <h3 id="UnitsNet_Power_MegabritishThermalUnitsPerHour" data-uid="UnitsNet.Power.MegabritishThermalUnitsPerHour">
+  MegabritishThermalUnitsPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MegabritishThermalUnitPerHour">MegabritishThermalUnitPerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double MegabritishThermalUnitsPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_MegajoulesPerHour_" data-uid="UnitsNet.Power.MegajoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_MegajoulesPerHour" data-uid="UnitsNet.Power.MegajoulesPerHour">MegajoulesPerHour</h4>
+
+  <h3 id="UnitsNet_Power_MegajoulesPerHour" data-uid="UnitsNet.Power.MegajoulesPerHour">
+  MegajoulesPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MegajoulePerHour">MegajoulePerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double MegajoulesPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Megawatts_" data-uid="UnitsNet.Power.Megawatts*"></a>
-  <h4 id="UnitsNet_Power_Megawatts" data-uid="UnitsNet.Power.Megawatts">Megawatts</h4>
+
+  <h3 id="UnitsNet_Power_Megawatts" data-uid="UnitsNet.Power.Megawatts">
+  Megawatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Megawatt">Megawatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Megawatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_MetricHorsepower_" data-uid="UnitsNet.Power.MetricHorsepower*"></a>
-  <h4 id="UnitsNet_Power_MetricHorsepower" data-uid="UnitsNet.Power.MetricHorsepower">MetricHorsepower</h4>
+
+  <h3 id="UnitsNet_Power_MetricHorsepower" data-uid="UnitsNet.Power.MetricHorsepower">
+  MetricHorsepower
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MetricHorsepower">MetricHorsepower</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double MetricHorsepower { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Microwatts_" data-uid="UnitsNet.Power.Microwatts*"></a>
-  <h4 id="UnitsNet_Power_Microwatts" data-uid="UnitsNet.Power.Microwatts">Microwatts</h4>
+
+  <h3 id="UnitsNet_Power_Microwatts" data-uid="UnitsNet.Power.Microwatts">
+  Microwatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Microwatt">Microwatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Microwatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_MillijoulesPerHour_" data-uid="UnitsNet.Power.MillijoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_MillijoulesPerHour" data-uid="UnitsNet.Power.MillijoulesPerHour">MillijoulesPerHour</h4>
+
+  <h3 id="UnitsNet_Power_MillijoulesPerHour" data-uid="UnitsNet.Power.MillijoulesPerHour">
+  MillijoulesPerHour
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MillijoulePerHour">MillijoulePerHour</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double MillijoulesPerHour { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Milliwatts_" data-uid="UnitsNet.Power.Milliwatts*"></a>
-  <h4 id="UnitsNet_Power_Milliwatts" data-uid="UnitsNet.Power.Milliwatts">Milliwatts</h4>
+
+  <h3 id="UnitsNet_Power_Milliwatts" data-uid="UnitsNet.Power.Milliwatts">
+  Milliwatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Milliwatt">Milliwatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Milliwatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_MinValue_" data-uid="UnitsNet.Power.MinValue*"></a>
-  <h4 id="UnitsNet_Power_MinValue" data-uid="UnitsNet.Power.MinValue">MinValue</h4>
+
+  <h3 id="UnitsNet_Power_MinValue" data-uid="UnitsNet.Power.MinValue">
+  MinValue
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Represents the smallest possible value of Duration</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power MinValue { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Nanowatts_" data-uid="UnitsNet.Power.Nanowatts*"></a>
-  <h4 id="UnitsNet_Power_Nanowatts" data-uid="UnitsNet.Power.Nanowatts">Nanowatts</h4>
+
+  <h3 id="UnitsNet_Power_Nanowatts" data-uid="UnitsNet.Power.Nanowatts">
+  Nanowatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Nanowatt">Nanowatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Nanowatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Petawatts_" data-uid="UnitsNet.Power.Petawatts*"></a>
-  <h4 id="UnitsNet_Power_Petawatts" data-uid="UnitsNet.Power.Petawatts">Petawatts</h4>
+
+  <h3 id="UnitsNet_Power_Petawatts" data-uid="UnitsNet.Power.Petawatts">
+  Petawatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Petawatt">Petawatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Petawatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Picowatts_" data-uid="UnitsNet.Power.Picowatts*"></a>
-  <h4 id="UnitsNet_Power_Picowatts" data-uid="UnitsNet.Power.Picowatts">Picowatts</h4>
+
+  <h3 id="UnitsNet_Power_Picowatts" data-uid="UnitsNet.Power.Picowatts">
+  Picowatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Picowatt">Picowatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Picowatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Terawatts_" data-uid="UnitsNet.Power.Terawatts*"></a>
-  <h4 id="UnitsNet_Power_Terawatts" data-uid="UnitsNet.Power.Terawatts">Terawatts</h4>
+
+  <h3 id="UnitsNet_Power_Terawatts" data-uid="UnitsNet.Power.Terawatts">
+  Terawatts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Terawatt">Terawatt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Terawatts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Unit_" data-uid="UnitsNet.Power.Unit*"></a>
-  <h4 id="UnitsNet_Power_Unit" data-uid="UnitsNet.Power.Unit">Unit</h4>
+
+  <h3 id="UnitsNet_Power_Unit" data-uid="UnitsNet.Power.Unit">
+  Unit
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PowerUnit Unit { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Value_" data-uid="UnitsNet.Power.Value*"></a>
-  <h4 id="UnitsNet_Power_Value" data-uid="UnitsNet.Power.Value">Value</h4>
+
+  <h3 id="UnitsNet_Power_Value" data-uid="UnitsNet.Power.Value">
+  Value
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The numeric value this quantity was constructed with.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Value { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Watts_" data-uid="UnitsNet.Power.Watts*"></a>
-  <h4 id="UnitsNet_Power_Watts" data-uid="UnitsNet.Power.Watts">Watts</h4>
+
+  <h3 id="UnitsNet_Power_Watts" data-uid="UnitsNet.Power.Watts">
+  Watts
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="../api/System.Double.html">double</a> value of this quantity converted into <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Watt">Watt</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double Watts { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_Zero_" data-uid="UnitsNet.Power.Zero*"></a>
-  <h4 id="UnitsNet_Power_Zero" data-uid="UnitsNet.Power.Zero">Zero</h4>
+
+  <h3 id="UnitsNet_Power_Zero" data-uid="UnitsNet.Power.Zero">
+  Zero
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets an instance of this quantity with a value of 0 in the base unit Second.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power Zero { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="UnitsNet_Power_As_" data-uid="UnitsNet.Power.As*"></a>
-  <h4 id="UnitsNet_Power_As_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.As(UnitsNet.Units.PowerUnit)">As(PowerUnit)</h4>
+
+  <h3 id="UnitsNet_Power_As_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.As(UnitsNet.Units.PowerUnit)">
+  As(PowerUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Convert to the unit representation <code class="paramref">unit</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double As(PowerUnit unit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></td>
-        <td><span class="parametername">unit</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><p>Value converted to the specified unit.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>Value converted to the specified unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_From_" data-uid="UnitsNet.Power.From*"></a>
-  <h4 id="UnitsNet_Power_From_System_Double_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.From(System.Double,UnitsNet.Units.PowerUnit)">From(double, PowerUnit)</h4>
+
+  <h3 id="UnitsNet_Power_From_System_Double_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.From(System.Double,UnitsNet.Units.PowerUnit)">
+  From(double, PowerUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Dynamically convert from value and unit enum <a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a> to <a class="xref" href="UnitsNet.Power.html">Power</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power From(double value, PowerUnit fromUnit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>Value to convert from.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></td>
-        <td><span class="parametername">fromUnit</span></td>
-        <td><p>Unit to convert from.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td><p>Power unit value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>Value to convert from.</p>
+</dd>
+    <dt><code>fromUnit</code> <a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></dt>
+    <dd><p>Unit to convert from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd><p>Power unit value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="UnitsNet_Power_FromBoilerHorsepower_" data-uid="UnitsNet.Power.FromBoilerHorsepower*"></a>
-  <h4 id="UnitsNet_Power_FromBoilerHorsepower_System_Double_" data-uid="UnitsNet.Power.FromBoilerHorsepower(System.Double)">FromBoilerHorsepower(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromBoilerHorsepower_System_Double_" data-uid="UnitsNet.Power.FromBoilerHorsepower(System.Double)">
+  FromBoilerHorsepower(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_BoilerHorsepower">BoilerHorsepower</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromBoilerHorsepower(double boilerhorsepower)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">boilerhorsepower</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>boilerhorsepower</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromBritishThermalUnitsPerHour_" data-uid="UnitsNet.Power.FromBritishThermalUnitsPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromBritishThermalUnitsPerHour_System_Double_" data-uid="UnitsNet.Power.FromBritishThermalUnitsPerHour(System.Double)">FromBritishThermalUnitsPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromBritishThermalUnitsPerHour_System_Double_" data-uid="UnitsNet.Power.FromBritishThermalUnitsPerHour(System.Double)">
+  FromBritishThermalUnitsPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_BritishThermalUnitPerHour">BritishThermalUnitPerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromBritishThermalUnitsPerHour(double britishthermalunitsperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">britishthermalunitsperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>britishthermalunitsperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromDecawatts_" data-uid="UnitsNet.Power.FromDecawatts*"></a>
-  <h4 id="UnitsNet_Power_FromDecawatts_System_Double_" data-uid="UnitsNet.Power.FromDecawatts(System.Double)">FromDecawatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromDecawatts_System_Double_" data-uid="UnitsNet.Power.FromDecawatts(System.Double)">
+  FromDecawatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Decawatt">Decawatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromDecawatts(double decawatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">decawatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>decawatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromDeciwatts_" data-uid="UnitsNet.Power.FromDeciwatts*"></a>
-  <h4 id="UnitsNet_Power_FromDeciwatts_System_Double_" data-uid="UnitsNet.Power.FromDeciwatts(System.Double)">FromDeciwatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromDeciwatts_System_Double_" data-uid="UnitsNet.Power.FromDeciwatts(System.Double)">
+  FromDeciwatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Deciwatt">Deciwatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromDeciwatts(double deciwatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">deciwatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deciwatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromElectricalHorsepower_" data-uid="UnitsNet.Power.FromElectricalHorsepower*"></a>
-  <h4 id="UnitsNet_Power_FromElectricalHorsepower_System_Double_" data-uid="UnitsNet.Power.FromElectricalHorsepower(System.Double)">FromElectricalHorsepower(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromElectricalHorsepower_System_Double_" data-uid="UnitsNet.Power.FromElectricalHorsepower(System.Double)">
+  FromElectricalHorsepower(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_ElectricalHorsepower">ElectricalHorsepower</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromElectricalHorsepower(double electricalhorsepower)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">electricalhorsepower</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>electricalhorsepower</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromFemtowatts_" data-uid="UnitsNet.Power.FromFemtowatts*"></a>
-  <h4 id="UnitsNet_Power_FromFemtowatts_System_Double_" data-uid="UnitsNet.Power.FromFemtowatts(System.Double)">FromFemtowatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromFemtowatts_System_Double_" data-uid="UnitsNet.Power.FromFemtowatts(System.Double)">
+  FromFemtowatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Femtowatt">Femtowatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromFemtowatts(double femtowatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">femtowatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>femtowatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromGigajoulesPerHour_" data-uid="UnitsNet.Power.FromGigajoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromGigajoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromGigajoulesPerHour(System.Double)">FromGigajoulesPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromGigajoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromGigajoulesPerHour(System.Double)">
+  FromGigajoulesPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_GigajoulePerHour">GigajoulePerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromGigajoulesPerHour(double gigajoulesperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">gigajoulesperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gigajoulesperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromGigawatts_" data-uid="UnitsNet.Power.FromGigawatts*"></a>
-  <h4 id="UnitsNet_Power_FromGigawatts_System_Double_" data-uid="UnitsNet.Power.FromGigawatts(System.Double)">FromGigawatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromGigawatts_System_Double_" data-uid="UnitsNet.Power.FromGigawatts(System.Double)">
+  FromGigawatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Gigawatt">Gigawatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromGigawatts(double gigawatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">gigawatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gigawatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromHydraulicHorsepower_" data-uid="UnitsNet.Power.FromHydraulicHorsepower*"></a>
-  <h4 id="UnitsNet_Power_FromHydraulicHorsepower_System_Double_" data-uid="UnitsNet.Power.FromHydraulicHorsepower(System.Double)">FromHydraulicHorsepower(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromHydraulicHorsepower_System_Double_" data-uid="UnitsNet.Power.FromHydraulicHorsepower(System.Double)">
+  FromHydraulicHorsepower(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_HydraulicHorsepower">HydraulicHorsepower</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromHydraulicHorsepower(double hydraulichorsepower)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">hydraulichorsepower</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hydraulichorsepower</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromJoulesPerHour_" data-uid="UnitsNet.Power.FromJoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromJoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromJoulesPerHour(System.Double)">FromJoulesPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromJoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromJoulesPerHour(System.Double)">
+  FromJoulesPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_JoulePerHour">JoulePerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromJoulesPerHour(double joulesperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">joulesperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joulesperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromKilobritishThermalUnitsPerHour_" data-uid="UnitsNet.Power.FromKilobritishThermalUnitsPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromKilobritishThermalUnitsPerHour_System_Double_" data-uid="UnitsNet.Power.FromKilobritishThermalUnitsPerHour(System.Double)">FromKilobritishThermalUnitsPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromKilobritishThermalUnitsPerHour_System_Double_" data-uid="UnitsNet.Power.FromKilobritishThermalUnitsPerHour(System.Double)">
+  FromKilobritishThermalUnitsPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_KilobritishThermalUnitPerHour">KilobritishThermalUnitPerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromKilobritishThermalUnitsPerHour(double kilobritishthermalunitsperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">kilobritishthermalunitsperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kilobritishthermalunitsperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromKilojoulesPerHour_" data-uid="UnitsNet.Power.FromKilojoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromKilojoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromKilojoulesPerHour(System.Double)">FromKilojoulesPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromKilojoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromKilojoulesPerHour(System.Double)">
+  FromKilojoulesPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_KilojoulePerHour">KilojoulePerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromKilojoulesPerHour(double kilojoulesperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">kilojoulesperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kilojoulesperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromKilowatts_" data-uid="UnitsNet.Power.FromKilowatts*"></a>
-  <h4 id="UnitsNet_Power_FromKilowatts_System_Double_" data-uid="UnitsNet.Power.FromKilowatts(System.Double)">FromKilowatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromKilowatts_System_Double_" data-uid="UnitsNet.Power.FromKilowatts(System.Double)">
+  FromKilowatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Kilowatt">Kilowatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromKilowatts(double kilowatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">kilowatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kilowatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMechanicalHorsepower_" data-uid="UnitsNet.Power.FromMechanicalHorsepower*"></a>
-  <h4 id="UnitsNet_Power_FromMechanicalHorsepower_System_Double_" data-uid="UnitsNet.Power.FromMechanicalHorsepower(System.Double)">FromMechanicalHorsepower(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMechanicalHorsepower_System_Double_" data-uid="UnitsNet.Power.FromMechanicalHorsepower(System.Double)">
+  FromMechanicalHorsepower(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MechanicalHorsepower">MechanicalHorsepower</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMechanicalHorsepower(double mechanicalhorsepower)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">mechanicalhorsepower</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mechanicalhorsepower</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMegabritishThermalUnitsPerHour_" data-uid="UnitsNet.Power.FromMegabritishThermalUnitsPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromMegabritishThermalUnitsPerHour_System_Double_" data-uid="UnitsNet.Power.FromMegabritishThermalUnitsPerHour(System.Double)">FromMegabritishThermalUnitsPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMegabritishThermalUnitsPerHour_System_Double_" data-uid="UnitsNet.Power.FromMegabritishThermalUnitsPerHour(System.Double)">
+  FromMegabritishThermalUnitsPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MegabritishThermalUnitPerHour">MegabritishThermalUnitPerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMegabritishThermalUnitsPerHour(double megabritishthermalunitsperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">megabritishthermalunitsperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>megabritishthermalunitsperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMegajoulesPerHour_" data-uid="UnitsNet.Power.FromMegajoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromMegajoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromMegajoulesPerHour(System.Double)">FromMegajoulesPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMegajoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromMegajoulesPerHour(System.Double)">
+  FromMegajoulesPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MegajoulePerHour">MegajoulePerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMegajoulesPerHour(double megajoulesperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">megajoulesperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>megajoulesperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMegawatts_" data-uid="UnitsNet.Power.FromMegawatts*"></a>
-  <h4 id="UnitsNet_Power_FromMegawatts_System_Double_" data-uid="UnitsNet.Power.FromMegawatts(System.Double)">FromMegawatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMegawatts_System_Double_" data-uid="UnitsNet.Power.FromMegawatts(System.Double)">
+  FromMegawatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Megawatt">Megawatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMegawatts(double megawatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">megawatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>megawatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMetricHorsepower_" data-uid="UnitsNet.Power.FromMetricHorsepower*"></a>
-  <h4 id="UnitsNet_Power_FromMetricHorsepower_System_Double_" data-uid="UnitsNet.Power.FromMetricHorsepower(System.Double)">FromMetricHorsepower(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMetricHorsepower_System_Double_" data-uid="UnitsNet.Power.FromMetricHorsepower(System.Double)">
+  FromMetricHorsepower(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MetricHorsepower">MetricHorsepower</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMetricHorsepower(double metrichorsepower)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">metrichorsepower</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>metrichorsepower</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMicrowatts_" data-uid="UnitsNet.Power.FromMicrowatts*"></a>
-  <h4 id="UnitsNet_Power_FromMicrowatts_System_Double_" data-uid="UnitsNet.Power.FromMicrowatts(System.Double)">FromMicrowatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMicrowatts_System_Double_" data-uid="UnitsNet.Power.FromMicrowatts(System.Double)">
+  FromMicrowatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Microwatt">Microwatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMicrowatts(double microwatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">microwatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>microwatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMillijoulesPerHour_" data-uid="UnitsNet.Power.FromMillijoulesPerHour*"></a>
-  <h4 id="UnitsNet_Power_FromMillijoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromMillijoulesPerHour(System.Double)">FromMillijoulesPerHour(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMillijoulesPerHour_System_Double_" data-uid="UnitsNet.Power.FromMillijoulesPerHour(System.Double)">
+  FromMillijoulesPerHour(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_MillijoulePerHour">MillijoulePerHour</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMillijoulesPerHour(double millijoulesperhour)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">millijoulesperhour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>millijoulesperhour</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromMilliwatts_" data-uid="UnitsNet.Power.FromMilliwatts*"></a>
-  <h4 id="UnitsNet_Power_FromMilliwatts_System_Double_" data-uid="UnitsNet.Power.FromMilliwatts(System.Double)">FromMilliwatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromMilliwatts_System_Double_" data-uid="UnitsNet.Power.FromMilliwatts(System.Double)">
+  FromMilliwatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Milliwatt">Milliwatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromMilliwatts(double milliwatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">milliwatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>milliwatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromNanowatts_" data-uid="UnitsNet.Power.FromNanowatts*"></a>
-  <h4 id="UnitsNet_Power_FromNanowatts_System_Double_" data-uid="UnitsNet.Power.FromNanowatts(System.Double)">FromNanowatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromNanowatts_System_Double_" data-uid="UnitsNet.Power.FromNanowatts(System.Double)">
+  FromNanowatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Nanowatt">Nanowatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromNanowatts(double nanowatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">nanowatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nanowatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromPetawatts_" data-uid="UnitsNet.Power.FromPetawatts*"></a>
-  <h4 id="UnitsNet_Power_FromPetawatts_System_Double_" data-uid="UnitsNet.Power.FromPetawatts(System.Double)">FromPetawatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromPetawatts_System_Double_" data-uid="UnitsNet.Power.FromPetawatts(System.Double)">
+  FromPetawatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Petawatt">Petawatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromPetawatts(double petawatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">petawatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>petawatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromPicowatts_" data-uid="UnitsNet.Power.FromPicowatts*"></a>
-  <h4 id="UnitsNet_Power_FromPicowatts_System_Double_" data-uid="UnitsNet.Power.FromPicowatts(System.Double)">FromPicowatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromPicowatts_System_Double_" data-uid="UnitsNet.Power.FromPicowatts(System.Double)">
+  FromPicowatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Picowatt">Picowatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromPicowatts(double picowatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">picowatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>picowatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromTerawatts_" data-uid="UnitsNet.Power.FromTerawatts*"></a>
-  <h4 id="UnitsNet_Power_FromTerawatts_System_Double_" data-uid="UnitsNet.Power.FromTerawatts(System.Double)">FromTerawatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromTerawatts_System_Double_" data-uid="UnitsNet.Power.FromTerawatts(System.Double)">
+  FromTerawatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Terawatt">Terawatt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromTerawatts(double terawatts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">terawatts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terawatts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_FromWatts_" data-uid="UnitsNet.Power.FromWatts*"></a>
-  <h4 id="UnitsNet_Power_FromWatts_System_Double_" data-uid="UnitsNet.Power.FromWatts(System.Double)">FromWatts(double)</h4>
+
+  <h3 id="UnitsNet_Power_FromWatts_System_Double_" data-uid="UnitsNet.Power.FromWatts(System.Double)">
+  FromWatts(double)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="UnitsNet.Power.html">Power</a> from <a class="xref" href="UnitsNet.Units.PowerUnit.html#UnitsNet_Units_PowerUnit_Watt">Watt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Power FromWatts(double watts)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Double.html">double</a></td>
-        <td><span class="parametername">watts</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>If value is NaN or Infinity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>watts</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If value is NaN or Infinity.</p>
+</dd>
+  </dl>
+
 
 
   <a id="UnitsNet_Power_ToUnit_" data-uid="UnitsNet.Power.ToUnit*"></a>
-  <h4 id="UnitsNet_Power_ToUnit_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.ToUnit(UnitsNet.Units.PowerUnit)">ToUnit(PowerUnit)</h4>
+
+  <h3 id="UnitsNet_Power_ToUnit_UnitsNet_Units_PowerUnit_" data-uid="UnitsNet.Power.ToUnit(UnitsNet.Units.PowerUnit)">
+  ToUnit(PowerUnit)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Converts this Duration to another Duration with the unit representation <code class="paramref">unit</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Power ToUnit(PowerUnit unit)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></td>
-        <td><span class="parametername">unit</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="UnitsNet.Power.html">Power</a></td>
-        <td><p>A Duration with the specified unit.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unit</code> <a class="xref" href="UnitsNet.Units.PowerUnit.html">PowerUnit</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.Power.html">Power</a></dt>
+    <dd><p>A Duration with the specified unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

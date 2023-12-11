@@ -1,114 +1,137 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class Hashtable
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Hashtable
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="System.Collections.Hashtable">
+
+        <article data-uid="System.Collections.Hashtable">
 
 
 
-  <h1 id="System_Collections_Hashtable" data-uid="System.Collections.Hashtable" class="text-break">Class Hashtable
-</h1>
-  <div class="markdown level0 summary"><p>Initializes a new instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class.</p>
+  <h1 id="System_Collections_Hashtable" data-uid="System.Collections.Hashtable" class="text-break">
+    Class Hashtable
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="System.html">System</a>.<a class="xref" href="System.Collections.html">Collections</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>nanoFramework.System.Collections.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Initializes a new instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">Hashtable</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Hashtable : ICloneable, IDictionary, ICollection, IEnumerable</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="System.ICloneable.html">ICloneable</a></div>
-    <div><a class="xref" href="System.Collections.IDictionary.html">IDictionary</a></div>
-    <div><a class="xref" href="System.Collections.ICollection.html">ICollection</a></div>
-    <div><a class="xref" href="System.Collections.IEnumerable.html">IEnumerable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">Hashtable</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.ICloneable.html">ICloneable</a></div>
+      <div><a class="xref" href="System.Collections.IDictionary.html">IDictionary</a></div>
+      <div><a class="xref" href="System.Collections.ICollection.html">ICollection</a></div>
+      <div><a class="xref" href="System.Collections.IEnumerable.html">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
     </div>
@@ -130,30 +153,78 @@
     <div>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="System.html">System</a>.<a class="xref" href="System.Collections.html">Collections</a></h6>
-  <h6><strong>Assembly</strong>: nanoFramework.System.Collections.dll</h6>
-  <h5 id="System_Collections_Hashtable_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Hashtable : ICloneable, IDictionary, ICollection, IEnumerable</code></pre>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h5 id="System_Collections_Hashtable_remarks"><strong>Remarks</strong></h5>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="System_Collections_Hashtable_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>The implementation for .NET nanoFramework, unlike the full .NET, doesn't support collisions so every key has to be truly unique through it's <a class="xref" href="System.Object.html#System_Object_GetHashCode">GetHashCode()</a>.</p>
 </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
-  <h4 id="System_Collections_Hashtable__ctor" data-uid="System.Collections.Hashtable.#ctor">Hashtable()</h4>
+
+  <h3 id="System_Collections_Hashtable__ctor" data-uid="System.Collections.Hashtable.#ctor">
+  Hashtable()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the default initial capacity, load factor, hash code provider and comparer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Hashtable()</code></pre>
   </div>
-  <h5 id="System_Collections_Hashtable__ctor_remarks">Remarks</h5>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable__ctor_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 A hash table's capacity is used to calculate the optimal number of hash table buckets based on the load factor. Capacity is automatically increased as required.
 </p>
@@ -170,34 +241,38 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
 </div>
 
 
+
+
   <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
-  <h4 id="System_Collections_Hashtable__ctor_System_Int32_" data-uid="System.Collections.Hashtable.#ctor(System.Int32)">Hashtable(int)</h4>
+
+  <h3 id="System_Collections_Hashtable__ctor_System_Int32_" data-uid="System.Collections.Hashtable.#ctor(System.Int32)">
+  Hashtable(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the specified initial capacity and load factor, and the default hash code provider and comparer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Hashtable(int capacity)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">capacity</span></td>
-        <td><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Collections_Hashtable__ctor_System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capacity</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable__ctor_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Specifying the initial capacity eliminates the need to perform a number of resizing operations while adding elements to the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. Capacity is automatically increased as required based on the load factor.
 </p>
@@ -212,59 +287,50 @@ The hash code provider dispenses hash codes for keys in the <a class="xref" href
 </p>
 The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key's.
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">capacity</code> is causing an overflow.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">capacity</code> is causing an overflow.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Collections_Hashtable__ctor_" data-uid="System.Collections.Hashtable.#ctor*"></a>
-  <h4 id="System_Collections_Hashtable__ctor_System_Int32_System_Single_" data-uid="System.Collections.Hashtable.#ctor(System.Int32,System.Single)">Hashtable(int, float)</h4>
+
+  <h3 id="System_Collections_Hashtable__ctor_System_Int32_System_Single_" data-uid="System.Collections.Hashtable.#ctor(System.Int32,System.Single)">
+  Hashtable(int, float)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new, empty instance of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> class using the specified initial capacity and load factor, and the default hash code provider and comparer.
 load factor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Hashtable(int capacity, float loadFactor)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">capacity</span></td>
-        <td><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Single.html">float</a></td>
-        <td><span class="parametername">loadFactor</span></td>
-        <td><p>A number in the range from 0.1 through 1.0 that is multiplied by the default value which provides the best performance. The result is the maximum ratio of elements to buckets.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Collections_Hashtable__ctor_System_Int32_System_Single__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capacity</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The approximate number of elements that the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object can initially contain.</p>
+</dd>
+    <dt><code>loadFactor</code> <a class="xref" href="System.Single.html">float</a></dt>
+    <dd><p>A number in the range from 0.1 through 1.0 that is multiplied by the default value which provides the best performance. The result is the maximum ratio of elements to buckets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable__ctor_System_Int32_System_Single__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Specifying the initial capacity eliminates the need to perform a number of resizing operations while adding elements to the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> object. Capacity is automatically increased as required based on the load factor.
 </p>
@@ -279,18 +345,11 @@ The hash code provider dispenses hash codes for keys in the <a class="xref" href
 </p>
 The .NET nanoFramework implementation uses the <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> to perform comparisons of the key's.
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>
 <code class="paramref">capacity</code> is less than zero.
 </p>
 <p>
@@ -305,351 +364,397 @@ The .NET nanoFramework implementation uses the <a class="xref" href="System.Obje
 <p>
 <code class="paramref">loadFactor</code> is greater than 1.0.
 </p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p><code class="paramref">capacity</code> is causing an overflow.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">capacity</code> is causing an overflow.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="System_Collections_Hashtable_Count_" data-uid="System.Collections.Hashtable.Count*"></a>
-  <h4 id="System_Collections_Hashtable_Count" data-uid="System.Collections.Hashtable.Count">Count</h4>
+
+  <h3 id="System_Collections_Hashtable_Count" data-uid="System.Collections.Hashtable.Count">
+  Count
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the number of elements contained in the ICollection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><p>The number of elements contained in the ICollection.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The number of elements contained in the ICollection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Collections_Hashtable_IsFixedSize_" data-uid="System.Collections.Hashtable.IsFixedSize*"></a>
-  <h4 id="System_Collections_Hashtable_IsFixedSize" data-uid="System.Collections.Hashtable.IsFixedSize">IsFixedSize</h4>
+
+  <h3 id="System_Collections_Hashtable_IsFixedSize" data-uid="System.Collections.Hashtable.IsFixedSize">
+  IsFixedSize
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the IDictionary object has a fixed size.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsFixedSize { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>true if the IDictionary object has a fixed size; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>true if the IDictionary object has a fixed size; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Collections_Hashtable_IsReadOnly_" data-uid="System.Collections.Hashtable.IsReadOnly*"></a>
-  <h4 id="System_Collections_Hashtable_IsReadOnly" data-uid="System.Collections.Hashtable.IsReadOnly">IsReadOnly</h4>
+
+  <h3 id="System_Collections_Hashtable_IsReadOnly" data-uid="System.Collections.Hashtable.IsReadOnly">
+  IsReadOnly
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether the IDictionary object is read-only.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>true if the IDictionary object is read-only; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>true if the IDictionary object is read-only; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Collections_Hashtable_IsSynchronized_" data-uid="System.Collections.Hashtable.IsSynchronized*"></a>
-  <h4 id="System_Collections_Hashtable_IsSynchronized" data-uid="System.Collections.Hashtable.IsSynchronized">IsSynchronized</h4>
+
+  <h3 id="System_Collections_Hashtable_IsSynchronized" data-uid="System.Collections.Hashtable.IsSynchronized">
+  IsSynchronized
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether access to the ICollection is synchronized (thread safe).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsSynchronized { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p>true if access to the ICollection is synchronized (thread safe); otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>true if access to the ICollection is synchronized (thread safe); otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Collections_Hashtable_Item_" data-uid="System.Collections.Hashtable.Item*"></a>
-  <h4 id="System_Collections_Hashtable_Item_System_Object_" data-uid="System.Collections.Hashtable.Item(System.Object)">this[object]</h4>
+
+  <h3 id="System_Collections_Hashtable_Item_System_Object_" data-uid="System.Collections.Hashtable.Item(System.Object)">
+  this[object]
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the element with the specified key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public object this[object key] { get; set; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><span class="parametername">key</span></td>
-        <td><p>The key of the element to get or set.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><p>The element with the specified key, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the key does not exist.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>The key of the element to get or set.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>The element with the specified key, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the key does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Collections_Hashtable_Keys_" data-uid="System.Collections.Hashtable.Keys*"></a>
-  <h4 id="System_Collections_Hashtable_Keys" data-uid="System.Collections.Hashtable.Keys">Keys</h4>
+
+  <h3 id="System_Collections_Hashtable_Keys" data-uid="System.Collections.Hashtable.Keys">
+  Keys
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets an ICollection object containing the keys of the IDictionary object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ICollection Keys { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Collections.ICollection.html">ICollection</a></td>
-        <td><p>An ICollection object containing the keys of the IDictionary object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Collections.ICollection.html">ICollection</a></dt>
+    <dd><p>An ICollection object containing the keys of the IDictionary object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Collections_Hashtable_SyncRoot_" data-uid="System.Collections.Hashtable.SyncRoot*"></a>
-  <h4 id="System_Collections_Hashtable_SyncRoot" data-uid="System.Collections.Hashtable.SyncRoot">SyncRoot</h4>
+
+  <h3 id="System_Collections_Hashtable_SyncRoot" data-uid="System.Collections.Hashtable.SyncRoot">
+  SyncRoot
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets an object that can be used to synchronize access to the ICollection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public object SyncRoot { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><p>An object that can be used to synchronize access to the ICollection.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>An object that can be used to synchronize access to the ICollection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Collections_Hashtable_Values_" data-uid="System.Collections.Hashtable.Values*"></a>
-  <h4 id="System_Collections_Hashtable_Values" data-uid="System.Collections.Hashtable.Values">Values</h4>
+
+  <h3 id="System_Collections_Hashtable_Values" data-uid="System.Collections.Hashtable.Values">
+  Values
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets an ICollection object containing the values in the IDictionary object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ICollection Values { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Collections.ICollection.html">ICollection</a></td>
-        <td><p>An ICollection object containing the values in the IDictionary object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Collections.ICollection.html">ICollection</a></dt>
+    <dd><p>An ICollection object containing the values in the IDictionary object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="System_Collections_Hashtable_Add_" data-uid="System.Collections.Hashtable.Add*"></a>
-  <h4 id="System_Collections_Hashtable_Add_System_Object_System_Object_" data-uid="System.Collections.Hashtable.Add(System.Object,System.Object)">Add(object, object)</h4>
+
+  <h3 id="System_Collections_Hashtable_Add_System_Object_System_Object_" data-uid="System.Collections.Hashtable.Add(System.Object,System.Object)">
+  Add(object, object)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds an element with the specified key and value into the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Add(object key, object value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><span class="parametername">key</span></td>
-        <td><p>The key of the element to add.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The value of the element to add. The value can be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>An element with the same key already exists in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>The key of the element to add.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>The value of the element to add. The value can be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>An element with the same key already exists in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Collections_Hashtable_Clear_" data-uid="System.Collections.Hashtable.Clear*"></a>
-  <h4 id="System_Collections_Hashtable_Clear" data-uid="System.Collections.Hashtable.Clear">Clear()</h4>
+
+  <h3 id="System_Collections_Hashtable_Clear" data-uid="System.Collections.Hashtable.Clear">
+  Clear()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes all elements from the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
-  <h5 id="System_Collections_Hashtable_Clear_remarks">Remarks</h5>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable_Clear_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p><a class="xref" href="System.Collections.Hashtable.html#System_Collections_Hashtable_Count">Count</a> is set to zero, and references to other objects from elements of the collection are also released. The capacity remains unchanged.</p>
 </div>
 
 
+
+
   <a id="System_Collections_Hashtable_Clone_" data-uid="System.Collections.Hashtable.Clone*"></a>
-  <h4 id="System_Collections_Hashtable_Clone" data-uid="System.Collections.Hashtable.Clone">Clone()</h4>
+
+  <h3 id="System_Collections_Hashtable_Clone" data-uid="System.Collections.Hashtable.Clone">
+  Clone()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Creates a shallow copy of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public object Clone()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><p>A shallow copy of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Collections_Hashtable_Clone_remarks">Remarks</h5>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>A shallow copy of the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable_Clone_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 A shallow copy of a collection copies only the elements of the collection, whether they are reference types or value types, but it does not copy the objects that the references refer to. The references in the new collection point to the same objects that the references in the original collection point to.
 </p>
@@ -662,50 +767,44 @@ The <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> clone
 </div>
 
 
+
+
   <a id="System_Collections_Hashtable_Contains_" data-uid="System.Collections.Hashtable.Contains*"></a>
-  <h4 id="System_Collections_Hashtable_Contains_System_Object_" data-uid="System.Collections.Hashtable.Contains(System.Object)">Contains(object)</h4>
+
+  <h3 id="System_Collections_Hashtable_Contains_System_Object_" data-uid="System.Collections.Hashtable.Contains(System.Object)">
+  Contains(object)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Determines whether the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> contains a specific key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Contains(object key)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><span class="parametername">key</span></td>
-        <td><p>The key to locate in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> contains an element with the specified key; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Collections_Hashtable_Contains_System_Object__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>The key to locate in the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> contains an element with the specified key; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable_Contains_System_Object__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 <a class="xref" href="System.Collections.Hashtable.html#System_Collections_Hashtable_Contains_System_Object_">Contains(object)</a> implements <a class="xref" href="System.Collections.IDictionary.html#System_Collections_IDictionary_Contains_System_Object_">Contains(object)</a>.
 </p>
@@ -713,116 +812,99 @@ The <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> clone
 This method uses the collection's objects' <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">Equals(object)</a> method on item to determine whether item exists.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Collections_Hashtable_CopyTo_" data-uid="System.Collections.Hashtable.CopyTo*"></a>
-  <h4 id="System_Collections_Hashtable_CopyTo_System_Array_System_Int32_" data-uid="System.Collections.Hashtable.CopyTo(System.Array,System.Int32)">CopyTo(Array, int)</h4>
+
+  <h3 id="System_Collections_Hashtable_CopyTo_System_Array_System_Int32_" data-uid="System.Collections.Hashtable.CopyTo(System.Array,System.Int32)">
+  CopyTo(Array, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Copies the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> elements to a one-dimensional <a class="xref" href="System.Array.html">Array</a> instance at the specified index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CopyTo(Array array, int arrayIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Array.html">Array</a></td>
-        <td><span class="parametername">array</span></td>
-        <td><p>The one-dimensional <a class="xref" href="System.Array.html">Array</a> that is the destination of the <a class="xref" href="System.Collections.DictionaryEntry.html">DictionaryEntry</a> objects copied from <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>. The <a class="xref" href="System.Array.html">Array</a> must have zero-based indexing.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">arrayIndex</span></td>
-        <td><p>The zero-based index in array at which copying begins.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Collections_Hashtable_CopyTo_System_Array_System_Int32__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="System.Array.html">Array</a></dt>
+    <dd><p>The one-dimensional <a class="xref" href="System.Array.html">Array</a> that is the destination of the <a class="xref" href="System.Collections.DictionaryEntry.html">DictionaryEntry</a> objects copied from <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>. The <a class="xref" href="System.Array.html">Array</a> must have zero-based indexing.</p>
+</dd>
+    <dt><code>arrayIndex</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The zero-based index in array at which copying begins.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable_CopyTo_System_Array_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The elements are copied to the <a class="xref" href="System.Array.html">Array</a> in the same order in which the enumerator iterates through the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">array</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></td>
-        <td><p><code class="paramref">arrayIndex</code> is less than zero.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.ArgumentException.html">ArgumentException</a></td>
-        <td><p>The number of elements in the source <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> is greater than the available space from <code class="paramref">arrayIndex</code> to the end of the destination array.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">array</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">arrayIndex</code> is less than zero.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>The number of elements in the source <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a> is greater than the available space from <code class="paramref">arrayIndex</code> to the end of the destination array.</p>
+</dd>
+  </dl>
+
 
 
   <a id="System_Collections_Hashtable_GetEnumerator_" data-uid="System.Collections.Hashtable.GetEnumerator*"></a>
-  <h4 id="System_Collections_Hashtable_GetEnumerator" data-uid="System.Collections.Hashtable.GetEnumerator">GetEnumerator()</h4>
+
+  <h3 id="System_Collections_Hashtable_GetEnumerator" data-uid="System.Collections.Hashtable.GetEnumerator">
+  GetEnumerator()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns an <a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a> that iterates through the Hashtable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerator GetEnumerator()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a></td>
-        <td><p>An <a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a> for the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="System_Collections_Hashtable_GetEnumerator_remarks">Remarks</h5>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a></dt>
+    <dd><p>An <a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a> for the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Collections_Hashtable_GetEnumerator_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements#the-foreach-statement">foreach</a> statement of the C# language (for each in Visual Basic) hides the complexity of the enumerators. Therefore, using <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements#the-foreach-statement">foreach</a> is recommended, instead of directly manipulating the enumerator.
 </p>
@@ -847,127 +929,69 @@ The enumerator does not have exclusive access to the collection; therefore, enum
 </div>
 
 
+
+
   <a id="System_Collections_Hashtable_Remove_" data-uid="System.Collections.Hashtable.Remove*"></a>
-  <h4 id="System_Collections_Hashtable_Remove_System_Object_" data-uid="System.Collections.Hashtable.Remove(System.Object)">Remove(object)</h4>
+
+  <h3 id="System_Collections_Hashtable_Remove_System_Object_" data-uid="System.Collections.Hashtable.Remove(System.Object)">
+  Remove(object)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes the element with the specified key from the <a class="xref" href="System.Collections.Hashtable.html">Hashtable</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Remove(object key)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Object.html">object</a></td>
-        <td><span class="parametername">key</span></td>
-        <td><p>The key of the element to remove.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></td>
-        <td><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="System.ICloneable.html">ICloneable</a>
-  </div>
-  <div>
-      <a class="xref" href="System.Collections.IDictionary.html">IDictionary</a>
-  </div>
-  <div>
-      <a class="xref" href="System.Collections.ICollection.html">ICollection</a>
-  </div>
-  <div>
-      <a class="xref" href="System.Collections.IEnumerable.html">IEnumerable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>The key of the element to remove.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,1175 +1,1165 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class Mcp23xxx
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Mcp23xxx
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx">
+
+        <article data-uid="Iot.Device.Mcp23xxx.Mcp23xxx">
 
 
 
-  <h1 id="Iot_Device_Mcp23xxx_Mcp23xxx" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx" class="text-break">Class Mcp23xxx
-</h1>
-  <div class="markdown level0 summary"><p>Base class for Mcp23xxx GPIO expanders</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/System.Object.html">object</a></div>
-    <div class="level1"><a class="xref" href="System.Device.Gpio.GpioDriver.html">GpioDriver</a></div>
-    <div class="level2"><span class="xref">Mcp23xxx</span></div>
-      <div class="level3"><a class="xref" href="Iot.Device.Mcp23xxx.Mcp23x0x.html">Mcp23x0x</a></div>
-      <div class="level3"><a class="xref" href="Iot.Device.Mcp23xxx.Mcp23x1x.html">Mcp23x1x</a></div>
+  <h1 id="Iot_Device_Mcp23xxx_Mcp23xxx" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx" class="text-break">
+    Class Mcp23xxx
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Mcp23xxx.html">Mcp23xxx</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Mcp23xxx.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Mcp23xxx.html">Mcp23xxx</a></h6>
-  <h6><strong>Assembly</strong>: Iot.Device.Mcp23xxx.dll</h6>
-  <h5 id="Iot_Device_Mcp23xxx_Mcp23xxx_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>Base class for Mcp23xxx GPIO expanders</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class Mcp23xxx : GpioDriver</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><a class="xref" href="System.Device.Gpio.GpioDriver.html">GpioDriver</a></div>
+      <div><span class="xref">Mcp23xxx</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Iot.Device.Mcp23xxx.Mcp23x0x.html">Mcp23x0x</a></div>
+      <div><a class="xref" href="Iot.Device.Mcp23xxx.Mcp23x1x.html">Mcp23x1x</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx__ctor_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.#ctor*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx__ctor_Iot_Device_Mcp23xxx_Mcp23xxx_BusAdapter_System_Int32_System_Int32_System_Int32_System_Device_Gpio_GpioController_Iot_Device_Mcp23xxx_BankStyle_System_Boolean_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.#ctor(Iot.Device.Mcp23xxx.Mcp23xxx.BusAdapter,System.Int32,System.Int32,System.Int32,System.Device.Gpio.GpioController,Iot.Device.Mcp23xxx.BankStyle,System.Boolean)">Mcp23xxx(BusAdapter, int, int, int, GpioController?, BankStyle, bool)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx__ctor_Iot_Device_Mcp23xxx_Mcp23xxx_BusAdapter_System_Int32_System_Int32_System_Int32_System_Device_Gpio_GpioController_Iot_Device_Mcp23xxx_BankStyle_System_Boolean_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.#ctor(Iot.Device.Mcp23xxx.Mcp23xxx.BusAdapter,System.Int32,System.Int32,System.Int32,System.Device.Gpio.GpioController,Iot.Device.Mcp23xxx.BankStyle,System.Boolean)">
+  Mcp23xxx(BusAdapter, int, int, int, GpioController?, BankStyle, bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>A general purpose parallel I/O expansion for I2C or SPI applications.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Mcp23xxx(Mcp23xxx.BusAdapter bus, int reset = -1, int interruptA = -1, int interruptB = -1, GpioController? gpioController = null, BankStyle bankStyle = BankStyle.Sequential, bool shouldDispose = true)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.html">Mcp23xxx</a>.<a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.BusAdapter.html">BusAdapter</a></td>
-        <td><span class="parametername">bus</span></td>
-        <td><p>The bus the device is connected to.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">reset</span></td>
-        <td><p>The output pin number that is connected to the hardware reset.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">interruptA</span></td>
-        <td><p>The input pin number that is connected to the interrupt for Port A (INTA).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">interruptB</span></td>
-        <td><p>The input pin number that is connected to the interrupt for Port B (INTB).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></td>
-        <td><span class="parametername">gpioController</span></td>
-        <td><p>The controller for the reset and interrupt pins. If not specified, the default controller will be used.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.BankStyle.html">BankStyle</a></td>
-        <td><span class="parametername">bankStyle</span></td>
-        <td><p>The current bank style of the ports. This does not set the bank style- it tells us what the bank style is.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bus</code> <a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.html">Mcp23xxx</a>.<a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.BusAdapter.html">BusAdapter</a></dt>
+    <dd><p>The bus the device is connected to.</p>
+</dd>
+    <dt><code>reset</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The output pin number that is connected to the hardware reset.</p>
+</dd>
+    <dt><code>interruptA</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The input pin number that is connected to the interrupt for Port A (INTA).</p>
+</dd>
+    <dt><code>interruptB</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The input pin number that is connected to the interrupt for Port B (INTB).</p>
+</dd>
+    <dt><code>gpioController</code> <a class="xref" href="../api/System.Device.Gpio.GpioController.html">GpioController</a></dt>
+    <dd><p>The controller for the reset and interrupt pins. If not specified, the default controller will be used.</p>
+</dd>
+    <dt><code>bankStyle</code> <a class="xref" href="Iot.Device.Mcp23xxx.BankStyle.html">BankStyle</a></dt>
+    <dd><p>The current bank style of the ports. This does not set the bank style- it tells us what the bank style is.
 It is <em>highly</em> recommended not to change the bank style from the default as there is no direct way to
 detect what style the chip is in and most apps will fail if the chip is not set to defaults. This setting
 has no impact on 8-bit expanders.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">shouldDispose</span></td>
-        <td><p>True to dispose the Gpio Controller</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-</h3>
+</dd>
+    <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True to dispose the Gpio Controller</p>
+</dd>
+  </dl>
 
 
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx__bus" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx._bus">_bus</h4>
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx__bus" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx._bus">
+  _bus
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Bus adapter (I2C/SPI) used to communicate with the device</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Mcp23xxx.BusAdapter _bus</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.html">Mcp23xxx</a>.<a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.BusAdapter.html">BusAdapter</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.html">Mcp23xxx</a>.<a class="xref" href="Iot.Device.Mcp23xxx.Mcp23xxx.BusAdapter.html">BusAdapter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_AddCallbackForPinValueChangedEvent_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.AddCallbackForPinValueChangedEvent*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_AddCallbackForPinValueChangedEvent_System_Int32_System_Device_Gpio_PinEventTypes_System_Device_Gpio_PinChangeEventHandler_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.AddCallbackForPinValueChangedEvent(System.Int32,System.Device.Gpio.PinEventTypes,System.Device.Gpio.PinChangeEventHandler)">AddCallbackForPinValueChangedEvent(int, PinEventTypes, PinChangeEventHandler)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_AddCallbackForPinValueChangedEvent_System_Int32_System_Device_Gpio_PinEventTypes_System_Device_Gpio_PinChangeEventHandler_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.AddCallbackForPinValueChangedEvent(System.Int32,System.Device.Gpio.PinEventTypes,System.Device.Gpio.PinChangeEventHandler)">
+  AddCallbackForPinValueChangedEvent(int, PinEventTypes, PinChangeEventHandler)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a handler for a pin value changed event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void AddCallbackForPinValueChangedEvent(int pinNumber, PinEventTypes eventTypes, PinChangeEventHandler callback)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number in the driver's logical numbering scheme.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinEventTypes.html">PinEventTypes</a></td>
-        <td><span class="parametername">eventTypes</span></td>
-        <td><p>The event types to wait for.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinChangeEventHandler.html">PinChangeEventHandler</a></td>
-        <td><span class="parametername">callback</span></td>
-        <td><p>Delegate that defines the structure for callbacks when a pin value changed event occurs.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_AddCallbackForPinValueChangedEvent_System_Int32_System_Device_Gpio_PinEventTypes_System_Device_Gpio_PinChangeEventHandler_">GpioDriver.AddCallbackForPinValueChangedEvent(int, PinEventTypes, PinChangeEventHandler)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number in the driver's logical numbering scheme.</p>
+</dd>
+    <dt><code>eventTypes</code> <a class="xref" href="../api/System.Device.Gpio.PinEventTypes.html">PinEventTypes</a></dt>
+    <dd><p>The event types to wait for.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="../api/System.Device.Gpio.PinChangeEventHandler.html">PinChangeEventHandler</a></dt>
+    <dd><p>Delegate that defines the structure for callbacks when a pin value changed event occurs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_ClosePin_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ClosePin*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_ClosePin_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ClosePin(System.Int32)">ClosePin(int)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_ClosePin_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ClosePin(System.Int32)">
+  ClosePin(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Closes an open pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void ClosePin(int pinNumber)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number in the driver's logical numbering scheme.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_ClosePin_System_Int32_">GpioDriver.ClosePin(int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number in the driver's logical numbering scheme.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_ConvertPinNumberToLogicalNumberingScheme_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ConvertPinNumberToLogicalNumberingScheme*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_ConvertPinNumberToLogicalNumberingScheme_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ConvertPinNumberToLogicalNumberingScheme(System.Int32)">ConvertPinNumberToLogicalNumberingScheme(int)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_ConvertPinNumberToLogicalNumberingScheme_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ConvertPinNumberToLogicalNumberingScheme(System.Int32)">
+  ConvertPinNumberToLogicalNumberingScheme(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Converts a board pin number to the driver's logical numbering scheme.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override int ConvertPinNumberToLogicalNumberingScheme(int pinNumber)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The board pin number to convert.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><p>The pin number in the driver's logical numbering scheme.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_ConvertPinNumberToLogicalNumberingScheme_System_Int32_">GpioDriver.ConvertPinNumberToLogicalNumberingScheme(int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The board pin number to convert.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number in the driver's logical numbering scheme.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_Disable_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Disable*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_Disable" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Disable">Disable()</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_Disable" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Disable">
+  Disable()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Disables the device by setting the reset pin low.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Disable()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_Dispose_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Dispose*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_Dispose_System_Boolean_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Dispose(System.Boolean)">Dispose(bool)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_Dispose_System_Boolean_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Disposes this instance</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p>True if explicitly disposing, false if in finalizer</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_Dispose_System_Boolean_">GpioDriver.Dispose(bool)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if explicitly disposing, false if in finalizer</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_Enable_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Enable*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_Enable" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Enable">Enable()</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_Enable" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Enable">
+  Enable()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Enables the device by setting the reset pin high.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Enable()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_GetPinMode_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.GetPinMode*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_GetPinMode_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.GetPinMode(System.Int32)">GetPinMode(int)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_GetPinMode_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.GetPinMode(System.Int32)">
+  GetPinMode(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the mode of a pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override PinMode GetPinMode(int pinNumber)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number in the driver's logical numbering scheme.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></td>
-        <td><p>The mode of the pin.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_GetPinMode_System_Int32_">GpioDriver.GetPinMode(int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number in the driver's logical numbering scheme.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></dt>
+    <dd><p>The mode of the pin.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalRead_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalRead*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalRead_Iot_Device_Mcp23xxx_Register_System_SpanByte_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalRead(Iot.Device.Mcp23xxx.Register,System.SpanByte,Iot.Device.Mcp23xxx.Port)">InternalRead(Register, SpanByte, Port)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalRead_Iot_Device_Mcp23xxx_Register_System_SpanByte_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalRead(Iot.Device.Mcp23xxx.Register,System.SpanByte,Iot.Device.Mcp23xxx.Port)">
+  InternalRead(Register, SpanByte, Port)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads a number of bytes from registers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void InternalRead(Register register, SpanByte buffer, Port port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td><p>The register to read from.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">buffer</span></td>
-        <td><p>The buffer to read bytes into.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>The I/O port used with the register.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd><p>The register to read from.</p>
+</dd>
+    <dt><code>buffer</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The buffer to read bytes into.</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></dt>
+    <dd><p>The I/O port used with the register.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadByte_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadByte*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadByte_Iot_Device_Mcp23xxx_Register_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadByte(Iot.Device.Mcp23xxx.Register,Iot.Device.Mcp23xxx.Port)">InternalReadByte(Register, Port)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadByte_Iot_Device_Mcp23xxx_Register_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadByte(Iot.Device.Mcp23xxx.Register,Iot.Device.Mcp23xxx.Port)">
+  InternalReadByte(Register, Port)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads byte from the device register</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected byte InternalReadByte(Register register, Port port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td><p>Register to read the value from</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>Port related with the <code class="paramref">register</code></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><p>Byte read from the device register</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd><p>Register to read the value from</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></dt>
+    <dd><p>Port related with the <code class="paramref">register</code></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Byte read from the device register</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadInterrupt_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadInterrupt*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadInterrupt_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadInterrupt(Iot.Device.Mcp23xxx.Port)">InternalReadInterrupt(Port)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadInterrupt_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadInterrupt(Iot.Device.Mcp23xxx.Port)">
+  InternalReadInterrupt(Port)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads interrupt value</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected PinValue InternalReadInterrupt(Port port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>Port to read interrupt on</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td><p>Value of intterupt pin</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></dt>
+    <dd><p>Port to read interrupt on</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd><p>Value of intterupt pin</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadUInt16_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadUInt16*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadUInt16_Iot_Device_Mcp23xxx_Register_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadUInt16(Iot.Device.Mcp23xxx.Register)">InternalReadUInt16(Register)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalReadUInt16_Iot_Device_Mcp23xxx_Register_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalReadUInt16(Iot.Device.Mcp23xxx.Register)">
+  InternalReadUInt16(Register)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Read 16-bit unsigned integer from the device register</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected ushort InternalReadUInt16(Register register)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td><p>Register to read the value from</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.UInt16.html">ushort</a></td>
-        <td><p>16-bit unsigned integer read from the device</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd><p>Register to read the value from</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd><p>16-bit unsigned integer read from the device</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWrite_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWrite*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWrite_Iot_Device_Mcp23xxx_Register_System_SpanByte_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWrite(Iot.Device.Mcp23xxx.Register,System.SpanByte,Iot.Device.Mcp23xxx.Port)">InternalWrite(Register, SpanByte, Port)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWrite_Iot_Device_Mcp23xxx_Register_System_SpanByte_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWrite(Iot.Device.Mcp23xxx.Register,System.SpanByte,Iot.Device.Mcp23xxx.Port)">
+  InternalWrite(Register, SpanByte, Port)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a number of bytes to registers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void InternalWrite(Register register, SpanByte data, Port port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td><p>The register address to write to.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.SpanByte.html">SpanByte</a></td>
-        <td><span class="parametername">data</span></td>
-        <td><p>The data to write to the registers.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>The I/O port used with the registers.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd><p>The register address to write to.</p>
+</dd>
+    <dt><code>data</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The data to write to the registers.</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></dt>
+    <dd><p>The I/O port used with the registers.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWriteByte_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWriteByte*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWriteByte_Iot_Device_Mcp23xxx_Register_System_Byte_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWriteByte(Iot.Device.Mcp23xxx.Register,System.Byte,Iot.Device.Mcp23xxx.Port)">InternalWriteByte(Register, byte, Port)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWriteByte_Iot_Device_Mcp23xxx_Register_System_Byte_Iot_Device_Mcp23xxx_Port_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWriteByte(Iot.Device.Mcp23xxx.Register,System.Byte,Iot.Device.Mcp23xxx.Port)">
+  InternalWriteByte(Register, byte, Port)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Write byte to device register</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void InternalWriteByte(Register register, byte value, Port port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td><p>Register to write the value to</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>Value to be written to the <code class="paramref">register</code></p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>Port related with the <code class="paramref">register</code></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd><p>Register to write the value to</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Value to be written to the <code class="paramref">register</code></p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="Iot.Device.Mcp23xxx.Port.html">Port</a></dt>
+    <dd><p>Port related with the <code class="paramref">register</code></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWriteUInt16_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWriteUInt16*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWriteUInt16_Iot_Device_Mcp23xxx_Register_System_UInt16_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWriteUInt16(Iot.Device.Mcp23xxx.Register,System.UInt16)">InternalWriteUInt16(Register, ushort)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_InternalWriteUInt16_Iot_Device_Mcp23xxx_Register_System_UInt16_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.InternalWriteUInt16(Iot.Device.Mcp23xxx.Register,System.UInt16)">
+  InternalWriteUInt16(Register, ushort)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes 16-bit unsigned integer to the device register</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void InternalWriteUInt16(Register register, ushort value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td><p>Register to write <code class="paramref">value</code> to</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.UInt16.html">ushort</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>16-bit unsigned integer to write to the <code class="paramref">register</code></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd><p>Register to write <code class="paramref">value</code> to</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd><p>16-bit unsigned integer to write to the <code class="paramref">register</code></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_IsPinModeSupported_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.IsPinModeSupported*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_IsPinModeSupported_System_Int32_System_Device_Gpio_PinMode_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.IsPinModeSupported(System.Int32,System.Device.Gpio.PinMode)">IsPinModeSupported(int, PinMode)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_IsPinModeSupported_System_Int32_System_Device_Gpio_PinMode_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.IsPinModeSupported(System.Int32,System.Device.Gpio.PinMode)">
+  IsPinModeSupported(int, PinMode)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Checks if a pin supports a specific mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override bool IsPinModeSupported(int pinNumber, PinMode mode)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number in the driver's logical numbering scheme.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></td>
-        <td><span class="parametername">mode</span></td>
-        <td><p>The mode to check.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Boolean.html">bool</a></td>
-        <td><p>The status if the pin supports the mode.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_IsPinModeSupported_System_Int32_System_Device_Gpio_PinMode_">GpioDriver.IsPinModeSupported(int, PinMode)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number in the driver's logical numbering scheme.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></dt>
+    <dd><p>The mode to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>The status if the pin supports the mode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_OpenPin_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.OpenPin*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_OpenPin_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.OpenPin(System.Int32)">OpenPin(int)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_OpenPin_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.OpenPin(System.Int32)">
+  OpenPin(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Opens a pin in order for it to be ready to use.
 The driver attempts to open the pin without changing its mode or value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OpenPin(int pinNumber)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number in the driver's logical numbering scheme.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_OpenPin_System_Int32_">GpioDriver.OpenPin(int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number in the driver's logical numbering scheme.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_Read_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Read*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_Read_System_Device_Gpio_PinValuePair___" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Read(System.Device.Gpio.PinValuePair[])">Read(PinValuePair[])</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_Read_System_Device_Gpio_PinValuePair___" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Read(System.Device.Gpio.PinValuePair[])">
+  Read(PinValuePair[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the value of a set of pins</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void Read(PinValuePair[] pinValuePairs)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.device.gpio.pinvaluepair">PinValuePair</a>[]</td>
-        <td><span class="parametername">pinValuePairs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinValuePairs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.device.gpio.pinvaluepair">PinValuePair</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_Read_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Read*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_Read_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Read(System.Int32)">Read(int)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_Read_System_Int32_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Read(System.Int32)">
+  Read(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads the value of a pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override PinValue Read(int pinNumber)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td><p>High or low pin value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_Read_System_Int32_">GpioDriver.Read(int)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd><p>High or low pin value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadByte_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ReadByte*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadByte_Iot_Device_Mcp23xxx_Register_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ReadByte(Iot.Device.Mcp23xxx.Register)">ReadByte(Register)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadByte_Iot_Device_Mcp23xxx_Register_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ReadByte(Iot.Device.Mcp23xxx.Register)">
+  ReadByte(Register)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Read a byte from the given register.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte ReadByte(Register register)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadByte_Iot_Device_Mcp23xxx_Register__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadByte_Iot_Device_Mcp23xxx_Register__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Writes to the A port registers on 16 bit devices.</p>
 </div>
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadInterrupt_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ReadInterrupt*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadInterrupt" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ReadInterrupt">ReadInterrupt()</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_ReadInterrupt" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.ReadInterrupt">
+  ReadInterrupt()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the value of the interrupt pin if configured.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public PinValue ReadInterrupt()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td><p>Returns the interrupt for port A on 16 bit devices.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd><p>Returns the interrupt for port A on 16 bit devices.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_RemoveCallbackForPinValueChangedEvent_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.RemoveCallbackForPinValueChangedEvent*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_RemoveCallbackForPinValueChangedEvent_System_Int32_System_Device_Gpio_PinChangeEventHandler_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.RemoveCallbackForPinValueChangedEvent(System.Int32,System.Device.Gpio.PinChangeEventHandler)">RemoveCallbackForPinValueChangedEvent(int, PinChangeEventHandler)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_RemoveCallbackForPinValueChangedEvent_System_Int32_System_Device_Gpio_PinChangeEventHandler_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.RemoveCallbackForPinValueChangedEvent(System.Int32,System.Device.Gpio.PinChangeEventHandler)">
+  RemoveCallbackForPinValueChangedEvent(int, PinChangeEventHandler)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes a handler for a pin value changed event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void RemoveCallbackForPinValueChangedEvent(int pinNumber, PinChangeEventHandler callback)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number in the driver's logical numbering scheme.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinChangeEventHandler.html">PinChangeEventHandler</a></td>
-        <td><span class="parametername">callback</span></td>
-        <td><p>Delegate that defines the structure for callbacks when a pin value changed event occurs.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_RemoveCallbackForPinValueChangedEvent_System_Int32_System_Device_Gpio_PinChangeEventHandler_">GpioDriver.RemoveCallbackForPinValueChangedEvent(int, PinChangeEventHandler)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number in the driver's logical numbering scheme.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="../api/System.Device.Gpio.PinChangeEventHandler.html">PinChangeEventHandler</a></dt>
+    <dd><p>Delegate that defines the structure for callbacks when a pin value changed event occurs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_SetPinMode_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.SetPinMode*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_SetPinMode_System_Int32_System_Device_Gpio_PinMode_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.SetPinMode(System.Int32,System.Device.Gpio.PinMode)">SetPinMode(int, PinMode)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_SetPinMode_System_Int32_System_Device_Gpio_PinMode_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.SetPinMode(System.Int32,System.Device.Gpio.PinMode)">
+  SetPinMode(int, PinMode)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets a mode to a pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void SetPinMode(int pinNumber, PinMode mode)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></td>
-        <td><span class="parametername">mode</span></td>
-        <td><p>The mode to be set.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_SetPinMode_System_Int32_System_Device_Gpio_PinMode_">GpioDriver.SetPinMode(int, PinMode)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></dt>
+    <dd><p>The mode to be set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_Write_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Write*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_Write_System_Device_Gpio_PinValuePair___" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Write(System.Device.Gpio.PinValuePair[])">Write(PinValuePair[])</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_Write_System_Device_Gpio_PinValuePair___" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Write(System.Device.Gpio.PinValuePair[])">
+  Write(PinValuePair[])
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes values to a set of pins</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected void Write(PinValuePair[] pinValuePairs)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.device.gpio.pinvaluepair">PinValuePair</a>[]</td>
-        <td><span class="parametername">pinValuePairs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinValuePairs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.device.gpio.pinvaluepair">PinValuePair</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_Write_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Write*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_Write_System_Int32_System_Device_Gpio_PinValue_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Write(System.Int32,System.Device.Gpio.PinValue)">Write(int, PinValue)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_Write_System_Int32_System_Device_Gpio_PinValue_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.Write(System.Int32,System.Device.Gpio.PinValue)">
+  Write(int, PinValue)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes a value to a pin.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void Write(int pinNumber, PinValue value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="../api/System.Int32.html">int</a></td>
-        <td><span class="parametername">pinNumber</span></td>
-        <td><p>The pin number.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The value to be written.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="System.Device.Gpio.GpioDriver.html#System_Device_Gpio_GpioDriver_Write_System_Int32_System_Device_Gpio_PinValue_">GpioDriver.Write(int, PinValue)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pinNumber</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The pin number.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd><p>The value to be written.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Iot_Device_Mcp23xxx_Mcp23xxx_WriteByte_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.WriteByte*"></a>
-  <h4 id="Iot_Device_Mcp23xxx_Mcp23xxx_WriteByte_Iot_Device_Mcp23xxx_Register_System_Byte_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.WriteByte(Iot.Device.Mcp23xxx.Register,System.Byte)">WriteByte(Register, byte)</h4>
+
+  <h3 id="Iot_Device_Mcp23xxx_Mcp23xxx_WriteByte_Iot_Device_Mcp23xxx_Register_System_Byte_" data-uid="Iot.Device.Mcp23xxx.Mcp23xxx.WriteByte(Iot.Device.Mcp23xxx.Register,System.Byte)">
+  WriteByte(Register, byte)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Write a byte to the given register.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void WriteByte(Register register, byte value)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></td>
-        <td><span class="parametername">register</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../api/System.Byte.html">byte</a></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Iot_Device_Mcp23xxx_Mcp23xxx_WriteByte_Iot_Device_Mcp23xxx_Register_System_Byte__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>register</code> <a class="xref" href="Iot.Device.Mcp23xxx.Register.html">Register</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Mcp23xxx_Mcp23xxx_WriteByte_Iot_Device_Mcp23xxx_Register_System_Byte__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Writes to the A port registers on 16 bit devices.</p>
 </div>
 
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

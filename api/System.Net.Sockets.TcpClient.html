@@ -1,111 +1,134 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class TcpClient
  | .NET nanoFramework Documentation </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TcpClient
  | .NET nanoFramework Documentation ">
-    
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-      <link rel="manifest" href="../favicons/site.webmanifest">
-      <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-      <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#179b88">
-      <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-      <meta name="msapplication-TileColor" content="#222222">
-      <meta name="theme-color" content="#222222">
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="System.Net.Sockets.TcpClient">
+
+        <article data-uid="System.Net.Sockets.TcpClient">
 
 
 
-  <h1 id="System_Net_Sockets_TcpClient" data-uid="System.Net.Sockets.TcpClient" class="text-break">Class TcpClient
-</h1>
-  <div class="markdown level0 summary"><p>Provides client connections for TCP network services.</p>
+  <h1 id="System_Net_Sockets_TcpClient" data-uid="System.Net.Sockets.TcpClient" class="text-break">
+    Class TcpClient
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>System.Net.Sockets.TcpClient.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides client connections for TCP network services.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="System.Object.html">object</a></div>
-    <div class="level1"><span class="xref">TcpClient</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TcpClient : IDisposable</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">TcpClient</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
     </div>
@@ -127,562 +150,665 @@
     <div>
       <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
     </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system">System</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net">Net</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets">Sockets</a></h6>
-  <h6><strong>Assembly</strong>: System.Net.Sockets.TcpClient.dll</h6>
-  <h5 id="System_Net_Sockets_TcpClient_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TcpClient : IDisposable</code></pre>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="System_Net_Sockets_TcpClient__ctor_" data-uid="System.Net.Sockets.TcpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_TcpClient__ctor" data-uid="System.Net.Sockets.TcpClient.#ctor">TcpClient()</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient__ctor" data-uid="System.Net.Sockets.TcpClient.#ctor">
+  TcpClient()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the TcpClient class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TcpClient()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_Sockets_TcpClient__ctor_" data-uid="System.Net.Sockets.TcpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_TcpClient__ctor_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.TcpClient.#ctor(System.Net.IPEndPoint)">TcpClient(IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient__ctor_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.TcpClient.#ctor(System.Net.IPEndPoint)">
+  TcpClient(IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the TcpClient class with specified end point</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TcpClient(IPEndPoint localEP)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">localEP</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>localEP</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient__ctor_" data-uid="System.Net.Sockets.TcpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_TcpClient__ctor_System_Net_Sockets_AddressFamily_" data-uid="System.Net.Sockets.TcpClient.#ctor(System.Net.Sockets.AddressFamily)">TcpClient(AddressFamily)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient__ctor_System_Net_Sockets_AddressFamily_" data-uid="System.Net.Sockets.TcpClient.#ctor(System.Net.Sockets.AddressFamily)">
+  TcpClient(AddressFamily)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the TcpClient class with address family.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TcpClient(AddressFamily family)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.AddressFamily.html">AddressFamily</a></td>
-        <td><span class="parametername">family</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>family</code> <a class="xref" href="System.Net.Sockets.AddressFamily.html">AddressFamily</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient__ctor_" data-uid="System.Net.Sockets.TcpClient.#ctor*"></a>
-  <h4 id="System_Net_Sockets_TcpClient__ctor_System_String_System_Int32_" data-uid="System.Net.Sockets.TcpClient.#ctor(System.String,System.Int32)">TcpClient(string, int)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient__ctor_System_String_System_Int32_" data-uid="System.Net.Sockets.TcpClient.#ctor(System.String,System.Int32)">
+  TcpClient(string, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes a new instance of the TcpClient class, Bind and connect to
 host name and port.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TcpClient(string hostname, int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">hostname</span></td>
-        <td><p>Target Host name</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>Target port</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hostname</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>Target Host name</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Target port</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="System_Net_Sockets_TcpClient_Available_" data-uid="System.Net.Sockets.TcpClient.Available*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Available" data-uid="System.Net.Sockets.TcpClient.Available">Available</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Available" data-uid="System.Net.Sockets.TcpClient.Available">
+  Available
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the amount of data that has been received from the network
 and is available to be read.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Available { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_Client_" data-uid="System.Net.Sockets.TcpClient.Client*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Client" data-uid="System.Net.Sockets.TcpClient.Client">Client</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Client" data-uid="System.Net.Sockets.TcpClient.Client">
+  Client
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the underlying Socket.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Socket Client { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.Sockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_LingerState_" data-uid="System.Net.Sockets.TcpClient.LingerState*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_LingerState" data-uid="System.Net.Sockets.TcpClient.LingerState">LingerState</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_LingerState" data-uid="System.Net.Sockets.TcpClient.LingerState">
+  LingerState
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the value of the connection's linger option</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LingerOption LingerState { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.LingerOption.html">LingerOption</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.Sockets.LingerOption.html">LingerOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_NoDelay_" data-uid="System.Net.Sockets.TcpClient.NoDelay*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_NoDelay" data-uid="System.Net.Sockets.TcpClient.NoDelay">NoDelay</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_NoDelay" data-uid="System.Net.Sockets.TcpClient.NoDelay">
+  NoDelay
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Enables or disables delay when send or receive buffers are not full. (Nagle)
 True if delay is disabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool NoDelay { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_ReceiveTimeout_" data-uid="System.Net.Sockets.TcpClient.ReceiveTimeout*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_ReceiveTimeout" data-uid="System.Net.Sockets.TcpClient.ReceiveTimeout">ReceiveTimeout</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_ReceiveTimeout" data-uid="System.Net.Sockets.TcpClient.ReceiveTimeout">
+  ReceiveTimeout
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the receive time out value of the connection in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int ReceiveTimeout { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_SendTimeout_" data-uid="System.Net.Sockets.TcpClient.SendTimeout*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_SendTimeout" data-uid="System.Net.Sockets.TcpClient.SendTimeout">SendTimeout</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_SendTimeout" data-uid="System.Net.Sockets.TcpClient.SendTimeout">
+  SendTimeout
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the send time out value of the connection in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int SendTimeout { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="System_Net_Sockets_TcpClient_Close_" data-uid="System.Net.Sockets.TcpClient.Close*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Close" data-uid="System.Net.Sockets.TcpClient.Close">Close()</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Close" data-uid="System.Net.Sockets.TcpClient.Close">
+  Close()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Disposes this TcpClient instance and
 requests that the underlying TCP connection be closed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Close()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_Sockets_TcpClient_Connect_" data-uid="System.Net.Sockets.TcpClient.Connect*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Connect_System_Net_IPAddress_System_Int32_" data-uid="System.Net.Sockets.TcpClient.Connect(System.Net.IPAddress,System.Int32)">Connect(IPAddress, int)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Connect_System_Net_IPAddress_System_Int32_" data-uid="System.Net.Sockets.TcpClient.Connect(System.Net.IPAddress,System.Int32)">
+  Connect(IPAddress, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Connects the client to a remote TCP host using the specified IP address
 and port number.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Connect(IPAddress address, int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The IPAddress of the host to which you intend to connect.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>The port number to which you intend to connect.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>The IPAddress of the host to which you intend to connect.</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The port number to which you intend to connect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_Connect_" data-uid="System.Net.Sockets.TcpClient.Connect*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Connect_System_Net_IPAddress___System_Int32_" data-uid="System.Net.Sockets.TcpClient.Connect(System.Net.IPAddress[],System.Int32)">Connect(IPAddress[], int)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Connect_System_Net_IPAddress___System_Int32_" data-uid="System.Net.Sockets.TcpClient.Connect(System.Net.IPAddress[],System.Int32)">
+  Connect(IPAddress[], int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Connects the client to a remote TCP host using the specified IP addresses and port number.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Connect(IPAddress[] address, int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPAddress.html">IPAddress</a>[]</td>
-        <td><span class="parametername">address</span></td>
-        <td><p>The IPAddress array of the host to which you intend to connect.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>The port number to which you intend to connect.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a>[]</dt>
+    <dd><p>The IPAddress array of the host to which you intend to connect.</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The port number to which you intend to connect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_Connect_" data-uid="System.Net.Sockets.TcpClient.Connect*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Connect_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.TcpClient.Connect(System.Net.IPEndPoint)">Connect(IPEndPoint)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Connect_System_Net_IPEndPoint_" data-uid="System.Net.Sockets.TcpClient.Connect(System.Net.IPEndPoint)">
+  Connect(IPEndPoint)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Connects the client to a remote TCP host using the specified
 remote network endpoint.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Connect(IPEndPoint remoteEP)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></td>
-        <td><span class="parametername">remoteEP</span></td>
-        <td><p>The IPEndPoint to which you intend to connect.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>remoteEP</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
+    <dd><p>The IPEndPoint to which you intend to connect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_Connect_" data-uid="System.Net.Sockets.TcpClient.Connect*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Connect_System_String_System_Int32_" data-uid="System.Net.Sockets.TcpClient.Connect(System.String,System.Int32)">Connect(string, int)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Connect_System_String_System_Int32_" data-uid="System.Net.Sockets.TcpClient.Connect(System.String,System.Int32)">
+  Connect(string, int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Connects the Client to the specified port on the specified host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Connect(string hostname, int port)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.String.html">string</a></td>
-        <td><span class="parametername">hostname</span></td>
-        <td><p>Remote host</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="System.Int32.html">int</a></td>
-        <td><span class="parametername">port</span></td>
-        <td><p>Remote port</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hostname</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>Remote host</p>
+</dd>
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Remote port</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_Dispose_" data-uid="System.Net.Sockets.TcpClient.Dispose*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Dispose" data-uid="System.Net.Sockets.TcpClient.Dispose">Dispose()</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Dispose" data-uid="System.Net.Sockets.TcpClient.Dispose">
+  Dispose()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Dispose TcpClient</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_Net_Sockets_TcpClient_Dispose_" data-uid="System.Net.Sockets.TcpClient.Dispose*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_Dispose_System_Boolean_" data-uid="System.Net.Sockets.TcpClient.Dispose(System.Boolean)">Dispose(bool)</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_Dispose_System_Boolean_" data-uid="System.Net.Sockets.TcpClient.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Boolean.html">bool</a></td>
-        <td><span class="parametername">disposing</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="System_Net_Sockets_TcpClient_GetStream_" data-uid="System.Net.Sockets.TcpClient.GetStream*"></a>
-  <h4 id="System_Net_Sockets_TcpClient_GetStream" data-uid="System.Net.Sockets.TcpClient.GetStream">GetStream()</h4>
+
+  <h3 id="System_Net_Sockets_TcpClient_GetStream" data-uid="System.Net.Sockets.TcpClient.GetStream">
+  GetStream()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the NetworkStream used to send and receive data to remote host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public NetworkStream GetStream()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a></td>
-        <td><p>The underlying NetworkStream.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="System.IDisposable.html">IDisposable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
-  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a></dt>
+    <dd><p>The underlying NetworkStream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Copyright © 2023 nanoFramework Contributors<br>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
