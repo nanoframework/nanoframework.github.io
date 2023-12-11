@@ -7,7 +7,7 @@ Our mantra is about **making it easy to write C# code for embedded systems!** An
 <div style='vertical-align:middle; display:inline;'>
 .NET nanoFramework is supported by the .NET Foundation.
 </div>
-<img style='vertical-align:middle;' width="100px" src='https://dotnetfoundation.org/images/default-source/default-album/logo.png'>
+<img style='vertical-align:middle;' width="100px" src='https://dotnetfoundation.org/images/default-source/default-album/logo.png' alt='.NET foundation logo'>
 
 [![Getting started](./images/getting-started-button.png)](./content/getting-started-guides/getting-started-managed.md)
 
@@ -19,9 +19,9 @@ Most of the core team members and contributors are embedded systems enthusiasts,
 
 Sponsors will get their logo and a link to their website on our GitHub readme and also on our home page.
 
-<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/bronze-sponsor.svg?avatarHeight=36&width=600"></a></br>
-<a href="https://www.orgpal.com"><img src="https://www.orgpal.com/orgpallogo.png" height="50" width="114"></a></br>
-<a href="https://hive.linkit.nl/"><img src="https://docs.nanoframework.net/images/logos/LINKIT.png" height="50" ></a></br>
+<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/bronze-sponsor.svg?avatarHeight=72&width=600" alt="become sponsor"></a></br>
+<a href="https://www.orgpal.com"><img src="https://www.orgpal.com/orgpallogo.png" alt="Orgpal" width="250"></a></br>
+<a href="https://hive.linkit.nl/"><img src="https://docs.nanoframework.net/images/logos/LINKIT.png" alt="LINKIT" width="300" ></a></br>
 
 ### Backers
 
