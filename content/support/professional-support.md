@@ -13,10 +13,10 @@ To have access to this, you're expected to make a monetary contribution to the p
 
 ### Eclo Solutions
 
-<a href="https://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" height="100" width="151"/></a>
+<a href="https://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" alt="Eclo solutions" height="100" width="151"/></a>
 
 ### HIVE from LINKIT
 
-<a href="https://hive.linkit.nl/"><img src="https://docs.nanoframework.net/images/logos/LINKIT.png" height="100" /></a>
+<a href="https://hive.linkit.nl/"><img src="https://docs.nanoframework.net/images/logos/LINKIT.png" alt="LINKIT" height="100" /></a>
 
 Looking for [community help](community-help.md)?
