@@ -13,7 +13,7 @@ To have access to this, you're expected to make a monetary contribution to the p
 
 ### Eclo Solutions
 
-<a href="https://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" alt="Eclo solutions" height="100" width="151"/></a>
+<a href="https://www.eclo.solutions"><img src="https://docs.nanoframework.net/images/logos/eclo-solutions-logo-tall.svg" alt="Eclo Solutions" height="100" width="151"/></a>
 
 ### HIVE from LINKIT
 
