@@ -656,6 +656,16 @@ steps:
       $instrumentKey = "$(InstrumentKey)"
 
       Find-ReplaceInFile -filePath $fileToReplace -sourceString $sourceString -targetString $instrumentKey
+  displayName: Replace intrument key
+  condition: >-
+    and(
+      succeeded(), 
+      or(
+        eq(variables['BUILD_ALL'], 'true'),
+        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
+        eq(variables['BuildOptions.BUILD_ALL'], 'true')
+      )
+    )
 
 # run docfx
 - powershell: |
