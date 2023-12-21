@@ -27,31 +27,10 @@ If in doubt please ask one of the senior team members.
 
 For class libraries projects a Sonarcloud project has to be setup in order to run and process the project analysis.
 
-You have to have installed on your machine:
-
-- [SonarScanner for .NET (.NET Framework 4.6+))](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/)
-- Java SDK. [Recommended](https://code.visualstudio.com/docs/languages/java)
-
-After installing the above, it's required to run locally the analysis tool for the very first analysis.
-
-1. Open a VS developer command prompt at the project folder.
-1. Run the preparation step with
-
-```console
-PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe begin /k:"nanoframework.WHATEVER.CLASS.NAME" /o:nanoframework /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=TOKEN_FOR_SONARCLOUD
-```
-
-1. Build the solution
-
-```console
-msbuild  nanoFramework.WHATEVER.CLASS.NAME.sln /t:Rebuild /p:platform="Any CPU" /p:configuration="Release" 
-```
-
-1. Run the analysis tool and upload files
-
-```console
-PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TOKEN_FOR_SONARCLOUD
-```
+1. Sign-in to Sonarcloud and create a new project.
+1. On the repository list choose the corresponding name.
+1. Choose "previous code" as the metrics analysis for new code.
+1. OK to leave the rest with their defaults.
 
 ## Setup Azure DevOps
 
@@ -69,7 +48,7 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
 1. Add another variable `NbgvParameters`, leave it empty and check "Let users override this value when running this pipeline".
 1. Add another variable `StartReleaseCandidate`, set the content to `false` and check "Let users override this value when running this pipeline".
 1. Add another variable `UPDATE_DEPENDENTS`, set the content to `false` and check "Let users override this value when running this pipeline".
-1. Add two more secret variables `SignClientUser` and  `SignClientSecret` and fill in with the credentials for the .NET Foundation signing service. **Make sure** that the variables are set to `secret` by clicking on the appropriate option.
+1. Add another secret variable `SignClientSecret` and fill in with the secret for the .NET Foundation signing service. **Make sure** that the variable is set to `secret` by clicking on the appropriate option.
 1. Click the "Save" button on the Variables pop-up (it will take you back to the pipeline yaml).
 1. Cline the "Save" button at the top right and go through the commit message.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
@@ -94,12 +73,11 @@ PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TO
     - assets\readme.txt
     - assets\nf-logo.png
     - config\filelist.txt
-    - config\SignClient.json
 1. Open "azure-pipelines.yml"
     1. Rename the `nugetPackageName` variable with the new name (mind the nanoframework prefix).
     1. Rename the `repoName` variable with the repo name.
     1. Rename the `sourceFileName` parameter with the equivalent name. It's probably wise to wait for the first successful build of the class library and then get back here with the correct name for the assembly declaration source file.
-    1. Rename the `sonarCloudProject` variable with the repo name.
+    1. Rename the `sonarCloudProject` variable with the project key from the Sonarcloud project.
     1. If there are class libraries that depend on this one, copy the "update dependencies" job from CorLib "azure-pipelines.yml". If there aren't just skip this step.
 1. Open ".github_changelog_generator" and set the **project** to the repo name.
 1. Open "version.json" and set the **version** to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.
