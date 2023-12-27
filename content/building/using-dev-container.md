@@ -24,29 +24,16 @@ We offer the possibility to use such a Dev Container to build any of the support
 - **Step 7**: Open the full `nf-interpreter`directory with VS Code.
 - **Step 8**: Choose your container.
 
-Go to the file `.devcontainer/devcontainer.json` and choose the container you want. You will find the details in the file itself:
-
-```json
- // Adjust this file to chose the platform you want using the prebuild containers
- // - Dockerfile.All = you can build anything but it's a very large container
- // - Dockerfile.AzureRTOS = for AzureRTOS targets
- // - Dockerfile.ChibiOS = for ChibiOS based targets (ex: STM32, Netduino, Orgpal)
- // - Dockerfile.ESP32 = for ESP32 targets
- // - Dockerfile.TI = for TI targets
- // If you prefer, you can use the source files and adjust them they are located, with the same names in ./sources. This will alow you to customize them and add anything you may need on top.
- "dockerFile": "Dockerfile.ChibiOS",
-```
-
-> Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the `./sources` subdirectory. So the file name will be for example `./source/Dockerfile.All` to use the container containing everything and build it from the source.
+> Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. If required, edit the `devcontainer.json` file in the respective platform subdirectory so the `dockerFile` used will be, for example `Dockerfile.All.SRC`, to use the container containing everything and build it from the source.
 > Error: if you get error message like "Bad CMake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the CMake and CMake tool from Visual Studio Code and restart Visual Studio Code.  
 
-- **Step 9**: Once prompted, open the dev container.
+- **Step 9**: Once prompted, select and open the dev container.
 
   This is illustrating how to do this:
 
   ![remote container animation](https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif)
 
-  > note: in our case, the dev container is called `nanoFramework`.
+  > note: in our case, the dev container is called `nanoFramework-<platform>` substituting `<platform>` for your choice. If in doubt, use `nanoFramework-All`.
 
   If VS Code does not show the prompt, you can press F1 to show all commands. In this list, you can select the item "Remote-Containers: Open Folder in Container..." to open the dev container manually. This option will require you to select the folder through the folder selection dialog.
 
