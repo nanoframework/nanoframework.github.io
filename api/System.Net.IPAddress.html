@@ -8,6 +8,7 @@
       <meta name="title" content="Class IPAddress
  | .NET nanoFramework Documentation ">
       
+      <meta name="description" content="Initializes a new instance of the  class.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -198,7 +199,8 @@
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>address</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
-    <dd></dd>
+    <dd><p>The byte array value of the IP address.</p>
+</dd>
   </dl>
 
 
@@ -209,6 +211,56 @@
 
 
   <h4 class="section" id="System_Net_IPAddress__ctor_System_Byte____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The IPAddress is created with the <span class="xref">System.Net.IPAddress.Address</span> property set to <code class="paramref">address</code>.
+If the length of <code class="paramref">address</code> is 4, <a class="xref" href="System.Net.IPAddress.html">IPAddress</a>(Byte[]) constructs an IPv4 address; otherwise, an IPv6 address with a scope of 0 is constructed.
+The <a class="xref" href="System.Byte.html">byte</a> array is assumed to be in network byte order with the most significant byte first in index position 0.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">address</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p><code class="paramref">address</code> contains a bad IP address.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="System_Net_IPAddress__ctor_" data-uid="System.Net.IPAddress.#ctor*"></a>
+
+  <h3 id="System_Net_IPAddress__ctor_System_Byte___System_Int64_" data-uid="System.Net.IPAddress.#ctor(System.Byte[],System.Int64)">
+  IPAddress(byte[], long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of a IPV6 <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> class with the address specified as a Byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPAddress(byte[] address, long scopeid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>The byte array value of the IP address.</p>
+</dd>
+    <dt><code>scopeid</code> <a class="xref" href="System.Int64.html">long</a></dt>
+    <dd><p>The long value of the scope identifier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_IPAddress__ctor_System_Byte___System_Int64__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The IPAddress is created with the <span class="xref">System.Net.IPAddress.Address</span> property set to <code class="paramref">address</code>.
 If the length of <code class="paramref">address</code> is 4, <a class="xref" href="System.Net.IPAddress.html">IPAddress</a>(Byte[]) constructs an IPv4 address; otherwise, an IPv6 address with a scope of 0 is constructed.
 The <a class="xref" href="System.Byte.html">byte</a> array is assumed to be in network byte order with the most significant byte first in index position 0.</p>
@@ -294,7 +346,69 @@ The <a class="xref" href="System.Int64.html">long</a> value is assumed to be in 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd></dd>
+    <dd>Initializes a new instance of the  class.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="System_Net_IPAddress_IPv6Any" data-uid="System.Net.IPAddress.IPv6Any">
+  IPv6Any
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Bind(EndPoint) method uses the IPv6Any field to indicate that a Socket must listen for client activity on all network interfaces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IPAddress IPv6Any</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd>Initializes a new instance of the  class.</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="System_Net_IPAddress_IPv6Loopback" data-uid="System.Net.IPAddress.IPv6Loopback">
+  IPv6Loopback
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides the IP loopback address. This property is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IPAddress IPv6Loopback</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd>Initializes a new instance of the  class.</dd>
   </dl>
 
 
@@ -325,7 +439,7 @@ The <a class="xref" href="System.Int64.html">long</a> value is assumed to be in 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd></dd>
+    <dd>Initializes a new instance of the  class.</dd>
   </dl>
 
 
@@ -364,6 +478,71 @@ The <a class="xref" href="System.Int64.html">long</a> value is assumed to be in 
     <dt><a class="xref" href="System.Net.Sockets.AddressFamily.html">AddressFamily</a></dt>
     <dd><p>Returns <a class="xref" href="System.Net.Sockets.AddressFamily.html#System_Net_Sockets_AddressFamily_InterNetwork">InterNetwork</a> for IPv4 or <a class="xref" href="System.Net.Sockets.AddressFamily.html#System_Net_Sockets_AddressFamily_InterNetworkV6">InterNetworkV6</a> for IPv6.</p>
 </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="System_Net_IPAddress_IsIPv4MappedToIPv6_" data-uid="System.Net.IPAddress.IsIPv4MappedToIPv6*"></a>
+
+  <h3 id="System_Net_IPAddress_IsIPv4MappedToIPv6" data-uid="System.Net.IPAddress.IsIPv4MappedToIPv6">
+  IsIPv4MappedToIPv6
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the IP address is an IPv4-mapped IPv6 address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsIPv4MappedToIPv6 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>true if the IP address is an IPv4-mapped IPv6 address; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="System_Net_IPAddress_ScopeId_" data-uid="System.Net.IPAddress.ScopeId*"></a>
+
+  <h3 id="System_Net_IPAddress_ScopeId" data-uid="System.Net.IPAddress.ScopeId">
+  ScopeId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get or Set IPV6 scope identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ScopeId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd>Initializes a new instance of the  class.</dd>
   </dl>
 
 
@@ -510,6 +689,83 @@ The <a class="xref" href="System.Int64.html">long</a> value is assumed to be in 
 
 
 
+
+
+
+
+  <a id="System_Net_IPAddress_MapToIPv4_" data-uid="System.Net.IPAddress.MapToIPv4*"></a>
+
+  <h3 id="System_Net_IPAddress_MapToIPv4" data-uid="System.Net.IPAddress.MapToIPv4">
+  MapToIPv4()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps the <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> object to an IPv4 address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPAddress MapToIPv4()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>Returns <a class="xref" href="System.Net.IPAddress.html">IPAddress</a>. An IPV4 address.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_IPAddress_MapToIPv4_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Dual-stack sockets always require IPv6 addresses. The ability to interact with an IPv4
+address requires the use of the IPv4-mapped IPv6 address format.</p>
+</div>
+
+
+
+
+  <a id="System_Net_IPAddress_MapToIPv6_" data-uid="System.Net.IPAddress.MapToIPv6*"></a>
+
+  <h3 id="System_Net_IPAddress_MapToIPv6" data-uid="System.Net.IPAddress.MapToIPv6">
+  MapToIPv6()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps the <a class="xref" href="System.Net.IPAddress.html">IPAddress</a> object to an IPv6 address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPAddress MapToIPv6()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>Returns <a class="xref" href="System.Net.IPAddress.html">IPAddress</a>. An IPV6 address.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_IPAddress_MapToIPv6_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Dual-stack sockets always require IPv6 addresses. The ability to interact with an IPv4 address
+requires the use of the IPv4-mapped IPv6 address format. Any IPv4 addresses must be represented
+in the IPv4-mapped IPv6 address format which enables an IPv6 only application to communicate
+with an IPv4 node.
+For example.  IPv4 192.168.1.4 maps as IPV6 ::FFFF:192.168.1.4</p>
+</div>
 
 
 

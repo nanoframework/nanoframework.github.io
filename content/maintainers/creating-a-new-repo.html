@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Procedure for creating a new repository | .NET nanoFramework Documentation ">
       
+      
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -107,28 +108,12 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 </ol>
 <h2 id="setup-sonarcloud-project">Setup Sonarcloud project</h2>
 <p>For class libraries projects a Sonarcloud project has to be setup in order to run and process the project analysis.</p>
-<p>You have to have installed on your machine:</p>
-<ul>
-<li><a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/">SonarScanner for .NET (.NET Framework 4.6+))</a></li>
-<li>Java SDK. <a href="https://code.visualstudio.com/docs/languages/java">Recommended</a></li>
-</ul>
-<p>After installing the above, it's required to run locally the analysis tool for the very first analysis.</p>
 <ol>
-<li>Open a VS developer command prompt at the project folder.</li>
-<li>Run the preparation step with</li>
+<li>Sign-in to Sonarcloud and create a new project.</li>
+<li>On the repository list choose the corresponding name.</li>
+<li>Choose &quot;previous code&quot; as the metrics analysis for new code.</li>
+<li>OK to leave the rest with their defaults.</li>
 </ol>
-<pre><code class="lang-console">PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe begin /k:&quot;nanoframework.WHATEVER.CLASS.NAME&quot; /o:nanoframework /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=TOKEN_FOR_SONARCLOUD
-</code></pre>
-<ol>
-<li>Build the solution</li>
-</ol>
-<pre><code class="lang-console">msbuild  nanoFramework.WHATEVER.CLASS.NAME.sln /t:Rebuild /p:platform=&quot;Any CPU&quot; /p:configuration=&quot;Release&quot; 
-</code></pre>
-<ol>
-<li>Run the analysis tool and upload files</li>
-</ol>
-<pre><code class="lang-console">PATH-TO-YOUR-LOCAL-INSTALL-FOLDER\SonarScanner.MSBuild.exe end /d:sonar.login=TOKEN_FOR_SONARCLOUD
-</code></pre>
 <h2 id="setup-azure-devops">Setup Azure DevOps</h2>
 <ol>
 <li>Open a new browser window on which you are signed in to GitHub as <code>nfbot</code>.</li>
@@ -145,7 +130,7 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>Add another variable <code>NbgvParameters</code>, leave it empty and check &quot;Let users override this value when running this pipeline&quot;.</li>
 <li>Add another variable <code>StartReleaseCandidate</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
 <li>Add another variable <code>UPDATE_DEPENDENTS</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
-<li>Add two more secret variables <code>SignClientUser</code> and  <code>SignClientSecret</code> and fill in with the credentials for the .NET Foundation signing service. <strong>Make sure</strong> that the variables are set to <code>secret</code> by clicking on the appropriate option.</li>
+<li>Add another secret variable <code>SignClientSecret</code> and fill in with the secret for the .NET Foundation signing service. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the appropriate option.</li>
 <li>Click the &quot;Save&quot; button on the Variables pop-up (it will take you back to the pipeline yaml).</li>
 <li>Cline the &quot;Save&quot; button at the top right and go through the commit message.</li>
 <li>Navigate back to the Pipeline, select it and click &quot;Edit&quot; (at the top right). Then click on the 3 vertical dots (again at the top right) and then &quot;Triggers&quot;.</li>
@@ -171,7 +156,6 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>assets\readme.txt</li>
 <li>assets\nf-logo.png</li>
 <li>config\filelist.txt</li>
-<li>config\SignClient.json</li>
 </ul>
 </li>
 <li>Open &quot;azure-pipelines.yml&quot;
@@ -179,7 +163,7 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>Rename the <code>nugetPackageName</code> variable with the new name (mind the nanoframework prefix).</li>
 <li>Rename the <code>repoName</code> variable with the repo name.</li>
 <li>Rename the <code>sourceFileName</code> parameter with the equivalent name. It's probably wise to wait for the first successful build of the class library and then get back here with the correct name for the assembly declaration source file.</li>
-<li>Rename the <code>sonarCloudProject</code> variable with the repo name.</li>
+<li>Rename the <code>sonarCloudProject</code> variable with the project key from the Sonarcloud project.</li>
 <li>If there are class libraries that depend on this one, copy the &quot;update dependencies&quot; job from CorLib &quot;azure-pipelines.yml&quot;. If there aren't just skip this step.</li>
 </ol>
 </li>

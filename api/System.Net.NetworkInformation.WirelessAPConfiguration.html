@@ -8,6 +8,7 @@
       <meta name="title" content="Class WirelessAPConfiguration
  | .NET nanoFramework Documentation ">
       
+      <meta name="description" content="Configuration of wireless network SOft AP based on the 802.11 standard.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -251,7 +252,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Net.NetworkInformation.AuthenticationType.html">AuthenticationType</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -283,7 +284,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Byte.html">byte</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -315,7 +316,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Net.NetworkInformation.EncryptionType.html">EncryptionType</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -347,7 +348,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.UInt32.html">uint</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -379,7 +380,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Byte.html">byte</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -411,7 +412,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Net.NetworkInformation.WirelessAPConfiguration.html">WirelessAPConfiguration</a>.<a class="xref" href="System.Net.NetworkInformation.WirelessAPConfiguration.ConfigurationOptions.html">ConfigurationOptions</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -443,7 +444,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.String.html">string</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -475,7 +476,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Net.NetworkInformation.RadioType.html">RadioType</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -507,7 +508,7 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.String.html">string</a></dt>
-    <dd></dd>
+    <dd>Configuration of wireless network SOft AP based on the 802.11 standard.</dd>
   </dl>
 
 
@@ -666,7 +667,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Validate and save the wireless Soft AP configuration information.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -681,7 +683,27 @@
 
 
 
+  <h4 class="section" id="System_Net_NetworkInformation_WirelessAPConfiguration_SaveConfiguration_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Checks the length of SSID is 32 or less.
+Password length is between 8 and 64 if not an open Authentication.
+Max connections has to be greater than zero.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>If <a class="xref" href="System.Net.NetworkInformation.WirelessAPConfiguration.html#System_Net_NetworkInformation_WirelessAPConfiguration_MaxConnections">MaxConnections</a> is less than one.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>If <a class="xref" href="System.Net.NetworkInformation.WirelessAPConfiguration.html#System_Net_NetworkInformation_WirelessAPConfiguration_Password">Password</a> is less than 8 character or more than 64 characters and not open <a class="xref" href="System.Net.NetworkInformation.WirelessAPConfiguration.html#System_Net_NetworkInformation_WirelessAPConfiguration_Authentication">Authentication</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>If <a class="xref" href="System.Net.NetworkInformation.WirelessAPConfiguration.html#System_Net_NetworkInformation_WirelessAPConfiguration_Ssid">Ssid</a> is longer than <span class="xref">System.Net.NetworkInformation.WirelessAPConfiguration.MaxApSsidLength</span></p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>If <a class="xref" href="System.Net.NetworkInformation.WirelessAPConfiguration.html#System_Net_NetworkInformation_WirelessAPConfiguration_Ssid">Ssid</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
 
 

@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Getting Started Trouble Shooting Guide | .NET nanoFramework Documentation ">
       
+      
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -132,6 +133,12 @@
 </li>
 <li><p>Like the <strong>Device Explorer</strong> the flash utility depends on serial/COM drivers for most devices.  Check that USB cables are not power-only cables (i.e. no signal wires), and that you are using the most recent USB drivers.</p>
 </li>
+</ul>
+<h2 id="nanoff-failed-to-read-from-esp32-flash-e4004">nanoff failed to read from ESP32 flash (E4004)</h2>
+<ul>
+<li>This is due to the nanoff will try to read and backup config partition before the actual flash.</li>
+<li>If the chip is flashed with something else before (e.g. Arduino), it will cause a read error and stop the process.</li>
+<li>Add <code>--masserase</code> to bypass the backup process and erase the flash.</li>
 </ul>
 
 </article>
