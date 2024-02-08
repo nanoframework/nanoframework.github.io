@@ -43,3 +43,9 @@ Here are solutions to some common problems when getting started.
 - Make sure you have the latest drivers of the serial devices connected. Check the driver manufacturer website as not all of them make available the latest versions through Windows Update.
 - Check permissions for the cache folders at [username]\\.nanoFramework.  Deleting the cache files can sometimes fix problems.
 - Like the **Device Explorer** the flash utility depends on serial/COM drivers for most devices.  Check that USB cables are not power-only cables (i.e. no signal wires), and that you are using the most recent USB drivers.
+
+## nanoff failed to read from ESP32 flash (E4004)
+
+- This is due to the nanoff will try to read and backup config partition before the actual flash.
+- If the chip is flashed with something else before (e.g. Arduino), it will cause a read error and stop the process.
+- Add `--masserase` to bypass the backup process and erase the flash.
