@@ -6,39 +6,78 @@ We offer the possibility to use such a Dev Container to build any of the support
 
 ## Requirements
 
-- **Step 0**: Make sure your have cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) nanoFramework directory. The working branch is `main`.
-- **Step 1**: Make sure you have [VS Code](https://code.visualstudio.com/Download) installed.
-- **Step 2**: Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop) installed.
-- **Step 3**: Optional but strongly recommended for performance reasons: activate [Windows Subsystem for Linux 2](https://docs.microsoft.com/windows/wsl/install-win10) on your Windows host machine.
+- **Step 0**: Install WSL - We strongly recommended for performance reasons: activate [Windows Subsystem for Linux 2](https://learn.microsoft.com/windows/wsl/install) on your Windows host machine.
 
 > note: that may require a reboot
 
-- **Step 4**: Check Docker configuration and make sure you are signed in. In the bellow picture, the top right corner should have you Docker account. If you are not signed in, you'll get an error. And if you're using WSL2 (recommended), the checkbox for the WSL2 support should be checked.
+- **Step 1**: We **DO NOT** recommend to have any application like Docker Desktop installed but rather use directly a clean installation of Docker or Podman directly on a WSL Ubuntu Linux instance.
+The measure performances between native WSL Docker or Podman and using Docker Desktop are about **50 times faster without** and **with the git project also directly cloned in the WSL instance**.
+  1. you can install a new version of WSL like the Ubuntu 22.04: `wsl --install Ubuntu-22.04`
+  1. Create your user and password.
+  1. Install directly a container engine, let's say the Docker engine, follow the [instructions here](https://docs.docker.com/engine/install/ubuntu/). For an Ubuntu based image:
 
-![Docker steetings](../../images/dev-container-docker.jpg)
+      ```shell
+      # Add Docker's official GPG key:
+      sudo apt-get update
+      sudo apt-get install ca-certificates curl
+      sudo install -m 0755 -d /etc/apt/keyrings
+      sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+      sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-- **Step 5**: Make sure you have the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed.
-- **Step 6**: Copy the two template files (in `nf-interpreter\config` folder) `user-tools-repos.TEMPLATE.json` and `user-prefs.TEMPLATE.json` to (new) files named `user-tools-repos.json` and `user-prefs.json`.
+      # Add the repository to Apt sources:
+      echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+      sudo apt-get update
+      ```
+
+      Then make the install and confirm you want to install:
+
+      ```shell
+      sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+      ```
+
+      Add your user to the group who can run docker without elevated priviledges:
+
+      ```shell
+      sudo usermod -aG docker $USER
+      ```
+
+      Exit WSL with `exit`
+
+- **Step 2**: Make sure you have [VS Code](https://code.visualstudio.com/Download) installed.
+- **Step 3**: Make sure you have the `DevContainer` extention installed in VS Code: select the extension icon (or File -> Preferences -> Extensions) and search for `DevContainer`. Install the Microsoft one:
+
+    ![install dev container extention](../../images/building/devcontainer-extension.png)
+
+  1. Create a profile in VS Code (File -> Preferences -> Profile -> Create profile), call it for example nanoFramework:
+
+    ![create profile](../../images/building/nano-profile.png)
+
+  1. Adjust DevContainer options: Go to the settings (File -> Preferences -> Settings) and search for container, set the WSL distribution you just prepared (in our example Ubuntu-22.04):
+
+    ![wsl default istro](../../images/building/devcontainer-wsl-version.png)
+
+    Adjust as well the commands to be luanch in WSL and not from Windows:
+
+    ![execute command in wsl](../../images/building/devcontainer-execute-in-container.png)
+
+- **Step 4**: From the command line, reconnect to WSL (just type `wsl`), go to your home (just do `cd ~`).
+- **Step 5**: Make sure your have cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) nanoFramework directory. The working branch is `main`.
+
+  ```shell
+  git clone https://github.com/nanoframework/nf-interpreter.git
+  ```
+
+- **Step 6**: Open the full `nf-interpreter`directory with VS Code. Form your home, in WSL, you can just type `code ./nf-interpreter`
+- **Step 7**: Copy the two template files (in `nf-interpreter\config` folder) `user-tools-repos.TEMPLATE.json` and `user-prefs.TEMPLATE.json` to (new) files named `user-tools-repos.json` and `user-prefs.json`.
   Change the content of your "new" `user-tools-repos.json` file as follows:
   - Rename the json section `user-tools-repos-container` to `user-tools-repos`.
-- **Step 7**: Open the full `nf-interpreter`directory with VS Code.
+  - You will have to close VS Code
+  - Reopen VS Code from your home `code ./nf-interpreter`
+
 - **Step 8**: Choose your container.
-
-Go to the file `.devcontainer/devcontainer.json` and choose the container you want. You will find the details in the file itself:
-
-```json
- // Adjust this file to chose the platform you want using the prebuild containers
- // - Dockerfile.All = you can build anything but it's a very large container
- // - Dockerfile.AzureRTOS = for AzureRTOS targets
- // - Dockerfile.ChibiOS = for ChibiOS based targets (ex: STM32, Netduino, Orgpal)
- // - Dockerfile.ESP32 = for ESP32 targets
- // - Dockerfile.TI = for TI targets
- // If you prefer, you can use the source files and adjust them they are located, with the same names in ./sources. This will alow you to customize them and add anything you may need on top.
- "dockerFile": "Dockerfile.ChibiOS",
-```
-
-> Note: as a beginner, we recommend you to use the pre built containers. If you are familiar with containers and need to adjust resources in them, then use the one which you can build yourself. Use the one in the `./sources` subdirectory. So the file name will be for example `./source/Dockerfile.All` to use the container containing everything and build it from the source.
-> Error: if you get error message like "Bad CMake executable "". Is it installed or settings contain the correct path (cmake.cmakePath)?  The solution: uninstall the CMake and CMake tool from Visual Studio Code and restart Visual Studio Code.  
 
 - **Step 9**: Once prompted, open the dev container.
 
@@ -46,13 +85,15 @@ Go to the file `.devcontainer/devcontainer.json` and choose the container you wa
 
   ![remote container animation](https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif)
 
-  > note: in our case, the dev container is called `nanoFramework`.
+  > note: in our case, we have multiple DevContainers all starting with `nanoFramework`. Select the one you need!
+
+  ![list of nano dev containers](../../images/building/containers.png)
 
   If VS Code does not show the prompt, you can press F1 to show all commands. In this list, you can select the item "Remote-Containers: Open Folder in Container..." to open the dev container manually. This option will require you to select the folder through the folder selection dialog.
 
 - **Step 10**: At that point, like in the previous illustration, when clicking on the logs, you should see activities. Be patient. Yes, super patient.
-- **Step 11**: We told you to be patient, go for a tea, or a coffee. This part is resource intensive, most of your memory and processor will be used.
-- **Step 12**: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well. This may take a very long time if you have a low bandwidth Internet. See the advance section to understand how you can skip some of the elements if you are only interested in a very specific board.
+- **Step 11**: The prebuild container will be downloaded, depending on your internet bandwith, this may take a little bit of time.
+- **Step 12**: More patience, yes, all the needed tools and directory are cloned, all the needed settings are cloned as well.
 - **Step 13**: It will be over when your VS Code will give you access to the files and will look like this:
 
 ![Docker steetings](../../images/dev-container-vscode-ok.jpg)
@@ -69,12 +110,15 @@ To select a new image, just click on the name of the target, the menu will pop u
 
 - **Step 15**: This will actually prepare all what is needed in the `build`folder.
 
-> **Important**: this may take up to 1h or more depending on the target and the performance of your machine. So be patient! While the project will be in preparation, you'll get the small window on the right:
+> **Important**: If you did not follow the path of cloning the repository in the WSL instance but rather use a clone in Windows,
+this may take up to 1h or more depending on the target and the performance of your machine. So be patient! While the project will be in preparation, you'll get the small window on the right:
 
 ![configuration the project](../../images/dev-container-prepare.jpg)
 
-- **Step 16**: did we already told you to be patient? :-) If you still have the little windows from the previous image, be patient! once done, go to the next step.
+- **Step 16**: If you are using the recommended configuration and followed the steps, everything should be done in couple of seconds.
 - **Step 17**: Hit `F7` this will trigger the build. The build will take some time as well. If all goes right, it will finish with a code 0 with something like: `[build] Build finished with exit code 0`
+- **Step 18**: When the build succeed, your build file is located on `~/nf-interpreter/build/nanoCLR.bin`. You can copy it into a Windows folder
+(for example `cp ~/nf-interpreter/build/nanoCLR.bin /mnt/c/tmp`). From there, you can use `nanoff` to flash it, see [flashing image section](#flashing-image).
 
 ## Tips and tricks
 
@@ -195,3 +239,25 @@ Example:
 ```console
 nanoff --update --platform esp32 --serialport COM3 --clrfile nanoCLR.bin
 ```
+
+### Using podman as a container engine
+
+If you are using podman as a container engine, you need to adjust couple of more settings:
+
+![podman settings](../../images/building/podman-settings.png)
+
+In the `devcontainre.json` files, add the following entries:
+
+```json
+    "runArgs": ["--userns=keep-id"],
+    "containerUser": "vscode",   
+```
+
+This is needed for the DevContainer to work as a standard user.
+Podman works as a standard user per default compare to Docker which runs as root per default.
+
+### Using Docker Desktop
+
+We **DO NOT** recommand to use Docker Destop as the performances are not good with it. It does create an overlayer that makes all the commands and traffic to go through Windows.
+
+If you still want to use it and are happy to pay a performance price, you need to make sure you uncheck the option "Execute in WSL".
