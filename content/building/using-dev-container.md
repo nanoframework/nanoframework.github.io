@@ -11,7 +11,7 @@ We offer the possibility to use such a Dev Container to build any of the support
 > note: that may require a reboot
 
 - **Step 1**: We **DO NOT** recommend to have any application like Docker Desktop installed but rather use directly a clean installation of Docker or Podman directly on a WSL Ubuntu Linux instance.
-The measure performances between native WSL Docker or Podman and using Docker Desktop are about **50 times faster without** and **with the git project also directly cloned in the WSL instance**. 
+The measure performances between native WSL Docker or Podman and using Docker Desktop are about **50 times faster without** and **with the git project also directly cloned in the WSL instance**.
   1. you can install a new version of WSL like the Ubuntu 22.04: `wsl --install Ubuntu-22.04`
   1. Create your user and password.
   1. Install directly a container engine, let's say the Docker engine, follow the [instructions here](https://docs.docker.com/engine/install/ubuntu/). For an Ubuntu based image:
@@ -69,6 +69,7 @@ The measure performances between native WSL Docker or Podman and using Docker De
   ```shell
   git clone https://github.com/nanoframework/nf-interpreter.git
   ```
+
 - **Step 6**: Open the full `nf-interpreter`directory with VS Code. Form your home, in WSL, you can just type `code ./nf-interpreter`
 - **Step 7**: Copy the two template files (in `nf-interpreter\config` folder) `user-tools-repos.TEMPLATE.json` and `user-prefs.TEMPLATE.json` to (new) files named `user-tools-repos.json` and `user-prefs.json`.
   Change the content of your "new" `user-tools-repos.json` file as follows:
