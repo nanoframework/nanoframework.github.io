@@ -49,19 +49,19 @@ The measure performances between native WSL Docker or Podman and using Docker De
 - **Step 2**: Make sure you have [VS Code](https://code.visualstudio.com/Download) installed.
 - **Step 3**: Make sure you have the `DevContainer` extention installed in VS Code: select the extension icon (or File -> Preferences -> Extensions) and search for `DevContainer`. Install the Microsoft one:
 
-    ![install dev container extention](/images/building/devcontainer-extension.png)
+    ![install dev container extention](../../images/building/devcontainer-extension.png)
 
   1. Create a profile in VS Code (File -> Preferences -> Profile -> Create profile), call it for example nanoFramework:
 
-    ![create profile](/images/building/nano-profile.png)
+    ![create profile](../../images/building/nano-profile.png)
 
   1. Adjust DevContainer options: Go to the settings (File -> Preferences -> Settings) and search for container, set the WSL distribution you just prepared (in our example Ubuntu-22.04):
 
-    ![wsl default istro](/images/building/devcontainer-wsl-version.png)
+    ![wsl default istro](../../images/building/devcontainer-wsl-version.png)
 
     Adjust as well the commands to be luanch in WSL and not from Windows:
 
-    ![execute command in wsl](/images/building/devcontainer-execute-in-container.png)
+    ![execute command in wsl](../../images/building/devcontainer-execute-in-container.png)
 
 - **Step 4**: From the command line, reconnect to WSL (just type `wsl`), go to your home (just do `cd ~`).
 - **Step 5**: Make sure your have cloned [nf-interpreter](https://github.com/nanoframework/nf-interpreter) nanoFramework directory. The working branch is `main`.
@@ -86,7 +86,7 @@ The measure performances between native WSL Docker or Podman and using Docker De
 
   > note: in our case, we have multiple DevContainers all starting with `nanoFramework`. Select the one you need!
 
-  ![list of nano dev containers](/images/building/containers.png)
+  ![list of nano dev containers](../../images/building/containers.png)
 
   If VS Code does not show the prompt, you can press F1 to show all commands. In this list, you can select the item "Remote-Containers: Open Folder in Container..." to open the dev container manually. This option will require you to select the folder through the folder selection dialog.
 
@@ -243,7 +243,7 @@ nanoff --update --platform esp32 --serialport COM3 --clrfile nanoCLR.bin
 
 If you are using podman as a container engine, you need to adjust couple of more settings:
 
-![podman settings](/images/building/podman-settings.png)
+![podman settings](../../images/building/podman-settings.png)
 
 In the `devcontainre.json` files, add the following entries:
 
