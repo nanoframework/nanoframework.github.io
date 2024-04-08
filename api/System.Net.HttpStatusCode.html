@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -127,8 +127,7 @@ information has multiple representations.  The default action is to treat this s
 a redirect and follow the contents of the Location header associated with this response.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
 <itemref>false</itemref>, <itemref>Ambiguous</itemref> will cause an exception to be
-thrown.</p>
-<p><itemref>Ambiguous</itemref> is a synonym for <itemref>MultipleChoices</itemref>.</p>
+thrown.</p><p><itemref>Ambiguous</itemref> is a synonym for <itemref>MultipleChoices</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_BadGateway"><code>BadGateway = 502</code></dt>
     <dd><p>Equivalent to HTTP status 502. Indicates that an intermediate proxy
@@ -165,8 +164,7 @@ located at the URI specified in the Location header. The default action when thi
 is received is to follow the Location header associated with the response. When the
 original request method was POST, the redirected request will use the GET method.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
-<itemref>false</itemref>, <itemref>Found</itemref> will cause an exception to be thrown.</p>
-<p><itemref>Found</itemref> is a synonym for <itemref>Redirect</itemref>.</p>
+<itemref>false</itemref>, <itemref>Found</itemref> will cause an exception to be thrown.</p><p><itemref>Found</itemref> is a synonym for <itemref>Redirect</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_GatewayTimeout"><code>GatewayTimeout = 504</code></dt>
     <dd><p>Equivalent to HTTP status 504. Indicates that an intermediate
@@ -212,8 +210,7 @@ multiple representations.  The default action is to treat this status as a redir
 follow the contents of the Location header associated with this response.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
 <itemref>false</itemref>, <itemref>MultipleChoices</itemref> will cause an exception to
-be thrown.</p>
-<p><itemref>MultipleChoices</itemref> is a synonym for <itemref>Ambiguous</itemref>.</p>
+be thrown.</p><p><itemref>MultipleChoices</itemref> is a synonym for <itemref>Ambiguous</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_NoContent"><code>NoContent = 204</code></dt>
     <dd><p>Equivalent to HTTP status 204.  Indicates that the request has been successfully
@@ -269,8 +266,7 @@ is received is to follow the Location header associated with the response. When 
 original request method was POST, the redirected request will use the GET method.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
 <itemref>false</itemref>, <itemref>Redirect</itemref> will cause an exception to be
-thrown.</p>
-<p><itemref>Redirect</itemref> is a synonym for <itemref>Found</itemref>.</p>
+thrown.</p><p><itemref>Redirect</itemref> is a synonym for <itemref>Found</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_RedirectKeepVerb"><code>RedirectKeepVerb = 307</code></dt>
     <dd><p>Equivalent to HTTP status 307. Indicates that the request
@@ -280,8 +276,7 @@ response. When the original request method was POST, the redirected request will
 use the POST method.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
 <itemref>false</itemref>, <itemref>RedirectKeepVerb</itemref> will cause an exception to
-be thrown.</p>
-<p><itemref>RedirectKeepVerb</itemref> is a synonym for <itemref>TemporaryRedirect</itemref>.</p>
+be thrown.</p><p><itemref>RedirectKeepVerb</itemref> is a synonym for <itemref>TemporaryRedirect</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_RedirectMethod"><code>RedirectMethod = 303</code></dt>
     <dd><p>Equivalent to HTTP status 303. Automatically redirects the
@@ -289,8 +284,7 @@ client to the URI specified in the Location header as the result of a POST. The 
 to the resource specified by the Location header will be made with a GET.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
 <itemref>false</itemref>, <itemref>RedirectMethod</itemref> will cause an exception to
-be thrown.</p>
-<p><itemref>RedirectMethod</itemref> is a synonym for <itemref>SeeOther</itemref>.</p>
+be thrown.</p><p><itemref>RedirectMethod</itemref> is a synonym for <itemref>SeeOther</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_RequestEntityTooLarge"><code>RequestEntityTooLarge = 413</code></dt>
     <dd><p>Equivalent to HTTP status 413. Indicates that the request
@@ -320,8 +314,7 @@ the URI specified in the Location header as the result of a POST. The request to
 resource specified by the Location header will be made with a GET.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
 <itemref>false</itemref>, <itemref>SeeOther</itemref> will cause an exception to be
-thrown.</p>
-<p><itemref>SeeOther</itemref> is a synonym for <itemref>RedirectMethod</itemref>.</p>
+thrown.</p><p><itemref>SeeOther</itemref> is a synonym for <itemref>RedirectMethod</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_ServiceUnavailable"><code>ServiceUnavailable = 503</code></dt>
     <dd><p>Equivalent to HTTP status 503. Indicates that the server is
@@ -338,8 +331,7 @@ is received is to follow the Location header associated with the response. When 
 original request method was POST, the redirected request will also use the POST method.
 <p>If the HttpWebRequest.AllowAutoRedirect property is
 <itemref>false</itemref>, <itemref>TemporaryRedirect</itemref> will cause an exception
-to be thrown.</p>
-<p><itemref>TemporaryRedirect</itemref> is a synonym for <itemref>RedirectKeepVerb</itemref>.</p>
+to be thrown.</p><p><itemref>TemporaryRedirect</itemref> is a synonym for <itemref>RedirectKeepVerb</itemref>.</p>
 </dd>
     <dt id="System_Net_HttpStatusCode_Unauthorized"><code>Unauthorized = 401</code></dt>
     <dd><p>Equivalent to HTTP status 401. Indicates that the requested

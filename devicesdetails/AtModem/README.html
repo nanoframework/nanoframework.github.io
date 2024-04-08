@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -97,6 +97,7 @@
 <ul>
 <li><a href="https://www.simcom.com/index.php/product/SIM7080G.html">SIM7080 Product details</a></li>
 <li><a href="https://www.simcom.com/product/SIM800C.html">SIM800 Product details</a></li>
+<li><a href="https://www.simcom.com/product/SIM7672.html">SIM7672 Product details</a></li>
 </ul>
 <p>Supported features for the different modems are the following:</p>
 <table>
@@ -105,6 +106,7 @@
 <th>Feature</th>
 <th>SIM800</th>
 <th>SIM7080</th>
+<th>SIM767XX Series</th>
 </tr>
 </thead>
 <tbody>
@@ -112,9 +114,11 @@
 <td>SMS</td>
 <td>✅</td>
 <td>✅</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>Call</td>
+<td>✅</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
@@ -122,9 +126,11 @@
 <td>Storage</td>
 <td>✅</td>
 <td>✅</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>HTTP and HTTPS</td>
+<td>✅</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
@@ -132,9 +138,11 @@
 <td>MQTT and MQTTS</td>
 <td>❌</td>
 <td>✅</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>IP Network connection</td>
+<td>✅</td>
 <td>✅</td>
 <td>✅</td>
 </tr>
@@ -142,6 +150,7 @@
 </table>
 <p>Most modems supports other features like MMS, Sockets with TCP/UDP, FTP, email, GNSS and more. So far, those features are not implemented. They can be added later. All the mechanism is present to add them and described in the documentation bellow especially regarding the <a href="#the-channel-property">Channel property</a>.</p>
 <p>Note that a more complete implementation for the SIM800H is available in <a href="https://github.com/Eclo/nanoFramework.SIM800H">Eclo Solutions github repository</a>.</p>
+<p>You should also check the specificities of each modem. Some like the SIM7672 has support for folders but only on a SD Card. All have limitation regarding the size of the MQTT topics and messages. Those can be limitations for your application. The SIM767XX series will work fine. You have to use the SIM7672 class for all the family.</p>
 <h2 id="usage">Usage</h2>
 <p><strong>Important</strong>: make sure you properly setup the RT/RX pins especially for ESP32 before creating the <code>SerialPort</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
 <pre><code class="lang-csharp">SerialPort _serialPort;

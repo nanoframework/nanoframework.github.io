@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -874,18 +874,16 @@ hear about events that have already been handled</p>
 
   <h4 class="section" id="nanoFramework_Presentation_UIElement_AddHandler_nanoFramework_UI_RoutedEvent_nanoFramework_UI_RoutedEventHandler_System_Boolean__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The handler added thus is also known as
-an instance handler <p></p>
-<p></p>
+an instance handler <p></p><p></p>
 <p>NOTE: It is not an error to add a handler twice
-(handler will simply be called twice) <p></p>
-<p></p>
+(handler will simply be called twice) <p></p><p></p>
 <p>Input parameters <a class="xref" href="nanoFramework.UI.RoutedEvent.html">RoutedEvent</a>
 and handler cannot be null <p></p>
 handledEventsToo input parameter when false means
 that listener does not care about already handled events.
 Hence the handler will not be invoked on the target if
 the RoutedEvent has already been
-<a class="xref" href="nanoFramework.UI.RoutedEventArgs.html#nanoFramework_UI_RoutedEventArgs_Handled">Handled</a> <p></p>
+<a class="xref" href="nanoFramework.UI.RoutedEventArgs.html#nanoFramework_UI_RoutedEventArgs_Handled">Handled</a><p></p>
 handledEventsToo input parameter when true means
 that the listener wants to hear about all events even if
 they have already been handled. Hence the handler will
@@ -1022,13 +1020,12 @@ Typical override follows a pattern roughly like this (pseudo-code):
 <example>
 <pre><code class="lang-csharp">protected override void ArrangeOverride(int arrangeWidth, int arrangeHeight)
 {</code></pre></example></p>
-<pre><code>    foreach (UIElement child in VisualChildren)
-    {
-        child.Arrange(new Rect(childX, childY, childWidth, childHeight);
-    }
-}&lt;/code&gt;&lt;/pre&gt;
+<pre><code>         foreach (UIElement child in VisualChildren)
+         {
+             child.Arrange(new Rect(childX, childY, childWidth, childHeight);
+         }
+     }&lt;/code&gt;&lt;/pre&gt;&lt;/example&gt;
 </code></pre>
-
 </div>
 
 
@@ -1578,16 +1575,15 @@ child.Measure(availableSize);
 availableSize.Deflate(child.DesiredSize);
 _cache.StoreInfoAboutChild(child);
 }
-<pre><code>    Size desired = CalculateBasedOnCache(_cache);
-    return desired;
-}&lt;/code&gt;&lt;/pre&gt;
+<pre><code>         Size desired = CalculateBasedOnCache(_cache);
+         return desired;
+     }&lt;/code&gt;&lt;/pre&gt;&lt;/example&gt;
 </code></pre>
-</code></pre></example>
-The key aspects of this snippet are:
-    <ul><li>You must call Measure on each child UIElement</li><li>It is common to cache measurement information between the MeasureOverride and ArrangeOverride method calls</li><li>Calling base.MeasureOverride is not required.</li><li>Calls to Measure on children are passing either the same availableSize as the parent, or a subset of the area depending
+<p>The key aspects of this snippet are:
+<ul><li>You must call Measure on each child UIElement</li><li>It is common to cache measurement information between the MeasureOverride and ArrangeOverride method calls</li><li>Calling base.MeasureOverride is not required.</li><li>Calls to Measure on children are passing either the same availableSize as the parent, or a subset of the area depending
 on the type of layout the parent will perform (for example, it would be valid to remove the area
 for some border or padding).</li></ul>
-</div>
+</code></pre></example></div>
 
 
 

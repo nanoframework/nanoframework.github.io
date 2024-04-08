@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
     <header class="bg-body border-bottom">
@@ -235,6 +235,70 @@ device.Display();
 <h2 id="fonts">Fonts</h2>
 <p>Fonts can be used following the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Ssd13xx/IFont.cs">IFont</a> implementation.</p>
 <p>Sample fonts are provided both in the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Ssd13xx/samples/">sample directory</a> and in the <a href="./Additionnal_Fonts/">additional font one</a>. A tool called <code>Bitmap2Font</code> is also provided helping to automatically generate the Font class. In short, it can take any black and white image of fixed size font and generate the Font class. More <a href="./Bitmap2Font/">information here</a>.</p>
+<h2 id="iotbytefont-net-dot-matrix-font-creator-tool">IotByteFont: .NET Dot Matrix Font Creator Tool</h2>
+<p><a href="https://github.com/sangyuxiaowu/IotByteFont">IotByteFont</a> is a .NET dot matrix font creation tool. It can load your favorite font files and generate custom dot matrix font code.</p>
+<h3 id="installation">Installation</h3>
+<p>You can install the IotByteFont tool with the following command:</p>
+<pre><code class="lang-bash">dotnet tool install -g IotByteFont
+</code></pre>
+<h3 id="usage">Usage</h3>
+<p>Here are the command-line options for the IotByteFont tool:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f, --font</td>
+<td>Microsoft YaHei UI</td>
+<td>Font file path or font name.</td>
+</tr>
+<tr>
+<td>-c, --char</td>
+<td>chars.txt</td>
+<td>Char file path or char string.</td>
+</tr>
+<tr>
+<td>-s, --size</td>
+<td>16</td>
+<td>Font size.</td>
+</tr>
+<tr>
+<td>-w, --width</td>
+<td>0</td>
+<td>Font width. 0 means same as font size.</td>
+</tr>
+<tr>
+<td>-y, --yoffset</td>
+<td>0.75</td>
+<td>Font y offset. size * y. Not recommended to adjust. Adjust with debug mode.</td>
+</tr>
+<tr>
+<td>-t, --threshold</td>
+<td>128</td>
+<td>Threshold for binarization.</td>
+</tr>
+<tr>
+<td>-n, --name</td>
+<td>IotByteFont</td>
+<td>Output class name.</td>
+</tr>
+<tr>
+<td>-d, --debug</td>
+<td>false</td>
+<td>Debug mode. Print debug info and bitmap.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example</h3>
+<p>When creating a font, you need to specify the font file or font name, the characters to include in the font, and the size of the font. You can also specify the width of the font, the y offset, and the name of the output class. Turning on debug mode can print debug information and the final font bitmap.</p>
+<pre><code class="lang-bash">IotByteFont --char &quot;abcde功夫＄&quot; --size 8
+IotByteFont --font ms.ttf --char chars.txt --yoffset 0.6 --name MyFont --debug
+</code></pre>
 
 </article>
 

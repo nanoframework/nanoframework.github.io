@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -128,9 +128,6 @@ Class HttpClient
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="System.Net.Http.HttpMessageInvoker.html#System_Net_Http_HttpMessageInvoker_Send_System_Net_Http_HttpRequestMessage_">HttpMessageInvoker.Send(HttpRequestMessage)</a>
-    </div>
     <div>
       <a class="xref" href="System.Net.Http.HttpMessageInvoker.html#System_Net_Http_HttpMessageInvoker_Dispose">HttpMessageInvoker.Dispose()</a>
     </div>
@@ -462,11 +459,11 @@ This certificate is used only for https connections; http connections do not req
   <div class="markdown level1 remarks"><p>The default value is 100,000 milliseconds (100 seconds).</p>
 <p>To set an infinite timeout, set the property value to <a class="xref" href="System.Threading.Timeout.html#System_Threading_Timeout_InfiniteTimeSpan">InfiniteTimeSpan</a>.</p>
 <p>
-A Domain Name System (DNS) query may take up to 15 seconds to return or time out. If your request contains a host name that requires resolution and you set <a class="xref" href="System.Net.Http.HttpClient.html#System_Net_Http_HttpClient_Timeout">Timeout</a> to a value less than 15 seconds, it may take 15 seconds or more before a <a class="xref" href="System.Net.WebException.html">WebException</a> is thrown to indicate a timeout on your request.
-</p>
+        A Domain Name System (DNS) query may take up to 15 seconds to return or time out. If your request contains a host name that requires resolution and you set <a class="xref" href="System.Net.Http.HttpClient.html#System_Net_Http_HttpClient_Timeout">Timeout</a> to a value less than 15 seconds, it may take 15 seconds or more before a <a class="xref" href="System.Net.WebException.html">WebException</a> is thrown to indicate a timeout on your request.
+        </p>
 <p>
-The same timeout will apply for all requests using this <a class="xref" href="System.Net.Http.HttpClient.html">HttpClient</a> instance. You may also set different timeouts for individual requests using a CancellationTokenSource on a task.Note that only the shorter of the two timeouts will apply.
-</p>
+        The same timeout will apply for all requests using this <a class="xref" href="System.Net.Http.HttpClient.html">HttpClient</a> instance. You may also set different timeouts for individual requests using a CancellationTokenSource on a task.Note that only the shorter of the two timeouts will apply.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -525,11 +522,11 @@ The same timeout will apply for all requests using this <a class="xref" href="Sy
 
   <h4 class="section" id="System_Net_Http_HttpClient_Delete_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of DeleteAsync.
-</p>
+        This is the .NET nanoFramework equivalent of DeleteAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -584,11 +581,11 @@ This is the .NET nanoFramework equivalent of DeleteAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_Get_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of GetAsync.
-</p>
+        This is the .NET nanoFramework equivalent of GetAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -648,11 +645,11 @@ This is the .NET nanoFramework equivalent of GetAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_Get_System_String_System_Net_Http_HttpCompletionOption__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of GetAsync.
-</p>
+        This is the .NET nanoFramework equivalent of GetAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -710,11 +707,11 @@ This is the .NET nanoFramework equivalent of GetAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_GetByteArray_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block. It returns after the whole response body is read.
-</p>
+        This operation will block. It returns after the whole response body is read.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of GetByteArrayAsync.
-</p>
+        This is the .NET nanoFramework equivalent of GetByteArrayAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -769,14 +766,14 @@ This is the .NET nanoFramework equivalent of GetByteArrayAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_GetStream_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This method does not read nor buffer the response body. It will return as soon as the response headers are read.
-</p>
+        This method does not read nor buffer the response body. It will return as soon as the response headers are read.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of GetStreamAsync.
-</p>
+        This is the .NET nanoFramework equivalent of GetStreamAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -831,14 +828,14 @@ This is the .NET nanoFramework equivalent of GetStreamAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_GetString_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This operation will block. It returns after the whole response body is read.
-</p>
+        This operation will block. It returns after the whole response body is read.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of GetStringAsync.
-</p>
+        This is the .NET nanoFramework equivalent of GetStringAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -896,11 +893,11 @@ This is the .NET nanoFramework equivalent of GetStringAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_Patch_System_String_System_Net_Http_HttpContent__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of PatchAsync.
-</p>
+        This is the .NET nanoFramework equivalent of PatchAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -958,11 +955,11 @@ This is the .NET nanoFramework equivalent of PatchAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_Post_System_String_System_Net_Http_HttpContent__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of PostAsync.
-</p>
+        This is the .NET nanoFramework equivalent of PostAsync.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -1020,12 +1017,63 @@ This is the .NET nanoFramework equivalent of PostAsync.
 
   <h4 class="section" id="System_Net_Http_HttpClient_Put_System_String_System_Net_Http_HttpContent__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This operation will block.
-</p>
+        This operation will block.
+        </p>
 <p>
-This is the .NET nanoFramework equivalent of PutAsync.
-</p>
+        This is the .NET nanoFramework equivalent of PutAsync.
+        </p>
 </div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>The request is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>The request message was already sent by the <a class="xref" href="System.Net.Http.HttpClient.html">HttpClient</a> instance.</p>
+</dd>
+    <dt><a class="xref" href="System.Net.Http.HttpRequestException.html">HttpRequestException</a></dt>
+    <dd><p>The request failed due to an underlying issue such as network connectivity, DNS failure, or server certificate validation.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="System_Net_Http_HttpClient_Send_" data-uid="System.Net.Http.HttpClient.Send*"></a>
+
+  <h3 id="System_Net_Http_HttpClient_Send_System_Net_Http_HttpRequestMessage_" data-uid="System.Net.Http.HttpClient.Send(System.Net.Http.HttpRequestMessage)">
+  Send(HttpRequestMessage)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends an HTTP request with the specified request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HttpResponseMessage Send(HttpRequestMessage request)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="System.Net.Http.HttpRequestMessage.html">HttpRequestMessage</a></dt>
+    <dd><p>The HTTP request message to send.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Net.Http.HttpResponseMessage.html">HttpResponseMessage</a></dt>
+    <dd><p>The HTTP response message.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">

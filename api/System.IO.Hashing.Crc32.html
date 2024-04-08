@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -184,21 +184,21 @@ ITU-T V.42 and IEEE 802.3.</p>
 
   <h2 id="System_IO_Hashing_Crc32_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-  If the platform or target doesn't support Hardware Crc32 computation it will offer a software implementation.
-</p>
+            If the platform or target doesn't support Hardware Crc32 computation it will offer a software implementation.
+          </p>
 <p>
-  For methods that return byte arrays or that write into spans of bytes, this implementation
-  emits the answer in the Little Endian byte order so that the CRC residue relationship
-  (CRC(message concat CRC(message))) is a fixed value) holds.
-  For CRC-32 this stable output is the byte sequence <code>{ 0x1C, 0xDF, 0x44, 0x21 }</code>,
-  the Little Endian representation of <code>0x2144DF1C</code>.
-</p>
+            For methods that return byte arrays or that write into spans of bytes, this implementation
+            emits the answer in the Little Endian byte order so that the CRC residue relationship
+            (CRC(message concat CRC(message))) is a fixed value) holds.
+            For CRC-32 this stable output is the byte sequence <code>{ 0x1C, 0xDF, 0x44, 0x21 }</code>,
+            the Little Endian representation of <code>0x2144DF1C</code>.
+          </p>
 <p>
-  There are multiple, incompatible, definitions of a 32-bit cyclic redundancy
-  check (CRC) algorithm. When interoperating with another system, ensure that you
-  are using the same definition. The definition used by this implementation is not
-  compatible with the cyclic redundancy check described in ITU-T I.363.5.
-</p>
+            There are multiple, incompatible, definitions of a 32-bit cyclic redundancy
+            check (CRC) algorithm. When interoperating with another system, ensure that you
+            are using the same definition. The definition used by this implementation is not
+            compatible with the cyclic redundancy check described in ITU-T I.363.5.
+          </p>
 </div>
 
 

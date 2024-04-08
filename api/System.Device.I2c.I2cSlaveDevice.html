@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -230,14 +230,14 @@ Class I2cSlaveDevice
   <dl class="parameters">
     <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
     <dd><p>
-Thrown when <code class="paramref">busId</code> is invalid.
-</p>
+        Thrown when <code class="paramref">busId</code> is invalid.
+        </p>
 <p>
--- or --
-</p>
+        -- or --
+        </p>
 <p>
-The specified <code class="paramref">busId</code> is being used either has slave or master device.
-</p>
+        The specified <code class="paramref">busId</code> is being used either has slave or master device.
+        </p>
 </dd>
   </dl>
 
@@ -440,14 +440,14 @@ The specified <code class="paramref">busId</code> is being used either has slave
 
   <h4 class="section" id="System_Device_I2c_I2cSlaveDevice_Read_System_SpanByte_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-The length of <code class="paramref">buffer</code> determines how much data to read from the I2C master.
-</p>
+        The length of <code class="paramref">buffer</code> determines how much data to read from the I2C master.
+        </p>
 <p>
-The return value will be the same as the length of <code class="paramref">buffer</code> if the read was successful.
-</p>
+        The return value will be the same as the length of <code class="paramref">buffer</code> if the read was successful.
+        </p>
 <p>
-No exception will be thrown if the read was not successful. The return value will indicate how many bytes were read.
-</p>
+        No exception will be thrown if the read was not successful. The return value will indicate how many bytes were read.
+        </p>
 </div>
 
 
@@ -535,14 +535,14 @@ No exception will be thrown if the read was not successful. The return value wil
 
   <h4 class="section" id="System_Device_I2c_I2cSlaveDevice_Write_System_SpanByte_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-The length of <code class="paramref">buffer</code> determines how much data to write to the I2C master.
-</p>
+        The length of <code class="paramref">buffer</code> determines how much data to write to the I2C master.
+        </p>
 <p>
-The return value will be the same as the length of <code class="paramref">buffer</code> if the write was successful.
-</p>
+        The return value will be the same as the length of <code class="paramref">buffer</code> if the write was successful.
+        </p>
 <p>
-No exception will be thrown if the write was not successful. The return value will indicate how many bytes were written.
-</p>
+        No exception will be thrown if the write was not successful. The return value will indicate how many bytes were written.
+        </p>
 </div>
 
 

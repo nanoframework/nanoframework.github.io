@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -100,6 +100,11 @@ Classes
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="System.IO.DriveInfo.html">DriveInfo</a></dt>
+      <dd><p>Provides access to information on a drive.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="System.IO.File.html">File</a></dt>
       <dd><p>Class for creating FileStream objects, and some basic file management
 routines such as Delete, etc.</p>
@@ -155,6 +160,11 @@ but they will handle most string operations.</p>
     <h3 id="enums">
 Enums
 </h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="System.IO.DriveType.html">DriveType</a></dt>
+      <dd><p>Defines constants for drive types, including CDRom, Fixed, Network, NoRootDirectory, Ram, Removable, and Unknown.</p>
+</dd>
+    </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="System.IO.FileAccess.html">FileAccess</a></dt>
       <dd><p>Contains constants for specifying the access you want for a file.

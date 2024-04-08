@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -197,8 +197,8 @@ Class HttpMessageHandler
   <div class="markdown level0 remarks"><p>There are various HTTP message handlers that can be used. These include the following.</p>
 <ol><li>HttpClientHandler - A class that operates at the bottom of the handler chain that actually handles the HTTP transport operations.</li></ol>
 <p>
-If developers derive classes from <a class="xref" href="System.Net.Http.HttpMessageHandler.html">HttpMessageHandler</a> and override the <a class="xref" href="System.Net.Http.HttpMessageHandler.html#System_Net_Http_HttpMessageHandler_Send_System_Net_Http_HttpRequestMessage_">Send(HttpRequestMessage)</a> method, they must make sure that <a class="xref" href="System.Net.Http.HttpMessageHandler.html#System_Net_Http_HttpMessageHandler_Send_System_Net_Http_HttpRequestMessage_">Send(HttpRequestMessage)</a> can get called concurrently by different threads.
-</p>
+        If developers derive classes from <a class="xref" href="System.Net.Http.HttpMessageHandler.html">HttpMessageHandler</a> and override the <a class="xref" href="System.Net.Http.HttpMessageHandler.html#System_Net_Http_HttpMessageHandler_Send_System_Net_Http_HttpRequestMessage_">Send(HttpRequestMessage)</a> method, they must make sure that <a class="xref" href="System.Net.Http.HttpMessageHandler.html#System_Net_Http_HttpMessageHandler_Send_System_Net_Http_HttpRequestMessage_">Send(HttpRequestMessage)</a> can get called concurrently by different threads.
+        </p>
 </div>
 
 

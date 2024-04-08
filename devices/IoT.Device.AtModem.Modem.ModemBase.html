@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -84,16 +84,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="IoT.Device.AtModem.Modem.ModemBase">
+        <article data-uid="Iot.Device.AtModem.Modem.ModemBase">
 
 
 
-  <h1 id="IoT_Device_AtModem_Modem_ModemBase" data-uid="IoT.Device.AtModem.Modem.ModemBase" class="text-break">
+  <h1 id="Iot_Device_AtModem_Modem_ModemBase" data-uid="Iot.Device.AtModem.Modem.ModemBase" class="text-break">
 Class ModemBase  
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="IoT.html">IoT</a>.<a class="xref" href="IoT.Device.html">Device</a>.<a class="xref" href="IoT.Device.AtModem.html">AtModem</a>.<a class="xref" href="IoT.Device.AtModem.Modem.html">Modem</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.AtModem.html">AtModem</a>.<a class="xref" href="Iot.Device.AtModem.Modem.html">Modem</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Iot.Device.AtModem.dll</dd></dl>
   </div>
 
@@ -120,8 +120,9 @@ Class ModemBase
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
-      <div><a class="xref" href="IoT.Device.AtModem.Modem.Sim7080.html">Sim7080</a></div>
-      <div><a class="xref" href="IoT.Device.AtModem.Modem.Sim800.html">Sim800</a></div>
+      <div><a class="xref" href="Iot.Device.AtModem.Modem.Sim7080.html">Sim7080</a></div>
+      <div><a class="xref" href="Iot.Device.AtModem.Modem.Sim7672.html">Sim7672</a></div>
+      <div><a class="xref" href="Iot.Device.AtModem.Modem.Sim800.html">Sim800</a></div>
     </dd>
   </dl>
 
@@ -135,9 +136,9 @@ Class ModemBase
 </h2>
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase__ctor_" data-uid="IoT.Device.AtModem.Modem.ModemBase.#ctor*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase__ctor_" data-uid="Iot.Device.AtModem.Modem.ModemBase.#ctor*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase__ctor_IoT_Device_AtModem_AtChannel_" data-uid="IoT.Device.AtModem.Modem.ModemBase.#ctor(IoT.Device.AtModem.AtChannel)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase__ctor_Iot_Device_AtModem_AtChannel_" data-uid="Iot.Device.AtModem.Modem.ModemBase.#ctor(Iot.Device.AtModem.AtChannel)">
   ModemBase(AtChannel)
   
   </h3>
@@ -152,7 +153,7 @@ Class ModemBase
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>channel</code> <a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a></dt>
+    <dt><code>channel</code> <a class="xref" href="Iot.Device.AtModem.AtChannel.html">AtChannel</a></dt>
     <dd><p>The AT channel used for communication with the modem.</p>
 </dd>
   </dl>
@@ -172,14 +173,14 @@ Class ModemBase
 </h2>
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_Call_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Call*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_Call_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Call*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_Call" data-uid="IoT.Device.AtModem.Modem.ModemBase.Call">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_Call" data-uid="Iot.Device.AtModem.Modem.ModemBase.Call">
   Call
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="IoT.Device.AtModem.Call.ICall.html">ICall</a> object used to make and receive calls.</p>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Iot.Device.AtModem.Call.ICall.html">ICall</a> object used to make and receive calls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -193,7 +194,7 @@ Class ModemBase
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Call.ICall.html">ICall</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.Call.ICall.html">ICall</a></dt>
     <dd></dd>
   </dl>
 
@@ -204,9 +205,9 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_Channel_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Channel*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_Channel_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Channel*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_Channel" data-uid="IoT.Device.AtModem.Modem.ModemBase.Channel">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_Channel" data-uid="Iot.Device.AtModem.Modem.ModemBase.Channel">
   Channel
   
   </h3>
@@ -225,7 +226,7 @@ Class ModemBase
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.AtChannel.html">AtChannel</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.AtChannel.html">AtChannel</a></dt>
     <dd></dd>
   </dl>
 
@@ -236,9 +237,9 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_Enabled_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Enabled*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_Enabled_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Enabled*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_Enabled" data-uid="IoT.Device.AtModem.Modem.ModemBase.Enabled">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_Enabled" data-uid="Iot.Device.AtModem.Modem.ModemBase.Enabled">
   Enabled
   
   </h3>
@@ -268,14 +269,14 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_FileStorage_" data-uid="IoT.Device.AtModem.Modem.ModemBase.FileStorage*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_FileStorage_" data-uid="Iot.Device.AtModem.Modem.ModemBase.FileStorage*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_FileStorage" data-uid="IoT.Device.AtModem.Modem.ModemBase.FileStorage">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_FileStorage" data-uid="Iot.Device.AtModem.Modem.ModemBase.FileStorage">
   FileStorage
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="IoT.Device.AtModem.IFileStorage.html">IFileStorage</a> object used to store files on the modem..</p>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Iot.Device.AtModem.IFileStorage.html">IFileStorage</a> object used to store files on the modem..</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -289,7 +290,7 @@ Class ModemBase
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.IFileStorage.html">IFileStorage</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.IFileStorage.html">IFileStorage</a></dt>
     <dd></dd>
   </dl>
 
@@ -300,14 +301,14 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_HttpClient_" data-uid="IoT.Device.AtModem.Modem.ModemBase.HttpClient*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_HttpClient_" data-uid="Iot.Device.AtModem.Modem.ModemBase.HttpClient*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_HttpClient" data-uid="IoT.Device.AtModem.Modem.ModemBase.HttpClient">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_HttpClient" data-uid="Iot.Device.AtModem.Modem.ModemBase.HttpClient">
   HttpClient
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.html#IoT_Device_AtModem_Modem_ModemBase_HttpClient">HttpClient</a> object used to communicate with the network.</p>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.html#Iot_Device_AtModem_Modem_ModemBase_HttpClient">HttpClient</a> object used to communicate with the network.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -332,9 +333,9 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_MqttClient_" data-uid="IoT.Device.AtModem.Modem.ModemBase.MqttClient*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_MqttClient_" data-uid="Iot.Device.AtModem.Modem.ModemBase.MqttClient*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_MqttClient" data-uid="IoT.Device.AtModem.Modem.ModemBase.MqttClient">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_MqttClient" data-uid="Iot.Device.AtModem.Modem.ModemBase.MqttClient">
   MqttClient
   
   </h3>
@@ -364,14 +365,14 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_Network_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Network*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_Network_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Network*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_Network" data-uid="IoT.Device.AtModem.Modem.ModemBase.Network">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_Network" data-uid="Iot.Device.AtModem.Modem.ModemBase.Network">
   Network
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="IoT.Device.AtModem.Network.INetwork.html">INetwork</a> object used to communicate with the network.</p>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Iot.Device.AtModem.Network.INetwork.html">INetwork</a> object used to communicate with the network.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -385,7 +386,7 @@ Class ModemBase
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Network.INetwork.html">INetwork</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.Network.INetwork.html">INetwork</a></dt>
     <dd></dd>
   </dl>
 
@@ -396,14 +397,14 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_SmsProvider_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SmsProvider*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_SmsProvider_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SmsProvider*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_SmsProvider" data-uid="IoT.Device.AtModem.Modem.ModemBase.SmsProvider">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_SmsProvider" data-uid="Iot.Device.AtModem.Modem.ModemBase.SmsProvider">
   SmsProvider
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="IoT.Device.AtModem.Sms.ISmsProvider.html">ISmsProvider</a> object used to send and receive SMS messages and mget access to the SMS storage.</p>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Iot.Device.AtModem.Sms.ISmsProvider.html">ISmsProvider</a> object used to send and receive SMS messages and mget access to the SMS storage.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -417,7 +418,7 @@ Class ModemBase
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Sms.ISmsProvider.html">ISmsProvider</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.Sms.ISmsProvider.html">ISmsProvider</a></dt>
     <dd></dd>
   </dl>
 
@@ -432,9 +433,9 @@ Class ModemBase
 </h2>
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_Close_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Close*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_Close_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Close*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_Close" data-uid="IoT.Device.AtModem.Modem.ModemBase.Close">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_Close" data-uid="Iot.Device.AtModem.Modem.ModemBase.Close">
   Close()
   
   </h3>
@@ -459,9 +460,9 @@ Class ModemBase
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_DisableEcho_" data-uid="IoT.Device.AtModem.Modem.ModemBase.DisableEcho*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_DisableEcho_" data-uid="Iot.Device.AtModem.Modem.ModemBase.DisableEcho*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_DisableEcho" data-uid="IoT.Device.AtModem.Modem.ModemBase.DisableEcho">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_DisableEcho" data-uid="Iot.Device.AtModem.Modem.ModemBase.DisableEcho">
   DisableEcho()
   
   </h3>
@@ -477,8 +478,8 @@ Class ModemBase
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indicating the success of the operation.</p>
 </dd>
   </dl>
@@ -493,9 +494,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_Dispose_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Dispose*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_Dispose_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Dispose*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_Dispose" data-uid="IoT.Device.AtModem.Modem.ModemBase.Dispose">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_Dispose" data-uid="Iot.Device.AtModem.Modem.ModemBase.Dispose">
   Dispose()
   
   </h3>
@@ -520,9 +521,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_Dispose_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Dispose*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_Dispose_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Dispose*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_Dispose_System_Boolean_" data-uid="IoT.Device.AtModem.Modem.ModemBase.Dispose(System.Boolean)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_Dispose_System_Boolean_" data-uid="Iot.Device.AtModem.Modem.ModemBase.Dispose(System.Boolean)">
   Dispose(bool)
   
   </h3>
@@ -551,9 +552,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_EnterSimPin_" data-uid="IoT.Device.AtModem.Modem.ModemBase.EnterSimPin*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_EnterSimPin_" data-uid="Iot.Device.AtModem.Modem.ModemBase.EnterSimPin*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_EnterSimPin_IoT_Device_AtModem_DTOs_PersonalIdentificationNumber_" data-uid="IoT.Device.AtModem.Modem.ModemBase.EnterSimPin(IoT.Device.AtModem.DTOs.PersonalIdentificationNumber)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_EnterSimPin_Iot_Device_AtModem_DTOs_PersonalIdentificationNumber_" data-uid="Iot.Device.AtModem.Modem.ModemBase.EnterSimPin(Iot.Device.AtModem.DTOs.PersonalIdentificationNumber)">
   EnterSimPin(PersonalIdentificationNumber)
   
   </h3>
@@ -568,15 +569,15 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>pin</code> <a class="xref" href="IoT.Device.AtModem.DTOs.PersonalIdentificationNumber.html">PersonalIdentificationNumber</a></dt>
+    <dt><code>pin</code> <a class="xref" href="Iot.Device.AtModem.DTOs.PersonalIdentificationNumber.html">PersonalIdentificationNumber</a></dt>
     <dd><p>The Personal Identification Number (PIN) to enter.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indication the success of the operation.</p>
 </dd>
   </dl>
@@ -591,9 +592,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetAvailableCharacterSets_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetAvailableCharacterSets*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetAvailableCharacterSets_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetAvailableCharacterSets*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetAvailableCharacterSets" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetAvailableCharacterSets">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetAvailableCharacterSets" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetAvailableCharacterSets">
   GetAvailableCharacterSets()
   
   </h3>
@@ -609,8 +610,8 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the available character sets if successful, or an error response.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the available character sets if successful, or an error response.
 If success, Result will contain a <a class="xref" href="../api/System.String.html">string</a> array.</p>
 </dd>
   </dl>
@@ -625,9 +626,9 @@ If success, Result will contain a <a class="xref" href="../api/System.String.htm
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetBatteryStatus_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetBatteryStatus*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetBatteryStatus_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetBatteryStatus*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetBatteryStatus" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetBatteryStatus">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetBatteryStatus" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetBatteryStatus">
   GetBatteryStatus()
   
   </h3>
@@ -643,9 +644,9 @@ If success, Result will contain a <a class="xref" href="../api/System.String.htm
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the battery status information.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.BatteryStatus.html">BatteryStatus</a> class.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the battery status information.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.DTOs.BatteryStatus.html">BatteryStatus</a> class.</p>
 </dd>
   </dl>
 
@@ -659,9 +660,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetCurrentBaudRate_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetCurrentBaudRate*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetCurrentBaudRate_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetCurrentBaudRate*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetCurrentBaudRate" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetCurrentBaudRate">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetCurrentBaudRate" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetCurrentBaudRate">
   GetCurrentBaudRate()
   
   </h3>
@@ -677,8 +678,8 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Int32.html">int</a>.</p>
 </dd>
   </dl>
@@ -693,9 +694,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Int32.html
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetCurrentCharacterSet_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetCurrentCharacterSet*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetCurrentCharacterSet_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetCurrentCharacterSet*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetCurrentCharacterSet" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetCurrentCharacterSet">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetCurrentCharacterSet" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetCurrentCharacterSet">
   GetCurrentCharacterSet()
   
   </h3>
@@ -711,8 +712,8 @@ If success, Result will contain a <a class="xref" href="../api/System.Int32.html
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the current character set if successful, or an error response.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the current character set if successful, or an error response.
 If success, Result will contain a <a class="xref" href="../api/System.String.html">string</a> indicating the current character set.</p>
 </dd>
   </dl>
@@ -727,9 +728,9 @@ If success, Result will contain a <a class="xref" href="../api/System.String.htm
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetDateTime_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetDateTime*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetDateTime_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetDateTime*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetDateTime" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetDateTime">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetDateTime" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetDateTime">
   GetDateTime()
   
   </h3>
@@ -745,8 +746,8 @@ If success, Result will contain a <a class="xref" href="../api/System.String.htm
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the date and time value.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the date and time value.
 If success, Result will contain a <a class="xref" href="../api/System.DateTime.html">DateTime</a> class.</p>
 </dd>
   </dl>
@@ -761,9 +762,9 @@ If success, Result will contain a <a class="xref" href="../api/System.DateTime.h
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetDeviceInformation_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetDeviceInformation*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetDeviceInformation_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetDeviceInformation*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetDeviceInformation" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetDeviceInformation">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetDeviceInformation" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetDeviceInformation">
   GetDeviceInformation()
   
   </h3>
@@ -779,9 +780,9 @@ If success, Result will contain a <a class="xref" href="../api/System.DateTime.h
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.DeviceInformation.html">DeviceInformation</a> class.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.DTOs.DeviceInformation.html">DeviceInformation</a> class.</p>
 </dd>
   </dl>
 
@@ -795,9 +796,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetNetworkRegistration_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetNetworkRegistration*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetNetworkRegistration_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetNetworkRegistration*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetNetworkRegistration" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetNetworkRegistration">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetNetworkRegistration" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetNetworkRegistration">
   GetNetworkRegistration()
   
   </h3>
@@ -813,9 +814,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.NetworkRegistration.html">NetworkRegistration</a> enum.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.DTOs.NetworkRegistration.html">NetworkRegistration</a> enum.</p>
 </dd>
   </dl>
 
@@ -829,9 +830,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetProductIdentificationInformation_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetProductIdentificationInformation*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetProductIdentificationInformation_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetProductIdentificationInformation*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetProductIdentificationInformation" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetProductIdentificationInformation">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetProductIdentificationInformation" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetProductIdentificationInformation">
   GetProductIdentificationInformation()
   
   </h3>
@@ -847,9 +848,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the product identification information if successful, or an error response.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.ProductIdentificationInformation.html">ProductIdentificationInformation</a> class.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the product identification information if successful, or an error response.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.DTOs.ProductIdentificationInformation.html">ProductIdentificationInformation</a> class.</p>
 </dd>
   </dl>
 
@@ -863,9 +864,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetSignalStrength_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSignalStrength*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetSignalStrength_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSignalStrength*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetSignalStrength" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSignalStrength">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetSignalStrength" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSignalStrength">
   GetSignalStrength()
   
   </h3>
@@ -881,9 +882,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the signal strength information.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.SignalStrength.html">SignalStrength</a> class.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the signal strength information.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.DTOs.SignalStrength.html">SignalStrength</a> class.</p>
 </dd>
   </dl>
 
@@ -897,9 +898,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetSimCardInformation_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSimCardInformation*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetSimCardInformation_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSimCardInformation*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetSimCardInformation" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSimCardInformation">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetSimCardInformation" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSimCardInformation">
   GetSimCardInformation()
   
   </h3>
@@ -915,9 +916,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the IMSI if successful, or an error response.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.SimCardInformation.html">SimCardInformation</a> class.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the IMSI if successful, or an error response.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.SimCardInformation.html">SimCardInformation</a> class.</p>
 </dd>
   </dl>
 
@@ -931,9 +932,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.SimCa
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetSimStatus_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSimStatus*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetSimStatus_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSimStatus*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetSimStatus" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSimStatus">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetSimStatus" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSimStatus">
   GetSimStatus()
   
   </h3>
@@ -949,9 +950,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.SimCa
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the status of the SIM card.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.SimStatus.html">SimStatus</a> enum.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> containing the status of the SIM card.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.DTOs.SimStatus.html">SimStatus</a> enum.</p>
 </dd>
   </dl>
 
@@ -965,9 +966,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_GetSubscriberNumber_" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSubscriberNumber*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_GetSubscriberNumber_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSubscriberNumber*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GetSubscriberNumber" data-uid="IoT.Device.AtModem.Modem.ModemBase.GetSubscriberNumber">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetSubscriberNumber" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetSubscriberNumber">
   GetSubscriberNumber()
   
   </h3>
@@ -983,9 +984,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
-If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.SubscriberNumber.html">SubscriberNumber</a> class.</p>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+If success, Result will contain a <a class="xref" href="Iot.Device.AtModem.DTOs.SubscriberNumber.html">SubscriberNumber</a> class.</p>
 </dd>
   </dl>
 
@@ -999,9 +1000,9 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_ReInitializeSim_" data-uid="IoT.Device.AtModem.Modem.ModemBase.ReInitializeSim*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_ReInitializeSim_" data-uid="Iot.Device.AtModem.Modem.ModemBase.ReInitializeSim*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_ReInitializeSim" data-uid="IoT.Device.AtModem.Modem.ModemBase.ReInitializeSim">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_ReInitializeSim" data-uid="Iot.Device.AtModem.Modem.ModemBase.ReInitializeSim">
   ReInitializeSim()
   
   </h3>
@@ -1017,8 +1018,8 @@ If success, Result will contain a <a class="xref" href="IoT.Device.AtModem.DTOs.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indicating the success of the operation.</p>
 </dd>
   </dl>
@@ -1033,9 +1034,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_SendUssd_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SendUssd*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_SendUssd_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SendUssd*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_SendUssd_System_String_System_Int32_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SendUssd(System.String,System.Int32)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_SendUssd_System_String_System_Int32_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SendUssd(System.String,System.Int32)">
   SendUssd(string, int)
   
   </h3>
@@ -1060,8 +1061,8 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indicating the success of the operation.</p>
 </dd>
   </dl>
@@ -1076,9 +1077,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_SetBaudRate_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetBaudRate*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_SetBaudRate_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetBaudRate*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_SetBaudRate_System_Int32_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetBaudRate(System.Int32)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_SetBaudRate_System_Int32_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetBaudRate(System.Int32)">
   SetBaudRate(int)
   
   </h3>
@@ -1100,8 +1101,8 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indicating the success of the operation.</p>
 </dd>
   </dl>
@@ -1116,9 +1117,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_SetCharacterSet_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetCharacterSet*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_SetCharacterSet_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetCharacterSet*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_SetCharacterSet_System_String_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetCharacterSet(System.String)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_SetCharacterSet_System_String_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetCharacterSet(System.String)">
   SetCharacterSet(string)
   
   </h3>
@@ -1140,8 +1141,8 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indicating the success of the operation.</p>
 </dd>
   </dl>
@@ -1156,9 +1157,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_SetDateTime_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetDateTime*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_SetDateTime_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetDateTime*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_SetDateTime_System_DateTime_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetDateTime(System.DateTime)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_SetDateTime_System_DateTime_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetDateTime(System.DateTime)">
   SetDateTime(DateTime)
   
   </h3>
@@ -1180,8 +1181,8 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indicating the success of the operation.</p>
 </dd>
   </dl>
@@ -1196,9 +1197,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_SetErrorFormat_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetErrorFormat*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_SetErrorFormat_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetErrorFormat*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_SetErrorFormat_System_Int32_" data-uid="IoT.Device.AtModem.Modem.ModemBase.SetErrorFormat(System.Int32)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_SetErrorFormat_System_Int32_" data-uid="Iot.Device.AtModem.Modem.ModemBase.SetErrorFormat(System.Int32)">
   SetErrorFormat(int)
   
   </h3>
@@ -1220,8 +1221,8 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
-    <dd><p>A <a class="xref" href="IoT.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success of the operation.
 If success, Result will contain a <a class="xref" href="../api/System.Boolean.html">bool</a> indicating the success of the operation.</p>
 </dd>
   </dl>
@@ -1236,9 +1237,9 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <a id="IoT_Device_AtModem_Modem_ModemBase_WaitForNetworkRegistration_" data-uid="IoT.Device.AtModem.Modem.ModemBase.WaitForNetworkRegistration*"></a>
+  <a id="Iot_Device_AtModem_Modem_ModemBase_WaitForNetworkRegistration_" data-uid="Iot.Device.AtModem.Modem.ModemBase.WaitForNetworkRegistration*"></a>
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_WaitForNetworkRegistration_System_Threading_CancellationToken_" data-uid="IoT.Device.AtModem.Modem.ModemBase.WaitForNetworkRegistration(System.Threading.CancellationToken)">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_WaitForNetworkRegistration_System_Threading_CancellationToken_" data-uid="Iot.Device.AtModem.Modem.ModemBase.WaitForNetworkRegistration(System.Threading.CancellationToken)">
   WaitForNetworkRegistration(CancellationToken)
   
   </h3>
@@ -1280,7 +1281,7 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_ErrorReceived" data-uid="IoT.Device.AtModem.Modem.ModemBase.ErrorReceived">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_ErrorReceived" data-uid="Iot.Device.AtModem.Modem.ModemBase.ErrorReceived">
   ErrorReceived
   
   </h3>
@@ -1300,7 +1301,7 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Event Type</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.ErrorEventHandler.html">ErrorEventHandler</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.ErrorEventHandler.html">ErrorEventHandler</a></dt>
     <dd></dd>
   </dl>
 
@@ -1311,7 +1312,7 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_GenericEvent" data-uid="IoT.Device.AtModem.Modem.ModemBase.GenericEvent">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GenericEvent" data-uid="Iot.Device.AtModem.Modem.ModemBase.GenericEvent">
   GenericEvent
   
   </h3>
@@ -1331,7 +1332,7 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Event Type</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.GenericEventHandler.html">GenericEventHandler</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.GenericEventHandler.html">GenericEventHandler</a></dt>
     <dd></dd>
   </dl>
 
@@ -1342,7 +1343,38 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_NetworkConnectionChanged" data-uid="IoT.Device.AtModem.Modem.ModemBase.NetworkConnectionChanged">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_ModemRebootedOrReady" data-uid="Iot.Device.AtModem.Modem.ModemBase.ModemRebootedOrReady">
+  ModemRebootedOrReady
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the network connection changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event ModemBase.ModemRebootedOrReadyHandler ModemRebootedOrReady</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.ModemRebootedOrReadyHandler.html">ModemRebootedOrReadyHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_NetworkConnectionChanged" data-uid="Iot.Device.AtModem.Modem.ModemBase.NetworkConnectionChanged">
   NetworkConnectionChanged
   
   </h3>
@@ -1362,7 +1394,7 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Event Type</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.NetworkConnectionHandler.html">NetworkConnectionHandler</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.NetworkConnectionHandler.html">NetworkConnectionHandler</a></dt>
     <dd></dd>
   </dl>
 
@@ -1373,7 +1405,7 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
-  <h3 id="IoT_Device_AtModem_Modem_ModemBase_UssdResponseReceived" data-uid="IoT.Device.AtModem.Modem.ModemBase.UssdResponseReceived">
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_UssdResponseReceived" data-uid="Iot.Device.AtModem.Modem.ModemBase.UssdResponseReceived">
   UssdResponseReceived
   
   </h3>
@@ -1393,7 +1425,7 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
   <h4 class="section">Event Type</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="IoT.Device.AtModem.Modem.ModemBase.UssdResponseEventHandler.html">UssdResponseEventHandler</a></dt>
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.html">ModemBase</a>.<a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.UssdResponseEventHandler.html">UssdResponseEventHandler</a></dt>
     <dd></dd>
   </dl>
 

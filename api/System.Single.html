@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -691,11 +691,11 @@ Greater than zero: This instance is greater than value. -or- This instance is a 
 
   <h4 class="section" id="System_Single_TryParse_System_String_System_Single___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Values that are too large to represent are rounded to <a class="xref" href="System.Single.html#System_Single_PositiveInfinity">PositiveInfinity</a> or <a class="xref" href="System.Single.html#System_Single_NegativeInfinity">NegativeInfinity</a> as required by the IEEE 754 specification.
-</p>
+        Values that are too large to represent are rounded to <a class="xref" href="System.Single.html#System_Single_PositiveInfinity">PositiveInfinity</a> or <a class="xref" href="System.Single.html#System_Single_NegativeInfinity">NegativeInfinity</a> as required by the IEEE 754 specification.
+        </p>
 <p>
-This overload differs from the <a class="xref" href="System.Single.html#System_Single_Parse_System_String_">Parse(string)</a> method by returning a <a class="xref" href="System.Boolean.html">bool</a> value that indicates whether the parse operation succeeded instead of returning the parsed numeric value. It eliminates the need to use exception handling to test for a <a class="xref" href="System.FormatException.html">FormatException</a> in the event that s is invalid and cannot be successfully parsed.
-</p>
+        This overload differs from the <a class="xref" href="System.Single.html#System_Single_Parse_System_String_">Parse(string)</a> method by returning a <a class="xref" href="System.Boolean.html">bool</a> value that indicates whether the parse operation succeeded instead of returning the parsed numeric value. It eliminates the need to use exception handling to test for a <a class="xref" href="System.FormatException.html">FormatException</a> in the event that s is invalid and cannot be successfully parsed.
+        </p>
 </div>
 
 

@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -356,11 +356,11 @@ After this method returns, a periodic call to the set SNTP servers is performed 
 
   <h4 class="section" id="nanoFramework_Networking_Sntp_Start_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
- The system time is updated immediately after each successful execution.
-</p>
+         The system time is updated immediately after each successful execution.
+        </p>
 <p>
-By default the time synchronization occurs on a hourly rate.
-</p>
+        By default the time synchronization occurs on a hourly rate.
+        </p>
 </div>
 
 

@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -123,6 +123,7 @@ Class RtcBase
       <div><a class="xref" href="Iot.Device.Rtc.Ds1302.html">Ds1302</a></div>
       <div><a class="xref" href="Iot.Device.Rtc.Ds1307.html">Ds1307</a></div>
       <div><a class="xref" href="Iot.Device.Rtc.Ds3231.html">Ds3231</a></div>
+      <div><a class="xref" href="Iot.Device.Rtc.Pcf85263.html">Pcf85263</a></div>
       <div><a class="xref" href="Iot.Device.Rtc.Pcf8563.html">Pcf8563</a></div>
     </dd>
   </dl>

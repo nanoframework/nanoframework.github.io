@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -426,8 +426,7 @@ Class Array
 </dd>
     <dt><code>comparer</code> <a class="xref" href="System.Collections.IComparer.html">IComparer</a></dt>
     <dd><p>The IComparer implementation to use when comparing elements.
-<p>-or-</p>
-<p>nullNothingnullptrunit a null reference(Nothing in Visual Basic) to use the IComparable implementation of each element.</p>
+<p>-or-</p><p>nullNothingnullptrunit a null reference(Nothing in Visual Basic) to use the IComparable implementation of each element.</p>
 </dd>
   </dl>
 
@@ -479,8 +478,7 @@ Class Array
 </dd>
     <dt><code>comparer</code> <a class="xref" href="System.Collections.IComparer.html">IComparer</a></dt>
     <dd><p>The IComparer implementation to use when comparing elements.
-<p>-or-</p>
-<p>nullNothingnullptrunit a null reference(Nothing in Visual Basic) to use the IComparable implementation of each element.</p>
+<p>-or-</p><p>nullNothingnullptrunit a null reference(Nothing in Visual Basic) to use the IComparable implementation of each element.</p>
 </dd>
   </dl>
 
@@ -736,9 +734,9 @@ Class Array
 
   <h4 class="section" id="System_Array_CreateInstance_System_Type_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Unlike most classes, Array provides the CreateInstance method, instead of public constructors, to allow for late bound access.</p>
-            <p>Reference-type elements are initialized to nullNothingnullptrunit a null reference(Nothing in Visual Basic). Value-type elements are initialized to zero.</p>
-            <p>This method is an O(n) operation, where n is length.</p>
-            Available only in mscorlib build with support for System.Reflection.
+<p>Reference-type elements are initialized to nullNothingnullptrunit a null reference(Nothing in Visual Basic). Value-type elements are initialized to zero.</p>
+<p>This method is an O(n) operation, where n is length.</p>
+        Available only in mscorlib build with support for System.Reflection.
 </div>
 
 

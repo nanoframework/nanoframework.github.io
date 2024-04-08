@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -842,8 +842,8 @@ This property is not currently supported and always throws a NotSupportedExcepti
   <h4 class="section" id="System_Net_Sockets_NetworkStream_Read_System_Byte___System_Int32_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method reads data into the buffer parameter and returns the number of bytes successfully read. If no data is available for reading, the Read method returns 0. The Read operation reads as much data as is available, up to the number of bytes specified by the count parameter. If the remote host shuts down the connection, and all available data has been received, the Read method completes immediately and return zero bytes.</p>
 <div class="IMPORTANT"><h5>important</h5><p>
-Check to see if the <a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a> is readable by calling the <a class="xref" href="System.Net.Sockets.NetworkStream.html#System_Net_Sockets_NetworkStream_CanRead">CanRead</a> property. If you attempt to read from a <a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a> that is not readable, you will get an IOException.
-</p></div>
+        Check to see if the <a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a> is readable by calling the <a class="xref" href="System.Net.Sockets.NetworkStream.html#System_Net_Sockets_NetworkStream_CanRead">CanRead</a> property. If you attempt to read from a <a class="xref" href="System.Net.Sockets.NetworkStream.html">NetworkStream</a> that is not readable, you will get an IOException.
+        </p></div>
 </div>
 
 

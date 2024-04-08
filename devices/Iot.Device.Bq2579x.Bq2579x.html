@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -476,11 +476,11 @@ public ChargeCurrent ChargeCurrentHighTempRange { get; set; }</code></pre>
 
   <h4 class="section" id="Iot_Device_Bq2579x_Bq2579x_ChargeCurrentLimit_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-During POR, the device reads the resistance tie to PROG pin, to identify the default battery cell count and determine the default power-on battery charging current: 1A.
-</p>
+        During POR, the device reads the resistance tie to PROG pin, to identify the default battery cell count and determine the default power-on battery charging current: 1A.
+        </p>
 <p>
-Range: 50mA-5000mA.
-</p>
+        Range: 50mA-5000mA.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -621,11 +621,11 @@ public ChargeVoltage ChargeVoltageHighTempRange { get; set; }</code></pre>
 
   <h4 class="section" id="Iot_Device_Bq2579x_Bq2579x_ChargeVoltageLimit_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-During POR, the device reads the resistance tie to PROG pin, to identify the default battery cell count and determine the default power-on battery voltage regulation limit.
-</p>
+        During POR, the device reads the resistance tie to PROG pin, to identify the default battery cell count and determine the default power-on battery voltage regulation limit.
+        </p>
 <p>
-Range: 3000mV-18800mV.
-</p>
+        Range: 3000mV-18800mV.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -842,17 +842,17 @@ public bool IgnoreTempSensor { get; set; }</code></pre>
 
   <h4 class="section" id="Iot_Device_Bq2579x_Bq2579x_InputCurrentLimit_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Based on D+/D- detection results:
-USB SDP = 500mA
-USB CDP = 1.5A
-USB DCP = 3.25A
-Adjustable High Voltage DCP = 1.5A
-Unknown Adapter = 3A
-Non-Standard Adapter = 1A/2A/2.1A/2.4A
-</p>
+        Based on D+/D- detection results:
+        USB SDP = 500mA
+        USB CDP = 1.5A
+        USB DCP = 3.25A
+        Adjustable High Voltage DCP = 1.5A
+        Unknown Adapter = 3A
+        Non-Standard Adapter = 1A/2A/2.1A/2.4A
+        </p>
 <p>
-Range: 100mA-3300mA.
-</p>
+        Range: 100mA-3300mA.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -894,11 +894,11 @@ Range: 100mA-3300mA.
 
   <h4 class="section" id="Iot_Device_Bq2579x_Bq2579x_InputVoltageLimit_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-VINDPM register is reset to 3600mV upon adapter unplugged and  it is set to the value based on the VBUS measurement when the adapter plugs in. It is not reset by the REG_RST and the WATCHDOG.
-</p>
+        VINDPM register is reset to 3600mV upon adapter unplugged and  it is set to the value based on the VBUS measurement when the adapter plugs in. It is not reset by the REG_RST and the WATCHDOG.
+        </p>
 <p>
-Range: 3600mV-22000mV.
-</p>
+        Range: 3600mV-22000mV.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -1145,11 +1145,11 @@ public ElectricPotentialDc MinimalSystemVoltage { get; set; }</code></pre>
 
   <h4 class="section" id="Iot_Device_Bq2579x_Bq2579x_MinimalSystemVoltage_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-During POR, the device reads the resistance tie to PROG pin, to identify the default battery cell count and determine the default power.
-</p>
+        During POR, the device reads the resistance tie to PROG pin, to identify the default battery cell count and determine the default power.
+        </p>
 <p>
-Range : 2500mV-16000mV
-</p>
+        Range : 2500mV-16000mV
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>

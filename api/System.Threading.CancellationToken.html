@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -133,20 +133,20 @@ Struct CancellationToken
 
   <h2 id="System_Threading_CancellationToken_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-A <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> may be created directly in an unchangeable canceled or non-canceled state
-using the CancellationToken's constructors. However, to have a CancellationToken that can change 
-from a non-canceled to a canceled state, 
-<a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> must be used.
-CancellationTokenSource exposes the associated CancellationToken that may be canceled by the source through its 
-<a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property. 
-</p>
+        A <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a> may be created directly in an unchangeable canceled or non-canceled state
+        using the CancellationToken's constructors. However, to have a CancellationToken that can change 
+        from a non-canceled to a canceled state, 
+        <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> must be used.
+        CancellationTokenSource exposes the associated CancellationToken that may be canceled by the source through its 
+        <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Token">Token</a> property. 
+        </p>
 <p>
-Once canceled, a token may not transition to a non-canceled state, and a token whose 
-<a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_CanBeCanceled">CanBeCanceled</a> is false will never change to one that can be canceled.
-</p>
+        Once canceled, a token may not transition to a non-canceled state, and a token whose 
+        <a class="xref" href="System.Threading.CancellationToken.html#System_Threading_CancellationToken_CanBeCanceled">CanBeCanceled</a> is false will never change to one that can be canceled.
+        </p>
 <p>
-All members of this struct are thread-safe and may be used concurrently from multiple threads.
-</p>
+        All members of this struct are thread-safe and may be used concurrently from multiple threads.
+        </p>
 </div>
 
 
@@ -266,18 +266,18 @@ return true.</p>
 
   <h4 class="section" id="System_Threading_CancellationToken_IsCancellationRequested_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This property indicates whether cancellation has been requested for this token, 
-either through the token initially being construted in a canceled state, or through
-calling <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a> 
-on the token's associated <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.
-</p>
+        This property indicates whether cancellation has been requested for this token, 
+        either through the token initially being construted in a canceled state, or through
+        calling <a class="xref" href="System.Threading.CancellationTokenSource.html#System_Threading_CancellationTokenSource_Cancel">Cancel</a> 
+        on the token's associated <a class="xref" href="System.Threading.CancellationTokenSource.html">CancellationTokenSource</a>.
+        </p>
 <p>
-If this property is true, it only guarantees that cancellation has been requested.  
-It does not guarantee that every registered handler
-has finished executing, nor that cancellation requests have finished propagating
-to all registered handlers.  Additional synchronization may be required,
-particularly in situations where related objects are being canceled concurrently.
-</p>
+        If this property is true, it only guarantees that cancellation has been requested.  
+        It does not guarantee that every registered handler
+        has finished executing, nor that cancellation requests have finished propagating
+        to all registered handlers.  Additional synchronization may be required,
+        particularly in situations where related objects are being canceled concurrently.
+        </p>
 </div>
 
 
@@ -529,14 +529,14 @@ be used to deregister the callback.</p>
 
   <h4 class="section" id="System_Threading_CancellationToken_Register_System_Action__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-If this token is already in the canceled state, the
-delegate will be run immediately and synchronously. Any exception the delegate generates will be
-propagated out of this method call.
-</p>
+        If this token is already in the canceled state, the
+        delegate will be run immediately and synchronously. Any exception the delegate generates will be
+        propagated out of this method call.
+        </p>
 <p>
-The current System.Threading.ExecutionContext, if one exists, will be captured
-along with the delegate and will be used when executing it.
-</p>
+        The current System.Threading.ExecutionContext, if one exists, will be captured
+        along with the delegate and will be used when executing it.
+        </p>
 </div>
 
   <h4 class="section">Exceptions</h4>

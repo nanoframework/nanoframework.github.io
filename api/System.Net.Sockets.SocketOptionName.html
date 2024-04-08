@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -189,16 +189,16 @@ This is similar to Time to Live (TTL) for Internet Protocol version 4.</p>
 </dd>
     <dt id="System_Net_Sockets_SocketOptionName_MulticastInterface"><code>MulticastInterface = 9</code></dt>
     <dd><p>
-   IP multicast interface.
-   - Additional comments by mbolien:
-     multicast interface  You provide it with an SOCKADDR_IN, and that tells the
-     system that it should receive multicast messages on that interface (if you
-     have more than one interface).  Binding the socket is not sufficient, since
-     if the Ethernet hardware isnt set up to grab the multicast packets, it wont
-     do good to bind the socket.  Kinda like raw sockets.  Unless you
-     put the Ethernet card in promiscuous mode, youll only get stuff sent to and
-     from your machine.
-</p>
+              IP multicast interface.
+              - Additional comments by mbolien:
+                multicast interface  You provide it with an SOCKADDR_IN, and that tells the
+                system that it should receive multicast messages on that interface (if you
+                have more than one interface).  Binding the socket is not sufficient, since
+                if the Ethernet hardware isnt set up to grab the multicast packets, it wont
+                do good to bind the socket.  Kinda like raw sockets.  Unless you
+                put the Ethernet card in promiscuous mode, youll only get stuff sent to and
+                from your machine.
+           </p>
 </dd>
     <dt id="System_Net_Sockets_SocketOptionName_MulticastLoopback"><code>MulticastLoopback = 11</code></dt>
     <dd><p>IP Multicast loopback.</p>
