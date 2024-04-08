@@ -38,7 +38,7 @@ You need to know the COM Port attached to your device. Search for **Computer Man
 
 > NOTE
 >
-> - The [.NET 6.0 Runtime (or .NET 6.0 SDK)](https://dotnet.microsoft.com/download) must be installed
+> - The [.NET 6.0 Runtime (or .NET 6.0 SDK) or higher](https://dotnet.microsoft.com/download) must be installed to make use of the nano Firmware Flasher.
 
 ![Installing nanoff and flashing](../../images/getting-started-guides/getting-started-install-nanoff-flash-esp32.gif)
 
