@@ -119,8 +119,8 @@ Below is a list of the build options available (last updated October 2022). Thes
   - Path to an optional local installation of TI SysConfig source files. If no path is given, then CMake will download the sources automatically from TI SysConfig repository when required. Mind the forward slash.
 - "RADIO_FREQUENCY": "915",
   - Valid frequency for CC13xx_26xx targets. Possible values are 868 and 915.
-- "SPIFFS_SOURCE": ""
-  - Path to an optional local installation of Spiffs source files. If no path is given, then CMake will download the sources automatically from Spiffs repository when required. Mind the forward slash.
+- "LITTLEFS_SOURCE": ""
+  - Path to an optional local installation of littlefs source files. If no path is given, then CMake will download the sources automatically from littlefs repository when required. Mind the forward slash.
 - "FATFS_SOURCE": ""
   - Path to an optional local installation of FatFS source files. If no path is given, then CMake will download the sources automatically from FatFS repository when required. Mind the forward slash.
 - "FATFS_VERSION": ""
