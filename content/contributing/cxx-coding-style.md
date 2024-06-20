@@ -1,6 +1,6 @@
 # C/C++ Coding Style
 
-For C/C++ files (*.c,*.cpp and *.h), we use clang-format (version 3.10) to ensure code styling.
+For C/C++ files (*.c,*.cpp and *.h), we use clang-format (check the current used version in the AZDO yaml [here](https://github.com/nanoframework/nf-interpreter/blob/3769da888d6af9138f9d03ae595ed7c015700653/azure-pipelines-templates/download-install-llvm.yml#L24)) to ensure code styling.
 The rules and config files are included in the nf-interpreter repository.
 
 ## Using Visual Studio Code
