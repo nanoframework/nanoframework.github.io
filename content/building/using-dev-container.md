@@ -59,7 +59,7 @@ The measure performances between native WSL Docker or Podman and using Docker De
 
     ![wsl default istro](../../images/building/devcontainer-wsl-version.png)
 
-    Adjust as well the commands to be luanch in WSL and not from Windows:
+    Adjust as well the commands to be launch in WSL and not from Windows:
 
     ![execute command in wsl](../../images/building/devcontainer-execute-in-container.png)
 
