@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -122,6 +122,15 @@ server.StartListening();
 <h2 id="hardware-implementation">Hardware implementation</h2>
 <p>When using Modbus with an RS485, you can for example use a MAX485 to make the interface between the traditional serial port and RS485:</p>
 <p><img src="../../devicesimages/Modbus/MAX485.png" alt="MAX485"></p>
+<h2 id="rs232-support">RS232 support</h2>
+<p>You can change the <code>mode</code> parameter in constructor to 0 (SerialMode.Normal) if you're using Modbus over RS232</p>
+<pre><code class="lang-csharp">// Modbus Client
+var client = new ModbusClient(&quot;COM3&quot;,SerialMode.Normal); 
+// Modbus Server
+var server = new ModbusServer(new Device(1), &quot;COM2&quot;,mode:SerialMode.Normal);
+</code></pre>
+<h2 id="limitations">Limitations</h2>
+<p><strong>NOTE:</strong> nanoFramework only (currently) supports the &quot;Modbus-RTU&quot; protocol.</p>
 
 </article>
 

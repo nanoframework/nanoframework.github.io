@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -264,38 +264,6 @@ Class HttpContent
 
 
 
-  <a id="System_Net_Http_HttpContent_TotalBytesRead_" data-uid="System.Net.Http.HttpContent.TotalBytesRead*"></a>
-
-  <h3 id="System_Net_Http_HttpContent_TotalBytesRead" data-uid="System.Net.Http.HttpContent.TotalBytesRead">
-  TotalBytesRead
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Contains the actual bytes read into the buffer</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int TotalBytesRead { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.Int32.html">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -341,6 +309,44 @@ Class HttpContent
     <dd><p>The <code class="paramref">stream</code> was <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </dd>
   </dl>
+
+
+
+  <a id="System_Net_Http_HttpContent_CreateContentReadStream_" data-uid="System.Net.Http.HttpContent.CreateContentReadStream*"></a>
+
+  <h3 id="System_Net_Http_HttpContent_CreateContentReadStream" data-uid="System.Net.Http.HttpContent.CreateContentReadStream">
+  CreateContentReadStream()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>If overridden, returns the HTTP content as a stream.
+Otherwise, <a class="xref" href="System.Net.Http.HttpContent.html#System_Net_Http_HttpContent_SerializeToStream_System_IO_Stream_">SerializeToStream(Stream)</a> is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Stream CreateContentReadStream()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.Stream.html">Stream</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Net_Http_HttpContent_CreateContentReadStream_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+        This is the .NET nanoFramework equivalent of CreateContentReadStreamAsync().
+        </p>
+</div>
+
 
 
 
@@ -414,16 +420,10 @@ Class HttpContent
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Stream LoadIntoBuffer()</code></pre>
+    <pre><code class="lang-csharp hljs">public void LoadIntoBuffer()</code></pre>
   </div>
 
 
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.IO.Stream.html">Stream</a></dt>
-    <dd><p>The Stream with the HTTP content.</p>
-</dd>
-  </dl>
 
 
 

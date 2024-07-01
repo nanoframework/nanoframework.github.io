@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -177,8 +177,8 @@ Class ModbusClient
 
   <a id="Iot_Device_Modbus_Client_ModbusClient__ctor_" data-uid="Iot.Device.Modbus.Client.ModbusClient.#ctor*"></a>
 
-  <h3 id="Iot_Device_Modbus_Client_ModbusClient__ctor_System_IO_Ports_SerialPort_" data-uid="Iot.Device.Modbus.Client.ModbusClient.#ctor(System.IO.Ports.SerialPort)">
-  ModbusClient(SerialPort)
+  <h3 id="Iot_Device_Modbus_Client_ModbusClient__ctor_System_IO_Ports_SerialPort_System_IO_Ports_SerialMode_" data-uid="Iot.Device.Modbus.Client.ModbusClient.#ctor(System.IO.Ports.SerialPort,System.IO.Ports.SerialMode)">
+  ModbusClient(SerialPort, SerialMode)
   
   </h3>
 
@@ -187,13 +187,16 @@ Class ModbusClient
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModbusClient(SerialPort port)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModbusClient(SerialPort port, SerialMode mode = SerialMode.RS485)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>port</code> <a class="xref" href="../api/System.IO.Ports.SerialPort.html">SerialPort</a></dt>
     <dd><p>The serial port.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="../api/System.IO.Ports.SerialMode.html">SerialMode</a></dt>
+    <dd><p>The mode of serial port, default is RS485.</p>
 </dd>
   </dl>
 
@@ -210,8 +213,8 @@ Class ModbusClient
 
   <a id="Iot_Device_Modbus_Client_ModbusClient__ctor_" data-uid="Iot.Device.Modbus.Client.ModbusClient.#ctor*"></a>
 
-  <h3 id="Iot_Device_Modbus_Client_ModbusClient__ctor_System_String_System_Int32_System_IO_Ports_Parity_System_Int32_System_IO_Ports_StopBits_" data-uid="Iot.Device.Modbus.Client.ModbusClient.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)">
-  ModbusClient(string, int, Parity, int, StopBits)
+  <h3 id="Iot_Device_Modbus_Client_ModbusClient__ctor_System_String_System_Int32_System_IO_Ports_Parity_System_Int32_System_IO_Ports_StopBits_System_IO_Ports_SerialMode_" data-uid="Iot.Device.Modbus.Client.ModbusClient.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits,System.IO.Ports.SerialMode)">
+  ModbusClient(string, int, Parity, int, StopBits, SerialMode)
   
   </h3>
 
@@ -220,7 +223,7 @@ Class ModbusClient
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModbusClient(string portName, int baudRate = 9600, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModbusClient(string portName, int baudRate = 9600, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One, SerialMode mode = SerialMode.RS485)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -239,6 +242,9 @@ Class ModbusClient
 </dd>
     <dt><code>stopBits</code> <a class="xref" href="../api/System.IO.Ports.StopBits.html">StopBits</a></dt>
     <dd><p>The number of stop bits. Default is One.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="../api/System.IO.Ports.SerialMode.html">SerialMode</a></dt>
+    <dd><p>The mode of serial port, default is RS485.</p>
 </dd>
   </dl>
 

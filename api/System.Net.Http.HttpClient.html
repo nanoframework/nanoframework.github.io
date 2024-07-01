@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -769,7 +769,9 @@ This certificate is used only for https connections; http connections do not req
         This operation will block.
         </p>
 <p>
-        This method does not read nor buffer the response body. It will return as soon as the response headers are read.
+        As of now, this method reads and buffers the entire response body (see <a class="xref" href="System.Net.Http.StreamContent.html#System_Net_Http_StreamContent_SerializeToStream_System_IO_Stream_">SerializeToStream(Stream)</a>).
+        If the response needs to be streamed, one of the methods that return <a class="xref" href="System.Net.Http.HttpClient.html#System_Net_Http_HttpClient_Send_System_Net_Http_HttpRequestMessage_System_Net_Http_HttpCompletionOption_">Send(HttpRequestMessage, HttpCompletionOption)</a> should be used
+        with <a class="xref" href="System.Net.Http.HttpCompletionOption.html#System_Net_Http_HttpCompletionOption_ResponseHeadersRead">ResponseHeadersRead</a> and <a class="xref" href="System.Net.Http.HttpContent.html#System_Net_Http_HttpContent_CopyTo_System_IO_Stream_">CopyTo(Stream)</a> instead.
         </p>
 <p>
         This is the .NET nanoFramework equivalent of GetStreamAsync.
