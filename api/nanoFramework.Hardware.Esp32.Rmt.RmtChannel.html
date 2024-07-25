@@ -311,7 +311,7 @@ Class RmtChannel
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The value can be between 1 and 255.</p>
+  <div class="markdown level1 summary"><p>The value can be between 1 and 255 and affects all RMT channels.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -447,12 +447,13 @@ Channel 0 can use at most 8 blocks of memory, accordingly channel 7 can only use
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the source clock. Only the 80MHz APB clock is currently supported so the value will always be <a class="xref" href="nanoFramework.Hardware.Esp32.Rmt.SourceClock.html#nanoFramework_Hardware_Esp32_Rmt_SourceClock_APB">APB</a> in the current implementation.</p>
+  <div class="markdown level1 summary"><p>Gets the source clock type.
+This is currently fixed to use APB clock so will always be <a class="xref" href="nanoFramework.Hardware.Esp32.Rmt.SourceClock.html#nanoFramework_Hardware_Esp32_Rmt_SourceClock_APB">APB</a> in the current implementation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SourceClock SourceClock { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static SourceClock SourceClock { get; }</code></pre>
   </div>
 
 
@@ -469,7 +470,7 @@ Channel 0 can use at most 8 blocks of memory, accordingly channel 7 can only use
 
 
   <h4 class="section" id="nanoFramework_Hardware_Esp32_Rmt_RmtChannel_SourceClock_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>ESP IDF v4.4.3 supports only <a class="xref" href="nanoFramework.Hardware.Esp32.Rmt.SourceClock.html#nanoFramework_Hardware_Esp32_Rmt_SourceClock_APB">APB</a>. This property cannot be changed.</p>
+  <div class="markdown level1 remarks"><p>ESP IDF v5.1.4 supports only <a class="xref" href="nanoFramework.Hardware.Esp32.Rmt.SourceClock.html#nanoFramework_Hardware_Esp32_Rmt_SourceClock_APB">APB</a> for ESP32. This property cannot be changed.</p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -477,6 +478,39 @@ Channel 0 can use at most 8 blocks of memory, accordingly channel 7 can only use
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
     <dd></dd>
   </dl>
+
+
+
+  <a id="nanoFramework_Hardware_Esp32_Rmt_RmtChannel_SourceClockFrequency_" data-uid="nanoFramework.Hardware.Esp32.Rmt.RmtChannel.SourceClockFrequency*"></a>
+
+  <h3 id="nanoFramework_Hardware_Esp32_Rmt_RmtChannel_SourceClockFrequency" data-uid="nanoFramework.Hardware.Esp32.Rmt.RmtChannel.SourceClockFrequency">
+  SourceClockFrequency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the actual frequency of the source clock used by the hardware when clock source is set to default.
+This is currently 80Mhz for all devices except ESP32_H2 which is 32Mhz. This should be used to calculate timings on rmtChannel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SourceClockFrequency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
 
 
 

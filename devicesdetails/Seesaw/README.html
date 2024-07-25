@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Adafruit Seesaw - extension board (ADC, PWM, GPIO expander) | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Adafruit Seesaw - extension board (ADC, PWM, GPIO expander) | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/Seesaw/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="adafruit-seesaw---extension-board-adc-pwm-gpio-expander">Adafruit Seesaw - extension board (ADC, PWM, GPIO expander)</h1>
+
+<p>Adafruit Seesaw is a near-universal converter framework which allows you to add and extend hardware support to any I2C-capable microcontroller or microcomputer. Instead of getting separate I2C GPIO expanders, ADCs, PWM drivers, etc, seesaw can be configured to give a wide range of capabilities.</p>
+<p>This binding provides an API which is close to the one provided by Adafruit themselves but also implements IGpioController so that available Gpio pins can be used in place of any 'on board' ones but using the standard IoT API.</p>
+<p>This binding was developed using the Adafruit Seesaw breakout board which uses the ATSAMD09 and the default firmware exposes the following capabilities:</p>
+<ul>
+<li>3 x 12-bit ADC inputs</li>
+<li>3 x 8-bit PWM outputs</li>
+<li>7 x GPIO with selectable pullup or pulldown</li>
+<li>1 x NeoPixel output (up to 340 pixels)</li>
+<li>1 x EEPROM with 64 byte of NVM memory (handy for storing small access tokens or MAC addresses)</li>
+<li>1 x Interrupt output that can be triggered by any of the accessories</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>SEESAW <a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-seesaw-atsamd09-breakout.pdf?timestamp=1564230162">datasheet</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="hardware-required">Hardware Required</h3>
+<ul>
+<li>SEESAW</li>
+<li>Male/Female Jumper Wires</li>
+</ul>
+<h3 id="circuit">Circuit</h3>
+<ul>
+<li>SCL - SCL</li>
+<li>SDA - SDA</li>
+<li>VCC - 5V</li>
+<li>GND - GND</li>
+</ul>
+<h3 id="code">Code</h3>
+<p><strong>Important</strong>: make sure you properly setup the I2C pins especially for ESP32 before creating the <code>I2cDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the I2C GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the I2C bus you want to use.</p>
+<h4 id="connecting-to-a-seesaw-breakout-board-via-i2c">Connecting to a Seesaw breakout board via I2C</h4>
+<p>This sample simply connects to an Adafruit Seesaw breakout board, reads and then displays the capabilities of the board firmware.</p>
+<pre><code class="lang-csharp">const byte Adafruit_Seesaw_Breakout_I2cAddress = 0x49;
+const byte Adafruit_Seesaw_Breakout_I2cBus = 0x1;
+
+using (I2cDevice i2cDevice = I2cDevice.Create(new I2cConnectionSettings(Adafruit_Seesaw_Breakout_I2cBus, Adafruit_Seesaw_Breakout_I2cAddress)))
+using (Seesaw ssDevice = new Seesaw(i2cDevice))
+{
+    Console.WriteLine();
+    Console.WriteLine($&quot;Seesaw Version: {ssDevice.Version}&quot;);
+    Console.WriteLine();
+
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Status));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Gpio));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Sercom0));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Timer));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Adc));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Dac));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Interrupt));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Dap));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Eeprom));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Neopixel));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Touch));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Keypad));
+    Console.WriteLine(GetModuleAvailability(ssDevice, Seesaw.SeesawModule.Encoder));
+
+    Console.WriteLine(&quot;&quot;);
+}
+</code></pre>
+<p>Where the aforementioned <code>GetModuleAvailability</code> is defined as follows:</p>
+<pre><code class="lang-csharp">static string GetModuleAvailability(Seesaw ssDevice, Seesaw.SeesawModule module)
+{
+    var moduleAvailable = ssDevice.HasModule(module) ? &quot;available&quot; : &quot;not-available&quot;;
+    return $&quot;Module: {module.ToString()} - {moduleAvailable}&quot;;
+}
+</code></pre>
+<h4 id="connecting-to-a-seesaw-based-soil-mositure-sensor">Connecting to a Seesaw based soil mositure sensor</h4>
+<p>This sample connects an ESP32 to a Adafruit capacitive soil sensor</p>
+<pre><code class="lang-csharp">    const byte Adafruit_Seesaw_SoilSensor_I2cAddress = 0x49;
+    const byte Adafruit_Seesaw_SoilSensor_I2cBus = 0x1;
+
+    using (I2cDevice i2cDevice = I2cDevice.Create(new I2cConnectionSettings(Adafruit_Seesaw_SoilSensor_I2cBus, Adafruit_Seesaw_SoilSensor_I2cAddress)))
+    using(Seesaw ssDevice = new Seesaw(i2cDevice))
+    {
+        while(true)
+        {
+            Console.WriteLine($&quot;Temperature: {ssDevice.GetTemperature()}'C&quot;);
+            Console.WriteLine($&quot;Capacitive: {ssDevice.TouchRead(0)}&quot;);
+            ssDevice.SetGpioPinMode(1, PinMode.Output);
+            Thread.Sleep(1000);
+        }
+    }
+</code></pre>
+<h2 id="binding-notes">Binding Notes</h2>
+<p>In general the Seesaw technology allows user the embedding of the following types of modules into firmware and the modules ticked are the ones that have been covered by this binding.</p>
+<ul>
+<li>[X] Status - providing overall feedback on the availability of modules and control of the expander</li>
+<li>[X] Gpio</li>
+<li>[ ] Serial Communications</li>
+<li>[ ] Timers</li>
+<li>[X] Analog Input</li>
+<li>[ ] Analog Output</li>
+<li>[ ] DAP</li>
+<li>[X] EEPROM (although untested)</li>
+<li>[X] Capacitive Touch</li>
+<li>[ ] Keypad</li>
+<li>[ ] Rotary Encoder</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/Seesaw/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

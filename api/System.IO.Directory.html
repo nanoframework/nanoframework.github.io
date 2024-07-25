@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Directory | .NET nanoFramework Documentation ">
       
-      <meta name="description" content="Class for managing directories">
+      <meta name="description" content="Exposes static methods for creating, moving, and enumerating through directories and subdirectories. This class cannot be inherited.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Class Directory
   <dl><dt>Assembly</dt><dd>System.IO.FileSystem.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Class for managing directories</p>
+  <div class="markdown summary"><p>Exposes static methods for creating, moving, and enumerating through directories and subdirectories. This class cannot be inherited.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -160,18 +160,63 @@ Class Directory
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates directory with the provided path.</p>
+  <div class="markdown level1 summary"><p>Creates all directories and subdirectories in the specified path unless they already exist.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void CreateDirectory(string path)</code></pre>
+    <pre><code class="lang-csharp hljs">public static DirectoryInfo CreateDirectory(string path)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>Path and name of the directory to create.</p>
+    <dd><p>The directory to create.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.DirectoryInfo.html">DirectoryInfo</a></dt>
+    <dd><p>An object that represents the directory at the specified path. This object is returned regardless of whether a directory at the specified path already exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
+    <dd><p>The directory specified by path is a file.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="System_IO_Directory_Delete_" data-uid="System.IO.Directory.Delete*"></a>
+
+  <h3 id="System_IO_Directory_Delete_System_String_" data-uid="System.IO.Directory.Delete(System.String)">
+  Delete(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes an empty directory from a specified path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Delete(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The name of the empty directory to remove. This directory must be writable and empty.</p>
 </dd>
   </dl>
 
@@ -186,7 +231,7 @@ Class Directory
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
-    <dd><p>Path for creating the folder doesn't exist. This method does not create directories recursively.</p>
+    <dd><p>The directory specified by path is not empty.</p>
 </dd>
   </dl>
 
@@ -199,21 +244,21 @@ Class Directory
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Deletes directory from storage.</p>
+  <div class="markdown level1 summary"><p>Deletes the specified directory and, if indicated, any subdirectories and files in the directory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Delete(string path, bool recursive = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Delete(string path, bool recursive)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>Path to the directory to be removed.</p>
+    <dd><p>The name of the directory to remove.</p>
 </dd>
     <dt><code>recursive</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
-    <dd><p>Parameter to be implemented.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to remove directories, subdirectories, and files in path; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
 
@@ -224,11 +269,14 @@ Class Directory
 
 
 
+  <h4 class="section" id="System_IO_Directory_Delete_System_String_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The platform or storage file system may not support recursive deletion of directories. The default value for recursive is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. In this case an exception will be thrown.</p>
+</div>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
-    <dd><p>This method will throw DirectoryNotEmpty exception if folder is not empty.</p>
+    <dd><p>A file with the same name and location specified by path exists. -or- The directory specified by path is read-only, or recursive is false and path is not an empty directory. -or- The directory is the application's current working directory. -or- The directory contains a read-only file. -or- The directory is being used by another process.</p>
 </dd>
   </dl>
 
@@ -241,7 +289,7 @@ Class Directory
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines whether the specified directory exists.</p>
+  <div class="markdown level1 summary"><p>Determines whether the given path refers to an existing directory on disk.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -252,14 +300,14 @@ Class Directory
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>Path to the directory.</p>
+    <dd><p>The path to test.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
-    <dd><p>True if directory under given path exists, otherwise it returns false.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">path</code> refers to an existing directory; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if the directory does not exist or an error occurs when trying to determine if the specified directory exists.</p>
 </dd>
   </dl>
 
@@ -282,6 +330,38 @@ Class Directory
 
 
 
+  <a id="System_IO_Directory_GetCurrentDirectory_" data-uid="System.IO.Directory.GetCurrentDirectory*"></a>
+
+  <h3 id="System_IO_Directory_GetCurrentDirectory" data-uid="System.IO.Directory.GetCurrentDirectory">
+  GetCurrentDirectory()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current working directory of the application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetCurrentDirectory()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_IO_Directory_GetDirectories_" data-uid="System.IO.Directory.GetDirectories*"></a>
 
   <h3 id="System_IO_Directory_GetDirectories_System_String_" data-uid="System.IO.Directory.GetDirectories(System.String)">
@@ -289,7 +369,7 @@ Class Directory
   
   </h3>
 
-  <div class="markdown level1 summary"><p>List directories from the specified folder.</p>
+  <div class="markdown level1 summary"><p>Returns the names of subdirectories (including their paths) in the specified directory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -300,13 +380,14 @@ Class Directory
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd></dd>
+    <dd><p>The relative or absolute path to the directory to search. This string is not case-sensitive.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.String.html">string</a>[]</dt>
-    <dd><p>When this method completes successfully, it returns an array of absolute paths to the subfolders in the specified directory.</p>
+    <dd><p>An array of the full names (including paths) of subdirectories in the specified path, or an empty array if no directories are found.</p>
 </dd>
   </dl>
 
@@ -333,7 +414,7 @@ Class Directory
   
   </h3>
 
-  <div class="markdown level1 summary"><p>List files from the specified folder.</p>
+  <div class="markdown level1 summary"><p>Returns the names of files (including their paths) in the specified directory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -344,14 +425,14 @@ Class Directory
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>Path to the directory to list files from.</p>
+    <dd><p>The relative or absolute path to the directory to search. This string is not case-sensitive.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.String.html">string</a>[]</dt>
-    <dd><p>When this method completes successfully, it returns a array of paths of the files in the given folder.</p>
+    <dd><p>An array of the full names (including paths) for the files in the specified directory, or an empty array if no files are found.</p>
 </dd>
   </dl>
 
@@ -368,84 +449,6 @@ Class Directory
     <dd><p>Logical drive or a directory under given path does not exist.</p>
 </dd>
   </dl>
-
-
-
-  <a id="System_IO_Directory_GetLastWriteTime_" data-uid="System.IO.Directory.GetLastWriteTime*"></a>
-
-  <h3 id="System_IO_Directory_GetLastWriteTime_System_String_" data-uid="System.IO.Directory.GetLastWriteTime(System.String)">
-  GetLastWriteTime(string)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Determines the time of the last write/modification to directory under given path.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static DateTime GetLastWriteTime(string path)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.DateTime.html">DateTime</a></dt>
-    <dd><p>Time of the last write/modification.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
-    <dd><p>Logical drive or a directory under given path does not exist.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="System_IO_Directory_GetLogicalDrives_" data-uid="System.IO.Directory.GetLogicalDrives*"></a>
-
-  <h3 id="System_IO_Directory_GetLogicalDrives" data-uid="System.IO.Directory.GetLogicalDrives">
-  GetLogicalDrives()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Determines a list of available logical drives.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use DriveInfo.GetDrives() instead.&quot;)]
-public static string[] GetLogicalDrives()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.String.html">string</a>[]</dt>
-    <dd><p>String[] of available drives, ex. &quot;D:\&quot;</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 
 
@@ -456,21 +459,21 @@ public static string[] GetLogicalDrives()</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Moves directory from specified path to a new location.</p>
+  <div class="markdown level1 summary"><p>Moves a file or a directory and its contents to a new location.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Move(string sourcePath, string destinationPath)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Move(string sourceDirName, string destDirName)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>sourcePath</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>Name of directory to move. Absolute path.</p>
+    <dt><code>sourceDirName</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The path of the file or directory to move.</p>
 </dd>
-    <dt><code>destinationPath</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>New path and name for the directory.</p>
+    <dt><code>destDirName</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The path to the new location for <code class="paramref">sourceDirName</code> or its contents. If <code class="paramref">sourceDirName</code> is a file, then <code class="paramref">destDirName</code> must also be a file name.</p>
 </dd>
   </dl>
 
@@ -484,8 +487,47 @@ public static string[] GetLogicalDrives()</code></pre>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="System.Exception.html">Exception</a></dt>
-    <dd><p>Source directory not existing or destination folder already existing.</p>
+    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
+    <dd><p>n attempt was made to move a directory to a different volume. -or- destDirName already exists. See the note in the Remarks section. -or- The source directory does not exist. -or- The source or destination directory name is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. -or- The <code class="paramref">sourceDirName</code> and <code class="paramref">destDirName</code> parameters refer to the same file or directory. -or- The directory or a file within it is being used by another process.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="System_IO_Directory_SetCurrentDirectory_" data-uid="System.IO.Directory.SetCurrentDirectory*"></a>
+
+  <h3 id="System_IO_Directory_SetCurrentDirectory_System_String_" data-uid="System.IO.Directory.SetCurrentDirectory(System.String)">
+  SetCurrentDirectory(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the application's current working directory to the specified directory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetCurrentDirectory(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The path to which the current working directory is set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
+    <dd><p>An I/O error occurred.</p>
 </dd>
   </dl>
 

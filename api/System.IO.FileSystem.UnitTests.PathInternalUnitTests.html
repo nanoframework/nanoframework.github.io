@@ -244,6 +244,53 @@ public void IsValidDriveChar_returns_true()</code></pre>
 
 
 
+  <a id="System_IO_FileSystem_UnitTests_PathInternalUnitTests_NormalizeDirectorySeparators_Returns_Correct_Path_" data-uid="System.IO.FileSystem.UnitTests.PathInternalUnitTests.NormalizeDirectorySeparators_Returns_Correct_Path*"></a>
+
+  <h3 id="System_IO_FileSystem_UnitTests_PathInternalUnitTests_NormalizeDirectorySeparators_Returns_Correct_Path_System_String_System_String_System_String_" data-uid="System.IO.FileSystem.UnitTests.PathInternalUnitTests.NormalizeDirectorySeparators_Returns_Correct_Path(System.String,System.String,System.String)">
+  NormalizeDirectorySeparators_Returns_Correct_Path(string, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[DataRow(new object[] { &quot;folder1/folder2/folder3&quot;, &quot;folder1\\folder2\\folder3&quot;, &quot;Case: Forward slash&quot; })]
+[DataRow(new object[] { &quot;folder1\\folder2\\folder3&quot;, &quot;folder1\\folder2\\folder3&quot;, &quot;Case: Back slash&quot; })]
+[DataRow(new object[] { &quot;folder1/folder2\\folder3&quot;, &quot;folder1\\folder2\\folder3&quot;, &quot;Case: Mixed slashes&quot; })]
+[DataRow(new object[] { &quot;folder1\\..\\folder2\\folder3&quot;, &quot;folder2\\folder3&quot;, &quot;Case: Navigation commands&quot; })]
+[DataRow(new object[] { &quot;D:\\FileUnitTests-Destination.test&quot;, &quot;D:\\FileUnitTests-Destination.test&quot;, &quot;Case: Navigation commands in filename&quot; })]
+[DataRow(new object[] { &quot;folder1/./folder2/folder3&quot;, &quot;folder1\\folder2\\folder3&quot;, &quot;Case: Current directory command&quot; })]
+[DataRow(new object[] { &quot;folder1/../../folder2/folder3&quot;, &quot;folder2\\folder3&quot;, &quot;Case: Multiple navigation commands&quot; })]
+[DataRow(new object[] { &quot;folder1/folder2/folder3/..&quot;, &quot;folder1\\folder2&quot;, &quot;Case: Navigation command at end&quot; })]
+[DataRow(new object[] { &quot;folder1/folder2/..folder3&quot;, &quot;folder1\\folder2\\..folder3&quot;, &quot;Case: Navigation command in filename&quot; })]
+[DataRow(new object[] { &quot;folder1/folder2/.../folder3&quot;, &quot;folder1\\folder2\\...\\folder3&quot;, &quot;Case: Triple dot in path&quot; })]
+[DataRow(new object[] { &quot;D:\\&quot;, &quot;D:\\&quot;, &quot;Case: Handle root paths&quot; })]
+public void NormalizeDirectorySeparators_Returns_Correct_Path(string path, string expected, string caseName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>expected</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>caseName</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class File | .NET nanoFramework Documentation ">
       
-      <meta name="description" content="Class for creating FileStream objects, and some basic file management routines such as Delete, etc.">
+      <meta name="description" content="Provides static methods for the creation, copying, deletion, moving, and opening of a single file, and aids in the creation of  objects.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,8 +97,7 @@ Class File
   <dl><dt>Assembly</dt><dd>System.IO.FileSystem.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Class for creating FileStream objects, and some basic file management
-routines such as Delete, etc.</p>
+  <div class="markdown summary"><p>Provides static methods for the creation, copying, deletion, moving, and opening of a single file, and aids in the creation of <a class="xref" href="System.IO.FileStream.html">FileStream</a> objects.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -154,6 +153,81 @@ routines such as Delete, etc.</p>
 </h2>
 
 
+  <a id="System_IO_File_AppendAllText_" data-uid="System.IO.File.AppendAllText*"></a>
+
+  <h3 id="System_IO_File_AppendAllText_System_String_System_String_" data-uid="System.IO.File.AppendAllText(System.String,System.String)">
+  AppendAllText(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens a file, appends the specified string to the file, and then closes the file. If the file does not exist, this method creates a file, writes the specified string to the file, then closes the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AppendAllText(string path, string contents)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The file to append the specified string to.</p>
+</dd>
+    <dt><code>contents</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The string to append to the file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_IO_File_AppendText_" data-uid="System.IO.File.AppendText*"></a>
+
+  <h3 id="System_IO_File_AppendText_System_String_" data-uid="System.IO.File.AppendText(System.String)">
+  AppendText(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="System.IO.StreamWriter.html">StreamWriter</a> that appends UTF-8 encoded text to an existing file, or to a new file if the specified file does not exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StreamWriter AppendText(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The path to the file to append to.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.StreamWriter.html">StreamWriter</a></dt>
+    <dd><p>A stream writer that appends UTF-8 encoded text to the specified file or to a new file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="System_IO_File_Copy_" data-uid="System.IO.File.Copy*"></a>
 
   <h3 id="System_IO_File_Copy_System_String_System_String_" data-uid="System.IO.File.Copy(System.String,System.String)">
@@ -190,7 +264,7 @@ routines such as Delete, etc.</p>
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
-    <dd><p><code class="paramref">sourceFileName</code> or <code class="paramref">destFileName</code> is null or empty.</p>
+    <dd><p><code class="paramref">sourceFileName</code> or <code class="paramref">destFileName</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty.</p>
 </dd>
   </dl>
 
@@ -248,7 +322,7 @@ routines such as Delete, etc.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates or overwrites a file in the specified path.</p>
+  <div class="markdown level1 summary"><p>Creates, or truncates and overwrites, a file in the specified path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -266,7 +340,50 @@ routines such as Delete, etc.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.IO.FileStream.html">FileStream</a></dt>
-    <dd></dd>
+    <dd><p>A <a class="xref" href="System.IO.FileStream.html">FileStream</a> that provides read/write access to the file specified in <code class="paramref">path</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_IO_File_Create_" data-uid="System.IO.File.Create*"></a>
+
+  <h3 id="System_IO_File_Create_System_String_System_Int32_" data-uid="System.IO.File.Create(System.String,System.Int32)">
+  Create(string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or opens a file for writing UTF-8 encoded text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileStream Create(string path, int bufferSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The path and name of the file to create.</p>
+</dd>
+    <dt><code>bufferSize</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The number of bytes buffered for reads and writes to the file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.FileStream.html">FileStream</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileStream.html">FileStream</a> that provides read/write access to the file specified in <code class="paramref">path</code>.</p>
+</dd>
   </dl>
 
 
@@ -346,7 +463,7 @@ routines such as Delete, etc.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
-    <dd><p><code>true</code> if the file exists; otherwise <code>false</code>.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the caller has the required permissions and <code class="paramref">path</code> contains the name of an existing file; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if <code class="paramref">path</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, an invalid <code class="paramref">path</code>, or a zero-length string. If the caller does not have sufficient permissions to read the specified file, no exception is thrown and the method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> regardless of the existence of <code class="paramref">path</code>.</p>
 </dd>
   </dl>
 
@@ -386,51 +503,6 @@ routines such as Delete, etc.</p>
   <dl class="parameters">
     <dt><a class="xref" href="System.IO.FileAttributes.html">FileAttributes</a></dt>
     <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
-    <dd><p><code class="paramref">path</code> cannot be not found.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="System_IO_File_GetLastWriteTime_" data-uid="System.IO.File.GetLastWriteTime*"></a>
-
-  <h3 id="System_IO_File_GetLastWriteTime_System_String_" data-uid="System.IO.File.GetLastWriteTime(System.String)">
-  GetLastWriteTime(string)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the date and time the specified file or directory was last written to.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static DateTime GetLastWriteTime(string path)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>The file or directory for which to obtain write date and time information.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.DateTime.html">DateTime</a></dt>
-    <dd><p>A <a class="xref" href="System.DateTime.html">DateTime</a> structure set to the last write date and time for the specified file or directory.</p>
-</dd>
   </dl>
 
 
@@ -494,6 +566,141 @@ routines such as Delete, etc.</p>
     <dd><p><code class="paramref">sourceFileName</code> does not exist or <code class="paramref">destFileName</code> exists.</p>
 </dd>
   </dl>
+
+
+
+  <a id="System_IO_File_Open_" data-uid="System.IO.File.Open*"></a>
+
+  <h3 id="System_IO_File_Open_System_String_System_IO_FileMode_" data-uid="System.IO.File.Open(System.String,System.IO.FileMode)">
+  Open(string, FileMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens a <a class="xref" href="System.IO.FileStream.html">FileStream</a> on the specified path with read/write access with no sharing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileStream Open(string path, FileMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The file to open.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="System.IO.FileMode.html">FileMode</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileMode.html">FileMode</a> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.FileStream.html">FileStream</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileStream.html">FileStream</a> opened in the specified mode and path, with read/write access and not shared.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_IO_File_Open_" data-uid="System.IO.File.Open*"></a>
+
+  <h3 id="System_IO_File_Open_System_String_System_IO_FileMode_System_IO_FileAccess_" data-uid="System.IO.File.Open(System.String,System.IO.FileMode,System.IO.FileAccess)">
+  Open(string, FileMode, FileAccess)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens a FileStream on the specified path, with the specified mode and access with no sharing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileStream Open(string path, FileMode mode, FileAccess access)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The file to open.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="System.IO.FileMode.html">FileMode</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileMode.html">FileMode</a> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</p>
+</dd>
+    <dt><code>access</code> <a class="xref" href="System.IO.FileAccess.html">FileAccess</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileAccess.html">FileAccess</a> value that specifies the operations that can be performed on the file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.FileStream.html">FileStream</a></dt>
+    <dd><p>An unshared <a class="xref" href="System.IO.FileStream.html">FileStream</a> that provides access to the specified file, with the specified mode and access.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_IO_File_Open_" data-uid="System.IO.File.Open*"></a>
+
+  <h3 id="System_IO_File_Open_System_String_System_IO_FileMode_System_IO_FileAccess_System_IO_FileShare_" data-uid="System.IO.File.Open(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)">
+  Open(string, FileMode, FileAccess, FileShare)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens a FileStream on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileStream Open(string path, FileMode mode, FileAccess access, FileShare share)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The file to open.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="System.IO.FileMode.html">FileMode</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileMode.html">FileMode</a> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</p>
+</dd>
+    <dt><code>access</code> <a class="xref" href="System.IO.FileAccess.html">FileAccess</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileAccess.html">FileAccess</a> value that specifies the operations that can be performed on the file.</p>
+</dd>
+    <dt><code>share</code> <a class="xref" href="System.IO.FileShare.html">FileShare</a></dt>
+    <dd><p>A FileShare value specifying the type of access other threads have to the file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.FileStream.html">FileStream</a></dt>
+    <dd><p>A <a class="xref" href="System.IO.FileStream.html">FileStream</a> on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
 
 
 
@@ -728,6 +935,12 @@ routines such as Delete, etc.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
+    <dd><p><code class="paramref">path</code> cannot be not found.</p>
+</dd>
+  </dl>
 
 
 

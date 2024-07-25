@@ -349,8 +349,8 @@ Class DriveInfo
 
   <a id="System_IO_DriveInfo_Format_" data-uid="System.IO.DriveInfo.Format*"></a>
 
-  <h3 id="System_IO_DriveInfo_Format_System_String_" data-uid="System.IO.DriveInfo.Format(System.String)">
-  Format(string)
+  <h3 id="System_IO_DriveInfo_Format_System_String_System_UInt32_" data-uid="System.IO.DriveInfo.Format(System.String,System.UInt32)">
+  Format(string, uint)
   
   </h3>
 
@@ -360,13 +360,17 @@ Class DriveInfo
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Format(string driveName)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Format(string fileSystem, uint parameter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>driveName</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd></dd>
+    <dt><code>fileSystem</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>File system to use for the format operation.</p>
+</dd>
+    <dt><code>parameter</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd><p>A parameter to pass to the format operation.</p>
+</dd>
   </dl>
 
 
@@ -376,16 +380,13 @@ Class DriveInfo
 
 
 
-  <h4 class="section" id="System_IO_DriveInfo_Format_System_String__remarks">Remarks</h4>
+  <h4 class="section" id="System_IO_DriveInfo_Format_System_String_System_UInt32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method is not reversible. Once the drive is formatted, all data on the drive is lost.</p>
 <p>This method is implemented in the .NET nanoFramework API but it is not supported on all target devices nor on all file systems.</p>
 </div>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
-    <dd><p><code class="paramref">driveName</code> does not refer to a valid drive.</p>
-</dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
     <dd><p>Thrown when the target doesn't have support for performing the format operation on the specified drive.</p>
 </dd>
@@ -418,6 +419,96 @@ Class DriveInfo
     <dd><p>An array of type <a class="xref" href="System.IO.DriveInfo.html">DriveInfo</a> that represents the logical drives on a computer.</p>
 </dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_IO_DriveInfo_GetFileSystems_" data-uid="System.IO.DriveInfo.GetFileSystems*"></a>
+
+  <h3 id="System_IO_DriveInfo_GetFileSystems" data-uid="System.IO.DriveInfo.GetFileSystems">
+  GetFileSystems()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the names of the file systems available on the connected device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] GetFileSystems()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a>[]</dt>
+    <dd><p>An array of strings that represent the names of the file systems available on the connected device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_IO_DriveInfo_MountRemovableVolumes_" data-uid="System.IO.DriveInfo.MountRemovableVolumes*"></a>
+
+  <h3 id="System_IO_DriveInfo_MountRemovableVolumes" data-uid="System.IO.DriveInfo.MountRemovableVolumes">
+  MountRemovableVolumes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to mount all removable volumes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MountRemovableVolumes()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_IO_DriveInfo_MountRemovableVolumes_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is implemented in the .NET nanoFramework API but it is not supported on all target devices.</p>
+</div>
+
+
+
+
+  <a id="System_IO_DriveInfo_Refresh_" data-uid="System.IO.DriveInfo.Refresh*"></a>
+
+  <h3 id="System_IO_DriveInfo_Refresh" data-uid="System.IO.DriveInfo.Refresh">
+  Refresh()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Refreshes the information about the drive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Refresh()</code></pre>
+  </div>
+
+
 
 
 
