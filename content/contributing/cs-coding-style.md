@@ -1,4 +1,4 @@
-# C# Coding Style
+﻿# C# Coding Style
 
 For non code files (xml etc) our current best guidance is consistency. When editing files, keep new code and changes consistent with the style in the files. For new files, it should conform to the style for that component. Last, if there's a completely new component, anything that is reasonably broadly accepted is fine.
 
@@ -32,100 +32,9 @@ The general rule we follow is "use Visual Studio defaults". For details check th
 18. Don't forget the header, the 2 lines simplified version can be used.
 19. Try to avoid abbreviation, always use longer names when possible and where it does make sense. It is acceptable for very known ones to use them like HTTP for example. Also, if using abbreviations, the names should follow the the pattern. For example, if you are using `HTTP` in a name of a function called `Something`, it will then be `HttpSomething`. This goes as well for namespaces, classes, properties, variable names.
 
-We have provided a Visual Studio 2013 vssettings file `nnnnn.vssettings` at the root of each repository, enabling C# auto-formatting conforming to the above guidelines. Note that rules 7 and 8 are not covered by the vssettings, since these are not rules currently supported by VS formatting.
+We have provided an EditorConfig file `.editorconfig` at the root of each repository, enabling C# auto-formatting conforming to the above guidelines, in particular rules 1, 2 and 9. Visual Studio cannot auto-correct code to comply with other rules; these are verified by StyleCop when the code is compiled.
 
-A more modern way to enforce the coding style is via an `.editorconfig` file at the top of the repository:
-```
-# This is a top-most .editorconfig file
-root = true
-
-#=====================================================
-#
-# Settings for all file types
-#
-#=====================================================
-[*]
-
-# Generic EditorConfig settings
-indent_style = space
-indent_size = 4
-end_of_line = crlf
-charset = utf-8-bom
-trim_trailing_whitespace = true
-insert_final_newline = true
-
-# Visual Studio spell checker
-spelling_languages = en-us
-spelling_checkable_types = strings,identifiers,comments
-spelling_error_severity = hint
-spelling_exclusion_path = spelling_exclusion.dic
-
-#=====================================================
-#
-# Formatting rules for C#
-#
-#=====================================================
-[*.cs]
-dotnet_sort_system_directives_first = false
-dotnet_separate_import_directive_groups = false
-
-# Formatting rules
-csharp_new_line_before_open_brace = all
-csharp_new_line_before_else = true
-csharp_new_line_before_catch = true
-csharp_new_line_before_finally = true
-csharp_new_line_before_members_in_object_initializers = true
-csharp_new_line_before_members_in_anonymous_types = true
-csharp_new_line_between_query_expression_clauses = true
-
-csharp_indent_case_contents = true
-csharp_indent_switch_labels = true
-csharp_indent_labels = one_less_than_current
-csharp_indent_block_contents = true
-csharp_indent_braces = false
-csharp_indent_case_contents_when_block = true
-
-csharp_space_after_cast = false
-csharp_space_after_keywords_in_control_flow_statements = true
-csharp_space_between_parentheses = false
-csharp_space_before_colon_in_inheritance_clause = true
-csharp_space_after_colon_in_inheritance_clause = true
-csharp_space_around_binary_operators = before_and_after
-csharp_space_between_method_declaration_parameter_list_parentheses = false
-csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
-csharp_space_between_method_declaration_name_and_open_parenthesis = false
-csharp_space_between_method_call_parameter_list_parentheses = false
-csharp_space_between_method_call_empty_parameter_list_parentheses = false
-csharp_space_between_method_call_name_and_opening_parenthesis = false
-csharp_space_after_comma = true
-csharp_space_before_comma = false
-csharp_space_after_dot = false
-csharp_space_before_dot = false
-csharp_space_after_semicolon_in_for_statement = true
-csharp_space_before_semicolon_in_for_statement = false
-csharp_space_around_declaration_statements = false
-csharp_space_before_open_square_brackets = false
-csharp_space_between_empty_square_brackets = false
-csharp_space_between_square_brackets = false
-
-csharp_preserve_single_line_statements = true
-csharp_preserve_single_line_blocks = true
-
-# Naming rules
-
-# nF_InternalPrivateFields: all private or internal fields
-dotnet_naming_symbols.nF_InternalPrivateFields.applicable_kinds = field
-dotnet_naming_symbols.nF_InternalPrivateFields.applicable_accessibilities = internal, private
-
-# nF_CamelCaseAndUnderscore: camel casing rule
-dotnet_naming_style.nF_CamelCase.capitalization = camel_case
-dotnet_naming_style.nF_CamelCase.required_prefix = _
-
-# nF naming rule for private or internal fields
-dotnet_naming_rule.nF_InternalPrivateFields_Rule.symbols = nF_InternalPrivateFields
-dotnet_naming_rule.nF_InternalPrivateFields_Rule.style = nF_CamelCaseAndUnderscore
-dotnet_naming_rule.nF_InternalPrivateFields_Rule.severity = warning
-```
+The EditorConfig also configures the Visual Studio spell checker. The spell checker is not enabled by default; it can be turned on/off by a button on the toolbar (the button with text *abc* and a green checkmark) or via the menu *Edit | Advanced | Toggle Spell Checker*. At the moment it can analyse the C#, C++ and markdown files that are open in he IDE. Code files typically contain jargon that is not recognised, e.g., the name of a communication protocol. If the spell checker flags such a word, choose to ignore it. The word will be added to the `spelling_exclusion.dic` file at the root of the repository.
 
 ## Example File
 
