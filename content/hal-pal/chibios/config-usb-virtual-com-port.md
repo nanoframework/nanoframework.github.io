@@ -34,13 +34,13 @@ _Note 2: For STMicroelectronics reference boards the serial number is completed 
 ## USB Vendor ID
 
 ```idVendor``` in the ```vcom_device_descriptor_data``` structure.
-In this setting it's defined the [USB Vendor ID](http://www.usb.org/developers/vendor/) of the USB device. Hexadecimal 0x0483 in the reference boards (that's STMicroelectronics USB Vendor ID).
+In this setting it's defined the [USB Vendor ID](https://www.usb.org/developers/vendor/) of the USB device. Hexadecimal 0x0483 in the reference boards (that's STMicroelectronics USB Vendor ID).
 
 _Note: You are not allowed to use the USB Vendor from a third party without their express consent. If you want to use your own Vendor ID you have to apply for one with the USB organization._
 
 ## USB Product ID
 
 ```idProduct``` in the ```vcom_device_descriptor_data``` structure.
-In this setting it's defined the [USB Product ID](http://www.usb.org/developers) of the USB device. Hexadecimal 0x5740 in the reference boards (that's STM USB product ID used in the Discovery and Nucleo boards).
+In this setting it's defined the [USB Product ID](https://www.usb.org/developers) of the USB device. Hexadecimal 0x5740 in the reference boards (that's STM USB product ID used in the Discovery and Nucleo boards).
 
 _Note: You are not allowed to use the USB Vendor ID + Product from a third party without their express consent. If you want to use your own Vendor ID + Product ID you have to apply for one with the USB organization._
