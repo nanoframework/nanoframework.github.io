@@ -2,17 +2,17 @@
 
 ## About this document
 
-This document provides a general overview of the licensing options available when using [ChibiOS](http://chibios.org) as the .NET **nanoFramework** RTOS component.
+This document provides a general overview of the licensing options available when using [ChibiOS](https://chibios.org) as the .NET **nanoFramework** RTOS component.
 The nanoFramework team have been in contact with the ChibiOS sales team to ensure accuracy of the following information at time of print (October 2017).
 
-For details or to discuss your particular situation, we strongly recommend getting in touch with the ChibiOS [sales team](http://chibios.org/dokuwiki/doku.php?id=chibios:licensing:quote).
+For details or to discuss your particular situation, we strongly recommend getting in touch with the ChibiOS [sales team](https://chibios.org/dokuwiki/doku.php?id=chibios:licensing:quote).
 
 ## What exactly is being used from ChibiOS in .NET **nanoFramework** firmware
 
 .NET **nanoFramework** is built against _unmodified_ ChibiOS sources via a mirror (for stability). It's using:
 
-* The [HAL](http://chibios.org/dokuwiki/doku.php?id=chibios:product:hal:start), which is released under Apache License 2.0 meaning that it's 100% free to use or distribute without royalties for any purpose.
-* The [RT](http://chibios.org/dokuwiki/doku.php?id=chibios:product:rt:start), is released under GPL3. See below for the licensing options which maybe different depending on your particular use.
+* The [HAL](https://chibios.org/dokuwiki/doku.php?id=chibios:product:hal:start), which is released under Apache License 2.0 meaning that it's 100% free to use or distribute without royalties for any purpose.
+* The [RT](https://chibios.org/dokuwiki/doku.php?id=chibios:product:rt:start), is released under GPL3. See below for the licensing options which maybe different depending on your particular use.
 
 ## Can I use ChibiOS freely for my hobby or personal development at home
 
