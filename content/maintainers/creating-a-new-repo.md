@@ -19,9 +19,11 @@ If in doubt please ask one of the senior team members.
 ## Adjust the repository settings (part 1)
 
 1. Go to the repository **Settings** and move into **Options**.
-1. In the**_Features** section disable Wikis, Issues and Projects.
-1. On the **Merge Button** section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.
-1. Move into **Branches** and set `develop` as the default branch.
+1. In the**Features** section disable Wikis, Issues and Projects.
+1. On the **Pull Requests** section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.
+1. Also there, disable merge commits. We prefer a straight history line.
+1. Another tweak there: at allow squash merging, set the default message to `Pull request title`. 
+1. Move into **Branches** and set `main` as the default branch.
 
 ## Setup Sonarcloud project
 
@@ -48,7 +50,6 @@ For class libraries projects a Sonarcloud project has to be setup in order to ru
 1. Add another variable `NbgvParameters`, leave it empty and check "Let users override this value when running this pipeline".
 1. Add another variable `StartReleaseCandidate`, set the content to `false` and check "Let users override this value when running this pipeline".
 1. Add another variable `UPDATE_DEPENDENTS`, set the content to `false` and check "Let users override this value when running this pipeline".
-1. Add another secret variable `SignClientSecret` and fill in with the secret for the .NET Foundation signing service. **Make sure** that the variable is set to `secret` by clicking on the appropriate option.
 1. Click the "Save" button on the Variables pop-up (it will take you back to the pipeline yaml).
 1. Cline the "Save" button at the top right and go through the commit message.
 1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
@@ -57,13 +58,14 @@ For class libraries projects a Sonarcloud project has to be setup in order to ru
 1. Click "Save" in the toolbar (NOT "Save & Queue").
 1. Go to the `General Project` project and navigate to Project Settings - Service Connections.
 1. Open each of the service connections there, click on the 3 vertical dots (again at the top right) and then "Security". Scroll down to "Project permissions", click on the + icon at the right hand side and select the newlly created project. This will add a permission to use this shared service connection.
+1. Navigate to the `Library` section (under `Pipelines`) and click on the plus sign to add a new `Variable group` named `sign-client-credentials`.
+1. Add the following variables, all set to secret, with the values comming from the .NET Foundation signing service. Variables are `SignClientId`, `SignClientSecret`, `SignKeyVaultCertificate`, `SignKeyVaultUrl` and `SignTenantId`. **Make sure** that all the variables are set to `secret` by clicking on the appropriate option.
 1. Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on "Status badge". Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.
 
 ## Prepare the initial commit
 
 1. Fork the repo into your preferred GutHub account and clone it locally.
 1. The best option is to copy/paste from an existing repo, so you're more efficient doing just that. Mind the name changes tough! Grab the following files:
-    - .github_changelog_generator
     - .gitignore **(no changes required)**
     - azure-pipelines.yml
     - LICENSE.md **(no changes required)**
@@ -72,14 +74,12 @@ For class libraries projects a Sonarcloud project has to be setup in order to ru
     - NuGet.Config
     - assets\readme.txt
     - assets\nf-logo.png
-    - config\filelist.txt
 1. Open "azure-pipelines.yml"
     1. Rename the `nugetPackageName` variable with the new name (mind the nanoframework prefix).
     1. Rename the `repoName` variable with the repo name.
     1. Rename the `sourceFileName` parameter with the equivalent name. It's probably wise to wait for the first successful build of the class library and then get back here with the correct name for the assembly declaration source file.
     1. Rename the `sonarCloudProject` variable with the project key from the Sonarcloud project.
     1. If there are class libraries that depend on this one, copy the "update dependencies" job from CorLib "azure-pipelines.yml". If there aren't just skip this step.
-1. Open ".github_changelog_generator" and set the **project** to the repo name.
 1. Open "version.json" and set the **version** to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.
 1. Open "README.md"
     1. Rename the class library name occurrences with the new name.
@@ -91,9 +91,10 @@ For class libraries projects a Sonarcloud project has to be setup in order to ru
     1. Make sure you copy the `key.snk` from the initial repo (or from the CorLib repo). **DO NOT** create a new one.
 1. Rename, edit and adjust as required the "nuspec" files to create the NuGet packages.
 1. Edit the "readme.txt" inside the `assets` folder and rename the repository name.
-1. Edit the "files.txt" inside the `config` folder and rename the file pattern.
 1. Still on"azure-pipelines.yml" **and only** if there are class libraries that depend on this one.
     1. Adjust the `repositoriesToUpdate` list with the repo names of the class libraries that depend on this new one.
+1. Create the .github folder with the workflows directory and the github actions yaml files inside.
+1. Open the yaml files of the github actions and adjust the solution name.
 
 ## Adjust the repository settings (part 2)
 
