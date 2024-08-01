@@ -2,7 +2,7 @@
 
 ## How To guide
 
-To flash nanoCLR image in TI CC13x2/CC6x2 boards [Uniflash](http://www.ti.com/tool/uniflash) tool from TI is required.
+To flash nanoCLR image in TI CC13x2/CC6x2 boards [Uniflash](https://www.ti.com/tool/uniflash) tool from TI is required.
 
 Assuming that Uniflash tool and the USB drivers are properly installed, follows the recommend procedure for a CC1352R1 LaunchPad board.
 

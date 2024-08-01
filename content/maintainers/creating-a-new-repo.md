@@ -13,7 +13,7 @@ If in doubt please ask one of the senior team members.
 
 1. This is basically clicking the create new repository button in GitHub.
     Note: The class libraries repositories are usually named with the prefix "*nanoFramework*.*namespace*" most of the remaining repositories are "**nf**-*some-relevant-name-here*".
-2. As we are following the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) two branches must be created: `main` and `develop`.
+2. As we are following the [GitFlow branching model](https://nvie.com/posts/a-successful-git-branching-model/) two branches must be created: `main` and `develop`.
 3. Make sure to create an empty readme.md to make it easier to fork and clone the new repo.
 
 ## Adjust the repository settings (part 1)

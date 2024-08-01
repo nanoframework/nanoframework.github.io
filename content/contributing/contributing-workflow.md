@@ -192,4 +192,4 @@ Here are a few resources that we've compiled to get you up to speed. No claims t
 
 - The git [community book](https://git-scm.com/book/en/v2). This book is meant to help you learn how to use Git as quickly and easily as possible.
 
-- [Escape a git mess step-by-step](http://justinhileman.info/article/git-pretty/git-pretty.png). Humorous and handy workflow to help you when you get stuck with git and your blood pressure starts to rise.
+- [Escape a git mess step-by-step](https://justinhileman.info/article/git-pretty/git-pretty.png). Humorous and handy workflow to help you when you get stuck with git and your blood pressure starts to rise.

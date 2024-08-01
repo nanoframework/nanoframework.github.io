@@ -2,7 +2,7 @@
 
 ![stm discovery](../../images/reference-targets/stm32f769i-disco.jpg)
 
-[Product page](http://www.st.com/en/evaluation-tools/32f769idiscovery.html)
+[Product page](https://www.st.com/en/evaluation-tools/32f769idiscovery.html)
 
 ## Connecting and powering the board
 

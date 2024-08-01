@@ -2,7 +2,7 @@
 
 ![stm discovery](../../images/reference-targets/stm32f429i-disco.jpg)
 
-[Product page](http://www.st.com/en/evaluation-tools/32f429idiscovery.html)
+[Product page](https://www.st.com/en/evaluation-tools/32f429idiscovery.html)
 
 ## Features
 
