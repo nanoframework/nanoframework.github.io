@@ -22,7 +22,7 @@ If in doubt please ask one of the senior team members.
 1. In the**Features** section disable Wikis, Issues and Projects.
 1. On the **Pull Requests** section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.
 1. Also there, disable merge commits. We prefer a straight history line.
-1. Another tweak there: at allow squash merging, set the default message to `Pull request title`. 
+1. Another tweak there: at allow squash merging, set the default message to `Pull request title`.
 1. Move into **Branches** and set `main` as the default branch.
 
 ## Setup Sonarcloud project
