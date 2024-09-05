@@ -161,6 +161,48 @@ Class Ft6xx6x
 
 
 
+  <a id="Iot_Device_Ft6xx6x_Ft6xx6x__ctor_" data-uid="Iot.Device.Ft6xx6x.Ft6xx6x.#ctor*"></a>
+
+  <h3 id="Iot_Device_Ft6xx6x_Ft6xx6x__ctor_System_Device_I2c_I2cDevice_System_Int32_System_Int32_nanoFramework_UI_DisplayOrientation_" data-uid="Iot.Device.Ft6xx6x.Ft6xx6x.#ctor(System.Device.I2c.I2cDevice,System.Int32,System.Int32,nanoFramework.UI.DisplayOrientation)">
+  Ft6xx6x(I2cDevice, int, int, DisplayOrientation)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the Ft6xx6x with defined touch area width and height, which need to be known to support orientation (<a class="xref" href="Iot.Device.Ft6xx6x.Ft6xx6x.html#Iot_Device_Ft6xx6x_Ft6xx6x_Orientation">Orientation</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ft6xx6x(I2cDevice i2cDevice, int width, int height, DisplayOrientation orientation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>The I2C device used for communication.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The touch area's width, in pixels, when in its default orientation.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The touch area's height, in pixels, when in its default orientation.</p>
+</dd>
+    <dt><code>orientation</code> <a class="xref" href="../api/nanoFramework.UI.DisplayOrientation.html">DisplayOrientation</a></dt>
+    <dd><p>The display orientation, which affects the X and Y coordinates returned by <a class="xref" href="Iot.Device.Ft6xx6x.Ft6xx6x.html#Iot_Device_Ft6xx6x_Ft6xx6x_GetPoint_System_Boolean_">GetPoint(bool)</a> and <a class="xref" href="Iot.Device.Ft6xx6x.Ft6xx6x.html#Iot_Device_Ft6xx6x_Ft6xx6x_GetDoublePoints">GetDoublePoints()</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="fields">Fields
 </h2>
 
@@ -392,6 +434,41 @@ Values between 0x04 and 0x14.</p>
 
   <h4 class="section" id="Iot_Device_Ft6xx6x_Ft6xx6x_MonitorModePeriodActive_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Do not pull results faster than this perdiod.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Ft6xx6x_Ft6xx6x_Orientation_" data-uid="Iot.Device.Ft6xx6x.Ft6xx6x.Orientation*"></a>
+
+  <h3 id="Iot_Device_Ft6xx6x_Ft6xx6x_Orientation" data-uid="Iot.Device.Ft6xx6x.Ft6xx6x.Orientation">
+  Orientation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the display orientation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DisplayOrientation Orientation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/nanoFramework.UI.DisplayOrientation.html">DisplayOrientation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Iot_Device_Ft6xx6x_Ft6xx6x_Orientation_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Changing the orientation requires the touch area's width and height to be set, use the appropriate constructor - <a class="xref" href="Iot.Device.Ft6xx6x.Ft6xx6x.html#Iot_Device_Ft6xx6x_Ft6xx6x__ctor_System_Device_I2c_I2cDevice_System_Int32_System_Int32_nanoFramework_UI_DisplayOrientation_">Ft6xx6x(I2cDevice, int, int, DisplayOrientation)</a>.</p>
 </div>
 
 
@@ -695,6 +772,15 @@ Values between 0x04 and 0x14.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.NotImplementedException.html">NotImplementedException</a></dt>
+    <dd><p>An unexpected <a class="xref" href="../api/nanoFramework.UI.DisplayOrientation.html">DisplayOrientation</a> value was encountered.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p><a class="xref" href="Iot.Device.Ft6xx6x.Ft6xx6x.html#Iot_Device_Ft6xx6x_Ft6xx6x_Orientation">Orientation</a> is not the default one, but the touch area's default width and height are not set.</p>
+</dd>
+  </dl>
 
 
 

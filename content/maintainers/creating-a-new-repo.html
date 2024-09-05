@@ -96,15 +96,17 @@ If in doubt please ask one of the senior team members.</p>
 <ol>
 <li>This is basically clicking the create new repository button in GitHub.
 Note: The class libraries repositories are usually named with the prefix &quot;<em>nanoFramework</em>.<em>namespace</em>&quot; most of the remaining repositories are &quot;<strong>nf</strong>-<em>some-relevant-name-here</em>&quot;.</li>
-<li>As we are following the <a href="http://nvie.com/posts/a-successful-git-branching-model/">GitFlow branching model</a> two branches must be created: <code>main</code> and <code>develop</code>.</li>
+<li>As we are following the <a href="https://nvie.com/posts/a-successful-git-branching-model/">GitFlow branching model</a> two branches must be created: <code>main</code> and <code>develop</code>.</li>
 <li>Make sure to create an empty readme.md to make it easier to fork and clone the new repo.</li>
 </ol>
 <h2 id="adjust-the-repository-settings-part-1">Adjust the repository settings (part 1)</h2>
 <ol>
 <li>Go to the repository <strong>Settings</strong> and move into <strong>Options</strong>.</li>
-<li>In the**_Features** section disable Wikis, Issues and Projects.</li>
-<li>On the <strong>Merge Button</strong> section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.</li>
-<li>Move into <strong>Branches</strong> and set <code>develop</code> as the default branch.</li>
+<li>In the<strong>Features</strong> section disable Wikis, Issues and Projects.</li>
+<li>On the <strong>Pull Requests</strong> section disable Allow merge commits. We prefer to have tidy merges on PRs without having to bother contributors to squash commits.</li>
+<li>Also there, disable merge commits. We prefer a straight history line.</li>
+<li>Another tweak there: at allow squash merging, set the default message to <code>Pull request title</code>.</li>
+<li>Move into <strong>Branches</strong> and set <code>main</code> as the default branch.</li>
 </ol>
 <h2 id="setup-sonarcloud-project">Setup Sonarcloud project</h2>
 <p>For class libraries projects a Sonarcloud project has to be setup in order to run and process the project analysis.</p>
@@ -130,7 +132,6 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>Add another variable <code>NbgvParameters</code>, leave it empty and check &quot;Let users override this value when running this pipeline&quot;.</li>
 <li>Add another variable <code>StartReleaseCandidate</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
 <li>Add another variable <code>UPDATE_DEPENDENTS</code>, set the content to <code>false</code> and check &quot;Let users override this value when running this pipeline&quot;.</li>
-<li>Add another secret variable <code>SignClientSecret</code> and fill in with the secret for the .NET Foundation signing service. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the appropriate option.</li>
 <li>Click the &quot;Save&quot; button on the Variables pop-up (it will take you back to the pipeline yaml).</li>
 <li>Cline the &quot;Save&quot; button at the top right and go through the commit message.</li>
 <li>Navigate back to the Pipeline, select it and click &quot;Edit&quot; (at the top right). Then click on the 3 vertical dots (again at the top right) and then &quot;Triggers&quot;.</li>
@@ -139,6 +140,8 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>Click &quot;Save&quot; in the toolbar (NOT &quot;Save &amp; Queue&quot;).</li>
 <li>Go to the <code>General Project</code> project and navigate to Project Settings - Service Connections.</li>
 <li>Open each of the service connections there, click on the 3 vertical dots (again at the top right) and then &quot;Security&quot;. Scroll down to &quot;Project permissions&quot;, click on the + icon at the right hand side and select the newlly created project. This will add a permission to use this shared service connection.</li>
+<li>Navigate to the <code>Library</code> section (under <code>Pipelines</code>) and click on the plus sign to add a new <code>Variable group</code> named <code>sign-client-credentials</code>.</li>
+<li>Add the following variables, all set to secret, with the values comming from the .NET Foundation signing service. Variables are <code>SignClientId</code>, <code>SignClientSecret</code>, <code>SignKeyVaultCertificate</code>, <code>SignKeyVaultUrl</code> and <code>SignTenantId</code>. <strong>Make sure</strong> that all the variables are set to <code>secret</code> by clicking on the appropriate option.</li>
 <li>Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on &quot;Status badge&quot;. Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.</li>
 </ol>
 <h2 id="prepare-the-initial-commit">Prepare the initial commit</h2>
@@ -146,7 +149,6 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>Fork the repo into your preferred GutHub account and clone it locally.</li>
 <li>The best option is to copy/paste from an existing repo, so you're more efficient doing just that. Mind the name changes tough! Grab the following files:
 <ul>
-<li>.github_changelog_generator</li>
 <li>.gitignore <strong>(no changes required)</strong></li>
 <li>azure-pipelines.yml</li>
 <li>LICENSE.md <strong>(no changes required)</strong></li>
@@ -155,7 +157,6 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>NuGet.Config</li>
 <li>assets\readme.txt</li>
 <li>assets\nf-logo.png</li>
-<li>config\filelist.txt</li>
 </ul>
 </li>
 <li>Open &quot;azure-pipelines.yml&quot;
@@ -167,7 +168,6 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>If there are class libraries that depend on this one, copy the &quot;update dependencies&quot; job from CorLib &quot;azure-pipelines.yml&quot;. If there aren't just skip this step.</li>
 </ol>
 </li>
-<li>Open &quot;.github_changelog_generator&quot; and set the <strong>project</strong> to the repo name.</li>
 <li>Open &quot;version.json&quot; and set the <strong>version</strong> to the appropriate one. Make sure to follow our version number guidelines. In doubt please ask one of the senior team members.</li>
 <li>Open &quot;README.md&quot;
 <ol>
@@ -185,12 +185,13 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 </li>
 <li>Rename, edit and adjust as required the &quot;nuspec&quot; files to create the NuGet packages.</li>
 <li>Edit the &quot;readme.txt&quot; inside the <code>assets</code> folder and rename the repository name.</li>
-<li>Edit the &quot;files.txt&quot; inside the <code>config</code> folder and rename the file pattern.</li>
 <li>Still on&quot;azure-pipelines.yml&quot; <strong>and only</strong> if there are class libraries that depend on this one.
 <ol>
 <li>Adjust the <code>repositoriesToUpdate</code> list with the repo names of the class libraries that depend on this new one.</li>
 </ol>
 </li>
+<li>Create the .github folder with the workflows directory and the github actions yaml files inside.</li>
+<li>Open the yaml files of the github actions and adjust the solution name.</li>
 </ol>
 <h2 id="adjust-the-repository-settings-part-2">Adjust the repository settings (part 2)</h2>
 <ol>

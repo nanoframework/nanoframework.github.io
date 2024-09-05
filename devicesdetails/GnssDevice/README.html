@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Global Navigation Satellite System Device NMEA 0183 - Including Generic Serial Module with GPS, GNSS, BeiDou - NEO6-M, NEO-M8P-2, NEO-M9N from u-blox, ATGM336H, Minewsemi, ZED-F9P, ZOE-M8Q, SAM-M8Q, SARA-R5 and many many more | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Global Navigation Satellite System Device NMEA 0183 - Including Generic Serial Module with GPS, GNSS, BeiDou - NEO6-M, NEO-M8P-2, NEO-M9N from u-blox, ATGM336H, Minewsemi, ZED-F9P, ZOE-M8Q, SAM-M8Q, SARA-R5 and many many more | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/GnssDevice/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="global-navigation-satellite-system-device-nmea-0183---including-generic-serial-module-with-gps-gnss-beidou---neo6-m-neo-m8p-2-neo-m9n-from-u-blox-atgm336h-minewsemi-zed-f9p-zoe-m8q-sam-m8q-sara-r5-and-many-many-more">Global Navigation Satellite System Device NMEA 0183 - Including Generic Serial Module with GPS, GNSS, BeiDou - NEO6-M, NEO-M8P-2, NEO-M9N from u-blox, ATGM336H, Minewsemi, ZED-F9P, ZOE-M8Q, SAM-M8Q, SARA-R5 and many many more</h1>
+
+<p>This binding implements a base Global Navigation Satellite System (GNSS) device and a generic serial implementation. The device includes a generic serial module that supports multiple satellite navigation systems such as GPS, GNSS, and BeiDou. The Generic Serial GNSS Device is also extensible. Any serial modules like the NEO6-M, NEO-M8P-2, NEO-M9N from u-blox, ATGM336H, Minewsemi, ZED-F9P, ZOE-M8Q, SAM-M8Q, SARA-R5 and many many more are directly supported for the main NMEA0183 features.</p>
+<h2 id="documentation">Documentation</h2>
+<p>This bindings implement a large part of <a href="https://en.wikipedia.org/wiki/NMEA_0183">NMEA 0183</a> and a way to extend the processed elements.</p>
+<p>The <code>Location</code>class is also aligned with the <a href="https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/device/geolocation?view=net-maui-8.0&amp;tabs=windows">MAUI class</a> <code>Location</code>. There is not a one to one match as .NET nanoFramework is using UnitsNet for the Course (with Angle) and Speed (with Speed).</p>
+<h2 id="connections">Connections</h2>
+<p>There are only 4 wires required:</p>
+<table>
+<thead>
+<tr>
+<th>GPS/GNSS module</th>
+<th>MCU Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC</td>
+<td>3.3V / 5V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>TX</td>
+<td>RX</td>
+</tr>
+<tr>
+<td>RX</td>
+<td>TX</td>
+</tr>
+</tbody>
+</table>
+<p>It is important to check which voltage is required for your module.</p>
+<h2 id="usage-of-generic-gnss-serial-module">Usage of Generic GNSS Serial Module</h2>
+<pre><code class="lang-csharp">// Some modules like ESP32 requires to setup serial pins
+// Configure GPIOs 16 and 17 to be used in UART2 (that's refered as COM3)
+Configuration.SetPinFunction(9, DeviceFunction.COM2_RX);
+Configuration.SetPinFunction(8, DeviceFunction.COM2_TX);
+
+// By default baud rate is 9600
+var gnssDevice = new GenericSerialGnssDevice(&quot;COM2&quot;);
+
+// Subscribe for events
+gnssDevice.FixChanged += FixChanged;
+gnssDevice.LocationChanged += LocationChanged;
+gnssDevice.OperationModeChanged += OperationModeChanged;
+gnssDevice.ParsingError += ParsingError;
+gnssDevice.ParsedMessage += ParsedMessage;
+
+// Starts the module
+gnssDevice.Start();
+</code></pre>
+<p>The various events allows you to subscribe for various behaviors. One of the main one is when the <code>Fix</code> change, meaning, your module starts to get proper data.</p>
+<pre><code class="lang-csharp">private static void ParsingError(Exception exception)
+{
+    Console.WriteLine($&quot;Received parsed error: {exception.Message}&quot;);
+}
+
+private static void OperationModeChanged(GnssOperation mode)
+{
+    Console.WriteLine($&quot;Received Operation Mode changed: {mode}&quot;);
+}
+
+private static void LocationChanged(GeoPosition position)
+{
+    Console.WriteLine($&quot;Received position changed: {position.Latitude},{position.Longitude}&quot;);
+}
+
+private static void FixChanged(Fix fix)
+{
+    Console.WriteLine($&quot;Received Fix changed: {fix}&quot;);
+}
+</code></pre>
+<h2 id="extensibility-of-the-genericserialgnssdevice">Extensibility of the GenericSerialGnssDevice</h2>
+<h3 id="creating-your-own-nmeadata-parsers">Creating your own NmeaData parsers</h3>
+<p>This class is extensible by using the <code>ParsedMessage</code> event and adding <code>NmeaData</code> elements to the <code>Nmea0183Parser</code>. The samples show how to to do this.</p>
+<p>Here is a simple example of a TXT message processing:</p>
+<pre><code class="lang-csharp">using Iot.Device.Common.GnssDevice;
+using System;
+
+namespace GnssDevice.Sample
+{
+    /// &lt;summary&gt;
+    /// Implements a simple TXT data from a GNSS device.
+    /// &lt;/summary&gt;
+    internal class TxtData : NmeaData
+    {
+        /// &lt;inheritdoc/&gt;
+        public override string MessageId =&gt; &quot;TXT&quot;;
+
+        /// &lt;summary&gt;
+        /// Gets the decoded text.
+        /// &lt;/summary&gt;
+        public string Text { get; internal set; }
+
+        /// &lt;summary&gt;
+        /// Gets the severity of the message.
+        /// &lt;/summary&gt;
+        public MessageSeverity Severity { get; internal set; }
+
+        /// &lt;inheritdoc/&gt;
+        public override NmeaData Parse(string inputData)
+        {
+            if (!IsMatch(inputData))
+            {
+                throw new ArgumentException();
+            }
+
+            try
+            {
+                var subfields = GetSubFields(inputData);
+                if(subfields.Length &lt; 5)
+                {
+                    return null;
+                }
+
+                var txt = subfields[4];
+                var sev = (MessageSeverity)int.Parse(subfields[3]);
+                return new TxtData(txt, sev);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(&quot;Invalid NMEA TXT data&quot;, ex);
+            }
+        }
+
+        /// &lt;summary&gt;
+        /// Initializes a new instance of the &lt;see cref=&quot;TxtData&quot;/&gt; class.
+        /// &lt;/summary&gt;
+        public TxtData() 
+        { }
+
+        /// &lt;summary&gt;
+        /// Initializes a new instance of the &lt;see cref=&quot;TxtData&quot;/&gt; class.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;txt&quot;&gt;The TXT entry.&lt;/param&gt;
+        /// &lt;param name=&quot;sev&quot;&gt;The severity of the message.&lt;/param&gt;
+        public TxtData(string txt, MessageSeverity sev)
+        {
+            Text = txt;
+            Severity = sev;
+        }
+    }
+
+    public enum MessageSeverity
+    {
+        Error = 0,
+        Warning = 1,
+        Notice = 2,
+        User = 7
+    }
+}
+</code></pre>
+<p>Once you have your own parser setup, you need to add it to the parsers:</p>
+<pre><code class="lang-csharp">// Add the TXT parser in the NMEA Parser
+Nmea0183Parser.AddParser(new TxtData());
+
+// on the GNSS device, make sure you add the ParsedMessage event
+gnssDevice = new GenericSerialGnssDevice(&quot;COM2&quot;);
+gnssDevice.ParsedMessage += ParsedMessage;
+</code></pre>
+<p>And you can then get the parsed element here:</p>
+<pre><code class="lang-csharp">private static void ParsedMessage(NmeaData data)
+{
+    Console.WriteLine($&quot;Received parsed message: {data.GetType()}&quot;);
+    if (data is TxtData txtData)
+    {
+        Console.WriteLine($&quot;Received TXT message: {txtData.Text}, severity: {txtData.Severity}&quot;);
+    }
+}
+</code></pre>
+<p>If you want to replace one of the existing parser by your own, you can remove it from the Nmea0183Parser and add your own using the same principle.</p>
+<h3 id="handling-yourself-unparsed-messages">Handling yourself unparsed messages</h3>
+<p>This can be done using the <code>UnparsedMessage</code> event. You just need to subscribe to the event and you'll be able to handle the message:</p>
+<pre><code class="lang-csharp">// on the GNSS device, make sure you add the UnparsedMessage event
+gnssDevice = new GenericSerialGnssDevice(&quot;COM2&quot;);
+gnssDevice.UnparsedMessage += UnparsedMessage;
+</code></pre>
+<p>As a result, all the unparsed messages will be delivered for you to handle:</p>
+<pre><code class="lang-csharp">private static void UnparsedMessage(string message)
+{
+    Console.WriteLine($&quot;Received unparsed message: {message}&quot;);
+}
+</code></pre>
+<h2 id="extensibility-with-the-gnssdevice">Extensibility with the GnssDevice</h2>
+<p>The <code>GnssDevice</code> abstract class already incorporate quite some logic. The <code>GenericSerialGnssDevice</code> is using it and is a great example of extensibility. <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/GnssDevice/GenericSerialGnssDevice.cs">Check the code</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/GnssDevice/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -89,7 +89,7 @@
 
 <p>This binding is a generic AT Modem handler that can be extended for different usage. The first implementation is for the <code>Sim7080</code> which supports both <code>CAT-M</code> and <code>NB-IoT</code>. It can be controlled through AT command via a Serial/UART interface. There is as well a partial implementation of <code>SIM800</code>.</p>
 <blockquote>
-<p>Note: The module is tested on a <code>Sim7080</code> but is also compatible with Sim7070 and Sim7090 and with a <code>SIM800H</code>.</p>
+<p>Note: The module is tested on a <code>Sim7080</code> but is also compatible with Sim7070 and Sim7090 and with a <code>SIM800H</code>. It has also been tested on a <code>SIM8868</code>.</p>
 </blockquote>
 <p>This project is officially supported by <a href="https://www.simcom.com/">SIMCom</a>.</p>
 <p><a href="https://www.simcom.com/"><img src="../../devicesimages/AtModem/simcom-logo.png" alt="SIMCom"></a></p>
@@ -144,6 +144,12 @@
 <td>IP Network connection</td>
 <td>✅</td>
 <td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Global Navigation Satellite System (GNSS)</td>
+<td>✅</td>
+<td>N/A</td>
 <td>✅</td>
 </tr>
 </tbody>
@@ -617,6 +623,51 @@ Console.WriteLine();
 <blockquote>
 <p><strong>Important</strong>: A <code>X509Certificate</code> fully managed code implementation is available for convenience. It does <strong>not</strong> provide any property like getting the certificate validate time. It is just a wrapper to make code reuse simpler. It does <strong>not</strong> parse the certificate neither or transform it. If you pass a PEM certificate, getting the data will always be a PEM certificate, it is not going to transform it as a DER and vice versa.</p>
 </blockquote>
+<h2 id="global-navigation-satellite-system-gnss">Global Navigation Satellite System GNSS</h2>
+<p>This is based on the <code>GnssDevice</code>. See the more complete <a href="../GnssDevice/README.html">information here</a>.
+Basic usage is the following:</p>
+<pre><code class="lang-csharp">var gnss = modem.Gnss;
+Console.WriteLine($&quot;Is GNSS running? {gnss.IsRunning}&quot;);
+var started = gnss.Start();
+Console.WriteLine($&quot;GNSS started: {started}&quot;);
+// You can subscribe for any position change
+gnss.LocationChanged += GnssLocationChanged;
+// The position is not updated automatically, so you need to setup an update time span
+gnss.AutomaticUpdate = TimeSpan.FromSeconds(10);
+
+// You can as well request a new position on demand
+var pos = gnss.GetLocation();
+// The new position is also stored in the Location property
+DisplayPosition(gnss.Location);
+
+// The event function will receive the position update
+void GnssLocationChanged(Location pos)
+{
+    if (pos != null)
+{
+    if (pos is Sim7672Location simPos)
+    {
+        Console.WriteLine($&quot;GpsNumberVisibleSatellites: {simPos.GpsNumberVisibleSatellites}&quot;);
+        Console.WriteLine($&quot;GlonassNumberVisibleSatellites: {simPos.GlonassNumberVisibleSatellites}&quot;);
+        Console.WriteLine($&quot;GalileoNumberVisibleSatellites: {simPos.GalileoNumberVisibleSatellites}&quot;);
+        Console.WriteLine($&quot;TotalNumberOfSatellitesUsed: {simPos.TotalNumberOfSatellitesUsed}&quot;);
+    }
+
+    Console.WriteLine($&quot;Latitude: {pos.Latitude}&quot;);
+    Console.WriteLine($&quot;Longitude: {pos.Longitude}&quot;);
+    Console.WriteLine($&quot;DateTime: {pos.Timestamp}&quot;);
+    Console.WriteLine($&quot;Altitude: {pos.Altitude}&quot;);
+    Console.WriteLine($&quot;Speed: {pos.Speed}&quot;);
+    Console.WriteLine($&quot;Course: {pos.Course.Degrees}&quot;);
+    Console.WriteLine($&quot;PositionDilutionOfPrecision: {pos.Accuracy}&quot;);
+    Console.WriteLine($&quot;VerticalDilutionOfPrecision: {pos.VerticalAccuracy}&quot;);
+}
+else
+{
+    Console.WriteLine(&quot;No position&quot;);
+}
+}
+</code></pre>
 <h2 id="articles">Articles</h2>
 <p>Part of this code is adaptation and port of <a href="https://github.com/hbjorgo/ATLib">ATLib</a>.</p>
 <ul>

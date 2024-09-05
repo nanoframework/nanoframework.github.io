@@ -1,0 +1,659 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Nmea0183Parser | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Nmea0183Parser | .NET nanoFramework Documentation ">
+      
+      <meta name="description" content="Provides methods for parsing NMEA0183 data from a Gnss device.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser">
+
+
+
+  <h1 id="Iot_Device_Common_GnssDevice_Nmea0183Parser" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser" class="text-break">
+Class Nmea0183Parser  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Common.html">Common</a>.<a class="xref" href="Iot.Device.Common.GnssDevice.html">GnssDevice</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Common.GnssDevice.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides methods for parsing NMEA0183 data from a Gnss device.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Nmea0183Parser</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Nmea0183Parser</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_AddParser_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.AddParser*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_AddParser_Iot_Device_Common_GnssDevice_NmeaData_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.AddParser(Iot.Device.Common.GnssDevice.NmeaData)">
+  AddParser(NmeaData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a parser to the list of available parsers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddParser(NmeaData parser)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parser</code> <a class="xref" href="Iot.Device.Common.GnssDevice.NmeaData.html">NmeaData</a></dt>
+    <dd><p>The parser class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ComputeChecksum_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ComputeChecksum*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ComputeChecksum_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ComputeChecksum(System.String)">
+  ComputeChecksum(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the checksum of an NMEA1083 message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte ComputeChecksum(string data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The string to compute.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>A byte array with the checksum.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToDouble_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToDouble*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToDouble_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToDouble(System.String)">
+  ConvertToDouble(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string to a double. Default to 0 if the string is empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ConvertToDouble(string data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A string to convernt.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A double.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToFix_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToFix*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToFix_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToFix(System.String)">
+  ConvertToFix(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string to a Fix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Fix ConvertToFix(string data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A valid string.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Common.GnssDevice.Fix.html">Fix</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.Common.GnssDevice.Fix.html">Fix</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToGeoLocation_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToGeoLocation*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToGeoLocation_System_String_System_String_System_Int32_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToGeoLocation(System.String,System.String,System.Int32)">
+  ConvertToGeoLocation(string, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string to a geographic location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ConvertToGeoLocation(string data, string direction, int degreesLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>Valid input data.</p>
+</dd>
+    <dt><code>direction</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The direction.</p>
+</dd>
+    <dt><code>degreesLength</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Number of degrees digits.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A double representing an coordinate elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToInt_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToInt*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToInt_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToInt(System.String)">
+  ConvertToInt(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string to a int. Default to 0 if the string is empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ConvertToInt(string data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A string to convernt.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>An int.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToMode_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToMode*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToMode_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToMode(System.String)">
+  ConvertToMode(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string to a GnssOperation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GnssOperation ConvertToMode(string data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A valid string.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Common.GnssDevice.GnssOperation.html">GnssOperation</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.Common.GnssDevice.GnssOperation.html">GnssOperation</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToPositioningIndicator_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToPositioningIndicator*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToPositioningIndicator_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToPositioningIndicator(System.String)">
+  ConvertToPositioningIndicator(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string to a PositioningIndicator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PositioningIndicator ConvertToPositioningIndicator(string data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A valid string.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Common.GnssDevice.PositioningIndicator.html">PositioningIndicator</a></dt>
+    <dd><p>The proper <a class="xref" href="Iot.Device.Common.GnssDevice.PositioningIndicator.html">PositioningIndicator</a> mode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToStatus_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToStatus*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToStatus_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToStatus(System.String)">
+  ConvertToStatus(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string to a Status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Status ConvertToStatus(string data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A valid string.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Common.GnssDevice.Status.html">Status</a></dt>
+    <dd><p>The proper <a class="xref" href="Iot.Device.Common.GnssDevice.Status.html">Status</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToTimeSpan_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToTimeSpan*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToTimeSpan_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToTimeSpan(System.String)">
+  ConvertToTimeSpan(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string time to a TimeSpan.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan ConvertToTimeSpan(string time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The time as HHMMSS.ss.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a></dt>
+    <dd><p>A <a class="xref" href="../api/System.TimeSpan.html">TimeSpan</a> object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToUtcDateTime_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToUtcDateTime*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_ConvertToUtcDateTime_System_String_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.ConvertToUtcDateTime(System.String,System.String)">
+  ConvertToUtcDateTime(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string date and time to a DateTime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime ConvertToUtcDateTime(string date, string time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The date string as YYMMDD.</p>
+</dd>
+    <dt><code>time</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The time as HHMMSS.ss.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.DateTime.html">DateTime</a></dt>
+    <dd><p>A <a class="xref" href="../api/System.DateTime.html">DateTime</a> object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_Parse_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.Parse*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_Parse_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.Parse(System.String)">
+  Parse(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses a string and return the parsed NmeaData object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NmeaData Parse(string inputData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputData</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>A valid MNEA string.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Common.GnssDevice.NmeaData.html">NmeaData</a></dt>
+    <dd><p>Parsed NmeaData object if any or null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Common_GnssDevice_Nmea0183Parser_RemoveParser_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.RemoveParser*"></a>
+
+  <h3 id="Iot_Device_Common_GnssDevice_Nmea0183Parser_RemoveParser_System_String_" data-uid="Iot.Device.Common.GnssDevice.Nmea0183Parser.RemoveParser(System.String)">
+  RemoveParser(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a parser from the list of available parsers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveParser(string dataId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataId</code> <a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd><p>The data type to parse eg $GPGLL.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
