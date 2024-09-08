@@ -2,7 +2,7 @@
 
 ![CC1352R1](../../images/reference-targets/CC1352R1_LAUNCHXL.jpg)
 
-[Product page](http://www.ti.com/tool/LAUNCHXL-CC1352R1)
+[Product page](https://www.ti.com/tool/LAUNCHXL-CC1352R1)
 
 ## Features
 
