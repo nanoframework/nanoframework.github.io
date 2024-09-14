@@ -23,7 +23,7 @@ Considering all this and the ongoing quest to save flash space we've decided to 
 
 This has zero impact on API and code reuse as both coexist. The only difference is on the firmware image. There is a build option (`DP_FLOATINGPOINT`) to build the image with DP floating point, when that extra precision is required.
 
-A `NotImplementedException` will be throw when there is no native support for an API. The remedy is to call the API with the *other* parameter type.
+In .NET the capabilities of the firmware are available through [SystemInfo](https://docs.nanoframework.net/api/nanoFramework.Runtime.Native.SystemInfo.html). A `NotImplementedException` will be throw when there is no native support for an API. The remedy is to call the API with the *other* parameter type.
 
 ```(csharp)
 // this is OK when running on a image that has DP floating point support
