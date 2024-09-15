@@ -4,7 +4,7 @@
 This document describes how your application and the .NET **nanoFramework** components required for your application are packaged and deployed to a hardware device. It also describes the versioning system used to relate the packages.
 
 ## Components
-For the purpose of this description, the general [architecture](index) of a .NET **nanoFramework** application is presented in a different way.
+For the purpose of this description, the general [architecture](index.md) of a .NET **nanoFramework** application is presented in a different way.
 
 ![Software components and flash memory](../../images/architecture-deployment-components.png)
 
@@ -16,7 +16,7 @@ Ultimately your application has to be deployed to the device, by writing the sof
 
 ## Packaging and distribution of the nanoFramework components
 
-Each of the .NET **nanoFramework** components has a class library as .NET implementation. The library is compiled to a .dll file for use in development environments and a [.pe file](pe-file) that can be run on the device. Each library is distributed as a [NuGet package](class-libraries).
+Each of the .NET **nanoFramework** components has a class library as .NET implementation. The library is compiled to a .dll file for use in development environments and a [.pe file](pe-file.md) that can be run on the device. Each library is distributed as a [NuGet package](class-libraries.md).
 
 ![Managed components are distributed via NuGet](../../images/architecture-deployment-managed-components.png)
 
@@ -44,12 +44,12 @@ Once a native component of your application is part of the runtime, it is treate
 
 The .NET components of your application and the .NET **nanoFramework** framework components included via NuGet packages can be deployed to the device in three phases of the development cycle.
 
-The first stage is during the development of the class libraries. The .NET **nanoFramework** framework supports (unit) testing of class libraries (not applications). The [test platform](../unit-test) deploys the [.pe files](pe-file) of the class libraries and a unit test launcher to the device and executes the tests.
+The first stage is during the development of the class libraries. The .NET **nanoFramework** framework supports (unit) testing of class libraries (not applications). The [test platform](../unit-test) deploys the [.pe files](pe-file.md) of the class libraries and a unit test launcher to the device and executes the tests.
 
 ![Deployment of class libraries for testing](../../images/architecture-deployment-application-test.png)
 
 
-The second stage is during the development of the integrated application. The .NET **nanoFramework** framework supports debugging of an application. The debugger that is part of the Visual Studio extension deploys the [.pe files](pe-file) of the application and all referenced class libraries to the device and runs the application. 
+The second stage is during the development of the integrated application. The .NET **nanoFramework** framework supports debugging of an application. The debugger that is part of the Visual Studio extension deploys the [.pe files](pe-file.md) of the application and all referenced class libraries to the device and runs the application. 
 
 ![Deployment of class libraries for debugging](../../images/architecture-deployment-application-debug.png)
 
@@ -69,7 +69,7 @@ The various elements are selected and incorporated at different moments in the b
 
 ![Version-based references between components](../../images/architecture-deployment-versioning.png)
 
-Each native implementation of a component has a [version and checksum](guide-version-checksums). .NET **nanoFramework** tools can obtain a list of native components and their version and checksum from the runtime once it is deployed on a device.
+Each native implementation of a component has a [version and checksum](guide-version-checksums.md). .NET **nanoFramework** tools can obtain a list of native components and their version and checksum from the runtime once it is deployed on a device.
 
 Each managed implementation of a component has a version as is common for .NET assemblies. If the component also has a native implementation, the .NET assembly also has a reference (via the *AssemblyNativeVersion* attribute) to the version of the native component. .NET **nanoFramework** tools can read the attribute.
 
@@ -85,6 +85,6 @@ The consistency of references from managed assemblies to the native components i
 
 The description so far may give the impression that the .NET **nanoFramework** tools that support the packaging and deployment are independent of the packages the tools work with. That is not the case, there are a few interdependencies.
 
-All tools except *nanoff* (and *nanoff* for additional files) do not write directly to the flash memory of a device. Instead they use a limited part of the [wire protocol](wire-protocol) to send the *.pe*-files to the device, and the (already deployed) runtime writes to flash memory. The tool and the deployed runtime have to have the same perception that part of the wire protocol; (breaking) changes in the protocol may lead to incompatibility of tools and runtimes. Fortunately the wire protocol is very stable and changes are few and far between.
+All tools except *nanoff* (and *nanoff* for additional files) do not write directly to the flash memory of a device. Instead they use a limited part of the [wire protocol](wire-protocol.md) to send the *.pe*-files to the device, and the (already deployed) runtime writes to flash memory. The tool and the deployed runtime have to have the same perception that part of the wire protocol; (breaking) changes in the protocol may lead to incompatibility of tools and runtimes. Fortunately the wire protocol is very stable and changes are few and far between.
 
 The *nanoff* tool has some hard-coded logic to select the most suitable pre-packaged runtime/target for a particular device. The runtime package does not contain sufficient information to link the (device manufacturer's specific) description that a device provides to the *nanoff* tool to the suitability of the runtime. E.g., a runtime may target a particular model of microcontroller, but if the microcontroller is part of a development kit, *nanoff* may receive an identification of the kit when querying the device instead of an identification of the microcontroller. If new pre-packaged runtimes/targets become available, the *nanoff* tool may require an update. The selection mechanism can always be bypassed by explicitly specifying the runtime/target to deploy.
