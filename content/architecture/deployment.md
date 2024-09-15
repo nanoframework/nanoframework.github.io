@@ -1,9 +1,11 @@
 # Packaging, versioning and deployment
 
 ## About this document
+
 This document describes how your application and the .NET **nanoFramework** components required for your application are packaged and deployed to a hardware device. It also describes the versioning system used to relate the packages.
 
 ## Components
+
 For the purpose of this description, the general [architecture](index.md) of a .NET **nanoFramework** application is presented in a different way.
 
 ![Software components and flash memory](../../images/architecture-deployment-components.png)
@@ -48,8 +50,7 @@ The first stage is during the development of the class libraries. The .NET **nan
 
 ![Deployment of class libraries for testing](../../images/architecture-deployment-application-test.png)
 
-
-The second stage is during the development of the integrated application. The .NET **nanoFramework** framework supports debugging of an application. The debugger that is part of the Visual Studio extension deploys the [.pe files](pe-file.md) of the application and all referenced class libraries to the device and runs the application. 
+The second stage is during the development of the integrated application. The .NET **nanoFramework** framework supports debugging of an application. The debugger that is part of the Visual Studio extension deploys the [.pe files](pe-file.md) of the application and all referenced class libraries to the device and runs the application.
 
 ![Deployment of class libraries for debugging](../../images/architecture-deployment-application-debug.png)
 
