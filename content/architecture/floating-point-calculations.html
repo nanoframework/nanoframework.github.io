@@ -102,7 +102,7 @@ When we move to embedded systems that's a totally different story.</p>
 <p>Adding to the above, the extra precision provided by the <code>double</code> type is seldom required on typical embedded application use cases.</p>
 <p>Considering all this and the ongoing quest to save flash space we've decided to provide two <em>flavours</em> for the System.Math API: the standard one with <code>double</code> type parameters and the alternative, lightweight one, with <code>float</code> type parameters.</p>
 <p>This has zero impact on API and code reuse as both coexist. The only difference is on the firmware image. There is a build option (<code>DP_FLOATINGPOINT</code>) to build the image with DP floating point, when that extra precision is required.</p>
-<p>A <code>NotImplementedException</code> will be throw when there is no native support for an API. The remedy is to call the API with the <em>other</em> parameter type.</p>
+<p>In .NET the capabilities of the firmware are available through <a href="https://docs.nanoframework.net/api/nanoFramework.Runtime.Native.SystemInfo.html">SystemInfo</a>. A <code>NotImplementedException</code> will be throw when there is no native support for an API. The remedy is to call the API with the <em>other</em> parameter type.</p>
 <pre><code class="lang-(csharp)">// this is OK when running on a image that has DP floating point support
 Math.Pow(1.01580092094650000000000000, 0.19029495718363400000000000000);
 
