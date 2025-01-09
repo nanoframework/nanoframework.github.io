@@ -6,6 +6,8 @@
 
 -----
 
+document language: [English](README.md) | [简体中文](README.zh-cn.md)
+
 This repo contains the sources that generate the .NET **nanoFramework** documentation website.
 
 ## Feedback and documentation
