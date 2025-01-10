@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -284,10 +284,49 @@ Class MemoryStream
   <div class="markdown level1 remarks"><p>
         The <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanRead">CanRead</a>, <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanSeek">CanSeek</a>, and <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanWrite">CanWrite</a> properties are all set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
         </p>
-<p>
-        The capacity of the current stream automatically increases when you use the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_SetLength_System_Int64_">SetLength(long)</a> method to set the length to a value larger than the capacity of the current stream.
-        </p>
 </div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">buffer</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="System_IO_MemoryStream__ctor_" data-uid="System.IO.MemoryStream.#ctor*"></a>
+
+  <h3 id="System_IO_MemoryStream__ctor_System_Byte___System_Boolean_" data-uid="System.IO.MemoryStream.#ctor(System.Byte[],System.Boolean)">
+  MemoryStream(byte[], bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new non-resizable instance of the <a class="xref" href="System.IO.MemoryStream.html">MemoryStream</a> class based on the specified byte array with the <a class="xref" href="System.IO.MemoryStream.html#System_IO_MemoryStream_CanWrite">CanWrite</a> property set as specified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MemoryStream(byte[] buffer, bool isWritable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>The array of unsigned bytes from which to create the current stream.</p>
+</dd>
+    <dt><code>isWritable</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>A bool indicating whether the stream should be writable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
@@ -848,7 +887,8 @@ Class MemoryStream
     <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
     <dd></dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
-    <dd><p>The stream buffer does not have the capacity to hold the data and is not expandable.</p>
+    <dd><p>The stream buffer does not have the capacity to hold the
+data and is not expandable, and/or the stream is not writable.</p>
 </dd>
     <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
     <dd><p>The MemoryStream max size was exceeded</p>
@@ -929,7 +969,8 @@ Class MemoryStream
     <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
     <dd></dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
-    <dd><p>The stream buffer does not have the capacity to hold the data and is not expandable.</p>
+    <dd><p>The stream buffer does not have the capacity to hold the
+data and is not expandable, and/or the stream is not writable.</p>
 </dd>
     <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
     <dd><p>The MemoryStream max size was exceeded or
@@ -974,7 +1015,8 @@ Class MemoryStream
     <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
     <dd></dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
-    <dd><p>The stream buffer does not have the capacity to hold the data and is not expandable.</p>
+    <dd><p>The stream buffer does not have the capacity to hold the
+data and is not expandable, and/or the stream is not writable.</p>
 </dd>
     <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
     <dd><p>The MemoryStream max size was exceeded</p>

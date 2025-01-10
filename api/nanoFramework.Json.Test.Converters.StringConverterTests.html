@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -217,6 +217,49 @@ public class StringConverterTests</code></pre>
 </h2>
 
 
+  <a id="nanoFramework_Json_Test_Converters_StringConverterTests_StringConverter_ToJson_Should_HandleSpecialCharacters_" data-uid="nanoFramework.Json.Test.Converters.StringConverterTests.StringConverter_ToJson_Should_HandleSpecialCharacters*"></a>
+
+  <h3 id="nanoFramework_Json_Test_Converters_StringConverterTests_StringConverter_ToJson_Should_HandleSpecialCharacters_System_String_System_String_" data-uid="nanoFramework.Json.Test.Converters.StringConverterTests.StringConverter_ToJson_Should_HandleSpecialCharacters(System.String,System.String)">
+  StringConverter_ToJson_Should_HandleSpecialCharacters(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[DataRow(new object[] { &quot;Text\\1&quot;, &quot;\&quot;Text\\\\1\&quot;&quot; })]
+[DataRow(new object[] { &quot;Text\b1&quot;, &quot;\&quot;Text\\b1\&quot;&quot; })]
+[DataRow(new object[] { &quot;Text\f1&quot;, &quot;\&quot;Text\\f1\&quot;&quot; })]
+[DataRow(new object[] { &quot;Text\r1&quot;, &quot;\&quot;Text\\r1\&quot;&quot; })]
+[DataRow(new object[] { &quot;Text\&quot;1&quot;, &quot;\&quot;Text\\\&quot;1\&quot;&quot; })]
+[DataRow(new object[] { &quot;Text\n1&quot;, &quot;\&quot;Text\\n1\&quot;&quot; })]
+[DataRow(new object[] { &quot;Text\t1&quot;, &quot;\&quot;Text\\t1\&quot;&quot; })]
+[DataRow(new object[] { &quot;&#228;&quot;, &quot;\&quot;&#228;\&quot;&quot; })]
+[DataRow(new object[] { &quot;I:\\nano\\rpath\\to&quot;, &quot;\&quot;I:\\\\nano\\\\rpath\\\\to\&quot;&quot; })]
+public void StringConverter_ToJson_Should_HandleSpecialCharacters(string value, string expectedValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>expectedValue</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="nanoFramework_Json_Test_Converters_StringConverterTests_StringConverter_ToJson_Should_ReturnValidData_" data-uid="nanoFramework.Json.Test.Converters.StringConverterTests.StringConverter_ToJson_Should_ReturnValidData*"></a>
 
   <h3 id="nanoFramework_Json_Test_Converters_StringConverterTests_StringConverter_ToJson_Should_ReturnValidData_System_String_System_String_" data-uid="nanoFramework.Json.Test.Converters.StringConverterTests.StringConverter_ToJson_Should_ReturnValidData(System.String,System.String)">
@@ -229,7 +272,10 @@ public class StringConverterTests</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[TestMethod]
+[DataRow(new object[] { &quot;a&quot;, &quot;\&quot;a\&quot;&quot; })]
+[DataRow(new object[] { &quot;\&quot;TestJson\&quot;&quot;, &quot;\&quot;\\\&quot;TestJson\\\&quot;\&quot;&quot; })]
 [DataRow(new object[] { &quot;TestJson2&quot;, &quot;\&quot;TestJson2\&quot;&quot; })]
+[DataRow(new object[] { &quot;Test / solidus&quot;, &quot;\&quot;Test / solidus\&quot;&quot; })]
 public void StringConverter_ToJson_Should_ReturnValidData(string value, string expectedValue)</code></pre>
   </div>
 
@@ -291,9 +337,56 @@ public void StringConverter_ToType_ShouldReturnStringEmptyForNull()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[TestMethod]
-[DataRow(new object[] { &quot;\&quot;TestJson\&quot;&quot;, &quot;\&quot;TestJson\&quot;&quot; })]
+[DataRow(new object[] { &quot;\&quot;a\&quot;&quot;, &quot;a&quot; })]
+[DataRow(new object[] { &quot;\&quot;TestJson\&quot;&quot;, &quot;TestJson&quot; })]
 [DataRow(new object[] { &quot;TestJson1&quot;, &quot;TestJson1&quot; })]
+[DataRow(new object[] { &quot;\&quot;Test / solidus\&quot;&quot;, &quot;Test / solidus&quot; })]
 public void StringConverter_ToType_ShouldReturnValidData(string value, string expectedValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>expectedValue</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Json_Test_Converters_StringConverterTests_StringConverter_ToType_Should_HandleSpecialCharacters_" data-uid="nanoFramework.Json.Test.Converters.StringConverterTests.StringConverter_ToType_Should_HandleSpecialCharacters*"></a>
+
+  <h3 id="nanoFramework_Json_Test_Converters_StringConverterTests_StringConverter_ToType_Should_HandleSpecialCharacters_System_String_System_String_" data-uid="nanoFramework.Json.Test.Converters.StringConverterTests.StringConverter_ToType_Should_HandleSpecialCharacters(System.String,System.String)">
+  StringConverter_ToType_Should_HandleSpecialCharacters(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[DataRow(new object[] { &quot;Text\\1&quot;, &quot;Text\\1&quot; })]
+[DataRow(new object[] { &quot;Text\b1&quot;, &quot;Text\b1&quot; })]
+[DataRow(new object[] { &quot;Text\f1&quot;, &quot;Text\f1&quot; })]
+[DataRow(new object[] { &quot;Text\r1&quot;, &quot;Text\r1&quot; })]
+[DataRow(new object[] { &quot;Text\&quot;1&quot;, &quot;Text\&quot;1&quot; })]
+[DataRow(new object[] { &quot;Text\n1&quot;, &quot;Text\n1&quot; })]
+[DataRow(new object[] { &quot;Text\t1&quot;, &quot;Text\t1&quot; })]
+[DataRow(new object[] { &quot;[&#39;Text3&#39;, 1]&quot;, &quot;[&#39;Text3&#39;, 1]&quot; })]
+[DataRow(new object[] { &quot;{\&quot;Text1\&quot; : \&quot;/Text1/\&quot;}&quot;, &quot;{\&quot;Text1\&quot; : \&quot;/Text1/\&quot;}&quot; })]
+[DataRow(new object[] { &quot;&#228;&quot;, &quot;&#228;&quot; })]
+[DataRow(new object[] { &quot;\&quot;I:\\\\nano\\\\rpath\\\\to\&quot;&quot;, &quot;I:\\nano\\rpath\\to&quot; })]
+public void StringConverter_ToType_Should_HandleSpecialCharacters(string value, string expectedValue)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

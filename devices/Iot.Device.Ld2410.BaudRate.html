@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -147,7 +147,7 @@ Enum BaudRate
   <h2 id="Iot_Device_Ld2410_BaudRate_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>The serial communication of LD2410 uses little-endian format.
 All the values in this enum are in big-endian to match the manufacturer docs.
-Use <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.spanbyte">WriteUInt16LittleEndian(SpanByte, ushort)</a> before writing to the serial port
+Use <span class="xref">System.Buffers.Binary.BinaryPrimitives.WriteUInt16LittleEndian(System.SpanByte, ushort)</span> before writing to the serial port
 to ensure that the byte representation will be converted to little-endian if the code is running on a big-endian CPU.</p>
 </div>
 

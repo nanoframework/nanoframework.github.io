@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>&#127798;️ - ulse Width Modulation (PWM) to drive a servo motor | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="&#127798;️ - ulse Width Modulation (PWM) to drive a servo motor | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/Samples/blob/main/samples/Beginner/ServoMotor/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="---ulse-width-modulation-pwm-to-drive-a-servo-motor">🌶️ - ulse Width Modulation (PWM) to drive a servo motor</h1>
+
+<p>Shows how to use the <a href="https://docs.nanoframework.net/api/System.Device.Pwm.html">System.Device.Pwm</a> API to use Pulse Width Modulation pins.</p>
+<p>We will use a servo motor for this purpose. The schema is the following and pin 21 will be used. You can change the pin and adjust accordingly the pin:</p>
+<p><img src="https://github.com/nanoframework/nanoFramework.IoT.Device/raw/develop/devices/ServoMotor/ServoMotor.png" alt="schema servo"></p>
+<p>And if you want to know more about PWM, how this works, you can read the <a href="https://docs.nanoframework.net/content/getting-started-guides/pwm-explained.html">All what you've always wanted to know about PWM</a> content!</p>
+<h2 id="running-the-sample">Running the sample</h2>
+<p>Ensure you have all the <a href="../README.html">software requirements</a>.</p>
+<p>To build the sample, follow the section <a href="../README.html">here</a>. And to run it, <a href="../README.html#run-the-sample">here</a>.</p>
+<p>The sample is <a href="https://github.com/nanoframework/Samples/tree/main/samples/Beginner/ServoMotor/Program.cs">located here</a>. The code is very straightforward with the explanations:</p>
+<pre><code class="lang-csharp">using System.Device.Pwm;
+using System.Diagnostics;
+using System.Threading;
+using Iot.Device.ServoMotor;
+using nanoFramework.Hardware.Esp32;
+
+Debug.WriteLine(&quot;Hello from nanoFramework!&quot;);
+
+// We are using pin 21, you can adjust the pin number based on the pin you are using
+int pinServo = 21;
+
+// When using an ESP32, you have to setup the pin function then create the PWM channel
+Configuration.SetPinFunction(pinServo, DeviceFunction.PWM1);
+
+// Each servo motor has specific pulse width limits, check the datasheet of the servo motor for the values
+using PwmChannel pwmChannel = PwmChannel.CreateFromPin(pinServo, 50);
+ServoMotor servoMotor = new ServoMotor(
+    pwmChannel,
+    180,
+    900,
+    2100);
+
+servoMotor.Start();  // Enable control signal.
+
+for (int i = 0; i &lt; 10; i++)
+{
+    // Move position.
+    // ~0.9ms; Approximately 0 degrees.
+    servoMotor.WriteAngle(0);
+    Thread.Sleep(1000);
+    // ~1.5ms; Approximately 90 degrees.
+    servoMotor.WriteAngle(90);
+    Thread.Sleep(1000);
+    // ~2.1ms; Approximately 180 degrees.
+    servoMotor.WriteAngle(180);
+    Thread.Sleep(1000);
+}
+
+servoMotor.Stop(); // Disable control signal.
+
+Thread.Sleep(Timeout.Infinite);
+</code></pre>
+<p>And as a result, you will see:</p>
+<p><img src="../../../samplesimages/Beginner/Docs/servo.gif" alt="pwm led"></p>
+<p>If you want to debug, follow the instructions <a href="../BlinkLed/README.html">explained in the led sample</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/Samples/blob/main/samples/Beginner/ServoMotor/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

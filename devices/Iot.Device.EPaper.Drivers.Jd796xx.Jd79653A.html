@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -810,7 +810,7 @@ Call <a class="xref" href="Iot.Device.EPaper.Drivers.Jd796xx.Jd79653A.html#Iot_D
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dt><code>buffer</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
     <dd><p>The buffer array to draw.</p>
 </dd>
   </dl>
@@ -1434,7 +1434,7 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dt><code>command</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
     <dd><p>The command bytes to send. See the command enum within the driver implementation and consult the datasheet.</p>
 </dd>
   </dl>
@@ -1467,7 +1467,40 @@ else, assume white pixel and write to B/W Buffer/RAM.</p>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dt><code>data</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dd><p>The frame data to send.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_EPaper_Drivers_Jd796xx_Jd79653A_SendData_" data-uid="Iot.Device.EPaper.Drivers.Jd796xx.Jd79653A.SendData*"></a>
+
+  <h3 id="Iot_Device_EPaper_Drivers_Jd796xx_Jd79653A_SendData_System_UInt16___" data-uid="Iot.Device.EPaper.Drivers.Jd796xx.Jd79653A.SendData(System.UInt16[])">
+  SendData(params ushort[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Send frame data to the display.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SendData(params ushort[] data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.UInt16.html">ushort</a>[]</dt>
     <dd><p>The frame data to send.</p>
 </dd>
   </dl>
@@ -1617,8 +1650,8 @@ to persist the frame to the display's RAM before calling this method.</p>
 
   <a id="Iot_Device_EPaper_Drivers_Jd796xx_Jd79653A_WaitReady_" data-uid="Iot.Device.EPaper.Drivers.Jd796xx.Jd79653A.WaitReady*"></a>
 
-  <h3 id="Iot_Device_EPaper_Drivers_Jd796xx_Jd79653A_WaitReady_System_Int32_System_Threading_CancellationTokenSource_" data-uid="Iot.Device.EPaper.Drivers.Jd796xx.Jd79653A.WaitReady(System.Int32,System.Threading.CancellationTokenSource)">
-  WaitReady(int, CancellationTokenSource)
+  <h3 id="Iot_Device_EPaper_Drivers_Jd796xx_Jd79653A_WaitReady_System_Threading_CancellationToken_" data-uid="Iot.Device.EPaper.Drivers.Jd796xx.Jd79653A.WaitReady(System.Threading.CancellationToken)">
+  WaitReady(CancellationToken)
   
   </h3>
 
@@ -1627,23 +1660,20 @@ to persist the frame to the display's RAM before calling this method.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool WaitReady(int waitingTime, CancellationTokenSource cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual bool WaitReady(CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>waitingTime</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
-    <dd><p>The maximum time to wait in ms before exiting the method. -1 to wait infinitely.</p>
-</dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="../api/System.Threading.CancellationTokenSource.html">CancellationTokenSource</a></dt>
-    <dd><p>The <a class="xref" href="../api/System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> to be able to cancel the waiting time.</p>
+    <dt><code>cancellationToken</code> <a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a> to be able to cancel the waiting time.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
-    <dd><p>True if it returns before the <a class="xref" href="../api/System.Threading.CancellationTokenSource.html">CancellationTokenSource</a> expires, false otherwise.</p>
+    <dd><p>True if it returns before the <a class="xref" href="../api/System.Threading.CancellationToken.html">CancellationToken</a> expires, false otherwise.</p>
 </dd>
   </dl>
 
@@ -1653,8 +1683,8 @@ to persist the frame to the display's RAM before calling this method.</p>
 
 
 
-  <h4 class="section" id="Iot_Device_EPaper_Drivers_Jd796xx_Jd79653A_WaitReady_System_Int32_System_Threading_CancellationTokenSource__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>If <em>waitingTime</em> is set to -1, <em>cancellationToken</em> could not be null, and a exception will be throw.</p>
+  <h4 class="section" id="Iot_Device_EPaper_Drivers_Jd796xx_Jd79653A_WaitReady_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If cancellationToken is null, this method will block until the busy pin is low.</p>
 </div>
 
 

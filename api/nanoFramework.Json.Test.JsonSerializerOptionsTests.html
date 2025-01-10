@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -811,33 +811,6 @@ public void Can_serialize_and_deserialize_double()</code></pre>
 
 
 
-  <a id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_escaped_string_" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_escaped_string*"></a>
-
-  <h3 id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_escaped_string" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_escaped_string">
-  Can_serialize_and_deserialize_escaped_string()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[TestMethod]
-public void Can_serialize_and_deserialize_escaped_string()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_float_" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_float*"></a>
 
   <h3 id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_float" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_float">
@@ -919,6 +892,72 @@ public void Can_serialize_and_deserialize_nan_float()</code></pre>
 
 
 
+  <a id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_object_containing_string_with_escaped_characters_" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_object_containing_string_with_escaped_characters*"></a>
+
+  <h3 id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_object_containing_string_with_escaped_characters_System_String_" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_object_containing_string_with_escaped_characters(System.String)">
+  Can_serialize_and_deserialize_object_containing_string_with_escaped_characters(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[DataRow(new object[] { &quot;a&quot; })]
+[DataRow(new object[] { &quot;1&quot; })]
+[DataRow(new object[] { &quot;\t&quot; })]
+[DataRow(new object[] { &quot;Testing / solidus&quot; })]
+[DataRow(new object[] { &quot;Testing  solidus&quot; })]
+[DataRow(new object[] { &quot;Some string with \&quot; that needs escaping&quot; })]
+[DataRow(new object[] { &quot;Quotes in a \&quot;string\&quot;.&quot; })]
+[DataRow(new object[] { &quot;Escaped last character \n&quot; })]
+[DataRow(new object[] { &quot;I:\\Nano\\rApp\\app.pe&quot; })]
+[DataRow(new object[] { &quot;Tab \t in a string \t&quot; })]
+[DataRow(new object[] { &quot;Newline \n in a string \n&quot; })]
+[DataRow(new object[] { &quot;LineFeed \f in a string \f&quot; })]
+[DataRow(new object[] { &quot;CarriageReturn \r in a string \r&quot; })]
+[DataRow(new object[] { &quot;Backspace \b in a string \b&quot; })]
+[DataRow(new object[] { &quot;TestString&quot; })]
+[DataRow(new object[] { &quot;\&quot;TestString\&quot;&quot; })]
+[DataRow(new object[] { &quot;A&quot; })]
+[DataRow(new object[] { &quot;❤&quot; })]
+[DataRow(new object[] { &quot;\u001b&quot; })]
+[DataRow(new object[] { &quot;\u007f&quot; })]
+[DataRow(new object[] { &quot;&quot; })]
+[DataRow(new object[] { &quot;&quot; })]
+[DataRow(new object[] { &quot;Line 1\nLine 2\nLine 3&quot; })]
+[DataRow(new object[] { &quot;Curly braces: { }&quot; })]
+[DataRow(new object[] { &quot;Square brackets: [ ]&quot; })]
+[DataRow(new object[] { &quot;Colon and comma: : ,&quot; })]
+[DataRow(new object[] { &quot;Special symbols: @#$%^&amp;*()_+~&quot; })]
+[DataRow(new object[] { &quot;English 中文 Espa&#241;ol العربية हिंदी&quot; })]
+[DataRow(new object[] { &quot;{\&quot;key\&quot;: \&quot;value\&quot;}&quot; })]
+[DataRow(new object[] { &quot;\&quot;[{\&quot;inner\&quot;:\&quot;value\&quot;}]\&quot;&quot; })]
+[DataRow(new object[] { &quot;{\&quot;name\&quot;:\&quot;John\&quot;,\&quot;age\&quot;:30}&quot; })]
+[DataRow(new object[] { &quot;Invalid escape: \\q&quot; })]
+[DataRow(new object[] { &quot;https://example.com/api?query=escaped%20characters&quot; })]
+[DataRow(new object[] { &quot;Unicode ❤, Newline \n, Tab \t, Backslash \\&quot; })]
+public void Can_serialize_and_deserialize_object_containing_string_with_escaped_characters(string testValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>testValue</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_object_with_self_referencing_static_field_" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_object_with_self_referencing_static_field*"></a>
 
   <h3 id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_object_with_self_referencing_static_field" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_object_with_self_referencing_static_field">
@@ -961,6 +1000,71 @@ public void Can_serialize_and_deserialize_object_with_self_referencing_static_fi
 public void Can_serialize_and_deserialize_simple_object()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_string_with_escaped_characters_" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_string_with_escaped_characters*"></a>
+
+  <h3 id="nanoFramework_Json_Test_JsonSerializerOptionsTests_Can_serialize_and_deserialize_string_with_escaped_characters_System_String_" data-uid="nanoFramework.Json.Test.JsonSerializerOptionsTests.Can_serialize_and_deserialize_string_with_escaped_characters(System.String)">
+  Can_serialize_and_deserialize_string_with_escaped_characters(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[DataRow(new object[] { &quot;a&quot; })]
+[DataRow(new object[] { &quot;\t&quot; })]
+[DataRow(new object[] { &quot;Testing / solidus&quot; })]
+[DataRow(new object[] { &quot;Testing  solidus&quot; })]
+[DataRow(new object[] { &quot;Quotes in a \&quot;string\&quot;.&quot; })]
+[DataRow(new object[] { &quot;Escaped last character \n&quot; })]
+[DataRow(new object[] { &quot;I:\\Nano\\rApp\\app.pe&quot; })]
+[DataRow(new object[] { &quot;Tab \t in a string \ta&quot; })]
+[DataRow(new object[] { &quot;Newline \n in a string \na&quot; })]
+[DataRow(new object[] { &quot;LineFeed \f in a string \fa&quot; })]
+[DataRow(new object[] { &quot;CarriageReturn \r in a string \ra&quot; })]
+[DataRow(new object[] { &quot;Backspace \b in a string \ba&quot; })]
+[DataRow(new object[] { &quot;TestString&quot; })]
+[DataRow(new object[] { &quot;\&quot;TestString\&quot;&quot; })]
+[DataRow(new object[] { &quot;A&quot; })]
+[DataRow(new object[] { &quot;❤&quot; })]
+[DataRow(new object[] { &quot;\u001b&quot; })]
+[DataRow(new object[] { &quot;\u007f&quot; })]
+[DataRow(new object[] { &quot;&quot; })]
+[DataRow(new object[] { &quot;&quot; })]
+[DataRow(new object[] { &quot;Line 1\nLine 2\nLine 3&quot; })]
+[DataRow(new object[] { &quot;Curly braces: { }&quot; })]
+[DataRow(new object[] { &quot;Square brackets: [ ]&quot; })]
+[DataRow(new object[] { &quot;Colon and comma: : ,&quot; })]
+[DataRow(new object[] { &quot;Special symbols: @#$%^&amp;*()_+~&quot; })]
+[DataRow(new object[] { &quot;English 中文 Espa&#241;ol العربية हिंदी&quot; })]
+[DataRow(new object[] { &quot;{\&quot;key\&quot;: \&quot;value\&quot;}&quot; })]
+[DataRow(new object[] { &quot;\&quot;[{\&quot;inner\&quot;:\&quot;value\&quot;}]\&quot;&quot; })]
+[DataRow(new object[] { &quot;{\&quot;name\&quot;:\&quot;John\&quot;,\&quot;age\&quot;:30}&quot; })]
+[DataRow(new object[] { &quot;Invalid escape: \\q&quot; })]
+[DataRow(new object[] { &quot;https://example.com/api?query=escaped%20characters&quot; })]
+[DataRow(new object[] { &quot;Unicode ❤, Newline \n, Tab \t, Backslash \\&quot; })]
+[DataRow(new object[] { &quot;\&quot;\\\&quot;TestJson\\\&quot;\&quot;&quot; })]
+public void Can_serialize_and_deserialize_string_with_escaped_characters(string testValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>testValue</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
