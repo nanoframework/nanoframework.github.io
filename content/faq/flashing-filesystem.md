@@ -4,6 +4,8 @@
 >
 > This document is based on this [Discord Announce](https://discord.com/channels/478725473862549535/481780524864503828/1317131756369088574)
 
+This method is complementary from deploying files during the [flash process using nanoff](https://github.com/nanoframework/nanoFirmwareFlasher?tab=readme-ov-file#deploy-file-to-device-storage). It is intended to faciliate development. While deploying at scale, we recommend to use the nanoff method.
+
 ## Can I update the internal filesystem of an ESP32 (or any other board that supports it) during deployment?
 
 Yes, you can!
