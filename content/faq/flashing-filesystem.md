@@ -20,7 +20,7 @@ Yes, by default the deploy will maintain the structure of the folder startig fro
 
 For example you can place a file named "favicon.ico" to the root of the project, sets the two props as described and your internal storage will be:
 
-```sh
+```txt
 I:\favicon.ico
 ```
 
