@@ -1,6 +1,7 @@
 # Updating File System during Visual Studio code deployment
 
-> NOTE: 
+> [!NOTE]
+>
 > This document is based on this [Discord Announce](https://discord.com/channels/478725473862549535/481780524864503828/1317131756369088574)
 
 ## Can I update the internal filesystem of an ESP32 (or any other board that supports it) during deployment?
