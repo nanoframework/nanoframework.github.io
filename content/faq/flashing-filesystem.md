@@ -37,7 +37,7 @@ Inside this file search for the `Content` entry of your file and add the TAG `NF
 ```xml
 <Content Include="webapp\index.html">
   <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-  <NF_StoragePath>I:\index.html</NF_StoragePath><!-- now this file will be copied under the root of I:\ -->
+  <NF_StoragePath>I:\newindex.html</NF_StoragePath><!-- now this file will be copied under the root of I:\ and rename the file to newindex.html -->
 </Content>
 ```
 
