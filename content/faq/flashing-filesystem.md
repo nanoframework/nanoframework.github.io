@@ -1,4 +1,4 @@
-# Updating internal FileSystem during deploy
+# Updating File System during Visual Studio code deployment
 
 > NOTE: 
 > This document is based on this [Discord Announce](https://discord.com/channels/478725473862549535/481780524864503828/1317131756369088574)
