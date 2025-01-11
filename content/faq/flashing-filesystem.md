@@ -26,7 +26,7 @@ I:\favicon.ico
 
 If you put that file under in your project's "webapp" folder, the internal storage structure will follow the same tree and look like this:
 
-```sh
+```txt
 I:\webapp\favicon.ico
 ```
 
