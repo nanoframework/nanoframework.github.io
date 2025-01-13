@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Updating File System during Visual Studio code deployment | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Updating File System during Visual Studio code deployment | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/faq/flashing-filesystem.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="updating-file-system-during-visual-studio-code-deployment">Updating File System during Visual Studio code deployment</h1>
+
+<div class="NOTE">
+<h5>Note</h5>
+<p>This document is based on this <a href="https://discord.com/channels/478725473862549535/481780524864503828/1317131756369088574">Discord Announce</a></p>
+</div>
+<p>This method is complementary from deploying files during the <a href="https://github.com/nanoframework/nanoFirmwareFlasher?tab=readme-ov-file#deploy-file-to-device-storage">flash process using nanoff</a>. It is intended to faciliate development. While deploying at scale, we recommend to use the nanoff method.</p>
+<h2 id="can-i-update-the-internal-filesystem-of-an-esp32-or-any-other-board-that-supports-it-during-deployment">Can I update the internal filesystem of an ESP32 (or any other board that supports it) during deployment?</h2>
+<p>Yes, you can!</p>
+<p>To do that you should set the property <code>Build action</code> to <code>Content</code> and <code>Copy to output directory</code> to <code>Copy always</code></p>
+<p><img src="../../images/faq/flashing-filesystem-image1.png" alt="File property tab"></p>
+<h2 id="folder-structure-are-supported">Folder structure are supported?</h2>
+<p>Yes, by default the deploy will maintain the structure of the folder startig from the root of project.</p>
+<p>For example you can place a file named &quot;favicon.ico&quot; to the root of the project, sets the two props as described and your internal storage will be:</p>
+<pre><code class="lang-txt">I:\favicon.ico
+</code></pre>
+<p>If you put that file under in your project's &quot;webapp&quot; folder, the internal storage structure will follow the same tree and look like this:</p>
+<pre><code class="lang-txt">I:\webapp\favicon.ico
+</code></pre>
+<p>If you want to change the storage path of a file you need to set <code>NF_StoragePath</code> metadata to the file definition inside the project file.
+To do that click with right button on the project entry and select <code>Unload project</code>, Visual Studio will open the project file for you.
+Inside this file search for the <code>Content</code> entry of your file and add the TAG <code>NF_StoragePath</code> like this example:</p>
+<pre><code class="lang-xml">&lt;Content Include=&quot;webapp\index.html&quot;&gt;
+  &lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
+  &lt;NF_StoragePath&gt;I:\newindex.html&lt;/NF_StoragePath&gt;&lt;!-- now this file will be copied under the root of I:\ and rename the file to newindex.html --&gt;
+&lt;/Content&gt;
+</code></pre>
+<h2 id="can-i-erase-all-files-before-deploy">Can I erase all files before deploy?</h2>
+<p>The response for this question is no but yes...</p>
+<p>In other words you can not erase the internal storage every time you press <code>F5</code> or deploy your code but you can do that re-flashing the firmware with <code>--masserase</code> option of <code>nanoff</code> cli, for example:</p>
+<pre><code class="lang-sh">nanoff --platform esp32 --serialport COM3 --update --masserase --target ESP32_S3_BLE
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/faq/flashing-filesystem.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
