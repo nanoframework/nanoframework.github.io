@@ -8,13 +8,16 @@ You only need to build it if you plan to debug the native code, add new targets 
 If your goal is to code in C# you just have to flash your MCU with the appropriate firmware image.
 There are available ready to flash firmware images for several targets, please check the [reference targets](../reference-targets/index.md) and several others [community contributed](../community-targets/index.md).
 
+Check out our [special beginner content](./beginner-explained.md)! All what you have ever wanted to know about GPIO, I2C, SPI, DAC, ADC, UART and more!
+
 ## Managed (C#)
 
-- [Getting started guide for C#](getting-started-managed.md)
-- [Getting started trouble shooting guide](trouble-shooting-guide.md)
-- [Getting started with VS Code extension](getting-started-vs-code.md)
-- [Compare .NET **nanoFramework** with .NET IoT](dotnet-iot-core-vs-nanoframework.md)
-- [Virtual Device](virtual-device.md)
+- [Getting started guide for C#](./getting-started-managed.md)
+- [Getting started trouble shooting guide](./trouble-shooting-guide.md)
+- [Getting started trouble shooting device connection guide](./troubleshooting-device-connection.md)
+- [Getting started with VS Code extension](./getting-started-vs-code.md)
+- [Compare .NET **nanoFramework** with .NET IoT](./dotnet-iot-core-vs-nanoframework.md)
+- [Virtual Device](./virtual-device.md)
 
 ## Build instructions
 
