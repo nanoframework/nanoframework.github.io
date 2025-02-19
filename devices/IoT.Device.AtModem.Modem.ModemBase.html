@@ -584,6 +584,39 @@ If success, Result will contain a <a class="xref" href="../api/System.Boolean.ht
 
 
 
+  <a id="Iot_Device_AtModem_Modem_ModemBase_EnableNetworkDateTimeSync_" data-uid="Iot.Device.AtModem.Modem.ModemBase.EnableNetworkDateTimeSync*"></a>
+
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_EnableNetworkDateTimeSync" data-uid="Iot.Device.AtModem.Modem.ModemBase.EnableNetworkDateTimeSync">
+  EnableNetworkDateTimeSync()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables DateTime synchronization from GSM operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModemResponse EnableNetworkDateTimeSync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.AtModem.Modem.ModemResponse.html">ModemResponse</a> indicating the success or failure of the operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_AtModem_Modem_ModemBase_EnterSimPin_" data-uid="Iot.Device.AtModem.Modem.ModemBase.EnterSimPin*"></a>
 
   <h3 id="Iot_Device_AtModem_Modem_ModemBase_EnterSimPin_Iot_Device_AtModem_DTOs_PersonalIdentificationNumber_" data-uid="Iot.Device.AtModem.Modem.ModemBase.EnterSimPin(Iot.Device.AtModem.DTOs.PersonalIdentificationNumber)">
@@ -762,19 +795,26 @@ If success, Result will contain a <a class="xref" href="../api/System.String.htm
 
   <a id="Iot_Device_AtModem_Modem_ModemBase_GetDateTime_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetDateTime*"></a>
 
-  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetDateTime" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetDateTime">
-  GetDateTime()
+  <h3 id="Iot_Device_AtModem_Modem_ModemBase_GetDateTime_System_Boolean_" data-uid="Iot.Device.AtModem.Modem.ModemBase.GetDateTime(System.Boolean)">
+  GetDateTime(bool)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the date and time of the modem.</p>
+  <div class="markdown level1 summary"><p>Gets the date and time of the modem in UTC format.
+Make sure that auto sync is set via <a class="xref" href="Iot.Device.AtModem.Modem.ModemBase.html#Iot_Device_AtModem_Modem_ModemBase_EnableNetworkDateTimeSync">EnableNetworkDateTimeSync()</a> before getting data.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ModemResponse GetDateTime()</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual ModemResponse GetDateTime(bool convertToUtc = true)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>convertToUtc</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>Should response be converted to UTC. If not it will return local time from modem.</p>
+</dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">

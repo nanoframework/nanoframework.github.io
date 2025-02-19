@@ -1,0 +1,5126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Engine | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Engine | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="nanoFramework.Tools.Debugger.Engine">
+
+
+
+  <h1 id="nanoFramework_Tools_Debugger_Engine" data-uid="nanoFramework.Tools.Debugger.Engine" class="text-break">
+Class Engine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.Tools.html">Tools</a>.<a class="xref" href="nanoFramework.Tools.Debugger.html">Debugger</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>nanoFramework.Tools.DebugLibrary.Net.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Engine : IDisposable, IControllerHostLocal, IControllerHost</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">Engine</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+      <div><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.IControllerHostLocal.html">IControllerHostLocal</a></div>
+      <div><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.IControllerHost.html">IControllerHost</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Tools.Debugger.Extensions.DebuggerExtensions.html#nanoFramework_Tools_Debugger_Extensions_DebuggerExtensions_IsDeviceInExitedState_nanoFramework_Tools_Debugger_Engine_">DebuggerExtensions.IsDeviceInExitedState(Engine)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Tools.Debugger.Extensions.DebuggerExtensions.html#nanoFramework_Tools_Debugger_Extensions_DebuggerExtensions_IsDeviceInInitializeState_nanoFramework_Tools_Debugger_Engine_">DebuggerExtensions.IsDeviceInInitializeState(Engine)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Tools.Debugger.Extensions.DebuggerExtensions.html#nanoFramework_Tools_Debugger_Extensions_DebuggerExtensions_IsDeviceInProgramRunningState_nanoFramework_Tools_Debugger_Engine_">DebuggerExtensions.IsDeviceInProgramRunningState(Engine)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Tools.Debugger.Extensions.DebuggerExtensions.html#nanoFramework_Tools_Debugger_Extensions_DebuggerExtensions_IsDeviceStoppedOnTypeResolutionFailed_nanoFramework_Tools_Debugger_Engine_">DebuggerExtensions.IsDeviceStoppedOnTypeResolutionFailed(Engine)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_StorageDeleteOperationProgressStep" data-uid="nanoFramework.Tools.Debugger.Engine.StorageDeleteOperationProgressStep">
+  StorageDeleteOperationProgressStep
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This constant is to be used in progress report when performing delete operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int StorageDeleteOperationProgressStep = 10</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine__pendingRequestsTimer" data-uid="nanoFramework.Tools.Debugger.Engine._pendingRequestsTimer">
+  _pendingRequestsTimer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly Timer _pendingRequestsTimer</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Threading.Timer.html">Timer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine__requestsStore" data-uid="nanoFramework.Tools.Debugger.Engine._requestsStore">
+  _requestsStore
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly WireProtocolRequestsStore _requestsStore</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.WireProtocolRequestsStore.html">WireProtocolRequestsStore</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_AvailableBytes_" data-uid="nanoFramework.Tools.Debugger.Engine.AvailableBytes*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_AvailableBytes" data-uid="nanoFramework.Tools.Debugger.Engine.AvailableBytes">
+  AvailableBytes
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AvailableBytes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Capabilities_" data-uid="nanoFramework.Tools.Debugger.Engine.Capabilities*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Capabilities" data-uid="nanoFramework.Tools.Debugger.Engine.Capabilities">
+  Capabilities
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CLRCapabilities Capabilities { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.CLRCapabilities.html">CLRCapabilities</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ConfigBlockRequiresErase_" data-uid="nanoFramework.Tools.Debugger.Engine.ConfigBlockRequiresErase*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ConfigBlockRequiresErase" data-uid="nanoFramework.Tools.Debugger.Engine.ConfigBlockRequiresErase">
+  ConfigBlockRequiresErase
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This indicates if the device requires that the configuration block to be erased before updating it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ConfigBlockRequiresErase { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ConnectionSource_" data-uid="nanoFramework.Tools.Debugger.Engine.ConnectionSource*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ConnectionSource" data-uid="nanoFramework.Tools.Debugger.Engine.ConnectionSource">
+  ConnectionSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionSource ConnectionSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.ConnectionSource.html">ConnectionSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_DefaultTimeout_" data-uid="nanoFramework.Tools.Debugger.Engine.DefaultTimeout*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_DefaultTimeout" data-uid="nanoFramework.Tools.Debugger.Engine.DefaultTimeout">
+  DefaultTimeout
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default timeout value for operations (in milliseconds).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DefaultTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_FlashSectorMap_" data-uid="nanoFramework.Tools.Debugger.Engine.FlashSectorMap*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_FlashSectorMap" data-uid="nanoFramework.Tools.Debugger.Engine.FlashSectorMap">
+  FlashSectorMap
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Commands.Monitor_FlashSectorMap.FlashSectorData&gt; FlashSectorMap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_FlashSectorMap.html">Monitor_FlashSectorMap</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_FlashSectorMap.FlashSectorData.html">FlashSectorData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_HasNanoBooter_" data-uid="nanoFramework.Tools.Debugger.Engine.HasNanoBooter*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_HasNanoBooter" data-uid="nanoFramework.Tools.Debugger.Engine.HasNanoBooter">
+  HasNanoBooter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This indicates if the target device has nanoBooter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasNanoBooter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_HasProprietaryBooter_" data-uid="nanoFramework.Tools.Debugger.Engine.HasProprietaryBooter*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_HasProprietaryBooter" data-uid="nanoFramework.Tools.Debugger.Engine.HasProprietaryBooter">
+  HasProprietaryBooter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This indicates if the device has a proprietary bootloader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasProprietaryBooter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IsCRC32EnabledForWireProtocol_" data-uid="nanoFramework.Tools.Debugger.Engine.IsCRC32EnabledForWireProtocol*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IsCRC32EnabledForWireProtocol" data-uid="nanoFramework.Tools.Debugger.Engine.IsCRC32EnabledForWireProtocol">
+  IsCRC32EnabledForWireProtocol
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This flag is true when connected nanoDevice implements CRC32 in Wire Protocol packets and headers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCRC32EnabledForWireProtocol { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IsConnected_" data-uid="nanoFramework.Tools.Debugger.Engine.IsConnected*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IsConnected" data-uid="nanoFramework.Tools.Debugger.Engine.IsConnected">
+  IsConnected
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnected { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IsConnectedTonanoBooter_" data-uid="nanoFramework.Tools.Debugger.Engine.IsConnectedTonanoBooter*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IsConnectedTonanoBooter" data-uid="nanoFramework.Tools.Debugger.Engine.IsConnectedTonanoBooter">
+  IsConnectedTonanoBooter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnectedTonanoBooter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IsConnectedTonanoCLR_" data-uid="nanoFramework.Tools.Debugger.Engine.IsConnectedTonanoCLR*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IsConnectedTonanoCLR" data-uid="nanoFramework.Tools.Debugger.Engine.IsConnectedTonanoCLR">
+  IsConnectedTonanoCLR
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnectedTonanoCLR { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IsIFUCapable_" data-uid="nanoFramework.Tools.Debugger.Engine.IsIFUCapable*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IsIFUCapable" data-uid="nanoFramework.Tools.Debugger.Engine.IsIFUCapable">
+  IsIFUCapable
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This indicates if the target device is IFU capable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsIFUCapable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IsRunning_" data-uid="nanoFramework.Tools.Debugger.Engine.IsRunning*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IsRunning" data-uid="nanoFramework.Tools.Debugger.Engine.IsRunning">
+  IsRunning
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRunning { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IsTargetBigEndian_" data-uid="nanoFramework.Tools.Debugger.Engine.IsTargetBigEndian*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IsTargetBigEndian" data-uid="nanoFramework.Tools.Debugger.Engine.IsTargetBigEndian">
+  IsTargetBigEndian
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTargetBigEndian { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_LastActivity_" data-uid="nanoFramework.Tools.Debugger.Engine.LastActivity*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_LastActivity" data-uid="nanoFramework.Tools.Debugger.Engine.LastActivity">
+  LastActivity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime LastActivity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.DateTime.html">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_MemoryMap_" data-uid="nanoFramework.Tools.Debugger.Engine.MemoryMap*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_MemoryMap" data-uid="nanoFramework.Tools.Debugger.Engine.MemoryMap">
+  MemoryMap
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Commands.Monitor_MemoryMap.Range&gt; MemoryMap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_MemoryMap.html">Monitor_MemoryMap</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_MemoryMap.Range.html">Range</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_NoStackTraceInExceptions_" data-uid="nanoFramework.Tools.Debugger.Engine.NoStackTraceInExceptions*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_NoStackTraceInExceptions" data-uid="nanoFramework.Tools.Debugger.Engine.NoStackTraceInExceptions">
+  NoStackTraceInExceptions
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NoStackTraceInExceptions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Silent_" data-uid="nanoFramework.Tools.Debugger.Engine.Silent*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Silent" data-uid="nanoFramework.Tools.Debugger.Engine.Silent">
+  Silent
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Setting for debugger output to be silent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Silent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_StopDebuggerOnConnect_" data-uid="nanoFramework.Tools.Debugger.Engine.StopDebuggerOnConnect*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_StopDebuggerOnConnect" data-uid="nanoFramework.Tools.Debugger.Engine.StopDebuggerOnConnect">
+  StopDebuggerOnConnect
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StopDebuggerOnConnect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_TargetInfo_" data-uid="nanoFramework.Tools.Debugger.Engine.TargetInfo*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_TargetInfo" data-uid="nanoFramework.Tools.Debugger.Engine.TargetInfo">
+  TargetInfo
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TargetInfo TargetInfo { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.TargetInfo.html">TargetInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ThrowOnCommunicationFailure_" data-uid="nanoFramework.Tools.Debugger.Engine.ThrowOnCommunicationFailure*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ThrowOnCommunicationFailure" data-uid="nanoFramework.Tools.Debugger.Engine.ThrowOnCommunicationFailure">
+  ThrowOnCommunicationFailure
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ThrowOnCommunicationFailure { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_WireProtocolPacketSize_" data-uid="nanoFramework.Tools.Debugger.Engine.WireProtocolPacketSize*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_WireProtocolPacketSize" data-uid="nanoFramework.Tools.Debugger.Engine.WireProtocolPacketSize">
+  WireProtocolPacketSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wire Protocol packet size. Default is 1024.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint WireProtocolPacketSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_AddPacket_" data-uid="nanoFramework.Tools.Debugger.Engine.AddPacket*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_AddPacket_System_Int32_System_UInt32_System_Byte___System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.AddPacket(System.Int32,System.UInt32,System.Byte[],System.UInt32)">
+  AddPacket(int, uint, byte[], uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddPacket(int updateHandle, uint packetIndex, byte[] packetData, uint packetValidation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>updateHandle</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>packetIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>packetData</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>packetValidation</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_AddStorageFile_" data-uid="nanoFramework.Tools.Debugger.Engine.AddStorageFile*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_AddStorageFile_System_String_System_Byte___System_Int32_System_Int32_System_IProgress_nanoFramework_Tools_Debugger_MessageWithProgress__System_IProgress_System_String__" data-uid="nanoFramework.Tools.Debugger.Engine.AddStorageFile(System.String,System.Byte[],System.Int32,System.Int32,System.IProgress{nanoFramework.Tools.Debugger.MessageWithProgress},System.IProgress{System.String})">
+  AddStorageFile(string, byte[], int, int, IProgress&lt;MessageWithProgress&gt;, IProgress&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a file to the device storage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StorageOperationErrorCode AddStorageFile(string fileName, byte[] fileContent, int operationExecutedLenght = 0, int operationTotalLength = 0, IProgress&lt;MessageWithProgress&gt; progress = null, IProgress&lt;string&gt; log = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileName</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>File name.</p>
+</dd>
+    <dt><code>fileContent</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd><p>Content of the file.</p>
+</dd>
+    <dt><code>operationExecutedLenght</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Count of bytes already executed in this operation.</p>
+</dd>
+    <dt><code>operationTotalLength</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Total length of the operation, in bytes.</p>
+</dd>
+    <dt><code>progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.MessageWithProgress.html">MessageWithProgress</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress&lt;T&gt;</a> object to track the progress of the deploy operation.</p>
+</dd>
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress&lt;T&gt;</a> object to log the progress of the deploy operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.StorageOperationErrorCode.html">StorageOperationErrorCode</a></dt>
+    <dd><p>Operation result as a <a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.StorageOperationErrorCode.html">StorageOperationErrorCode</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_AllocateArray_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateArray*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_AllocateArray_System_Int32_System_UInt32_System_Int32_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateArray(System.Int32,System.UInt32,System.Int32,System.Int32)">
+  AllocateArray(int, uint, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue AllocateArray(int scratchPadLocation, uint td, int depth, int numOfElements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scratchPadLocation</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>td</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>numOfElements</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_AllocateMemory_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateMemory*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_AllocateMemory_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateMemory(System.UInt32)">
+  AllocateMemory(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (uint Address, bool Success) AllocateMemory(uint size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.boolean-.address">Address</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.boolean-.success">Success</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_AllocateObject_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateObject*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_AllocateObject_System_Int32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateObject(System.Int32,System.UInt32)">
+  AllocateObject(int, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue AllocateObject(int scratchPadLocation, uint td)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scratchPadLocation</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>td</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_AllocateString_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateString*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_AllocateString_System_Int32_System_String_" data-uid="nanoFramework.Tools.Debugger.Engine.AllocateString(System.Int32,System.String)">
+  AllocateString(int, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue AllocateString(int scratchPadLocation, string val)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scratchPadLocation</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>val</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_CanUpgradeToSsl_" data-uid="nanoFramework.Tools.Debugger.Engine.CanUpgradeToSsl*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_CanUpgradeToSsl" data-uid="nanoFramework.Tools.Debugger.Engine.CanUpgradeToSsl">
+  CanUpgradeToSsl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanUpgradeToSsl()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Connect_" data-uid="nanoFramework.Tools.Debugger.Engine.Connect*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Connect" data-uid="nanoFramework.Tools.Debugger.Engine.Connect">
+  Connect()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Connect()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Connect_" data-uid="nanoFramework.Tools.Debugger.Engine.Connect*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Connect_System_Boolean_System_Boolean_" data-uid="nanoFramework.Tools.Debugger.Engine.Connect(System.Boolean,System.Boolean)">
+  Connect(bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Connect(bool force, bool requestCapabilities = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>force</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+    <dt><code>requestCapabilities</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Connect_" data-uid="nanoFramework.Tools.Debugger.Engine.Connect*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Connect_System_Int32_System_Boolean_System_Boolean_" data-uid="nanoFramework.Tools.Debugger.Engine.Connect(System.Int32,System.Boolean,System.Boolean)">
+  Connect(int, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Connect(int millisecondsTimeout, bool force = false, bool requestCapabilities = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>millisecondsTimeout</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>force</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+    <dt><code>requestCapabilities</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_CreateBinaryFormatter_" data-uid="nanoFramework.Tools.Debugger.Engine.CreateBinaryFormatter*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_CreateBinaryFormatter" data-uid="nanoFramework.Tools.Debugger.Engine.CreateBinaryFormatter">
+  CreateBinaryFormatter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BinaryFormatter CreateBinaryFormatter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.BinaryFormatter.html">BinaryFormatter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_CreateThread_" data-uid="nanoFramework.Tools.Debugger.Engine.CreateThread*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_CreateThread_System_UInt32_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.CreateThread(System.UInt32,System.Int32)">
+  CreateThread(uint, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint CreateThread(uint methodIndex, int scratchPadLocation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>methodIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>scratchPadLocation</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_CreateThread_" data-uid="nanoFramework.Tools.Debugger.Engine.CreateThread*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_CreateThread_System_UInt32_System_Int32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.CreateThread(System.UInt32,System.Int32,System.UInt32)">
+  CreateThread(uint, int, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint CreateThread(uint methodIndex, int scratchPadLocation, uint pid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>methodIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>scratchPadLocation</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_DeleteStorageFile_" data-uid="nanoFramework.Tools.Debugger.Engine.DeleteStorageFile*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_DeleteStorageFile_System_String_System_Int32_System_Int32_System_IProgress_nanoFramework_Tools_Debugger_MessageWithProgress__System_IProgress_System_String__" data-uid="nanoFramework.Tools.Debugger.Engine.DeleteStorageFile(System.String,System.Int32,System.Int32,System.IProgress{nanoFramework.Tools.Debugger.MessageWithProgress},System.IProgress{System.String})">
+  DeleteStorageFile(string, int, int, IProgress&lt;MessageWithProgress&gt;, IProgress&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete a file from the device storage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StorageOperationErrorCode DeleteStorageFile(string fileName, int operationExecutedLenght = 0, int operationTotalLength = 0, IProgress&lt;MessageWithProgress&gt; progress = null, IProgress&lt;string&gt; log = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileName</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>Name of file to delete.</p>
+</dd>
+    <dt><code>operationExecutedLenght</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Count of bytes already executed in this operation.</p>
+</dd>
+    <dt><code>operationTotalLength</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Total length of the operation, in bytes.</p>
+</dd>
+    <dt><code>progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.MessageWithProgress.html">MessageWithProgress</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress&lt;T&gt;</a> object to track the progress of the deploy operation.</p>
+</dd>
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress&lt;T&gt;</a> object to log the progress of the deploy operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.StorageOperationErrorCode.html">StorageOperationErrorCode</a></dt>
+    <dd><p>Operation result as a <a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.StorageOperationErrorCode.html">StorageOperationErrorCode</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="nanoFramework_Tools_Debugger_Engine_DeleteStorageFile_System_String_System_Int32_System_Int32_System_IProgress_nanoFramework_Tools_Debugger_MessageWithProgress__System_IProgress_System_String___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>When computing the operation total length, use the constant <a class="xref" href="nanoFramework.Tools.Debugger.Engine.html#nanoFramework_Tools_Debugger_Engine_StorageDeleteOperationProgressStep">StorageDeleteOperationProgressStep</a> as the step weight and consider that this will be executed in a single step.</p>
+</div>
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_DeploymentExecute_" data-uid="nanoFramework.Tools.Debugger.Engine.DeploymentExecute*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_DeploymentExecute_System_Collections_Generic_List_System_Byte____System_Boolean_System_Boolean_System_IProgress_nanoFramework_Tools_Debugger_MessageWithProgress__System_IProgress_System_String__" data-uid="nanoFramework.Tools.Debugger.Engine.DeploymentExecute(System.Collections.Generic.List{System.Byte[]},System.Boolean,System.Boolean,System.IProgress{nanoFramework.Tools.Debugger.MessageWithProgress},System.IProgress{System.String})">
+  DeploymentExecute(List&lt;byte[]&gt;, bool, bool, IProgress&lt;MessageWithProgress&gt;, IProgress&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deploy a list of assemblies to the device and optionally reboot it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DeploymentExecute(List&lt;byte[]&gt; assemblies, bool rebootAfterDeploy = true, bool skipErase = false, IProgress&lt;MessageWithProgress&gt; progress = null, IProgress&lt;string&gt; log = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assemblies</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd><p>A collection of assemblies to deploy.</p>
+</dd>
+    <dt><code>rebootAfterDeploy</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to reboot device after a successfull deployment.</p>
+</dd>
+    <dt><code>skipErase</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to skip erasing the storage block before writting to it.</p>
+</dd>
+    <dt><code>progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.MessageWithProgress.html">MessageWithProgress</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress&lt;T&gt;</a> object to track the progress of the deploy operation.</p>
+</dd>
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress&lt;T&gt;</a> object to log the progress of the deploy operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> upon a successfull deployment operation. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
+    <dd><p>In case the connected device doesn't have support for incremental deployment.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_DeploymentGetStatus_" data-uid="nanoFramework.Tools.Debugger.Engine.DeploymentGetStatus*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_DeploymentGetStatus" data-uid="nanoFramework.Tools.Debugger.Engine.DeploymentGetStatus">
+  DeploymentGetStatus()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.DebuggingDeploymentStatus.Reply DeploymentGetStatus()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingDeploymentStatus.html">DebuggingDeploymentStatus</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingDeploymentStatus.Reply.html">Reply</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_DeploymentGetStatusWithResult_" data-uid="nanoFramework.Tools.Debugger.Engine.DeploymentGetStatusWithResult*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_DeploymentGetStatusWithResult" data-uid="nanoFramework.Tools.Debugger.Engine.DeploymentGetStatusWithResult">
+  DeploymentGetStatusWithResult()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (uint Entrypoint, uint StorageStart, uint StorageLength, bool Success) DeploymentGetStatusWithResult()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.numofarguments">NumOfArguments</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.nnumoflocals">NnumOfLocals</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.depthofevalstack">DepthOfEvalStack</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.success">Success</a>)</dt>
+    <dd><p>Tuple with entrypoint, storageStart, storageLength and request success</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Dispose_" data-uid="nanoFramework.Tools.Debugger.Engine.Dispose*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Dispose" data-uid="nanoFramework.Tools.Debugger.Engine.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Dispose_" data-uid="nanoFramework.Tools.Debugger.Engine.Dispose*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Dispose_System_Boolean_" data-uid="nanoFramework.Tools.Debugger.Engine.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_EraseMemory_" data-uid="nanoFramework.Tools.Debugger.Engine.EraseMemory*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_EraseMemory_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.EraseMemory(System.UInt32,System.UInt32)">
+  EraseMemory(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (AccessMemoryErrorCodes ErrorCode, bool Success) EraseMemory(uint address, uint length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.AccessMemoryErrorCodes.html">AccessMemoryErrorCodes</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-nanoframework.tools.debugger.wireprotocol.accessmemoryerrorcodes,system.boolean-.errorcode">ErrorCode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-nanoframework.tools.debugger.wireprotocol.accessmemoryerrorcodes,system.boolean-.success">Success</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ExecuteMemory_" data-uid="nanoFramework.Tools.Debugger.Engine.ExecuteMemory*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ExecuteMemory_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ExecuteMemory(System.UInt32)">
+  ExecuteMemory(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ExecuteMemory(uint address)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Finalize_" data-uid="nanoFramework.Tools.Debugger.Engine.Finalize*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Finalize" data-uid="nanoFramework.Tools.Debugger.Engine.Finalize">
+  ~Engine()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~Engine()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_FlushProfilingStream_" data-uid="nanoFramework.Tools.Debugger.Engine.FlushProfilingStream*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_FlushProfilingStream" data-uid="nanoFramework.Tools.Debugger.Engine.FlushProfilingStream">
+  FlushProfilingStream()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FlushProfilingStream()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetAllNetworkConfigurations_" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllNetworkConfigurations*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetAllNetworkConfigurations" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllNetworkConfigurations">
+  GetAllNetworkConfigurations()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;DeviceConfiguration.NetworkConfigurationProperties&gt; GetAllNetworkConfigurations()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.NetworkConfigurationProperties.html">NetworkConfigurationProperties</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetAllWireless80211Configurations_" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllWireless80211Configurations*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetAllWireless80211Configurations" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllWireless80211Configurations">
+  GetAllWireless80211Configurations()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;DeviceConfiguration.Wireless80211ConfigurationProperties&gt; GetAllWireless80211Configurations()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.Wireless80211ConfigurationProperties.html">Wireless80211ConfigurationProperties</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetAllWirelessAPConfigurations_" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllWirelessAPConfigurations*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetAllWirelessAPConfigurations" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllWirelessAPConfigurations">
+  GetAllWirelessAPConfigurations()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;DeviceConfiguration.WirelessAPConfigurationProperties&gt; GetAllWirelessAPConfigurations()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.WirelessAPConfigurationProperties.html">WirelessAPConfigurationProperties</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetAllX509Certificates_" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllX509Certificates*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetAllX509Certificates" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllX509Certificates">
+  GetAllX509Certificates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;DeviceConfiguration.X509CaRootBundleProperties&gt; GetAllX509Certificates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.X509CaRootBundleProperties.html">X509CaRootBundleProperties</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetAllX509DeviceCertificates_" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllX509DeviceCertificates*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetAllX509DeviceCertificates" data-uid="nanoFramework.Tools.Debugger.Engine.GetAllX509DeviceCertificates">
+  GetAllX509DeviceCertificates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;DeviceConfiguration.X509DeviceCertificatesProperties&gt; GetAllX509DeviceCertificates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.X509DeviceCertificatesProperties.html">X509DeviceCertificatesProperties</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetAppDomains_" data-uid="nanoFramework.Tools.Debugger.Engine.GetAppDomains*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetAppDomains" data-uid="nanoFramework.Tools.Debugger.Engine.GetAppDomains">
+  GetAppDomains()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_TypeSys_AppDomains.Reply GetAppDomains()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_TypeSys_AppDomains.html">Debugging_TypeSys_AppDomains</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_TypeSys_AppDomains.Reply.html">Reply</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetArrayElement_" data-uid="nanoFramework.Tools.Debugger.Engine.GetArrayElement*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetArrayElement_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetArrayElement(System.UInt32,System.UInt32)">
+  GetArrayElement(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue GetArrayElement(uint arrayReferenceId, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arrayReferenceId</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetAssemblies_" data-uid="nanoFramework.Tools.Debugger.Engine.GetAssemblies*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetAssemblies" data-uid="nanoFramework.Tools.Debugger.Engine.GetAssemblies">
+  GetAssemblies()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_TypeSys_Assemblies.Reply GetAssemblies()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_TypeSys_Assemblies.html">Debugging_TypeSys_Assemblies</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_TypeSys_Assemblies.Reply.html">Reply</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetBreakpointStatus_" data-uid="nanoFramework.Tools.Debugger.Engine.GetBreakpointStatus*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetBreakpointStatus" data-uid="nanoFramework.Tools.Debugger.Engine.GetBreakpointStatus">
+  GetBreakpointStatus()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_Execution_BreakpointDef GetBreakpointStatus()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Execution_BreakpointDef.html">Debugging_Execution_BreakpointDef</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetConnectionSource_" data-uid="nanoFramework.Tools.Debugger.Engine.GetConnectionSource*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetConnectionSource" data-uid="nanoFramework.Tools.Debugger.Engine.GetConnectionSource">
+  GetConnectionSource()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionSource GetConnectionSource()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.ConnectionSource.html">ConnectionSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetDeploymentMap_" data-uid="nanoFramework.Tools.Debugger.Engine.GetDeploymentMap*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetDeploymentMap" data-uid="nanoFramework.Tools.Debugger.Engine.GetDeploymentMap">
+  GetDeploymentMap()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Commands.Monitor_DeploymentMap.DeploymentData&gt; GetDeploymentMap()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_DeploymentMap.html">Monitor_DeploymentMap</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_DeploymentMap.DeploymentData.html">DeploymentData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetDeviceConfiguration_" data-uid="nanoFramework.Tools.Debugger.Engine.GetDeviceConfiguration*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetDeviceConfiguration_System_Threading_CancellationToken_" data-uid="nanoFramework.Tools.Debugger.Engine.GetDeviceConfiguration(System.Threading.CancellationToken)">
+  GetDeviceConfiguration(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceConfiguration GetDeviceConfiguration(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetExecutionBasePtr_" data-uid="nanoFramework.Tools.Debugger.Engine.GetExecutionBasePtr*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetExecutionBasePtr" data-uid="nanoFramework.Tools.Debugger.Engine.GetExecutionBasePtr">
+  GetExecutionBasePtr()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint GetExecutionBasePtr()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetExecutionMode_" data-uid="nanoFramework.Tools.Debugger.Engine.GetExecutionMode*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetExecutionMode" data-uid="nanoFramework.Tools.Debugger.Engine.GetExecutionMode">
+  GetExecutionMode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.DebuggingExecutionChangeConditions.State GetExecutionMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.html">DebuggingExecutionChangeConditions</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.State.html">State</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetFieldName_" data-uid="nanoFramework.Tools.Debugger.Engine.GetFieldName*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetFieldName_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetFieldName(System.UInt32)">
+  GetFieldName(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (string Td, uint Offset, uint Success) GetFieldName(uint fd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fd</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.uint32,system.uint32-.td">Td</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.uint32,system.uint32-.offset">Offset</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.uint32,system.uint32-.success">Success</a>)</dt>
+    <dd><p>Tuple with field name, td and offset.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetFlashSectorMap_" data-uid="nanoFramework.Tools.Debugger.Engine.GetFlashSectorMap*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetFlashSectorMap" data-uid="nanoFramework.Tools.Debugger.Engine.GetFlashSectorMap">
+  GetFlashSectorMap()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Commands.Monitor_FlashSectorMap.FlashSectorData&gt; GetFlashSectorMap()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_FlashSectorMap.html">Monitor_FlashSectorMap</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_FlashSectorMap.FlashSectorData.html">FlashSectorData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetMemoryMap_" data-uid="nanoFramework.Tools.Debugger.Engine.GetMemoryMap*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetMemoryMap" data-uid="nanoFramework.Tools.Debugger.Engine.GetMemoryMap">
+  GetMemoryMap()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Commands.Monitor_MemoryMap.Range&gt; GetMemoryMap()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_MemoryMap.html">Monitor_MemoryMap</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Monitor_MemoryMap.Range.html">Range</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetMethodName_" data-uid="nanoFramework.Tools.Debugger.Engine.GetMethodName*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetMethodName_System_UInt32_System_Boolean_" data-uid="nanoFramework.Tools.Debugger.Engine.GetMethodName(System.UInt32,System.Boolean)">
+  GetMethodName(uint, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetMethodName(uint md, bool fIncludeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>md</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>fIncludeType</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetMonitorOemInfo_" data-uid="nanoFramework.Tools.Debugger.Engine.GetMonitorOemInfo*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetMonitorOemInfo" data-uid="nanoFramework.Tools.Debugger.Engine.GetMonitorOemInfo">
+  GetMonitorOemInfo()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReleaseInfo GetMonitorOemInfo()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.ReleaseInfo.html">ReleaseInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetMonitorTargetInfo_" data-uid="nanoFramework.Tools.Debugger.Engine.GetMonitorTargetInfo*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetMonitorTargetInfo" data-uid="nanoFramework.Tools.Debugger.Engine.GetMonitorTargetInfo">
+  GetMonitorTargetInfo()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TargetInfo GetMonitorTargetInfo()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.TargetInfo.html">TargetInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetNetworkConfiguratonProperties_" data-uid="nanoFramework.Tools.Debugger.Engine.GetNetworkConfiguratonProperties*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetNetworkConfiguratonProperties_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetNetworkConfiguratonProperties(System.UInt32)">
+  GetNetworkConfiguratonProperties(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceConfiguration.NetworkConfigurationProperties GetNetworkConfiguratonProperties(uint configurationBlockIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configurationBlockIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.NetworkConfigurationProperties.html">NetworkConfigurationProperties</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetPacketMaxLength_" data-uid="nanoFramework.Tools.Debugger.Engine.GetPacketMaxLength*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetPacketMaxLength_nanoFramework_Tools_Debugger_WireProtocol_Commands_OverheadBase_" data-uid="nanoFramework.Tools.Debugger.Engine.GetPacketMaxLength(nanoFramework.Tools.Debugger.WireProtocol.Commands.OverheadBase)">
+  GetPacketMaxLength(OverheadBase)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetPacketMaxLength(Commands.OverheadBase cmd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.OverheadBase.html">OverheadBase</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetScratchPadValue_" data-uid="nanoFramework.Tools.Debugger.Engine.GetScratchPadValue*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetScratchPadValue_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetScratchPadValue(System.Int32)">
+  GetScratchPadValue(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue GetScratchPadValue(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetStackFrameInfo_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackFrameInfo*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetStackFrameInfo_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackFrameInfo(System.UInt32,System.UInt32)">
+  GetStackFrameInfo(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (uint NumOfArguments, uint NnumOfLocals, uint DepthOfEvalStack, bool Success) GetStackFrameInfo(uint pid, uint depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.numofarguments">NumOfArguments</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.nnumoflocals">NnumOfLocals</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.depthofevalstack">DepthOfEvalStack</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.boolean-.success">Success</a>)</dt>
+    <dd><p>Tuple with numOfArguments, numOfLocals, depthOfEvalStack and request success result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetStackFrameValue_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackFrameValue*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetStackFrameValue_System_UInt32_System_UInt32_nanoFramework_Tools_Debugger_Engine_StackValueKind_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackFrameValue(System.UInt32,System.UInt32,nanoFramework.Tools.Debugger.Engine.StackValueKind,System.UInt32)">
+  GetStackFrameValue(uint, uint, StackValueKind, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue GetStackFrameValue(uint pid, uint depth, Engine.StackValueKind kind, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>kind</code> <a class="xref" href="nanoFramework.Tools.Debugger.Engine.html">Engine</a>.<a class="xref" href="nanoFramework.Tools.Debugger.Engine.StackValueKind.html">StackValueKind</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetStackFrameValueAll_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackFrameValueAll*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetStackFrameValueAll_System_UInt32_System_UInt32_System_UInt32_nanoFramework_Tools_Debugger_Engine_StackValueKind_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackFrameValueAll(System.UInt32,System.UInt32,System.UInt32,nanoFramework.Tools.Debugger.Engine.StackValueKind)">
+  GetStackFrameValueAll(uint, uint, uint, StackValueKind)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;RuntimeValue&gt; GetStackFrameValueAll(uint pid, uint depth, uint cValues, Engine.StackValueKind kind)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>cValues</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>kind</code> <a class="xref" href="nanoFramework.Tools.Debugger.Engine.html">Engine</a>.<a class="xref" href="nanoFramework.Tools.Debugger.Engine.StackValueKind.html">StackValueKind</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetStackInfo_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackInfo*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetStackInfo_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStackInfo(System.UInt32,System.UInt32)">
+  GetStackInfo(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_Stack_Info.Reply GetStackInfo(uint pid, uint depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Stack_Info.html">Debugging_Stack_Info</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Stack_Info.Reply.html">Reply</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetStaticFieldValue_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStaticFieldValue*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetStaticFieldValue_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetStaticFieldValue(System.UInt32)">
+  GetStaticFieldValue(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue GetStaticFieldValue(uint fd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fd</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetTargetInfo_" data-uid="nanoFramework.Tools.Debugger.Engine.GetTargetInfo*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetTargetInfo" data-uid="nanoFramework.Tools.Debugger.Engine.GetTargetInfo">
+  GetTargetInfo()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CLRCapabilities.TargetInfoProperties GetTargetInfo()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.CLRCapabilities.html">CLRCapabilities</a>.<a class="xref" href="nanoFramework.Tools.Debugger.CLRCapabilities.TargetInfoProperties.html">TargetInfoProperties</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetThread_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThread*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetThread_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThread(System.UInt32)">
+  GetThread(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue GetThread(uint pid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetThreadException_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreadException*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetThreadException_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreadException(System.UInt32)">
+  GetThreadException(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RuntimeValue GetThreadException(uint pid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetThreadList_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreadList*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetThreadList" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreadList">
+  GetThreadList()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint[] GetThreadList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetThreadStack_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreadStack*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetThreadStack_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreadStack(System.UInt32)">
+  GetThreadStack(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_Thread_Stack.Reply GetThreadStack(uint pid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Thread_Stack.html">Debugging_Thread_Stack</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Thread_Stack.Reply.html">Reply</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetThreads_" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreads*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetThreads" data-uid="nanoFramework.Tools.Debugger.Engine.GetThreads">
+  GetThreads()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ThreadStatus&gt; GetThreads()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.ThreadStatus.html">ThreadStatus</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetTypeName_" data-uid="nanoFramework.Tools.Debugger.Engine.GetTypeName*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetTypeName_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetTypeName(System.UInt32)">
+  GetTypeName(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetTypeName(uint td)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>td</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetVirtualMethod_" data-uid="nanoFramework.Tools.Debugger.Engine.GetVirtualMethod*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetVirtualMethod_System_UInt32_nanoFramework_Tools_Debugger_RuntimeValue_" data-uid="nanoFramework.Tools.Debugger.Engine.GetVirtualMethod(System.UInt32,nanoFramework.Tools.Debugger.RuntimeValue)">
+  GetVirtualMethod(uint, RuntimeValue)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint GetVirtualMethod(uint md, RuntimeValue obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>md</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>obj</code> <a class="xref" href="nanoFramework.Tools.Debugger.RuntimeValue.html">RuntimeValue</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetWireless80211ConfiguratonProperties_" data-uid="nanoFramework.Tools.Debugger.Engine.GetWireless80211ConfiguratonProperties*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetWireless80211ConfiguratonProperties_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetWireless80211ConfiguratonProperties(System.UInt32)">
+  GetWireless80211ConfiguratonProperties(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceConfiguration.Wireless80211ConfigurationProperties GetWireless80211ConfiguratonProperties(uint configurationBlockIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configurationBlockIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.Wireless80211ConfigurationProperties.html">Wireless80211ConfigurationProperties</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetWirelessAPConfiguratonProperties_" data-uid="nanoFramework.Tools.Debugger.Engine.GetWirelessAPConfiguratonProperties*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetWirelessAPConfiguratonProperties_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetWirelessAPConfiguratonProperties(System.UInt32)">
+  GetWirelessAPConfiguratonProperties(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceConfiguration.WirelessAPConfigurationProperties GetWirelessAPConfiguratonProperties(uint configurationBlockIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configurationBlockIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.WirelessAPConfigurationProperties.html">WirelessAPConfigurationProperties</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetX509CertificatesProperties_" data-uid="nanoFramework.Tools.Debugger.Engine.GetX509CertificatesProperties*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetX509CertificatesProperties_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetX509CertificatesProperties(System.UInt32)">
+  GetX509CertificatesProperties(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceConfiguration.X509CaRootBundleProperties GetX509CertificatesProperties(uint configurationBlockIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configurationBlockIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.X509CaRootBundleProperties.html">X509CaRootBundleProperties</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_GetX509DeviceCertificatesProperties_" data-uid="nanoFramework.Tools.Debugger.Engine.GetX509DeviceCertificatesProperties*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_GetX509DeviceCertificatesProperties_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.GetX509DeviceCertificatesProperties(System.UInt32)">
+  GetX509DeviceCertificatesProperties(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceConfiguration.X509DeviceCertificatesProperties GetX509DeviceCertificatesProperties(uint configurationBlockIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configurationBlockIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a>.<a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.X509DeviceCertificatesProperties.html">X509DeviceCertificatesProperties</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_IncomingMessagesListener_" data-uid="nanoFramework.Tools.Debugger.Engine.IncomingMessagesListener*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_IncomingMessagesListener" data-uid="nanoFramework.Tools.Debugger.Engine.IncomingMessagesListener">
+  IncomingMessagesListener()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IncomingMessagesListener()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Info_SetJMC_" data-uid="nanoFramework.Tools.Debugger.Engine.Info_SetJMC*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Info_SetJMC_System_Boolean_nanoFramework_Tools_Debugger_ReflectionDefinition_Kind_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.Info_SetJMC(System.Boolean,nanoFramework.Tools.Debugger.ReflectionDefinition.Kind,System.UInt32)">
+  Info_SetJMC(bool, Kind, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Info_SetJMC(bool fJMC, ReflectionDefinition.Kind kind, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fJMC</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+    <dt><code>kind</code> <a class="xref" href="nanoFramework.Tools.Debugger.ReflectionDefinition.html">ReflectionDefinition</a>.<a class="xref" href="nanoFramework.Tools.Debugger.ReflectionDefinition.Kind.html">Kind</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_InjectButtons_" data-uid="nanoFramework.Tools.Debugger.Engine.InjectButtons*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_InjectButtons_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.InjectButtons(System.UInt32,System.UInt32)">
+  InjectButtons(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InjectButtons(uint pressed, uint released)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pressed</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>released</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_InstallUpdate_" data-uid="nanoFramework.Tools.Debugger.Engine.InstallUpdate*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_InstallUpdate_System_Int32_System_Byte___" data-uid="nanoFramework.Tools.Debugger.Engine.InstallUpdate(System.Int32,System.Byte[])">
+  InstallUpdate(int, byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InstallUpdate(int updateHandle, byte[] validationData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>updateHandle</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>validationData</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_KillThread_" data-uid="nanoFramework.Tools.Debugger.Engine.KillThread*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_KillThread_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.KillThread(System.UInt32)">
+  KillThread(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool KillThread(uint pid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_PauseExecution_" data-uid="nanoFramework.Tools.Debugger.Engine.PauseExecution*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_PauseExecution" data-uid="nanoFramework.Tools.Debugger.Engine.PauseExecution">
+  PauseExecution()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PauseExecution()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_PerformWriteMemoryCheck_" data-uid="nanoFramework.Tools.Debugger.Engine.PerformWriteMemoryCheck*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_PerformWriteMemoryCheck_System_UInt32_System_Byte___" data-uid="nanoFramework.Tools.Debugger.Engine.PerformWriteMemoryCheck(System.UInt32,System.Byte[])">
+  PerformWriteMemoryCheck(uint, byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PerformWriteMemoryCheck(uint address, byte[] buf)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>buf</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_PerformWriteMemoryCheck_" data-uid="nanoFramework.Tools.Debugger.Engine.PerformWriteMemoryCheck*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_PerformWriteMemoryCheck_System_UInt32_System_Byte___System_Int32_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.PerformWriteMemoryCheck(System.UInt32,System.Byte[],System.Int32,System.Int32)">
+  PerformWriteMemoryCheck(uint, byte[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PerformWriteMemoryCheck(uint address, byte[] buf, int offset, int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>buf</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ProcessExited_" data-uid="nanoFramework.Tools.Debugger.Engine.ProcessExited*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ProcessExited" data-uid="nanoFramework.Tools.Debugger.Engine.ProcessExited">
+  ProcessExited()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ProcessExited()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ProcessMessage_" data-uid="nanoFramework.Tools.Debugger.Engine.ProcessMessage*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ProcessMessage_nanoFramework_Tools_Debugger_WireProtocol_IncomingMessage_System_Boolean_" data-uid="nanoFramework.Tools.Debugger.Engine.ProcessMessage(nanoFramework.Tools.Debugger.WireProtocol.IncomingMessage,System.Boolean)">
+  ProcessMessage(IncomingMessage, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ProcessMessage(IncomingMessage message, bool isReply)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.IncomingMessage.html">IncomingMessage</a></dt>
+    <dd></dd>
+    <dt><code>isReply</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ReadBuffer_" data-uid="nanoFramework.Tools.Debugger.Engine.ReadBuffer*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ReadBuffer_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.ReadBuffer(System.Int32)">
+  ReadBuffer(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] ReadBuffer(int bytesToRead)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bytesToRead</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ReadMemory_" data-uid="nanoFramework.Tools.Debugger.Engine.ReadMemory*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ReadMemory_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ReadMemory(System.UInt32,System.UInt32)">
+  ReadMemory(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (byte[] Buffer, uint ErrorCode, bool Success) ReadMemory(uint address, uint length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32,system.boolean-.buffer">Buffer</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32,system.boolean-.errorcode">ErrorCode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.uint32,system.boolean-.success">Success</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_RebootDevice_" data-uid="nanoFramework.Tools.Debugger.Engine.RebootDevice*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_RebootDevice_nanoFramework_Tools_Debugger_RebootOptions_System_IProgress_System_String__" data-uid="nanoFramework.Tools.Debugger.Engine.RebootDevice(nanoFramework.Tools.Debugger.RebootOptions,System.IProgress{System.String})">
+  RebootDevice(RebootOptions, IProgress&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RebootDevice(RebootOptions options = RebootOptions.NormalReboot, IProgress&lt;string&gt; log = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="nanoFramework.Tools.Debugger.RebootOptions.html">RebootOptions</a></dt>
+    <dd></dd>
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Reconnect_" data-uid="nanoFramework.Tools.Debugger.Engine.Reconnect*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Reconnect_System_Boolean_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.Reconnect(System.Boolean,System.Int32)">
+  Reconnect(bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Reconnect(bool fSoftReboot, int millisecondsTimeout = 5000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fSoftReboot</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+    <dt><code>millisecondsTimeout</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ReplyBadPacket_" data-uid="nanoFramework.Tools.Debugger.Engine.ReplyBadPacket*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ReplyBadPacket_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ReplyBadPacket(System.UInt32)">
+  ReplyBadPacket(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplyBadPacket(uint flags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flags</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResizeScratchPad_" data-uid="nanoFramework.Tools.Debugger.Engine.ResizeScratchPad*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResizeScratchPad_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.ResizeScratchPad(System.Int32)">
+  ResizeScratchPad(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ResizeScratchPad(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResolveAllAssemblies_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveAllAssemblies*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResolveAllAssemblies" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveAllAssemblies">
+  ResolveAllAssemblies()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Commands.DebuggingResolveAssembly&gt; ResolveAllAssemblies()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingResolveAssembly.html">DebuggingResolveAssembly</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResolveAppDomain_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveAppDomain*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResolveAppDomain_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveAppDomain(System.UInt32)">
+  ResolveAppDomain(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_Resolve_AppDomain.Reply ResolveAppDomain(uint appDomainID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>appDomainID</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_AppDomain.html">Debugging_Resolve_AppDomain</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_AppDomain.Reply.html">Reply</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResolveAssembly_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveAssembly*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResolveAssembly_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveAssembly(System.UInt32)">
+  ResolveAssembly(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.DebuggingResolveAssembly.Reply ResolveAssembly(uint idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingResolveAssembly.html">DebuggingResolveAssembly</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingResolveAssembly.Reply.html">Reply</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResolveField_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveField*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResolveField_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveField(System.UInt32)">
+  ResolveField(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_Resolve_Field.Result ResolveField(uint fd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fd</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_Field.html">Debugging_Resolve_Field</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_Field.Result.html">Result</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResolveMethod_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveMethod*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResolveMethod_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveMethod(System.UInt32)">
+  ResolveMethod(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_Resolve_Method.Result ResolveMethod(uint md)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>md</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_Method.html">Debugging_Resolve_Method</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_Method.Result.html">Result</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResolveType_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveType*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResolveType_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ResolveType(System.UInt32)">
+  ResolveType(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Commands.Debugging_Resolve_Type.Result ResolveType(uint td)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>td</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_Type.html">Debugging_Resolve_Type</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Resolve_Type.Result.html">Result</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResumeExecution_" data-uid="nanoFramework.Tools.Debugger.Engine.ResumeExecution*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResumeExecution" data-uid="nanoFramework.Tools.Debugger.Engine.ResumeExecution">
+  ResumeExecution()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ResumeExecution()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResumeProcessing_" data-uid="nanoFramework.Tools.Debugger.Engine.ResumeProcessing*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResumeProcessing" data-uid="nanoFramework.Tools.Debugger.Engine.ResumeProcessing">
+  ResumeProcessing()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResumeProcessing()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_ResumeThread_" data-uid="nanoFramework.Tools.Debugger.Engine.ResumeThread*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_ResumeThread_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.ResumeThread(System.UInt32)">
+  ResumeThread(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ResumeThread(uint pid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SendBuffer_" data-uid="nanoFramework.Tools.Debugger.Engine.SendBuffer*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SendBuffer_System_Byte___" data-uid="nanoFramework.Tools.Debugger.Engine.SendBuffer(System.Byte[])">
+  SendBuffer(byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SendBuffer(byte[] buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SetBreakpoints_" data-uid="nanoFramework.Tools.Debugger.Engine.SetBreakpoints*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SetBreakpoints_nanoFramework_Tools_Debugger_WireProtocol_Commands_Debugging_Execution_BreakpointDef___" data-uid="nanoFramework.Tools.Debugger.Engine.SetBreakpoints(nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Execution_BreakpointDef[])">
+  SetBreakpoints(Debugging_Execution_BreakpointDef[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetBreakpoints(Commands.Debugging_Execution_BreakpointDef[] breakpoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>breakpoints</code> <a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.Debugging_Execution_BreakpointDef.html">Debugging_Execution_BreakpointDef</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SetCurrentAppDomain_" data-uid="nanoFramework.Tools.Debugger.Engine.SetCurrentAppDomain*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SetCurrentAppDomain_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.SetCurrentAppDomain(System.UInt32)">
+  SetCurrentAppDomain(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetCurrentAppDomain(uint id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SetExecutionMode_" data-uid="nanoFramework.Tools.Debugger.Engine.SetExecutionMode*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SetExecutionMode_nanoFramework_Tools_Debugger_WireProtocol_Commands_DebuggingExecutionChangeConditions_State_nanoFramework_Tools_Debugger_WireProtocol_Commands_DebuggingExecutionChangeConditions_State_" data-uid="nanoFramework.Tools.Debugger.Engine.SetExecutionMode(nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.State,nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.State)">
+  SetExecutionMode(State, State)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetExecutionMode(Commands.DebuggingExecutionChangeConditions.State flagsToSet, Commands.DebuggingExecutionChangeConditions.State flagsToReset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flagsToSet</code> <a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.html">DebuggingExecutionChangeConditions</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.State.html">State</a></dt>
+    <dd></dd>
+    <dt><code>flagsToReset</code> <a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.html">Commands</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.html">DebuggingExecutionChangeConditions</a>.<a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.Commands.DebuggingExecutionChangeConditions.State.html">State</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SetIPOfStackFrame_" data-uid="nanoFramework.Tools.Debugger.Engine.SetIPOfStackFrame*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SetIPOfStackFrame_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.SetIPOfStackFrame(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  SetIPOfStackFrame(uint, uint, uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetIPOfStackFrame(uint pid, uint depth, uint IP, uint depthOfEvalStack)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>IP</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depthOfEvalStack</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SetProfilingMode_" data-uid="nanoFramework.Tools.Debugger.Engine.SetProfilingMode*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SetProfilingMode_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.SetProfilingMode(System.UInt32,System.UInt32)">
+  SetProfilingMode(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (uint Current, bool Success) SetProfilingMode(uint iSet, uint iReset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iSet</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>iReset</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.boolean-.address">Address</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.boolean-.success">Success</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SetSecurityKey_" data-uid="nanoFramework.Tools.Debugger.Engine.SetSecurityKey*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SetSecurityKey_System_Byte___" data-uid="nanoFramework.Tools.Debugger.Engine.SetSecurityKey(System.Byte[])">
+  SetSecurityKey(byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetSecurityKey(byte[] key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SpuriousCharacters_" data-uid="nanoFramework.Tools.Debugger.Engine.SpuriousCharacters*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SpuriousCharacters_System_Byte___System_Int32_System_Int32_" data-uid="nanoFramework.Tools.Debugger.Engine.SpuriousCharacters(System.Byte[],System.Int32,System.Int32)">
+  SpuriousCharacters(byte[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SpuriousCharacters(byte[] buf, int offset, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buf</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_StartUpdate_" data-uid="nanoFramework.Tools.Debugger.Engine.StartUpdate*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_StartUpdate_System_String_System_UInt16_System_UInt16_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.StartUpdate(System.String,System.UInt16,System.UInt16,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  StartUpdate(string, ushort, ushort, uint, uint, uint, uint, uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StartUpdate(string provider, ushort versionMajor, ushort versionMinor, uint updateId, uint updateType, uint updateSubType, uint updateSize, uint packetSize, uint installAddress)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>provider</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>versionMajor</code> <a class="xref" href="System.UInt16.html">ushort</a></dt>
+    <dd></dd>
+    <dt><code>versionMinor</code> <a class="xref" href="System.UInt16.html">ushort</a></dt>
+    <dd></dd>
+    <dt><code>updateId</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>updateType</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>updateSubType</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>updateSize</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>packetSize</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>installAddress</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>The update handle value. -1 if the start update request failed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_Stop_" data-uid="nanoFramework.Tools.Debugger.Engine.Stop*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_Stop_System_Boolean_" data-uid="nanoFramework.Tools.Debugger.Engine.Stop(System.Boolean)">
+  Stop(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop(bool force = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>force</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_StopProcessing_" data-uid="nanoFramework.Tools.Debugger.Engine.StopProcessing*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_StopProcessing" data-uid="nanoFramework.Tools.Debugger.Engine.StopProcessing">
+  StopProcessing()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopProcessing()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_SuspendThread_" data-uid="nanoFramework.Tools.Debugger.Engine.SuspendThread*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SuspendThread_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.SuspendThread(System.UInt32)">
+  SuspendThread(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SuspendThread(uint pid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_UnlockDevice_" data-uid="nanoFramework.Tools.Debugger.Engine.UnlockDevice*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_UnlockDevice_System_Byte___" data-uid="nanoFramework.Tools.Debugger.Engine.UnlockDevice(System.Byte[])">
+  UnlockDevice(byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UnlockDevice(byte[] blob)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blob</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_UnwindThread_" data-uid="nanoFramework.Tools.Debugger.Engine.UnwindThread*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_UnwindThread_System_UInt32_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.UnwindThread(System.UInt32,System.UInt32)">
+  UnwindThread(uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UnwindThread(uint pid, uint depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pid</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_UpdateAuthCommand_" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateAuthCommand*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_UpdateAuthCommand_System_Int32_System_UInt32_System_Byte___" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateAuthCommand(System.Int32,System.UInt32,System.Byte[])">
+  UpdateAuthCommand(int, uint, byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (byte[] Response, bool Success) UpdateAuthCommand(int updateHandle, uint authCommand, byte[] commandArgs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>updateHandle</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>authCommand</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>commandArgs</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.boolean-.response">Response</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.boolean-.success">Success</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_UpdateAuthenticate_" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateAuthenticate*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_UpdateAuthenticate_System_Int32_System_Byte___" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateAuthenticate(System.Int32,System.Byte[])">
+  UpdateAuthenticate(int, byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UpdateAuthenticate(int updateHandle, byte[] authenticationData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>updateHandle</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>authenticationData</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_UpdateDebugFlags_" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateDebugFlags*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_UpdateDebugFlags" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateDebugFlags">
+  UpdateDebugFlags()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UpdateDebugFlags()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_UpdateDeviceConfiguration_" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateDeviceConfiguration*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_UpdateDeviceConfiguration_nanoFramework_Tools_Debugger_DeviceConfiguration_" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateDeviceConfiguration(nanoFramework.Tools.Debugger.DeviceConfiguration)">
+  UpdateDeviceConfiguration(DeviceConfiguration)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the full configuration to the device.
+This method should be used when the target device stores the configuration in a flash sector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Engine.UpdateDeviceResult UpdateDeviceConfiguration(DeviceConfiguration configuration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configuration</code> <a class="xref" href="nanoFramework.Tools.Debugger.DeviceConfiguration.html">DeviceConfiguration</a></dt>
+    <dd><p>The device configuration</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.Engine.html">Engine</a>.<a class="xref" href="nanoFramework.Tools.Debugger.Engine.UpdateDeviceResult.html">UpdateDeviceResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_UpdateDeviceConfiguration_" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateDeviceConfiguration*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_UpdateDeviceConfiguration__1___0_System_UInt32_" data-uid="nanoFramework.Tools.Debugger.Engine.UpdateDeviceConfiguration``1(``0,System.UInt32)">
+  UpdateDeviceConfiguration&lt;T&gt;(T, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a specific configuration block to the device.
+The configuration block is updated only with the changes for this configuration part.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Engine.UpdateDeviceResult UpdateDeviceConfiguration&lt;T&gt;(T configuration, uint blockIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configuration</code> <span class="xref">T</span></dt>
+    <dd><p>The configuration block</p>
+</dd>
+    <dt><code>blockIndex</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd><p>The index of this configuration block</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.Engine.html">Engine</a>.<a class="xref" href="nanoFramework.Tools.Debugger.Engine.UpdateDeviceResult.html">UpdateDeviceResult</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_WriteMemory_" data-uid="nanoFramework.Tools.Debugger.Engine.WriteMemory*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_WriteMemory_System_UInt32_System_Byte___System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_IProgress_nanoFramework_Tools_Debugger_MessageWithProgress__System_IProgress_System_String__" data-uid="nanoFramework.Tools.Debugger.Engine.WriteMemory(System.UInt32,System.Byte[],System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.IProgress{nanoFramework.Tools.Debugger.MessageWithProgress},System.IProgress{System.String})">
+  WriteMemory(uint, byte[], int, int, int, int, int, IProgress&lt;MessageWithProgress&gt;, IProgress&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AccessMemoryErrorCodes WriteMemory(uint address, byte[] buffer, int programAligment = 0, int deploymentExecuted = 0, int deploymentLength = 0, int opearationExecutedLenght = 0, int operationTotalLength = 0, IProgress&lt;MessageWithProgress&gt; progress = null, IProgress&lt;string&gt; log = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>programAligment</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>deploymentExecuted</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>deploymentLength</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>opearationExecutedLenght</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>operationTotalLength</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.MessageWithProgress.html">MessageWithProgress</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.AccessMemoryErrorCodes.html">AccessMemoryErrorCodes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_Tools_Debugger_Engine_WriteMemory_" data-uid="nanoFramework.Tools.Debugger.Engine.WriteMemory*"></a>
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_WriteMemory_System_UInt32_System_Byte___System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_IProgress_nanoFramework_Tools_Debugger_MessageWithProgress__System_IProgress_System_String__" data-uid="nanoFramework.Tools.Debugger.Engine.WriteMemory(System.UInt32,System.Byte[],System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.IProgress{nanoFramework.Tools.Debugger.MessageWithProgress},System.IProgress{System.String})">
+  WriteMemory(uint, byte[], int, int, int, int, int, int, int, IProgress&lt;MessageWithProgress&gt;, IProgress&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AccessMemoryErrorCodes WriteMemory(uint address, byte[] buffer, int offset, int length, int programAligment = 0, int deploymentExecuted = 0, int deploymentLength = 0, int operationExecutedLenght = 0, int operationTotalLength = 0, IProgress&lt;MessageWithProgress&gt; progress = null, IProgress&lt;string&gt; log = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>programAligment</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>deploymentExecuted</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>deploymentLength</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>operationExecutedLenght</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>operationTotalLength</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+    <dt><code>progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.MessageWithProgress.html">MessageWithProgress</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.WireProtocol.AccessMemoryErrorCodes.html">AccessMemoryErrorCodes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_OnCommand" data-uid="nanoFramework.Tools.Debugger.Engine.OnCommand">
+  OnCommand
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event CommandEventHandler OnCommand</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.CommandEventHandler.html">CommandEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_OnMessage" data-uid="nanoFramework.Tools.Debugger.Engine.OnMessage">
+  OnMessage
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event MessageEventHandler OnMessage</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.MessageEventHandler.html">MessageEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_OnNoise" data-uid="nanoFramework.Tools.Debugger.Engine.OnNoise">
+  OnNoise
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event NoiseEventHandler OnNoise</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.Tools.Debugger.NoiseEventHandler.html">NoiseEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_OnProcessExit" data-uid="nanoFramework.Tools.Debugger.Engine.OnProcessExit">
+  OnProcessExit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler OnProcessExit</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.EventHandler.html">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="nanoFramework_Tools_Debugger_Engine_SpuriousCharactersReceived" data-uid="nanoFramework.Tools.Debugger.Engine.SpuriousCharactersReceived">
+  SpuriousCharactersReceived
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;StringEventArgs&gt; SpuriousCharactersReceived</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="nanoFramework.Tools.Debugger.StringEventArgs.html">StringEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

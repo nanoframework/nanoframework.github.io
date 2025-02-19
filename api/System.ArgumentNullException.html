@@ -125,6 +125,9 @@ Class ArgumentNullException
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="System.ArgumentException.html#System_ArgumentException_ThrowIfNullOrEmpty_System_String_System_String_">ArgumentException.ThrowIfNullOrEmpty(string, string)</a>
+    </div>
+    <div>
       <a class="xref" href="System.ArgumentException.html#System_ArgumentException_Message">ArgumentException.Message</a>
     </div>
     <div>
@@ -212,7 +215,7 @@ Class ArgumentNullException
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the ArgumentNullException class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -235,21 +238,21 @@ Class ArgumentNullException
   <a id="System_ArgumentNullException__ctor_" data-uid="System.ArgumentNullException.#ctor*"></a>
 
   <h3 id="System_ArgumentNullException__ctor_System_String_" data-uid="System.ArgumentNullException.#ctor(System.String)">
-  ArgumentNullException(string)
+  ArgumentNullException(string?)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the ArgumentNullException class with the name of the parameter that causes this exception.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a> class with the name of the parameter that causes this exception.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ArgumentNullException(string argument)</code></pre>
+    <pre><code class="lang-csharp hljs">public ArgumentNullException(string? paramName)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>argument</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dt><code>paramName</code> <a class="xref" href="System.String.html">string</a></dt>
     <dd><p>The name of the parameter that caused the exception.</p>
 </dd>
   </dl>
@@ -267,17 +270,53 @@ Class ArgumentNullException
 
   <a id="System_ArgumentNullException__ctor_" data-uid="System.ArgumentNullException.#ctor*"></a>
 
-  <h3 id="System_ArgumentNullException__ctor_System_String_System_String_" data-uid="System.ArgumentNullException.#ctor(System.String,System.String)">
-  ArgumentNullException(string, string)
+  <h3 id="System_ArgumentNullException__ctor_System_String_System_Exception_" data-uid="System.ArgumentNullException.#ctor(System.String,System.Exception)">
+  ArgumentNullException(string?, Exception?)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes an instance of the ArgumentNullException class with a specified error message and the name of the parameter that causes this exception.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a> class with a specified error message and the exception that is the cause of this exception.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ArgumentNullException(string paramName, string message)</code></pre>
+    <pre><code class="lang-csharp hljs">public ArgumentNullException(string? message, Exception? innerException)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The error message that explains the reason for this exception.</p>
+</dd>
+    <dt><code>innerException</code> <a class="xref" href="System.Exception.html">Exception</a></dt>
+    <dd><p>The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_ArgumentNullException__ctor_" data-uid="System.ArgumentNullException.#ctor*"></a>
+
+  <h3 id="System_ArgumentNullException__ctor_System_String_System_String_" data-uid="System.ArgumentNullException.#ctor(System.String,System.String)">
+  ArgumentNullException(string?, string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes an instance of the <a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a> class with a specified error message and the name of the parameter that causes this exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArgumentNullException(string? paramName, string? message)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -286,7 +325,47 @@ Class ArgumentNullException
     <dd><p>The name of the parameter that caused the exception.</p>
 </dd>
     <dt><code>message</code> <a class="xref" href="System.String.html">string</a></dt>
-    <dd><p>A message that describes the error.</p>
+    <dd><p>The error message that explains the reason for this exception.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="System_ArgumentNullException_ThrowIfNull_" data-uid="System.ArgumentNullException.ThrowIfNull*"></a>
+
+  <h3 id="System_ArgumentNullException_ThrowIfNull_System_Object_System_String_" data-uid="System.ArgumentNullException.ThrowIfNull(System.Object,System.String)">
+  ThrowIfNull(object?, string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Throws an <a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a> if <code class="paramref">argument</code> is null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ThrowIfNull(object? argument, string? paramName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd><p>The reference type argument to validate as non-null.</p>
+</dd>
+    <dt><code>paramName</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The name of the parameter with which <code class="paramref">argument</code> corresponds.</p>
 </dd>
   </dl>
 

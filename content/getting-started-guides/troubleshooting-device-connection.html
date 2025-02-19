@@ -133,6 +133,10 @@
 <p><img src="../../images/getting-started-guides/trb-nano-booted.png" alt="putty config"></p>
 <p>Don't worry about the possible scramble characters before, they are the ones from the boot of the device itself. Some devices like ESP32 are quite chatty (see previous section), some devices like STM32 are very quite!</p>
 <p>From that point, seeing this message means the device is properly working, so look again at <a href="trouble-shooting-guide.html">this troubleshooting guide</a>.</p>
+<h3 id="devices-with-multiple-serial-ports">Devices with multiple serial ports</h3>
+<p>Some devices like the ESP32 S3 may come with multiple serial ports. They usually have one named USB, the other one named UART. In those cases, one port is used to flash the device with nanoff and the other one to be seen by Visual Studio.</p>
+<p>If you are not sure which port to use, plug one, try to flash on it, if it doesn't work, use the other one.</p>
+<p>In most cases, you <strong>cannot</strong> connect both serial ports to your machine, as this interferes with the flash process and does not allow the device to go into boot mode.</p>
 
 </article>
 
