@@ -118,23 +118,27 @@ Enum Register
 </h2>
   <dl class="parameters">
     <dt id="Iot_Device_Pca95x4_Register_Configuration"><code>Configuration = 3</code></dt>
-    <dd><p>This register configures the directions of the I/O pins. If a bit in this register is set,
+  
+  <dd><p>This register configures the directions of the I/O pins. If a bit in this register is set,
 the corresponding port pin is enabled as an input with high-impedance output driver.
 If a bit in this register is cleared, the corresponding port pin is enabled as an output.
 At reset, the I/Os are configured as inputs with a weak pull-up to VDD.</p>
 </dd>
     <dt id="Iot_Device_Pca95x4_Register_InputPort"><code>InputPort = 0</code></dt>
-    <dd><p>This register is a read-only port. It reflects the incoming logic levels of the pins,
+  
+  <dd><p>This register is a read-only port. It reflects the incoming logic levels of the pins,
 regardless of whether the pin is defined as an input or an output by Register 3.
 Writes to this register have no effect.</p>
 </dd>
     <dt id="Iot_Device_Pca95x4_Register_OutputPort"><code>OutputPort = 1</code></dt>
-    <dd><p>This register reflects the outgoing logic levels of the pins defined as outputs by Register 3.
+  
+  <dd><p>This register reflects the outgoing logic levels of the pins defined as outputs by Register 3.
 Bit values in this register have no effect on pins defined as inputs. Reads from this register
 return the value that is in the flip-flop controlling the output selection, not the actual pin value.</p>
 </dd>
     <dt id="Iot_Device_Pca95x4_Register_PolarityInversion"><code>PolarityInversion = 2</code></dt>
-    <dd><p>This register allows the user to invert the polarity of the Input Port register data.
+  
+  <dd><p>This register allows the user to invert the polarity of the Input Port register data.
 If a bit in this register is set (written with ‘1’), the corresponding Input Port data is inverted.
 If a bit in this register is cleared (written with a '0'), the Input Port data polarity is retained.</p>
 </dd>

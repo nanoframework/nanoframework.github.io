@@ -199,6 +199,9 @@ Class UIElement
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
   </dd></dl>
 
 
@@ -874,16 +877,18 @@ hear about events that have already been handled</p>
 
   <h4 class="section" id="nanoFramework_Presentation_UIElement_AddHandler_nanoFramework_UI_RoutedEvent_nanoFramework_UI_RoutedEventHandler_System_Boolean__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The handler added thus is also known as
-an instance handler <p></p><p></p>
+an instance handler <p></p>
+<p></p>
 <p>NOTE: It is not an error to add a handler twice
-(handler will simply be called twice) <p></p><p></p>
+(handler will simply be called twice) <p></p>
+<p></p>
 <p>Input parameters <a class="xref" href="nanoFramework.UI.RoutedEvent.html">RoutedEvent</a>
 and handler cannot be null <p></p>
 handledEventsToo input parameter when false means
 that listener does not care about already handled events.
 Hence the handler will not be invoked on the target if
 the RoutedEvent has already been
-<a class="xref" href="nanoFramework.UI.RoutedEventArgs.html#nanoFramework_UI_RoutedEventArgs_Handled">Handled</a><p></p>
+<a class="xref" href="nanoFramework.UI.RoutedEventArgs.html#nanoFramework_UI_RoutedEventArgs_Handled">Handled</a> <p></p>
 handledEventsToo input parameter when true means
 that the listener wants to hear about all events even if
 they have already been handled. Hence the handler will
@@ -1017,15 +1022,17 @@ This method sets Bounds=finalSize before calling ArrangeOverride.</p>
 to size and position each child UIElement by passing a rectangle reserved for the child within parent space.
 Note: It is required that a parent UIElement calls Arrange on each child or they won't be rendered.
 Typical override follows a pattern roughly like this (pseudo-code):
-<example>
-<pre><code class="lang-csharp">protected override void ArrangeOverride(int arrangeWidth, int arrangeHeight)
-{</code></pre></example></p>
-<pre><code>         foreach (UIElement child in VisualChildren)
-         {
-             child.Arrange(new Rect(childX, childY, childWidth, childHeight);
-         }
-     }&lt;/code&gt;&lt;/pre&gt;&lt;/example&gt;
+<example></example></p>
+<pre><code>&lt;pre&gt;&lt;code class=&quot;lang-csharp&quot;&gt;protected override void ArrangeOverride(int arrangeWidth, int arrangeHeight)
+{
+
+    foreach (UIElement child in VisualChildren)
+    {
+        child.Arrange(new Rect(childX, childY, childWidth, childHeight);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
 </code></pre>
+
 </div>
 
 
@@ -1567,23 +1574,25 @@ The return value should be the desired size.<p></p>
 Note: It is required that a parent UIElement calls Measure on each child or they won't be sized/arranged.
 Typical override follows a pattern roughly like this (pseudo-code):
 <example>
-<pre><code class="lang-csharp">protected override void MeasureOverride(int avialableWidth, int availableHeight, out int desiredWidth, out int desiredHeight)
+<pre><code>&lt;pre&gt;&lt;code class=&quot;lang-csharp&quot;&gt;protected override void MeasureOverride(int avialableWidth, int availableHeight, out int desiredWidth, out int desiredHeight)
 {
-foreach (UIElement child in VisualChildren)
-{
-child.Measure(availableSize);
-availableSize.Deflate(child.DesiredSize);
-_cache.StoreInfoAboutChild(child);
-}
-<pre><code>         Size desired = CalculateBasedOnCache(_cache);
-         return desired;
-     }&lt;/code&gt;&lt;/pre&gt;&lt;/example&gt;
+    foreach (UIElement child in VisualChildren)
+    {
+        child.Measure(availableSize);
+        availableSize.Deflate(child.DesiredSize);
+        _cache.StoreInfoAboutChild(child);
+    }
+
+    Size desired = CalculateBasedOnCache(_cache);
+    return desired;
+}&lt;/code&gt;&lt;/pre&gt;
 </code></pre>
-<p>The key aspects of this snippet are:
-<ul><li>You must call Measure on each child UIElement</li><li>It is common to cache measurement information between the MeasureOverride and ArrangeOverride method calls</li><li>Calling base.MeasureOverride is not required.</li><li>Calls to Measure on children are passing either the same availableSize as the parent, or a subset of the area depending
+</example>
+The key aspects of this snippet are:
+    <ul><li>You must call Measure on each child UIElement</li><li>It is common to cache measurement information between the MeasureOverride and ArrangeOverride method calls</li><li>Calling base.MeasureOverride is not required.</li><li>Calls to Measure on children are passing either the same availableSize as the parent, or a subset of the area depending
 on the type of layout the parent will perform (for example, it would be valid to remove the area
 for some border or padding).</li></ul>
-</code></pre></example></div>
+</div>
 
 
 

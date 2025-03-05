@@ -118,56 +118,69 @@ Enum Register
 </h2>
   <dl class="parameters">
     <dt id="Iot_Device_Mcp23xxx_Register_DEFVAL"><code>DEFVAL = 3</code></dt>
-    <dd><p>Configures the default comparison value.
+  
+  <dd><p>Configures the default comparison value.
 If enabled (via GPINTEN and INTCON) to compare against the DEFVAL register,
 an opposite value on the associated pin will cause an interrupt to occur.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_GPINTEN"><code>GPINTEN = 2</code></dt>
-    <dd><p>Controls the interrupt-on-change feature for each pin.
+  
+  <dd><p>Controls the interrupt-on-change feature for each pin.
 When a bit is set, the corresponding pin is enabled for interrupt-on-change.
 The DEFVAL and INTCON registers must also be configured if any pins are enabled for interrupt-on-change.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_GPIO"><code>GPIO = 9</code></dt>
-    <dd><p>Reflects the value on the port. Reading from this register reads the port.
+  
+  <dd><p>Reflects the value on the port. Reading from this register reads the port.
 Writing to this register modifies the Output Latch (OLAT) register.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_GPPU"><code>GPPU = 6</code></dt>
-    <dd><p>Controls the pull-up resistors for the port pins.
+  
+  <dd><p>Controls the pull-up resistors for the port pins.
 When a bit is set and the corresponding pin is configured as an input,
 the corresponding port pin is internally pulled up with a 100 kΩ resistor.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_INTCAP"><code>INTCAP = 8</code></dt>
-    <dd><p>The INTCAP register captures the GPIO port value at the time the interrupt occurred.
+  
+  <dd><p>The INTCAP register captures the GPIO port value at the time the interrupt occurred.
 The register is read-only and is updated only when an interrupt occurs.
 The register will remain unchanged until the interrupt is cleared via a read of INTCAP or GPIO.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_INTCON"><code>INTCON = 4</code></dt>
-    <dd><p>Controls how the associated pin value is compared for the interrupt-on-change feature.
+  
+  <dd><p>Controls how the associated pin value is compared for the interrupt-on-change feature.
 When a bit is set, the corresponding I/O pin is compared against the associated bit in the DEFVAL register.
 When a bit value is clear, the corresponding I/O pin is compared against the previous value.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_INTF"><code>INTF = 7</code></dt>
-    <dd><p>Reflects the interrupt condition on the port pins of any pin that is enabled for interrupts via the GPINTEN register.
+  
+  <dd><p>Reflects the interrupt condition on the port pins of any pin that is enabled for interrupts via the GPINTEN register.
 A 'set' bit indicates that the associated pin caused the interrupt.
 This register is read-only. Writes to this register will be ignored.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_IOCON"><code>IOCON = 5</code></dt>
-    <dd><p>Contains several bits for configuring the device.  See respective datasheet for more details.</p>
+  
+  <dd><p>Contains several bits for configuring the device.  See respective datasheet for more details.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_IODIR"><code>IODIR = 0</code></dt>
-    <dd><p>Controls the direction of the data I/O.
+  <dd><p>Controls the direction of the data I/O.
 When a bit is set, the corresponding pin becomes an input.
 When a bit is clear, the corresponding pin becomes an output.</p>
+<p>On reset/power on all bits are set (all pins are input).</p>
 </dd>
+  
     <dt id="Iot_Device_Mcp23xxx_Register_IPOL"><code>IPOL = 1</code></dt>
-    <dd><p>Configures the polarity on the corresponding GPIO port bits.
+  
+  <dd><p>Configures the polarity on the corresponding GPIO port bits.
 When a bit is set, the corresponding GPIO register bit will reflect the inverted value on the pin.</p>
 </dd>
     <dt id="Iot_Device_Mcp23xxx_Register_OLAT"><code>OLAT = 10</code></dt>
-    <dd><p>Provides access to the output latches.
+  <dd><p>Provides access to the output latches.
 A read from this register results in a read of the OLAT and not the port itself.
 A write to this register modifies the output latches that modify the pins configured as outputs.</p>
+<p>On reset/power on all bits are not set (all pins are low).</p>
 </dd>
+  
   </dl>
 
 

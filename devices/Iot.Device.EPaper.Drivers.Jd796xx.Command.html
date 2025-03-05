@@ -118,38 +118,92 @@ Enum Command
 </h2>
   <dl class="parameters">
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_DataStartTransmission1"><code>DataStartTransmission1 = 16</code></dt>
-    <dd><p>Start a data pixel value writing.</p>
+  <dd><p>Start a data pixel value writing.</p>
+<p>The command define as follows:
+The register is indicates that user start to transmit data, then write to SRAM.
+While data transmission complete, user must send command 11H.
+Then chip will start to send data/VCOM for panel.
+In BW mode, this command writes “OLD” data to SRAM.
+In BWR mode, this command writes “B/W” data to SRAM.
+In Program mode, this command writes “OTP” data to SRAM for programming.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_DataStartTransmission2"><code>DataStartTransmission2 = 19</code></dt>
-    <dd><p>Start a data pixel value writing.</p>
+  <dd><p>Start a data pixel value writing.</p>
+<p>The command define as follows:
+The register is indicates that user start to transmit data, then write to SRAM.
+While data transmission complete, user must send command 11H.
+Then chip will start to send data/VCOM for panel.
+In B/W mode, this command writes “NEW” data to SRAM.
+In B/W/Red mode, this command writes “RED” data to SRAM.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_DeepSleepMode"><code>DeepSleepMode = 7</code></dt>
-    <dd><p>Sets the screen in deep sleep mode.</p>
+  <dd><p>Sets the screen in deep sleep mode.</p>
+<p>The command define as follows: After this command is transmitted, the chip would
+enter the deep-sleep mode to save power.
+The deep sleep mode would return to standby by hardware reset.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_DisplayRefresh"><code>DisplayRefresh = 18</code></dt>
-    <dd><p>Sets the settings for the screen.</p>
+  <dd><p>Sets the settings for the screen.</p>
+<p>The command defines as :
+While users send this command, driver will refresh display
+(data/VCOM) base on SRAM data and LUT.
+After display refresh command, BUSY_N signal will become “0”.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_IntervalSetting"><code>IntervalSetting = 80</code></dt>
-    <dd><p>VCOM and DATA interval setting.</p>
+  <dd><p>VCOM and DATA interval setting.</p>
+<p>Refer to the datasheet for detailed information about the command and its parameters.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_PanelSetting"><code>PanelSetting = 0</code></dt>
-    <dd><p>Sets the settings for the screen.</p>
+  <dd><p>Sets the settings for the screen.</p>
+<p>Refer to the datasheet for detailed information about the command and its parameters.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_PowerOff"><code>PowerOff = 2</code></dt>
-    <dd><p>Power off command.</p>
+  <dd><p>Power off command.</p>
+<p>After power off command, driver will power off base on power off sequence.
+After power off command, BUSY_N signal will drop from high to low.
+When finish the power off sequence, BUSY_N singal will rise from low to high.
+Power off command will turn off charge pump, T-con, source driver, gate driver, VCOM,
+temperature sensor, but register and SRAM data will keep until VDD off.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_PowerOn"><code>PowerOn = 4</code></dt>
-    <dd><p>Power on command.</p>
+  <dd><p>Power on command.</p>
+<p>After power on command, driver will power on base on power on sequence.
+After power on command, BUSY_N signal will drop from high to low.
+When finishing the power on sequence, BUSY_N signal will rise from low to high.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_PowerSaving"><code>PowerSaving = 227</code></dt>
-    <dd><p>Defines power saving settings.</p>
+  <dd><p>Defines power saving settings.</p>
+<p>This command is set for saving power during fresh period.
+If the output voltage of VCOM / Source is from negative to positive or from positive to negative,
+the power saving mechanism will be activated.
+The active period width is defined by the following two parameters.
+- VCOM_W[3:0]: VCOM power saving width (unit = line period)
+- SD_W[3:0]: Source power saving width (unit = 660nS).</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_ResolutionSetting"><code>ResolutionSetting = 97</code></dt>
-    <dd><p>Define screen resolution setting.</p>
+  <dd><p>Define screen resolution setting.</p>
+<p>This command defines as follow:
+HRES[7:3]: Horizontal Display Resolution (first data)
+VRES[8:0]: Vertical Display Resolution (second and third data)
+Active channel calculation:
+- GD: First active gate = G0(Fixed); LAST active gate = first active + VRES[8:0] – 1
+- SD: First active source = S0(Fixed); LAST active source = first active+HRES[7:3] * 8 – 1.</p>
 </dd>
+  
     <dt id="Iot_Device_EPaper_Drivers_Jd796xx_Command_TCONSetting"><code>TCONSetting = 96</code></dt>
-    <dd><p>Defines non-overlap period of Gate and Source.</p>
+  <dd><p>Defines non-overlap period of Gate and Source.</p>
+<p>Refer to the datasheet for detailed information about the command and its parameters.</p>
 </dd>
+  
   </dl>
 
 

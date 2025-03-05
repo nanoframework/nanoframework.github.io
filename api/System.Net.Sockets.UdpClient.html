@@ -183,22 +183,25 @@ Class UdpClient
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
   </dd></dl>
 
 
 
   <h2 id="System_Net_Sockets_UdpClient_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-        For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-        the buffer size without warning. Indeed "lwIP", the TCP/IP stack used commonly by RTOS, doesn't
-        support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-        when it is longer than the passed buffer opposite to common Un*x implementations.
-        </p>
+For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
+the buffer size without warning. Indeed "lwIP", the TCP/IP stack used commonly by RTOS, doesn't
+support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
+when it is longer than the passed buffer opposite to common Un*x implementations.
+</p>
 <p>
-  <a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code class="lang-csharp">Connect</code></pre> methods establish a default remote host.
-        Once established, you do not have to specify a remote host in each call to the <pre><code class="lang-csharp">Send</code></pre> methods.
-        Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-        
+<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code class="lang-csharp">Connect</code></pre> methods establish a default remote host.
+Once established, you do not have to specify a remote host in each call to the <pre><code class="lang-csharp">Send</code></pre> methods.
+Additionally, once a remote host is established the datagram received from other hosts will be discarded.
+
 </div>
 
 
