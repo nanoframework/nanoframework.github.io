@@ -584,7 +584,7 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: install -g nanovc --add-source https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json
+    arguments: install -g nanovc
   
 # This will build all class libraries in the libs folder
 - task: VSBuild@1
@@ -602,6 +602,7 @@ steps:
   inputs:
     solution: 'libs/**/*.sln'
     platform: '$(buildPlatform)'
+    msbuildArgs: '/p:PublicRelease=true'
     configuration: '$(buildConfiguration)'
     msbuildArchitecture: 'x64'
     maximumCpuCount: true
