@@ -261,19 +261,10 @@ Struct Guid
   <dl class="parameters">
     <dt><code>g</code> <a class="xref" href="System.String.html">string</a></dt>
     <dd><p>A string that contains a GUID in one of the following formats (&quot;d&quot; represents a hexadecimal digit whose case is ignored):</p>
-<p>32 contiguous hexadecimal digits:</p>
-<p>dddddddddddddddddddddddddddddddd</p>
-<p>-or-</p>
 <p>Groups of 8, 4, 4, 4, and 12 hexadecimal digits with hyphens between the groups. The entire GUID can optionally be enclosed in matching braces or parentheses:</p>
 <p>dddddddd-dddd-dddd-dddd-dddddddddddd</p>
 <p>-or-</p>
 <p>{dddddddd-dddd-dddd-dddd-dddddddddddd}</p>
-<p>-or-</p>
-<p>(dddddddd-dddd-dddd-dddd-dddddddddddd)</p>
-<p>-or-</p>
-<p>Groups of 8, 4, and 4 hexadecimal digits, and a subset of eight groups of 2 hexadecimal digits, with each group prefixed by &quot;0x&quot; or &quot;0X&quot;, and separated by commas. The entire GUID, as well as the subset, is enclosed in matching braces:</p>
-<p>{0xdddddddd, 0xdddd, 0xdddd,{0xdd,0xdd,0xdd,0xdd,0xdd,0xdd,0xdd,0xdd}}</p>
-<p>All braces, commas, and &quot;0x&quot; prefixes are required. All embedded spaces are ignored. All leading zeros in a group are ignored.</p>
 <p>The hexadecimal digits shown in a group are the maximum number of meaningful hexadecimal digits that can appear in that group. You can specify from 1 to the number of hexadecimal digits shown for a group. The specified digits are assumed to be the low-order digits of the group.</p>
 </dd>
   </dl>
@@ -635,22 +626,18 @@ public Guid(uint a, ushort b, ushort c, byte d, byte e, byte f, byte g, byte h, 
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="System.Guid.html">Guid</a> based on the value in the string.  The value is made up
-of hex digits speared by the dash (&quot;-&quot;). The string may begin and end with
-brackets (&quot;{&quot;, &quot;}&quot;).</p>
-<p>The string must be of the form dddddddd-dddd-dddd-dddd-dddddddddddd. where
-d is a hex digit. (That is 8 hex digits, followed by 4, then 4, then 4,
-then 12) such as: &quot;CA761232-ED42-11CE-BACD-00AA0057B223&quot;</p>
+  <div class="markdown level1 summary"><p>Converts the string representation of a GUID to the equivalent <a class="xref" href="System.Guid.html">Guid</a> structure.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryParseGuidWithDashes(string guidString, out Guid result)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be renamed to TryParse in a future version.&quot;)]
+public static bool TryParseGuidWithDashes(string input, out Guid result)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>guidString</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dt><code>input</code> <a class="xref" href="System.String.html">string</a></dt>
     <dd><p>A string containing the GUID to convert.</p>
 </dd>
     <dt><code>result</code> <a class="xref" href="System.Guid.html">Guid</a></dt>
@@ -671,6 +658,9 @@ then 12) such as: &quot;CA761232-ED42-11CE-BACD-00AA0057B223&quot;</p>
 
 
 
+  <h4 class="section" id="System_Guid_TryParseGuidWithDashes_System_String_System_Guid___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The .NET nanoFramework implementation of this method only supports 'D' and 'N' format specifiers.</p>
+</div>
 
 
 
