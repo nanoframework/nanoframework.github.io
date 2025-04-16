@@ -1,4 +1,4 @@
-# C# Coding Style
+﻿# C# Coding Style
 
 For non code files (xml etc) our current best guidance is consistency. When editing files, keep new code and changes consistent with the style in the files. For new files, it should conform to the style for that component. Last, if there's a completely new component, anything that is reasonably broadly accepted is fine.
 
@@ -6,7 +6,7 @@ The general rule we follow is "use Visual Studio defaults". For details check th
 
 1. We use [Allman style](https://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, where each brace begins on a new line. Even a single line statement block should go with braces and nested in other statement blocks that use braces.
 2. We use four spaces of indentation (no tabs).
-3. We use `_camelCase` for internal and private fields and use `readonly` where possible. Prefix static fields can be used with `s_` and thread static fields with `t_`. When used on static fields, `readonly` should come after `static` (i.e. `static readonly` not `readonly static`).
+3. We use `_camelCase` for internal and private fields and use `readonly` where possible. Prefix static fields with `s_` and thread static fields with `t_`. When used on static fields, `readonly` should come after `static` (i.e. `static readonly` not `readonly static`).
 4. We avoid `this.` unless absolutely necessary.
 5. We always specify the visibility, even if it's the default (i.e.
    `private string _foo` not `string _foo`). Visibility should be the first modifier (i.e.
@@ -32,7 +32,9 @@ The general rule we follow is "use Visual Studio defaults". For details check th
 18. Don't forget the header, the 2 lines simplified version can be used.
 19. Try to avoid abbreviation, always use longer names when possible and where it does make sense. It is acceptable for very known ones to use them like HTTP for example. Also, if using abbreviations, the names should follow the the pattern. For example, if you are using `HTTP` in a name of a function called `Something`, it will then be `HttpSomething`. This goes as well for namespaces, classes, properties, variable names.
 
-We have provided a Visual Studio 2013 vssettings file `nnnnn.vssettings` at the root of each repository, enabling C# auto-formatting conforming to the above guidelines. Note that rules 7 and 8 are not covered by the vssettings, since these are not rules currently supported by VS formatting.
+We have provided an EditorConfig file `.editorconfig` at the root of each repository that contains the code style rules. If a repository does not yet have the `.editorconfig` file, it should be copied from the project source [here](https://github.com/nanoframework/.github/blob/main/VS%20templates%2Bconfig/.editorconfig). Which should be kept up to date. Note that there is also a spelling exclusion file along with it: spelling_exclusion.dic.
+
+The EditorConfig also configures the Visual Studio spell checker. The spell checker is not enabled by default; it can be turned on/off by a button on the toolbar (the button with text *abc* and a green checkmark) or via the menu *Edit | Advanced | Toggle Spell Checker*. At the moment it can analyse the C#, C++ and markdown files that are open in he IDE. Code files typically contain jargon that is not recognised, e.g., the name of a communication protocol. If the spell checker flags such a word, choose to ignore it. The word will be added to the `spelling_exclusion.dic` file at the root of the repository.
 
 ## Example File
 
