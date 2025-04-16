@@ -117,6 +117,7 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>OK to leave the rest with their defaults.</li>
 </ol>
 <h2 id="setup-azure-devops">Setup Azure DevOps</h2>
+<h3 id="build-pipeline">Build Pipeline</h3>
 <ol>
 <li>Open a new browser window on which you are signed in to GitHub as <code>nfbot</code>.</li>
 <li>On the repo Settings, navigate to &quot;GitHub Apps&quot;.</li>
@@ -143,6 +144,18 @@ Note: The class libraries repositories are usually named with the prefix &quot;<
 <li>Navigate to the <code>Library</code> section (under <code>Pipelines</code>) and click on the plus sign to add a new <code>Variable group</code> named <code>sign-client-credentials</code>.</li>
 <li>Add the following variables, all set to secret, with the values comming from the .NET Foundation signing service. Variables are <code>SignClientId</code>, <code>SignClientSecret</code>, <code>SignKeyVaultCertificate</code>, <code>SignKeyVaultUrl</code> and <code>SignTenantId</code>. <strong>Make sure</strong> that all the variables are set to <code>secret</code> by clicking on the appropriate option.</li>
 <li>Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on &quot;Status badge&quot;. Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.</li>
+</ol>
+<h3 id="bootstrap-pipeline">Bootstrap pipeline</h3>
+<ol>
+<li>Go to the project pipelines page and click &quot;New Pipeline&quot;.</li>
+<li>Choose GitHub, select the repository, in configuration step select the option &quot;Existing Azure Pipelines YAML file&quot; and in the path, the azure-bootstrap.yml.</li>
+<li>Click on &quot;Variables&quot; and add the following.</li>
+<li>Add <code>AZURE_DEVOPS_PAT</code> with the PAT for ADO access. <strong>Make sure</strong> that the variable is set to <code>secret</code> by clicking on the appropriate option.</li>
+<li>Click the &quot;Save&quot; button on the Variables pop-up (it will take you back to the pipeline yaml).</li>
+<li>Cline the &quot;Save&quot; button at the top right and go through the commit message.</li>
+<li>Navigate back to the Pipeline, select it and click &quot;Edit&quot; (at the top right). Then click on the 3 vertical dots (again at the top right) and then &quot;Triggers&quot;.</li>
+<li>Rename the pipeline to match the project name ending in bootstap (like in &quot;nanoFramework.Json bootstrap&quot;).</li>
+<li>Click &quot;Save&quot; in the toolbar (NOT &quot;Save &amp; Queue&quot;).</li>
 </ol>
 <h2 id="prepare-the-initial-commit">Prepare the initial commit</h2>
 <ol>
