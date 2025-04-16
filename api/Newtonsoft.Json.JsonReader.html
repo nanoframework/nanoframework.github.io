@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class JsonReader | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class JsonReader | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Newtonsoft.Json.JsonReader">
+
+
+
+  <h1 id="Newtonsoft_Json_JsonReader" data-uid="Newtonsoft.Json.JsonReader" class="text-break">
+Class JsonReader  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Newtonsoft.html">Newtonsoft</a>.<a class="xref" href="Newtonsoft.Json.html">Json</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Newtonsoft.Json.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class JsonReader : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">JsonReader</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="System.IDisposable.html">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Newtonsoft.Json.Bson.BsonReader.html">BsonReader</a></div>
+      <div><a class="xref" href="Newtonsoft.Json.JsonTextReader.html">JsonTextReader</a></div>
+      <div><a class="xref" href="Newtonsoft.Json.JsonValidatingReader.html">JsonValidatingReader</a></div>
+      <div><a class="xref" href="Newtonsoft.Json.Linq.JTokenReader.html">JTokenReader</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Newtonsoft_Json_JsonReader__ctor_" data-uid="Newtonsoft.Json.JsonReader.#ctor*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader__ctor" data-uid="Newtonsoft.Json.JsonReader.#ctor">
+  JsonReader()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected JsonReader()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Newtonsoft_Json_JsonReader_CloseInput_" data-uid="Newtonsoft.Json.JsonReader.CloseInput*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_CloseInput" data-uid="Newtonsoft.Json.JsonReader.CloseInput">
+  CloseInput
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CloseInput { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_Culture_" data-uid="Newtonsoft.Json.JsonReader.Culture*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Culture" data-uid="Newtonsoft.Json.JsonReader.Culture">
+  Culture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CultureInfo Culture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Globalization.CultureInfo.html">CultureInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_CurrentState_" data-uid="Newtonsoft.Json.JsonReader.CurrentState*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_CurrentState" data-uid="Newtonsoft.Json.JsonReader.CurrentState">
+  CurrentState
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected JsonReader.State CurrentState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a>.<a class="xref" href="Newtonsoft.Json.JsonReader.State.html">State</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_DateFormatString_" data-uid="Newtonsoft.Json.JsonReader.DateFormatString*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_DateFormatString" data-uid="Newtonsoft.Json.JsonReader.DateFormatString">
+  DateFormatString
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DateFormatString { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_DateParseHandling_" data-uid="Newtonsoft.Json.JsonReader.DateParseHandling*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_DateParseHandling" data-uid="Newtonsoft.Json.JsonReader.DateParseHandling">
+  DateParseHandling
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateParseHandling DateParseHandling { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.DateParseHandling.html">DateParseHandling</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_DateTimeZoneHandling_" data-uid="Newtonsoft.Json.JsonReader.DateTimeZoneHandling*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_DateTimeZoneHandling" data-uid="Newtonsoft.Json.JsonReader.DateTimeZoneHandling">
+  DateTimeZoneHandling
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeZoneHandling DateTimeZoneHandling { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.DateTimeZoneHandling.html">DateTimeZoneHandling</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_Depth_" data-uid="Newtonsoft.Json.JsonReader.Depth*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Depth" data-uid="Newtonsoft.Json.JsonReader.Depth">
+  Depth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int Depth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_FloatParseHandling_" data-uid="Newtonsoft.Json.JsonReader.FloatParseHandling*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_FloatParseHandling" data-uid="Newtonsoft.Json.JsonReader.FloatParseHandling">
+  FloatParseHandling
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FloatParseHandling FloatParseHandling { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.FloatParseHandling.html">FloatParseHandling</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_MaxDepth_" data-uid="Newtonsoft.Json.JsonReader.MaxDepth*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_MaxDepth" data-uid="Newtonsoft.Json.JsonReader.MaxDepth">
+  MaxDepth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaxDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_Path_" data-uid="Newtonsoft.Json.JsonReader.Path*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Path" data-uid="Newtonsoft.Json.JsonReader.Path">
+  Path
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Path { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_QuoteChar_" data-uid="Newtonsoft.Json.JsonReader.QuoteChar*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_QuoteChar" data-uid="Newtonsoft.Json.JsonReader.QuoteChar">
+  QuoteChar
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual char QuoteChar { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Char.html">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_SupportMultipleContent_" data-uid="Newtonsoft.Json.JsonReader.SupportMultipleContent*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_SupportMultipleContent" data-uid="Newtonsoft.Json.JsonReader.SupportMultipleContent">
+  SupportMultipleContent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SupportMultipleContent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_TokenType_" data-uid="Newtonsoft.Json.JsonReader.TokenType*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_TokenType" data-uid="Newtonsoft.Json.JsonReader.TokenType">
+  TokenType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual JsonToken TokenType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.JsonToken.html">JsonToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_Value_" data-uid="Newtonsoft.Json.JsonReader.Value*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Value" data-uid="Newtonsoft.Json.JsonReader.Value">
+  Value
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual object? Value { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ValueType_" data-uid="Newtonsoft.Json.JsonReader.ValueType*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ValueType" data-uid="Newtonsoft.Json.JsonReader.ValueType">
+  ValueType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Type? ValueType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Newtonsoft_Json_JsonReader_Close_" data-uid="Newtonsoft.Json.JsonReader.Close*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Close" data-uid="Newtonsoft.Json.JsonReader.Close">
+  Close()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Close()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_Dispose_" data-uid="Newtonsoft.Json.JsonReader.Dispose*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Dispose_System_Boolean_" data-uid="Newtonsoft.Json.JsonReader.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_Read_" data-uid="Newtonsoft.Json.JsonReader.Read*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Read" data-uid="Newtonsoft.Json.JsonReader.Read">
+  Read()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool Read()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsBoolean_" data-uid="Newtonsoft.Json.JsonReader.ReadAsBoolean*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsBoolean" data-uid="Newtonsoft.Json.JsonReader.ReadAsBoolean">
+  ReadAsBoolean()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool? ReadAsBoolean()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsBooleanAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsBooleanAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsBooleanAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsBooleanAsync(System.Threading.CancellationToken)">
+  ReadAsBooleanAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;bool?&gt; ReadAsBooleanAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsBytes_" data-uid="Newtonsoft.Json.JsonReader.ReadAsBytes*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsBytes" data-uid="Newtonsoft.Json.JsonReader.ReadAsBytes">
+  ReadAsBytes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual byte[]? ReadAsBytes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsBytesAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsBytesAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsBytesAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsBytesAsync(System.Threading.CancellationToken)">
+  ReadAsBytesAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;byte[]?&gt; ReadAsBytesAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDateTime_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTime*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDateTime" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTime">
+  ReadAsDateTime()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DateTime? ReadAsDateTime()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDateTimeAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTimeAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDateTimeAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTimeAsync(System.Threading.CancellationToken)">
+  ReadAsDateTimeAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;DateTime?&gt; ReadAsDateTimeAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDateTimeOffset_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTimeOffset*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDateTimeOffset" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTimeOffset">
+  ReadAsDateTimeOffset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DateTimeOffset? ReadAsDateTimeOffset()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDateTimeOffsetAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTimeOffsetAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDateTimeOffsetAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDateTimeOffsetAsync(System.Threading.CancellationToken)">
+  ReadAsDateTimeOffsetAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;DateTimeOffset?&gt; ReadAsDateTimeOffsetAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDecimal_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDecimal*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDecimal" data-uid="Newtonsoft.Json.JsonReader.ReadAsDecimal">
+  ReadAsDecimal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual decimal? ReadAsDecimal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDecimalAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDecimalAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDecimalAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDecimalAsync(System.Threading.CancellationToken)">
+  ReadAsDecimalAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;decimal?&gt; ReadAsDecimalAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDouble_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDouble*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDouble" data-uid="Newtonsoft.Json.JsonReader.ReadAsDouble">
+  ReadAsDouble()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double? ReadAsDouble()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsDoubleAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDoubleAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsDoubleAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsDoubleAsync(System.Threading.CancellationToken)">
+  ReadAsDoubleAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;double?&gt; ReadAsDoubleAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsInt32_" data-uid="Newtonsoft.Json.JsonReader.ReadAsInt32*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsInt32" data-uid="Newtonsoft.Json.JsonReader.ReadAsInt32">
+  ReadAsInt32()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int? ReadAsInt32()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsInt32Async_" data-uid="Newtonsoft.Json.JsonReader.ReadAsInt32Async*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsInt32Async_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsInt32Async(System.Threading.CancellationToken)">
+  ReadAsInt32Async(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;int?&gt; ReadAsInt32Async(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsString_" data-uid="Newtonsoft.Json.JsonReader.ReadAsString*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsString" data-uid="Newtonsoft.Json.JsonReader.ReadAsString">
+  ReadAsString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string? ReadAsString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsStringAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsStringAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsStringAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsStringAsync(System.Threading.CancellationToken)">
+  ReadAsStringAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;string?&gt; ReadAsStringAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_ReadAsync_" data-uid="Newtonsoft.Json.JsonReader.ReadAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_ReadAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.ReadAsync(System.Threading.CancellationToken)">
+  ReadAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;bool&gt; ReadAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_SetStateBasedOnCurrent_" data-uid="Newtonsoft.Json.JsonReader.SetStateBasedOnCurrent*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_SetStateBasedOnCurrent" data-uid="Newtonsoft.Json.JsonReader.SetStateBasedOnCurrent">
+  SetStateBasedOnCurrent()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetStateBasedOnCurrent()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_SetToken_" data-uid="Newtonsoft.Json.JsonReader.SetToken*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_SetToken_Newtonsoft_Json_JsonToken_" data-uid="Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken)">
+  SetToken(JsonToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetToken(JsonToken newToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newToken</code> <a class="xref" href="Newtonsoft.Json.JsonToken.html">JsonToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_SetToken_" data-uid="Newtonsoft.Json.JsonReader.SetToken*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_SetToken_Newtonsoft_Json_JsonToken_System_Object_" data-uid="Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken,System.Object)">
+  SetToken(JsonToken, object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetToken(JsonToken newToken, object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newToken</code> <a class="xref" href="Newtonsoft.Json.JsonToken.html">JsonToken</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_SetToken_" data-uid="Newtonsoft.Json.JsonReader.SetToken*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_SetToken_Newtonsoft_Json_JsonToken_System_Object_System_Boolean_" data-uid="Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken,System.Object,System.Boolean)">
+  SetToken(JsonToken, object?, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetToken(JsonToken newToken, object? value, bool updateIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newToken</code> <a class="xref" href="Newtonsoft.Json.JsonToken.html">JsonToken</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+    <dt><code>updateIndex</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_Skip_" data-uid="Newtonsoft.Json.JsonReader.Skip*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_Skip" data-uid="Newtonsoft.Json.JsonReader.Skip">
+  Skip()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Skip()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_JsonReader_SkipAsync_" data-uid="Newtonsoft.Json.JsonReader.SkipAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_JsonReader_SkipAsync_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.JsonReader.SkipAsync(System.Threading.CancellationToken)">
+  SkipAsync(CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SkipAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

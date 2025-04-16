@@ -1,0 +1,5014 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class JToken | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class JToken | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Newtonsoft.Json.Linq.JToken">
+
+
+
+  <h1 id="Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken" class="text-break">
+Class JToken  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Newtonsoft.html">Newtonsoft</a>.<a class="xref" href="Newtonsoft.Json.html">Json</a>.<a class="xref" href="Newtonsoft.Json.Linq.html">Linq</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Newtonsoft.Json.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class JToken : IJEnumerable&lt;JToken&gt;, IEnumerable&lt;JToken&gt;, IEnumerable, IJsonLineInfo, ICloneable, IDynamicMetaObjectProvider</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">JToken</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Newtonsoft.Json.Linq.IJEnumerable-1.html">IJEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</div>
+      <div><a class="xref" href="System.Collections.IEnumerable.html">IEnumerable</a></div>
+      <div><a class="xref" href="Newtonsoft.Json.IJsonLineInfo.html">IJsonLineInfo</a></div>
+      <div><a class="xref" href="System.ICloneable.html">ICloneable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dynamic.idynamicmetaobjectprovider">IDynamicMetaObjectProvider</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Newtonsoft.Json.Linq.JContainer.html">JContainer</a></div>
+      <div><a class="xref" href="Newtonsoft.Json.Linq.JValue.html">JValue</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Schema.Extensions.html#Newtonsoft_Json_Schema_Extensions_IsValid_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Schema_JsonSchema_">Extensions.IsValid(JToken, JsonSchema)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Schema.Extensions.html#Newtonsoft_Json_Schema_Extensions_IsValid_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Schema_JsonSchema_System_Collections_Generic_IList_System_String___">Extensions.IsValid(JToken, JsonSchema, out IList&lt;string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Schema.Extensions.html#Newtonsoft_Json_Schema_Extensions_Validate_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Schema_JsonSchema_">Extensions.Validate(JToken, JsonSchema)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Schema.Extensions.html#Newtonsoft_Json_Schema_Extensions_Validate_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Schema_JsonSchema_Newtonsoft_Json_Schema_ValidationEventHandler_">Extensions.Validate(JToken, JsonSchema, ValidationEventHandler)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_AncestorsAndSelf__1_System_Collections_Generic_IEnumerable___0__">Extensions.AncestorsAndSelf&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Ancestors__1_System_Collections_Generic_IEnumerable___0__">Extensions.Ancestors&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_AsJEnumerable_System_Collections_Generic_IEnumerable_Newtonsoft_Json_Linq_JToken__">Extensions.AsJEnumerable(IEnumerable&lt;JToken&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_AsJEnumerable__1_System_Collections_Generic_IEnumerable___0__">Extensions.AsJEnumerable&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Children__1_System_Collections_Generic_IEnumerable___0__">Extensions.Children&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Children__2_System_Collections_Generic_IEnumerable___0__">Extensions.Children&lt;T, U&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Value__1_System_Collections_Generic_IEnumerable_Newtonsoft_Json_Linq_JToken__">Extensions.Value&lt;U&gt;(IEnumerable&lt;JToken&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Value__2_System_Collections_Generic_IEnumerable___0__">Extensions.Value&lt;T, U&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Values_System_Collections_Generic_IEnumerable_Newtonsoft_Json_Linq_JToken__">Extensions.Values(IEnumerable&lt;JToken&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Values_System_Collections_Generic_IEnumerable_Newtonsoft_Json_Linq_JToken__System_Object_">Extensions.Values(IEnumerable&lt;JToken&gt;, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Values__1_System_Collections_Generic_IEnumerable_Newtonsoft_Json_Linq_JToken__">Extensions.Values&lt;U&gt;(IEnumerable&lt;JToken&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Newtonsoft.Json.Linq.Extensions.html#Newtonsoft_Json_Linq_Extensions_Values__1_System_Collections_Generic_IEnumerable_Newtonsoft_Json_Linq_JToken__System_Object_">Extensions.Values&lt;U&gt;(IEnumerable&lt;JToken&gt;, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_EqualityComparer_" data-uid="Newtonsoft.Json.Linq.JToken.EqualityComparer*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_EqualityComparer" data-uid="Newtonsoft.Json.Linq.JToken.EqualityComparer">
+  EqualityComparer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JTokenEqualityComparer EqualityComparer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JTokenEqualityComparer.html">JTokenEqualityComparer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_First_" data-uid="Newtonsoft.Json.Linq.JToken.First*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_First" data-uid="Newtonsoft.Json.Linq.JToken.First">
+  First
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual JToken? First { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_HasValues_" data-uid="Newtonsoft.Json.Linq.JToken.HasValues*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_HasValues" data-uid="Newtonsoft.Json.Linq.JToken.HasValues">
+  HasValues
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool HasValues { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Item_" data-uid="Newtonsoft.Json.Linq.JToken.Item*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Item_System_Object_" data-uid="Newtonsoft.Json.Linq.JToken.Item(System.Object)">
+  this[object]
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual JToken? this[object key] { get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Last_" data-uid="Newtonsoft.Json.Linq.JToken.Last*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Last" data-uid="Newtonsoft.Json.Linq.JToken.Last">
+  Last
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual JToken? Last { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Next_" data-uid="Newtonsoft.Json.Linq.JToken.Next*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Next" data-uid="Newtonsoft.Json.Linq.JToken.Next">
+  Next
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JToken? Next { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Parent_" data-uid="Newtonsoft.Json.Linq.JToken.Parent*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Parent" data-uid="Newtonsoft.Json.Linq.JToken.Parent">
+  Parent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JContainer? Parent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JContainer.html">JContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Path_" data-uid="Newtonsoft.Json.Linq.JToken.Path*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Path" data-uid="Newtonsoft.Json.Linq.JToken.Path">
+  Path
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Path { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Previous_" data-uid="Newtonsoft.Json.Linq.JToken.Previous*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Previous" data-uid="Newtonsoft.Json.Linq.JToken.Previous">
+  Previous
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JToken? Previous { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Root_" data-uid="Newtonsoft.Json.Linq.JToken.Root*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Root" data-uid="Newtonsoft.Json.Linq.JToken.Root">
+  Root
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JToken Root { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Type_" data-uid="Newtonsoft.Json.Linq.JToken.Type*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Type" data-uid="Newtonsoft.Json.Linq.JToken.Type">
+  Type
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract JTokenType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JTokenType.html">JTokenType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_AddAfterSelf_" data-uid="Newtonsoft.Json.Linq.JToken.AddAfterSelf*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_AddAfterSelf_System_Object_" data-uid="Newtonsoft.Json.Linq.JToken.AddAfterSelf(System.Object)">
+  AddAfterSelf(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddAfterSelf(object? content)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>content</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_AddAnnotation_" data-uid="Newtonsoft.Json.Linq.JToken.AddAnnotation*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_AddAnnotation_System_Object_" data-uid="Newtonsoft.Json.Linq.JToken.AddAnnotation(System.Object)">
+  AddAnnotation(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddAnnotation(object annotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>annotation</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_AddBeforeSelf_" data-uid="Newtonsoft.Json.Linq.JToken.AddBeforeSelf*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_AddBeforeSelf_System_Object_" data-uid="Newtonsoft.Json.Linq.JToken.AddBeforeSelf(System.Object)">
+  AddBeforeSelf(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddBeforeSelf(object? content)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>content</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_AfterSelf_" data-uid="Newtonsoft.Json.Linq.JToken.AfterSelf*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_AfterSelf" data-uid="Newtonsoft.Json.Linq.JToken.AfterSelf">
+  AfterSelf()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JToken&gt; AfterSelf()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Ancestors_" data-uid="Newtonsoft.Json.Linq.JToken.Ancestors*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Ancestors" data-uid="Newtonsoft.Json.Linq.JToken.Ancestors">
+  Ancestors()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JToken&gt; Ancestors()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_AncestorsAndSelf_" data-uid="Newtonsoft.Json.Linq.JToken.AncestorsAndSelf*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_AncestorsAndSelf" data-uid="Newtonsoft.Json.Linq.JToken.AncestorsAndSelf">
+  AncestorsAndSelf()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JToken&gt; AncestorsAndSelf()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Annotation_" data-uid="Newtonsoft.Json.Linq.JToken.Annotation*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Annotation_System_Type_" data-uid="Newtonsoft.Json.Linq.JToken.Annotation(System.Type)">
+  Annotation(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? Annotation(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="System.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Annotation_" data-uid="Newtonsoft.Json.Linq.JToken.Annotation*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Annotation__1" data-uid="Newtonsoft.Json.Linq.JToken.Annotation``1">
+  Annotation&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T? Annotation&lt;T&gt;() where T : class</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Annotations_" data-uid="Newtonsoft.Json.Linq.JToken.Annotations*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Annotations_System_Type_" data-uid="Newtonsoft.Json.Linq.JToken.Annotations(System.Type)">
+  Annotations(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;object&gt; Annotations(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="System.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Annotations_" data-uid="Newtonsoft.Json.Linq.JToken.Annotations*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Annotations__1" data-uid="Newtonsoft.Json.Linq.JToken.Annotations``1">
+  Annotations&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; Annotations&lt;T&gt;() where T : class</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_BeforeSelf_" data-uid="Newtonsoft.Json.Linq.JToken.BeforeSelf*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_BeforeSelf" data-uid="Newtonsoft.Json.Linq.JToken.BeforeSelf">
+  BeforeSelf()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JToken&gt; BeforeSelf()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Children_" data-uid="Newtonsoft.Json.Linq.JToken.Children*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Children" data-uid="Newtonsoft.Json.Linq.JToken.Children">
+  Children()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual JEnumerable&lt;JToken&gt; Children()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JEnumerable-1.html">JEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Children_" data-uid="Newtonsoft.Json.Linq.JToken.Children*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Children__1" data-uid="Newtonsoft.Json.Linq.JToken.Children``1">
+  Children&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JEnumerable&lt;T&gt; Children&lt;T&gt;() where T : JToken</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JEnumerable-1.html">JEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_CreateReader_" data-uid="Newtonsoft.Json.Linq.JToken.CreateReader*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_CreateReader" data-uid="Newtonsoft.Json.Linq.JToken.CreateReader">
+  CreateReader()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonReader CreateReader()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_DeepClone_" data-uid="Newtonsoft.Json.Linq.JToken.DeepClone*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_DeepClone" data-uid="Newtonsoft.Json.Linq.JToken.DeepClone">
+  DeepClone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JToken DeepClone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_DeepEquals_" data-uid="Newtonsoft.Json.Linq.JToken.DeepEquals*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_DeepEquals_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Linq_JToken_" data-uid="Newtonsoft.Json.Linq.JToken.DeepEquals(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken)">
+  DeepEquals(JToken?, JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DeepEquals(JToken? t1, JToken? t2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t1</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+    <dt><code>t2</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_FromObject_" data-uid="Newtonsoft.Json.Linq.JToken.FromObject*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_FromObject_System_Object_" data-uid="Newtonsoft.Json.Linq.JToken.FromObject(System.Object)">
+  FromObject(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken FromObject(object o)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>o</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_FromObject_" data-uid="Newtonsoft.Json.Linq.JToken.FromObject*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_FromObject_System_Object_Newtonsoft_Json_JsonSerializer_" data-uid="Newtonsoft.Json.Linq.JToken.FromObject(System.Object,Newtonsoft.Json.JsonSerializer)">
+  FromObject(object, JsonSerializer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken FromObject(object o, JsonSerializer jsonSerializer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>o</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+    <dt><code>jsonSerializer</code> <a class="xref" href="Newtonsoft.Json.JsonSerializer.html">JsonSerializer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_GetMetaObject_" data-uid="Newtonsoft.Json.Linq.JToken.GetMetaObject*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_GetMetaObject_System_Linq_Expressions_Expression_" data-uid="Newtonsoft.Json.Linq.JToken.GetMetaObject(System.Linq.Expressions.Expression)">
+  GetMetaObject(Expression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual DynamicMetaObject GetMetaObject(Expression parameter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dynamic.dynamicmetaobject">DynamicMetaObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Load_" data-uid="Newtonsoft.Json.Linq.JToken.Load*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Load_Newtonsoft_Json_JsonReader_" data-uid="Newtonsoft.Json.Linq.JToken.Load(Newtonsoft.Json.JsonReader)">
+  Load(JsonReader)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken Load(JsonReader reader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Load_" data-uid="Newtonsoft.Json.Linq.JToken.Load*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Load_Newtonsoft_Json_JsonReader_Newtonsoft_Json_Linq_JsonLoadSettings_" data-uid="Newtonsoft.Json.Linq.JToken.Load(Newtonsoft.Json.JsonReader,Newtonsoft.Json.Linq.JsonLoadSettings)">
+  Load(JsonReader, JsonLoadSettings?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken Load(JsonReader reader, JsonLoadSettings? settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Newtonsoft.Json.Linq.JsonLoadSettings.html">JsonLoadSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_LoadAsync_" data-uid="Newtonsoft.Json.Linq.JToken.LoadAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_LoadAsync_Newtonsoft_Json_JsonReader_Newtonsoft_Json_Linq_JsonLoadSettings_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.Linq.JToken.LoadAsync(Newtonsoft.Json.JsonReader,Newtonsoft.Json.Linq.JsonLoadSettings,System.Threading.CancellationToken)">
+  LoadAsync(JsonReader, JsonLoadSettings?, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;JToken&gt; LoadAsync(JsonReader reader, JsonLoadSettings? settings, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Newtonsoft.Json.Linq.JsonLoadSettings.html">JsonLoadSettings</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_LoadAsync_" data-uid="Newtonsoft.Json.Linq.JToken.LoadAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_LoadAsync_Newtonsoft_Json_JsonReader_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.Linq.JToken.LoadAsync(Newtonsoft.Json.JsonReader,System.Threading.CancellationToken)">
+  LoadAsync(JsonReader, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;JToken&gt; LoadAsync(JsonReader reader, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Parse_" data-uid="Newtonsoft.Json.Linq.JToken.Parse*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Parse_System_String_" data-uid="Newtonsoft.Json.Linq.JToken.Parse(System.String)">
+  Parse(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken Parse(string json)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Parse_" data-uid="Newtonsoft.Json.Linq.JToken.Parse*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Parse_System_String_Newtonsoft_Json_Linq_JsonLoadSettings_" data-uid="Newtonsoft.Json.Linq.JToken.Parse(System.String,Newtonsoft.Json.Linq.JsonLoadSettings)">
+  Parse(string, JsonLoadSettings?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken Parse(string json, JsonLoadSettings? settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Newtonsoft.Json.Linq.JsonLoadSettings.html">JsonLoadSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ReadFrom_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFrom*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ReadFrom_Newtonsoft_Json_JsonReader_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFrom(Newtonsoft.Json.JsonReader)">
+  ReadFrom(JsonReader)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken ReadFrom(JsonReader reader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ReadFrom_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFrom*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ReadFrom_Newtonsoft_Json_JsonReader_Newtonsoft_Json_Linq_JsonLoadSettings_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFrom(Newtonsoft.Json.JsonReader,Newtonsoft.Json.Linq.JsonLoadSettings)">
+  ReadFrom(JsonReader, JsonLoadSettings?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JToken ReadFrom(JsonReader reader, JsonLoadSettings? settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Newtonsoft.Json.Linq.JsonLoadSettings.html">JsonLoadSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ReadFromAsync_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFromAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ReadFromAsync_Newtonsoft_Json_JsonReader_Newtonsoft_Json_Linq_JsonLoadSettings_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFromAsync(Newtonsoft.Json.JsonReader,Newtonsoft.Json.Linq.JsonLoadSettings,System.Threading.CancellationToken)">
+  ReadFromAsync(JsonReader, JsonLoadSettings?, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;JToken&gt; ReadFromAsync(JsonReader reader, JsonLoadSettings? settings, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Newtonsoft.Json.Linq.JsonLoadSettings.html">JsonLoadSettings</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ReadFromAsync_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFromAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ReadFromAsync_Newtonsoft_Json_JsonReader_System_Threading_CancellationToken_" data-uid="Newtonsoft.Json.Linq.JToken.ReadFromAsync(Newtonsoft.Json.JsonReader,System.Threading.CancellationToken)">
+  ReadFromAsync(JsonReader, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;JToken&gt; ReadFromAsync(JsonReader reader, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="Newtonsoft.Json.JsonReader.html">JsonReader</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Remove_" data-uid="Newtonsoft.Json.Linq.JToken.Remove*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Remove" data-uid="Newtonsoft.Json.Linq.JToken.Remove">
+  Remove()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_RemoveAnnotations_" data-uid="Newtonsoft.Json.Linq.JToken.RemoveAnnotations*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_RemoveAnnotations_System_Type_" data-uid="Newtonsoft.Json.Linq.JToken.RemoveAnnotations(System.Type)">
+  RemoveAnnotations(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAnnotations(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="System.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_RemoveAnnotations_" data-uid="Newtonsoft.Json.Linq.JToken.RemoveAnnotations*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_RemoveAnnotations__1" data-uid="Newtonsoft.Json.Linq.JToken.RemoveAnnotations``1">
+  RemoveAnnotations&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAnnotations&lt;T&gt;() where T : class</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Replace_" data-uid="Newtonsoft.Json.Linq.JToken.Replace*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Replace_Newtonsoft_Json_Linq_JToken_" data-uid="Newtonsoft.Json.Linq.JToken.Replace(Newtonsoft.Json.Linq.JToken)">
+  Replace(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Replace(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_SelectToken_" data-uid="Newtonsoft.Json.Linq.JToken.SelectToken*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_SelectToken_System_String_" data-uid="Newtonsoft.Json.Linq.JToken.SelectToken(System.String)">
+  SelectToken(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JToken? SelectToken(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_SelectToken_" data-uid="Newtonsoft.Json.Linq.JToken.SelectToken*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_SelectToken_System_String_Newtonsoft_Json_Linq_JsonSelectSettings_" data-uid="Newtonsoft.Json.Linq.JToken.SelectToken(System.String,Newtonsoft.Json.Linq.JsonSelectSettings)">
+  SelectToken(string, JsonSelectSettings?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JToken? SelectToken(string path, JsonSelectSettings? settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Newtonsoft.Json.Linq.JsonSelectSettings.html">JsonSelectSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_SelectToken_" data-uid="Newtonsoft.Json.Linq.JToken.SelectToken*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_SelectToken_System_String_System_Boolean_" data-uid="Newtonsoft.Json.Linq.JToken.SelectToken(System.String,System.Boolean)">
+  SelectToken(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JToken? SelectToken(string path, bool errorWhenNoMatch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>errorWhenNoMatch</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_SelectTokens_" data-uid="Newtonsoft.Json.Linq.JToken.SelectTokens*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_SelectTokens_System_String_" data-uid="Newtonsoft.Json.Linq.JToken.SelectTokens(System.String)">
+  SelectTokens(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JToken&gt; SelectTokens(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_SelectTokens_" data-uid="Newtonsoft.Json.Linq.JToken.SelectTokens*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_SelectTokens_System_String_Newtonsoft_Json_Linq_JsonSelectSettings_" data-uid="Newtonsoft.Json.Linq.JToken.SelectTokens(System.String,Newtonsoft.Json.Linq.JsonSelectSettings)">
+  SelectTokens(string, JsonSelectSettings?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JToken&gt; SelectTokens(string path, JsonSelectSettings? settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <a class="xref" href="Newtonsoft.Json.Linq.JsonSelectSettings.html">JsonSelectSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_SelectTokens_" data-uid="Newtonsoft.Json.Linq.JToken.SelectTokens*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_SelectTokens_System_String_System_Boolean_" data-uid="Newtonsoft.Json.Linq.JToken.SelectTokens(System.String,System.Boolean)">
+  SelectTokens(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;JToken&gt; SelectTokens(string path, bool errorWhenNoMatch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+    <dt><code>errorWhenNoMatch</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ToObject_" data-uid="Newtonsoft.Json.Linq.JToken.ToObject*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ToObject_System_Type_" data-uid="Newtonsoft.Json.Linq.JToken.ToObject(System.Type)">
+  ToObject(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? ToObject(Type objectType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>objectType</code> <a class="xref" href="System.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ToObject_" data-uid="Newtonsoft.Json.Linq.JToken.ToObject*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ToObject_System_Type_Newtonsoft_Json_JsonSerializer_" data-uid="Newtonsoft.Json.Linq.JToken.ToObject(System.Type,Newtonsoft.Json.JsonSerializer)">
+  ToObject(Type, JsonSerializer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? ToObject(Type objectType, JsonSerializer jsonSerializer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>objectType</code> <a class="xref" href="System.Type.html">Type</a></dt>
+    <dd></dd>
+    <dt><code>jsonSerializer</code> <a class="xref" href="Newtonsoft.Json.JsonSerializer.html">JsonSerializer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ToObject_" data-uid="Newtonsoft.Json.Linq.JToken.ToObject*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ToObject__1" data-uid="Newtonsoft.Json.Linq.JToken.ToObject``1">
+  ToObject&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T? ToObject&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ToObject_" data-uid="Newtonsoft.Json.Linq.JToken.ToObject*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ToObject__1_Newtonsoft_Json_JsonSerializer_" data-uid="Newtonsoft.Json.Linq.JToken.ToObject``1(Newtonsoft.Json.JsonSerializer)">
+  ToObject&lt;T&gt;(JsonSerializer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T? ToObject&lt;T&gt;(JsonSerializer jsonSerializer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonSerializer</code> <a class="xref" href="Newtonsoft.Json.JsonSerializer.html">JsonSerializer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ToString_" data-uid="Newtonsoft.Json.Linq.JToken.ToString*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ToString" data-uid="Newtonsoft.Json.Linq.JToken.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_ToString_" data-uid="Newtonsoft.Json.Linq.JToken.ToString*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_ToString_Newtonsoft_Json_Formatting_Newtonsoft_Json_JsonConverter___" data-uid="Newtonsoft.Json.Linq.JToken.ToString(Newtonsoft.Json.Formatting,Newtonsoft.Json.JsonConverter[])">
+  ToString(Formatting, params JsonConverter[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(Formatting formatting, params JsonConverter[] converters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>formatting</code> <a class="xref" href="Newtonsoft.Json.Formatting.html">Formatting</a></dt>
+    <dd></dd>
+    <dt><code>converters</code> <a class="xref" href="Newtonsoft.Json.JsonConverter.html">JsonConverter</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Value_" data-uid="Newtonsoft.Json.Linq.JToken.Value*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Value__1_System_Object_" data-uid="Newtonsoft.Json.Linq.JToken.Value``1(System.Object)">
+  Value&lt;T&gt;(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual T? Value&lt;T&gt;(object key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_Values_" data-uid="Newtonsoft.Json.Linq.JToken.Values*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_Values__1" data-uid="Newtonsoft.Json.Linq.JToken.Values``1">
+  Values&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IEnumerable&lt;T?&gt; Values&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_WriteTo_" data-uid="Newtonsoft.Json.Linq.JToken.WriteTo*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_WriteTo_Newtonsoft_Json_JsonWriter_Newtonsoft_Json_JsonConverter___" data-uid="Newtonsoft.Json.Linq.JToken.WriteTo(Newtonsoft.Json.JsonWriter,Newtonsoft.Json.JsonConverter[])">
+  WriteTo(JsonWriter, params JsonConverter[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void WriteTo(JsonWriter writer, params JsonConverter[] converters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <a class="xref" href="Newtonsoft.Json.JsonWriter.html">JsonWriter</a></dt>
+    <dd></dd>
+    <dt><code>converters</code> <a class="xref" href="Newtonsoft.Json.JsonConverter.html">JsonConverter</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_WriteToAsync_" data-uid="Newtonsoft.Json.Linq.JToken.WriteToAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_WriteToAsync_Newtonsoft_Json_JsonWriter_Newtonsoft_Json_JsonConverter___" data-uid="Newtonsoft.Json.Linq.JToken.WriteToAsync(Newtonsoft.Json.JsonWriter,Newtonsoft.Json.JsonConverter[])">
+  WriteToAsync(JsonWriter, params JsonConverter[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task WriteToAsync(JsonWriter writer, params JsonConverter[] converters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <a class="xref" href="Newtonsoft.Json.JsonWriter.html">JsonWriter</a></dt>
+    <dd></dd>
+    <dt><code>converters</code> <a class="xref" href="Newtonsoft.Json.JsonConverter.html">JsonConverter</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_WriteToAsync_" data-uid="Newtonsoft.Json.Linq.JToken.WriteToAsync*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_WriteToAsync_Newtonsoft_Json_JsonWriter_System_Threading_CancellationToken_Newtonsoft_Json_JsonConverter___" data-uid="Newtonsoft.Json.Linq.JToken.WriteToAsync(Newtonsoft.Json.JsonWriter,System.Threading.CancellationToken,Newtonsoft.Json.JsonConverter[])">
+  WriteToAsync(JsonWriter, CancellationToken, params JsonConverter[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task WriteToAsync(JsonWriter writer, CancellationToken cancellationToken, params JsonConverter[] converters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <a class="xref" href="Newtonsoft.Json.JsonWriter.html">JsonWriter</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="System.Threading.CancellationToken.html">CancellationToken</a></dt>
+    <dd></dd>
+    <dt><code>converters</code> <a class="xref" href="Newtonsoft.Json.JsonConverter.html">JsonConverter</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Boolean" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Boolean">
+  explicit operator bool(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator bool(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Byte" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Byte">
+  explicit operator byte(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator byte(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Byte__" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Byte[]">
+  explicit operator byte[]?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator byte[]?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Char" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Char">
+  explicit operator char(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator char(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Char.html">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_DateTime" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.DateTime">
+  explicit operator DateTime(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator DateTime(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.DateTime.html">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_DateTimeOffset" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.DateTimeOffset">
+  explicit operator DateTimeOffset(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator DateTimeOffset(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Decimal" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Decimal">
+  explicit operator decimal(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator decimal(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Double" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Double">
+  explicit operator double(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator double(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Guid" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Guid">
+  explicit operator Guid(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Guid(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Guid.html">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Int16" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Int16">
+  explicit operator short(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator short(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int16.html">short</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Int32" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Int32">
+  explicit operator int(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator int(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Int64" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Int64">
+  explicit operator long(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator long(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Boolean_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Boolean}">
+  explicit operator bool?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator bool?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Byte_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Byte}">
+  explicit operator byte?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator byte?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Char_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Char}">
+  explicit operator char?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator char?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_DateTimeOffset_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.DateTimeOffset}">
+  explicit operator DateTimeOffset?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator DateTimeOffset?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_DateTime_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.DateTime}">
+  explicit operator DateTime?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator DateTime?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Decimal_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Decimal}">
+  explicit operator decimal?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator decimal?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Double_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Double}">
+  explicit operator double?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator double?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Guid_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Guid}">
+  explicit operator Guid?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Guid?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Int16_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Int16}">
+  explicit operator short?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator short?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Int32_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Int32}">
+  explicit operator int?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator int?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Int64_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Int64}">
+  explicit operator long?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator long?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_SByte_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.SByte}">
+  explicit operator sbyte?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator sbyte?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.sbyte">sbyte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_Single_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.Single}">
+  explicit operator float?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator float?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_TimeSpan_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.TimeSpan}">
+  explicit operator TimeSpan?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator TimeSpan?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_UInt16_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.UInt16}">
+  explicit operator ushort?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator ushort?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_UInt32_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.UInt32}">
+  explicit operator uint?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator uint?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Nullable_System_UInt64_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Nullable{System.UInt64}">
+  explicit operator ulong?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator ulong?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_SByte" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.SByte">
+  explicit operator sbyte(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator sbyte(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.SByte.html">sbyte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Single" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Single">
+  explicit operator float(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator float(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Single.html">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_String" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.String">
+  explicit operator string?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator string?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_TimeSpan" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.TimeSpan">
+  explicit operator TimeSpan(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator TimeSpan(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.TimeSpan.html">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_UInt16" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.UInt16">
+  explicit operator ushort(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator ushort(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt16.html">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_UInt32" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.UInt32">
+  explicit operator uint(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator uint(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_UInt64" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.UInt64">
+  explicit operator ulong(JToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static explicit operator ulong(JToken value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.UInt64.html">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Explicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Explicit_Newtonsoft_Json_Linq_JToken__System_Uri" data-uid="Newtonsoft.Json.Linq.JToken.op_Explicit(Newtonsoft.Json.Linq.JToken)~System.Uri">
+  explicit operator Uri?(JToken?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Uri?(JToken? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Uri.html">Uri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Boolean__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Boolean)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Byte__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Byte)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(byte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Byte____Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Byte[])~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(byte[] value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_DateTime__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.DateTime)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(DateTime)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(DateTime value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.DateTime.html">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_DateTimeOffset__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.DateTimeOffset)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(DateTimeOffset)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(DateTimeOffset value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Decimal__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Decimal)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(decimal)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(decimal value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Double__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Double)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Guid__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Guid)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(Guid)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(Guid value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Guid.html">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Int16__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Int16)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(short)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(short value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Int16.html">short</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Int32__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Int32)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Int64__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Int64)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(long value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Int64.html">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Boolean___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Boolean})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(bool?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(bool? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Byte___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Byte})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(byte?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(byte? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_DateTimeOffset___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.DateTimeOffset})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(DateTimeOffset?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(DateTimeOffset? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_DateTime___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.DateTime})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(DateTime?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(DateTime? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Decimal___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Decimal})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(decimal?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(decimal? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Double___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Double})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(double? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Guid___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Guid})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(Guid?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(Guid? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Int16___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Int16})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(short?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(short? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Int32___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Int32})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(int? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Int64___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Int64})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(long?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(long? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_SByte___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.SByte})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(sbyte?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(sbyte? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.sbyte">sbyte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_Single___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.Single})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(float?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(float? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_TimeSpan___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.TimeSpan})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(TimeSpan?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(TimeSpan? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_UInt16___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.UInt16})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(ushort?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(ushort? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_UInt32___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.UInt32})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(uint?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(uint? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Nullable_System_UInt64___Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Nullable{System.UInt64})~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(ulong?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(ulong? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_SByte__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.SByte)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(sbyte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(sbyte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.SByte.html">sbyte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Single__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Single)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Single.html">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_String__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.String)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(string? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_TimeSpan__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.TimeSpan)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(TimeSpan)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(TimeSpan value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.TimeSpan.html">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_UInt16__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.UInt16)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(ushort)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(ushort value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.UInt16.html">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_UInt32__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.UInt32)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_UInt64__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.UInt64)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(ulong)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
+public static implicit operator JToken(ulong value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.UInt64.html">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Newtonsoft_Json_Linq_JToken_op_Implicit_" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit*"></a>
+
+  <h3 id="Newtonsoft_Json_Linq_JToken_op_Implicit_System_Uri__Newtonsoft_Json_Linq_JToken" data-uid="Newtonsoft.Json.Linq.JToken.op_Implicit(System.Uri)~Newtonsoft.Json.Linq.JToken">
+  implicit operator JToken(Uri?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator JToken(Uri? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="System.Uri.html">Uri</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Newtonsoft.Json.Linq.JToken.html">JToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
