@@ -36,6 +36,8 @@ For class libraries projects a Sonarcloud project has to be setup in order to ru
 
 ## Setup Azure DevOps
 
+### Build Pipeline
+
 1. Open a new browser window on which you are signed in to GitHub as `nfbot`.
 1. On the repo Settings, navigate to "GitHub Apps".
 1. Click "Configure" button for Azure Pipelines.
@@ -61,6 +63,18 @@ For class libraries projects a Sonarcloud project has to be setup in order to ru
 1. Navigate to the `Library` section (under `Pipelines`) and click on the plus sign to add a new `Variable group` named `sign-client-credentials`.
 1. Add the following variables, all set to secret, with the values comming from the .NET Foundation signing service. Variables are `SignClientId`, `SignClientSecret`, `SignKeyVaultCertificate`, `SignKeyVaultUrl` and `SignTenantId`. **Make sure** that all the variables are set to `secret` by clicking on the appropriate option.
 1. Go back to the pipelines view and with the current pipeline selected, click on the ellipsis icon and then on "Status badge". Copy the markdown code that shows on the pop-up. This will be required to add the correct build badges in the repo readme in a moment.
+
+### Bootstrap pipeline
+
+1. Go to the project pipelines page and click "New Pipeline".
+1. Choose GitHub, select the repository, in configuration step select the option "Existing Azure Pipelines YAML file" and in the path, the azure-bootstrap.yml.
+1. Click on "Variables" and add the following.
+1. Add `AZURE_DEVOPS_PAT` with the PAT for ADO access. **Make sure** that the variable is set to `secret` by clicking on the appropriate option.
+1. Click the "Save" button on the Variables pop-up (it will take you back to the pipeline yaml).
+1. Cline the "Save" button at the top right and go through the commit message.
+1. Navigate back to the Pipeline, select it and click "Edit" (at the top right). Then click on the 3 vertical dots (again at the top right) and then "Triggers".
+1. Rename the pipeline to match the project name ending in bootstap (like in "nanoFramework.Json bootstrap").
+1. Click "Save" in the toolbar (NOT "Save & Queue").
 
 ## Prepare the initial commit
 
