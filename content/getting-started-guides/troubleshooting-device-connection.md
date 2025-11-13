@@ -91,3 +91,11 @@ Regardless of your device, once you connect it, you will see the message `NFPKTV
 Don't worry about the possible scramble characters before, they are the ones from the boot of the device itself. Some devices like ESP32 are quite chatty (see previous section), some devices like STM32 are very quite!
 
 From that point, seeing this message means the device is properly working, so look again at [this troubleshooting guide](./trouble-shooting-guide.md).
+
+### Devices with multiple serial ports
+
+Some devices like the ESP32 S3 may come with multiple serial ports. They usually have one named USB, the other one named UART. In those cases, one port is used to flash the device with nanoff and the other one to be seen by Visual Studio.
+
+If you are not sure which port to use, plug one, try to flash on it, if it doesn't work, use the other one.
+
+In most cases, you **cannot** connect both serial ports to your machine, as this interferes with the flash process and does not allow the device to go into boot mode.

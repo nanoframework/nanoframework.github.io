@@ -49,3 +49,10 @@ Here are solutions to some common problems when getting started.
 - This is due to the nanoff will try to read and backup config partition before the actual flash.
 - If the chip is flashed with something else before (e.g. Arduino), it will cause a read error and stop the process.
 - Add `--masserase` to bypass the backup process and erase the flash.
+
+## nanoff failed to read from ESP32 chip (E4000)
+
+- This is most likely due to the fact that the device needs to be placed manually into boot mode.
+- You will have to handle the `reset` button, press the `boot` button, then release the `reset` button. This places the device into boot mode. It is strongly recommended to close Visual Studio during this process.
+- The serial port can change! So, make sure you are checking the new port number.
+- Once flashed, the device needs to be rebooted manually (press the reset button or disconnect and reconnect the device) to be seen by Visual Studio.

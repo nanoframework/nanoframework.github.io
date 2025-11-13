@@ -2,7 +2,9 @@
 
 This is a list of recommended devices to start with .NET nanoFramework and links where you can find them. While this list is far to be exhaustive, contribution to adjust this list and especially where to buy them will be very appreciated.
 
-> Important: Those lists are just suggestions, the links to buy as well, we are not linked or related to any of those vendors neither any of the resellers.
+> [!Important]
+>
+> Those lists are just suggestions, the links to buy as well, we are not linked or related to any of those vendors neither any of the resellers.
 
 | MCU|Specifications|Manufacturer SKU|Firmware Target|Purchase Option|
 |---|---|---|---|---|
@@ -29,4 +31,6 @@ Integrated devices with additional sensors like accelerometers, screens, leds:
 
 Note that you can find most of those boards as well on Amazon and various local websites. Again, feel free to submit a PR with more links on where we can find your favorite device!
 
-> Important: Those lists are just suggestions, the links to buy as well, we are not linked or related to any of those vendors neither any of the resellers.
+> [!Important]
+>
+> Those lists are just suggestions, the links to buy as well, we are not linked or related to any of those vendors neither any of the resellers.

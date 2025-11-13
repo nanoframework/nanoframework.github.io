@@ -2,7 +2,7 @@
 
 ![CC3220SF](../../images/reference-targets/cc3220sf-launchxl.jpg)
 
-[Product page](http://www.ti.com/tool/CC3220SF-LAUNCHXL)
+[Product page](https://www.ti.com/tool/CC3220SF-LAUNCHXL)
 
 ## Features
 

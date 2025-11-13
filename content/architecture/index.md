@@ -2,16 +2,22 @@
 
 [Simplifications and trade-offs](simplifications-and-trade-offs.md) is an important read to start with. As in micro controller unit the resources are limited, we had to make trade off to still get the best of the .NET and C# experience but with few constraints.
 
-Native development:
+Topics relevant for .NET development:
 
-- [Generating stubs for a native project, NANOCLR macros, Arguments and return types](nanoclr-stub-args.md)
+- [Packaging and deployment](deployment.md)
 - [Class Libraries](class-libraries.md)
 - [Date and Time](date-and-time.md)
+- [Floating point calculations](floating-point-calculations.md)
+- [String.Format for numerics examples](string-format-examples.md)
+
+Topics relevant for native development:
+
+- [Generating stubs for a native project, NANOCLR macros, Arguments and return types](nanoclr-stub-args.md)
+- [Package and assembly versions and checksums](guide-version-checksums.md)
+- [PE File format](pe-file.md) and more details [here](pe-file/index.md)
+- [Memory map structure](memory-map-structure.md)
 - [Native interrupt handlers](native-interrupt-handlers.md)
 - [Wire Protocol](wire-protocol.md)
-- [PE File format](pe-file.md) and more details [here](pe-file/index.md)
-- [Package and assembly versions and checksums](guide-version-checksums.md)
-- [String.Format for numerics examples](string-format-examples.md)
 
 As a summary, we can represent the nanoFramework architecture like this:
 
@@ -24,7 +30,5 @@ The CLR is built on the PAL and offers multiple libraries. The one which is alwa
 Other architecture elements:
 
 - [Unit Test for nanoFramework architecture](unit-test.md)
-- [Floating point calculations](floating-point-calculations.md)
-- [Application deployment](deployment.md)
 - [Thread execution](thread-execution.md)
 - [HAL](HAL.md)

@@ -26,7 +26,7 @@ You'll need:
   . [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.21)
-- [Python 3.6.8](https://www.python.org/downloads/release/python-368) Required for uploading the nanoCLR to the ESP32.
+- [Python 3.8](https://www.python.org/downloads/release/python-368) Required for uploading the nanoCLR to the ESP32.
   - Ensure the Windows default app to open `.py` files is Python.
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [ESP-IDF Tools](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html).
@@ -69,7 +69,7 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 (If you already have installed ESP-IDF Tools you can skip this step.)
 
--**Step 1**: Install ESP-IDF Tools by using the installer provided by Espressif [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer). The installer includes all the pre-requisites.
+-**Step 1**: Install ESP-IDF Tools by using the installer provided by Espressif [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer). The installer includes all the pre-requisites. Recomendation is to use the version of the offline installer matching the IDF version supported in the nf-interpreter. You can check the version in the azure-pipelines.yml. Search for `IDF_TAG`.
 
 -**Step 2**: After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.
 
@@ -91,17 +91,15 @@ After cloning the repo, you need to setup the build environment. You can use the
 
 -**Step 8**: Now execute the script `export`. This will _hopefully_ update the path environment variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.
 
-:warning: At the time of this writing, the CMake version distributed with IDF it's outdated. You have to edit the path environment variable after this step and remove the entry pointing to CMake so the current CMake it's used. This should be something like `(...).espressif\tools\cmake\3.20.3`. :warning:
-
--**Step 9**: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it.
+-**Step 9**: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can happen for a number of reasons, like permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it. Mind that the versions will be different and the root paths too.
 
 ![updated path](../../images/building/esp32/install-esp-idf-tools-path.png)
 
 -**Step 10**: Also worth checking if the following environment variables have also been setup:
 
 - `IDF_PATH`: must point to the location where the ESP-IDF repo was cloned (see step 3. above).
-- `IDF_PYTHON_ENV_PATH`: must point to Python install location.
-- `IDF_TOOLS_PATH`: must point to the location where the ESP-IDF tools where installed (see step 3. above).
+- `IDF_PYTHON_ENV_PATH`: must point to Python install location. Something similar to `E:\nftools\.espressif\python_env\idf5.4_py3.12_env`.
+- `IDF_TOOLS_PATH`: must point to the location where the ESP-IDF tools where installed (see step 4. above).
 
 :warning: **Having the path properly setup it's absolutely mandatory in order to be able to build.** :warning:
 

@@ -1,10 +1,10 @@
 # Semantic Versioning
 
-.NET **nanoFramework** versioning follows the [Semantic Versioning](http://semver.org/) guidelines.
+.NET **nanoFramework** versioning follows the [Semantic Versioning](https://semver.org/) guidelines.
 
 Semantic versioning is all about releases and our continuous integration infrastructure uses [Nerdbank GitVersioning](https://github.com/AArnott/Nerdbank.GitVersioning) to automatically version the releases as per the configuration of each repository.
 
-.NET **nanoFramework** follows the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model/) which allows more structured releases and versioning.
+.NET **nanoFramework** follows the [GitFlow branching model](https://nvie.com/posts/a-successful-git-branching-model/) which allows more structured releases and versioning.
 
 .NET **nanoFramework** has three different workflows which control how the versioning.
 
@@ -12,7 +12,7 @@ Semantic versioning is all about releases and our continuous integration infrast
 
 Builds from the *develop* branch have a suffix of alpha so that they are sorted higher than release builds which provides the team the ability to manually publish development builds to NuGet as pre-releases, if needed.
 
-GitVersion is configured in [Continuous Deployment](http://gitversion.readthedocs.io/en/stable/reference/continuous-deployment/) mode which automatically increments the version per commit.
+GitVersion is configured in [Continuous Deployment](https://gitversion.readthedocs.io/en/stable/reference/continuous-deployment/) mode which automatically increments the version per commit.
 
 ## Pull Request Builds
 

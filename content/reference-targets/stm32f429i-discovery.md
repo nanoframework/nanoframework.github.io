@@ -2,7 +2,7 @@
 
 ![stm discovery](../../images/reference-targets/stm32f429i-disco.jpg)
 
-[Product page](http://www.st.com/en/evaluation-tools/32f429idiscovery.html)
+[Product page](https://www.st.com/en/evaluation-tools/32f429idiscovery.html)
 
 ## Features
 
@@ -20,6 +20,8 @@
 ## Firmware images (ready to deploy)
 
 The ready to use firmware images provided include support for the class libraries and features marked bellow.
+
+> **Warning:** This firmware is built for hardware version B01. If you have a board with the new revision E01, the device won't be recognized.
 
 | Gpio | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

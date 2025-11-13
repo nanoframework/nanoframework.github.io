@@ -1,4 +1,4 @@
-# Native tips & tricsk, generating stubs for a native project, NANOCLR macros, Arguments and return types
+# Native tips & tricks, generating stubs for a native project, NANOCLR macros, Arguments and return types
 
 When you want to use native code and creating an associated managed code C# library, you should start by reading [this article](https://jsimoesblog.wordpress.com/2018/06/19/interop-in-net-nanoframework/). This article will give you all the steps to create your managed C# project, generate the stubs and have everything glued together.
 

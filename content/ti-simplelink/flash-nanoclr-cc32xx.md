@@ -2,7 +2,7 @@
 
 ## How To guide
 
-To flash nanoCLR image in a TI board [Uniflash](http://www.ti.com/tool/uniflash) tool from TI is required.
+To flash nanoCLR image in a TI board [Uniflash](https://www.ti.com/tool/uniflash) tool from TI is required.
 
 Assuming that Uniflash tool and the USB drivers are properly installed, follows the recommend procedure for a CC3220SF-LAUNCHXL board.
 

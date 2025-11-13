@@ -9,3 +9,4 @@ Please do contribute with your own contribution!
 - [Working with STM32 targets](working-with-stm32-targets.md)
 - [Working with Visual Studio extension](working-with-vs-extension.md)
 - [Automatic Firmware Updates](automatic-firmware-updates.md)
+- [Flashing internal fileSystem](flashing-filesystem.md)

@@ -114,7 +114,7 @@ We use and recommend the following workflow:
     - GitHub has it's own [desktop client](https://desktop.github.com/).
     - There is an extension for [Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio).
     - Visual Studio Code has it's owned Git client baked in.
-    - There is also the popular [Tower](https://www.git-tower.com/) and many others.
+    - There is also the popular [Fork](https://www.fork.dev/) and many others.
 
     If you are using a GUI client don't bother with the the git command lines shown bellow.
 
@@ -191,5 +191,3 @@ Here are a few resources that we've compiled to get you up to speed. No claims t
 - [Git Reference](https://git.github.io/git-reference/). Nice and concise reference of the essential functions of git. Takes about 30min to read through, you'll come out smarter at the end.
 
 - The git [community book](https://git-scm.com/book/en/v2). This book is meant to help you learn how to use Git as quickly and easily as possible.
-
-- [Escape a git mess step-by-step](http://justinhileman.info/article/git-pretty/git-pretty.png). Humorous and handy workflow to help you when you get stuck with git and your blood pressure starts to rise.

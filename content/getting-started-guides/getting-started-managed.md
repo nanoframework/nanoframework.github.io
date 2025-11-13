@@ -10,7 +10,7 @@ Note sure where to buy a device? Check [this page](where-to-buy-devices.md) out!
 
 ## Installing and configuring Visual Studio 2022
 
-The first part is to get Visual Studio 2022 (VS 2019 is also supported) and the .NET **nanoFramework** extension installed.
+The first part is to get Visual Studio 2022 (VS 2019 and VS2026 are also supported) and the .NET **nanoFramework** extension installed.
 
 >**WARNING**: Our extension is maintained and kept up to date with the current version of VS2022 and VS2019. Generally only the latest version of Visual Studio is guaranteed to be supported. If you experience difficulties installing the extension, check that you are running the latest VS.NET version. If you need an older version for a specific VS version, you can download it from the [GitHub repository](https://github.com/nanoframework/nf-Visual-Studio-extension/releases).
 

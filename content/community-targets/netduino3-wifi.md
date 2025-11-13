@@ -2,7 +2,7 @@
 
 ![netduino3 wifi](../../images/community-targets/netduino3-wifi.jpg)
 
-[Product page](http://developer.wildernesslabs.co/Netduino/About/)
+[Product page](https://developer.wildernesslabs.co/Netduino/About/)
 
 -----
 

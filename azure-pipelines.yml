@@ -130,6 +130,8 @@ steps:
 - powershell: |
       git clone https://github.com/nanoframework/CoreLibrary.git --recursive --depth 100 -b main libs/CoreLibrary 
 
+      git clone https://github.com/nanoframework/nanoFramework.Device.Bluetooth.git -b main libs/nanoFramework.Device.Bluetooth 
+
       git clone https://github.com/nanoframework/nanoFramework.Device.Can.git --depth 100 -b main libs/nanoFramework.Device.Can 
 
       git clone https://github.com/nanoframework/nanoFramework.Device.OneWire.git --depth 100 -b main libs/nanoFramework.Device.OneWire 
@@ -166,7 +168,7 @@ steps:
       
       git clone https://github.com/nanoframework/System.Device.Adc.git --depth 100 -b main libs/System.Device.Adc 
 
-      git clone https://github.com/nanoframework/System.Device.WiFi.git --depth 100 -b main libs/System.Device.WiFi
+      git clone https://github.com/nanoframework/System.Device.WiFi.git -b main libs/System.Device.WiFi
 
       git clone https://github.com/nanoframework/System.Device.UsbClient.git -b main System.Device.UsbClient
 
@@ -208,11 +210,11 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.Logging -b main libs/nanoFramework.Logging
 
-      git clone https://github.com/nanoframework/System.IO.Ports.git --depth 100 -b main libs/System.IO.Ports
+      git clone https://github.com/nanoframework/System.IO.Ports.git -b main libs/System.IO.Ports
 
       git clone https://github.com/nanoframework/nanoFramework.m2mqtt.git -b main libs/nanoFramework.M2Mqtt
 
-      git clone https://github.com/nanoframework/System.Text.RegularExpressions.git --depth 100 -b main libs/System.Text.RegularExpressions
+      git clone https://github.com/nanoframework/System.Text.RegularExpressions.git -b main libs/System.Text.RegularExpressions
 
       git clone https://github.com/nanoframework/nanoFramework.Azure.Devices.git -b main libs/nanoFramework.Azure.Devices
       
@@ -238,6 +240,10 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.System.Runtime.git -b main libs/nanoFramework.System.Runtime
       
+      git clone https://github.com/nanoframework/nanoFramework.Protobuf.git -b main libs/nanoFramework.Protobuf
+
+      git clone https://github.com/nanoframework/nanoFramework.MessagePack.git -b main libs/nanoFramework.MessagePack
+
   displayName: Clone repos of class libs
   condition: >-
     or(
@@ -504,7 +510,7 @@ steps:
     $textToAdd = "items:
     - name: Home
       href: ../index.md"
-    $fileContents[1] = $fileContents[1].Replace("items:", $textToAdd)
+    $fileContents[1] = $fileContents[1].Replace("- name: Content", $textToAdd)
     
     # write all lines back to file
     $fileContents | Set-Content $filePath
@@ -576,7 +582,7 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: install -g nanovc --add-source https://pkgs.dev.azure.com/nanoframework/feed/_packaging/sandbox/nuget/v3/index.json
+    arguments: install -g nanovc
   
 # This will build all class libraries in the libs folder
 - task: VSBuild@1
@@ -594,6 +600,7 @@ steps:
   inputs:
     solution: 'libs/**/*.sln'
     platform: '$(buildPlatform)'
+    msbuildArgs: '/p:PublicRelease=true'
     configuration: '$(buildConfiguration)'
     msbuildArchitecture: 'x64'
     maximumCpuCount: true
