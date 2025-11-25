@@ -16,7 +16,7 @@ These pins can be used for:
 - 1 x I2C
 - 1 x SPI
 
-Further information can be found [here]( https://www.brainpad.com/) or [here]( https://forums.ghielectronics.com/c/brainpad/11) where schema can be found.
+Further information can be found on the [BrainPad product page](https://www.brainpad.com/) or [BrainPad support forum](https://forums.ghielectronics.com/c/brainpad/11) where schema can be found.
 
 ## Managed helpers
 

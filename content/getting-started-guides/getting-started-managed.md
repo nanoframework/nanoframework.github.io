@@ -4,7 +4,7 @@
 
 This getting started guide will walk you through the setup of your development machine to get you coding a nice "Hello World" in no time!
 
-You can find the video for this guide on our YouTube channel [here](https://youtu.be/iZdN2GmefXI).
+You can find the video for this guide on our YouTube channel on the [Getting Started video](https://youtu.be/iZdN2GmefXI).
 
 Note sure where to buy a device? Check [this page](where-to-buy-devices.md) out!
 

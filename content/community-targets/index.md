@@ -1,6 +1,6 @@
 # Community provided target boards
 
-There is a GitHub repository that holds target boards provided by community members. Check it [here](https://github.com/nanoframework/nf-Community-Targets).
+There is a GitHub repository that holds target boards provided by community members. Check the [nf-Community-Targets repository](https://github.com/nanoframework/nf-Community-Targets).
 
 These boards are NOT maintained by the core team and any related questions or issues about them should be addressed to the target _owner_.
 

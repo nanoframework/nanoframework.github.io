@@ -2,13 +2,13 @@
 
 This document explains a couple of rules to create a proper Markdown file in the documentation repository.
 
-Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world’s most popular markup languages.
+Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world's most popular markup languages.
 
 Markdown files are text based. If you want to learn about possibilities (headers, lists, tables, code and such) this cheat sheet is always helpful: [Markdown Cheatsheet · adam-p/markdown-here Wiki · GitHub](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). There are a number of them.
 
-Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different. That said, as explained in the [section below](#preview-in-vs-code), you can have a nice preview when you open the repository with VS Code.
+Using Markdown is different than using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn't like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different. That said, as explained in the [section below](#preview-in-vs-code), you can have a nice preview when you open the repository with VS Code.
 
-You can find more information, a full documentation [here](https://www.markdownguide.org/).
+You can find more information, a full documentation on the [Markdown Guide](https://www.markdownguide.org/).
 
 ## Images and attachments
 
@@ -125,7 +125,7 @@ To help developers and anyone who needs to create Markdown, we propose to use [M
 
 ### Rules
 
-A comprehensive list of rules are available [here](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md). We will use a quite strict approach except for the line length rule MD013 which we won't apply and html tags.
+A comprehensive list of rules are available in the [Markdownlint rules documentation](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md). We will use a quite strict approach except for the line length rule MD013 which we won't apply and html tags.
 
 Please avoid using html tags at all. As we do integrate few external images sources which are hard to align properly, we are not applying this rule. But we will be vigilant in PR to make sure there is none checked in which is not critical.
 

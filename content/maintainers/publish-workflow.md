@@ -21,7 +21,7 @@ When a release contains a breaking change MAJOR version should be increased by o
 
 At this stage the contributor proposing a new release must perform a few administrative tasks. It's the responsibility of the release approver to verify that these tasks have been performed correctly.
 
-Details on the release preparation can be read from the Nerdbank GitVersioning documentation [here](https://github.com/AArnott/Nerdbank.GitVersioning/blob/master/doc/nbgv-cli.md#preparing-a-release).
+Details on the release preparation can be read from the [Nerdbank GitVersioning documentation on preparing a release](https://github.com/AArnott/Nerdbank.GitVersioning/blob/master/doc/nbgv-cli.md#preparing-a-release).
 
 If the process for merging individual pull requests was followed perfectly there is not much else to do except verify that all pull requests have assigned a milestone and an appropriate label.
 The label classifies the type of change and it's mandatory because the release notes are automatically generated from this information.

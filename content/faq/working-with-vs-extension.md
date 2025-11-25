@@ -49,7 +49,7 @@ You can do that following these steps:
 
 ## I'm having issues installing the Visual Studio extension
 
-- Our extension is maintained and kept up to date with the current version of VS2022 and VS2019. Generally only the latest version of Visual Studio is guaranteed to be supported. If you experience difficulties installing the extension, check that you are running the latest VS.NET version. If you need an older version for a specific VS version, you can download it from the [GitHub repository](https://github.com/nanoframework/nf-Visual-Studio-extension/releases).
+- Our extension is maintained and kept up to date with the current version of VS2022 and VS2019. Generally only the latest version of Visual Studio is guaranteed to be supported. If you experience difficulties installing the extension, check that you are running the latest VS.NET version. If you need an older version for a specific VS version, you can download it from the [Visual Studio extension releases on GitHub](https://github.com/nanoframework/nf-Visual-Studio-extension/releases).
 
 ## I want to exclude certain COM ports from being scanned by Device Explorer
 

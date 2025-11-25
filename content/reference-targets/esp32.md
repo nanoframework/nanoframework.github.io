@@ -52,4 +52,4 @@ All M5Stack boards carry ESP32 chips. Some are revision 1, others 3, and others 
 - ESP32_PSRAM_REV3_ILI9342
 - ESP32_PSRAM_REV3_ILI9341
 
-Check the details on the ESP32 pin-out available in nanoFramework [here](../esp32/esp32_pin_out.md).
+Check the details on the ESP32 pin-out available in nanoFramework in the [ESP32 pin-out documentation](../esp32/esp32_pin_out.md).

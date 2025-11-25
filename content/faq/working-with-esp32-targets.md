@@ -11,7 +11,7 @@ This will then send the details to the device. The device saves the details and 
 
 When the device is next rebooted the device automatically connects to AP as the WiFi details have been saved.
 
-For more information see [here](https://www.switchdoc.com/2018/06/tutorial-esp32-bc24-provisioning-for-wifi).
+For more information see the [tutorial on ESP32 provisioning for WiFi](https://www.switchdoc.com/2018/06/tutorial-esp32-bc24-provisioning-for-wifi).
 
 In your application you can wait for the network to be configured/connected by waiting for the IP to be set.
 
@@ -37,7 +37,7 @@ static void WaitIP()
 
 ## Can I debug nanoCLR code on ESP32 using Visual Studio without any special hardware
 
-Yes you can! Follow the old-school steps described [here](../building/build-esp32.md#debugging-nanoclr-without-special-hardware).
+Yes you can! Follow the old-school steps described in the [debugging without special hardware section](../building/build-esp32.md#debugging-nanoclr-without-special-hardware).
 
 ## How do I decode a _Guru Meditation Error_ output?
 

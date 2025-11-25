@@ -12,7 +12,7 @@ You will need to use this utility to replace the boot loader on the STM32 chip. 
 
 There are two images to be flashed in the target, one for nanoBooter and another one for nanoCLR.
 
-1. Download a ZIP file with the firmware for the board from our web site [here](https://github.com/nanoframework/nf-interpreter#firmware-for-reference-boards) by clicking on the appropriate badge. This will take you to our Cloudsmith repository that holds the packages with pre-build images for several target boards. After downloading it, unzip the package contents.
+1. Download a ZIP file with the firmware for the board from our web site by clicking on the appropriate badge from the [firmware for reference boards section](https://github.com/nanoframework/nf-interpreter#firmware-for-reference-boards). This will take you to our Cloudsmith repository that holds the packages with pre-build images for several target boards. After downloading it, unzip the package contents.
 
 1. Connect the target board to your PC using an USB cable. Note that on most ST development boards there are two micro USB connectors. To follow this guide you'll want to use the one that's providing the JTAG connection through the ST-Link debugger. In doubt, check the PCB for the correct one or the board schematic.
 

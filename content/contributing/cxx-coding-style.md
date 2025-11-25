@@ -1,6 +1,6 @@
 # C/C++ Coding Style
 
-For C/C++ files (*.c,*.cpp and *.h), we use clang-format (check the current used version in the AZDO yaml [here](https://github.com/nanoframework/nf-interpreter/blob/3769da888d6af9138f9d03ae595ed7c015700653/azure-pipelines-templates/download-install-llvm.yml#L24)) to ensure code styling.
+For C/C++ files (*.c,*.cpp and *.h), we use clang-format (check the current used version in the [AZDO yaml file](https://github.com/nanoframework/nf-interpreter/blob/3769da888d6af9138f9d03ae595ed7c015700653/azure-pipelines-templates/download-install-llvm.yml#L24)) to ensure code styling.
 The rules and config files are included in the nf-interpreter repository.
 
 ## Using Visual Studio Code
@@ -11,7 +11,7 @@ To have this extension working you need to have the clang-format.exe installed o
 LLVM.org doesn't provide a separate installer for this tool so follows a quick and dirty way of getting it.
 
 1. Install the Clang-Format extension.
-1. Install the LLVM package from [here](https://github.com/llvm/llvm-project/releases/).
+1. Install the LLVM package from the [LLVM releases page](https://github.com/llvm/llvm-project/releases/).
 1. Take note of the path where you choose to install it.
 1. Back in VS Code, open the settings and adjust the entry for `clang-format.executable` with the path to the executable. The new setting file will have a new entry with something similar to the following:
 
