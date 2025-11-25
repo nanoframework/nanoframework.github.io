@@ -29,7 +29,7 @@ We would like to have .NET **nanoFramework** in full conformance with the style 
 
 ## Commit Messages
 
-Please format commit messages as follows (based on this [excellent post](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)):
+Please format commit messages as follows (based on this [excellent blog post about git commit messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)):
 
 ```text
 Summarize change in 50 characters or less
@@ -69,7 +69,7 @@ Specifically, our Contributor License Agreements (CLAs) grant the contributor an
 
 ### Our CLA's
 
-All contributions to .NET **nanoFramework** (no matter if that's code, bug fixes, configuration changes, documentation, or anything else) requires that the contributor(s) complete and sign a Contributor License Agreement. You can read it [here](cla.md).
+All contributions to .NET **nanoFramework** (no matter if that's code, bug fixes, configuration changes, documentation, or anything else) requires that the contributor(s) complete and sign a Contributor License Agreement. You can read it in the [CLA documentation](cla.md).
 
 .NET **nanoFramework** team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.
 

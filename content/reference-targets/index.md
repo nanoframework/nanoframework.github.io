@@ -30,4 +30,4 @@ We provide ready build firmware images for several reference target boards. Thes
 
 ## Community target boards
 
-There is a GitHub repository that holds target boards provided by community members. Check it [here](https://github.com/nanoframework/nf-Community-Targets).
+There is a GitHub repository that holds target boards provided by community members. Check the [nf-Community-Targets repository](https://github.com/nanoframework/nf-Community-Targets).

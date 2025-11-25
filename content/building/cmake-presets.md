@@ -158,7 +158,7 @@ Below is a list of the build options available (last updated October 2022). Thes
 - "NF_FEATURE_RTC" : **`OFF`**
   - Allows you to specify whether to use the real time clock unit of the hardware for date & time functions. Depends on target availability. Default is `OFF`.
 - "NF_FEATURE_USE_APPDOMAINS" : **`OFF`**
-  - Allows you to specify whether to include, or not, support for Application Domains. Default is `OFF`. More information about this is available in the documentation [here](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). **Note that the complete removal of support for this feature is being considered.**
+  - Allows you to specify whether to include, or not, support for Application Domains. Default is `OFF`. More information about this is available in the [MSDN documentation on Application Domains](https://msdn.microsoft.com/en-us/library/cxk374d9(v=vs.90).aspx). **Note that the complete removal of support for this feature is being considered.**
 - "NF_FEATURE_SUPPORT_REFLECTION": "ON"
   - Set to `OFF` to disable support for System.Reflection API.
 - "NF_FEATURE_BINARY_SERIALIZATION": **`ON`**
@@ -282,4 +282,4 @@ Below is a list of the build options available (last updated October 2022). Thes
 
 ## Updating from CMake Variants
 
-Please refer to [this blog post](https://www.nanoframework.net/build-updated-to-cmake-presets/) about the move to CMake presets.
+Please refer to the [blog post about moving to CMake presets](https://www.nanoframework.net/build-updated-to-cmake-presets/) for information about the transition from CMake Variants.

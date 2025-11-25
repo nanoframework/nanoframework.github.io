@@ -27,7 +27,7 @@ Sponsors will get their logo and a link to their website on our GitHub readme an
 
 Backers are individuals who contribute money to help support nanoFramework. Every little bit helps and we appreciate all contributions, even the smallest ones.
 
-<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80"></a>
+<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80" alt="opencollective"></a>
 
 ## What is .NET **nanoFramework**
 
@@ -42,7 +42,7 @@ The .NET **nanoFramework** platform picks up where [.NET Micro Framework](https:
 
 Read along and find out [why use .NET nanoFramework?](content/introduction/why-use-nanoframework.md)
 
-You can watch this video from the Microsoft [IoT Show](https://aka.ms/iotshow) featuring .NET nanoFramework connected to Azure IoT Hub, measuring a [BMP280 sensors](devices/Iot.Device.Bmxx80.Bmp280.html) and using the unique deep sleep feature from MCU. A real life example with .NET nanoFramework:
+You can watch this video from the Microsoft [IoT Show](https://aka.ms/iotshow) featuring .NET nanoFramework connected to Azure IoT Hub, measuring a [BMP280 sensors](https://github.com/nanoframework/nanoFramework.IoT.Device/tree/develop/devices/Bmxx80) and using the unique deep sleep feature from MCU. A real life example with .NET nanoFramework:
 
 [![IoT Show](https://img.youtube.com/vi/TLYqRdmmj5k/0.jpg)](https://youtu.be/TLYqRdmmj5k)
 

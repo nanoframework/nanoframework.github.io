@@ -438,7 +438,7 @@ Before `Windows.Devices` namespaces will be removed you need both the `Windows.D
 
 ## Create an extension for your board
 
-Make it easy for your user to create an SPI device or I2C or anything else. Also create a mapping with the board pin, the names. Make it easy for ADC. Use enums if you want. Place your code in the folder `managed_helpers`. Add a nuspec file. You can find a great example [here](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/ChibiOS/ST_STM32F769I_DISCOVERY/managed_helpers/package.nuspec).
+Make it easy for your user to create an SPI device or I2C or anything else. Also create a mapping with the board pin, the names. Make it easy for ADC. Use enums if you want. Place your code in the folder `managed_helpers`. Add a nuspec file. You can find a great example in the [ST_STM32F769I_DISCOVERY package.nuspec](https://github.com/nanoframework/nf-interpreter/blob/develop/targets/ChibiOS/ST_STM32F769I_DISCOVERY/managed_helpers/package.nuspec).
 
 He is an extract of of function definition for a board extension class:
 

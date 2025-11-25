@@ -29,7 +29,7 @@ You'll need:
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - OpenOCD. We suggest [Microsoft build](https://github.com/microsoft/openocd) which provides a Windows distribution including convenient fixes for working with Azure RTOS.
-- [ChibiOS](https://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `CHIBIOS_SOURCE_FOLDER` build option (more info [here](#set-up-visual-studio-code)).
+- [ChibiOS](https://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `CHIBIOS_SOURCE_FOLDER` build option (more info in the [Set up Visual Studio Code section](#set-up-visual-studio-code)).
 
 All the the above can be installed by the Power Shell script `.\install-nf-tools.ps1 -TargetSeries STM32` from the `install-scripts` folder within the [`nf-interpreter`](https://github.com/nanoFramework/nf-interpreter) project (cloned or downloaded). If you prefer you can do it manually (NOT RECOMMENDED for obvious reasons).
 
@@ -173,7 +173,7 @@ There are two options to flash the nanoBooter & nanoCLR images to a target. The 
 
 ### Using STM32CubeProgrammer Utility
 
-Follow the instructions [here](../stm32/flash-cube-programmer.md) to install STM32CubeProgrammer and flash `nanoBooter.hex` and `nanoCLR.hex` images to the board. Also this is not mandatory as all this can be handled by VS Code.
+Follow the [STM32CubeProgrammer flashing instructions](../stm32/flash-cube-programmer.md) to install STM32CubeProgrammer and flash `nanoBooter.hex` and `nanoCLR.hex` images to the board. Also this is not mandatory as all this can be handled by VS Code.
 
 ## Next Steps
 

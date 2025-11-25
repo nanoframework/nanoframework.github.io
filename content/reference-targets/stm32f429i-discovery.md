@@ -23,8 +23,8 @@ The ready to use firmware images provided include support for the class librarie
 
 > **Warning:** This firmware is built for hardware version B01. If you have a board with the new revision E01, the device won't be recognized.
 
-| Gpio | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: |
+| Gpio               | Spi                | I2c                | Pwm                | Adc | Serial             | Events             | SWO                | Networking | Large Heap        |
+| ------------------ | ------------------ | ------------------ | ------------------ | --- | ------------------ | ------------------ | ------------------ | ---------- | ----------------- |
+| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |            | :heavy_check_mark: |
 
 [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ST_STM32F429I_DISCOVERY/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ST_STM32F429I_DISCOVERY/latest/)

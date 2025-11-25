@@ -27,9 +27,9 @@ You can check Espressif [Product Selector](https://products.espressif.com/#/prod
 
 ## Firmware images (ready to deploy)
 
-| Target | Firmware |
-|:---|---|
-| ESP32_S3 | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_S3/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_S3/latest/) |
+| Target       | Firmware |
+| ------------ | -------- |
+| ESP32_S3     | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_S3/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_S3/latest/) |
 | ESP32_S3_BLE | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_S3_BLE/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_S3_BLE/latest/) |
 
 :warning: In order to update most of the S3 boards with [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher) the board needs to be put in **download mode** by holding [BOOT], clicking [RESET] and then releasing [BOOT]. In doubt please check the instructions from the respective manufacturer.

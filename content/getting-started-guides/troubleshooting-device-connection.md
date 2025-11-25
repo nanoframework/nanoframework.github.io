@@ -6,11 +6,11 @@ This example will use an ESP32 device but it works in a similar way for other de
 
 ## Assumptions
 
-We assume you have properly installed the .NET nanoFramework flash tool called `nanoff`. If not, go [here](https://github.com/nanoframework/nanoFirmwareFlasher).
+We assume you have properly installed the .NET nanoFramework flash tool called `nanoff`. If not, go to the [nanoFirmwareFlasher repository](https://github.com/nanoframework/nanoFirmwareFlasher).
 
-We also assume you have properly installed the Visual Studio Extension. If not the case, then go [here](./getting-started-managed.md).
+We also assume you have properly installed the Visual Studio Extension. If not the case, then go to the [getting started managed guide](./getting-started-managed.md).
 
-And finally, we assume you have a tool to watch port serial traffic like `putty`. If you don't have any, go [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+And finally, we assume you have a tool to watch port serial traffic like `putty`. If you don't have any, go to the [PuTTY download page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 ## Finding the serial port of your device
 
