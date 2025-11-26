@@ -26,7 +26,7 @@ NP = Pin is undefined at startup
 There are 2 I2C bus available:
 
 | I2C# | Data | Clock |
-| --- | --- | ---|
+| --- | --- | --- |
 | I2C1 | GPIO 18 | GPIO 19 |
 | I2C2 | GPIO 25 | GPIO 26 |
 

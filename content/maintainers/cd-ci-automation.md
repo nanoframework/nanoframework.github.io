@@ -18,6 +18,6 @@ Available commands:
 |:---|:---|:---|
 | updatedependents | - | Update the libraries that depend on this library |
 | updatedependencies | - | Check if there are updated versions of the referenced libraries and update if needed |
-| updatedependencies all| - | Launch a global check for updated versions of the referenced libraries and update if needed in **all** class libraries |
+| updatedependencies all | - | Launch a global check for updated versions of the referenced libraries and update if needed in **all** class libraries |
 | startrelease | - | Kick a release candidate workflow for this library. Will fail if there are preview dependencies for the library. |
 | runpipeline | *branch* | Runs the Azure Pipeline for the mentioned branch. If no branch is mentioned runs it for the default branch. |
