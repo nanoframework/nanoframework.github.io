@@ -81,4 +81,4 @@ The firmware images provided include support for the class libraries and feature
 
 | Gpio | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| :heavy_check_mark: |  |  |  |  | |  | |  | |
+| :heavy_check_mark: |  |  |  |  |  |  |  |  |  |

@@ -25,8 +25,8 @@
 | help wanted | If this issue has any work assigned or has already started to be addressed in a pull request help is welcomed. If you are willing to help add a comment to coordinate with the people already working on it. | Help is welcomed for this pull request. If you are willing to help add a comment to coordinate with the people already working on it. |
 | DONE | The work on the issue is completed | n/a |
 | under review | The issue (probably a feature request) is under review and a decision hasn't been made | n/a |
-| trivial | The work required to complete this issue is considered to be very simple and it shouldn't pose any significant challenge. It can be completed in a very short time. It doesn't require any particular skills or deep knowledge on the matter or the project.  | n/a |
-| non trivial | The work required to complete this issue is considered to be somewhat complex. It requires a particular skill set or deep knowledge on the matter or about the matter or the project architecture.  | n/a |
+| trivial | The work required to complete this issue is considered to be very simple and it shouldn't pose any significant challenge. It can be completed in a very short time. It doesn't require any particular skills or deep knowledge on the matter or the project. | n/a |
+| non trivial | The work required to complete this issue is considered to be somewhat complex. It requires a particular skill set or deep knowledge on the matter or about the matter or the project architecture. | n/a |
 | area-Config-and-Build | The issue is related with the configuration and build of .NET **nanoFramework** | The pull request is related with the configuration and build of .NET **nanoFramework** |
 | area-Infrastructure-and-Organization | The issue is related with the infrastructure or the overall organization of the .NET **nanoFramework** project | The pull request with the infrastructure or the overall organization of the .NET **nanoFramework** project |
 | area-Interpreter | The issue is related with the Interpreter component of .NET **nanoFramework** | The pull request is related with the Interpreter component of .NET **nanoFramework** |

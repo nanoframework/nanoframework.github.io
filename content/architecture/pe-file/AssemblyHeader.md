@@ -17,7 +17,7 @@ The Structure of the AssemblyHeader is as follows:
 | [StringTableVersion](#stringtableversion)       | `uint16_t`            | String table version|
 | [StartOfTables](#startoftables)                 | `uint32_t[16]`        | Array of offsets into the PE file for the metadata tables |
 | NumberOfPatchedMethods                          | `uint32_t`            | Number of patched methods |
-| [PaddingOfTables](#paddingoftables)             | `uint8_t[16]`         | amount of alignment padding for each metadata tabl e|
+| [PaddingOfTables](#paddingoftables)             | `uint8_t[16]`         | amount of alignment padding for each metadata table |
 
 ## Field Details
 
@@ -29,7 +29,7 @@ The assembly marker is an eight character marker consisting of a string non zero
 This is used to clearly identify a .NET **nanoFramework** PE file on disk and in memory at runtime. It also indicates the version of this data structure, thus any modifications to this structure in future releases **MUST** use a new marker string.
 
 | Version  | Marker   | Description |
-|----------|----------|------------ |
+|----------|----------|-------------|
 | 1.0      | 'NFMRK1' | Marker for version 1.0 |
 | 2.0      | 'NFMRK2' | Marker for version 2.0 (after adding support for generics) |
 

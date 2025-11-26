@@ -6,7 +6,7 @@ This is a list of recommended devices to start with .NET nanoFramework and links
 >
 > Those lists are just suggestions, the links to buy as well, we are not linked or related to any of those vendors neither any of the resellers.
 
-| MCU|Specifications|Manufacturer SKU|Firmware Target|Purchase Option|
+| MCU | Specifications | Manufacturer SKU | Firmware Target | Purchase Option |
 |---|---|---|---|---|
 | ![MFG_ESP32-DEVKITC-32E](../../images/getting-started-guides/MFG_ESP32-DEVKITC-32E.jpg) ESP-WROOM-32E|4MB flash|ESP32-DevKitC-32E|ESP32_REV3, ESP32_REV0, ESP32_BLE_REV0|[![digikey logo](../../images/getting-started-guides/digikey-logo.jpg)](https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32E/12091810)|
 | ![MFG_ESP32-DEVKITC-VE](../../images/getting-started-guides/MFG_ESP32-DEVKITC-VE.jpg) ESP_WROVER-E|4MB Flash & 8MB PSRAM|ESP32-DevKitC-VE|ESP32_REV3, ESP32_PSRAM_REV3, ESP32_BLE_REV3, ESP32_REV0|[![digikey logo](../../images/getting-started-guides/digikey-logo.jpg)](https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-VE/12091812)|
@@ -21,7 +21,7 @@ This is a list of recommended devices to start with .NET nanoFramework and links
 
 Integrated devices with additional sensors like accelerometers, screens, leds:
 
-| MCU|Specifications|Manufacturer SKU|Firmware Target|Purchase Option|
+| MCU | Specifications | Manufacturer SKU | Firmware Target | Purchase Option |
 |---|---|---|---|---|
 |![M5Core](../../images/getting-started-guides/m5core.jpg) M5Core|16MB flash, 520Kb SRAM|ESP32-D0WDQ6-V3|M5Core|[![M5Stack logo](../../images/getting-started-guides/m5stack.jpg)](https://shop.m5stack.com/collections/m5-controllers/CORE)|
 |![M5Core 2](../../images/getting-started-guides/m5core2.jpg) M5Core2|16MB flash, 520Kb SRAM, 9Mb PSRAM|ESP32-D0WDQ6-V3|M5Core2|[![M5Stack logo](../../images/getting-started-guides/m5stack.jpg)](https://shop.m5stack.com/collections/m5-controllers/CORE)|
