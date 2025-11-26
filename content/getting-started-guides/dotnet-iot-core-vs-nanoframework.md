@@ -4,9 +4,9 @@ This document compares .NET **nanoFramework** and .NET IoT platforms. For this d
 
 The sample application includes a scenario on both platforms: Every 3 seconds the application reads temperature value from BMP280 sensor and turns on LED after reading the value. Then this temperature value is pushed to IoT Hub with device name and after every successful push LED will blink and turn off. Data will be handled by IoT Hub message routing and will be pushed to blob storage to store.
 
-| .NET IoT | .NET **nanoFramework** |
-| :------: | :--------------------: |
-| ![Raspberry Pi with .Net IoT](../../images/getting-started-guides/compare-RP-BMP280_bb.png) | ![M5Stack with .NET nanoFramework](../../images/getting-started-guides/compare-ESP32-BMP280_bb.png) |
+|                                           .NET IoT                                           |                                                             .NET **nanoFramework**                                                              |
+| :------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| ![Raspberry Pi with .Net IoT](../../images/getting-started-guides/compare-RP-BMP280_bb.png)  |                       ![M5Stack with .NET nanoFramework](../../images/getting-started-guides/compare-ESP32-BMP280_bb.png)                       |
 | [Raspberry Pi with .Net IoT sample project](https://github.com/dotnet/iot/tree/main/samples) | [M5Stack with .NET nanoFramework sample project](https://github.com/nanoframework/Samples/tree/main/samples/AzureSDK/AzureSDKSensorCertificate) |
 
 ## Certificate
@@ -19,16 +19,16 @@ You can check differences of using these certificates below.
 
 ## Quick Tips & Differences
 
-| .NET IoT | .NET **nanoFramework** |
-| -------- | ---------------------- |
-| Works on powerful boards with memory and CPU                 | Works on low-level microcontroller devices with low memory   |
-| Due to device specs it can benefit from all .NET core libraries | Uses specific .NET libraries for **nanoFramework** due to performance on low-level devices |
-| You can add your packages via NuGet manager                  | You can add your packages via NuGet manager                  |
-| You only need to add `Iot.Device.Bindings` and `System.Device.Gpio` packages for new sensors | You need to add **nanoFramework** specific packages separately for each sensor |
-| You need to setup your deployment and remote debugging manually | Built-in deployment and rich remote debugging experience as Default |
-| Deploy the code via SSH connection                           | Deploy the code directly via wired connection                |
-| It can use WiFi of Raspberry Pi OS                           | You need to connect your device to WiFi through your code                   |
-| You can use `pfx` certificates in your code                  | You can use `PEM`, `crt` and `der` certificates in your code |
+| .NET IoT                                                                                     | .NET **nanoFramework**                                                                     |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Works on powerful boards with memory and CPU                                                 | Works on low-level microcontroller devices with low memory                                 |
+| Due to device specs it can benefit from all .NET core libraries                              | Uses specific .NET libraries for **nanoFramework** due to performance on low-level devices |
+| You can add your packages via NuGet manager                                                  | You can add your packages via NuGet manager                                                |
+| You only need to add `Iot.Device.Bindings` and `System.Device.Gpio` packages for new sensors | You need to add **nanoFramework** specific packages separately for each sensor             |
+| You need to setup your deployment and remote debugging manually                              | Built-in deployment and rich remote debugging experience as Default                        |
+| Deploy the code via SSH connection                                                           | Deploy the code directly via wired connection                                              |
+| It can use WiFi of Raspberry Pi OS                                                           | You need to connect your device to WiFi through your code                                  |
+| You can use `pfx` certificates in your code                                                  | You can use `PEM`, `crt` and `der` certificates in your code                               |
 
 ## Code Comparison
 

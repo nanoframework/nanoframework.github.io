@@ -6,7 +6,7 @@
 
 ## Features
 
-### CC1352R  mcu
+### CC1352R mcu
 
 - CC3220SF single-chip wireless microcontroller
 - Dual-Core Architecture:
@@ -73,11 +73,11 @@
 
 The ready to use firmware images provided include support for the class libraries and features marked bellow.
 
-| Gpio | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
-|:----:|:---:|:---:|:---:|:---:|:------:|:------:|:---:|:----------:|:----------:|
-| :heavy_check_mark: |  |  |  |  |  |  |  |  |  |
+|        Gpio        | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
+| :----------------: | :-: | :-: | :-: | :-: | :----: | :----: | :-: | :--------: | :--------: |
+| :heavy_check_mark: |     |     |     |     |        |        |     |            |            |
 
-| Target | Firmware |
-| --- | -------- |
-| CC1352R1_LAUNCHXL (868MHz)    | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/TI_CC1352R1_LAUNCHXL_868/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/TI_CC1352R1_LAUNCHXL_868/latest/) |
-| CC1352R1_LAUNCHXL (915MHz)    | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/TI_CC1352R1_LAUNCHXL_915/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/TI_CC1352R1_LAUNCHXL_915/latest/) |
+| Target                     | Firmware                                                                                                                                                                                                                                                                                              |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CC1352R1_LAUNCHXL (868MHz) | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/TI_CC1352R1_LAUNCHXL_868/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/TI_CC1352R1_LAUNCHXL_868/latest/) |
+| CC1352R1_LAUNCHXL (915MHz) | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/TI_CC1352R1_LAUNCHXL_915/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/TI_CC1352R1_LAUNCHXL_915/latest/) |
