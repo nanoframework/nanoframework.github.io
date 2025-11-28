@@ -25,8 +25,8 @@ NP = Pin is undefined at startup
 
 There are 2 I2C bus available:
 
-| I2C# | Data | Clock |
-| --- | --- | --- |
+| I2C# | Data    | Clock   |
+| ---- | ------- | ------- |
 | I2C1 | GPIO 18 | GPIO 19 |
 | I2C2 | GPIO 25 | GPIO 26 |
 
@@ -34,20 +34,20 @@ There are 2 I2C bus available:
 
 There are 2 SPI possible configurations:
 
-| SPI# | MOSI | MISO | Clock |
-| --- | --- | --- | --- |
+| SPI# | MOSI    | MISO    | Clock   |
+| ---- | ------- | ------- | ------- |
 | SPI1 | GPIO 23 | GPIO 25 | GPIO 19 |
-| SPI2 | NP | NP | NP |
+| SPI2 | NP      | NP      | NP      |
 
 ## Serial ports
 
 You have 2 serial ports available, COM1 is reserved for debugging when enabled.
 
-| COM# | Transfer (Tx) | Reception (Rx) | RTS | CTS |
-| --- | --- | --- | --- | --- |
-| COM1 | GPIO 1 | GPIO 3 | GPIO 19 | GPIO 22 |
-| COM2 | NP | NP | NP | NP |
-| COM3 | NP | NP | NP | NP |
+| COM# | Transfer (Tx) | Reception (Rx) | RTS     | CTS     |
+| ---- | ------------- | -------------- | ------- | ------- |
+| COM1 | GPIO 1        | GPIO 3         | GPIO 19 | GPIO 22 |
+| COM2 | NP            | NP             | NP      | NP      |
+| COM3 | NP            | NP             | NP      | NP      |
 
 ## PWM channels
 
@@ -69,34 +69,34 @@ Restrictions:-
 - Hall sensor and Temperature sensor can not be used at same time as Channels 0 and 3.
 - Gpio 0, 2, 15 are strapping pins and can not be freely used ( Channels 11, 12, 13 ), check board schematics.
 
-| Logical channel # | Internal ADC# | GPIO # | Note |
-| --- | --- | --- | --- |
-| 0 | ADC1 | 36 | See restrictions|
-| 1 | ADC1 | 37 | |
-| 2 | ADC1 | 38 | |
-| 3 | ADC1 | 39 | See restrictions |
-| 4 | ADC1 | 32 | |
-| 5 | ADC1 | 33 | |
-| 6 | ADC1 | 34 | |
-| 7 | ADC1 | 35 | |
-| 8 | ADC1 | 36 | Internal Temperture sensor (VP), See restrictions |
-| 9 | ADC1 | 39 | Internal Hall Sensor (VN), See restrictions |
-| 10 | ADC2 | 04 | |
-| 11 | ADC2 | 00 | Strapping pin |
-| 12 | ADC2 | 02 | Strapping pin |
-| 13 | ADC2 | 15 | Strapping pin |
-| 14 | ADC2 | 13 | |
-| 15 | ADC2 | 12 | |
-| 16 | ADC2 | 14 | |
-| 17 | ADC2 | 27 | |
-| 18 | ADC2 | 25 | |
-| 19 | ADC2 | 26 | |
+| Logical channel # | Internal ADC# | GPIO # | Note                                              |
+| ----------------- | ------------- | ------ | ------------------------------------------------- |
+| 0                 | ADC1          | 36     | See restrictions                                  |
+| 1                 | ADC1          | 37     |                                                   |
+| 2                 | ADC1          | 38     |                                                   |
+| 3                 | ADC1          | 39     | See restrictions                                  |
+| 4                 | ADC1          | 32     |                                                   |
+| 5                 | ADC1          | 33     |                                                   |
+| 6                 | ADC1          | 34     |                                                   |
+| 7                 | ADC1          | 35     |                                                   |
+| 8                 | ADC1          | 36     | Internal Temperture sensor (VP), See restrictions |
+| 9                 | ADC1          | 39     | Internal Hall Sensor (VN), See restrictions       |
+| 10                | ADC2          | 04     |                                                   |
+| 11                | ADC2          | 00     | Strapping pin                                     |
+| 12                | ADC2          | 02     | Strapping pin                                     |
+| 13                | ADC2          | 15     | Strapping pin                                     |
+| 14                | ADC2          | 13     |                                                   |
+| 15                | ADC2          | 12     |                                                   |
+| 16                | ADC2          | 14     |                                                   |
+| 17                | ADC2          | 27     |                                                   |
+| 18                | ADC2          | 25     |                                                   |
+| 19                | ADC2          | 26     |                                                   |
 
 ## DAC
 
 2 DAC are available on the ESP32:
 
 | DAC# | GPIO # |
-| --- | --- |
-| DAC1 | 25 |
-| DAC2 | 26 |
+| ---- | ------ |
+| DAC1 | 25     |
+| DAC2 | 26     |

@@ -2,7 +2,7 @@
 
 These are the firmware images:
 
-- ESP32_S3 that *fits* all ESP32-S3 boards exposing the embedded USB CDC through GPIO19 and GPIO20. These can be ESP32-S3-WROOM, ESP32-S3-DevKit's or any of the amazing S3 boards from Unexpected Maker, or any other similar hardware with or without PSRAM.
+- ESP32_S3 that _fits_ all ESP32-S3 boards exposing the embedded USB CDC through GPIO19 and GPIO20. These can be ESP32-S3-WROOM, ESP32-S3-DevKit's or any of the amazing S3 boards from Unexpected Maker, or any other similar hardware with or without PSRAM.
 - ESP32_S3_BLE same as above, but including support for BLE.
 
 You can check Espressif [Product Selector](https://products.espressif.com/#/product-selector?names=&filter=%7B%22Series%22%3A%5B%22ESP32-S3%22%5D%7D) for details on all the existing variants, chips, modules and respective development kits.
@@ -27,9 +27,9 @@ You can check Espressif [Product Selector](https://products.espressif.com/#/prod
 
 ## Firmware images (ready to deploy)
 
-| Target       | Firmware |
-| ------------ | -------- |
-| ESP32_S3     | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_S3/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_S3/latest/) |
+| Target       | Firmware                                                                                                                                                                                                                                                                      |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ESP32_S3     | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_S3/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_S3/latest/)         |
 | ESP32_S3_BLE | [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/ESP32_S3_BLE/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/ESP32_S3_BLE/latest/) |
 
 :warning: In order to update most of the S3 boards with [nanoff](https://github.com/nanoframework/nanoFirmwareFlasher) the board needs to be put in **download mode** by holding [BOOT], clicking [RESET] and then releasing [BOOT]. In doubt please check the instructions from the respective manufacturer.
