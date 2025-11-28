@@ -144,7 +144,13 @@ Class ModbusClient
       <a class="xref" href="Iot.Device.Modbus.Port.html#Iot_Device_Modbus_Port_DataWrite_System_Byte___System_Int32_System_Int32_">Port.DataWrite(byte[], int, int)</a>
     </div>
     <div>
+      <a class="xref" href="Iot.Device.Modbus.Port.html#Iot_Device_Modbus_Port_Dispose_System_Boolean_">Port.Dispose(bool)</a>
+    </div>
+    <div>
       <a class="xref" href="Iot.Device.Modbus.Port.html#Iot_Device_Modbus_Port_Dispose">Port.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Iot.Device.Modbus.Port.html#Iot_Device_Modbus_Port_Logger">Port.Logger</a>
     </div>
     <div>
       <a class="xref" href="Iot.Device.Modbus.Port.html#Iot_Device_Modbus_Port_PortName">Port.PortName</a>
@@ -196,7 +202,7 @@ Class ModbusClient
     <dd><p>The serial port.</p>
 </dd>
     <dt><code>mode</code> <a class="xref" href="../api/System.IO.Ports.SerialMode.html">SerialMode</a></dt>
-    <dd><p>The mode of serial port, default is RS485.</p>
+    <dd><p>The mode of serial port, default is <a class="xref" href="../api/System.IO.Ports.SerialMode.html#System_IO_Ports_SerialMode_RS485">RS485</a>.</p>
 </dd>
   </dl>
 
@@ -235,16 +241,16 @@ Class ModbusClient
     <dd><p>The baud rate. Default is 9600.</p>
 </dd>
     <dt><code>parity</code> <a class="xref" href="../api/System.IO.Ports.Parity.html">Parity</a></dt>
-    <dd><p>The parity. Default is None.</p>
+    <dd><p>The parity. Default is <a class="xref" href="../api/System.IO.Ports.Parity.html#System_IO_Ports_Parity_None">None</a>.</p>
 </dd>
     <dt><code>dataBits</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
     <dd><p>The number of data bits. Default is 8.</p>
 </dd>
     <dt><code>stopBits</code> <a class="xref" href="../api/System.IO.Ports.StopBits.html">StopBits</a></dt>
-    <dd><p>The number of stop bits. Default is One.</p>
+    <dd><p>The number of stop bits. Default is <a class="xref" href="../api/System.IO.Ports.StopBits.html#System_IO_Ports_StopBits_One">One</a>.</p>
 </dd>
     <dt><code>mode</code> <a class="xref" href="../api/System.IO.Ports.SerialMode.html">SerialMode</a></dt>
-    <dd><p>The mode of serial port, default is RS485.</p>
+    <dd><p>The mode of serial port, default is <a class="xref" href="../api/System.IO.Ports.SerialMode.html#System_IO_Ports_SerialMode_RS485">RS485</a>.</p>
 </dd>
   </dl>
 
@@ -294,7 +300,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>The raw data of the response.</p>
+    <dd><p>The raw data of the response or a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the operation fails.</p>
 </dd>
   </dl>
 
@@ -339,7 +345,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a>[]</dt>
-    <dd><p>An array of boolean values representing the state of the coils.</p>
+    <dd><p>An array of boolean values representing the state of the coils or a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the read operation fails.</p>
 </dd>
   </dl>
 
@@ -350,6 +356,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code>, <code class="paramref">startAddress</code>, or <code class="paramref">count</code> is out of range.</p>
+</dd>
+  </dl>
 
 
 
@@ -384,7 +396,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a>[]</dt>
-    <dd><p>An array of boolean values representing the state of the discrete inputs.</p>
+    <dd><p>An array of boolean values representing the state of the discrete inputs or a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the read operation fails.</p>
 </dd>
   </dl>
 
@@ -395,6 +407,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code>, <code class="paramref">startAddress</code>, or <code class="paramref">count</code> is out of range.</p>
+</dd>
+  </dl>
 
 
 
@@ -429,7 +447,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Int16.html">short</a>[]</dt>
-    <dd><p>An array of ushort values representing the values of the holding registers.</p>
+    <dd><p>An array of <a class="xref" href="../api/System.Int16.html">short</a> values representing the values of the holding registers or a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the read operation fails.</p>
 </dd>
   </dl>
 
@@ -440,6 +458,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code>, <code class="paramref">startAddress</code>, or <code class="paramref">count</code> is out of range.</p>
+</dd>
+  </dl>
 
 
 
@@ -474,7 +498,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Int16.html">short</a>[]</dt>
-    <dd><p>An array of ushort values representing the values of the input registers.</p>
+    <dd><p>An array of <a class="xref" href="../api/System.Int16.html">short</a> values representing the values of the holding registers or a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the read operation fails.</p>
 </dd>
   </dl>
 
@@ -485,6 +509,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code>, <code class="paramref">startAddress</code>, or <code class="paramref">count</code> is out of range.</p>
+</dd>
+  </dl>
 
 
 
@@ -519,7 +549,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
-    <dd><p>True if the write operation is successful, false otherwise.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the write operation is successful, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
 </dd>
   </dl>
 
@@ -530,6 +560,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code> or <code class="paramref">startAddress</code> is out of range, or the length of the <code class="paramref">values</code> array is zero.</p>
+</dd>
+  </dl>
 
 
 
@@ -564,7 +600,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
-    <dd><p>True if the write operation is successful, false otherwise.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the write operation is successful, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
 </dd>
   </dl>
 
@@ -575,6 +611,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code> or <code class="paramref">startAddress</code> is out of range, or the length of the <code class="paramref">values</code> array is zero.</p>
+</dd>
+  </dl>
 
 
 
@@ -609,7 +651,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
-    <dd><p>True if the write operation is successful, false otherwise.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the write operation is successful, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
 </dd>
   </dl>
 
@@ -620,6 +662,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code> or <code class="paramref">startAddress</code> is out of range.</p>
+</dd>
+  </dl>
 
 
 
@@ -654,7 +702,7 @@ Class ModbusClient
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
-    <dd><p>True if the write operation is successful, false otherwise.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the write operation is successful, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
 </dd>
   </dl>
 
@@ -665,6 +713,12 @@ Class ModbusClient
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">deviceId</code> or <code class="paramref">startAddress</code> is out of range.</p>
+</dd>
+  </dl>
 
 
 

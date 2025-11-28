@@ -147,7 +147,7 @@ Class Port
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Port(SerialPort port, int receivedBytesThreshold = 1, SerialMode mode = SerialMode.RS485)</code></pre>
+    <pre><code class="lang-csharp hljs">protected Port(SerialPort port, int receivedBytesThreshold = 1, SerialMode mode = SerialMode.RS485)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -156,10 +156,10 @@ Class Port
     <dd><p>The serial port.</p>
 </dd>
     <dt><code>receivedBytesThreshold</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
-    <dd><p>The number of bytes required before the DataReceived event is fired. Default is 1.</p>
+    <dd><p>The number of bytes required before the <a class="xref" href="Iot.Device.Modbus.Port.html#Iot_Device_Modbus_Port_DataReceived_System_Int32_">DataReceived(int)</a> event is fired. Default is 1.</p>
 </dd>
     <dt><code>mode</code> <a class="xref" href="../api/System.IO.Ports.SerialMode.html">SerialMode</a></dt>
-    <dd><p>The mode of serial port, default is RS485.</p>
+    <dd><p>The mode of serial port, default is <a class="xref" href="../api/System.IO.Ports.SerialMode.html#System_IO_Ports_SerialMode_RS485">RS485</a>.</p>
 </dd>
   </dl>
 
@@ -186,7 +186,7 @@ Class Port
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Port(string portName, int baudRate, Parity parity, int dataBits, StopBits stopBits, int receivedBytesThreshold = 1, SerialMode mode = SerialMode.RS485)</code></pre>
+    <pre><code class="lang-csharp hljs">protected Port(string portName, int baudRate, Parity parity, int dataBits, StopBits stopBits, int receivedBytesThreshold = 1, SerialMode mode = SerialMode.RS485)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -207,10 +207,10 @@ Class Port
     <dd><p>The number of stop bits.</p>
 </dd>
     <dt><code>receivedBytesThreshold</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
-    <dd><p>The number of bytes required before the DataReceived event is fired. Default is 1.</p>
+    <dd><p>The number of bytes required before the <a class="xref" href="Iot.Device.Modbus.Port.html#Iot_Device_Modbus_Port_DataReceived_System_Int32_">DataReceived(int)</a> event is fired. Default is 1.</p>
 </dd>
     <dt><code>mode</code> <a class="xref" href="../api/System.IO.Ports.SerialMode.html">SerialMode</a></dt>
-    <dd><p>The mode of serial port, default is RS485.</p>
+    <dd><p>The mode of serial port, default is <a class="xref" href="../api/System.IO.Ports.SerialMode.html#System_IO_Ports_SerialMode_RS485">RS485</a>.</p>
 </dd>
   </dl>
 
@@ -251,6 +251,38 @@ Class Port
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Modbus_Port_Logger_" data-uid="Iot.Device.Modbus.Port.Logger*"></a>
+
+  <h3 id="Iot_Device_Modbus_Port_Logger" data-uid="Iot.Device.Modbus.Port.Logger">
+  Logger
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the logger instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ILogger Logger { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/Microsoft.Extensions.Logging.ILogger.html">ILogger</a></dt>
     <dd></dd>
   </dl>
 
@@ -444,7 +476,7 @@ Class Port
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
-    <dd><p>True if the serial port is open, false otherwise.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the serial port is open, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
 </dd>
   </dl>
 
@@ -608,7 +640,7 @@ Class Port
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void DataWrite(byte[] buffer, int offset, int count)</code></pre>
+    <pre><code class="lang-csharp hljs">protected bool DataWrite(byte[] buffer, int offset, int count)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -624,6 +656,12 @@ Class Port
 </dd>
   </dl>
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the write operation was successful, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
 
 
 
@@ -650,6 +688,39 @@ Class Port
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Modbus_Port_Dispose_" data-uid="Iot.Device.Modbus.Port.Dispose*"></a>
+
+  <h3 id="Iot_Device_Modbus_Port_Dispose_System_Boolean_" data-uid="Iot.Device.Modbus.Port.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases the unmanaged resources used by the serial port and optionally releases the managed resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to release both managed and unmanaged resources; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> to release only unmanaged resources.</p>
+</dd>
+  </dl>
 
 
 

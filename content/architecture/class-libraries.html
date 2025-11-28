@@ -436,7 +436,7 @@
 <p>Follow the procedure to add a new class library to a .NET <strong>nanoFramework</strong> target image.</p>
 <p>The example is for adding System.Device.Gpio library.</p>
 <ol>
-<li><p>In Visual Studio start a new project for a .NET <strong>nanoFramework</strong> C# Class library. Source code <a href="https://github.com/nanoframework/System.Device.Gpio">here</a></p>
+<li><p>In Visual Studio start a new project for a .NET <strong>nanoFramework</strong> C# Class library. <a href="https://github.com/nanoframework/System.Device.Gpio">Source code available on GitHub</a></p>
 </li>
 <li><p>Implement all the required methods, enums, properties in that project. It's recommended that you add XML comments there (and enable the automated documentation generation in the project properties).</p>
 </li>
@@ -458,24 +458,23 @@
 </li>
 </ul>
 </li>
-<li><p>Add the CMake as a module to the modules folder <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules">here</a>. The name of the module should follow the assembly name (Find<strong>System.Device.Gpio</strong>.cmake). Mind the CMake rules for the naming: start with <em>Find</em> followed by the module name and <em>cmake</em> extension. The CMake for the System.Device.Gpio module is <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindSystem.Device.Gpio.cmake">here</a>.</p>
+<li><p>Add the CMake as a module to the <a href="https://github.com/nanoframework/nf-interpreter/tree/develop/CMake/Modules">modules folder</a>. The name of the module should follow the assembly name (Find<strong>System.Device.Gpio</strong>.cmake). Mind the CMake rules for the naming: start with <em>Find</em> followed by the module name and <em>cmake</em> extension. The CMake for the <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindSystem.Device.Gpio.cmake">System.Device.Gpio module</a>.</p>
 </li>
 <li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindNF_NativeAssemblies.cmake">FindNF_NativeAssemblies.cmake</a> add an option for the API. The option name must follow the pattern API_<strong>namespace</strong>. The option for System.Device.Gpio is API_System.Device.Gpio.</p>
 </li>
 <li><p>In the CMake <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMake/Modules/FindNF_NativeAssemblies.cmake">NF_NativeAssemblies.cmake</a> find the text <code>WHEN ADDING A NEW API add the corresponding block below</code> and add a block for the API. Just copy/paste an existing one and replace the namespace with the one that you are adding.</p>
 </li>
-<li><p>Update the CMake presets file (or files, if this is to be added to multiple targets) e.g. for the ST_STM32F769I_DISCOVERY <a href="https://github.com/nanoframework/nf-interpreter/blob/main/targets/ChibiOS/ST_STM32F769I_DISCOVERY/CMakePresets.json">here</a> to include the respective option. For the System.Device.Gpio example you would add in the <em>cacheVariables</em> collection the following entry: &quot;API_System.Device.Gpio&quot; : &quot;ON&quot;.</p>
+<li><p>Update the CMake presets file (or files, if this is to be added to multiple targets) e.g. for the <a href="https://github.com/nanoframework/nf-interpreter/blob/main/targets/ChibiOS/ST_STM32F769I_DISCOVERY/CMakePresets.json">ST_STM32F769I_DISCOVERY target</a> to include the respective option. For the System.Device.Gpio example you would add in the <em>cacheVariables</em> collection the following entry: &quot;API_System.Device.Gpio&quot; : &quot;ON&quot;.</p>
 </li>
 <li><p>If the API requires enabling hardware or SoC peripherals in the target HAL/PAL make the required changes to the appropriate files.
 For System.Device.Gpio in ChibiOS there is nothing to enable because the GPIO subsystem is always enabled.
 In contrast, for the System.Device.Spi, the SPI subsystem has to be enabled at the <em>halconf.h</em> file and also (at driver level) in <em>mcuconf.h</em> the SPI peripherals have to be individually enabled (e.g. <code>#define STM32_SPI_USE_SPI1 TRUE</code>).</p>
-<blockquote>
-<p>Note: To ease the overall configuration of an API and related hardware (and when it makes sense) the API option (API_System.Device.Gpio) can be <em>extended</em> to automatically enable the HAL subsystem. This happens with the System.Device.Spi API. The CMake option is mirrored in the general <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMakeLists.txt">CMakeLists.txt</a> in order to be used in CMakes and headers. This mirror property is <code>HAL_USE_SPI_OPTION</code>. It's being defined here and not in the individual <em>halconf.h</em> files as usual. To make this work the CMake property has to be added to the CMake template file of the platform <a href="https://github.com/nanoframework/nf-interpreter/blob/main/targets/ChibiOS/_nanoCLR/target_platform.h.in">target_platform.h.in</a>.</p>
-</blockquote>
+<pre><code> &gt; Note: To ease the overall configuration of an API and related hardware (and when it makes sense) the API option (API_System.Device.Gpio) can be _extended_ to automatically enable the HAL subsystem. This happens with the System.Device.Spi API. The CMake option is mirrored in the [general CMakeLists.txt](https://github.com/nanoframework/nf-interpreter/blob/main/CMakeLists.txt) in order to be used in CMakes and headers. This mirror property is `HAL_USE_SPI_OPTION`. It's being defined here and not in the individual _halconf.h_ files as usual. To make this work the CMake property has to be added to the [CMake template file target_platform.h.in](https://github.com/nanoframework/nf-interpreter/blob/main/targets/ChibiOS/_nanoCLR/target_platform.h.in).
+</code></pre>
 </li>
 <li><p>When adding/enabling new APIs and depending on how the drivers and the library are coded, some static variables will be added to the BSS RAM area. Because of that extra space that is taken by those variables the Managed Heap size may have to be adjusted to make room for those. To do this find the <code>__clr_managed_heap_size__</code> in the general CMakeLists.txt of that target and decrease the value there as required.</p>
 </li>
-<li><p>Some APIs depend of others. This happens for example with System.Device.Gpio that requires nanoFramework.Runtime.Events in order to generate the interrupts for the changed pin values. To make this happen the option to include the required API(s) has to be enabled in the main <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMakeLists.txt">CMakeLists.txt</a> inside the if clause of the dependent API. Just like if the option was enabled at the CMake command line. Check this by searching for <code>API_nanoFramework.Runtime.Events</code> inside the <code>if(API_System.Device.Gpio)</code>.</p>
+<li><p>Some APIs depend of others. This happens for example with System.Device.Gpio that requires nanoFramework.Runtime.Events in order to generate the interrupts for the changed pin values. To make this happen the option to include the required API(s) has to be enabled in the <a href="https://github.com/nanoframework/nf-interpreter/blob/main/CMakeLists.txt">main CMakeLists.txt</a> inside the if clause of the dependent API. Just like if the option was enabled at the CMake command line. Check this by searching for <code>API_nanoFramework.Runtime.Events</code> inside the <code>if(API_System.Device.Gpio)</code>.</p>
 </li>
 </ol>
 <h2 id="how-to-include-a-class-library-in-the-build">How to include a class library in the build</h2>

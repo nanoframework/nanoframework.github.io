@@ -189,6 +189,9 @@ Class WebServer
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
   </dd></dl>
 
 
@@ -221,6 +224,87 @@ Class WebServer
 </dd>
     <dt><code>protocol</code> <a class="xref" href="nanoFramework.WebServer.HttpProtocol.html">HttpProtocol</a></dt>
     <dd><p><a class="xref" href="nanoFramework.WebServer.HttpProtocol.html">HttpProtocol</a> version to use with web server.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_WebServer_WebServer__ctor_" data-uid="nanoFramework.WebServer.WebServer.#ctor*"></a>
+
+  <h3 id="nanoFramework_WebServer_WebServer__ctor_System_Int32_nanoFramework_WebServer_HttpProtocol_System_Net_IPAddress_" data-uid="nanoFramework.WebServer.WebServer.#ctor(System.Int32,nanoFramework.WebServer.HttpProtocol,System.Net.IPAddress)">
+  WebServer(int, HttpProtocol, IPAddress)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantiates a new web server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebServer(int port, HttpProtocol protocol, IPAddress address)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Port number to listen on.</p>
+</dd>
+    <dt><code>protocol</code> <a class="xref" href="nanoFramework.WebServer.HttpProtocol.html">HttpProtocol</a></dt>
+    <dd><p><a class="xref" href="nanoFramework.WebServer.HttpProtocol.html">HttpProtocol</a> version to use with web server.</p>
+</dd>
+    <dt><code>address</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>IP address to bind to. If <code>null</code>, the server will bind to the default network interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_WebServer_WebServer__ctor_" data-uid="nanoFramework.WebServer.WebServer.#ctor*"></a>
+
+  <h3 id="nanoFramework_WebServer_WebServer__ctor_System_Int32_nanoFramework_WebServer_HttpProtocol_System_Net_IPAddress_System_Type___" data-uid="nanoFramework.WebServer.WebServer.#ctor(System.Int32,nanoFramework.WebServer.HttpProtocol,System.Net.IPAddress,System.Type[])">
+  WebServer(int, HttpProtocol, IPAddress, Type[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantiates a new web server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebServer(int port, HttpProtocol protocol, IPAddress address, Type[] controllers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd><p>Port number to listen on.</p>
+</dd>
+    <dt><code>protocol</code> <a class="xref" href="nanoFramework.WebServer.HttpProtocol.html">HttpProtocol</a></dt>
+    <dd><p><a class="xref" href="nanoFramework.WebServer.HttpProtocol.html">HttpProtocol</a> version to use with web server.</p>
+</dd>
+    <dt><code>address</code> <a class="xref" href="System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd><p>IP address to bind to. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, will bind to default address.</p>
+</dd>
+    <dt><code>controllers</code> <a class="xref" href="System.Type.html">Type</a>[]</dt>
+    <dd><p>Controllers to use with this web server.</p>
 </dd>
   </dl>
 
@@ -700,6 +784,51 @@ Class WebServer
 
 
 
+  <a id="nanoFramework_WebServer_WebServer_ExtractRouteParameters_" data-uid="nanoFramework.WebServer.WebServer.ExtractRouteParameters*"></a>
+
+  <h3 id="nanoFramework_WebServer_WebServer_ExtractRouteParameters_System_String_System_String_System_Boolean_" data-uid="nanoFramework.WebServer.WebServer.ExtractRouteParameters(System.String,System.String,System.Boolean)">
+  ExtractRouteParameters(string, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extracts route parameters from a URL that matches a parameterized route.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UrlParameter[] ExtractRouteParameters(string route, string rawUrl, bool caseSensitive = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>route</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The route template with parameters (e.g., &quot;/api/devices/{id}&quot;).</p>
+</dd>
+    <dt><code>rawUrl</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The actual URL being requested.</p>
+</dd>
+    <dt><code>caseSensitive</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd><p>Whether the comparison should be case sensitive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.WebServer.UrlParameter.html">UrlParameter</a>[]</dt>
+    <dd><p>An array of UrlParameter objects containing the parameter names and values, or null if the route doesn't match.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="nanoFramework_WebServer_WebServer_InvokeRoute_" data-uid="nanoFramework.WebServer.WebServer.InvokeRoute*"></a>
 
   <h3 id="nanoFramework_WebServer_WebServer_InvokeRoute_nanoFramework_WebServer_CallbackRoutes_System_Net_HttpListenerContext_" data-uid="nanoFramework.WebServer.WebServer.InvokeRoute(nanoFramework.WebServer.CallbackRoutes,System.Net.HttpListenerContext)">
@@ -793,7 +922,8 @@ For internal use only.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void OutPutStream(HttpListenerResponse response, string strResponse)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use OutputAsStream instead. This method will be removed in a future version.&quot;)]
+public static void OutPutStream(HttpListenerResponse response, string strResponse)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -802,6 +932,42 @@ For internal use only.</p>
     <dd><p>the socket stream</p>
 </dd>
     <dt><code>strResponse</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>the stream to output</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_WebServer_WebServer_OutputAsStream_" data-uid="nanoFramework.WebServer.WebServer.OutputAsStream*"></a>
+
+  <h3 id="nanoFramework_WebServer_WebServer_OutputAsStream_System_Net_HttpListenerResponse_System_String_" data-uid="nanoFramework.WebServer.WebServer.OutputAsStream(System.Net.HttpListenerResponse,System.String)">
+  OutputAsStream(HttpListenerResponse, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Output a string content as a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OutputAsStream(HttpListenerResponse response, string content)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>response</code> <a class="xref" href="System.Net.HttpListenerResponse.html">HttpListenerResponse</a></dt>
+    <dd><p>The response to write to.</p>
+</dd>
+    <dt><code>content</code> <a class="xref" href="System.String.html">string</a></dt>
     <dd><p>the stream to output</p>
 </dd>
   </dl>

@@ -190,6 +190,38 @@ Class DhcpMessage
 
 
 
+  <a id="Iot_Device_DhcpServer_DhcpMessage_ClientHardwareAddressAsString_" data-uid="Iot.Device.DhcpServer.DhcpMessage.ClientHardwareAddressAsString*"></a>
+
+  <h3 id="Iot_Device_DhcpServer_DhcpMessage_ClientHardwareAddressAsString" data-uid="Iot.Device.DhcpServer.DhcpMessage.ClientHardwareAddressAsString">
+  ClientHardwareAddressAsString
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the client hardware address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ClientHardwareAddressAsString { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.String.html">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Iot_Device_DhcpServer_DhcpMessage_ClientIPAddress_" data-uid="Iot.Device.DhcpServer.DhcpMessage.ClientIPAddress*"></a>
 
   <h3 id="Iot_Device_DhcpServer_DhcpMessage_ClientIPAddress" data-uid="Iot.Device.DhcpServer.DhcpMessage.ClientIPAddress">
@@ -244,38 +276,6 @@ Class DhcpMessage
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_DhcpAddress_" data-uid="Iot.Device.DhcpServer.DhcpMessage.DhcpAddress*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_DhcpAddress" data-uid="Iot.Device.DhcpServer.DhcpMessage.DhcpAddress">
-  DhcpAddress
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the DHCP addres.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IPAddress DhcpAddress { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
     <dd></dd>
   </dl>
 
@@ -510,6 +510,43 @@ Class DhcpMessage
 
 
 
+  <a id="Iot_Device_DhcpServer_DhcpMessage_MagicCookie_" data-uid="Iot.Device.DhcpServer.DhcpMessage.MagicCookie*"></a>
+
+  <h3 id="Iot_Device_DhcpServer_DhcpMessage_MagicCookie" data-uid="Iot.Device.DhcpServer.DhcpMessage.MagicCookie">
+  MagicCookie
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the magic cookie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] MagicCookie { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Iot_Device_DhcpServer_DhcpMessage_MagicCookie_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The first four octets of the 'options' field of the DHCP message
+contain the (decimal) values 99, 130, 83 and 99, respectively (this
+is the same magic cookie as is defined in RFC 1497 [17]).</p>
+</div>
+
+
+
+
   <a id="Iot_Device_DhcpServer_DhcpMessage_OperationCode_" data-uid="Iot.Device.DhcpServer.DhcpMessage.OperationCode*"></a>
 
   <h3 id="Iot_Device_DhcpServer_DhcpMessage_OperationCode" data-uid="Iot.Device.DhcpServer.DhcpMessage.OperationCode">
@@ -554,7 +591,7 @@ Class DhcpMessage
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Options { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public OptionCollection Options { get; set; }</code></pre>
   </div>
 
 
@@ -563,7 +600,7 @@ Class DhcpMessage
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dt><a class="xref" href="Iot.Device.DhcpServer.Options.OptionCollection.html">OptionCollection</a></dt>
     <dd></dd>
   </dl>
 
@@ -670,6 +707,38 @@ Class DhcpMessage
 
 
 
+  <a id="Iot_Device_DhcpServer_DhcpMessage_ServerIdentifier_" data-uid="Iot.Device.DhcpServer.DhcpMessage.ServerIdentifier*"></a>
+
+  <h3 id="Iot_Device_DhcpServer_DhcpMessage_ServerIdentifier" data-uid="Iot.Device.DhcpServer.DhcpMessage.ServerIdentifier">
+  ServerIdentifier
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the DHCP server addres.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPAddress ServerIdentifier { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Iot_Device_DhcpServer_DhcpMessage_TransactionId_" data-uid="Iot.Device.DhcpServer.DhcpMessage.TransactionId*"></a>
 
   <h3 id="Iot_Device_DhcpServer_DhcpMessage_TransactionId" data-uid="Iot.Device.DhcpServer.DhcpMessage.TransactionId">
@@ -738,376 +807,27 @@ Class DhcpMessage
 </h2>
 
 
-  <a id="Iot_Device_DhcpServer_DhcpMessage_Acknoledge_" data-uid="Iot.Device.DhcpServer.DhcpMessage.Acknoledge*"></a>
+  <a id="Iot_Device_DhcpServer_DhcpMessage_GetBytes_" data-uid="Iot.Device.DhcpServer.DhcpMessage.GetBytes*"></a>
 
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_Acknoledge_System_Net_IPAddress_System_Net_IPAddress_System_Net_IPAddress_System_Byte___" data-uid="Iot.Device.DhcpServer.DhcpMessage.Acknoledge(System.Net.IPAddress,System.Net.IPAddress,System.Net.IPAddress,System.Byte[])">
-  Acknoledge(IPAddress, IPAddress, IPAddress, byte[])
+  <h3 id="Iot_Device_DhcpServer_DhcpMessage_GetBytes" data-uid="Iot.Device.DhcpServer.DhcpMessage.GetBytes">
+  GetBytes()
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Ackanoledge message.</p>
+  <div class="markdown level1 summary"><p>Converts this <a class="xref" href="Iot.Device.DhcpServer.DhcpMessage.html">DhcpMessage</a> to a <span class="xref">byte[]</span>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Acknoledge(IPAddress cip, IPAddress mask, IPAddress sip, byte[] additionalOptions = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>cip</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Client IP addres..</p>
-</dd>
-    <dt><code>mask</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Network mask.</p>
-</dd>
-    <dt><code>sip</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Server IP address.</p>
-</dd>
-    <dt><code>additionalOptions</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>Additional options to send.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>A byte arry with the message.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_AddOption_" data-uid="Iot.Device.DhcpServer.DhcpMessage.AddOption*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_AddOption_Iot_Device_DhcpServer_Enums_DhcpOptionCode_System_Byte___" data-uid="Iot.Device.DhcpServer.DhcpMessage.AddOption(Iot.Device.DhcpServer.Enums.DhcpOptionCode,System.Byte[])">
-  AddOption(DhcpOptionCode, byte[])
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Add an option to the options.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddOption(DhcpOptionCode optType, byte[] optData)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>optType</code> <a class="xref" href="Iot.Device.DhcpServer.Enums.DhcpOptionCode.html">DhcpOptionCode</a></dt>
-    <dd><p>The option code.</p>
-</dd>
-    <dt><code>optData</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>The option data.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_Build_" data-uid="Iot.Device.DhcpServer.DhcpMessage.Build*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_Build" data-uid="Iot.Device.DhcpServer.DhcpMessage.Build">
-  Build()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Build a message.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Build()</code></pre>
+    <pre><code class="lang-csharp hljs">public byte[] GetBytes()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>The message as a byte array.</p>
-</dd>
+    <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_Decline_" data-uid="Iot.Device.DhcpServer.DhcpMessage.Decline*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_Decline_System_Net_IPAddress_System_Net_IPAddress_System_Net_IPAddress_" data-uid="Iot.Device.DhcpServer.DhcpMessage.Decline(System.Net.IPAddress,System.Net.IPAddress,System.Net.IPAddress)">
-  Decline(IPAddress, IPAddress, IPAddress)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Not Ackanoledge message.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Decline(IPAddress cip, IPAddress mask, IPAddress sip)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>cip</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Client IP addres..</p>
-</dd>
-    <dt><code>mask</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Network mask.</p>
-</dd>
-    <dt><code>sip</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Server IP address.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>A byte arry with the message.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_GetOption_" data-uid="Iot.Device.DhcpServer.DhcpMessage.GetOption*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_GetOption_Iot_Device_DhcpServer_Enums_DhcpOptionCode_" data-uid="Iot.Device.DhcpServer.DhcpMessage.GetOption(Iot.Device.DhcpServer.Enums.DhcpOptionCode)">
-  GetOption(DhcpOptionCode)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the option contained in a key.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetOption(DhcpOptionCode lookOpt)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>lookOpt</code> <a class="xref" href="Iot.Device.DhcpServer.Enums.DhcpOptionCode.html">DhcpOptionCode</a></dt>
-    <dd><p>The option to check.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>The byte array with the raw option value.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_NotAcknoledge_" data-uid="Iot.Device.DhcpServer.DhcpMessage.NotAcknoledge*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_NotAcknoledge" data-uid="Iot.Device.DhcpServer.DhcpMessage.NotAcknoledge">
-  NotAcknoledge()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Not Ackanoledge message.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] NotAcknoledge()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>A byte arry with the message.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_Offer_" data-uid="Iot.Device.DhcpServer.DhcpMessage.Offer*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_Offer_System_Net_IPAddress_System_Net_IPAddress_System_Net_IPAddress_System_Byte___" data-uid="Iot.Device.DhcpServer.DhcpMessage.Offer(System.Net.IPAddress,System.Net.IPAddress,System.Net.IPAddress,System.Byte[])">
-  Offer(IPAddress, IPAddress, IPAddress, byte[])
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Offer message.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] Offer(IPAddress cip, IPAddress mask, IPAddress sip, byte[] additionalOptions = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>cip</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Client IP addres..</p>
-</dd>
-    <dt><code>mask</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Network mask.</p>
-</dd>
-    <dt><code>sip</code> <a class="xref" href="../api/System.Net.IPAddress.html">IPAddress</a></dt>
-    <dd><p>Server IP address.</p>
-</dd>
-    <dt><code>additionalOptions</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>Additional options to send.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>A byte arry with the message.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_OptionsContainsKey_" data-uid="Iot.Device.DhcpServer.DhcpMessage.OptionsContainsKey*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_OptionsContainsKey_Iot_Device_DhcpServer_Enums_DhcpOptionCode_" data-uid="Iot.Device.DhcpServer.DhcpMessage.OptionsContainsKey(Iot.Device.DhcpServer.Enums.DhcpOptionCode)">
-  OptionsContainsKey(DhcpOptionCode)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Checks if the option contains a specific key.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool OptionsContainsKey(DhcpOptionCode lookOpt)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>lookOpt</code> <a class="xref" href="Iot.Device.DhcpServer.Enums.DhcpOptionCode.html">DhcpOptionCode</a></dt>
-    <dd><p>The option to check.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
-    <dd><p>True if found.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_Parse_" data-uid="Iot.Device.DhcpServer.DhcpMessage.Parse*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_Parse_System_Byte____" data-uid="Iot.Device.DhcpServer.DhcpMessage.Parse(System.Byte[]@)">
-  Parse(ref byte[])
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Parses the message.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Parse(ref byte[] dhcppacket)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>dhcppacket</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
-    <dd><p>The byte array message.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Iot_Device_DhcpServer_DhcpMessage_ResetOptions_" data-uid="Iot.Device.DhcpServer.DhcpMessage.ResetOptions*"></a>
-
-  <h3 id="Iot_Device_DhcpServer_DhcpMessage_ResetOptions" data-uid="Iot.Device.DhcpServer.DhcpMessage.ResetOptions">
-  ResetOptions()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Resets the options.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ResetOptions()</code></pre>
-  </div>
-
-
 
 
 

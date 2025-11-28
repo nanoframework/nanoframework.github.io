@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>XPT2046 - Touch screen controller | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="XPT2046 - Touch screen controller | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/XPT2046/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xpt2046---touch-screen-controller">XPT2046 - Touch screen controller</h1>
+
+<p>The XPT2046 from XPTEK is a 4-wire resistive touch screen controller that incorporates a 12-bit 125 kHz successive approximation register type A/D converter. The XPT2046 can detect the pressed screen location by performing two A/D conversions. As well as the location, the XPT2046 also measures touch screen pressure. A multiplexer allows it to measure chip temperature and battery voltage.</p>
+<p>The XPT2046 is common in a number of touch screen modules from suppliers like WaveShare and an number of ESP32 based display boards.</p>
+<p>Communication is via the SPI bus which can communicate at maximum speed of 2Mhz and uses Mode 0 for the clock polarity/phase setting. The host sends an 8 bit command and the chip responds with 16 bits of data althought the first bit and last three bits are not part of the conversion. XPT2046 needs 16 clock cycles to read a value, so this driver sends 8 bits and a padding byte between each command, and the device can be reading one result whilst sending the command for the next measurement. When reading we need to skip the first 8 bits.</p>
+<p>An additional interupt pin which is usually in a high state and goes low when a touch is detected. Note that communicating with the chip will interfere with the interupt.</p>
+<p>The chip can use an internal voltage reference or be configured to use an external reference if more accuracy is required.</p>
+<p>The XPT2046 will enter power down mode and stop communicating when the chip select pin is taken high. This is why TransferFullDuplex is used as the framework does not expose the raw SPI transaction.</p>
+<p>The driver does a best of 3 average, thanks Paul Stoffregen for the suggestion via your Arduino library.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Datasheet - <a href="https://www.waveshare.com/wiki/File:XPT2046-EN.pdf">https://www.waveshare.com/wiki/File:XPT2046-EN.pdf</a></p>
+<h2 id="usage">Usage</h2>
+<p>See TouchDemo for a complete example of usage based on the ESP32 and a cheap yellow display module.</p>
+<p>The driver also supports a maximum X and Y value so you can map the output to your screen size.</p>
+<p>The driver scales the output based on a maximum X and Y value so you can map it to pixels on your screen.</p>
+<p><strong>Important</strong>: For the ESP32 the default pins can be remapped, do so before creating the <code>SPIDevice</code>.</p>
+<pre><code class="lang-csharp">using nanoFramework.Hardware.ESP32;
+    
+    // Pin Definitions for the Cheap Yellow Display
+    const int XPT2046_CS = Gpio.IO33;      // Chip Select
+    const int XPT2046_PenIRQ = Gpio.IO36;  // Touch detected interupt
+    const int XPT2046_COPI = Gpio.IO32;
+    const int XPT2046_CIPO = Gpio.IO39;
+    const int XPT2046_CLK = Gpio.IO25;
+
+    // If you're using an ESP32, use nanoFramework.Hardware.Esp32 to remap the SPI pins
+    Configuration.SetPinFunction(XPT2046_COPI, DeviceFunction.SPI1_MOSI);
+    Configuration.SetPinFunction(XPT2046_CIPO, DeviceFunction.SPI1_CLOCK);
+    Configuration.SetPinFunction(XPT2046_CLK, DeviceFunction.SPI1_MISO);
+</code></pre>
+<pre><code class="lang-csharp">using System.Device.Spi;
+
+SpiDevice spiDevice;
+SpiConnectionSettings connectionSettings;
+connectionSettings = new SpiConnectionSettings(1, XPT2046_CS);
+connectionSettings.ClockFrequency = 2_000_000;
+connectionSettings.DataBitLength = 8;
+connectionSettings.DataFlow = DataFlow.MsbFirst;
+connectionSettings.Mode = SpiMode.Mode0;
+
+// Then you create your SPI device by passing your settings
+spiDevice = SpiDevice.Create(connectionSettings);
+
+using GpioController gpio = new();
+using Xpt2046 sensor = new(spiDevice);
+var ver = sensor.GetVersion();
+
+Debug.WriteLine($&quot;version: {ver}&quot;);
+
+var point = sensor.GetPoint();
+
+Debug.WriteLine($&quot;ID: {point.TouchId}, X: {point.X}, Y: {point.Y}, Weight: {point.Weigth}, Misc: {point.Miscelaneous}&quot;);
+
+</code></pre>
+<p>Use with an interupt pin. Note that interupts that happen during conversion are not reliable. Hence setting touchDetected after calling GetPoint();</p>
+<pre><code class="lang-csharp">bool touchDetected = false;
+
+gpio.OpenPin(XPT2046_PenIRQ, PinMode.Input);
+// This will enable an event on GPIO36 on falling edge when the screen if touched
+gpio.RegisterCallbackForPinValueChangedEvent(XPT2046_PenIRQ, PinEventTypes.Falling, TouchInterrupCallback);
+
+while (true)
+{
+    if (touchDetected) {
+        var point = sensor.GetPoint();
+        touchDetected = false;
+        
+        Debug.WriteLine($&quot;ID: {point.TouchId}, X: {point.X}, Y: {point.Y}, Weight: {point.Weigth}, Misc: {point.Miscelaneous}&quot;);
+
+        Thread.Sleep(500);
+
+    }
+
+    Thread.Sleep(20);
+}
+
+void TouchInterrupCallback(object sender, PinValueChangedEventArgs pinValueChangedEventArgs)
+{
+    touchDetected = true;
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/XPT2046/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

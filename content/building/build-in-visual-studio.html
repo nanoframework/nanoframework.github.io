@@ -142,7 +142,7 @@ The VS2019 IDE normally hides the contents of this directory in <code>Solution E
 <p>This adds some entries to the Right-Click context menu for items in the <code>Solution Explorer</code> pane, for example <code>CMakeLists.txt</code>. The sample file is set up for the ESP32, and uses <code>esptool.py</code> to erase or program Flash on the device. You may need to modify the <code>&quot;port&quot;</code> setting near the top of the file from <code>COM3</code> to the port your ESP32 is connected to.</p>
 <h4 id="launchvsjson">launch.vs.json</h4>
 <p>This is used to launch the debugger, using <code>GDB</code> locally with <code>OpenOCD</code> acting as the GDB server providing a connection to your device. The example for ESP32 is using a <code>SEGGER JLINK</code> device to connect to the ESP32 JTAG pins, while the STM32 example uses the <code>STM32 STLINK</code> interface on the STM769IDiscovery board.</p>
-<p>Note that we haven't been able to get the debug system working purely using the  VS2019 resources, and we call a Windows batch file <code>&quot;startocd.bat&quot;</code> to handle the <code>OpenOCD</code> configuration details. Take a look at that file and modify it to suit your configuration. (It <strong>can</strong> have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.</p>
+<p>Note that we haven't been able to get the debug system working purely using the VS2019 resources, and we call a Windows batch file <code>&quot;startocd.bat&quot;</code> to handle the <code>OpenOCD</code> configuration details. Take a look at that file and modify it to suit your configuration. (It <strong>can</strong> have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.</p>
 <blockquote>
 <p>GDB requires <code>/</code> separators in the path passed for the executable file and symbols, rather than the windows backslash <code>\</code>, and at present neither VS Code or VS2017/2019 can do that for us when expanding variables, hence the need to add a hard-coded file path. For VS Code we have a neat little extension <code>nf</code> to take care of that for us, but at this stage no such solution for VS.</p>
 </blockquote>
@@ -181,12 +181,12 @@ If you have that version installed just comment out the line following the <code
 </blockquote>
 <h3 id="build-locations">Build Locations</h3>
 <p>We are able to build in separate locations to suit the target type and configuration we are working on. The current layout is to use the <code>Build</code> subdirectory to contain all the separate build types folders, so <code>Build\ESP32</code> for ESP32 vanilla build, <code>Build\ESP32_test</code> for a test build, etc.
-The STM32 builds are most likely to require a shortened build path, so we can use  <code>&quot;${env.nfRoot}Build/${name}&quot;</code> in our <code>CMakeSettings.json</code> file STM769IDiscovery section. The build will then be done in <code>&quot;B:\Build\STM769IDiscovery&quot;</code>.</p>
+The STM32 builds are most likely to require a shortened build path, so we can use <code>&quot;${env.nfRoot}Build/${name}&quot;</code> in our <code>CMakeSettings.json</code> file STM769IDiscovery section. The build will then be done in <code>&quot;B:\Build\STM769IDiscovery&quot;</code>.</p>
 <h3 id="debugging">Debugging</h3>
 <p>Once the program has been built and loaded into flash, you can launch the debugger. You need to select the launch configuration from the dropdown, as shown:</p>
 <p><img src="../../images/getting-started/VS2019Toolbars.png" alt="VS2019 toolbar"></p>
 <blockquote>
-<p>Note that the launch configuration, here  <code>ESP32 nanoCLR - Segger JLink</code>, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!</p>
+<p>Note that the launch configuration, here <code>ESP32 nanoCLR - Segger JLink</code>, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!</p>
 </blockquote>
 <p>You can then commence debugging from the top DEBUG menu.</p>
 <p>OpenOCD should open in its own console window, connect to the target device, and display something similar to this:</p>
@@ -227,7 +227,7 @@ Temporary breakpoint 1, app_main () at ../../targets/FreeRTOS_ESP32/ESP32_WROOM_
 </code></pre>
 <p>The processor has now stopped at the temporary breakpoint inserted by our <code>launch.vs.json</code> startup sequence, showing as an Exception at the entry point in the source code window.</p>
 <p><img src="../../images/getting-started/VS2019Breakpoint.png" alt="VS2019 Breakpoint"></p>
-<p>You can now step through the code, observe variables, set breakpoints  and so on.</p>
+<p>You can now step through the code, observe variables, set breakpoints and so on.</p>
 <h3 id="summary">Summary</h3>
 <p>This documentation is a work in progress, as is Visual Studio support for this type of project.</p>
 <p>Your feedback and contributions are welcome!</p>
@@ -329,11 +329,9 @@ The example references the openocd application.</p>
 </table>
 <h4 id="gcc-toolchain-notes">GCC Toolchain NOTES</h4>
 <blockquote>
-<p>Version 6.3.1 installed by Visual Studio has a problem with fallthrough, Version 8, has a problem with structures ( an issue has been raised to fix this)</p>
-</blockquote>
-<p>The following GCC version has been download, installed and tested.</p>
-<blockquote>
-<p>GNU Arm Embedded Toolchain - Version 7-2018-q2-update
+<p>Version 6.3.1 installed by Visual Studio has a problem with fallthrough, Version 8, has a problem with structures ( an issue has been raised to fix this)
+The following GCC version has been download, installed and tested.
+GNU Arm Embedded Toolchain - Version 7-2018-q2-update
 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads</a>#</p>
 </blockquote>
 <p>In CMakeSettings.json the following variables determine the build tool.</p>

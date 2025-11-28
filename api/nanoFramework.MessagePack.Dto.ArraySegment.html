@@ -101,7 +101,7 @@ Class ArraySegment
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ArraySegment : IEnumerable, IEnumerator</code></pre>
+    <pre><code class="lang-csharp hljs">public class ArraySegment : BaseReader, IMessagePackReader, IEnumerable</code></pre>
   </div>
 
 
@@ -111,6 +111,7 @@ Class ArraySegment
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html">BaseReader</a></div>
       <div><span class="xref">ArraySegment</span></div>
     </dd>
   </dl>
@@ -118,8 +119,8 @@ Class ArraySegment
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="nanoFramework.MessagePack.Stream.IMessagePackReader.html">IMessagePackReader</a></div>
       <div><a class="xref" href="System.Collections.IEnumerable.html">IEnumerable</a></div>
-      <div><a class="xref" href="System.Collections.IEnumerator.html">IEnumerator</a></div>
     </dd>
   </dl>
 
@@ -127,6 +128,27 @@ Class ArraySegment
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html#nanoFramework_MessagePack_Stream_BaseReader_ReadArrayLength">BaseReader.ReadArrayLength()</a>
+    </div>
+    <div>
+      <a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html#nanoFramework_MessagePack_Stream_BaseReader_ReadMapLength">BaseReader.ReadMapLength()</a>
+    </div>
+    <div>
+      <a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html#nanoFramework_MessagePack_Stream_BaseReader_ReadDataType">BaseReader.ReadDataType()</a>
+    </div>
+    <div>
+      <a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html#nanoFramework_MessagePack_Stream_BaseReader_SkipToken">BaseReader.SkipToken()</a>
+    </div>
+    <div>
+      <a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html#nanoFramework_MessagePack_Stream_BaseReader_ReadToken">BaseReader.ReadToken()</a>
+    </div>
+    <div>
+      <a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html#nanoFramework_MessagePack_Stream_BaseReader_TryGetLengthFromFixArray_nanoFramework_MessagePack_DataTypes_System_UInt32__">BaseReader.TryGetLengthFromFixArray(DataTypes, out uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="nanoFramework.MessagePack.Stream.BaseReader.html#nanoFramework_MessagePack_Stream_BaseReader_TryGetLengthFromFixMap_nanoFramework_MessagePack_DataTypes_System_UInt32__">BaseReader.TryGetLengthFromFixMap(DataTypes, out uint)</a>
+    </div>
     <div>
       <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
     </div>
@@ -153,6 +175,9 @@ Class ArraySegment
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
     <dd>
+  <div>
+      <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
+  </div>
   <div>
       <a class="xref" href="nanoFramework.Logging.LogDispatcher.html#nanoFramework_Logging_LogDispatcher_GetCurrentClassLogger_System_Object_">LogDispatcher.GetCurrentClassLogger(object)</a>
   </div>
@@ -238,10 +263,10 @@ Class ArraySegment
 </h2>
 
 
-  <a id="nanoFramework_MessagePack_Dto_ArraySegment_Current_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Current*"></a>
+  <a id="nanoFramework_MessagePack_Dto_ArraySegment_Item_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Item*"></a>
 
-  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_Current" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Current">
-  Current
+  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_Item_System_Int32_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Item(System.Int32)">
+  this[int]
   
   </h3>
 
@@ -249,16 +274,21 @@ Class ArraySegment
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object Current { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public byte this[int index] { get; }</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="System.Object.html">object</a></dt>
+    <dt><a class="xref" href="System.Byte.html">byte</a></dt>
     <dd></dd>
   </dl>
 
@@ -280,7 +310,7 @@ Class ArraySegment
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public long Position { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Position { get; }</code></pre>
   </div>
 
 
@@ -289,7 +319,7 @@ Class ArraySegment
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="System.Int64.html">long</a></dt>
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -335,37 +365,6 @@ Class ArraySegment
 
 
 
-  <a id="nanoFramework_MessagePack_Dto_ArraySegment_MoveNext_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.MoveNext*"></a>
-
-  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_MoveNext" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.MoveNext">
-  MoveNext()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool MoveNext()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="nanoFramework_MessagePack_Dto_ArraySegment_ReadByte_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.ReadByte*"></a>
 
   <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_ReadByte" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.ReadByte">
@@ -377,7 +376,7 @@ Class ArraySegment
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte ReadByte()</code></pre>
+    <pre><code class="lang-csharp hljs">public override byte ReadByte()</code></pre>
   </div>
 
 
@@ -397,10 +396,10 @@ Class ArraySegment
 
 
 
-  <a id="nanoFramework_MessagePack_Dto_ArraySegment_Reset_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Reset*"></a>
+  <a id="nanoFramework_MessagePack_Dto_ArraySegment_ReadBytes_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.ReadBytes*"></a>
 
-  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_Reset" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Reset">
-  Reset()
+  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_ReadBytes_System_UInt32_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.ReadBytes(System.UInt32)">
+  ReadBytes(uint)
   
   </h3>
 
@@ -408,10 +407,110 @@ Class ArraySegment
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+    <pre><code class="lang-csharp hljs">public override ArraySegment ReadBytes(uint length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.MessagePack.Dto.ArraySegment.html">ArraySegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_MessagePack_Dto_ArraySegment_Seek_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Seek*"></a>
+
+  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_Seek_System_Int64_System_IO_SeekOrigin_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.Seek(System.Int64,System.IO.SeekOrigin)">
+  Seek(long, SeekOrigin)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Seek(long offset, SeekOrigin origin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offset</code> <a class="xref" href="System.Int64.html">long</a></dt>
+    <dd></dd>
+    <dt><code>origin</code> <a class="xref" href="System.IO.SeekOrigin.html">SeekOrigin</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_MessagePack_Dto_ArraySegment_StartTokenGathering_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.StartTokenGathering*"></a>
+
+  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_StartTokenGathering" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.StartTokenGathering">
+  StartTokenGathering()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void StartTokenGathering()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_MessagePack_Dto_ArraySegment_StopTokenGathering_" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.StopTokenGathering*"></a>
+
+  <h3 id="nanoFramework_MessagePack_Dto_ArraySegment_StopTokenGathering" data-uid="nanoFramework.MessagePack.Dto.ArraySegment.StopTokenGathering">
+  StopTokenGathering()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ArraySegment? StopTokenGathering()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="nanoFramework.MessagePack.Dto.ArraySegment.html">ArraySegment</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

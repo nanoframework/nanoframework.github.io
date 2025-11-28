@@ -105,7 +105,7 @@ The build system is based on CMake tool to ease the development in all major pla
 . <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a> - C/C++ IntelliSense, debugging, and code browsing (by Microsoft)
 . <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a> - Extended CMake support in Visual Studio Code (by Microsoft)</li>
 <li><a href="https://cmake.org/download/">CMake</a> (Minimum required version is 3.21)</li>
-<li><a href="https://www.python.org/downloads/release/python-368">Python 3.6.8</a> Required for uploading the nanoCLR to the ESP32.
+<li><a href="https://www.python.org/downloads/release/python-368">Python 3.8</a> Required for uploading the nanoCLR to the ESP32.
 <ul>
 <li>Ensure the Windows default app to open <code>.py</code> files is Python.</li>
 </ul>
@@ -138,7 +138,7 @@ The build system is based on CMake tool to ease the development in all major pla
 <p>After cloning the repo, you need to setup the build environment. You can use the power shell script or follow the step-by-step instructions.</p>
 <h3 id="manual-install-of-the-build-environment">Manual install of the build environment</h3>
 <p>(If you already have installed ESP-IDF Tools you can skip this step.)</p>
-<p>-<strong>Step 1</strong>: Install ESP-IDF Tools by using the installer provided by Espressif <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer">here</a>. The installer includes all the pre-requisites.</p>
+<p>-<strong>Step 1</strong>: Install ESP-IDF Tools by using the installer provided by Espressif <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/windows-setup.html#esp-idf-tools-installer">here</a>. The installer includes all the pre-requisites. Recomendation is to use the version of the offline installer matching the IDF version supported in the nf-interpreter. You can check the version in the azure-pipelines.yml. Search for <code>IDF_TAG</code>.</p>
 <p>-<strong>Step 2</strong>: After launching the installer you have to follow the wizard and follow the instruction there. Follows some aspects worth mentioning.</p>
 <p>-<strong>Step 3</strong>: Location of the IDF repository. You can set this to a location of your choosing. After the installer completes, you'll find a git clone of the ESP-IDF at this location.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-repo-location.png" alt="idf repo location"></p>
@@ -149,14 +149,13 @@ The build system is based on CMake tool to ease the development in all major pla
 <p>-<strong>Step 6</strong>: The install step may prompt you for permission on installing drivers and launch secondary installers. And be aware that it can take a while to complete...</p>
 <p>-<strong>Step 7</strong>: After the installer completes, open a command prompt at the IDF repository location with elevated permission and execute the script <code>install</code>. This will <em>hopefully</em> install all the requirements and prerequisites.</p>
 <p>-<strong>Step 8</strong>: Now execute the script <code>export</code>. This will <em>hopefully</em> update the path environment variable of your machine. You can check the success of the operation by opening another cmd prompt and print the content of the path variable.</p>
-<p>⚠️ At the time of this writing, the CMake version distributed with IDF it's outdated. You have to edit the path environment variable after this step and remove the entry pointing to CMake so the current CMake it's used. This should be something like <code>(...).espressif\tools\cmake\3.20.3</code>. ⚠️</p>
-<p>-<strong>Step 9</strong>: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can be because of permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it.</p>
+<p>-<strong>Step 9</strong>: Calling the above scripts it's not 100% guaranteed to effectively install everything and updates the path. This can happen for a number of reasons, like permission issues, updating the path variable and others. Here's the image of the path on a machine where the update was successful so you can compare it. Mind that the versions will be different and the root paths too.</p>
 <p><img src="../../images/building/esp32/install-esp-idf-tools-path.png" alt="updated path"></p>
 <p>-<strong>Step 10</strong>: Also worth checking if the following environment variables have also been setup:</p>
 <ul>
 <li><code>IDF_PATH</code>: must point to the location where the ESP-IDF repo was cloned (see step 3. above).</li>
-<li><code>IDF_PYTHON_ENV_PATH</code>: must point to Python install location.</li>
-<li><code>IDF_TOOLS_PATH</code>: must point to the location where the ESP-IDF tools where installed (see step 3. above).</li>
+<li><code>IDF_PYTHON_ENV_PATH</code>: must point to Python install location. Something similar to <code>E:\nftools\.espressif\python_env\idf5.4_py3.12_env</code>.</li>
+<li><code>IDF_TOOLS_PATH</code>: must point to the location where the ESP-IDF tools where installed (see step 4. above).</li>
 </ul>
 <p>⚠️ <strong>Having the path properly setup it's absolutely mandatory in order to be able to build.</strong> ⚠️</p>
 <h2 id="set-up-visual-studio-code">Set up Visual Studio Code</h2>

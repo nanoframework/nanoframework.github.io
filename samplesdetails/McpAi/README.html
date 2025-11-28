@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>&#127798;️&#127798;️ - Model Context Protocol (MCP) sample | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="&#127798;️&#127798;️ - Model Context Protocol (MCP) sample | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/Samples/blob/main/samples/McpAi/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="---model-context-protocol-mcp-sample">🌶️🌶️ - Model Context Protocol (MCP) sample</h1>
+
+<p>This sample demonstrates how to create an MCP (Model Context Protocol) server on a nanoFramework device that can be controlled by AI agents through natural language commands. The sample implements a smart light controller that can be managed remotely via AI assistants. In this sample, the light is the embedded led.</p>
+<h2 id="how-the-sample-works">How the Sample Works</h2>
+<h3 id="overview">Overview</h3>
+<p>The MCP sample creates a smart IoT device that exposes hardware controls through the Model Context Protocol, allowing AI agents to interact with physical hardware using natural language. The sample consists of:</p>
+<ol>
+<li><strong>MCP Server (nanoFramework device)</strong>: Runs on your ESP32 and exposes light control functions</li>
+<li><strong>MCP Client (Full .NET application)</strong>: Connects AI agents to your device via Azure OpenAI and Semantic Kernel</li>
+</ol>
+<h3 id="hardware-control-implementation">Hardware Control Implementation</h3>
+<p>The <code>Light.cs</code> class demonstrates how to create MCP-enabled hardware controls:</p>
+<pre><code class="lang-csharp">[McpServerTool(&quot;turn_on&quot;, &quot;Turn on the light. Check the location to make sure it's the proper location first.&quot;)]
+public static void TurnOn()
+{
+    Debug.WriteLine($&quot;Turning on the light at location: {_location}&quot;);
+    _lightPin.Write(PinValue.Low);  // GPIO control
+}
+</code></pre>
+<p>Each method decorated with <code>[McpServerTool]</code> becomes available to AI agents with:</p>
+<ul>
+<li><strong>Function name</strong>: Used by AI to identify the tool</li>
+<li><strong>Description</strong>: Guides AI on when and how to use the tool</li>
+<li>Optional <strong>description of output</strong>: You can also specify the description of the output</li>
+<li><strong>Parameters</strong>: Automatically parsed from method signatures</li>
+</ul>
+<h3 id="server-setup-and-tool-discovery">Server Setup and Tool Discovery</h3>
+<p>The <code>Program.cs</code> shows the complete setup process:</p>
+<ol>
+<li><strong>WiFi Connection</strong>: Establishes network connectivity (don't forget to replace your wifi credentials)</li>
+<li><strong>Tool Discovery</strong>: Automatically finds all MCP-decorated methods</li>
+<li><strong>Web Server</strong>: Starts HTTP server with MCP endpoint at <code>/mcp</code></li>
+</ol>
+<pre><code class="lang-csharp">// Discover tools from classes
+McpToolRegistry.DiscoverTools(new Type[] { typeof(Light) });
+
+// Start web server with MCP support
+using (var server = new WebServer(80, HttpProtocol.Http, new Type[] { typeof(McpServerController) }))
+{
+    server.Start();
+    // Device is now ready to receive MCP requests
+}
+</code></pre>
+<h3 id="real-world-interaction-example">Real-World Interaction Example</h3>
+<p>Based on the provided traces, here's how a typical AI conversation works:</p>
+<p><strong>User</strong>: &quot;turn on the light in the main room&quot;</p>
+<p><strong>AI Agent Process</strong>:</p>
+<ol>
+<li>Gets current location: <code>get_location()</code> → &quot;kitchen&quot;</li>
+<li>Recognizes mismatch between requested location and actual location</li>
+<li>Asks user for clarification</li>
+</ol>
+<p><strong>Device Trace</strong>:</p>
+<pre><code class="lang-text">Getting the location of the light: kitchen
+</code></pre>
+<p><strong>User</strong>: &quot;no, just switch on the one in the kitchen&quot;</p>
+<p><strong>AI Agent Process</strong>:</p>
+<ol>
+<li>Confirms location is kitchen</li>
+<li>Calls <code>turn_on()</code> to activate the light</li>
+</ol>
+<p><strong>Device Trace</strong>:</p>
+<pre><code class="lang-text">Turning on the light at location: kitchen
+</code></pre>
+<p><strong>User</strong>: &quot;I moved the light from the kitchen to the main room&quot;</p>
+<p><strong>AI Agent Process</strong>:</p>
+<ol>
+<li>Calls <code>set_location(&quot;main room&quot;)</code> to update the device state</li>
+</ol>
+<p><strong>Device Trace</strong>:</p>
+<pre><code class="lang-text">Setting the location of the light to: main room
+</code></pre>
+<h3 id="available-mcp-tools">Available MCP Tools</h3>
+<p>The sample exposes four tools to AI agents:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+<th>AI Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get_location</code></td>
+<td>Returns current light location</td>
+<td>Check before any operation</td>
+</tr>
+<tr>
+<td><code>turn_on</code></td>
+<td>Activates the light (GPIO LOW)</td>
+<td>Turn on light at current location</td>
+</tr>
+<tr>
+<td><code>turn_off</code></td>
+<td>Deactivates the light (GPIO HIGH)</td>
+<td>Turn off light at current location</td>
+</tr>
+<tr>
+<td><code>set_location</code></td>
+<td>Updates location metadata</td>
+<td>Change light's logical location</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li><strong>Context Awareness</strong>: AI agents understand location context and ask for clarification</li>
+<li><strong>State Management</strong>: Device maintains location state across requests</li>
+<li><strong>Natural Language</strong>: Users can interact using conversational commands</li>
+<li><strong>Safety Checks</strong>: AI verifies location before performing actions</li>
+<li><strong>Real-time Communication</strong>: Immediate hardware response to AI commands</li>
+</ul>
+<h2 id="net-10-mcp-client-with-azure-openai">.NET 10 MCP Client with Azure OpenAI</h2>
+<p>The main WebServer repository also includes a <a href="https://github.com/nanoframework/nanoFramework.WebServer/tree/main/tests/McpClientTest">MCT Client Test</a> that demonstrates how to connect to your nanoFramework MCP server from a full .NET application using Azure OpenAI and Semantic Kernel. This client example shows:</p>
+<ul>
+<li><strong>Azure OpenAI integration</strong> using Semantic Kernel</li>
+<li><strong>MCP client connectivity</strong> to nanoFramework devices</li>
+<li><strong>Automatic tool discovery</strong> and registration as AI functions</li>
+<li><strong>Interactive chat interface</strong> that can invoke tools on your embedded device</li>
+<li><strong>Real-time communication</strong> between AI agents and nanoFramework hardware</li>
+</ul>
+<p>The client uses the official ModelContextProtocol NuGet package and can automatically discover and invoke any tools exposed by your nanoFramework MCP server, enabling seamless AI-to-hardware interactions.</p>
+<pre><code class="lang-csharp">// Example: Connect .NET client to nanoFramework MCP server
+var mcpToolboxClient = await McpClientFactory.CreateAsync(
+    new SseClientTransport(new SseClientTransportOptions()
+    {
+        Endpoint = new Uri(&quot;http://192.168.1.139/mcp&quot;), // Your nanoFramework device IP
+        TransportMode = HttpTransportMode.StreamableHttp,
+    }, new HttpClient()));
+
+// Register discovered tools with Semantic Kernel
+var tools = await mcpToolboxClient.ListToolsAsync();
+kernel.Plugins.AddFromFunctions(&quot;MyDeviceTools&quot;, tools.Select(t =&gt; t.AsKernelFunction()));
+</code></pre>
+<p>This comprehensive MCP support enables your nanoFramework devices to seamlessly integrate with AI systems and language models, opening up new possibilities for intelligent embedded applications.</p>
+<h2 id="hardware-requirements">Hardware requirements</h2>
+<p>A hardware device with networking capabilities running a nanoFramework image.
+These samples have been tested with ESP32-S3 and ESP32-C3.</p>
+<p>For this specific sample, you'll need:</p>
+<ul>
+<li>An LED connected to GPIO pin 8 (or modify the pin number in <code>Light.cs</code>). In the case of the ESP32-S3 used, it's the embedded led. Most ESP32 devices have an embedded light you can use.</li>
+<li>A current-limiting resistor (220Ω recommended) if you are not using the embedded led.</li>
+</ul>
+<h2 id="wiring-diagram">Wiring Diagram</h2>
+<pre><code class="lang-text">ESP32 GPIO 8 ─── 220Ω Resistor ─── LED Anode
+                                    │
+ESP32 GND ──────────────────────── LED Cathode
+</code></pre>
+<h2 id="related-topics">Related topics</h2>
+<h3 id="reference">Reference</h3>
+<ul>
+<li>See API documentation <a href="https://github.com/nanoframework/nanoFramework.WebServer">here</a>.</li>
+</ul>
+<h2 id="build-the-sample">Build the sample</h2>
+<ol>
+<li>Start Microsoft Visual Studio 2022 or Visual Studio 2019 (Visual Studio 2017 should be OK too) and select <code>File &gt; Open &gt; Project/Solution</code>.</li>
+<li>Starting in the folder where you unzipped the samples/cloned the repository, go to the subfolder for this specific sample. Double-click the Visual Studio Solution (.sln) file.</li>
+<li>Press <code>Ctrl+Shift+B</code>, or select <code>Build &gt; Build Solution</code>.</li>
+</ol>
+<h2 id="run-the-sample">Run the sample</h2>
+<p>The next steps depend on whether you just want to deploy the sample or you want to both deploy and run it.</p>
+<h3 id="deploying-the-sample">Deploying the sample</h3>
+<ul>
+<li>Select <code>Build &gt; Deploy Solution</code>.</li>
+</ul>
+<h3 id="deploying-and-running-the-sample">Deploying and running the sample</h3>
+<ul>
+<li>To debug the sample and then run it, press F5 or select <code>Debug &gt; Start Debugging</code>.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>Important</strong>: Before deploying or running the sample, please make sure your device is visible in the Device Explorer.</p>
+<p><strong>Tip</strong>: To display the Device Explorer, go to Visual Studio menus: <code>View &gt; Other Windows &gt; Device Explorer</code>.</p>
+</div>
+<h2 id="testing-the-mcp-server">Testing the MCP Server</h2>
+<ol>
+<li>Deploy and run the sample on your nanoFramework device</li>
+<li>Note the IP address assigned to your device (check debug output)</li>
+<li>Use the MCP client example and adjust the IP address or create your own AI application</li>
+<li>The AI agent will automatically discover your device's capabilities and provide intelligent responses based on the current state and user requests.</li>
+</ol>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/Samples/blob/main/samples/McpAi/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

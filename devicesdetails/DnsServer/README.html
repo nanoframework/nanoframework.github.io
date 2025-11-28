@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>DNS Server | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="DNS Server | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/DnsServer/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dns-server">DNS Server</h1>
+
+<p>This binding offers a simple and minimal DNS server. It follows the <a href="https://www.rfc-editor.org/rfc/rfc1034">RFC1034</a> and <a href="https://www.rfc-editor.org/rfc/rfc1035">RFC1035</a> specifications.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>DNS concepts and facilities: <a href="https://www.rfc-editor.org/rfc/rfc1034">RFC1034</a></li>
+<li>DNS implementation and specification: <a href="https://www.rfc-editor.org/rfc/rfc1035">RFC1035</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>To use the DNS server, you need to add a reference to the <code>nanoFramework.Iot.Device.DnsServer</code> package to your project.</p>
+<h3 id="basic-implementation">Basic Implementation</h3>
+<p>The DNS server allows you to create a simple DNS service that responds to DNS queries based on a predefined list of DNS entries. Here's a basic example:</p>
+<pre><code class="lang-csharp">using Iot.Device.DnsServer;
+using System.Net;
+using System.Threading;
+
+// Create an IP address for the server to bind to
+IPAddress serverAddress = IPAddress.Parse(&quot;192.168.1.1&quot;);
+
+// Create DNS entries (domain name to IP address mappings)
+DnsEntry[] dnsEntries = new DnsEntry[]
+{
+    // Use specific domain name mappings
+    new(&quot;example.com&quot;, serverAddress),
+    new(&quot;test.local&quot;, IPAddress.Parse(&quot;192.168.1.10&quot;)),
+    
+    // Use wildcard to catch all other domains
+    new(&quot;*&quot;, serverAddress)  // Wildcard entry redirects all other DNS requests to the server address
+};
+
+// Create the DNS server with the server address and entries
+DnsServer dnsServer = new DnsServer(serverAddress, dnsEntries);
+
+// Start the DNS server
+if (dnsServer.Start())
+{
+    // Server started successfully
+    Debug.WriteLine(&quot;DNS Server started successfully&quot;);
+}
+else
+{
+    // Server failed to start
+    Debug.WriteLine(&quot;Failed to start DNS Server&quot;);
+}
+
+// Keep the application running
+Thread.Sleep(Timeout.Infinite);
+
+// To stop the server:
+// dnsServer.Stop();
+// dnsServer.Dispose();
+</code></pre>
+<h3 id="advanced-usage">Advanced Usage</h3>
+<p>You can also configure the DNS server with logging:</p>
+<pre><code class="lang-csharp">using Iot.Device.DnsServer;
+using Microsoft.Extensions.Logging;
+using System.Net;
+
+// Create a logger (implementation depends on your logging framework)
+ILogger logger = /* your logger implementation */;
+
+// Create DNS entries
+DnsEntry[] dnsEntries = new DnsEntry[]
+{
+    new(&quot;example.com&quot;, IPAddress.Parse(&quot;192.168.1.1&quot;))
+};
+
+// Create the DNS server with logging enabled
+DnsServer dnsServer = new DnsServer(
+    IPAddress.Parse(&quot;192.168.1.1&quot;),
+    dnsEntries,
+    logger);
+
+// Start the DNS server
+dnsServer.Start();
+</code></pre>
+<h2 id="information-on-the-sample">Information on the sample</h2>
+<p>The included <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/DnsServer/samples">sample</a> demonstrates how to create a simple DNS server that redirects all DNS queries to a specified IP address. This is useful for scenarios like captive portals or local development environments.</p>
+<p>The sample:</p>
+<ol>
+<li>Creates a DNS server bound to a specific IP address</li>
+<li>Sets up a wildcard DNS entry that redirects all DNS requests to that address</li>
+<li>Starts the DNS server and keeps it running indefinitely</li>
+</ol>
+<p>To run the sample, make sure your device is connected to a network where it can receive DNS queries (port 53).</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The DNS server only supports IPv4 addresses (A records)</li>
+<li>Only supports basic DNS queries with a single question</li>
+<li>Limited error handling and DNS record types</li>
+<li>No support for recursive queries or forwarding</li>
+<li>No authentication or security features</li>
+<li>No caching mechanism for DNS responses</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/DnsServer/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
