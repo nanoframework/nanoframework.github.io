@@ -206,12 +206,12 @@ Two top level directories have been created to support the development with Visu
   At the end of a successful build the build outputs are copied to the _\Build_ directory.
 
 > - Note: It is sometimes necessary to delete the contents of these folders if Visual Studio misbehaves.
->   Using Visual Studio with CMake results in what appears to be inconsistencies at times.
->   Sometime the CMake server goes away, shutting down Visual Studio and restarting usually fixes the problem.
-> - Note: After clearing the CMake cache, on occasions the build/chibios*source directory is left empty or only containing the .git file
->   due to some conflict. The current CMakeLists.txt file finds the directory and does not re-copy the code.
->   It is necessary to manually delete the directory from file explorer and generate the cache for the copy to run.
->   *
+>Using Visual Studio with CMake results in what appears to be inconsistencies at times.
+>Sometime the CMake server goes away, shutting down Visual Studio and restarting usually fixes the problem.
+> - Note: After clearing the CMake cache, on occasions the build/chibios_source directory is left empty or only containing the .git file
+>due to some conflict. The current CMakeLists.txt file finds the directory and does not re-copy the code.
+>It is necessary to manually delete the directory from file explorer and generate the cache for the copy to run.
+>_
 
 #### c:\nanoFramework_Tools\
 
@@ -259,12 +259,9 @@ Place a copy of the hex2dfu.exe tool here
 #### GCC Toolchain NOTES
 
 > Version 6.3.1 installed by Visual Studio has a problem with fallthrough, Version 8, has a problem with structures ( an issue has been raised to fix this)
-
 The following GCC version has been download, installed and tested.
-
 > GNU Arm Embedded Toolchain - Version 7-2018-q2-update
-
-    <https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>#
+<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>#
 
 In CMakeSettings.json the following variables determine the build tool.
 
