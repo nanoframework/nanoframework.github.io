@@ -26,14 +26,14 @@ Technical and Functional Specifications:
 
 ![mimxrt1060-evk](../../images/reference-targets/mimxrt1060_evk.jpg)
 
->Specification acquired from NXP [product page](https://www.nxp.com/design/development-boards/i.mx-evaluation-and-development-boards/mimxrt1060-evk-i.mx-rt1060-evaluation-kit:MIMXRT1060-EVK)
+> Specification acquired from NXP [product page](https://www.nxp.com/design/development-boards/i.mx-evaluation-and-development-boards/mimxrt1060-evk-i.mx-rt1060-evaluation-kit:MIMXRT1060-EVK)
 
 ## Firmware images (ready to deploy)
 
 The ready to use firmware images provided include support for the class libraries and features marked bellow.
 
-| Gpio | Spi | I2c | Pwm | Adc | Serial | Events | SWO | Networking | Large Heap |
-|:----:|:---:|:---:|:---:|:---:|:------:|:------:|:---:|:----------:|:----------:|
+|        Gpio        | Spi | I2c | Pwm | Adc | Serial |       Events       |        SWO         |     Networking     |     Large Heap     |
+| :----------------: | :-: | :-: | :-: | :-: | :----: | :----------------: | :----------------: | :----------------: | :----------------: |
 | :heavy_check_mark: |     |     |     |     |        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/net-nanoframework/nanoframework-images/raw/NXP_MIMXRT1060_EVK/latest/x/?render=true)](https://cloudsmith.io/~net-nanoframework/repos/nanoframework-images/packages/detail/raw/NXP_MIMXRT1060_EVK/latest/)

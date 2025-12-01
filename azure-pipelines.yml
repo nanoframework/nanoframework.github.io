@@ -291,7 +291,10 @@ steps:
       Remove-Item -Force libs\nanoFramework.M2Mqtt\nanoFramework.Mqtt.TestApps.sln
       Remove-Item -Recurse -Force libs\CoreLibrary\nanoFramework.CoreLibrary.Benchmarks
 
-- powershell: choco install docfx-companion-tools -y
+# install docfx helper tools
+- powershell: |
+    dotnet tool install DocFxTocGenerator -g
+    dotnet tool install DocLinkChecker -g
   displayName: Install the docfx helpers
   condition: succeeded()
 

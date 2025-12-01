@@ -10,9 +10,9 @@ There are available ready to flash firmware images for several targets, please c
 
 [(See below for VS2017)](#developing-firmware-for-the-nanoframework-using-visual-studio-2017-community-edition)
 
-The development process described below for VS2017 was initially focused on the STM32/ChibiOS target, with the Espressif ESP32 added later. In this update we will use the ESP32 as our example, for STM32 specific information refer to the VS2017 section.  
+The development process described below for VS2017 was initially focused on the STM32/ChibiOS target, with the Espressif ESP32 added later. In this update we will use the ESP32 as our example, for STM32 specific information refer to the VS2017 section.
 
->The very long file names used in the ChibiOS builds can result in exceeding the Windows 250 character path limit. Sometimes CMake will complain about this, or you may get seemingly random failed builds. The previous workaround for this was to place your source in a top-level directory. As an alternative we have been using the Windows `SUBST` command to access the source via ashorted drive mapped path. There are some tools provided to automate this process.
+> The very long file names used in the ChibiOS builds can result in exceeding the Windows 250 character path limit. Sometimes CMake will complain about this, or you may get seemingly random failed builds. The previous workaround for this was to place your source in a top-level directory. As an alternative we have been using the Windows `SUBST` command to access the source via ashorted drive mapped path. There are some tools provided to automate this process.
 
 ### First set up a working build environment with VS Code (Recommended)
 
@@ -20,9 +20,9 @@ While it is possible to set up a successful build and debug environment using VS
 
 Follow along with one of the guides here:
 
-- [Getting started with *VS Code* and ESP32](build-esp32.md)
+- [Getting started with _VS Code_ and ESP32](build-esp32.md)
 
-- [Getting started with *VS Code* and STM32](build-stm32.md)
+- [Getting started with _VS Code_ and STM32](build-stm32.md)
 
 ### Install Visual Studio 2019 Community and workloads
 
@@ -30,11 +30,11 @@ You should now have the pieces in place to build, deploy and debug the nanoFrame
 
 Install the following :
 
-| Software | Workload/Component |
-|:---|---|
-| Visual Studio 2019 community edition |Linux development with C++|
-|option|C++ CMake tools for Windows and Linux|
-|option|Embedded and IoT Development tools|
+| Software                             | Workload/Component                    |
+| :----------------------------------- | ------------------------------------- |
+| Visual Studio 2019 community edition | Linux development with C++            |
+| option                               | C++ CMake tools for Windows and Linux |
+| option                               | Embedded and IoT Development tools    |
 
 ### Configuration Files
 
@@ -43,7 +43,7 @@ The VS2019 IDE normally hides the contents of this directory in `Solution Explor
 
 The two configuration files in `.vs` are `tasks.vs.json` and `launch.vs.json`. When you clone the `nf-interpreter` repository there will be two files names `tasks.vs.SAMPLE.json` and `launch.vs.SAMPLE.json`, which you can copy as the appropriate name and then modify to suit your configuration if required. Note that these are `SAMPLE` rather than `TEMPLATE` files as they are not used as a basis for automatic configuration, but are there as an example of something that is known to work.
 
->Unlike VS2017, VS2019 currently rewrites your JSON configuration files,and in doing so will remove any comments you have added. This may strictly follow the JSON spec., but for human readable configuration files is a **Really Bad Thing!** Hopefully MS will realize this and change the behaviour, perhaps taking on a more reasoned format such as [JSON5](https://json5.org/)
+> Unlike VS2017, VS2019 currently rewrites your JSON configuration files,and in doing so will remove any comments you have added. This may strictly follow the JSON spec., but for human readable configuration files is a **Really Bad Thing!** Hopefully MS will realize this and change the behaviour, perhaps taking on a more reasoned format such as [JSON5](https://json5.org/)
 
 #### tasks.vs.json
 
@@ -53,13 +53,14 @@ This adds some entries to the Right-Click context menu for items in the `Solutio
 
 This is used to launch the debugger, using `GDB` locally with `OpenOCD` acting as the GDB server providing a connection to your device. The example for ESP32 is using a `SEGGER JLINK` device to connect to the ESP32 JTAG pins, while the STM32 example uses the `STM32 STLINK` interface on the STM769IDiscovery board.
 
-Note that we haven't been able to get the debug system working purely using the  VS2019 resources, and we call a Windows batch file `"startocd.bat"` to handle the `OpenOCD` configuration details. Take a look at that file and modify it to suit your configuration. (It **can** have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.
+Note that we haven't been able to get the debug system working purely using the VS2019 resources, and we call a Windows batch file `"startocd.bat"` to handle the `OpenOCD` configuration details. Take a look at that file and modify it to suit your configuration. (It **can** have comments as VS doesn't mess with it!) When you have something that works please let us know and we can add it as another option to the file.
 
->GDB requires `/` separators in the path passed for the executable file and symbols, rather than the windows backslash `\`, and at present neither VS Code or VS2017/2019 can do that for us when expanding variables, hence the need to add a hard-coded file path. For VS Code we have a neat little extension `nf` to take care of that for us, but at this stage no such solution for VS.
+> GDB requires `/` separators in the path passed for the executable file and symbols, rather than the windows backslash `\`, and at present neither VS Code or VS2017/2019 can do that for us when expanding variables, hence the need to add a hard-coded file path. For VS Code we have a neat little extension `nf` to take care of that for us, but at this stage no such solution for VS.
 
 #### CMakeSettings.json
 
 This is the main configuration file for setting build options for the `nf-interpreter`, and is located in the root directory. Currently the repository has the actual file rather than a `SAMPLE` version, something we need to review as we don't want updates overwriting your local modifications!
+
 > You may prefer to work from a local branch that keeps your changes safe, rather than the `develop` branch. I currently use a branch `SaveLocalSettings` to build,with a small script that automatically pulls and merges upstream `develop` changes into it.
 
 Note that VS2019 will walk all over this file! But on the up-side it does give you a nice GUI interface for changing the options included in your build and generating the system, something not present in VS2017. To access this Right-Click on `CMakeSettings.json` in `Solution Explorer`, and select the option `"CMake Settings for nanoFramework"`.
@@ -81,7 +82,7 @@ This script is used to help overcome the problem of file paths exceeding the Win
 
 For example, if my source root is located at `D:\usr_chronos\Sandbox\NanoFramework\nf-interpreter\`
 
-``` batch
+```batch
 D:\usr_chronos\Sandbox\NanoFramework\nf-interpreter>SetNFRoot.bat
 Found free drive letter: B:
 Created new  subst for D:\usr_chronos\Sandbox\NanoFramework\nf-interpreter\ on B:
@@ -97,13 +98,14 @@ The script output (see above) is sent to `stderr` rather than `stdout`, except f
 #### startocd.bat
 
 This script is called by `GDB` to start `OpenOCD` as a separate process, you can add additional entries to the bottom of the script following the existing pattern. The label is passed from a line in `launch.vs.json`, default is for ESP32 with J-Link.
->The script currently starts `C:/nanoFramework_Tools/Tools/openocd/bin/openocd.exe` for the `STM32_STLINK` label, which is what you will have installed if you followed the STM32 instructions, but I've actually had better results using the ESP32 version of OpenOCD with the STM32.
-If you have that version installed just comment out the line following the `:STM32_STLINK` label.
+
+> The script currently starts `C:/nanoFramework_Tools/Tools/openocd/bin/openocd.exe` for the `STM32_STLINK` label, which is what you will have installed if you followed the STM32 instructions, but I've actually had better results using the ESP32 version of OpenOCD with the STM32.
+> If you have that version installed just comment out the line following the `:STM32_STLINK` label.
 
 ### Build Locations
 
 We are able to build in separate locations to suit the target type and configuration we are working on. The current layout is to use the `Build` subdirectory to contain all the separate build types folders, so `Build\ESP32` for ESP32 vanilla build, `Build\ESP32_test` for a test build, etc.
-The STM32 builds are most likely to require a shortened build path, so we can use  `"${env.nfRoot}Build/${name}"` in our `CMakeSettings.json` file STM769IDiscovery section. The build will then be done in `"B:\Build\STM769IDiscovery"`.
+The STM32 builds are most likely to require a shortened build path, so we can use `"${env.nfRoot}Build/${name}"` in our `CMakeSettings.json` file STM769IDiscovery section. The build will then be done in `"B:\Build\STM769IDiscovery"`.
 
 ### Debugging
 
@@ -111,7 +113,7 @@ Once the program has been built and loaded into flash, you can launch the debugg
 
 ![VS2019 toolbar](../../images/getting-started/VS2019Toolbars.png)
 
->Note that the launch configuration, here  `ESP32 nanoCLR - Segger JLink`, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!
+> Note that the launch configuration, here `ESP32 nanoCLR - Segger JLink`, may not show up for selection in the dropdown immediately, in some cases it takes some minutes to be available. We assume VS2019 is doing something in the background, if anyone knows the cause or a way to speed this up please let us know!
 
 You can then commence debugging from the top DEBUG menu.
 
@@ -160,7 +162,7 @@ The processor has now stopped at the temporary breakpoint inserted by our `launc
 
 ![VS2019 Breakpoint](../../images/getting-started/VS2019Breakpoint.png)
 
-You can now step through the code, observe variables, set breakpoints  and so on.
+You can now step through the code, observe variables, set breakpoints and so on.
 
 ### Summary
 
@@ -182,8 +184,9 @@ Your feedback and contributions are welcome!
 
 Some compromises were required to get this to a working stage.
 I made a decision to put the code at the top level to reduce path length of files which caused warnings of the potential to overflow the command line.
->Hard coded paths are used to ensure it works with the current CMake coding and the Microsoft usage of CMake
->There are some issues with the CMakeSettings.json file with path separators.
+
+> Hard coded paths are used to ensure it works with the current CMake coding and the Microsoft usage of CMake
+> There are some issues with the CMakeSettings.json file with path separators.
 
 ### Directory structure for the project
 
@@ -199,12 +202,12 @@ Two top level directories have been created to support the development with Visu
 ##### c:\nanoFramework\nf-interpreter\Build
 
 - This directory contains the build output, the files in here are transient. When the CMake cache is deleted, files in this directory are deleted.
-The files in this directory are only visible when selecting "Show All Files". These files are not part of the GIT repository.
-At the end of a successful build the build outputs are copied to the *\Build* directory.
+  The files in this directory are only visible when selecting "Show All Files". These files are not part of the GIT repository.
+  At the end of a successful build the build outputs are copied to the _\Build_ directory.
 
 > - Note: It is sometimes necessary to delete the contents of these folders if Visual Studio misbehaves.
-Using Visual Studio with CMake results in what appears to be inconsistencies at times.
-Sometime the CMake server goes away, shutting down Visual Studio and restarting usually fixes the problem.
+>Using Visual Studio with CMake results in what appears to be inconsistencies at times.
+>Sometime the CMake server goes away, shutting down Visual Studio and restarting usually fixes the problem.
 > - Note: After clearing the CMake cache, on occasions the build/chibios_source directory is left empty or only containing the .git file
 >due to some conflict. The current CMakeLists.txt file finds the directory and does not re-copy the code.
 >It is necessary to manually delete the directory from file explorer and generate the cache for the copy to run.
@@ -246,20 +249,19 @@ Place a copy of the hex2dfu.exe tool here
 
 #### Setup and Installation
 
-| Software Component | Notes | Link |
-|:---|---|---|
-| Visual Studio 2017 community edition |Linux development with C++||
-|option|Visual C++ tools for CMake and Linux||
-|option|Embedded and IoT Development|GCC version 6.3.1. December/2018|
-|GCC Tool Chain - Version 7-2018-q2-update|GNU Arm Embedded Toolchain|<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>|
+| Software Component                        | Notes                                | Link                                                                   |
+| :---------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------- |
+| Visual Studio 2017 community edition      | Linux development with C++           |                                                                        |
+| option                                    | Visual C++ tools for CMake and Linux |                                                                        |
+| option                                    | Embedded and IoT Development         | GCC version 6.3.1. December/2018                                       |
+| GCC Tool Chain - Version 7-2018-q2-update | GNU Arm Embedded Toolchain           | <https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads> |
 
 #### GCC Toolchain NOTES
 
 > Version 6.3.1 installed by Visual Studio has a problem with fallthrough, Version 8, has a problem with structures ( an issue has been raised to fix this)
-
 The following GCC version has been download, installed and tested.
 > GNU Arm Embedded Toolchain - Version 7-2018-q2-update
-    <https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>#
+<https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>#
 
 In CMakeSettings.json the following variables determine the build tool.
 
@@ -282,7 +284,7 @@ If you use the `add_custom_command` with `POST_BUILD` then the build compiles bu
 ```
 
 To avoid the problem the custom command to copy the build outputs is not run.
- An equivalent of this can be run by executing `CopyBuildOutput.cmd` manually from the command prompt.
+An equivalent of this can be run by executing `CopyBuildOutput.cmd` manually from the command prompt.
 
 #### Debugging the solution
 
