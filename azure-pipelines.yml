@@ -613,25 +613,6 @@ steps:
     msbuildArchitecture: 'x64'
     maximumCpuCount: true
 
-# Clean up samples folder from IoT.Device before building
-- task: PowerShell@2
-  displayName: Remove samples folder from IoT.Device
-  condition: >-
-    and(
-      succeeded(),
-      or(
-        eq(variables['BUILD_ALL'], 'true'),
-        contains(variables['BuildOptions.COMMIT_MESSAGE'], '***BUILD_ALL***'),
-        eq(variables['BuildOptions.BUILD_ALL'], 'true')
-      )
-    )
-  inputs:
-    targetType: 'inline'
-    script: |
-      if (Test-Path "nanoFramework.IoT.Device\devices\samples") {
-        Remove-Item -Recurse -Force nanoFramework.IoT.Device\devices\samples
-      }
-
 # This should build all the bindings in nanoFramework.IoT.Device in the devices directory
 - task: PowerShell@2
   displayName: Build all from nanoFramework.IoT.Device
