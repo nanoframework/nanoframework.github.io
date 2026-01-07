@@ -47,8 +47,16 @@ The flags property are meant to contain a bit flags value. They are not used in 
 
 ### NativeMethodsChecksum
 
-The **_NativeMethodsChecksum_** is a unique value that is matched against the native methods table stored in the CLR firmware to ensure the methods match. The actual algorithm used for computing this checksum are documented in the [NativeMethodsChecksum Algorithm] document. Though, it worth noting that the actual algorithm doesn't matter. Nothing in the runtime will compute this value. The runtime only compares the assembly's value with the one for the native code registered for a given assembly to ensure they match. As long as the tool generating the assembly and the native method stubs header and code files use the same value then the actual algorithm is mostly irrelevant. The most important aspect of the algorithm chosen is that any change to any type or method signature
-of any type with native methods **MUST** generate a distinct checksum value. The current MetadataProcessor algorithm constructs a mangled string name for the native methods (used to generate the stubs), sorts them all and runs a CRC32 across them to get a distinct value. Since the CRC is based on the fully qualified method name and the types of all parameters any change of the signatures will generate a new value - denoting a mismatch.
+The **_NativeMethodsChecksum_** is a value used to validate that the managed assembly and the native implementation registered in the CLR firmware agree on the native methods table layout. The CLR does **not** recompute this value; it only compares the value stored in the assembly header with the value associated with the native code for that assembly.
+
+The algorithm used to compute this checksum is documented in [NativeMethodsChecksum Algorithm](NativeMethodsChecksumAlgorithm.md). The most important requirement is that any change to any type or method signature of any type that participates in native interop **must** yield a different value.
+
+The current MetadataProcessor implementation computes a deterministic CRC32 over a sequence derived from:
+
+- The assembly name.
+- A mangled class name (namespace + nesting + type name, normalized for generics).
+- A mangled method signature (method name + static/instance marker + return type + parameter types).
+- A `nullptr` marker appended for every visited method entry to make the checksum position-dependent.
 
 ### NativeMethodsOffset
 
