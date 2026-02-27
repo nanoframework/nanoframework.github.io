@@ -44,15 +44,17 @@ This removes the need to re-implement complex boot/update state handling in-hous
 
 ### 2) Device transport and update control (mcumgr / SMP)
 
-Use mcumgr/SMP as the management transport and command layer, initially focusing on serial transports (UART / USB CDC), while keeping BLE/UDP as supported future paths on capable targets.
+mcumgr/SMP will replace the role currently served by nanoBooter as the device-side management and communication layer. Today, nanoBooter handles the Wire Protocol interactions used to flash firmware and deploy managed applications. Under the new architecture, mcumgr takes over this responsibility, acting as the management transport and command layer between host tooling and the device.
 
-mcumgr support for image management and multiple transports, matching the intended usage model for nanoFramework devices.
+mcumgr implements the Simple Management Protocol (SMP), a lightweight request/response protocol designed for device management on constrained embedded systems. It provides a standardised command interface for image management operations — including upload, slot inspection, activation, and confirmation — as well as system-level commands such as reset and status queries. This replaces the proprietary Wire Protocol currently used by nanoBooter with an open, well-documented protocol that is already supported by a mature ecosystem of host-side libraries and tools.
 
-nanoFramework-specific extensions will be required, especially around:
+The initial focus will be on serial transports (UART / USB CDC), which cover the primary development and production programming workflows. BLE and UDP transports are supported by mcumgr's architecture and will remain available as future paths on capable targets, enabling wireless update scenarios without changes to the command layer.
 
-- managed application image/deployment handling
-- deployment region management
-- workflow integration with the existing tooling and developer experience
+nanoFramework-specific extensions to the mcumgr command set will be required, especially around:
+
+- managed application image/deployment handling, since mcumgr's standard image management commands are designed for firmware slots and do not natively cover the separate managed deployment region used by nanoFramework
+- deployment region management, to support the upload, inspection, and lifecycle control of .NET assemblies independently from firmware images
+- workflow integration with the existing tooling and developer experience, ensuring that the transition from nanoBooter to mcumgr is transparent to end users working through nanoff, Visual Studio, or VS Code
 
 ### 3) Host-side tooling refactor (nanoFirmwareFlasher evolution)
 
