@@ -198,16 +198,20 @@ Class UdpClient
 
   <h2 id="System_Net_Sockets_UdpClient_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
-the buffer size without warning. Indeed "lwIP", the TCP/IP stack used commonly by RTOS, doesn't
-support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
-when it is longer than the passed buffer opposite to common Un*x implementations.
-</p>
-<p>
-<a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and <pre><code class="lang-csharp">Connect</code></pre> methods establish a default remote host.
-Once established, you do not have to specify a remote host in each call to the <pre><code class="lang-csharp">Send</code></pre> methods.
-Additionally, once a remote host is established the datagram received from other hosts will be discarded.
-
+            For the Receive methods if the buffer is smaller than the packet to receive it will be truncated to
+            the buffer size without warning. Indeed "lwIP", the TCP/IP stack used commonly by RTOS, doesn't
+            support the MSG_TRUNC socket option in calls to recvfrom to return the real length of the datagram
+            when it is longer than the passed buffer opposite to common Un*x implementations.
+            </p>
+            <p>
+            <a class="xref" href="System.Net.Sockets.UdpClient.html#System_Net_Sockets_UdpClient__ctor_System_String_System_Int32_">UdpClient(string, int)</a> and 
+<pre><code class="lang-csharp">Connect</code></pre>
+ methods establish a default remote host.
+            Once established, you do not have to specify a remote host in each call to the 
+<pre><code class="lang-csharp">Send</code></pre>
+ methods.
+            Additionally, once a remote host is established the datagram received from other hosts will be discarded.
+            
 </div>
 
 
@@ -1318,7 +1322,9 @@ when it is longer than the passed buffer opposite to common Un*x implementations
     <dd><p>Length of the datagram.</p>
 </dd>
     <dt><code>endPoint</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
-    <dd><p>Remote endpoint to send the datagram to. Must be <pre><code class="lang-csharp">null</code></pre> if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.
+    <dd><p>Remote endpoint to send the datagram to. Must be</p>
+<pre><code class="lang-csharp">null</code></pre>
+<p>if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.</p>
 </dd>
   </dl>
 
@@ -1379,7 +1385,9 @@ Or remote <code class="paramref">endPoint</code> is null but <a class="xref" hre
     <dd><p>ByteArray containing the datagram to send</p>
 </dd>
     <dt><code>endPoint</code> <a class="xref" href="System.Net.IPEndPoint.html">IPEndPoint</a></dt>
-    <dd><p>Remote endpoint to send the datagram to. Must be <pre><code class="lang-csharp">null</code></pre> if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.
+    <dd><p>Remote endpoint to send the datagram to. Must be</p>
+<pre><code class="lang-csharp">null</code></pre>
+<p>if the <a class="xref" href="System.Net.Sockets.UdpClient.html">UdpClient</a> is connected to a remote endpoint.</p>
 </dd>
   </dl>
 

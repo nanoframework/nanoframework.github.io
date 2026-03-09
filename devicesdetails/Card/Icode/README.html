@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>ICODE Card - ISO 15693 (NFC-V / Vicinity) | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="ICODE Card - ISO 15693 (NFC-V / Vicinity) | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Card/Icode/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="icode-card---iso-15693-nfc-v--vicinity">ICODE Card - ISO 15693 (NFC-V / Vicinity)</h1>
+
+<p>This library provides support for NXP ICODE and other ISO 15693 NFC-V (Vicinity) cards. ISO 15693 cards operate at 13.56 MHz with a longer read range than ISO 14443 proximity cards.</p>
+<h2 id="supported-card-types">Supported card types</h2>
+<table>
+<thead>
+<tr>
+<th>Card Type</th>
+<th>Capacity (bits)</th>
+<th>Enum Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ICODE SLIX</td>
+<td>896</td>
+<td><code>IcodeCardCapacity.IcodeSlix</code></td>
+</tr>
+<tr>
+<td>ICODE SLIX2</td>
+<td>2528</td>
+<td><code>IcodeCardCapacity.IcodeSlix2</code></td>
+</tr>
+<tr>
+<td>ICODE DNA</td>
+<td>2016</td>
+<td><code>IcodeCardCapacity.IcodeDna</code></td>
+</tr>
+<tr>
+<td>ICODE 3</td>
+<td>2400</td>
+<td><code>IcodeCardCapacity.Icode3</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage">Usage</h2>
+<p>The <code>IcodeCard</code> class requires a <code>CardTransceiver</code> (such as a <a href="../../Pn5180/README.html">PN5180</a>) and a detected card UID.</p>
+<h3 id="detecting-cards">Detecting cards</h3>
+<p>First, detect an ISO 15693 card using the reader's inventory command. With the PN5180:</p>
+<pre><code class="lang-csharp">ArrayList cards;
+if (pn5180.ListenToCardIso15693(
+    TransmitterRadioFrequencyConfiguration.Iso15693_ASK100_26,
+    ReceiverRadioFrequencyConfiguration.Iso15693_26,
+    out cards,
+    2000))
+{
+    var detectedCard = (Data26_53kbps)cards[0];
+    Debug.WriteLine($&quot;UID: {BitConverter.ToString(detectedCard.NfcId)}&quot;);
+}
+</code></pre>
+<h3 id="creating-an-icodecard">Creating an IcodeCard</h3>
+<pre><code class="lang-csharp">// Reset RF config for addressed-mode communication
+pn5180.ResetPN5180Configuration(
+    TransmitterRadioFrequencyConfiguration.Iso15693_ASK100_26,
+    ReceiverRadioFrequencyConfiguration.Iso15693_26);
+
+var icodeCard = new IcodeCard(pn5180, detectedCard.TargetNumber)
+{
+    Uid = detectedCard.NfcId,
+    Capacity = IcodeCardCapacity.Unknown
+};
+</code></pre>
+<h3 id="getting-system-information">Getting system information</h3>
+<pre><code class="lang-csharp">if (icodeCard.GetSystemInformation())
+{
+    Debug.WriteLine($&quot;DSFID: 0x{icodeCard.Dsfid:X2}&quot;);
+    Debug.WriteLine($&quot;AFI: 0x{icodeCard.Afi:X2}&quot;);
+    Debug.WriteLine($&quot;System info: {BitConverter.ToString(icodeCard.Data)}&quot;);
+}
+</code></pre>
+<h3 id="reading-blocks">Reading blocks</h3>
+<pre><code class="lang-csharp">// Read a single block
+if (icodeCard.ReadSingleBlock(0))
+{
+    Debug.WriteLine($&quot;Block 0: {BitConverter.ToString(icodeCard.Data)}&quot;);
+}
+
+// Read multiple blocks at once
+if (icodeCard.ReadMultipleBlocks(0, 4))
+{
+    Debug.WriteLine($&quot;Blocks 0-3: {BitConverter.ToString(icodeCard.Data)}&quot;);
+}
+</code></pre>
+<h3 id="writing-blocks">Writing blocks</h3>
+<pre><code class="lang-csharp">// Write a single block (block size depends on card type, typically 4 bytes)
+icodeCard.Data = new byte[] { 0x01, 0x02, 0x03, 0x04 };
+icodeCard.WriteSingleBlock(0);
+
+// Write multiple blocks
+icodeCard.Data = new byte[] { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08 };
+icodeCard.WriteMultipleBlocks(0);
+</code></pre>
+<h3 id="locking-blocks">Locking blocks</h3>
+<pre><code class="lang-csharp">// Permanently lock a block (irreversible!)
+icodeCard.LockBlock(0);
+</code></pre>
+<h3 id="card-state-management">Card state management</h3>
+<pre><code class="lang-csharp">// Make the card stop responding to inventory requests
+icodeCard.StayQuiet();
+
+// Select a specific card by UID for exclusive communication
+icodeCard.Select(detectedCard.NfcId);
+
+// Wake up all quiet cards
+icodeCard.ResetToReady();
+</code></pre>
+<h3 id="afi-and-dsfid-management">AFI and DSFID management</h3>
+<pre><code class="lang-csharp">// Write Application Family Identifier
+icodeCard.WriteAfi(0x01);
+
+// Lock the AFI (irreversible!)
+icodeCard.LockAfi();
+
+// Write Data Storage Format Identifier
+icodeCard.WriteDsfid(0x00);
+
+// Lock the DSFID (irreversible!)
+icodeCard.LockDsfid();
+</code></pre>
+<h3 id="block-security-status">Block security status</h3>
+<pre><code class="lang-csharp">// Get lock status of multiple blocks
+if (icodeCard.GetMultipleBlockSecurityStatus(0, 4))
+{
+    // icodeCard.Data contains the security status bytes
+    Debug.WriteLine($&quot;Security: {BitConverter.ToString(icodeCard.Data)}&quot;);
+}
+</code></pre>
+<h2 id="supported-iso-15693-commands">Supported ISO 15693 commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read Single Block (0x20)</td>
+<td><code>ReadSingleBlock()</code></td>
+<td>Read one block</td>
+</tr>
+<tr>
+<td>Write Single Block (0x21)</td>
+<td><code>WriteSingleBlock()</code></td>
+<td>Write one block</td>
+</tr>
+<tr>
+<td>Lock Block (0x22)</td>
+<td><code>LockBlock()</code></td>
+<td>Permanently lock a block</td>
+</tr>
+<tr>
+<td>Read Multiple Blocks (0x23)</td>
+<td><code>ReadMultipleBlocks()</code></td>
+<td>Read consecutive blocks</td>
+</tr>
+<tr>
+<td>Write Multiple Blocks (0x24)</td>
+<td><code>WriteMultipleBlocks()</code></td>
+<td>Write consecutive blocks</td>
+</tr>
+<tr>
+<td>Stay Quiet (0x02)</td>
+<td><code>StayQuiet()</code></td>
+<td>Card stops responding to inventory</td>
+</tr>
+<tr>
+<td>Select (0x25)</td>
+<td><code>Select()</code></td>
+<td>Select a specific card</td>
+</tr>
+<tr>
+<td>Reset to Ready (0x26)</td>
+<td><code>ResetToReady()</code></td>
+<td>Wake up quiet cards</td>
+</tr>
+<tr>
+<td>Write AFI (0x27)</td>
+<td><code>WriteAfi()</code></td>
+<td>Write Application Family Identifier</td>
+</tr>
+<tr>
+<td>Lock AFI (0x28)</td>
+<td><code>LockAfi()</code></td>
+<td>Permanently lock AFI</td>
+</tr>
+<tr>
+<td>Write DSFID (0x29)</td>
+<td><code>WriteDsfid()</code></td>
+<td>Write Data Storage Format Identifier</td>
+</tr>
+<tr>
+<td>Lock DSFID (0x2A)</td>
+<td><code>LockDsfid()</code></td>
+<td>Permanently lock DSFID</td>
+</tr>
+<tr>
+<td>Get System Information (0x2B)</td>
+<td><code>GetSystemInformation()</code></td>
+<td>Get card capabilities</td>
+</tr>
+<tr>
+<td>Get Multiple Block Security Status (0x2C)</td>
+<td><code>GetMultipleBlockSecurityStatus()</code></td>
+<td>Get block lock status</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reader-support">Reader support</h2>
+<p>Currently supported reader for ISO 15693:</p>
+<ul>
+<li><a href="../../Pn5180/README.html">PN5180</a> — full ISO 15693 support including 16-slot inventory</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Card/Icode/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

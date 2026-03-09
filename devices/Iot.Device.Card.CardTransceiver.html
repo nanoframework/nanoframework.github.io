@@ -165,6 +165,74 @@ So Mifare cards can be used the same way independent of any reader</p>
 
 
 
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Iot_Device_Card_CardTransceiver_MaximumReadSize_" data-uid="Iot.Device.Card.CardTransceiver.MaximumReadSize*"></a>
+
+  <h3 id="Iot_Device_Card_CardTransceiver_MaximumReadSize" data-uid="Iot.Device.Card.CardTransceiver.MaximumReadSize">
+  MaximumReadSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum read size supported by this transceiver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract uint MaximumReadSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_CardTransceiver_MaximumWriteSize_" data-uid="Iot.Device.Card.CardTransceiver.MaximumWriteSize*"></a>
+
+  <h3 id="Iot_Device_Card_CardTransceiver_MaximumWriteSize" data-uid="Iot.Device.Card.CardTransceiver.MaximumWriteSize">
+  MaximumWriteSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum write size supported by this transceiver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract uint MaximumWriteSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -212,8 +280,8 @@ This function provides this feature</p>
 
   <a id="Iot_Device_Card_CardTransceiver_Transceive_" data-uid="Iot.Device.Card.CardTransceiver.Transceive*"></a>
 
-  <h3 id="Iot_Device_Card_CardTransceiver_Transceive_System_Byte_System_SpanByte_System_SpanByte_" data-uid="Iot.Device.Card.CardTransceiver.Transceive(System.Byte,System.SpanByte,System.SpanByte)">
-  Transceive(byte, SpanByte, SpanByte)
+  <h3 id="Iot_Device_Card_CardTransceiver_Transceive_System_Byte_System_SpanByte_System_SpanByte_Iot_Device_Card_NfcProtocol_" data-uid="Iot.Device.Card.CardTransceiver.Transceive(System.Byte,System.SpanByte,System.SpanByte,Iot.Device.Card.NfcProtocol)">
+  Transceive(byte, SpanByte, SpanByte, NfcProtocol)
   
   </h3>
 
@@ -223,7 +291,7 @@ the reader and the cards.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract int Transceive(byte targetNumber, SpanByte dataToSend, SpanByte dataFromCard)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract int Transceive(byte targetNumber, SpanByte dataToSend, SpanByte dataFromCard, NfcProtocol protocol = NfcProtocol.Mifare)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -236,6 +304,9 @@ the reader and the cards.</p>
 </dd>
     <dt><code>dataFromCard</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
     <dd><p>If any data are read from the card, they will be put into this array</p>
+</dd>
+    <dt><code>protocol</code> <a class="xref" href="Iot.Device.Card.NfcProtocol.html">NfcProtocol</a></dt>
+    <dd><p>The NFC protocol to use for this transceive operation</p>
 </dd>
   </dl>
 

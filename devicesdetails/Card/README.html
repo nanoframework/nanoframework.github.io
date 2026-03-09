@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/Card/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Card/README.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -88,7 +88,7 @@
 <h1 id="rfid-shared-elements">RFID shared elements</h1>
 
 <p>Common elements of all RFID and NFC readers like the type of cards 14443 Type A, Type B, Innovision Jewel.</p>
-<p>This contains as well an abstract class that has to be implemented by readers to have a transparent way of managing Mifare, Ultralight cards and other high level cards.</p>
+<p>This contains as well an abstract class that has to be implemented by readers to have a transparent way of managing Mifare, Ultralight, Icode (ISO 15693) cards and other high level cards.</p>
 <pre><code class="lang-csharp">namespace Iot.Device.Card
 {
     /// &lt;summary&gt;
@@ -106,8 +106,9 @@
         /// &lt;param name=&quot;targetNumber&quot;&gt;Some readers have a notion of target number for the cards as they can read multiple ones&lt;/param&gt;
         /// &lt;param name=&quot;dataToSend&quot;&gt;A standardized raw buffer with the command at the position 0 in the array&lt;/param&gt;
         /// &lt;param name=&quot;dataFromCard&quot;&gt;If any data are read from the card, they will be put into this array&lt;/param&gt;
+        /// &lt;param name=&quot;protocol&quot;&gt;The NFC protocol to use for timing and framing. Defaults to Mifare.&lt;/param&gt;
         /// &lt;returns&gt;-1 in case of error, otherwise the number of bytes read and copied into the &lt;paramref name=&quot;dataFromCard&quot;/&gt; array&lt;/returns&gt;
-        public abstract int Transceive(byte targetNumber, SpanByte dataToSend, SpanByte dataFromCard);
+        public abstract int Transceive(byte targetNumber, SpanByte dataToSend, SpanByte dataFromCard, NfcProtocol protocol = NfcProtocol.Mifare);
 
         /// &lt;summary&gt;
         /// Once you have an authentication operation failing with Mifare cards or a read/write, the card stop.
@@ -124,7 +125,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/Card/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Card/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

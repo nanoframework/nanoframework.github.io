@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class IcodeCard | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IcodeCard | .NET nanoFramework Documentation ">
+      
+      <meta name="description" content="An ICODE card class. Supports ICODE SLIX, ICODE SLIX2, ICODE DNA, ICODE 3. Implements ISO/IEC 15693 commands for reading, writing, and managing vicinity cards.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Iot.Device.Card.Icode.IcodeCard">
+
+
+
+  <h1 id="Iot_Device_Card_Icode_IcodeCard" data-uid="Iot.Device.Card.Icode.IcodeCard" class="text-break">
+Class IcodeCard  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Iot.html">Iot</a>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Card.html">Card</a>.<a class="xref" href="Iot.Device.Card.Icode.html">Icode</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Icode.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An ICODE card class. Supports ICODE SLIX, ICODE SLIX2, ICODE DNA, ICODE 3.
+Implements ISO/IEC 15693 commands for reading, writing, and managing vicinity cards.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class IcodeCard</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">IcodeCard</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard__ctor_" data-uid="Iot.Device.Card.Icode.IcodeCard.#ctor*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard__ctor_Iot_Device_Card_CardTransceiver_System_Byte_" data-uid="Iot.Device.Card.Icode.IcodeCard.#ctor(Iot.Device.Card.CardTransceiver,System.Byte)">
+  IcodeCard(CardTransceiver, byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor for IcodeCard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IcodeCard(CardTransceiver rfid, byte target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rfid</code> <a class="xref" href="Iot.Device.Card.CardTransceiver.html">CardTransceiver</a></dt>
+    <dd><p>A card transceiver class.</p>
+</dd>
+    <dt><code>target</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The target number as some card readers attribute one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_Afi_" data-uid="Iot.Device.Card.Icode.IcodeCard.Afi*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_Afi" data-uid="Iot.Device.Card.Icode.IcodeCard.Afi">
+  Afi
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Application Family Identifier (AFI).
+Represents the type of application targeted by the VCD.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Afi { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_BlockCount_" data-uid="Iot.Device.Card.Icode.IcodeCard.BlockCount*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_BlockCount" data-uid="Iot.Device.Card.Icode.IcodeCard.BlockCount">
+  BlockCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The block count when reading multiple blocks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte BlockCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_BlockNumber_" data-uid="Iot.Device.Card.Icode.IcodeCard.BlockNumber*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_BlockNumber" data-uid="Iot.Device.Card.Icode.IcodeCard.BlockNumber">
+  BlockNumber
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The block number to read or write.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte BlockNumber { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_Capacity_" data-uid="Iot.Device.Card.Icode.IcodeCard.Capacity*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_Capacity" data-uid="Iot.Device.Card.Icode.IcodeCard.Capacity">
+  Capacity
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The storage capacity of the card.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IcodeCardCapacity Capacity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Card.Icode.IcodeCardCapacity.html">IcodeCardCapacity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_Data_" data-uid="Iot.Device.Card.Icode.IcodeCard.Data*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_Data" data-uid="Iot.Device.Card.Icode.IcodeCard.Data">
+  Data
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data which has been read or to write for the specific block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] Data { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_Dsfid_" data-uid="Iot.Device.Card.Icode.IcodeCard.Dsfid*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_Dsfid" data-uid="Iot.Device.Card.Icode.IcodeCard.Dsfid">
+  Dsfid
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Data Storage Format Identifier (DSFID).
+Indicates how the data is structured in the VICC memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Dsfid { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_Target_" data-uid="Iot.Device.Card.Icode.IcodeCard.Target*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_Target" data-uid="Iot.Device.Card.Icode.IcodeCard.Target">
+  Target
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tag number detected by the reader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Target { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_Uid_" data-uid="Iot.Device.Card.Icode.IcodeCard.Uid*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_Uid" data-uid="Iot.Device.Card.Icode.IcodeCard.Uid">
+  Uid
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unique identifier (UID) of the card — 8 bytes for ISO 15693.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[]? Uid { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_CalculateCrcIso15693_" data-uid="Iot.Device.Card.Icode.IcodeCard.CalculateCrcIso15693*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_CalculateCrcIso15693_System_SpanByte_System_SpanByte_" data-uid="Iot.Device.Card.Icode.IcodeCard.CalculateCrcIso15693(System.SpanByte,System.SpanByte)">
+  CalculateCrcIso15693(SpanByte, SpanByte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provide a calculation of CRC for ISO 15693.
+Note: The PN5180 module handles CRC in hardware and does not need this for normal operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CalculateCrcIso15693(SpanByte buffer, SpanByte crc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The buffer to calculate CRC over.</p>
+</dd>
+    <dt><code>crc</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The CRC result — must be a 2-byte array.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_GetMultipleBlockSecurityStatus_" data-uid="Iot.Device.Card.Icode.IcodeCard.GetMultipleBlockSecurityStatus*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_GetMultipleBlockSecurityStatus_System_Byte_System_Byte_" data-uid="Iot.Device.Card.Icode.IcodeCard.GetMultipleBlockSecurityStatus(System.Byte,System.Byte)">
+  GetMultipleBlockSecurityStatus(byte, byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the security status (locked/unlocked) of multiple blocks.
+The raw response is placed into the <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Data">Data</a> property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetMultipleBlockSecurityStatus(byte block, byte count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>block</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The starting block number.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The number of blocks to query (0-based).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_GetSystemInformation_" data-uid="Iot.Device.Card.Icode.IcodeCard.GetSystemInformation*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_GetSystemInformation" data-uid="Iot.Device.Card.Icode.IcodeCard.GetSystemInformation">
+  GetSystemInformation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the system information of the VICC, including DSFID, AFI, memory capacity, and IC reference.
+The raw response is placed into the <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Data">Data</a> property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetSystemInformation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_LockAfi_" data-uid="Iot.Device.Card.Icode.IcodeCard.LockAfi*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_LockAfi" data-uid="Iot.Device.Card.Icode.IcodeCard.LockAfi">
+  LockAfi()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Permanently lock the AFI. This operation is irreversible.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LockAfi()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_LockBlock_" data-uid="Iot.Device.Card.Icode.IcodeCard.LockBlock*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_LockBlock_System_Byte_" data-uid="Iot.Device.Card.Icode.IcodeCard.LockBlock(System.Byte)">
+  LockBlock(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Permanently lock a specific block. This operation is irreversible.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LockBlock(byte block)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>block</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The block number to lock.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_LockDsfid_" data-uid="Iot.Device.Card.Icode.IcodeCard.LockDsfid*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_LockDsfid" data-uid="Iot.Device.Card.Icode.IcodeCard.LockDsfid">
+  LockDsfid()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Permanently lock the DSFID. This operation is irreversible.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LockDsfid()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_ReadMultipleBlocks_" data-uid="Iot.Device.Card.Icode.IcodeCard.ReadMultipleBlocks*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_ReadMultipleBlocks_System_Byte_System_Byte_" data-uid="Iot.Device.Card.Icode.IcodeCard.ReadMultipleBlocks(System.Byte,System.Byte)">
+  ReadMultipleBlocks(byte, byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Read multiple contiguous blocks and place the result into the <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Data">Data</a> property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReadMultipleBlocks(byte block, byte count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>block</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The starting block number to read.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Total block count to read (0-based: 0 means 1 block, 1 means 2 blocks, etc.).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_ReadSingleBlock_" data-uid="Iot.Device.Card.Icode.IcodeCard.ReadSingleBlock*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_ReadSingleBlock_System_Byte_" data-uid="Iot.Device.Card.Icode.IcodeCard.ReadSingleBlock(System.Byte)">
+  ReadSingleBlock(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Read a single 4-byte block and place the result into the <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Data">Data</a> property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReadSingleBlock(byte block)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>block</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The block number to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_ResetToReady_" data-uid="Iot.Device.Card.Icode.IcodeCard.ResetToReady*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_ResetToReady" data-uid="Iot.Device.Card.Icode.IcodeCard.ResetToReady">
+  ResetToReady()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return the VICC to ready state. This reverses the effect of <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_StayQuiet">StayQuiet()</a> or <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Select_System_Byte___">Select(byte[])</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ResetToReady()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_Select_" data-uid="Iot.Device.Card.Icode.IcodeCard.Select*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_Select_System_Byte___" data-uid="Iot.Device.Card.Icode.IcodeCard.Select(System.Byte[])">
+  Select(byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Select a specific card by UID. After selection, the card enters selected state
+and can be communicated with using non-addressed mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Select(byte[] uid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uid</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dd><p>The 8-byte UID of the card to select.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_StayQuiet_" data-uid="Iot.Device.Card.Icode.IcodeCard.StayQuiet*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_StayQuiet" data-uid="Iot.Device.Card.Icode.IcodeCard.StayQuiet">
+  StayQuiet()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the VICC to quiet state. The card will not respond to inventory requests
+until it is powered off and on again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StayQuiet()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_WriteAfi_" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteAfi*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_WriteAfi" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteAfi">
+  WriteAfi()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Write the Application Family Identifier. The value in <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Afi">Afi</a> will be written.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteAfi()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_WriteDsfid_" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteDsfid*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_WriteDsfid" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteDsfid">
+  WriteDsfid()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Write the Data Storage Format Identifier. The value in <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Dsfid">Dsfid</a> will be written.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteDsfid()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_WriteMultipleBlocks_" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteMultipleBlocks*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_WriteMultipleBlocks_System_Byte_" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteMultipleBlocks(System.Byte)">
+  WriteMultipleBlocks(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Write multiple contiguous blocks using the data present in the <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Data">Data</a> property.
+Data length must be a multiple of 4 (bytes per block).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteMultipleBlocks(byte block)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>block</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The starting block number to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Card_Icode_IcodeCard_WriteSingleBlock_" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteSingleBlock*"></a>
+
+  <h3 id="Iot_Device_Card_Icode_IcodeCard_WriteSingleBlock_System_Byte_" data-uid="Iot.Device.Card.Icode.IcodeCard.WriteSingleBlock(System.Byte)">
+  WriteSingleBlock(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Write a single 4-byte block using the data present in the <a class="xref" href="Iot.Device.Card.Icode.IcodeCard.html#Iot_Device_Card_Icode_IcodeCard_Data">Data</a> property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteSingleBlock(byte block)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>block</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The block number to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success. This only means whether the communication between VCD and VICC is successful or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

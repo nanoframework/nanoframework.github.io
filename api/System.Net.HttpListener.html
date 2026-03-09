@@ -466,12 +466,13 @@ discarding all currently queued requests.</p>
 listener.  Any pending requests are unable to complete.  To shut
 down the <itemref>HttpListener</itemref> object after processing
 currently queued requests, use the
-<a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_Close">Close()</a> method.
-<p>
-After calling this method, you will receive an
-<a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a> if you attempt to use this
-<itemref>HttpListener</itemref>.
-</p>
+<a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_Close">Close()</a> method.</p>
+<pre><code>        &lt;p&gt;
+        After calling this method, you will receive an
+        &lt;xref href=&quot;System.ObjectDisposedException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; if you attempt to use this
+        &lt;itemref&gt;HttpListener&lt;/itemref&gt;.
+        &lt;/p&gt;
+</code></pre>
 </div>
 
 
@@ -542,16 +543,17 @@ represents a client request.</p>
 
   <h4 class="section" id="System_Net_HttpListener_GetContext_examples">Examples</h4>
   <p>This example shows how to call the
-<itemref>GetContext</itemref> method.
-<pre><code class="lang-csharp">HttpListener myListener = new HttpListener(&quot;http&quot;, -1);
-myListener.Start();
+<itemref>GetContext</itemref> method.</p>
+<pre><code>        &lt;pre&gt;&lt;code class=&quot;lang-csharp&quot;&gt;HttpListener myListener = new HttpListener(&quot;http&quot;, -1);
+</code></pre>
+<p>myListener.Start();
 while (true)
 {
 HttpListenerResponse response = null;
 try
 {
 Debug.Print(&quot;Waiting for requests&quot;);
-HttpListenerContext context = myListener.GetContext();</code></pre>
+HttpListenerContext context = myListener.GetContext();</p>
 
 
 
@@ -632,12 +634,13 @@ the <a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_S
 
   <h4 class="section" id="System_Net_HttpListener_Stop_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If this instance is already stopped, calling this method
-has no effect.
-<p>
-After you have stopped an <itemref>HttpListener</itemref> object,
-you can use the <a class="xref" href="System.Net.HttpListener.html#System_Net_HttpListener_Start">Start()</a> method
-to restart it.
-</p>
+has no effect.</p>
+<pre><code>        &lt;p&gt;
+        After you have stopped an &lt;itemref&gt;HttpListener&lt;/itemref&gt; object,
+        you can use the &lt;xref href=&quot;System.Net.HttpListener.Start&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; method
+        to restart it.
+        &lt;/p&gt;
+</code></pre>
 </div>
 
 

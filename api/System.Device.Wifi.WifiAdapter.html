@@ -512,6 +512,59 @@ Use <a class="xref" href="System.Device.Wifi.WifiAdapter.html#System_Device_Wifi
 
 
 
+  <a id="System_Device_Wifi_WifiAdapter_SetDeviceName_" data-uid="System.Device.Wifi.WifiAdapter.SetDeviceName*"></a>
+
+  <h3 id="System_Device_Wifi_WifiAdapter_SetDeviceName_System_String_" data-uid="System.Device.Wifi.WifiAdapter.SetDeviceName(System.String)">
+  SetDeviceName(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the device name advertised by this Wi-Fi adapter when connecting to a network.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDeviceName(string deviceName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deviceName</code> <a class="xref" href="System.String.html">string</a></dt>
+    <dd><p>The device name to assign to this adapter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="System_Device_Wifi_WifiAdapter_SetDeviceName_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The device name is sent to the access point during connection and may appear in the router’s
+client list or DHCP lease table.<br>
+This method must be called before initiating a connection to take effect.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>If <code class="paramref">deviceName</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, empty or the length over 32 characters.</p>
+</dd>
+    <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
+    <dd><p>Thrown when the current firmware was built without Wi-Fi and setting the device name is not supported on this platform.</p>
+</dd>
+    <dt><a class="xref" href="System.NotImplementedException.html">NotImplementedException</a></dt>
+    <dd><p>Thrown on platforms where setting the device name is not yet implemented.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Thrown when the underlying Wi-Fi stack rejects to specify device name.</p>
+</dd>
+  </dl>
+
+
+
   <h2 class="section" id="events">Events
 </h2>
 

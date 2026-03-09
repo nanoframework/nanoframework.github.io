@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/Pn5180/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Pn5180/README.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -93,6 +93,12 @@
 <p>Application note on how to operate PN5180 without a <a href="https://www.nxp.com/docs/en/application-note/AN12650.pdf">library</a></p>
 <h2 id="board">Board</h2>
 <p>You will find different implementation of this board. All boards should have full SPI pins plus the reset and busy ones and additionally 5V and or 3.3V plus ground.</p>
+<p><strong>Important</strong>: The PN5180 board requires <strong>both</strong> 3.3V and 5V power supplies to be connected:</p>
+<ul>
+<li><strong>3.3V</strong> powers the PN5180 IC itself (digital logic and SPI interface).</li>
+<li><strong>5V</strong> powers the RF transmitter output stage (antenna driver).</li>
+</ul>
+<p>Without 5V connected, SPI communication will work (EEPROM reads, firmware version queries), but the antenna will not generate a strong enough RF field to power or communicate with cards.</p>
 <h2 id="usage">Usage</h2>
 <p><strong>Important</strong>: make sure you properly setup the SPI pins especially for ESP32 before creating the <code>SpiDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
 <pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
@@ -104,7 +110,7 @@ Configuration.SetPinFunction(23, DeviceFunction.SPI1_CLOCK);
 // Make sure as well you are using the right chip select
 </code></pre>
 <p>For other devices like STM32, please make sure you're using the preset pins for the SPI bus you want to use. The chip select can as well be pre setup.</p>
-<p>You will find a full example in the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Pn5180/samples/Program.cs">samples directory</a>. This example covers the usage of most of the public functions and properties. This example shows as well how to use <a href="../Card/Ultralight">Ultralight cards</a>.</p>
+<p>You will find a full example in the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/main/devices/Pn5180/samples/Program.cs">samples directory</a>. This example covers the usage of most of the public functions and properties. This example shows as well how to use <a href="../Card/Ultralight">Ultralight cards</a>.</p>
 <p>PN5180 is operated thru SPI and GPIO. GPIO is used to control the SPI behavior as the PN5180 is using SPI in specific way. This does then require to manually manage the pin selection for SPI. And another pin called pin busy is used to understand when the PN5180 is available to receive and send information.</p>
 <p>The following code shows how to create a SPI driver, reset the PN5180 and create the class.</p>
 <pre><code class="lang-csharp">// Note: the chip select used here won't be used by the module, so don't use the same pin
@@ -187,6 +193,75 @@ while (true);
 <p>A card will be continuously tried to be detected during the duration on your polling. If nothing is detected or if any issue, the function will return false.</p>
 <p>Specific for type B cards, they have a target number. This target number is needed to transcieve any information with the card. The PN5180 can support up to 14 cards at the same time. But you can only select 1 card at a time, so if you have a need for multiple card selected at the same time, it is recommended to chain this card detection with the number of cards you need to select and operate at the same time. Note that depending on the card, they may not been seen as still selected by the reader.</p>
 <p>You should deselect the Type B card at the end to release the target number. If not done, during the next poll, this implementation will test if the card is still present, keep it in this case.</p>
+<h2 id="iso-15693-vicinity-cards">ISO 15693 (Vicinity Cards)</h2>
+<p>The PN5180 supports ISO 15693 (NFC-V) cards such as NXP ICODE SLIX, SLIX2, DNA, and ICODE 3. These cards operate at 13.56 MHz with a longer read range than ISO 14443 proximity cards.</p>
+<h3 id="detecting-iso-15693-cards">Detecting ISO 15693 cards</h3>
+<p>Use <code>ListenToCardIso15693</code> to perform a 16-slot inventory and detect one or more ISO 15693 cards:</p>
+<pre><code class="lang-csharp">ArrayList cards;
+do
+{
+    if (pn5180.ListenToCardIso15693(
+        TransmitterRadioFrequencyConfiguration.Iso15693_ASK100_26,
+        ReceiverRadioFrequencyConfiguration.Iso15693_26,
+        out cards,
+        1000))
+    {
+        foreach (Data26_53kbps card in cards)
+        {
+            Debug.WriteLine($&quot;ISO 15693 card found:&quot;);
+            Debug.WriteLine($&quot;  UID: {BitConverter.ToString(card.NfcId)}&quot;);
+            Debug.WriteLine($&quot;  DSFID: 0x{card.Dsfid:X2}&quot;);
+        }
+    }
+    else
+    {
+        Thread.Sleep(300);
+    }
+}
+while (true);
+</code></pre>
+<h3 id="reading-and-writing-icode-cards">Reading and writing ICODE cards</h3>
+<p>Once a card is detected, create an <code>IcodeCard</code> instance to perform read/write operations:</p>
+<pre><code class="lang-csharp">// Assuming detectedCard is a Data26_53kbps from ListenToCardIso15693
+pn5180.ResetPN5180Configuration(
+    TransmitterRadioFrequencyConfiguration.Iso15693_ASK100_26,
+    ReceiverRadioFrequencyConfiguration.Iso15693_26);
+
+var icodeCard = new IcodeCard(pn5180, detectedCard.TargetNumber)
+{
+    Uid = detectedCard.NfcId,
+    Capacity = IcodeCardCapacity.Unknown
+};
+
+// Get system information
+icodeCard.GetSystemInformation();
+
+// Read a single block
+icodeCard.ReadSingleBlock(0);
+Debug.WriteLine($&quot;Block 0: {BitConverter.ToString(icodeCard.Data)}&quot;);
+
+// Write a single block
+icodeCard.Data = new byte[] { 0x01, 0x02, 0x03, 0x04 };
+icodeCard.WriteSingleBlock(0);
+
+// Read multiple blocks at once
+icodeCard.ReadMultipleBlocks(0, 4);
+</code></pre>
+<h3 id="switching-between-iso-14443-and-iso-15693">Switching between ISO 14443 and ISO 15693</h3>
+<p>When switching between ISO 14443 (Type A/B) and ISO 15693 cards, use <code>ResetPN5180Configuration</code> to reload the appropriate RF configuration:</p>
+<pre><code class="lang-csharp">// Switch to ISO 15693 mode
+pn5180.ResetPN5180Configuration(
+    TransmitterRadioFrequencyConfiguration.Iso15693_ASK100_26,
+    ReceiverRadioFrequencyConfiguration.Iso15693_26);
+
+// ... do ISO 15693 operations ...
+
+// Switch back to ISO 14443 Type A mode
+pn5180.ResetPN5180Configuration(
+    TransmitterRadioFrequencyConfiguration.Iso14443A_Nfc_PI_106_106,
+    ReceiverRadioFrequencyConfiguration.Iso14443A_Nfc_PI_106_106);
+</code></pre>
+<p>See the <a href="../Card/Icode/README.html">Icode card documentation</a> for more details on the supported ISO 15693 commands.</p>
 <h2 id="eeprom">EEPROM</h2>
 <p>You can fully access the PN5180 EEPROM. Here is an example on how to do it:</p>
 <pre><code class="lang-csharp">// Maximum size of the EEPROM
@@ -312,21 +387,21 @@ else
     }
 }
 </code></pre>
-<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices/Pn5180/samples/Program.cs">example</a> contains as well an implementation to fully dump the content of other cards.</p>
+<p>The <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/main/devices/Pn5180/samples/Program.cs">example</a> contains as well an implementation to fully dump the content of other cards.</p>
 <h2 id="current-implementation">Current implementation</h2>
 <p>Communication support:</p>
 <ul>
 <li>[X] Hardware SPI Controller fully supported</li>
 <li>[X] GPIO Controller fully supported</li>
 </ul>
-<p>Miscellaneous</p>
+<p>Miscellaneous:</p>
 <ul>
 <li>[X] Read fully EEPROM</li>
 <li>[X] Write fully EEPROM</li>
 <li>[X] Read any part of EEPROM</li>
 <li>[X] Write any part of EEPROM</li>
 <li>[X] Get product, hardware and firmware versions</li>
-<li>[X] CardTransceive support to reuse existing <a href="../Card/Mifare/README.html">Mifare</a> and <a href="../Card/CreditCard/README.md">Credit Card</a>, ISO 14443 support Type A or Type B protocol</li>
+<li>[X] CardTransceive support to reuse existing <a href="../Card/Mifare/README.html">Mifare</a>, <a href="../Card/Icode/README.html">Icode (ISO 15693)</a> and <a href="../Card/CreditCard/README.md">Credit Card</a>, ISO 14443 support Type A or Type B protocol, ISO 15693 support</li>
 <li>[ ] Secure firmware update</li>
 <li>[ ] Own board GPIO access</li>
 </ul>
@@ -343,13 +418,13 @@ else
 <li>[X] Deselect ISO 14443 type B cards</li>
 <li>[X] Multi card support at the same time: partial, depending on the card, CID mandatory in all 14443 type B communications</li>
 <li>[X] ISO 14443-4 communication protocol</li>
-<li>[ ] Auto poll ISO/IEC 18000-3 cards</li>
-<li>[ ] Communication support for ISO/IEC 18000-3 cards</li>
+<li>[X] Auto poll ISO 15693 (NFC-V / Vicinity) cards</li>
+<li>[X] Communication support for ISO 15693 cards (ICODE SLIX, SLIX2, DNA, ICODE 3)</li>
 <li>[ ] Low power card detection</li>
 <li>[X] Mifare specific authentication</li>
 <li>[ ] Fast 212, 424, 848 kbtis communication: partial</li>
 </ul>
-<p>PN5180 as a Target (acting like a card)</p>
+<p>PN5180 as a Target (acting like a card):</p>
 <ul>
 <li>[ ] Initialization as target</li>
 <li>[ ] Handling communication with another reader as a target</li>
@@ -359,7 +434,7 @@ else
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices/Pn5180/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Pn5180/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

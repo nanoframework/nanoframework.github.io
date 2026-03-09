@@ -311,6 +311,70 @@ Switch off is needed for anticollision operation on type A cards. Otherwise norm
 
 
 
+  <a id="Iot_Device_Pn5180_Pn5180_MaximumReadSize_" data-uid="Iot.Device.Pn5180.Pn5180.MaximumReadSize*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_MaximumReadSize" data-uid="Iot.Device.Pn5180.Pn5180.MaximumReadSize">
+  MaximumReadSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum read size supported by this transceiver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override uint MaximumReadSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_MaximumWriteSize_" data-uid="Iot.Device.Pn5180.Pn5180.MaximumWriteSize*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_MaximumWriteSize" data-uid="Iot.Device.Pn5180.Pn5180.MaximumWriteSize">
+  MaximumWriteSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum write size supported by this transceiver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override uint MaximumWriteSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Pn5180_Pn5180_RadioFrequencyCollision_" data-uid="Iot.Device.Pn5180.Pn5180.RadioFrequencyCollision*"></a>
 
   <h3 id="Iot_Device_Pn5180_Pn5180_RadioFrequencyCollision" data-uid="Iot.Device.Pn5180.Pn5180.RadioFrequencyCollision">
@@ -702,6 +766,46 @@ If the full byte is valid then the value of the valid bit is 0</p>
 
 
 
+  <a id="Iot_Device_Pn5180_Pn5180_GetRawRfStatus_" data-uid="Iot.Device.Pn5180.Pn5180.GetRawRfStatus*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_GetRawRfStatus_System_SpanByte_" data-uid="Iot.Device.Pn5180.Pn5180.GetRawRfStatus(System.SpanByte)">
+  GetRawRfStatus(SpanByte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the raw RF_STATUS register bytes for diagnostic purposes.
+The PN5180 returns 4 bytes (LSByte first) from register 0x1D.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetRawRfStatus(SpanByte status)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>status</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>A 4-byte buffer to receive the raw register value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the register was read successfully.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Pn5180_Pn5180_GetVersions_" data-uid="Iot.Device.Pn5180.Pn5180.GetVersions*"></a>
 
   <h3 id="Iot_Device_Pn5180_Pn5180_GetVersions" data-uid="Iot.Device.Pn5180.Pn5180.GetVersions">
@@ -851,6 +955,54 @@ If the full byte is valid then the value of the valid bit is 0</p>
   <dl class="parameters">
     <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
     <dd><p>True if a 14443 Type B card has been detected</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_ListenToCardIso15693_" data-uid="Iot.Device.Pn5180.Pn5180.ListenToCardIso15693*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_ListenToCardIso15693_Iot_Device_Pn5180_TransmitterRadioFrequencyConfiguration_Iot_Device_Pn5180_ReceiverRadioFrequencyConfiguration_System_Collections_ArrayList__System_Int32_" data-uid="Iot.Device.Pn5180.Pn5180.ListenToCardIso15693(Iot.Device.Pn5180.TransmitterRadioFrequencyConfiguration,Iot.Device.Pn5180.ReceiverRadioFrequencyConfiguration,System.Collections.ArrayList@,System.Int32)">
+  ListenToCardIso15693(TransmitterRadioFrequencyConfiguration, ReceiverRadioFrequencyConfiguration, out ArrayList, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Listen to 15693 cards with 16 slots.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ListenToCardIso15693(TransmitterRadioFrequencyConfiguration transmitter, ReceiverRadioFrequencyConfiguration receiver, out ArrayList cards, int timeoutPollingMilliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transmitter</code> <a class="xref" href="Iot.Device.Pn5180.TransmitterRadioFrequencyConfiguration.html">TransmitterRadioFrequencyConfiguration</a></dt>
+    <dd><p>The transmitter configuration, should be compatible with 15693 card.</p>
+</dd>
+    <dt><code>receiver</code> <a class="xref" href="Iot.Device.Pn5180.ReceiverRadioFrequencyConfiguration.html">ReceiverRadioFrequencyConfiguration</a></dt>
+    <dd><p>The receiver configuration, should be compatible with 15693 card.</p>
+</dd>
+    <dt><code>cards</code> <a class="xref" href="../api/System.Collections.ArrayList.html">ArrayList</a></dt>
+    <dd><p>An ArrayList of <a class="xref" href="Iot.Device.Rfid.Data26_53kbps.html">Data26_53kbps</a> once detected.</p>
+</dd>
+    <dt><code>timeoutPollingMilliseconds</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The time to poll the card in milliseconds. Card detection will stop once the detection time will be over.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if a 15693 card has been detected.</p>
 </dd>
   </dl>
 
@@ -1169,6 +1321,49 @@ This function provides this feature</p>
 
 
 
+  <a id="Iot_Device_Pn5180_Pn5180_ResetPN5180Configuration_" data-uid="Iot.Device.Pn5180.Pn5180.ResetPN5180Configuration*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_ResetPN5180Configuration_Iot_Device_Pn5180_TransmitterRadioFrequencyConfiguration_Iot_Device_Pn5180_ReceiverRadioFrequencyConfiguration_" data-uid="Iot.Device.Pn5180.Pn5180.ResetPN5180Configuration(Iot.Device.Pn5180.TransmitterRadioFrequencyConfiguration,Iot.Device.Pn5180.ReceiverRadioFrequencyConfiguration)">
+  ResetPN5180Configuration(TransmitterRadioFrequencyConfiguration, ReceiverRadioFrequencyConfiguration)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reset PN5180 RF Configuration and some registers.
+Useful when switching between different card protocols (e.g., ISO 14443 and ISO 15693).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ResetPN5180Configuration(TransmitterRadioFrequencyConfiguration transmitter, ReceiverRadioFrequencyConfiguration receiver)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transmitter</code> <a class="xref" href="Iot.Device.Pn5180.TransmitterRadioFrequencyConfiguration.html">TransmitterRadioFrequencyConfiguration</a></dt>
+    <dd><p>The transmitter configuration.</p>
+</dd>
+    <dt><code>receiver</code> <a class="xref" href="Iot.Device.Pn5180.ReceiverRadioFrequencyConfiguration.html">ReceiverRadioFrequencyConfiguration</a></dt>
+    <dd><p>The receiver configuration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if success.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Iot_Device_Pn5180_Pn5180_RetrieveRadioFrequencyConfiguration_" data-uid="Iot.Device.Pn5180.Pn5180.RetrieveRadioFrequencyConfiguration*"></a>
 
   <h3 id="Iot_Device_Pn5180_Pn5180_RetrieveRadioFrequencyConfiguration_Iot_Device_Pn5180_ReceiverRadioFrequencyConfiguration_System_SpanByte_" data-uid="Iot.Device.Pn5180.Pn5180.RetrieveRadioFrequencyConfiguration(Iot.Device.Pn5180.ReceiverRadioFrequencyConfiguration,System.SpanByte)">
@@ -1303,8 +1498,8 @@ detect a card, select it and then send data</p>
 
   <a id="Iot_Device_Pn5180_Pn5180_Transceive_" data-uid="Iot.Device.Pn5180.Pn5180.Transceive*"></a>
 
-  <h3 id="Iot_Device_Pn5180_Pn5180_Transceive_System_Byte_System_SpanByte_System_SpanByte_" data-uid="Iot.Device.Pn5180.Pn5180.Transceive(System.Byte,System.SpanByte,System.SpanByte)">
-  Transceive(byte, SpanByte, SpanByte)
+  <h3 id="Iot_Device_Pn5180_Pn5180_Transceive_System_Byte_System_SpanByte_System_SpanByte_Iot_Device_Card_NfcProtocol_" data-uid="Iot.Device.Pn5180.Pn5180.Transceive(System.Byte,System.SpanByte,System.SpanByte,Iot.Device.Card.NfcProtocol)">
+  Transceive(byte, SpanByte, SpanByte, NfcProtocol)
   
   </h3>
 
@@ -1314,7 +1509,7 @@ the reader and the cards.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int Transceive(byte targetNumber, SpanByte dataToSend, SpanByte dataFromCard)</code></pre>
+    <pre><code class="lang-csharp hljs">public override int Transceive(byte targetNumber, SpanByte dataToSend, SpanByte dataFromCard, NfcProtocol protocol)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1327,6 +1522,9 @@ the reader and the cards.</p>
 </dd>
     <dt><code>dataFromCard</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
     <dd><p>If any data are read from the card, they will be put into this array</p>
+</dd>
+    <dt><code>protocol</code> <a class="xref" href="Iot.Device.Card.NfcProtocol.html">NfcProtocol</a></dt>
+    <dd><p>The NFC protocol to use for this transceive operation</p>
 </dd>
   </dl>
 
