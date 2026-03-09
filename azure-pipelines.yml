@@ -258,7 +258,7 @@ steps:
 
 # clone IoT bindings repo and Samples
 - powershell: |
-      git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b develop nanoFramework.IoT.Device
+      git clone https://github.com/nanoframework/nanoFramework.IoT.Device.git -b main nanoFramework.IoT.Device
 
       git clone https://github.com/nanoframework/Samples.git -b main Samples
   displayName: Clone IoT binding repo and Samples
@@ -334,7 +334,7 @@ steps:
   inputs:
     command: 'run'
     projects: 'nanoFramework.IoT.Device\src\GenerateDocFxStructure'
-    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/develop/devices -i packages,tests,bin,obj'
+    arguments: '-- -d $(System.DefaultWorkingDirectory)\devicesdetails -m $(System.DefaultWorkingDirectory)\devicesimages -s nanoFramework.IoT.Device/devices -v -r https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/main/devices -i packages,tests,bin,obj'
 
 # build the TOC and adjust the README.md
 - powershell: |
@@ -715,7 +715,7 @@ steps:
       
       # Set the source and target strings
       $sourceString = "https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/devicesdetails"
-      $targetString = "https://github.com/nanoframework/nanoframework.IoT.Device/blob/develop/devices"
+      $targetString = "https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices"
 
       # Set the root directory where you want to perform the search and replace
       $rootDirectory = "_site/devicesdetails"
