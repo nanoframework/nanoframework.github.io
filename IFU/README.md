@@ -7,4 +7,4 @@ This is currently an ongoing effort. We are looking for sponsors to cover the de
 ## Documents
 
 - [Executive Summary](Executive-Summary.md) - High-level goals, proposed approach, scope, and effort estimates.
-- [In-field update for nanoFramework (proposal)](In-field-Update-desing-proposal.md) - Detailed design notes, architecture, workflows, and FAQ. (2023 version, to be updated)
+- [In-field update for nanoFramework](In-field-Update-design.md) - Detailed design notes, architecture, workflows, and FAQ.
