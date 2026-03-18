@@ -28,6 +28,8 @@ You'll need:
   . [Cortex Debug](https://github.com/Marus/cortex-debug)) - Debug tool made explicity for ARM Cortex-M cores (needed for J-Link), if you're using on board programmer you don't need it.
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.21)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
+- [Python 3.8](https://www.python.org/downloads/) or later. Required for the Kconfig target configuration system and various build scripts.
+  - Install kconfiglib: `pip install kconfiglib`
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - OpenOCD. Suggest the [xPack OpenOCD](https://github.com/xpack-dev-tools/openocd-xpack/releases) that kindly maintains a Windows distribution.
 

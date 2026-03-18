@@ -27,6 +27,8 @@ You'll need:
   . [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) - Extended CMake support in Visual Studio Code (by Microsoft)
 - [CMake](https://cmake.org/download/) (Minimum required version is 3.21)
 - A build system for CMake to generate the build files to. We recommend [Ninja](https://github.com/ninja-build/ninja/releases).
+- [Python 3.8](https://www.python.org/downloads/) or later. Required for the Kconfig target configuration system and various build scripts.
+  - Install kconfiglib: `pip install kconfiglib`
 - [GNU ARM Embedded Toolchain](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - OpenOCD. We suggest [Microsoft build](https://github.com/microsoft/openocd) which provides a Windows distribution including convenient fixes for working with Azure RTOS.
 - [ChibiOS](https://www.chibios.org/dokuwiki/doku.php) - Technically you do not need to download this, the build scripts will do this automatically if you do not specify a path to ChibiOS in the `CHIBIOS_SOURCE_FOLDER` build option (more info in the [Set up Visual Studio Code section](#set-up-visual-studio-code)).
