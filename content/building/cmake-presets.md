@@ -155,6 +155,6 @@ The following options have been **migrated to [Kconfig](kconfig-options.md)** an
 - "GECKO_DEVICE_CLASS_VENDOR_DESCRIPTION_LENGTH" : **""**
   - Set to a value <= 256 to override the allowed length of USB device class vendor description. Only available on Giant Gecko S1 platform.
 
-## Updating from CMake Variants
+## Migration to Kconfig options
 
-Please refer to the [blog post about moving to CMake presets](https://www.nanoframework.net/build-updated-to-cmake-presets/) for information about the transition from CMake Variants.
+Please refer to the [blog post about moving to Kconfig](https://nanoframework.net/build-configuration-updated-to-kconfig-options/) for information about the transition to Kconfig from CMake presets.
