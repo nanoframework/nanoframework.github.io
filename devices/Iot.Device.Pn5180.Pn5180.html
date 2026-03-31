@@ -132,8 +132,8 @@ allow Mifare, Credit Card support</p>
 
   <a id="Iot_Device_Pn5180_Pn5180__ctor_" data-uid="Iot.Device.Pn5180.Pn5180.#ctor*"></a>
 
-  <h3 id="Iot_Device_Pn5180_Pn5180__ctor_System_Device_Spi_SpiDevice_System_Int32_System_Int32_System_Device_Gpio_GpioController_System_Boolean_" data-uid="Iot.Device.Pn5180.Pn5180.#ctor(System.Device.Spi.SpiDevice,System.Int32,System.Int32,System.Device.Gpio.GpioController,System.Boolean)">
-  Pn5180(SpiDevice, int, int, GpioController?, bool)
+  <h3 id="Iot_Device_Pn5180_Pn5180__ctor_System_Device_Spi_SpiDevice_System_Int32_System_Int32_System_Device_Gpio_GpioController_System_Boolean_System_Int32_" data-uid="Iot.Device.Pn5180.Pn5180.#ctor(System.Device.Spi.SpiDevice,System.Int32,System.Int32,System.Device.Gpio.GpioController,System.Boolean,System.Int32)">
+  Pn5180(SpiDevice, int, int, GpioController?, bool, int)
   
   </h3>
 
@@ -142,7 +142,7 @@ allow Mifare, Credit Card support</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Pn5180(SpiDevice spiDevice, int pinBusy, int pinNss, GpioController? gpioController = null, bool shouldDispose = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public Pn5180(SpiDevice spiDevice, int pinBusy, int pinNss, GpioController? gpioController = null, bool shouldDispose = true, int pinIrq = -1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -161,6 +161,9 @@ allow Mifare, Credit Card support</p>
 </dd>
     <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
     <dd><p>Dispose the SPI and the GPIO controller at the end if true</p>
+</dd>
+    <dt><code>pinIrq</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Optional pin connected to the PN5180 IRQ line. When &gt;= 0 the pin is opened as input and <a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_WaitForIrq_System_Int32_System_Int32_">WaitForIrq(int, int)</a> can use it to detect IRQ assertion without continuous SPI polling. Pass -1 (default) to use register-polling only.</p>
 </dd>
   </dl>
 
@@ -578,6 +581,55 @@ False to use Active Communication mode according to ISO/IEC 18092</p>
 
 
 
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_ExitCardEmulationMode_" data-uid="Iot.Device.Pn5180.Pn5180.ExitCardEmulationMode*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_ExitCardEmulationMode" data-uid="Iot.Device.Pn5180.Pn5180.ExitCardEmulationMode">
+  ExitCardEmulationMode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exit card emulation (Autocoll / target) mode and return the
+PN5180 to normal (initiator / reader) mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ExitCardEmulationMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the PN5180 was successfully returned to
+normal mode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_ExitCardEmulationMode_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Sends SWITCH_MODE with sub-mode 0x00 (NormalMode) to leave
+Autocoll. If the command times out (which can happen on some
+firmware versions), the PN5180 is not automatically reset;
+the caller should perform a hardware reset if needed.
+</p>
+<p>
+After exiting, all IRQs are cleared and the PN5180 is ready
+to be used in reader/initiator mode again (e.g. calling
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_ListenToCardIso14443TypeA_Iot_Device_Pn5180_TransmitterRadioFrequencyConfiguration_Iot_Device_Pn5180_ReceiverRadioFrequencyConfiguration_Iot_Device_Rfid_Data106kbpsTypeA__System_Int32_">ListenToCardIso14443TypeA(TransmitterRadioFrequencyConfiguration, ReceiverRadioFrequencyConfiguration, out Data106kbpsTypeA?, int)</a> or
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_ListenToCardIso14443TypeB_Iot_Device_Pn5180_TransmitterRadioFrequencyConfiguration_Iot_Device_Pn5180_ReceiverRadioFrequencyConfiguration_Iot_Device_Rfid_Data106kbpsTypeB__System_Int32_">ListenToCardIso14443TypeB(TransmitterRadioFrequencyConfiguration, ReceiverRadioFrequencyConfiguration, out Data106kbpsTypeB?, int)</a>).
+</p>
+</div>
 
 
 
@@ -1280,6 +1332,63 @@ detect a card, select it and then send data</p>
 
 
 
+  <a id="Iot_Device_Pn5180_Pn5180_ReceiveCommandFromReader_" data-uid="Iot.Device.Pn5180.Pn5180.ReceiveCommandFromReader*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_ReceiveCommandFromReader_System_SpanByte_System_Int32_" data-uid="Iot.Device.Pn5180.Pn5180.ReceiveCommandFromReader(System.SpanByte,System.Int32)">
+  ReceiveCommandFromReader(SpanByte, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wait for and receive the next command frame from the external
+reader while in card emulation (target) mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReceiveCommandFromReader(SpanByte buffer, int timeoutMilliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>Buffer to receive the command data.</p>
+</dd>
+    <dt><code>timeoutMilliseconds</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Maximum time to wait for a
+command, in milliseconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The number of bytes received, or -1 on timeout or
+error.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_ReceiveCommandFromReader_System_SpanByte_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The method sets the PN5180 into IDLE, activates TRANSCEIVE to
+listen for the next reader frame, then polls IRQ_STATUS for
+RX_IRQ (bit 2). On reception it reads the data into
+<code class="paramref">buffer</code>.
+</p>
+<p>
+If the external RF field is lost (RF_ACTIVE_ERROR_IRQ, bit 8),
+the method returns -1.
+</p>
+</div>
+
+
+
+
   <a id="Iot_Device_Pn5180_Pn5180_ReselectTarget_" data-uid="Iot.Device.Pn5180.Pn5180.ReselectTarget*"></a>
 
   <h3 id="Iot_Device_Pn5180_Pn5180_ReselectTarget_System_Byte_" data-uid="Iot.Device.Pn5180.Pn5180.ReselectTarget(System.Byte)">
@@ -1496,6 +1605,321 @@ detect a card, select it and then send data</p>
 
 
 
+  <a id="Iot_Device_Pn5180_Pn5180_SendResponseToReader_" data-uid="Iot.Device.Pn5180.Pn5180.SendResponseToReader*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_SendResponseToReader_System_SpanByte_" data-uid="Iot.Device.Pn5180.Pn5180.SendResponseToReader(System.SpanByte)">
+  SendResponseToReader(SpanByte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Send a response frame to the external reader while in card
+emulation (target) mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SendResponseToReader(SpanByte data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The response data to transmit. Must not
+exceed <a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_MaximumWriteSize">MaximumWriteSize</a> bytes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the data was transmitted successfully.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_SendResponseToReader_System_SpanByte__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Call this after receiving a command from the reader (via
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_ReceiveCommandFromReader_System_SpanByte_System_Int32_">ReceiveCommandFromReader(SpanByte, int)</a> or the initial data in
+<a class="xref" href="Iot.Device.Pn5180.CardEmulationData.html#Iot_Device_Pn5180_CardEmulationData_RxData">RxData</a>).
+</p>
+<p>
+CRC is appended automatically by the PN5180 hardware when
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_CrcReceptionTransfer">CrcReceptionTransfer</a> is <code>true</code> (the default
+after Autocoll activation for NFC-A ISO-DEP). Adjust CRC
+settings before calling if your protocol requires it.
+</p>
+<p>
+The method sets the PN5180 into IDLE, activates TRANSCEIVE,
+sends the data, then polls for TX_IRQ (bit 1) to confirm
+transmission.
+</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_SetFelicaPollingResponse_" data-uid="Iot.Device.Pn5180.Pn5180.SetFelicaPollingResponse*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_SetFelicaPollingResponse_System_Byte___" data-uid="Iot.Device.Pn5180.Pn5180.SetFelicaPollingResponse(System.Byte[])">
+  SetFelicaPollingResponse(byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the FeliCa Polling Response used during Autocoll card emulation
+when NFC-F collision resolution is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetFelicaPollingResponse(byte[] responseData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>responseData</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dd><p>Up to 10 bytes of FeliCa polling response
+configuration data. The EEPROM area at 0x46 holds the PAD0, PAD1,
+MRTI_check, MRTI_update, PAD2 and RD fields (see PN5180A0XX-C3.pdf
+EEPROM map). The full SENSF_RES IDm/NFCID2 (8 bytes) and PMm
+(8 bytes) are managed separately by the PN5180 firmware.
+Must be between 1 and 10 bytes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the EEPROM write succeeded.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_SetFelicaPollingResponse_System_Byte____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Writes to EEPROM starting at address 0x46 (FELICA_POLLING_RESPONSE).
+The PN5180 uses these bytes together with the internally managed
+NFCID2 to construct the SENSF_RES sent in response to a SENSF_REQ
+polling command from an external reader when Autocoll is configured
+for NFC-F (212 or 424 kbps).
+See PN5180A0XX-C3.pdf EEPROM map.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_SetNfcId1_" data-uid="Iot.Device.Pn5180.Pn5180.SetNfcId1*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_SetNfcId1_System_Byte___" data-uid="Iot.Device.Pn5180.Pn5180.SetNfcId1(System.Byte[])">
+  SetNfcId1(byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the NFCID1 (UID) bytes used during Autocoll card emulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetNfcId1(byte[] nfcId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nfcId</code> <a class="xref" href="../api/System.Byte.html">byte</a>[]</dt>
+    <dd><p>Exactly 3 bytes. During Autocoll the PN5180 uses these
+as the last 3 bytes of the single-size (4-byte) UID.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the EEPROM write succeeded.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_SetNfcId1_System_Byte____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Writes 3 bytes to EEPROM address 0x42 (NFCID1).
+The first byte of the 4-byte UID is fixed at 0x08 by the PN5180
+(NXP manufacturer code) unless random UID is enabled.
+See PN5180A0XX-C3.pdf EEPROM map.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_SetSelRes_" data-uid="Iot.Device.Pn5180.Pn5180.SetSelRes*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_SetSelRes_System_Byte_" data-uid="Iot.Device.Pn5180.Pn5180.SetSelRes(System.Byte)">
+  SetSelRes(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the SEL_RES (SAK) byte used during Autocoll card emulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetSelRes(byte selRes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selRes</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The SAK value. Common values:
+0x20 = ISO 14443-4 compliant (ISO-DEP),
+0x40 = ISO 18092 (NFC-DEP),
+0x60 = Both ISO-DEP and NFC-DEP.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the EEPROM write succeeded.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_SetSelRes_System_Byte__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Writes 1 byte to EEPROM address 0x45 (SEL_RES).
+The reader uses this value to determine which protocol layers
+the target supports after anti-collision.
+See PN5180A0XX-C3.pdf EEPROM map and ISO 14443-3A §6.5.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_SetSensRes_" data-uid="Iot.Device.Pn5180.Pn5180.SetSensRes*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_SetSensRes_System_Byte_System_Byte_" data-uid="Iot.Device.Pn5180.Pn5180.SetSensRes(System.Byte,System.Byte)">
+  SetSensRes(byte, byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the SENS_RES (ATQA) value used during Autocoll card emulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetSensRes(byte byte0, byte byte1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>byte0</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>First byte of SENS_RES (e.g. 0x44 for NTAG-like, 0x04 for generic).</p>
+</dd>
+    <dt><code>byte1</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>Second byte of SENS_RES (e.g. 0x00).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the EEPROM write succeeded.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_SetSensRes_System_Byte_System_Byte__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Writes 2 bytes to EEPROM address 0x40 (SENS_RES).
+The PN5180 sends this value in response to SENS_REQ / ALL_REQ
+from an external reader during Autocoll mode.
+See PN5180A0XX-C3.pdf EEPROM map and ISO 14443-3A.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_SwitchToAutocoll_" data-uid="Iot.Device.Pn5180.Pn5180.SwitchToAutocoll*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_SwitchToAutocoll_Iot_Device_Pn5180_AutocollMode_" data-uid="Iot.Device.Pn5180.Pn5180.SwitchToAutocoll(Iot.Device.Pn5180.AutocollMode)">
+  SwitchToAutocoll(AutocollMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Switch the PN5180 into Autocoll (card emulation / target) mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SwitchToAutocoll(AutocollMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Iot.Device.Pn5180.AutocollMode.html">AutocollMode</a></dt>
+    <dd><p>The NFC technologies to listen for. Can be a
+combination of <a class="xref" href="Iot.Device.Pn5180.AutocollMode.html">AutocollMode</a> flags.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True if the SWITCH_MODE command was sent successfully.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_SwitchToAutocoll_Iot_Device_Pn5180_AutocollMode__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Before calling this method, configure the emulated card identity
+using <a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_SetSensRes_System_Byte_System_Byte_">SetSensRes(byte, byte)</a>, <a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_SetNfcId1_System_Byte___">SetNfcId1(byte[])</a> and
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_SetSelRes_System_Byte_">SetSelRes(byte)</a> (for NFC-A), or
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_SetFelicaPollingResponse_System_Byte___">SetFelicaPollingResponse(byte[])</a> (for NFC-F).
+</p>
+<p>
+This method turns OFF the PN5180's own RF field, clears all
+pending IRQs, then sends the SWITCH_MODE command with sub-mode
+0x02 (Autocoll). After this call the PN5180 passively waits for
+an external RF field and autonomously handles anti-collision.
+</p>
+<p>
+Use <a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_WaitForActivation_System_Int32_">WaitForActivation(int)</a> to poll for activation by an
+external reader.
+</p>
+<p>
+See PN5180A0XX-C3.pdf §11.4.4 "SWITCH_MODE" and §7.1 "Autocoll".
+</p>
+</div>
+
+
+
+
   <a id="Iot_Device_Pn5180_Pn5180_Transceive_" data-uid="Iot.Device.Pn5180.Pn5180.Transceive*"></a>
 
   <h3 id="Iot_Device_Pn5180_Pn5180_Transceive_System_Byte_System_SpanByte_System_SpanByte_Iot_Device_Card_NfcProtocol_" data-uid="Iot.Device.Pn5180.Pn5180.Transceive(System.Byte,System.SpanByte,System.SpanByte,Iot.Device.Card.NfcProtocol)">
@@ -1541,6 +1965,60 @@ the reader and the cards.</p>
 
 
 
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_TransceiveTargetMode_" data-uid="Iot.Device.Pn5180.Pn5180.TransceiveTargetMode*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_TransceiveTargetMode_System_SpanByte_System_SpanByte_System_Int32_" data-uid="Iot.Device.Pn5180.Pn5180.TransceiveTargetMode(System.SpanByte,System.SpanByte,System.Int32)">
+  TransceiveTargetMode(SpanByte, SpanByte, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Send a response to the reader and then wait for the reader's
+next command, in a single call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TransceiveTargetMode(SpanByte response, SpanByte nextCommand, int timeoutMilliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>response</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>The response data to send to the reader.</p>
+</dd>
+    <dt><code>nextCommand</code> <a class="xref" href="../api/System.SpanByte.html">SpanByte</a></dt>
+    <dd><p>Buffer to receive the reader's next
+command frame.</p>
+</dd>
+    <dt><code>timeoutMilliseconds</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Maximum time to wait for the
+next command after sending the response.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The number of bytes received in the next command, or
+-1 on error or timeout.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_TransceiveTargetMode_System_SpanByte_System_SpanByte_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is a convenience wrapper that calls
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_SendResponseToReader_System_SpanByte_">SendResponseToReader(SpanByte)</a> followed by
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_ReceiveCommandFromReader_System_SpanByte_System_Int32_">ReceiveCommandFromReader(SpanByte, int)</a>.</p>
+</div>
 
 
 
@@ -1625,6 +2103,127 @@ the reader and the cards.</p>
 
 
 
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_WaitForActivation_" data-uid="Iot.Device.Pn5180.Pn5180.WaitForActivation*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_WaitForActivation_System_Int32_" data-uid="Iot.Device.Pn5180.Pn5180.WaitForActivation(System.Int32)">
+  WaitForActivation(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wait for an external reader to activate the PN5180 after
+<a class="xref" href="Iot.Device.Pn5180.Pn5180.html#Iot_Device_Pn5180_Pn5180_SwitchToAutocoll_Iot_Device_Pn5180_AutocollMode_">SwitchToAutocoll(AutocollMode)</a> has been called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CardEmulationData WaitForActivation(int timeoutMilliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeoutMilliseconds</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Maximum time to wait for
+activation, in milliseconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Pn5180.CardEmulationData.html">CardEmulationData</a></dt>
+    <dd><p>A <a class="xref" href="Iot.Device.Pn5180.CardEmulationData.html">CardEmulationData</a> with the activated
+protocol and any initial data received from the reader, or
+<code>null</code> if activation did not occur within the timeout or
+an error was detected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_WaitForActivation_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method polls the IRQ_STATUS register for
+CARD_ACTIVATED_IRQ (bit 13). If AUTOCOLL_ERR_IRQ (bit 11) is
+detected instead, it means the Autocoll process failed
+(e.g. RF field lost or protocol error) and <code>null</code> is returned.
+</p>
+<p>
+On successful activation the method reads RF_STATUS bits [16:14]
+to determine whether NFC-A or NFC-F was used, reads any data
+already received from the reader (e.g. RATS or ATR_REQ), clears
+the IRQs, and returns the result.
+</p>
+<p>
+See PN5180A0XX-C3.pdf Table 22 (IRQ_STATUS) and Table 28
+(RF_STATUS).
+</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Pn5180_Pn5180_WaitForIrq_" data-uid="Iot.Device.Pn5180.Pn5180.WaitForIrq*"></a>
+
+  <h3 id="Iot_Device_Pn5180_Pn5180_WaitForIrq_System_Int32_System_Int32_" data-uid="Iot.Device.Pn5180.Pn5180.WaitForIrq(System.Int32,System.Int32)">
+  WaitForIrq(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wait for one or more IRQ bits to become set in the IRQ_STATUS
+register.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WaitForIrq(int irqMask, int timeoutMilliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>irqMask</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Bitmask of the IRQ bits to wait for.
+The method returns as soon as <em>any</em> of the specified
+bits is set.</p>
+</dd>
+    <dt><code>timeoutMilliseconds</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>Maximum time to wait, in
+milliseconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The full 32-bit IRQ_STATUS register value when at
+least one requested bit is set, or 0 on timeout.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Pn5180_Pn5180_WaitForIrq_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+When an IRQ pin was provided in the constructor this method
+first waits for the pin to go HIGH (IRQ asserted) before
+reading the SPI register, significantly reducing bus traffic.
+Without an IRQ pin the register is polled directly.
+</p>
+<p>
+This helper centralises IRQ waiting for both reader and
+card-emulation (target) modes.
+</p>
+</div>
 
 
 

@@ -319,6 +319,90 @@ for (int i = 0; i &lt; sizeConfig; i++)
 <p>Every configuration has the size of 5 bytes, first byte is the register number, and the next 4 are the data them selves.</p>
 <h2 id="transceive-data-with-a-card">Transceive data with a card</h2>
 <p>Once the card is selected properly, you can use the CardTranscive class to exchange data with the card. See <a href="../Card/Mifare/README.html">Mifare</a> and <a href="../Card/Ultralight/README.html">Ultralight</a> for detailed examples.</p>
+<h2 id="card-emulation-mode">Card Emulation Mode</h2>
+<p>The PN5180 can operate as a passive NFC target (card emulation) using its built-in <strong>Autocoll</strong> engine. In this mode an external reader powers the PN5180 via its RF field and the chip automatically handles anti-collision, making it appear as an ISO 14443-A (or NFC-F) card.</p>
+<h3 id="eeprom-identity-fields">EEPROM identity fields</h3>
+<p>Before entering Autocoll the emulated card identity must be written to EEPROM:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>EEPROM address</th>
+<th>Size</th>
+<th>Helper method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SENS_RES (ATQA)</td>
+<td>0x40</td>
+<td>2 bytes</td>
+<td><code>SetSensRes(byte, byte)</code></td>
+<td>Anticollision / technology descriptor</td>
+</tr>
+<tr>
+<td>NFCID1 (UID)</td>
+<td>0x42</td>
+<td>3 bytes</td>
+<td><code>SetNfcId1(byte[])</code></td>
+<td>UID bytes 1–3; byte 0 is fixed to 0x08</td>
+</tr>
+<tr>
+<td>SEL_RES (SAK)</td>
+<td>0x45</td>
+<td>1 byte</td>
+<td><code>SetSelRes(byte)</code></td>
+<td>Selection acknowledge (0x20 = ISO 14443-4)</td>
+</tr>
+<tr>
+<td>FeliCa Polling Resp</td>
+<td>0x46</td>
+<td>≤10 bytes</td>
+<td><code>SetFelicaPollingResponse(byte[])</code></td>
+<td>Only needed for NFC-F emulation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="minimal-example">Minimal example</h3>
+<pre><code class="lang-csharp">// 1. Configure emulated card identity
+pn5180.SetSensRes(0x44, 0x00);                    // ATQA
+pn5180.SetNfcId1(new byte[] { 0xCA, 0xFE, 0x01 }); // UID bytes 1-3
+pn5180.SetSelRes(0x20);                            // SAK (ISO 14443-4)
+
+// 2. Enter Autocoll – listen for NFC-A readers
+pn5180.SwitchToAutocoll(AutocollMode.CollisionResolutionNfcA);
+
+// 3. Wait for a reader to activate us (30 s timeout)
+var activation = pn5180.WaitForActivation(30_000);
+if (activation != null)
+{
+    Debug.WriteLine($&quot;Activated via {activation.ActivatedProtocol}&quot;);
+
+    // 4. Respond to RATS with a minimal ATS
+    byte[] ats = new byte[] { 0x05, 0x70, 0x80, 0x80, 0x00 };
+    SpanByte rx = new byte[256];
+    int len = pn5180.TransceiveTargetMode(new SpanByte(ats), rx, 5_000);
+
+    // 5. Exchange frames until the reader leaves
+    while (len &gt; 0)
+    {
+        // Echo received data back (replace with real APDU handling)
+        len = pn5180.TransceiveTargetMode(rx.Slice(0, len), rx, 5_000);
+    }
+}
+
+// 6. Return to normal reader mode
+pn5180.ExitCardEmulationMode();
+</code></pre>
+<p>See <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/main/devices/Pn5180/samples/Program.cs">samples/Program.cs</a> for a complete working example (<code>CardEmulation()</code> method).</p>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li><strong>Single-size UID only</strong> – Autocoll supports a 4-byte UID (single size). Double- or triple-size UIDs are not available in this mode.</li>
+<li><strong>Low-level activation only</strong> – The PN5180 handles REQA/WUPA, anticollision and selection automatically; higher-layer protocols (ISO-DEP T=CL, NDEF, HCE APDU routing) must be implemented in user code.</li>
+<li><strong>No Mifare Classic emulation</strong> – The PN5180 cannot perform Crypto1 authentication as a target.</li>
+<li><strong>Optional IRQ pin</strong> – Pass <code>pinIrq</code> to the <code>Pn5180</code> constructor if your board wires the PN5180 IRQ line. This enables <code>WaitForIrq()</code> to detect interrupts via GPIO instead of continuous SPI polling.</li>
+</ul>
 <p>This shows how to dump a Mifare (ISO 14443 type A) card fully:</p>
 <pre><code class="lang-csharp">Data106kbpsTypeA cardTypeA;
 
@@ -426,9 +510,9 @@ else
 </ul>
 <p>PN5180 as a Target (acting like a card):</p>
 <ul>
-<li>[ ] Initialization as target</li>
-<li>[ ] Handling communication with another reader as a target</li>
-<li>[ ] Support for transceive data</li>
+<li>[X] Initialization as target</li>
+<li>[X] Handling communication with another reader as a target</li>
+<li>[X] Support for transceive data</li>
 </ul>
 
 </article>

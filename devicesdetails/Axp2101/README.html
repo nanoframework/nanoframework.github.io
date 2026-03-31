@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>AXP2101 - Enhanced Single Cell Li-Battery and Power System Management IC | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AXP2101 - Enhanced Single Cell Li-Battery and Power System Management IC | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Axp2101/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axp2101---enhanced-single-cell-li-battery-and-power-system-management-ic">AXP2101 - Enhanced Single Cell Li-Battery and Power System Management IC</h1>
+
+<h2 id="summary">Summary</h2>
+<p>The AXP2101 is an advanced power management IC (PMIC) manufactured by X-Powers, widely used in embedded devices such as the <strong>M5Stack CoreS3</strong> (ESP32-S3-based). It provides comprehensive power management with multiple configurable voltage regulators, battery charging control, ADC measurements, fuel gauge, watchdog, and interrupt handling. It communicates over I2C at default address <code>0x34</code>.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/AXP2101_Datasheet_V1.0_en.pdf">AXP2101 Datasheet (PDF)</a></li>
+<li><a href="https://docs.m5stack.com/en/core/CoreS3">M5Stack CoreS3 Documentation</a></li>
+<li><a href="https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/490/Sch_M5_CoreS3_v1.0.pdf">CoreS3 Schematics (PDF)</a></li>
+<li><a href="https://github.com/lewisxhe/XPowersLib">XPowersLib (lewisxhe) - Reference C++ implementation</a></li>
+<li>Related nanoFramework binding: <a href="../Axp192/README.html"><code>Iot.Device.Axp192</code></a></li>
+</ul>
+<h2 id="device-capabilities">Device Capabilities</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DCDC Converters</strong></td>
+<td>5 channels (DCDC1-DCDC5) with configurable voltage outputs</td>
+</tr>
+<tr>
+<td><strong>LDO Regulators</strong></td>
+<td>4x ALDO (1-4), 2x BLDO (1-2), 1x CPUSLDO, 2x DLDO (1-2)</td>
+</tr>
+<tr>
+<td><strong>Battery Charging</strong></td>
+<td>Linear charger with configurable current (0-1000 mA), voltage (4.0-4.44V), and termination settings</td>
+</tr>
+<tr>
+<td><strong>Fuel Gauge</strong></td>
+<td>Built-in battery percentage calculation, gauge data ROM</td>
+</tr>
+<tr>
+<td><strong>ADC</strong></td>
+<td>Battery voltage, VBUS voltage, system voltage, die temperature sensor, TS pin</td>
+</tr>
+<tr>
+<td><strong>Button Battery</strong></td>
+<td>Backup/coin cell battery charging support</td>
+</tr>
+<tr>
+<td><strong>Interrupts</strong></td>
+<td>3 interrupt status registers supporting ~24 different IRQ sources</td>
+</tr>
+<tr>
+<td><strong>Watchdog</strong></td>
+<td>Configurable timer with multiple reset behaviors</td>
+</tr>
+<tr>
+<td><strong>Power Control</strong></td>
+<td>Power-on/off source detection, shutdown control, sleep/wakeup</td>
+</tr>
+<tr>
+<td><strong>Data Buffer</strong></td>
+<td>4-byte user data storage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="voltage-ranges">Voltage Ranges</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Voltage Range</th>
+<th>Step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCDC1</td>
+<td>1500-3400 mV</td>
+<td>100 mV</td>
+</tr>
+<tr>
+<td>DCDC2</td>
+<td>500-1200 mV / 1220-1540 mV</td>
+<td>10 mV / 20 mV</td>
+</tr>
+<tr>
+<td>DCDC3</td>
+<td>500-1200 mV / 1220-1540 mV / 1600-3400 mV</td>
+<td>10 mV / 20 mV / 100 mV</td>
+</tr>
+<tr>
+<td>DCDC4</td>
+<td>500-1200 mV / 1220-1840 mV</td>
+<td>10 mV / 20 mV</td>
+</tr>
+<tr>
+<td>DCDC5</td>
+<td>1200 mV (special), 1400-3700 mV</td>
+<td>100 mV</td>
+</tr>
+<tr>
+<td>ALDO1-4</td>
+<td>500-3500 mV</td>
+<td>100 mV</td>
+</tr>
+<tr>
+<td>BLDO1-2</td>
+<td>500-3500 mV</td>
+<td>100 mV</td>
+</tr>
+<tr>
+<td>CPUSLDO</td>
+<td>500-1400 mV</td>
+<td>50 mV</td>
+</tr>
+<tr>
+<td>DLDO1-2</td>
+<td>500-3400 mV</td>
+<td>100 mV</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">// Configure I2C pins for ESP32-S3 (M5Stack CoreS3)
+Configuration.SetPinFunction(12, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(11, DeviceFunction.I2C1_CLOCK);
+
+I2cDevice i2cAxp2101 = new(new I2cConnectionSettings(1, Axp2101.I2cDefaultAddress));
+Axp2101 power = new Axp2101(i2cAxp2101);
+</code></pre>
+<blockquote>
+<p><strong>Important</strong>: make sure you read the documentation of your battery and set up the proper charging values and stop current. Overcharging your battery may damage it.</p>
+</blockquote>
+<h3 id="setting-up-power-rails">Setting up power rails</h3>
+<p>Configure DCDC and LDO voltage rails for your board. Example for M5Stack CoreS3:</p>
+<pre><code class="lang-csharp">// DCDC1: ESP32-S3 core — 3.3V (do NOT disable this!)
+power.DcDc1Voltage = ElectricPotential.FromVolts(3.3);
+power.EnableDcDc1();
+
+// ALDO1: System peripherals — 1.8V
+power.Aldo1Voltage = ElectricPotential.FromVolts(1.8);
+power.EnableAldo1();
+
+// ALDO2: Display/LCD — 3.3V
+power.Aldo2Voltage = ElectricPotential.FromVolts(3.3);
+power.EnableAldo2();
+</code></pre>
+<blockquote>
+<p><strong>Warning</strong>: Never disable DCDC1 on a CoreS3 as it powers the ESP32-S3 core. Disabling it will brick the system until the next power cycle.</p>
+</blockquote>
+<h3 id="battery-charging">Battery charging</h3>
+<pre><code class="lang-csharp">power.EnableCellBatteryCharge();
+power.SetChargeConstantCurrent(ChargingCurrent.Current200mA);
+power.SetChargeTargetVoltage(ChargeTargetVoltage.Voltage4V2);
+power.SetPrechargeCurrent(PrechargeCurrent.Current25mA);
+power.SetChargeTerminationCurrent(ChargeTerminationCurrent.Current25mA);
+power.EnableChargeTerminationLimit();
+power.SetThermalThreshold(ThermalThreshold.Temperature100C);
+</code></pre>
+<h3 id="battery-status">Battery status</h3>
+<pre><code class="lang-csharp">int percentage = power.GetBatteryPercentage();
+ElectricPotential batteryVoltage = power.GetBatteryVoltage();
+ChargingStatus chargeStatus = power.GetChargerStatus();
+bool batteryConnected = power.IsBatteryConnected;
+
+Debug.WriteLine($&quot;Battery: {percentage}%, {batteryVoltage.Volts:F2}V, {chargeStatus}&quot;);
+Debug.WriteLine($&quot;  Connected: {batteryConnected}&quot;);
+</code></pre>
+<h3 id="vbus-monitoring">VBUS monitoring</h3>
+<pre><code class="lang-csharp">if (power.IsVbusGood)
+{
+    ElectricPotential vbusVoltage = power.GetVbusVoltage();
+    Debug.WriteLine($&quot;VBUS: {vbusVoltage.Volts:F2}V, Connected&quot;);
+}
+</code></pre>
+<h3 id="using-the-power-button">Using the power button</h3>
+<p>The power key supports short and long press detection via interrupts:</p>
+<pre><code class="lang-csharp">power.EnableIrq(Axp2101Irq.PowerKeyShortPress | Axp2101Irq.PowerKeyLongPress);
+power.SetPowerKeyPressOnTime(0); // 128 ms
+power.SetPowerKeyPressOffTime(0); // 4 s
+power.EnableLongPressShutdown();
+power.ClearIrqStatus();
+
+// In your main loop:
+if (power.IsPowerKeyShortPressIrq())
+{
+    Debug.WriteLine(&quot;Short press&quot;);
+}
+
+if (power.IsPowerKeyLongPressIrq())
+{
+    Debug.WriteLine(&quot;Long press&quot;);
+}
+
+power.ClearIrqStatus();
+</code></pre>
+<h3 id="temperature-and-adc">Temperature and ADC</h3>
+<p>Enable ADC channels and read measurements:</p>
+<pre><code class="lang-csharp">power.EnableBatteryVoltageMeasure();
+power.EnableVbusVoltageMeasure();
+power.EnableSystemVoltageMeasure();
+power.EnableTemperatureMeasure();
+
+Debug.WriteLine($&quot;Die Temperature: {power.GetInternalTemperature().DegreesCelsius:F1} °C&quot;);
+Debug.WriteLine($&quot;System Voltage : {power.GetSystemVoltage().Volts:F2} V&quot;);
+</code></pre>
+<h3 id="watchdog">Watchdog</h3>
+<pre><code class="lang-csharp">power.SetWatchdogConfig(WatchdogConfig.IrqAndReset);
+power.SetWatchdogTimeout(WatchdogTimeout.Timeout8s);
+power.EnableWatchdog();
+
+// Feed the watchdog periodically:
+power.ClearWatchdog();
+</code></pre>
+<h3 id="advanced-features">Advanced features</h3>
+<p>The AXP2101 supports many additional features including VBUS input limits, backup battery charging, fast power-on sequencing, fuel gauge ROM programming, sleep/wakeup, and DCDC forced-PWM mode. You can check out the <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/main/devices/Axp2101/samples">sample</a> to get more details on how to use these features.</p>
+<blockquote>
+<p>Note: this binding uses UnitsNet for units like Voltage and Temperature.</p>
+</blockquote>
+<h2 id="m5stack-cores3-power-rail-mapping">M5Stack CoreS3 Power Rail Mapping</h2>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Usage</th>
+<th>Voltage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCDC1</td>
+<td>ESP32-S3 core</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>ALDO1</td>
+<td>System peripherals</td>
+<td>1.8V</td>
+</tr>
+<tr>
+<td>ALDO2</td>
+<td>Display/LCD power</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>ALDO3</td>
+<td>Sensor/peripheral power</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>ALDO4</td>
+<td>Camera sensor</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>BLDO1</td>
+<td>I/O level shift</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>BLDO2</td>
+<td>Reserved/peripheral</td>
+<td>3.3V</td>
+</tr>
+</tbody>
+</table>
+<h2 id="differences-from-axp192">Differences from AXP192</h2>
+<p>If migrating from the <a href="../Axp192/README.html"><code>Axp192</code></a> binding, note these key differences:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>AXP192</th>
+<th>AXP2101</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DCDC channels</strong></td>
+<td>DCDC1, DCDC3</td>
+<td>DCDC1-5</td>
+</tr>
+<tr>
+<td><strong>LDO channels</strong></td>
+<td>LDO2, LDO3</td>
+<td>ALDO1-4, BLDO1-2, CPUSLDO, DLDO1-2</td>
+</tr>
+<tr>
+<td><strong>Voltage ranges</strong></td>
+<td>Simpler step logic</td>
+<td>Multi-range with variable steps (DCDC2-4)</td>
+</tr>
+<tr>
+<td><strong>ADC</strong></td>
+<td>Full coulomb counter, multiple current ADC</td>
+<td>Simplified ADC (no coulomb counter)</td>
+</tr>
+<tr>
+<td><strong>Fuel gauge</strong></td>
+<td>Coulomb counter based</td>
+<td>Built-in fuel gauge with battery % register</td>
+</tr>
+<tr>
+<td><strong>GPIO</strong></td>
+<td>GPIO0-4 with configurable behavior</td>
+<td>No user-accessible GPIO (TS pin is configurable)</td>
+</tr>
+<tr>
+<td><strong>Interrupt registers</strong></td>
+<td>5 registers</td>
+<td>3 registers (~24 IRQ sources)</td>
+</tr>
+<tr>
+<td><strong>Watchdog</strong></td>
+<td>Not present</td>
+<td>Configurable watchdog timer</td>
+</tr>
+<tr>
+<td><strong>JEITA</strong></td>
+<td>Not present</td>
+<td>Temperature-compensated charging</td>
+</tr>
+<tr>
+<td><strong>Data buffer</strong></td>
+<td>6 bytes</td>
+<td>4 bytes</td>
+</tr>
+<tr>
+<td><strong>Chip ID register</strong></td>
+<td>0x03 (no standard value)</td>
+<td>0x03 → 0x4A</td>
+</tr>
+<tr>
+<td><strong>Default I2C address</strong></td>
+<td>0x34</td>
+<td>0x34 (same)</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Axp2101/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

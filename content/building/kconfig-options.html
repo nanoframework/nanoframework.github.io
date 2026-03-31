@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Kconfig Target Configuration | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Kconfig Target Configuration | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/building/kconfig-options.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="kconfig-target-configuration">Kconfig Target Configuration</h1>
+
+<h2 id="about-this-document">About this document</h2>
+<p>This document describes the Kconfig-based target configuration system used to configure hardware features, APIs and build options for .NET <strong>nanoFramework</strong> firmware targets.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Target and hardware/feature configuration uses <a href="https://www.kernel.org/doc/html/latest/kbuild/kconfig-language.html">Kconfig</a>, powered by <a href="https://github.com/ulfalizer/Kconfiglib">kconfiglib</a> (a pure-Python implementation). CMake presets remain for build-system configuration (toolchain, generator, output paths, tool paths) — see <a href="cmake-presets.html">CMake presets</a>.</p>
+<p>Each target board has a <code>defconfig</code> file that contains only the non-default configuration values. Kconfig fills in all remaining options with their defaults, enforces dependencies and validates the configuration at configure time.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><a href="https://www.python.org/downloads/">Python 3.8</a> or later.</li>
+<li><a href="https://github.com/ulfalizer/Kconfiglib">kconfiglib</a>: install with <code>pip install kconfiglib</code>.</li>
+</ul>
+<h3 id="key-benefits">Key benefits</h3>
+<ul>
+<li><strong>Interactive configuration</strong>: use <code>menuconfig</code> to discover and toggle options.</li>
+<li><strong>Declarative dependencies</strong>: <code>depends on</code>, <code>select</code> and <code>imply</code> replace hardcoded CMakeLists.txt conditionals.</li>
+<li><strong>Minimal defconfig files</strong>: only non-default values are stored, reducing per-target boilerplate.</li>
+<li><strong>Validation</strong>: Kconfig enforces constraints at configuration time, not at build time.</li>
+</ul>
+<h2 id="developer-workflow">Developer Workflow</h2>
+<h3 id="building-an-existing-target">Building an existing target</h3>
+<p>The workflow is unchanged from the developer's perspective:</p>
+<pre><code class="lang-bash">cmake --preset ESP32_PSRAM_REV0
+cmake --build --preset ESP32_PSRAM_REV0
+</code></pre>
+<p>The preset loads the defconfig automatically via the <code>NF_TARGET_DEFCONFIG</code> cache variable. If <code>config/user-kconfig.conf</code> is present, its preferences are merged on top transparently.</p>
+<h3 id="applying-developer-local-preferences">Applying developer-local preferences</h3>
+<p>Developer-local Kconfig preferences (RTM mode, CLR trace flags, Wire Protocol options, etc.) are set in <code>config/user-kconfig.conf</code>:</p>
+<pre><code class="lang-bash"># First time only — copy the template
+cp config/user-kconfig.conf.TEMPLATE config/user-kconfig.conf
+</code></pre>
+<p>Edit the file using standard Kconfig fragment format:</p>
+<pre><code class="lang-text">CONFIG_NF_BUILD_RTM=n
+CONFIG_NF_CLR_NO_TRACE=n
+CONFIG_NF_CLR_NO_IL_INLINE=n
+CONFIG_NF_WP_TRACE_ERRORS=n
+CONFIG_NF_WP_ENABLE_CRC32=n
+</code></pre>
+<p>This file is git-ignored. Only symbols explicitly listed in the overlay are modified; everything else comes from the board defconfig.</p>
+<h3 id="interactive-configuration-with-menuconfig">Interactive configuration with menuconfig</h3>
+<pre><code class="lang-bash"># Load defconfig into .config
+python -m defconfig targets/ESP32/defconfig/ESP32_PSRAM_REV0_defconfig
+
+# Open menu-driven configuration
+python -m menuconfig
+
+# Build as usual
+cmake --preset ESP32_PSRAM_REV0
+cmake --build --preset ESP32_PSRAM_REV0
+</code></pre>
+<h3 id="creating-a-new-target">Creating a new target</h3>
+<pre><code class="lang-bash"># Start from closest existing defconfig
+cp targets/ESP32/defconfig/ESP32_PSRAM_REV0_defconfig targets/ESP32/defconfig/MY_BOARD_defconfig
+
+# Edit interactively
+export KCONFIG_CONFIG=build/.config
+python -m defconfig targets/ESP32/defconfig/MY_BOARD_defconfig
+python -m menuconfig
+
+# Save minimal defconfig (only non-default values)
+python -m savedefconfig --out targets/ESP32/defconfig/MY_BOARD_defconfig
+</code></pre>
+<h3 id="modifying-an-existing-target-configuration">Modifying an existing target configuration</h3>
+<pre><code class="lang-bash"># Load and open for editing
+python -m defconfig targets/ChibiOS/ST_STM32F769I_DISCOVERY/defconfig
+python -m menuconfig
+
+# Save back
+python -m savedefconfig --out targets/ChibiOS/ST_STM32F769I_DISCOVERY/defconfig
+</code></pre>
+<h2 id="directory-structure">Directory Structure</h2>
+<pre><code class="lang-text">nf-interpreter/
+├── Kconfig                              # Root — sources everything
+├── Kconfig.rtos                         # RTOS selection
+├── Kconfig.features                     # NF_FEATURE_* options with dependencies
+├── Kconfig.apis                         # API selection with auto-select dependencies
+├── Kconfig.graphics                     # Graphics display/touch subsystem
+├── Kconfig.networking                   # Networking, Ethernet, WiFi, Thread
+├── Kconfig.serial                       # Wire Protocol transport (UART / USB CDC)
+├── Kconfig.wireprotocol                 # Wire Protocol options and trace flags
+├── Kconfig.build                        # RTM, floating point, base conversion, etc.
+│
+├── config/
+│   ├── user-kconfig.conf.TEMPLATE       # Template for Kconfig-level user preferences
+│   └── user-kconfig.conf                # Developer local copy — git-ignored
+│
+├── targets/
+│   ├── ESP32/
+│   │   ├── Kconfig                      # ESP32 family options
+│   │   ├── Kconfig.ethernet             # ESP32 Ethernet PHY configuration
+│   │   └── defconfig/                   # Flat directory — ESP32 variants
+│   │       ├── ESP32_PSRAM_REV0_defconfig
+│   │       ├── ESP32_BLE_REV0_defconfig
+│   │       └── ...
+│   │
+│   ├── ChibiOS/
+│   │   ├── Kconfig                      # ChibiOS/STM32-specific options
+│   │   └── &lt;board&gt;/
+│   │       └── defconfig                # Per-board defconfig
+│   │
+│   ├── FreeRTOS/
+│   │   ├── Kconfig
+│   │   └── NXP/&lt;board&gt;/defconfig
+│   │
+│   ├── TI_SimpleLink/
+│   │   ├── Kconfig
+│   │   └── &lt;board&gt;/defconfig
+│   │
+│   └── ThreadX/
+│       ├── Kconfig
+│       └── &lt;vendor&gt;/&lt;board&gt;/defconfig
+</code></pre>
+<h2 id="kconfig-options-reference">Kconfig Options Reference</h2>
+<h3 id="platform-identity">Platform Identity</h3>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TARGET_BOARD</code></td>
+<td>string</td>
+<td>Target board name</td>
+</tr>
+<tr>
+<td><code>TARGET_SERIES</code></td>
+<td>string</td>
+<td>Target MCU series (e.g. <code>STM32F7xx</code>, <code>ESP32</code>, <code>IMXRT10xx</code>)</td>
+</tr>
+<tr>
+<td><code>RTOS</code></td>
+<td>choice</td>
+<td>RTOS selection: <code>ESP32</code>, <code>ChibiOS</code>, <code>FreeRTOS</code>, <code>TI_SimpleLink</code>, <code>ThreadX</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="build-options">Build Options</h3>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NF_BUILD_RTM</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Build RTM firmware (suppresses debug output, removes all debugger features)</td>
+</tr>
+<tr>
+<td><code>NF_TARGET_HAS_NANOBOOTER</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Target includes nanoBooter</td>
+</tr>
+<tr>
+<td><code>NF_ENABLE_DOUBLE_PRECISION_FP</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable double-precision floating point (default is single-precision)</td>
+</tr>
+<tr>
+<td><code>NF_SUPPORT_ANY_BASE_CONVERSION</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable string conversion for any numeric base (default: base 10 and 16 only)</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_USE_RNG</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Enable hardware true random number generator</td>
+</tr>
+<tr>
+<td><code>NF_SECURITY_MBEDTLS</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Enable Mbed TLS support for secure sockets</td>
+</tr>
+<tr>
+<td><code>NF_CLR_NO_TRACE</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Remove trace messages and checks from CLR</td>
+</tr>
+<tr>
+<td><code>NF_CLR_NO_IL_INLINE</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Disable IL inlining in CLR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nanoframework-features">nanoFramework Features</h3>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NF_FEATURE_DEBUGGER</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Managed application debugging support</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_RTC</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Hardware RTC support</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_HAS_SDCARD</code></td>
+<td>bool</td>
+<td>n</td>
+<td>SD Card support</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_HAS_CONFIG_BLOCK</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Configuration block storage</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_USE_LITTLEFS</code></td>
+<td>bool</td>
+<td>n</td>
+<td>LittleFS file system</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_HAS_ACCESSIBLE_STORAGE</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Accessible storage (internal storage)</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_HAS_USB_MSD</code></td>
+<td>bool</td>
+<td>n</td>
+<td>USB Mass Storage</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_WATCHDOG</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Hardware watchdog</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_SUPPORT_REFLECTION</code></td>
+<td>bool</td>
+<td>y</td>
+<td>System.Reflection API support</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_BINARY_SERIALIZATION</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Binary serialization support</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_USE_APPDOMAINS</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Application Domains support</td>
+</tr>
+<tr>
+<td><code>NF_FEATURE_LIGHT_MATH</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Light math (exclude complex math functions)</td>
+</tr>
+<tr>
+<td><code>NF_TRACE_TO_STDIO</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable trace messages to stdio</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wire-protocol">Wire Protocol</h3>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NF_WP_TRACE_ERRORS</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable error tracing in Wire Protocol</td>
+</tr>
+<tr>
+<td><code>NF_WP_TRACE_HEADERS</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable packet headers tracing</td>
+</tr>
+<tr>
+<td><code>NF_WP_TRACE_STATE</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable state tracing</td>
+</tr>
+<tr>
+<td><code>NF_WP_TRACE_NODATA</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable tracing of empty or incomplete packets</td>
+</tr>
+<tr>
+<td><code>NF_WP_TRACE_VERBOSE</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable verbose tracing</td>
+</tr>
+<tr>
+<td><code>NF_WP_TRACE_ALL</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable all tracing options</td>
+</tr>
+<tr>
+<td><code>NF_WP_ENABLE_CRC32</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable CRC32 calculations. See <a href="../architecture/wire-protocol.html#crc32-validations">Wire Protocol details</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="wire-protocol-transport">Wire Protocol Transport</h3>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NF_WP_TRANSPORT_SERIAL</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Use serial (UART) for Wire Protocol (default transport)</td>
+</tr>
+<tr>
+<td><code>NF_WP_TRANSPORT_USB_CDC</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Use USB CDC for Wire Protocol</td>
+</tr>
+<tr>
+<td><code>TARGET_SERIAL_BAUDRATE</code></td>
+<td>int</td>
+<td>921600</td>
+<td>Baudrate for serial communication (depends on <code>NF_WP_TRANSPORT_SERIAL</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-selection">API Selection</h3>
+<p>API options follow the pattern <code>API_&lt;name&gt;</code> in Kconfig. Kconfig automatically enforces dependencies between APIs.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>API_SYSTEM_MATH</code></td>
+<td>bool</td>
+<td>y</td>
+<td>System.Math</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_NET</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Net (auto-selects <code>NF_FEATURE_HAS_CONFIG_BLOCK</code>)</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_GPIO</code></td>
+<td>bool</td>
+<td>y</td>
+<td>System.Device.Gpio</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_SPI</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.Spi</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_I2C</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.I2c</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_I2C_SLAVE</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.I2c.Slave (depends on <code>API_SYSTEM_DEVICE_I2C</code>)</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_PWM</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.Pwm</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_ADC</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.Adc</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_DAC</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.Dac</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_I2S</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.I2s</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_WIFI</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.Wifi</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_DEVICE_USBSTREAM</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.Device.UsbStream</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_IO_PORTS</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.IO.Ports (auto-selects <code>API_NANOFRAMEWORK_SYSTEM_TEXT</code>)</td>
+</tr>
+<tr>
+<td><code>API_SYSTEM_IO_FILESYSTEM</code></td>
+<td>bool</td>
+<td>n</td>
+<td>System.IO.FileSystem (depends on <code>NF_FEATURE_HAS_SDCARD</code>, <code>NF_FEATURE_USE_LITTLEFS</code> or <code>NF_FEATURE_HAS_USB_MSD</code>)</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_DEVICE_ONEWIRE</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.Device.OneWire</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_DEVICE_CAN</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.Device.Can</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_DEVICE_BLUETOOTH</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.Device.Bluetooth</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_GRAPHICS</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.Graphics</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_RESOURCEMANAGER</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.ResourceManager</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_SYSTEM_COLLECTIONS</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.System.Collections</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_SYSTEM_TEXT</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.System.Text</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_SYSTEM_SECURITY_CRYPTOGRAPHY</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.System.Security.Cryptography (depends on <code>NF_SECURITY_MBEDTLS</code>)</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_SYSTEM_IO_HASHING</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.System.IO.Hashing</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_NETWORKING_THREAD</code></td>
+<td>bool</td>
+<td>n</td>
+<td>nanoFramework.Networking.Thread</td>
+</tr>
+</tbody>
+</table>
+<h3 id="platform-specific-apis">Platform-Specific APIs</h3>
+<p>These APIs are only visible when the corresponding RTOS is selected.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Depends On</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>API_HARDWARE_ESP32</code></td>
+<td>bool</td>
+<td><code>RTOS_ESP32</code></td>
+<td>Hardware.Esp32</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_HARDWARE_ESP32_RMT</code></td>
+<td>bool</td>
+<td><code>RTOS_ESP32</code></td>
+<td>nanoFramework.Hardware.Esp32.Rmt</td>
+</tr>
+<tr>
+<td><code>API_HARDWARE_STM32</code></td>
+<td>bool</td>
+<td><code>RTOS_CHIBIOS</code></td>
+<td>Hardware.Stm32</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_HARDWARE_TI</code></td>
+<td>bool</td>
+<td><code>RTOS_TI_SIMPLELINK</code></td>
+<td>nanoFramework.Hardware.TI</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_TI_EASYLINK</code></td>
+<td>bool</td>
+<td><code>RTOS_TI_SIMPLELINK</code></td>
+<td>nanoFramework.TI.EasyLink</td>
+</tr>
+<tr>
+<td><code>API_HARDWARE_GIANTGECKO</code></td>
+<td>bool</td>
+<td><code>RTOS_THREADX</code></td>
+<td>Hardware.GiantGecko</td>
+</tr>
+<tr>
+<td><code>API_NANOFRAMEWORK_GIANTGECKO_ADC</code></td>
+<td>bool</td>
+<td><code>RTOS_THREADX</code></td>
+<td>nanoFramework.GiantGecko.Adc</td>
+</tr>
+</tbody>
+</table>
+<h3 id="graphics-options">Graphics Options</h3>
+<p>These options are available when <code>API_NANOFRAMEWORK_GRAPHICS</code> is enabled.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GRAPHICS_DISPLAY</code></td>
+<td>choice</td>
+<td>Display driver: ILI9341, ILI9342, ST7735S, ST7789V, GC9A01, Otm8009a (DSI), Generic SPI</td>
+</tr>
+<tr>
+<td><code>GRAPHICS_DISPLAY_INTERFACE</code></td>
+<td>choice</td>
+<td>Display interface: SPI to Display, DSI Video Mode</td>
+</tr>
+<tr>
+<td><code>TOUCHPANEL_DEVICE</code></td>
+<td>choice</td>
+<td>Touch panel driver: XPT2046, ft6x06, CST816S (optional)</td>
+</tr>
+<tr>
+<td><code>TOUCHPANEL_INTERFACE</code></td>
+<td>choice</td>
+<td>Touch panel interface: SPI, I2C (optional)</td>
+</tr>
+<tr>
+<td><code>GRAPHICS_MEMORY</code></td>
+<td>string</td>
+<td>Graphics memory implementation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="esp32-specific-options">ESP32-Specific Options</h3>
+<p>Available when RTOS is set to ESP32.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SDK_CONFIG_FILE</code></td>
+<td>string</td>
+<td>&quot;&quot;</td>
+<td>Path to IDF sdkconfig defaults file</td>
+</tr>
+<tr>
+<td><code>ESP32_RESERVE_SPIRAM_IDF_ALLOCATION_BYTES</code></td>
+<td>int</td>
+<td>262144</td>
+<td>SPIRAM reserved for IDF allocation (bytes)</td>
+</tr>
+<tr>
+<td><code>ESP32_USB_CDC</code></td>
+<td>bool</td>
+<td>n</td>
+<td>USB CDC for Wire Protocol</td>
+</tr>
+<tr>
+<td><code>ESP32_XTAL_FREQ_26</code></td>
+<td>bool</td>
+<td>n</td>
+<td>26 MHz crystal (instead of 40 MHz default)</td>
+</tr>
+<tr>
+<td><code>ESP32_RESERVE_IRAM_IDF_ALLOCATION_KB</code></td>
+<td>int</td>
+<td>0</td>
+<td>RAM reserved for IDF allocation (kB, for limited-memory boards)</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_SUPPORT</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable Ethernet support</td>
+</tr>
+<tr>
+<td><code>ESP32_THREAD_DEVICE_TYPE</code></td>
+<td>string</td>
+<td>&quot;&quot;</td>
+<td>Thread device type</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_PHY_CLOCK_MODE</code></td>
+<td>string</td>
+<td>&quot;&quot;</td>
+<td>Ethernet PHY clock mode override</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_PHY_POWER_PIN</code></td>
+<td>string</td>
+<td>&quot;&quot;</td>
+<td>Ethernet PHY power pin override</td>
+</tr>
+</tbody>
+</table>
+<h4 id="esp32-ethernet-sub-options">ESP32 Ethernet Sub-options</h4>
+<p>Available when <code>ESP32_ETHERNET_SUPPORT</code> is enabled.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ESP32_ETHERNET_INTERFACE</code></td>
+<td>choice</td>
+<td>—</td>
+<td>Ethernet PHY: IP101, LAN8720, RTL8201</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_PHY_ADDR</code></td>
+<td>int</td>
+<td>1</td>
+<td>Ethernet PHY address</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_MDC_GPIO</code></td>
+<td>int</td>
+<td>23</td>
+<td>MDC GPIO pin</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_MDIO_GPIO</code></td>
+<td>int</td>
+<td>18</td>
+<td>MDIO GPIO pin</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_RMII_CLK_OUT_GPIO</code></td>
+<td>int</td>
+<td>-1</td>
+<td>RMII clock output GPIO pin (-1 = not used)</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_RMII_CLK_IN_GPIO</code></td>
+<td>int</td>
+<td>-1</td>
+<td>RMII clock input GPIO pin (-1 = not used)</td>
+</tr>
+<tr>
+<td><code>ESP32_ETHERNET_PHY_RST_GPIO</code></td>
+<td>int</td>
+<td>-1</td>
+<td>Ethernet PHY reset GPIO pin (-1 = not used)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chibiosstm32-specific-options">ChibiOS/STM32-Specific Options</h3>
+<p>Available when RTOS is set to ChibiOS.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CHIBIOS_CONTRIB_REQUIRED</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Include ChibiOS Contrib repository in the build</td>
+</tr>
+<tr>
+<td><code>STM32_CUBE_PACKAGE_REQUIRED</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Include STM Cube package in the build</td>
+</tr>
+<tr>
+<td><code>CHIBIOS_SWO_OUTPUT</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Support for Cortex-M Single Wire Output (SWO). See <a href="../contributing/developing-native/arm-swo.html">SWO details</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="threadx-specific-options">ThreadX-Specific Options</h3>
+<p>Available when RTOS is set to ThreadX.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GECKO_FEATURE_USBD_HID</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Gecko USB HID device support</td>
+</tr>
+<tr>
+<td><code>STM32_CUBE_PACKAGE_REQUIRED</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Include STM Cube package in the build</td>
+</tr>
+<tr>
+<td><code>THREADX_CHIBIOS_HAL_REQUIRED</code></td>
+<td>bool</td>
+<td>n</td>
+<td>ChibiOS HAL required (for STM32 WiFi targets)</td>
+</tr>
+<tr>
+<td><code>THREADX_WIFI_DRIVER</code></td>
+<td>string</td>
+<td>&quot;&quot;</td>
+<td>WiFi driver name (e.g. ISM43362)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ti-simplelink-specific-options">TI SimpleLink-Specific Options</h3>
+<p>Available when RTOS is set to TI SimpleLink.</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TI_SIMPLELINK_RADIO_FREQ_MHZ</code></td>
+<td>int</td>
+<td>915</td>
+<td>Radio frequency for CC13xx_26xx targets (868 or 915)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="networking-options">Networking Options</h3>
+<table>
+<thead>
+<tr>
+<th>Kconfig Symbol</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NF_NETWORKING_SNTP</code></td>
+<td>bool</td>
+<td>y</td>
+<td>Enable SNTP (requires networking feature)</td>
+</tr>
+<tr>
+<td><code>NF_NETWORKING_ENC28J60</code></td>
+<td>bool</td>
+<td>n</td>
+<td>Enable ENC28J60 Ethernet controller support</td>
+</tr>
+</tbody>
+</table>
+<h2 id="defconfig-file-example">Defconfig File Example</h2>
+<p>A typical defconfig file for an ESP32 target (<code>targets/ESP32/defconfig/ESP32_PSRAM_REV0_defconfig</code>):</p>
+<pre><code class="lang-text">CONFIG_TARGET_BOARD=&quot;ESP32&quot;
+CONFIG_TARGET_SERIES=&quot;ESP32&quot;
+CONFIG_RTOS_ESP32=y
+
+CONFIG_NF_FEATURE_DEBUGGER=y
+CONFIG_NF_FEATURE_RTC=y
+CONFIG_NF_FEATURE_HAS_SDCARD=y
+
+CONFIG_API_SYSTEM_MATH=y
+CONFIG_API_SYSTEM_DEVICE_ADC=y
+CONFIG_API_SYSTEM_DEVICE_DAC=y
+CONFIG_API_SYSTEM_DEVICE_GPIO=y
+CONFIG_API_SYSTEM_DEVICE_I2C=y
+CONFIG_API_SYSTEM_DEVICE_PWM=y
+CONFIG_API_SYSTEM_IO_PORTS=y
+CONFIG_API_SYSTEM_DEVICE_SPI=y
+CONFIG_API_NANOFRAMEWORK_DEVICE_ONEWIRE=y
+CONFIG_API_NANOFRAMEWORK_RESOURCEMANAGER=y
+CONFIG_API_NANOFRAMEWORK_SYSTEM_COLLECTIONS=y
+CONFIG_API_NANOFRAMEWORK_SYSTEM_TEXT=y
+
+CONFIG_ESP32_RESERVE_SPIRAM_IDF_ALLOCATION_BYTES=262144
+</code></pre>
+<p>Only non-default values appear in the defconfig. Kconfig fills in the rest.</p>
+<h2 id="cmake-integration">CMake Integration</h2>
+<p>The Kconfig system integrates with CMake through <code>NF_Kconfig.cmake</code>. During configuration:</p>
+<ol>
+<li><code>scripts/nf_merge_config.py</code> merges the board defconfig with the optional <code>config/user-kconfig.conf</code> overlay into <code>build/.config</code>.</li>
+<li><code>genconfig</code> produces <code>build/.config</code> and <code>build/nf_config.h</code>.</li>
+<li><code>NF_Kconfig.cmake</code> parses <code>.config</code> into CMake cache variables.</li>
+</ol>
+<p>Kconfig symbol names are mapped to CMake variable names automatically:</p>
+<table>
+<thead>
+<tr>
+<th>Kconfig symbol</th>
+<th>CMake variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CONFIG_NF_FEATURE_DEBUGGER=y</code></td>
+<td><code>NF_FEATURE_DEBUGGER=ON</code></td>
+</tr>
+<tr>
+<td><code>CONFIG_API_SYSTEM_DEVICE_GPIO=y</code></td>
+<td><code>API_System.Device.Gpio=ON</code></td>
+</tr>
+<tr>
+<td><code>CONFIG_API_NANOFRAMEWORK_GRAPHICS=y</code></td>
+<td><code>API_nanoFramework.Graphics=ON</code></td>
+</tr>
+<tr>
+<td><code>CONFIG_TARGET_BOARD=&quot;ESP32&quot;</code></td>
+<td><code>TARGET_BOARD=ESP32</code></td>
+</tr>
+<tr>
+<td><code>CONFIG_RTOS=&quot;ChibiOS&quot;</code></td>
+<td><code>RTOS=ChibiOS</code></td>
+</tr>
+</tbody>
+</table>
+<p>All existing CMake modules continue to work unchanged.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/building/kconfig-options.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
