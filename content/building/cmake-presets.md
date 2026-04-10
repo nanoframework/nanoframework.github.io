@@ -15,60 +15,72 @@ CMake presets are now limited to build-system configuration. All hardware, featu
 
 Developer-local adjustments are split across two systems:
 
-- **CMake-level**: `config/user-prefs.json` — for build type, tool paths, SDK paths, build version and similar build-system variables.
+- **CMake-level**: `config/user-prefs.json` and `config/user-tools-repos.json` — for build type, build verbosity/version, tool paths, SDK paths and similar build-system variables.
 - **Kconfig-level**: `config/user-kconfig.conf` — for target features, APIs, RTM mode, CLR trace flags and similar target configuration. See [Kconfig options](kconfig-options.md) for details.
 
 ## Build options for CMake Presets
 
-Below is a list of the build options that **remain** in CMake presets. These are build-system variables that are not part of target configuration.
+Below is a list of the build options that **remain** in CMake presets. These are still defined in the current preset files and have **not** moved to Kconfig.
 
-- "BUILD_VERSION" : "**version-number-for-the-build-format-is-N.N.N.N**"
-  - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md)
-  - This can be used to workaround "[Found assemblies mismatches when checking for deployment pre-check](build-instructions.md#preparation)" error during deployment.
-- "BUILD_VERBOSE"
-  - Option to output verbose messages during build. Useful for debugging issues with build system.
-- "TOOL_HEX2DFU_PREFIX" : "**absolute-path-to-hex2dfu-utility-mind-the-forward-slash**"
-  - This is the path to the HEX2DFU utility. Use forward slashes and do not provide executable name here.
-- "TOOL_SRECORD_PREFIX" : "**absolute-path-to-srecord-utility-mind-the-forward-slash**"
-  - This is the path to the SRecord utility. Use forward slashes and do not provide executable name here.
-- "ESP32_IDF_PATH" : "**absolute-path-to-esp-idf-mind-the-forward-slash**"
-  - This the path to the ESP32 IDF utility. Use forward slashes and do not provide executable name here.
-- "EXECUTABLE_OUTPUT_PATH" : "**${workspaceRoot}/build**"
-  - This is the default and recommended path which will expand to the build folder when building from VS Code. When building from the command line or from Visual Studio this is not required.
-- "CHIBIOS_SOURCE_FOLDER" : ""
-  - Path to an optional local installation of ChibiOS source files. If no path is given, then CMake will download the sources automatically from ChibiOS SVN repository when required. Mind the forward slash.
-- "CHIBIOS_HAL_SOURCE": ""
-  - Path to an optional local installation of ChibiOS HAL source files. If no path is given, then CMake will download the sources automatically from ChibiOS SVN repository when required. Mind the forward slash.
-- "CHIBIOS_CONTRIB_SOURCE": ""
-  - Path to an optional local installation of ChibiOS Contrib source files. If no path is given, then CMake will download the sources automatically from ChibiOS Contrib repository when required. Mind the forward slash.
-- "FREERTOS_SOURCE_FOLDER": ""
-  - Path to an optional local installation of FreeRTOS source files. If no path is given, then CMake will download the sources automatically from FreeRTOS repository when required. Mind the forward slash.
-- "CMSIS_SOURCE": ""
-  - Path to an optional local installation of CMSIS source files. If no path is given, then CMake will download the sources automatically from CMSIS repository when required. Mind the forward slash.
-- "STM32_HAL_DRIVER_SOURCE": ""
-  - Path to an optional local installation of STM32 HAL driver source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "STM32_CMSIS_DEVICE_SOURCE": ""
-  - Path to an optional local installation of CMSIS device source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "STM32_CMSIS_CORE_SOURCE": ""
-  - Path to an optional local installation of STM32 CMSIS source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "TI_SL_CC32xx_SDK_SOURCE": ""
-  - Path to an optional local installation of TI SimpleLink CC32xx SDK source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "TI_SL_CC13xx_26xx_SDK_SOURCE": ""
-  - Path to an optional local installation of TI SimpleLink CC13xx_26xx SDK source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "TI_XDCTOOLS_SOURCE": ""
-  - Path to an optional local installation of TI XDC Tools source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "TI_SYSCONFIG_SOURCE": ""
-  - Path to an optional local installation of TI SysConfig source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "LITTLEFS_SOURCE": ""
-  - Path to an optional local installation of littlefs source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "FATFS_SOURCE": ""
-  - Path to an optional local installation of FatFS source files. If no path is given, then CMake will download the sources automatically. Mind the forward slash.
-- "MBEDTLS_SOURCE" : ""
-  - Path to an optional local with mbedTLS source files.
-- "NF_INTEROP_ASSEMBLIES" : "Assembly1-Namespace Assembly2-Namespace Assembly3-Namespace"
-  - Lists the name of the Interop assembly(ies) to be added to the build in a space separated string. Leave empty or don't add it if no Interop assembly is to be added.
-- "NF_TARGET_DEFCONFIG" : "**path-to-target-defconfig-file**"
-  - Path to the Kconfig defconfig file for the target board. This is the only target-specific variable in a CMake preset. All hardware/feature/API configuration is read from this defconfig file by the Kconfig system.
+### In `config/user-prefs.json`
+
+- `CMAKE_BUILD_TYPE`: `Debug`
+  - Build type for the CMake configure preset.
+- `BUILD_VERSION`: `N.N.N.N`
+  - This can be used [to prevent a board from updating if working on a custom firmware](../faq/automatic-firmware-updates.md).
+  - This can be used to work around the "[Found assemblies mismatches when checking for deployment pre-check](build-instructions.md#preparation)" error during deployment.
+- `BUILD_VERBOSE`: `OFF`
+  - Enables verbose build-system output.
+
+### In `config/user-tools-repos.json`
+
+- `TOOL_HEX2DFU_PREFIX`
+  - Path to the HEX2DFU utility. Use forward slashes and do not include the executable name.
+- `TOOL_SRECORD_PREFIX`
+  - Path to the SRecord utility. Use forward slashes and do not include the executable name.
+- `CHIBIOS_SOURCE_FOLDER`
+  - Optional path to a local ChibiOS source tree.
+- `CHIBIOS_HAL_SOURCE`
+  - Optional path to a local ChibiOS HAL source tree.
+- `CHIBIOS_CONTRIB_SOURCE`
+  - Optional path to a local ChibiOS Contrib source tree.
+- `FREERTOS_SOURCE_FOLDER`
+  - Optional path to a local FreeRTOS source tree.
+- `STM32_HAL_DRIVER_SOURCE`
+  - Optional path to local STM32 HAL driver sources.
+- `STM32_CMSIS_DEVICE_SOURCE`
+  - Optional path to local STM32 CMSIS device sources.
+- `STM32_CMSIS_CORE_SOURCE`
+  - Optional path to local STM32 CMSIS core sources.
+- `LWIP_SOURCE`
+  - Optional path to a local lwIP source tree.
+- `MBEDTLS_SOURCE`
+  - Optional path to a local mbedTLS source tree.
+- `FATFS_SOURCE`
+  - Optional path to a local FatFS source tree.
+- `LITTLEFS_SOURCE`
+  - Optional path to a local littlefs source tree.
+- `ESP32_IDF_PATH`
+  - Path to the ESP-IDF folder. Use forward slashes.
+- `TI_SL_CC32xx_SDK_SOURCE`
+  - Optional path to a local TI SimpleLink CC32xx SDK source tree.
+- `TI_SL_CC13xx_26xx_SDK_SOURCE`
+  - Optional path to a local TI SimpleLink CC13xx/26xx SDK source tree.
+- `TI_XDCTOOLS_SOURCE`
+  - Optional path to local TI XDC Tools.
+- `TI_SYSCONFIG_SOURCE`
+  - Optional path to local TI SysConfig.
+- `THREADX_SOURCE_FOLDER`
+  - Optional path to a local ThreadX source tree.
+- `NETXDUO_SOURCE_FOLDER`
+  - Optional path to a local NetX Duo source tree.
+
+### In toolchain and target presets
+
+- `NF_INTEROP_ASSEMBLIES`: `Assembly1-Namespace Assembly2-Namespace Assembly3-Namespace`
+  - Lists the Interop assemblies to add to the build as a space-separated string. Leave empty if none are required.
+- `NF_TARGET_DEFCONFIG`: `path-to-target-defconfig-file`
+  - Path to the Kconfig `defconfig` file for the target board. This is the only target-specific variable that still remains in the target CMake presets.
 
 ## Deprecated CMake Preset Options
 
