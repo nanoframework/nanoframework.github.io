@@ -52,7 +52,8 @@ The official pinout diagrams are available from Raspberry Pi:
 | 39 | VSYS | 2 V – 5 V system input | | | | | |
 | 40 | VBUS | 5 V USB input | | | | | |
 
-> **Note**: GP23, GP24, GP25 and GP29 are used internally on the Pico board:
+> [!Note]: GP23, GP24, GP25 and GP29 are used internally on the Pico board:
+>
 > - **GP23** — controls the on-board SMPS power save mode
 > - **GP24** — VBUS sense (USB power detection) on Pico; used by the CYW43439 wireless chip on Pico W
 > - **GP25** — on-board LED on Pico (on Pico W this LED is connected through the wireless chip)
