@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Unsafe | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Unsafe | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="System.Runtime.CompilerServices.Unsafe">
+
+
+
+  <h1 id="System_Runtime_CompilerServices_Unsafe" data-uid="System.Runtime.CompilerServices.Unsafe" class="text-break">
+Class Unsafe  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="System.html">System</a>.<a class="xref" href="System.Runtime.html">Runtime</a>.<a class="xref" href="System.Runtime.CompilerServices.html">CompilerServices</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>System.Runtime.CompilerServices.Unsafe.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Unsafe</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="System.Object.html">object</a></div>
+      <div><span class="xref">Unsafe</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ToString">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_Equals_System_Object_System_Object_">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_ReferenceEquals_System_Object_System_Object_">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetHashCode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_GetType">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="System.Object.html#System_Object_MemberwiseClone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_AddByteOffset_" data-uid="System.Runtime.CompilerServices.Unsafe.AddByteOffset*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_AddByteOffset__1___0__System_IntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.AddByteOffset``1(``0@,System.IntPtr)">
+  AddByteOffset&lt;T&gt;(ref T, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T AddByteOffset&lt;T&gt;(ref T source, IntPtr byteOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>byteOffset</code> <a class="xref" href="System.IntPtr.html">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_AddByteOffset_" data-uid="System.Runtime.CompilerServices.Unsafe.AddByteOffset*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_AddByteOffset__1___0__System_UIntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.AddByteOffset``1(``0@,System.UIntPtr)">
+  AddByteOffset&lt;T&gt;(ref T, nuint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T AddByteOffset&lt;T&gt;(ref T source, nuint byteOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>byteOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uintptr">nuint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Add_" data-uid="System.Runtime.CompilerServices.Unsafe.Add*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Add__1_System_Void__System_Int32_" data-uid="System.Runtime.CompilerServices.Unsafe.Add``1(System.Void*,System.Int32)">
+  Add&lt;T&gt;(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void* Add&lt;T&gt;(void* source, int elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Add_" data-uid="System.Runtime.CompilerServices.Unsafe.Add*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Add__1___0__System_Int32_" data-uid="System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.Int32)">
+  Add&lt;T&gt;(ref T, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T Add&lt;T&gt;(ref T source, int elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Add_" data-uid="System.Runtime.CompilerServices.Unsafe.Add*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Add__1___0__System_IntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.IntPtr)">
+  Add&lt;T&gt;(ref T, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T Add&lt;T&gt;(ref T source, IntPtr elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="System.IntPtr.html">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Add_" data-uid="System.Runtime.CompilerServices.Unsafe.Add*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Add__1___0__System_UIntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.UIntPtr)">
+  Add&lt;T&gt;(ref T, nuint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T Add&lt;T&gt;(ref T source, nuint elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uintptr">nuint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_AreSame_" data-uid="System.Runtime.CompilerServices.Unsafe.AreSame*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_AreSame__1___0____0__" data-uid="System.Runtime.CompilerServices.Unsafe.AreSame``1(``0@,``0@)">
+  AreSame&lt;T&gt;(ref T, ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreSame&lt;T&gt;(ref T left, ref T right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>right</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_AsPointer_" data-uid="System.Runtime.CompilerServices.Unsafe.AsPointer*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_AsPointer__1___0__" data-uid="System.Runtime.CompilerServices.Unsafe.AsPointer``1(``0@)">
+  AsPointer&lt;T&gt;(ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void* AsPointer&lt;T&gt;(ref T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_AsRef_" data-uid="System.Runtime.CompilerServices.Unsafe.AsRef*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_AsRef__1_System_Void__" data-uid="System.Runtime.CompilerServices.Unsafe.AsRef``1(System.Void*)">
+  AsRef&lt;T&gt;(void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T AsRef&lt;T&gt;(void* source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_AsRef_" data-uid="System.Runtime.CompilerServices.Unsafe.AsRef*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_AsRef__1___0__" data-uid="System.Runtime.CompilerServices.Unsafe.AsRef``1(``0@)">
+  AsRef&lt;T&gt;(in T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T AsRef&lt;T&gt;(in T source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_As_" data-uid="System.Runtime.CompilerServices.Unsafe.As*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_As__1_System_Object_" data-uid="System.Runtime.CompilerServices.Unsafe.As``1(System.Object)">
+  As&lt;T&gt;(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T As&lt;T&gt;(object o) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>o</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_As_" data-uid="System.Runtime.CompilerServices.Unsafe.As*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_As__2___0__" data-uid="System.Runtime.CompilerServices.Unsafe.As``2(``0@)">
+  As&lt;TFrom, TTo&gt;(ref TFrom)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref TTo As&lt;TFrom, TTo&gt;(ref TFrom source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">TFrom</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TTo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TFrom</code></dt>
+    <dd></dd>
+    <dt><code>TTo</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_ByteOffset_" data-uid="System.Runtime.CompilerServices.Unsafe.ByteOffset*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_ByteOffset__1___0____0__" data-uid="System.Runtime.CompilerServices.Unsafe.ByteOffset``1(``0@,``0@)">
+  ByteOffset&lt;T&gt;(ref T, ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr ByteOffset&lt;T&gt;(ref T origin, ref T target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>target</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.IntPtr.html">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_CopyBlock_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlock*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_CopyBlock_System_Byte__System_Byte__System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlock(System.Byte@,System.Byte@,System.UInt32)">
+  CopyBlock(ref byte, ref byte, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyBlock(ref byte destination, ref byte source, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_CopyBlock_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlock*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_CopyBlock_System_Void__System_Void__System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlock(System.Void*,System.Void*,System.UInt32)">
+  CopyBlock(void*, void*, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyBlock(void* destination, void* source, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_CopyBlockUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_CopyBlockUnaligned_System_Byte__System_Byte__System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned(System.Byte@,System.Byte@,System.UInt32)">
+  CopyBlockUnaligned(ref byte, ref byte, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyBlockUnaligned(ref byte destination, ref byte source, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_CopyBlockUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_CopyBlockUnaligned_System_Void__System_Void__System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned(System.Void*,System.Void*,System.UInt32)">
+  CopyBlockUnaligned(void*, void*, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyBlockUnaligned(void* destination, void* source, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Copy_" data-uid="System.Runtime.CompilerServices.Unsafe.Copy*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Copy__1_System_Void____0__" data-uid="System.Runtime.CompilerServices.Unsafe.Copy``1(System.Void*,``0@)">
+  Copy&lt;T&gt;(void*, ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Copy&lt;T&gt;(void* destination, ref T source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Copy_" data-uid="System.Runtime.CompilerServices.Unsafe.Copy*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Copy__1___0__System_Void__" data-uid="System.Runtime.CompilerServices.Unsafe.Copy``1(``0@,System.Void*)">
+  Copy&lt;T&gt;(ref T, void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Copy&lt;T&gt;(ref T destination, void* source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_InitBlock_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlock*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_InitBlock_System_Byte__System_Byte_System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlock(System.Byte@,System.Byte,System.UInt32)">
+  InitBlock(ref byte, byte, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void InitBlock(ref byte startAddress, byte value, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startAddress</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_InitBlock_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlock*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_InitBlock_System_Void__System_Byte_System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlock(System.Void*,System.Byte,System.UInt32)">
+  InitBlock(void*, byte, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void InitBlock(void* startAddress, byte value, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startAddress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_InitBlockUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_InitBlockUnaligned_System_Byte__System_Byte_System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned(System.Byte@,System.Byte,System.UInt32)">
+  InitBlockUnaligned(ref byte, byte, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void InitBlockUnaligned(ref byte startAddress, byte value, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startAddress</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_InitBlockUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_InitBlockUnaligned_System_Void__System_Byte_System_UInt32_" data-uid="System.Runtime.CompilerServices.Unsafe.InitBlockUnaligned(System.Void*,System.Byte,System.UInt32)">
+  InitBlockUnaligned(void*, byte, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void InitBlockUnaligned(void* startAddress, byte value, uint byteCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startAddress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>byteCount</code> <a class="xref" href="System.UInt32.html">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_IsAddressGreaterThan_" data-uid="System.Runtime.CompilerServices.Unsafe.IsAddressGreaterThan*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_IsAddressGreaterThan__1___0____0__" data-uid="System.Runtime.CompilerServices.Unsafe.IsAddressGreaterThan``1(``0@,``0@)">
+  IsAddressGreaterThan&lt;T&gt;(ref T, ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsAddressGreaterThan&lt;T&gt;(ref T left, ref T right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>right</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_IsAddressLessThan_" data-uid="System.Runtime.CompilerServices.Unsafe.IsAddressLessThan*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_IsAddressLessThan__1___0____0__" data-uid="System.Runtime.CompilerServices.Unsafe.IsAddressLessThan``1(``0@,``0@)">
+  IsAddressLessThan&lt;T&gt;(ref T, ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsAddressLessThan&lt;T&gt;(ref T left, ref T right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>right</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_IsNullRef_" data-uid="System.Runtime.CompilerServices.Unsafe.IsNullRef*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_IsNullRef__1___0__" data-uid="System.Runtime.CompilerServices.Unsafe.IsNullRef``1(``0@)">
+  IsNullRef&lt;T&gt;(ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNullRef&lt;T&gt;(ref T source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_NullRef_" data-uid="System.Runtime.CompilerServices.Unsafe.NullRef*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_NullRef__1" data-uid="System.Runtime.CompilerServices.Unsafe.NullRef``1">
+  NullRef&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T NullRef&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_ReadUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.ReadUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_ReadUnaligned__1_System_Byte__" data-uid="System.Runtime.CompilerServices.Unsafe.ReadUnaligned``1(System.Byte@)">
+  ReadUnaligned&lt;T&gt;(ref byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T ReadUnaligned&lt;T&gt;(ref byte source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_ReadUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.ReadUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_ReadUnaligned__1_System_Void__" data-uid="System.Runtime.CompilerServices.Unsafe.ReadUnaligned``1(System.Void*)">
+  ReadUnaligned&lt;T&gt;(void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T ReadUnaligned&lt;T&gt;(void* source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Read_" data-uid="System.Runtime.CompilerServices.Unsafe.Read*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Read__1_System_Void__" data-uid="System.Runtime.CompilerServices.Unsafe.Read``1(System.Void*)">
+  Read&lt;T&gt;(void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Read&lt;T&gt;(void* source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_SizeOf_" data-uid="System.Runtime.CompilerServices.Unsafe.SizeOf*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_SizeOf__1" data-uid="System.Runtime.CompilerServices.Unsafe.SizeOf``1">
+  SizeOf&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SizeOf&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_SkipInit_" data-uid="System.Runtime.CompilerServices.Unsafe.SkipInit*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_SkipInit__1___0__" data-uid="System.Runtime.CompilerServices.Unsafe.SkipInit``1(``0@)">
+  SkipInit&lt;T&gt;(out T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SkipInit&lt;T&gt;(out T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_SubtractByteOffset_" data-uid="System.Runtime.CompilerServices.Unsafe.SubtractByteOffset*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_SubtractByteOffset__1___0__System_IntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.SubtractByteOffset``1(``0@,System.IntPtr)">
+  SubtractByteOffset&lt;T&gt;(ref T, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T SubtractByteOffset&lt;T&gt;(ref T source, IntPtr byteOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>byteOffset</code> <a class="xref" href="System.IntPtr.html">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_SubtractByteOffset_" data-uid="System.Runtime.CompilerServices.Unsafe.SubtractByteOffset*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_SubtractByteOffset__1___0__System_UIntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.SubtractByteOffset``1(``0@,System.UIntPtr)">
+  SubtractByteOffset&lt;T&gt;(ref T, nuint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T SubtractByteOffset&lt;T&gt;(ref T source, nuint byteOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>byteOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uintptr">nuint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Subtract_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Subtract__1_System_Void__System_Int32_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract``1(System.Void*,System.Int32)">
+  Subtract&lt;T&gt;(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void* Subtract&lt;T&gt;(void* source, int elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Subtract_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Subtract__1___0__System_Int32_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)">
+  Subtract&lt;T&gt;(ref T, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T Subtract&lt;T&gt;(ref T source, int elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Subtract_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Subtract__1___0__System_IntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.IntPtr)">
+  Subtract&lt;T&gt;(ref T, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T Subtract&lt;T&gt;(ref T source, IntPtr elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="System.IntPtr.html">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Subtract_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Subtract__1___0__System_UIntPtr_" data-uid="System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.UIntPtr)">
+  Subtract&lt;T&gt;(ref T, nuint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T Subtract&lt;T&gt;(ref T source, nuint elementOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>elementOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uintptr">nuint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Unbox_" data-uid="System.Runtime.CompilerServices.Unsafe.Unbox*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Unbox__1_System_Object_" data-uid="System.Runtime.CompilerServices.Unsafe.Unbox``1(System.Object)">
+  Unbox&lt;T&gt;(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ref T Unbox&lt;T&gt;(object box) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="System.Object.html">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_WriteUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.WriteUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_WriteUnaligned__1_System_Byte____0_" data-uid="System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Byte@,``0)">
+  WriteUnaligned&lt;T&gt;(ref byte, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteUnaligned&lt;T&gt;(ref byte destination, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="System.Byte.html">byte</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_WriteUnaligned_" data-uid="System.Runtime.CompilerServices.Unsafe.WriteUnaligned*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_WriteUnaligned__1_System_Void____0_" data-uid="System.Runtime.CompilerServices.Unsafe.WriteUnaligned``1(System.Void*,``0)">
+  WriteUnaligned&lt;T&gt;(void*, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteUnaligned&lt;T&gt;(void* destination, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="System_Runtime_CompilerServices_Unsafe_Write_" data-uid="System.Runtime.CompilerServices.Unsafe.Write*"></a>
+
+  <h3 id="System_Runtime_CompilerServices_Unsafe_Write__1_System_Void____0_" data-uid="System.Runtime.CompilerServices.Unsafe.Write``1(System.Void*,``0)">
+  Write&lt;T&gt;(void*, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write&lt;T&gt;(void* destination, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

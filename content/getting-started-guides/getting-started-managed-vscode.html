@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started Guide for managed code (C#) with VS Code | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started Guide for managed code (C#) with VS Code | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/getting-started-guides/getting-started-managed-vscode.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started-guide-for-managed-code-c-with-vs-code">Getting Started Guide for managed code (C#) with VS Code</h1>
+
+<p>.NET <strong>nanoFramework</strong> enables the writing of managed code applications for embedded devices. Doesn't matter if you are a seasoned .NET developer or if you've just arrived here and want to give it a try.</p>
+<p>This getting started guide will walk you through the setup of your development machine using Visual Studio Code (VS Code), and get you coding a nice &quot;Hello World&quot; in no time.</p>
+<p>If you are looking for the Visual Studio guide instead, check <a href="getting-started-managed.html">this page</a>.</p>
+<p>Not sure where to buy a device? Check <a href="where-to-buy-devices.html">this page</a> out!</p>
+<h2 id="installing-and-configuring-vs-code">Installing and configuring VS Code</h2>
+<p>The first part is to get VS Code and the .NET <strong>nanoFramework</strong> extension installed.</p>
+<p><img src="../../images/vs-code/nano-vs-code.gif" alt="VS Code extension overview"></p>
+<ol>
+<li><p><strong>Install <a href="https://dotnet.microsoft.com/download/dotnet/10.0">.NET 10.0 SDK or Runtime</a> (or later)</strong></p>
+</li>
+<li><p><strong>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a></strong></p>
+</li>
+<li><p><strong>Install the <em>nanoFramework</em> extension for VS Code</strong></p>
+<ol>
+<li>Open VS Code.</li>
+<li>Go to the <strong>Extensions</strong> view (<code>Ctrl</code>+<code>Shift</code>+<code>X</code>).</li>
+<li>Search for <strong>nanoFramework</strong>.</li>
+<li>Install <strong>.NET nanoFramework VS Code Extension</strong>.</li>
+</ol>
+</li>
+<li><p><strong>Install <a href="https://github.com/nanoframework/nanoFirmwareFlasher">nano Firmware Flasher (nanoff)</a></strong></p>
+<pre><code class="lang-console">dotnet tool install -g nanoff
+</code></pre>
+</li>
+<li><p><strong>Install build prerequisites</strong></p>
+<ul>
+<li>On <strong>Windows</strong>: install <a href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022">Visual Studio Build Tools</a> with &quot;.NET desktop build tools&quot; workload.</li>
+<li>On <strong>Linux/macOS</strong>: install <a href="https://www.mono-project.com/docs/getting-started/install/">mono-complete</a> with <code>msbuild</code>, and <a href="https://www.nuget.org/downloads">NuGet CLI</a>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="uploading-the-firmware-to-the-board">Uploading the firmware to the board</h2>
+<p>The second part is to load the .NET <strong>nanoFramework</strong> image in the board flash.</p>
+<h3 id="option-a-use-vs-code-extension-command-recommended">Option A: Use VS Code extension command (recommended)</h3>
+<p>Use the Command Palette (<code>Ctrl</code>+<code>Shift</code>+<code>P</code>) and select <strong>nanoFramework: Flash device</strong>.</p>
+<p><img src="../../images/vs-code/step-by-step6.png" alt="Flash device command"></p>
+<p>Then follow the prompts to select target, version and connection details.</p>
+<p><img src="../../images/vs-code/step-by-step8.png" alt="Flash options"></p>
+<p>You can follow the operation in the terminal/output while the firmware is being flashed.</p>
+<p><img src="../../images/vs-code/step-by-step12.png" alt="Flashing in progress"></p>
+<h3 id="option-b-use-nanoff-directly-from-the-command-line">Option B: Use <code>nanoff</code> directly from the command line</h3>
+<p>You need to know the serial port attached to your device. You can list the ports with <code>nanoff --listports</code>. This command like all the others are working on Windows, MacOS and Linux on all the architectures.</p>
+<blockquote>
+<p>IMPORTANT: you may have to install drivers. Refer to the vendor website for Linux, MacOS and Windows, or use Windows Update to install the latest version of the drivers.</p>
+</blockquote>
+<ul>
+<li><p>To update the firmware of an ESP32 target connected to COM31, to the latest available version.</p>
+<pre><code class="lang-console">nanoff --platform esp32 --serialport COM31 --update
+</code></pre>
+</li>
+<li><p>To update the firmware of a ST board connected through JTAG (ST-Link) to the latest available version.</p>
+<pre><code class="lang-console">nanoff --target ST_NUCLEO144_F746ZG --update
+</code></pre>
+</li>
+<li><p>To update the firmware of a ST board connected through DFU (like the NETDUINO3) you first need to put the board in DFU mode.</p>
+<pre><code class="lang-console">nanoff --target NETDUINO3_WIFI --update --dfu
+</code></pre>
+</li>
+<li><p>To list the available serial ports:</p>
+<pre><code class="lang-console">nanoff --listports
+</code></pre>
+</li>
+</ul>
+<h2 id="coding-a-hello-world-application">Coding a 'Hello World' application</h2>
+<p>Now you have everything that you need to start coding your first application. Let's go for a good old 'Hello World' in micro-controller mode, which is blinking a LED.</p>
+<ol>
+<li><p>Create or open a <strong>.NET nanoFramework</strong> solution/project in VS Code.</p>
+</li>
+<li><p>Grab the <code>Blinky</code> code from the .NET <a href="https://github.com/nanoframework/Samples/tree/master/samples/Blinky"><strong>nanoFramework</strong> samples</a> repository.
+Make sure that the correct GPIO pin is being used for your board.</p>
+</li>
+<li><p>Because GPIO is being used we need to pull that class library and add a reference to it in the project.
+Add package <code>nanoFramework.System.Device.Gpio</code>.</p>
+</li>
+<li><p>Build the project using the Command Palette and <strong>nanoFramework: Build Project</strong>.</p>
+</li>
+</ol>
+<p><img src="../../images/vs-code/step-by-step2.png" alt="Build project"></p>
+<p>If you have multiple solutions/projects in the folder, select the one to build.</p>
+<p><img src="../../images/vs-code/step-by-step3.png" alt="Build selection"></p>
+<p>Build output is shown in the terminal.</p>
+<p><img src="../../images/vs-code/step-by-step5.png" alt="Build output"></p>
+<ol>
+<li>Deploy the project with <strong>nanoFramework: Deploy Project</strong>.</li>
+</ol>
+<p><img src="../../images/vs-code/step-by-step14.png" alt="Deploy project"></p>
+<p>If you have multiple projects, choose the one to deploy and follow the prompts.</p>
+<p><img src="../../images/vs-code/step-by-step17.png" alt="Deploy in progress"></p>
+<h2 id="debugging-your-application-in-vs-code">Debugging your application in VS Code</h2>
+<p>The VS Code extension provides source-level debugging support for .NET <strong>nanoFramework</strong> applications.</p>
+<h3 id="quick-start">Quick start</h3>
+<ol>
+<li><p>Make sure your target is connected and running .NET <strong>nanoFramework</strong> firmware.</p>
+</li>
+<li><p>Build the project using <strong>nanoFramework: Build Project</strong>.</p>
+</li>
+<li><p>Press <code>F5</code> (or select <strong>Run &gt; Start Debugging</strong>).</p>
+</li>
+<li><p>If prompted, select the device to debug.</p>
+</li>
+<li><p>The debugger deploys your assemblies and starts the session.</p>
+</li>
+</ol>
+<h3 id="debug-configuration-launchjson">Debug configuration (<code>launch.json</code>)</h3>
+<p>When pressing <code>F5</code> the first time, you will be prompt to create a launch profile. You can create before <code>.vscode/launch.json</code> with launch and attach configurations. You can have as many as you want and select the one that you need.</p>
+<pre><code class="lang-json">{
+        &quot;version&quot;: &quot;0.2.0&quot;,
+        &quot;configurations&quot;: [
+                {
+                        &quot;name&quot;: &quot;nanoFramework: Launch and Debug&quot;,
+                        &quot;type&quot;: &quot;nanoframework&quot;,
+                        &quot;request&quot;: &quot;launch&quot;,
+                        &quot;program&quot;: &quot;${workspaceFolder}/${workspaceFolderBasename}/bin/Debug&quot;,
+                        &quot;device&quot;: &quot;&quot;,
+                        &quot;stopOnEntry&quot;: true,
+                        &quot;deployAssemblies&quot;: true,
+                        &quot;verbosity&quot;: &quot;none&quot;
+                },
+                {
+                        &quot;name&quot;: &quot;nanoFramework: Attach to Device&quot;,
+                        &quot;type&quot;: &quot;nanoframework&quot;,
+                        &quot;request&quot;: &quot;attach&quot;,
+                        &quot;device&quot;: &quot;&quot;,
+                        &quot;program&quot;: &quot;${workspaceFolder}/${workspaceFolderBasename}/bin/Debug&quot;
+                }
+        ]
+}
+</code></pre>
+<blockquote>
+<p>[!Note]: you can use an absolute path as well rather than the path with the workspace and project.</p>
+</blockquote>
+<p>If <code>device</code> is left empty, the extension can auto-select the device, or prompt you if multiple targets are connected.</p>
+<p>You can also manually select the debug device with <strong>nanoFramework: Select Debug Device</strong>.</p>
+<h3 id="debugging-tips">Debugging tips</h3>
+<ul>
+<li>Set breakpoints in the gutter or by pressing <code>F9</code>.</li>
+<li>Use stepping commands have limited support and may not work properly: <code>F10</code> (Step Over), <code>F11</code> (Step Into), <code>Shift</code>+<code>F11</code> (Step Out).</li>
+<li>Use the <strong>Variables</strong>, <strong>Watch</strong>, and <strong>Call Stack</strong> panes while paused.</li>
+<li>Use the <strong>Debug Console</strong> for <code>Debug.WriteLine()</code> output.</li>
+</ul>
+<h3 id="troubleshooting-debug-sessions">Troubleshooting debug sessions</h3>
+<ul>
+<li><p><strong>Device not found</strong></p>
+<ul>
+<li>Check cable/driver and confirm the target is running nanoFramework firmware.</li>
+<li>Try reconnecting the board and selecting the device again.</li>
+</ul>
+</li>
+<li><p><strong>Breakpoints not hit</strong></p>
+<ul>
+<li>Rebuild with <strong>nanoFramework: Build Project</strong>.</li>
+<li>Make sure <code>deployAssemblies</code> is <code>true</code>.</li>
+<li>Check that <code>.pdbx</code> and <code>.pdb</code> files are present in the output folder.</li>
+</ul>
+</li>
+<li><p><strong>Debug session won't start</strong></p>
+<ul>
+<li>Check Debug Console messages.</li>
+<li>Ensure no other tool is using the COM port.</li>
+<li>Confirm the required .NET runtime is installed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="trouble-shooting">Trouble shooting</h2>
+<p>See this guide for solutions to some common problems: <a href="trouble-shooting-guide.html">Getting Started Trouble Shooting Guide</a></p>
+<p>If needed, also check <a href="troubleshooting-device-connection.html">Getting Started Trouble Shooting Device Connection Guide</a>.</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>Congratulations! That's your first .NET <strong>nanoFramework</strong> C# application executing right there on the target board with VS Code!.</p>
+<p>You have gone through the steps required to install VS Code, the .NET <strong>nanoFramework</strong> extension and flash firmware into your device.</p>
+<p>You've also learned how to build, deploy and debug a simple C# application from VS Code.</p>
+<p>Check out other guides and tutorials. You may also want to join our <a href="https://discordapp.com/invite/gCyBu8T">Discord channel</a>, where you'll find a supportive community to discuss your ideas and help you in case you get stuck on something.</p>
+<p>And now, to know more about GPIO, ADC, DAC, I2C, SPI, UART/Serial Ports, see our <a href="beginner-explained.html">beginner series</a> guiding you with theory and practice.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/getting-started-guides/getting-started-managed-vscode.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Raspberry Pi Pico (RP2040) pin out | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Raspberry Pi Pico (RP2040) pin out | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/rpipico/rp2040_pin_out.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="raspberry-pi-pico-rp2040-pin-out">Raspberry Pi Pico (RP2040) pin out</h1>
+
+<p>The Raspberry Pi Pico has 40 pins, with 26 user-accessible GPIO pins (GP0–GP22, GP26–GP28). GPIO numbering in .NET <strong>nanoFramework</strong> matches the RP2040 GP numbers directly — <code>GpioPin pin = gpio.OpenPin(25)</code> opens GP25.</p>
+<p>The official pinout diagrams are available from Raspberry Pi:</p>
+<ul>
+<li><a href="https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg">Pico / Pico H pinout diagram (SVG)</a></li>
+<li><a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Pico W / Pico WH pinout diagram (SVG)</a></li>
+</ul>
+<h2 id="full-pin-table">Full pin table</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Physical Pin</th>
+<th style="text-align: center;">GPIO</th>
+<th style="text-align: left;">Primary function</th>
+<th style="text-align: left;">SPI</th>
+<th style="text-align: left;">I2C</th>
+<th style="text-align: left;">UART</th>
+<th style="text-align: left;">PWM</th>
+<th style="text-align: left;">ADC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">GP0</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 RX</td>
+<td style="text-align: left;">I2C0 SDA</td>
+<td style="text-align: left;">UART0 TX</td>
+<td style="text-align: left;">PWM0 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">GP1</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 CSn</td>
+<td style="text-align: left;">I2C0 SCL</td>
+<td style="text-align: left;">UART0 RX</td>
+<td style="text-align: left;">PWM0 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">GP2</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 SCK</td>
+<td style="text-align: left;">I2C1 SDA</td>
+<td style="text-align: left;">UART0 CTS</td>
+<td style="text-align: left;">PWM1 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">GP3</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 TX</td>
+<td style="text-align: left;">I2C1 SCL</td>
+<td style="text-align: left;">UART0 RTS</td>
+<td style="text-align: left;">PWM1 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">GP4</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 RX</td>
+<td style="text-align: left;">I2C0 SDA</td>
+<td style="text-align: left;">UART1 TX</td>
+<td style="text-align: left;">PWM2 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">GP5</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 CSn</td>
+<td style="text-align: left;">I2C0 SCL</td>
+<td style="text-align: left;">UART1 RX</td>
+<td style="text-align: left;">PWM2 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">GP6</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 SCK</td>
+<td style="text-align: left;">I2C1 SDA</td>
+<td style="text-align: left;">UART1 CTS</td>
+<td style="text-align: left;">PWM3 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">GP7</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 TX</td>
+<td style="text-align: left;">I2C1 SCL</td>
+<td style="text-align: left;">UART1 RTS</td>
+<td style="text-align: left;">PWM3 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">GP8</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 RX</td>
+<td style="text-align: left;">I2C0 SDA</td>
+<td style="text-align: left;">UART1 TX</td>
+<td style="text-align: left;">PWM4 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">GP9</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 CSn</td>
+<td style="text-align: left;">I2C0 SCL</td>
+<td style="text-align: left;">UART1 RX</td>
+<td style="text-align: left;">PWM4 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">GP10</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 SCK</td>
+<td style="text-align: left;">I2C1 SDA</td>
+<td style="text-align: left;">UART1 CTS</td>
+<td style="text-align: left;">PWM5 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">GP11</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 TX</td>
+<td style="text-align: left;">I2C1 SCL</td>
+<td style="text-align: left;">UART1 RTS</td>
+<td style="text-align: left;">PWM5 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">GP12</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 RX</td>
+<td style="text-align: left;">I2C0 SDA</td>
+<td style="text-align: left;">UART0 TX</td>
+<td style="text-align: left;">PWM6 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">GP13</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 CSn</td>
+<td style="text-align: left;">I2C0 SCL</td>
+<td style="text-align: left;">UART0 RX</td>
+<td style="text-align: left;">PWM6 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">GP14</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 SCK</td>
+<td style="text-align: left;">I2C1 SDA</td>
+<td style="text-align: left;">UART0 CTS</td>
+<td style="text-align: left;">PWM7 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">GP15</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI1 TX</td>
+<td style="text-align: left;">I2C1 SCL</td>
+<td style="text-align: left;">UART0 RTS</td>
+<td style="text-align: left;">PWM7 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">GP16</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 RX</td>
+<td style="text-align: left;">I2C0 SDA</td>
+<td style="text-align: left;">UART0 TX</td>
+<td style="text-align: left;">PWM0 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">GP17</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 CSn</td>
+<td style="text-align: left;">I2C0 SCL</td>
+<td style="text-align: left;">UART0 RX</td>
+<td style="text-align: left;">PWM0 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">GP18</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 SCK</td>
+<td style="text-align: left;">I2C1 SDA</td>
+<td style="text-align: left;">UART0 CTS</td>
+<td style="text-align: left;">PWM1 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">GP19</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 TX</td>
+<td style="text-align: left;">I2C1 SCL</td>
+<td style="text-align: left;">UART0 RTS</td>
+<td style="text-align: left;">PWM1 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">GP20</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 RX</td>
+<td style="text-align: left;">I2C0 SDA</td>
+<td style="text-align: left;">UART1 TX</td>
+<td style="text-align: left;">PWM2 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">GP21</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 CSn</td>
+<td style="text-align: left;">I2C0 SCL</td>
+<td style="text-align: left;">UART1 RX</td>
+<td style="text-align: left;">PWM2 B</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">GP22</td>
+<td style="text-align: left;">GPIO</td>
+<td style="text-align: left;">SPI0 SCK</td>
+<td style="text-align: left;">I2C1 SDA</td>
+<td style="text-align: left;">UART1 CTS</td>
+<td style="text-align: left;">PWM3 A</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">RUN</td>
+<td style="text-align: left;">Reset</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">GP26</td>
+<td style="text-align: left;">GPIO/ADC</td>
+<td style="text-align: left;">SPI1 SCK</td>
+<td style="text-align: left;">I2C1 SDA</td>
+<td style="text-align: left;">UART1 CTS</td>
+<td style="text-align: left;">PWM5 A</td>
+<td style="text-align: left;">ADC0</td>
+</tr>
+<tr>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">GP27</td>
+<td style="text-align: left;">GPIO/ADC</td>
+<td style="text-align: left;">SPI1 TX</td>
+<td style="text-align: left;">I2C1 SCL</td>
+<td style="text-align: left;">UART1 RTS</td>
+<td style="text-align: left;">PWM5 B</td>
+<td style="text-align: left;">ADC1</td>
+</tr>
+<tr>
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">AGND</td>
+<td style="text-align: left;">Analogue ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">GP28</td>
+<td style="text-align: left;">GPIO/ADC</td>
+<td style="text-align: left;">SPI1 RX</td>
+<td style="text-align: left;">I2C0 SDA</td>
+<td style="text-align: left;">UART0 TX</td>
+<td style="text-align: left;">PWM6 A</td>
+<td style="text-align: left;">ADC2</td>
+</tr>
+<tr>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">ADC_VREF</td>
+<td style="text-align: left;">ADC reference voltage</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">3V3(OUT)</td>
+<td style="text-align: left;">3.3 V regulated output</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">37</td>
+<td style="text-align: center;">3V3_EN</td>
+<td style="text-align: left;">3.3 V enable (pull low to disable)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">VSYS</td>
+<td style="text-align: left;">2 V – 5 V system input</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">VBUS</td>
+<td style="text-align: left;">5 V USB input</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!Note]: GP23, GP24, GP25 and GP29 are used internally on the Pico board:</p>
+<ul>
+<li><strong>GP23</strong> — controls the on-board SMPS power save mode</li>
+<li><strong>GP24</strong> — VBUS sense (USB power detection) on Pico; used by the CYW43439 wireless chip on Pico W</li>
+<li><strong>GP25</strong> — on-board LED on Pico (on Pico W this LED is connected through the wireless chip)</li>
+<li><strong>GP29</strong> — used for ADC to monitor VSYS / 3 (internal measurement)</li>
+</ul>
+</blockquote>
+<h2 id="on-board-led">On-board LED</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">LED GPIO</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Pico / Pico H</td>
+<td style="text-align: left;">GP25</td>
+<td style="text-align: left;">Direct GPIO output</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pico W / Pico WH</td>
+<td style="text-align: left;">WL_GPIO0</td>
+<td style="text-align: left;">Driven via CYW43439 wireless chip; not accessible as a standard GPIO</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adc">ADC</h2>
+<p>The RP2040 has a 12-bit ADC with 4 inputs available (3 external + 1 internal temperature sensor).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ADC channel</th>
+<th style="text-align: center;">GPIO</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">ADC0</td>
+<td style="text-align: center;">GP26</td>
+<td style="text-align: left;">Pin 31</td>
+</tr>
+<tr>
+<td style="text-align: center;">ADC1</td>
+<td style="text-align: center;">GP27</td>
+<td style="text-align: left;">Pin 32</td>
+</tr>
+<tr>
+<td style="text-align: center;">ADC2</td>
+<td style="text-align: center;">GP28</td>
+<td style="text-align: left;">Pin 34</td>
+</tr>
+<tr>
+<td style="text-align: center;">ADC3</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: left;">Internal temperature sensor</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ADC input voltage range is 0 V to 3.3 V. Do not exceed 3.3 V on ADC pins.</p>
+</blockquote>
+<h2 id="pwm">PWM</h2>
+<p>The RP2040 has 8 PWM slices, each with two channels (A and B), giving 16 independent PWM outputs total. Almost every GPIO pin can be connected to a PWM channel. Pins on the same PWM slice share the same frequency.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">PWM</th>
+<th style="text-align: left;">Channel A</th>
+<th style="text-align: left;">Channel B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Slice 0</td>
+<td style="text-align: left;">GP0, GP16</td>
+<td style="text-align: left;">GP1, GP17</td>
+</tr>
+<tr>
+<td style="text-align: center;">Slice 1</td>
+<td style="text-align: left;">GP2, GP18</td>
+<td style="text-align: left;">GP3, GP19</td>
+</tr>
+<tr>
+<td style="text-align: center;">Slice 2</td>
+<td style="text-align: left;">GP4, GP20</td>
+<td style="text-align: left;">GP5, GP21</td>
+</tr>
+<tr>
+<td style="text-align: center;">Slice 3</td>
+<td style="text-align: left;">GP6, GP22</td>
+<td style="text-align: left;">GP7</td>
+</tr>
+<tr>
+<td style="text-align: center;">Slice 4</td>
+<td style="text-align: left;">GP8</td>
+<td style="text-align: left;">GP9</td>
+</tr>
+<tr>
+<td style="text-align: center;">Slice 5</td>
+<td style="text-align: left;">GP10, GP26</td>
+<td style="text-align: left;">GP11, GP27</td>
+</tr>
+<tr>
+<td style="text-align: center;">Slice 6</td>
+<td style="text-align: left;">GP12, GP28</td>
+<td style="text-align: left;">GP13</td>
+</tr>
+<tr>
+<td style="text-align: center;">Slice 7</td>
+<td style="text-align: left;">GP14</td>
+<td style="text-align: left;">GP15</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spi-default-mapping">SPI default mapping</h2>
+<p>The RP2040 has two SPI controllers. The nanoFramework target uses the following default pin mapping:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Bus</th>
+<th style="text-align: center;">Clock (SCK)</th>
+<th style="text-align: center;">MOSI (TX)</th>
+<th style="text-align: center;">MISO (RX)</th>
+<th style="text-align: center;">Chip Select (CSn)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">SPI0</td>
+<td style="text-align: center;">GP18</td>
+<td style="text-align: center;">GP19</td>
+<td style="text-align: center;">GP16</td>
+<td style="text-align: center;">GP17</td>
+</tr>
+<tr>
+<td style="text-align: center;">SPI1</td>
+<td style="text-align: center;">GP10</td>
+<td style="text-align: center;">GP11</td>
+<td style="text-align: center;">GP8</td>
+<td style="text-align: center;">GP9</td>
+</tr>
+</tbody>
+</table>
+<p>These defaults can vary by target build. Refer to the nf-interpreter target source for the exact configuration.</p>
+<h2 id="i2c-default-mapping">I2C default mapping</h2>
+<p>The RP2040 has two I2C controllers. The nanoFramework target uses the following default pin mapping:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Bus</th>
+<th style="text-align: center;">SDA</th>
+<th style="text-align: center;">SCL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">I2C0</td>
+<td style="text-align: center;">GP4</td>
+<td style="text-align: center;">GP5</td>
+</tr>
+<tr>
+<td style="text-align: center;">I2C1</td>
+<td style="text-align: center;">GP6</td>
+<td style="text-align: center;">GP7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uart-default-mapping">UART default mapping</h2>
+<p>The RP2040 has two UART controllers.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Port</th>
+<th style="text-align: center;">TX</th>
+<th style="text-align: center;">RX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">UART0</td>
+<td style="text-align: center;">GP0</td>
+<td style="text-align: center;">GP1</td>
+</tr>
+<tr>
+<td style="text-align: center;">UART1</td>
+<td style="text-align: center;">GP4</td>
+<td style="text-align: center;">GP5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note</strong>: UART support is not yet included in the nanoFramework firmware for RP2040. Check the <a href="https://github.com/nanoframework/nf-interpreter">nf-interpreter repository</a> for updates.</p>
+</blockquote>
+<h2 id="pico-w--wireless-chip-pin-sharing">Pico W — wireless chip pin sharing</h2>
+<p>On the Pico W, the CYW43439 wireless chip uses an SPI interface to the RP2040. The following RP2040 pins are shared with the wireless subsystem and are <strong>not available</strong> as user GPIO on Pico W:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">RP2040 GPIO</th>
+<th style="text-align: left;">Usage on Pico W</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">GP23</td>
+<td style="text-align: left;">Wireless power save control</td>
+</tr>
+<tr>
+<td style="text-align: center;">GP24</td>
+<td style="text-align: left;">Wireless interrupt / data</td>
+</tr>
+<tr>
+<td style="text-align: center;">GP25</td>
+<td style="text-align: left;">Wireless SPI data / chip-enable</td>
+</tr>
+<tr>
+<td style="text-align: center;">GP29</td>
+<td style="text-align: left;">Wireless SPI clock / VSYS voltage monitor</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/rpipico/rp2040_pin_out.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

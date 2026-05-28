@@ -121,6 +121,7 @@ Class Resource
     <dt>Derived</dt>
     <dd>
       <div><a class="xref" href="Iot.Device.MulticastDns.Entities.AddressResource.html">AddressResource</a></div>
+      <div><a class="xref" href="Iot.Device.MulticastDns.Entities.AnyRecord.html">AnyRecord</a></div>
       <div><a class="xref" href="Iot.Device.MulticastDns.Entities.TargetResource.html">TargetResource</a></div>
       <div><a class="xref" href="Iot.Device.MulticastDns.Entities.TxtRecord.html">TxtRecord</a></div>
     </dd>
@@ -138,8 +139,8 @@ Class Resource
 
   <a id="Iot_Device_MulticastDns_Entities_Resource__ctor_" data-uid="Iot.Device.MulticastDns.Entities.Resource.#ctor*"></a>
 
-  <h3 id="Iot_Device_MulticastDns_Entities_Resource__ctor_System_String_Iot_Device_MulticastDns_Enum_DnsResourceType_System_Int32_" data-uid="Iot.Device.MulticastDns.Entities.Resource.#ctor(System.String,Iot.Device.MulticastDns.Enum.DnsResourceType,System.Int32)">
-  Resource(string, DnsResourceType, int)
+  <h3 id="Iot_Device_MulticastDns_Entities_Resource__ctor_System_String_Iot_Device_MulticastDns_Enum_DnsResourceType_System_Int32_System_UInt16_" data-uid="Iot.Device.MulticastDns.Entities.Resource.#ctor(System.String,Iot.Device.MulticastDns.Enum.DnsResourceType,System.Int32,System.UInt16)">
+  Resource(string, DnsResourceType, int, ushort)
   
   </h3>
 
@@ -148,7 +149,7 @@ Class Resource
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Resource(string domain, DnsResourceType type, int ttl)</code></pre>
+    <pre><code class="lang-csharp hljs">public Resource(string domain, DnsResourceType type, int ttl, ushort resourceClass = 32769)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -161,6 +162,9 @@ Class Resource
 </dd>
     <dt><code>ttl</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
     <dd><p>The TTL of this resource.</p>
+</dd>
+    <dt><code>resourceClass</code> <a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd><p>The DNS class of this resource.</p>
 </dd>
   </dl>
 
@@ -177,8 +181,8 @@ Class Resource
 
   <a id="Iot_Device_MulticastDns_Entities_Resource__ctor_" data-uid="Iot.Device.MulticastDns.Entities.Resource.#ctor*"></a>
 
-  <h3 id="Iot_Device_MulticastDns_Entities_Resource__ctor_System_String_System_Int32_" data-uid="Iot.Device.MulticastDns.Entities.Resource.#ctor(System.String,System.Int32)">
-  Resource(string, int)
+  <h3 id="Iot_Device_MulticastDns_Entities_Resource__ctor_System_String_System_Int32_System_UInt16_" data-uid="Iot.Device.MulticastDns.Entities.Resource.#ctor(System.String,System.Int32,System.UInt16)">
+  Resource(string, int, ushort)
   
   </h3>
 
@@ -187,7 +191,7 @@ Class Resource
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Resource(string domain, int ttl)</code></pre>
+    <pre><code class="lang-csharp hljs">public Resource(string domain, int ttl, ushort resourceClass = 32769)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -198,10 +202,79 @@ Class Resource
     <dt><code>ttl</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
     <dd><p>The TTL of this resource.</p>
 </dd>
+    <dt><code>resourceClass</code> <a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd><p>The DNS class of this resource.</p>
+</dd>
   </dl>
 
 
 
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_MulticastDns_Entities_Resource_ClassInternet" data-uid="Iot.Device.MulticastDns.Entities.Resource.ClassInternet">
+  ClassInternet
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Internet class (IN). Standard DNS class for internet records.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ushort ClassInternet = 1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_MulticastDns_Entities_Resource_ClassInternetCacheFlush" data-uid="Iot.Device.MulticastDns.Entities.Resource.ClassInternetCacheFlush">
+  ClassInternetCacheFlush
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Internet class with the cache-flush bit set (RFC 6762 §11.3). Default for outgoing mDNS records.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ushort ClassInternetCacheFlush = 32769</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.UInt16.html">ushort</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
