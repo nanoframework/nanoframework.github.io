@@ -11,7 +11,7 @@ Our mantra is about **making it easy to write C# code for embedded systems!** An
 
 [![Getting started](./images/getting-started-button-vs.png)](./content/getting-started-guides/getting-started-managed.md)
 
-[![Getting started](./images/getting-started-button-vscode.png)](./content/getting-started-guides/getting-started-managed.md)
+[![Getting started](./images/getting-started-button-vscode.png)](./content/getting-started-guides/getting-started-managed-vscode.md)
 
 ## Sponsoring .NET **nanoFramework**
 

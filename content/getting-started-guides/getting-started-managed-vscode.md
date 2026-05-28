@@ -168,7 +168,7 @@ You can also manually select the debug device with **nanoFramework: Select Debug
 ### Debugging tips
 
 - Set breakpoints in the gutter or by pressing `F9`.
-- Use stepping commands has limited support and may not work properly: `F10` (Step Over), `F11` (Step Into), `Shift`+`F11` (Step Out).
+- Use stepping commands have limited support and may not work properly: `F10` (Step Over), `F11` (Step Into), `Shift`+`F11` (Step Out).
 - Use the **Variables**, **Watch**, and **Call Stack** panes while paused.
 - Use the **Debug Console** for `Debug.WriteLine()` output.
 

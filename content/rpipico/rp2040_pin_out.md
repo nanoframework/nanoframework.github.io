@@ -41,10 +41,10 @@ The official pinout diagrams are available from Raspberry Pi:
 | 28 | GND | Ground | | | | | |
 | 29 | GP22 | GPIO | SPI0 SCK | I2C1 SDA | UART1 CTS | PWM3 A | |
 | 30 | RUN | Reset | | | | | |
-| 31 | GP26 | GPIO/ADC | SPI1 SCK | I2C1 SDA | | PWM5 A | ADC0 |
-| 32 | GP27 | GPIO/ADC | SPI1 TX | I2C1 SCL | | PWM5 B | ADC1 |
+| 31 | GP26 | GPIO/ADC | SPI1 SCK | I2C1 SDA | UART1 CTS | PWM5 A | ADC0 |
+| 32 | GP27 | GPIO/ADC | SPI1 TX | I2C1 SCL | UART1 RTS | PWM5 B | ADC1 |
 | 33 | AGND | Analogue ground | | | | | |
-| 34 | GP28 | GPIO/ADC | SPI1 RX | I2C0 SDA | | PWM6 A | ADC2 |
+| 34 | GP28 | GPIO/ADC | SPI1 RX | I2C0 SDA | UART0 TX | PWM6 A | ADC2 |
 | 35 | ADC_VREF | ADC reference voltage | | | | | |
 | 36 | 3V3(OUT) | 3.3 V regulated output | | | | | |
 | 37 | 3V3_EN | 3.3 V enable (pull low to disable) | | | | | |
