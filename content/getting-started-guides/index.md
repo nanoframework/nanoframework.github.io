@@ -13,6 +13,7 @@ Check out our [special beginner content](./beginner-explained.md)! All what you 
 ## Managed (C#)
 
 - [Getting started guide for C#](./getting-started-managed.md)
+- [Getting started guide for C# with VS Code](./getting-started-managed-vscode.md)
 - [Getting started trouble shooting guide](./trouble-shooting-guide.md)
 - [Getting started trouble shooting device connection guide](./troubleshooting-device-connection.md)
 - [Getting started with VS Code extension](./getting-started-vs-code.md)

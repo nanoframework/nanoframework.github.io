@@ -9,7 +9,9 @@ Our mantra is about **making it easy to write C# code for embedded systems!** An
 </div>
 <img style='vertical-align:middle;' width="100px" src='https://dotnetfoundation.org/images/default-source/default-album/logo.png' alt='.NET foundation logo'>
 
-[![Getting started](./images/getting-started-button.png)](./content/getting-started-guides/getting-started-managed.md)
+[![Getting started](./images/getting-started-button-vs.png)](./content/getting-started-guides/getting-started-managed.md)
+
+[![Getting started](./images/getting-started-button-vscode.png)](./content/getting-started-guides/getting-started-managed.md)
 
 ## Sponsoring .NET **nanoFramework**
 
