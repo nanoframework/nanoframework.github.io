@@ -216,6 +216,10 @@ Class WifiNetworkHelper
   <h4 class="section" id="nanoFramework_Networking_WifiNetworkHelper_NetworkReady_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The conditions for this are setup in the call to <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_SetupNetworkHelper_System_Boolean_">SetupNetworkHelper(bool)</a>.
 It will be a composition of network connected, IpAddress available and valid system <a class="xref" href="System.DateTime.html">DateTime</a>.</p>
+<p>
+When using <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_SetupNetworkHelper_System_Boolean_">SetupNetworkHelper(bool)</a>, this event is reset when the connection is lost
+and re-signaled when it is restored, accurately reflecting live network state.
+</p>
 </div>
 
 
@@ -297,7 +301,8 @@ It will be a composition of network connected, IpAddress available and valid sys
   </h3>
 
   <div class="markdown level1 summary"><p>This method will connect the network with DHCP enabled, for your SSID and try to connect to it with the credentials you've passed. This will save as well
-the configuration of your network.</p>
+the configuration of your network.
+This method is retryable and can be called multiple times after a previous call times out or fails.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -352,7 +357,8 @@ the configuration of your network.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>This method will connect the network with the static IP address you are providing, for your SSID and try to connect to it with the credentials you've passed. This will save as well
-the configuration of your network.</p>
+the configuration of your network.
+This method is retryable and can be called multiple times after a previous call times out or fails.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -436,7 +442,10 @@ the configuration of your network.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This method will connect the network, the information used to connect is the one already stored on the device.</p>
+  <div class="markdown level1 summary"><p>Waits for the platform's automatic WiFi reconnection to produce a valid IP address.
+This method does not actively send join credentials to the access point.
+It relies on the <a class="xref" href="System.Device.Wifi.WifiReconnectionKind.html#System_Device_Wifi_WifiReconnectionKind_Automatic">Automatic</a> behaviour previously configured
+when calling <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_ConnectDhcp_System_String_System_String_System_Device_Wifi_WifiReconnectionKind_System_Boolean_System_Int32_System_Threading_CancellationToken_">ConnectDhcp(string, string, WifiReconnectionKind, bool, int, CancellationToken)</a> or <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_ConnectFixAddress_System_String_System_String_nanoFramework_Networking_IPConfiguration_System_Device_Wifi_WifiReconnectionKind_System_Boolean_System_Int32_System_Threading_CancellationToken_">ConnectFixAddress(string, string, IPConfiguration, WifiReconnectionKind, bool, int, CancellationToken)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -471,7 +480,42 @@ the configuration of your network.</p>
 
 
   <h4 class="section" id="nanoFramework_Networking_WifiNetworkHelper_Reconnect_System_Boolean_System_Int32_System_Threading_CancellationToken__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This function can be called only if an existing network has been setup previously and if the credentials are valid.</p>
+  <div class="markdown level1 remarks"><p>Use this method only when the device credentials are already stored and the platform is expected
+to reconnect automatically. If you need an explicit reconnect with credentials, call
+<a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_ConnectDhcp_System_String_System_String_System_Device_Wifi_WifiReconnectionKind_System_Boolean_System_Int32_System_Threading_CancellationToken_">ConnectDhcp(string, string, WifiReconnectionKind, bool, int, CancellationToken)</a> or <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_ConnectFixAddress_System_String_System_String_nanoFramework_Networking_IPConfiguration_System_Device_Wifi_WifiReconnectionKind_System_Boolean_System_Int32_System_Threading_CancellationToken_">ConnectFixAddress(string, string, IPConfiguration, WifiReconnectionKind, bool, int, CancellationToken)</a> instead.
+This method is retryable and can be called multiple times.</p>
+</div>
+
+
+
+
+  <a id="nanoFramework_Networking_WifiNetworkHelper_Reset_" data-uid="nanoFramework.Networking.WifiNetworkHelper.Reset*"></a>
+
+  <h3 id="nanoFramework_Networking_WifiNetworkHelper_Reset" data-uid="nanoFramework.Networking.WifiNetworkHelper.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the WifiNetworkHelper to its initial state, allowing <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_SetupNetworkHelper_System_Boolean_">SetupNetworkHelper(bool)</a> to be called again
+or the network configuration to be changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="nanoFramework_Networking_WifiNetworkHelper_Reset_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Call this before switching to a different WiFi network or restarting the event-based helper.
+This method does not disconnect the WiFi adapter; call <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_Disconnect">Disconnect()</a> first if needed.</p>
 </div>
 
 
@@ -485,7 +529,8 @@ the configuration of your network.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>This method will scan and connect the network with DHCP enabled, for your SSID and try to connect to it with the credentials you've passed. This will save as well
-the configuration of your network.</p>
+the configuration of your network.
+This method is retryable and can be called multiple times after a previous call times out or fails.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -566,7 +611,7 @@ That will be the network connection to be up, having a valid IpAddress and optio
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
-    <dd><p>If any of the <a class="xref" href="nanoFramework.Networking.NetworkHelper.html">NetworkHelper</a> methods is called more than once.</p>
+    <dd><p>If called more than once without an intervening call to <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_Reset">Reset()</a>.</p>
 </dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
     <dd><p>There is no network interface configured. Open the 'Edit Network Configuration' in Device Explorer and configure one.</p>
@@ -618,7 +663,7 @@ That will be the network connection to be up, having a valid IpAddress and optio
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
-    <dd><p>If any of the <a class="xref" href="nanoFramework.Networking.NetworkHelper.html">NetworkHelper</a> methods is called more than once.</p>
+    <dd><p>If called more than once without an intervening call to <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_Reset">Reset()</a>.</p>
 </dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
     <dd><p>There is no network interface configured. Open the 'Edit Network Configuration' in Device Explorer and configure one.</p>
@@ -663,6 +708,9 @@ That will be the network connection to be up, having a valid IpAddress and optio
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>If called more than once without an intervening call to <a class="xref" href="nanoFramework.Networking.WifiNetworkHelper.html#nanoFramework_Networking_WifiNetworkHelper_Reset">Reset()</a>.</p>
+</dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
     <dd><p>There is no network interface configured. Open the 'Edit Network Configuration' in Device Explorer and configure one.</p>
 </dd>

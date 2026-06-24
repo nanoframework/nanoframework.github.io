@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>LTR-553ALS-WA - Proximity and Ambient Light Sensor | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LTR-553ALS-WA - Proximity and Ambient Light Sensor | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Ltr553AlsWa/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="ltr-553als-wa---proximity-and-ambient-light-sensor">LTR-553ALS-WA - Proximity and Ambient Light Sensor</h1>
+
+<p>The LTR-553ALS-WA is a combined proximity sensor (PS) and ambient light sensor (ALS) from Lite-On Technology, communicating over I2C. It features an 11-bit proximity sensor with built-in IR LED and a dual-channel 16-bit ambient light sensor (visible+IR and IR-only channels). This sensor is found on the M5Stack CoreS3 board.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/LTR-553ALS-WA.PDF">LTR-553ALS-WA Datasheet (PDF)</a></li>
+<li><a href="https://docs.m5stack.com/en/core/CoreS3">M5Stack CoreS3 Documentation</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the I2C pins especially for ESP32 before creating the <code>I2cDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the I2C GPIOs
+// used for the bus
+Configuration.SetPinFunction(12, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(11, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>For other devices like STM32, please make sure you're using the preset pins for the I2C bus you want to use.</p>
+<h3 id="basic-reading">Basic Reading</h3>
+<pre><code class="lang-csharp">using Ltr553AlsWa sensor = new(I2cDevice.Create(new I2cConnectionSettings(1, Ltr553AlsWa.DefaultI2cAddress)));
+Debug.WriteLine($&quot;Part ID: 0x{sensor.PartId:X2}, Manufacturer ID: 0x{sensor.ManufacturerId:X2}&quot;);
+
+// Enable both sensors
+sensor.PsEnabled = true;
+sensor.AlsEnabled = true;
+
+// Allow the sensor to take a first measurement after mode changes.
+Thread.Sleep(600);
+
+while (true)
+{
+    try
+    {
+        bool psReady = sensor.IsPsDataReady();
+        bool alsReady = sensor.IsAlsDataReady();
+
+        if (psReady &amp;&amp; alsReady)
+        {
+            ushort proximity = sensor.GetProximity(out bool saturated);
+            sensor.GetAlsData(out ushort ch0, out ushort ch1);
+            Debug.WriteLine($&quot;Proximity: {proximity}{(saturated ? &quot; [SATURATED]&quot; : string.Empty)}, ALS CH0 (visible+IR): {ch0}, ALS CH1 (IR): {ch1}&quot;);
+        }
+        else
+        {
+            Debug.WriteLine($&quot;Waiting for fresh data... PS ready: {psReady}, ALS ready: {alsReady}&quot;);
+        }
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine($&quot;Exception: {ex.Message}&quot;);
+    }
+
+    Thread.Sleep(500);
+}
+</code></pre>
+<p>Example of output including some debug low level reads:</p>
+<pre><code class="lang-text">Hello LTR-553ALS-WA!
+CoreS3 internal bus power enabled: AW9523 BUS_EN + BOOST_EN.
+AXP2101 Chip ID: 0x4A (expected 0x4A)
+CoreS3 power rails enabled: ALDO1/2/3/4 + BLDO1/2.
+LTR553 low-level probe on I2C1 @ 0x23:
+  ALS_CONTR (0x80): status=1, bytesW=2, value=0x01
+  PS_CONTR (0x81): status=1, bytesW=2, value=0x02
+  PART_ID (0x86): status=1, bytesW=2, value=0x92
+  MANUFAC_ID (0x87): status=1, bytesW=2, value=0x05
+  ALS_PS_STATUS (0x8C): status=1, bytesW=2, value=0x05
+Part ID: 0x92, Manufacturer ID: 0x05
+Proximity: 5, ALS CH0 (visible+IR): 13, ALS CH1 (IR): 18
+Proximity: 0, ALS CH0 (visible+IR): 13, ALS CH1 (IR): 17
+Proximity: 0, ALS CH0 (visible+IR): 13, ALS CH1 (IR): 17
+Proximity: 2, ALS CH0 (visible+IR): 13, ALS CH1 (IR): 17
+Proximity: 1, ALS CH0 (visible+IR): 13, ALS CH1 (IR): 18
+Proximity: 145, ALS CH0 (visible+IR): 2, ALS CH1 (IR): 2
+Proximity: 408, ALS CH0 (visible+IR): 0, ALS CH1 (IR): 1
+Proximity: 432, ALS CH0 (visible+IR): 0, ALS CH1 (IR): 0
+Proximity: 436, ALS CH0 (visible+IR): 0, ALS CH1 (IR): 0
+Proximity: 442, ALS CH0 (visible+IR): 0, ALS CH1 (IR): 0
+Proximity: 441, ALS CH0 (visible+IR): 0, ALS CH1 (IR): 0
+Proximity: 0, ALS CH0 (visible+IR): 5, ALS CH1 (IR): 8
+</code></pre>
+<blockquote>
+<p>[!Note] This sample contains specific code for the M5Stack CoreS3.</p>
+</blockquote>
+<h3 id="configuring-als">Configuring ALS</h3>
+<pre><code class="lang-csharp">// Set higher gain for low-light conditions
+sensor.AlsGain = AlsGain.Gain48X;
+sensor.AlsIntegrationTime = AlsIntegrationTime.Integration200Ms;
+sensor.AlsMeasurementRate = AlsMeasurementRate.Rate500Ms;
+</code></pre>
+<h3 id="configuring-proximity-led">Configuring Proximity LED</h3>
+<pre><code class="lang-csharp">sensor.LedPulseFrequency = LedPulseFrequency.Frequency60kHz;
+sensor.LedDutyCycle = LedDutyCycle.DutyCycle100Percent;
+sensor.LedPeakCurrent = LedPeakCurrent.Current100mA;
+sensor.LedPulseCount = 1;
+</code></pre>
+<h3 id="interrupt-configuration">Interrupt Configuration</h3>
+<pre><code class="lang-csharp">// Set PS interrupt thresholds (fire when proximity &gt; 500 or &lt; 100)
+sensor.SetPsThreshold(lower: 100, upper: 500);
+sensor.SetInterruptMode(InterruptMode.PsOnly);
+sensor.SetInterruptPersistence(psCount: 4, alsCount: 0);
+</code></pre>
+<h3 id="software-reset">Software Reset</h3>
+<pre><code class="lang-csharp">// Reset the sensor to default state (both subsystems go to standby)
+sensor.Reset();
+</code></pre>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Proximity sensing</strong>: 11-bit resolution (0–2047), higher values indicate closer objects, with saturation detection</li>
+<li><strong>Dual-channel ambient light</strong>: Channel 0 (visible + IR) and Channel 1 (IR only), 16-bit each</li>
+<li><strong>Configurable LED drive</strong>: Pulse frequency (30–100 kHz), duty cycle (25–100%), peak current (5–100 mA), and pulse count (1–15)</li>
+<li><strong>Configurable ALS</strong>: Gain (1x–96x) and integration time (50–400 ms)</li>
+<li><strong>Threshold-based interrupts</strong>: Configurable thresholds and persistence for both PS and ALS</li>
+<li><strong>Software reset</strong>: Reset sensor to default state</li>
+</ul>
+<h2 id="m5stack-cores3">M5Stack CoreS3</h2>
+<p>On the M5Stack CoreS3, the LTR-553ALS-WA is on the internal system I2C bus at address 0x23, shared with other peripherals (AXP2101, BMI270, BM8563, etc.). The sensor is paired with the GC0308 camera on the same ribbon cable. Refer to the <a href="https://docs.m5stack.com/en/core/CoreS3">CoreS3 pin map</a> for I2C bus configuration details.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Ltr553AlsWa/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -216,6 +216,10 @@ Class NetworkHelper
   <h4 class="section" id="nanoFramework_Networking_NetworkHelper_NetworkReady_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The conditions for this are setup in the call to <a class="xref" href="nanoFramework.Networking.NetworkHelper.html#nanoFramework_Networking_NetworkHelper_SetupNetworkHelper_System_Boolean_">SetupNetworkHelper(bool)</a>.
 It will be a composition of network connected, IpAddress available and valid system <a class="xref" href="System.DateTime.html">DateTime</a>.</p>
+<p>
+When using <a class="xref" href="nanoFramework.Networking.NetworkHelper.html#nanoFramework_Networking_NetworkHelper_SetupNetworkHelper_System_Boolean_">SetupNetworkHelper(bool)</a>, this event is reset when the connection is lost
+and re-signaled when it is restored, accurately reflecting live network state.
+</p>
 </div>
 
 
@@ -257,6 +261,38 @@ It will be a composition of network connected, IpAddress available and valid sys
 </h2>
 
 
+  <a id="nanoFramework_Networking_NetworkHelper_Reset_" data-uid="nanoFramework.Networking.NetworkHelper.Reset*"></a>
+
+  <h3 id="nanoFramework_Networking_NetworkHelper_Reset" data-uid="nanoFramework.Networking.NetworkHelper.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the <a class="xref" href="nanoFramework.Networking.NetworkHelper.html">NetworkHelper</a> to its initial state, allowing <a class="xref" href="nanoFramework.Networking.NetworkHelper.html#nanoFramework_Networking_NetworkHelper_SetupNetworkHelper_System_Boolean_">SetupNetworkHelper(bool)</a> to be called again
+or the network configuration to be changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="nanoFramework_Networking_NetworkHelper_Reset_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Call this before switching network configuration or restarting the event-based helper.
+This method does not disconnect the network interface or alter IP settings.</p>
+</div>
+
+
+
+
   <a id="nanoFramework_Networking_NetworkHelper_SetupAndConnectNetwork_" data-uid="nanoFramework.Networking.NetworkHelper.SetupAndConnectNetwork*"></a>
 
   <h3 id="nanoFramework_Networking_NetworkHelper_SetupAndConnectNetwork_System_Threading_CancellationToken_System_Boolean_" data-uid="nanoFramework.Networking.NetworkHelper.SetupAndConnectNetwork(System.Threading.CancellationToken,System.Boolean)">
@@ -264,7 +300,8 @@ It will be a composition of network connected, IpAddress available and valid sys
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This will wait for the network connection to be up and optionally for a valid date and time to become available.</p>
+  <div class="markdown level1 summary"><p>This will wait for the network connection to be up and optionally for a valid date and time to become available.
+This method is retryable and can be called multiple times after a previous call times out or fails.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -306,7 +343,8 @@ It will be a composition of network connected, IpAddress available and valid sys
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This will wait for the network connection to be up and optionally for a valid date and time to become available.</p>
+  <div class="markdown level1 summary"><p>This will wait for the network connection to be up and optionally for a valid date and time to become available.
+This method is retryable and can be called multiple times after a previous call times out or fails.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -378,7 +416,7 @@ That will be the network connection to be up, having a valid IpAddress and optio
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
     <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
-    <dd><p>If any of the <a class="xref" href="nanoFramework.Networking.NetworkHelper.html">NetworkHelper</a> methods is called more than once.</p>
+    <dd><p>If called more than once without an intervening call to <a class="xref" href="nanoFramework.Networking.NetworkHelper.html#nanoFramework_Networking_NetworkHelper_Reset">Reset()</a>.</p>
 </dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
     <dd><p>There is no network interface configured. Open the 'Edit Network Configuration' in Device Explorer and configure one.</p>
@@ -423,6 +461,9 @@ That will be the network connection to be up, having a valid IpAddress and optio
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>If called more than once without an intervening call to <a class="xref" href="nanoFramework.Networking.NetworkHelper.html#nanoFramework_Networking_NetworkHelper_Reset">Reset()</a>.</p>
+</dd>
     <dt><a class="xref" href="System.NotSupportedException.html">NotSupportedException</a></dt>
     <dd><p>There is no network interface configured. Open the 'Edit Network Configuration' in Device Explorer and configure one.</p>
 </dd>

@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>BMI270 - accelerometer and gyroscope | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="BMI270 - accelerometer and gyroscope | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Bmi270/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="bmi270---accelerometer-and-gyroscope">BMI270 - accelerometer and gyroscope</h1>
+
+<p>The BMI270 is a 6-axis IMU (Inertial Measurement Unit) from Bosch Sensortec that combines a 3-axis accelerometer and a 3-axis gyroscope. It is designed for wearable and IoT applications and includes advanced features such as step counting and gesture recognition.</p>
+<p>Key features:</p>
+<ul>
+<li>Accelerometer programmable FSR of ±2g, ±4g, ±8g, and ±16g</li>
+<li>Gyroscope programmable FSR of ±125 dps, ±250 dps, ±500 dps, ±1000 dps, and ±2000 dps</li>
+<li>Internal temperature sensor</li>
+<li>Built-in step counter, activity recognition, and wrist gesture features</li>
+<li>Auxiliary I2C master interface (used for connecting a BMM150 magnetometer on the M5Stack CoreS3)</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/K128%20CoreS3/BMI270.PDF">Datasheet</a></li>
+<li><a href="https://github.com/boschsensortec/BMI270-Sensor-API">Bosch BMI270-Sensor-API</a> — reference C implementation and config file</li>
+<li>This sensor is used on the <a href="https://docs.m5stack.com/en/core/CoreS3">M5Stack CoreS3</a> development kit.</li>
+</ul>
+<h2 id="important-firmware-config-upload">Important: Firmware Config Upload</h2>
+<p>Unlike simpler IMU sensors, the BMI270 <strong>requires an 8 KB configuration file to be uploaded via I2C after every power-on reset</strong>. This binding handles this automatically during initialization. The config file is sourced from the <a href="https://github.com/boschsensortec/BMI270-Sensor-API">Bosch BMI270-Sensor-API</a> (BSD-3-Clause licensed).</p>
+<h2 id="usage">Usage</h2>
+<p>Create the <code>Bmi270AccelerometerGyroscope</code> class and pass the I2C device. The default I2C address is <code>0x68</code> (SDO=GND), and the secondary address is <code>0x69</code> (SDO=VDDIO). The M5Stack CoreS3 uses address <code>0x69</code>.</p>
+<p>The sample in this binding is adjusted for the M5Stack CoreS3. It follows M5Stack's documented CoreS3 configuration and the official M5Unified source by enabling the CoreS3 internal sensor bus through the AW9523B and then applying the AXP2101 rail profile before talking to the BMI270.</p>
+<pre><code class="lang-csharp">Debug.WriteLine(&quot;BMI270 sample adjusted for the M5Stack CoreS3.&quot;);
+
+// CoreS3 internal I2C bus: G12 SDA / G11 SCL.
+Configuration.SetPinFunction(12, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(11, DeviceFunction.I2C1_CLOCK);
+
+EnableCoreS3InternalBusPower();
+EnableCoreS3SensorPower();
+
+I2cConnectionSettings settings = new(1, Bmi270AccelerometerGyroscope.SecondaryI2cAddress);
+
+using (Bmi270AccelerometerGyroscope imu = new(I2cDevice.Create(settings)))
+{
+    Debug.WriteLine(&quot;BMI270 initialized successfully!&quot;);
+
+    Debug.WriteLine(&quot;Start calibration ...&quot;);
+    var offset = imu.Calibrate(1000);
+    Debug.WriteLine($&quot;Calibration done, calculated offsets X:{offset.X} Y:{offset.Y} Z:{offset.Z}&quot;);
+
+    Debug.WriteLine($&quot;Internal temperature: {imu.GetInternalTemperature().DegreesCelsius} C&quot;);
+
+    while (true)
+    {
+        var acc = imu.GetAccelerometer();
+        var gyr = imu.GetGyroscope();
+        Debug.WriteLine($&quot;Accelerometer data x:{acc.X} y:{acc.Y} z:{acc.Z}&quot;);
+        Debug.WriteLine($&quot;Gyroscope data x:{gyr.X} y:{gyr.Y} z:{gyr.Z}\n&quot;);
+        Thread.Sleep(100);
+    }
+}
+</code></pre>
+<h3 id="sample-output">Sample output</h3>
+<pre><code class="lang-text">BMI270 initialized successfully!
+Start calibration ...
+Calibration done, calculated offsets X:12.345 Y:-6.789 Z:3.210
+Internal temperature: 28.5 C
+Accelerometer data x:-0.041 y:0.003 z:1.012
+Gyroscope data x:0.183 y:-0.427 z:-0.091
+
+Accelerometer data x:-0.039 y:0.001 z:1.009
+Gyroscope data x:0.122 y:-0.381 z:-0.067
+</code></pre>
+<p>See <a href="https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/main/devices/Bmi270/samples">https://github.com/nanoFramework/nanoFramework.IoT.Device/tree/main/devices/Bmi270/samples</a> for a complete sample application.</p>
+<h2 id="calibration">Calibration</h2>
+<p>The gyroscope can be calibrated using the <code>Calibrate</code> function. During calibration, keep the sensor still and in a fixed position (e.g. lying flat on a table).</p>
+<pre><code class="lang-csharp">var offset = imu.Calibrate(1000);
+Debug.WriteLine($&quot;Calibration done, offsets X:{offset.X} Y:{offset.Y} Z:{offset.Z}&quot;);
+</code></pre>
+<p>You can also write directly to the compensation registers using <code>SetGyroscopeOffset</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> When the device reboots, the offset registers are cleared. Persist calibration data yourself if needed.</p>
+</blockquote>
+<h2 id="output-data-rate-odr">Output Data Rate (ODR)</h2>
+<p>The accelerometer and gyroscope output data rates can be configured at construction time or changed at runtime:</p>
+<pre><code class="lang-csharp">// Set ODR during construction
+using var imu = new Bmi270AccelerometerGyroscope(
+    I2cDevice.Create(settings),
+    accelerometerOdr: AccelerometerOutputDataRate.Odr200Hz,
+    gyroscopeOdr: GyroscopeOutputDataRate.Odr400Hz);
+
+// Or change at runtime
+imu.AccelerometerOdr = AccelerometerOutputDataRate.Odr50Hz;
+imu.GyroscopeOdr = GyroscopeOutputDataRate.Odr100Hz;
+</code></pre>
+<h2 id="sleep-mode">Sleep mode</h2>
+<p>The sensor can be put in suspend mode to save power:</p>
+<pre><code class="lang-csharp">imu.Sleep();
+// ... later ...
+imu.WakeUp();
+</code></pre>
+<h2 id="step-counter-and-activity-recognition">Step counter and activity recognition</h2>
+<p>The BMI270 has a built-in step counter and activity recognition engine. Enable it after initialization:</p>
+<pre><code class="lang-csharp">// Enable step counter with activity recognition
+imu.EnableStepCounter(enableActivityRecognition: true);
+
+// Read the step count
+int steps = imu.GetStepCount();
+Debug.WriteLine($&quot;Steps: {steps}&quot;);
+
+// Read the current activity
+ActivityType activity = imu.GetActivity();
+Debug.WriteLine($&quot;Activity: {activity}&quot;); // Still, Walking, Running, or Unknown
+
+// Reset step counter to zero
+imu.ResetStepCounter();
+
+// Disable when no longer needed
+imu.DisableStepCounter();
+</code></pre>
+<h2 id="interrupts">Interrupts</h2>
+<p>The BMI270 has two interrupt pins (INT1, INT2) that can be configured for various sources:</p>
+<pre><code class="lang-csharp">// Configure INT1 as push-pull, active-high
+imu.ConfigureInterruptPin(1, outputEnable: true, activeHigh: true, openDrain: false);
+
+// Map step counter interrupt to INT1
+imu.MapFeatureInterrupt(1, FeatureInterruptSource.StepCounter);
+
+// Map data-ready interrupt to INT1
+imu.MapDataInterrupt(1, DataInterruptSource.DataReady);
+
+// Read interrupt status (clears latched status)
+var featureStatus = imu.GetFeatureInterruptStatus();
+var dataStatus = imu.GetDataInterruptStatus();
+</code></pre>
+<h2 id="fifo">FIFO</h2>
+<p>The BMI270 has a 6 KB FIFO buffer for efficient burst reads:</p>
+<pre><code class="lang-csharp">// Enable FIFO for accelerometer and gyroscope, 512-byte watermark
+imu.EnableFifo(enableAccelerometer: true, enableGyroscope: true, watermarkBytes: 512);
+
+// Read available data
+int available = imu.GetFifoByteCount();
+SpanByte buffer = new byte[available];
+int bytesRead = imu.ReadFifo(buffer);
+// In headerless mode: each frame = 12 bytes (6 acc + 6 gyro), little-endian int16
+
+// Flush FIFO
+imu.FlushFifo();
+
+// Disable FIFO
+imu.DisableFifo();
+</code></pre>
+<h2 id="9-axis-with-bmm150-magnetometer-m5stack-cores3">9-axis with BMM150 magnetometer (M5Stack CoreS3)</h2>
+<p>On the M5Stack CoreS3, the BMM150 magnetometer is connected through the BMI270's auxiliary I2C interface. This binding provides a <code>Bmm150I2cBmi270</code> adapter that allows the existing <code>Bmm150</code> binding to communicate with the magnetometer through the BMI270.</p>
+<p>This sample is adjusted for the M5Stack CoreS3 board bring-up. Before creating the BMI270 instance, it enables <code>BUS_EN</code> and <code>BOOST_EN</code> on the AW9523B and configures the AXP2101 rails to match the official M5Stack CoreS3 initialization.</p>
+<pre><code class="lang-csharp">Configuration.SetPinFunction(12, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(11, DeviceFunction.I2C1_CLOCK);
+
+EnableCoreS3InternalBusPower();
+EnableCoreS3SensorPower();
+
+I2cConnectionSettings settings = new(1, Bmi270AccelerometerGyroscope.SecondaryI2cAddress);
+
+using (Bmi270AccelerometerGyroscope imu = new(I2cDevice.Create(settings)))
+{
+    // Enable auxiliary I2C for BMM150
+    imu.EnableAuxiliaryI2c(Bmm150.SecondaryI2cAddress);
+
+    // Create BMM150 using the BMI270 aux I2C bridge
+    I2cConnectionSettings bmm150Settings = new(1, Bmi270AccelerometerGyroscope.SecondaryI2cAddress);
+    using (Bmm150 mag = new(I2cDevice.Create(bmm150Settings), new Bmm150I2cBmi270(Bmm150.SecondaryI2cAddress)))
+    {
+        while (true)
+        {
+            var acc = imu.GetAccelerometer();
+            var gyr = imu.GetGyroscope();
+            var magData = mag.ReadMagnetometer();
+            Debug.WriteLine($&quot;Accel: {acc.X:F3} {acc.Y:F3} {acc.Z:F3}&quot;);
+            Debug.WriteLine($&quot;Gyro:  {gyr.X:F3} {gyr.Y:F3} {gyr.Z:F3}&quot;);
+            Debug.WriteLine($&quot;Mag:   {magData.X:F3} {magData.Y:F3} {magData.Z:F3}&quot;);
+            Thread.Sleep(100);
+        }
+    }
+}
+</code></pre>
+<h2 id="m5stack-cores3">M5Stack CoreS3</h2>
+<p>On the M5Stack CoreS3, the BMI270 is connected to the internal I2C bus at address <code>0x69</code> on GPIO12/GPIO11. The BMM150 magnetometer is also on the board, connected through the BMI270's auxiliary I2C interface at address <code>0x10</code>. M5Stack's official documentation and M5Unified source also show that CoreS3 power routing depends on the AW9523B IO expander and the AXP2101 PMU, which is why the sample enables AW9523 <code>BUS_EN</code> and <code>BOOST_EN</code> and then applies the AXP2101 rail setup before sensor initialization.</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>I2C Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BMI270</td>
+<td>0x69</td>
+</tr>
+<tr>
+<td>BMM150</td>
+<td>0x10 (via BMI270 aux I2C)</td>
+</tr>
+<tr>
+<td>AXP2101</td>
+<td>0x34</td>
+</tr>
+<tr>
+<td>AW9523B</td>
+<td>0x58</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Bmi270/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
