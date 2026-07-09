@@ -38,5 +38,6 @@ Because of the underlying complexity and memory usage, multidimensional arrays a
 
 ## Generics
 
-.NET nanoFramework doesn't support generics. We are actively working on it! (You can track the progress by following [this](https://github.com/nanoframework/Home/issues/782) GitHub issue)
-This is something that can easily go unnoticed as there are already some classes in mscorlib to support this. And, for the vast majority of the code, there will be no compiler error.
+Generics support is now available as a **public preview**! Check out [README-GENERICS.md](https://github.com/nanoframework/nf-interpreter/blob/main/README-GENERICS.md) in the `nf-interpreter` repo for details on how to update your firmware, Visual Studio extension and NuGet packages to try it out, as well as the current known limitations.
+
+We'd love for you to give it a spin and share your experience (bugs, rough edges, missing library support, anything) in the `#generics-public-preview` channel on our [Discord server](https://discord.gg/gCyBu8VB5H). Your feedback is what will help get this over the line for a stable release!
