@@ -22,19 +22,19 @@ Notes:
 
 ## Multidimensional arrays
 
-Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only [jagged arrays](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.
+Because of the underlying complexity and memory usage, multidimensional arrays are not supported. Only [jagged arrays](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). At the end of the day, these are pretty much equivalent, so if you need multidimensional arrays, you just need to adapt your code to what's available.
 
 ## String.Format and numeric.ToString Functions
 
-.Net **nanoFramework** supports a subset of the [Standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) (D/F/G/N/X) and [Composite formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting) (left and right alignment). It does NOT support any of the [Custom numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings). Strings in **nanoFramework** are all constrained to UTF-8, so there are limits to the characters that can be displayed. The following format specifiers are supported:
+.Net **nanoFramework** supports a subset of the [Standard numeric format strings](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) (D/F/G/N/X) and [Composite formatting](https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting) (left and right alignment). It does NOT support any of the [Custom numeric format strings](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings). Strings in **nanoFramework** are all constrained to UTF-8, so there are limits to the characters that can be displayed. The following format specifiers are supported:
 
 | Specifier | Examples |
 | --------- | ------- |
-| [D-Decimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString) | [Decimal unit test output](string-format-examples.md#d-decimal) |
-| [F-Fixed-point](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString) | [Fixed-point unit test output](string-format-examples.md#f-fixed-point) |
-| [G-General](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString) | [General unit test output](string-format-examples.md#g-general) |
-| [N-Number](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString) | [Number unit test output](string-format-examples.md#n-number) |
-| [X-Hexadecimal](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString) | [Hexadecimal unit test output](string-format-examples.md#x-hexadecimal) |
+| [D-Decimal](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#decimal-format-specifier-d) | [Decimal unit test output](string-format-examples.md#d-decimal) |
+| [F-Fixed-point](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#fixed-point-format-specifier-f) | [Fixed-point unit test output](string-format-examples.md#f-fixed-point) |
+| [G-General](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#general-format-specifier-g) | [General unit test output](string-format-examples.md#g-general) |
+| [N-Number](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#numeric-format-specifier-n) | [Number unit test output](string-format-examples.md#n-number) |
+| [X-Hexadecimal](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#hexadecimal-format-specifier-x) | [Hexadecimal unit test output](string-format-examples.md#x-hexadecimal) |
 
 ## Generics
 

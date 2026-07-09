@@ -6,7 +6,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 
 ## D-Decimal
 
-[Decimal Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#DFormatString)
+[Decimal Format Specifier](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#decimal-format-specifier-d)
 
 |    Value| Format| SByte |  Int16|   Int32|   Int64| Byte| UInt16| UInt32 |UInt64  |
 | ---:    | :---  |---:   |---:   |---:    |---:    |---: |---:   |---:    |---:    |
@@ -33,7 +33,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 
 ## F-Fixed-point
 
-[Fixed-point Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#FFormatString)
+[Fixed-point Format Specifier](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#fixed-point-format-specifier-f)
 
  |        Value| Format|  SByte |       Int16 |       Int32 |       Int64|     Byte|      UInt16|      UInt32|      UInt64|       Single |      Double  |
  | ---:        |:---   |---:    |---:         |---:         |---:        |---:     |---:        |---:        |---:        |---:          |---:          |
@@ -68,7 +68,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 
 ## G-General
 
-[General Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#GFormatString)
+[General Format Specifier](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#general-format-specifier-g)
 
  |        Value| Format|    SByte |   Int16|    Int32|    Int64| Byte|  UInt16|  UInt32|  UInt64|    Single|    Double |
  | ---:        |:---   |---:      |---:    |---:     |---:     |---: |---:    |---:    |---:    |---:      |---:       |
@@ -115,7 +115,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 
 ## N-Number
 
-[Number Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#NFormatString)
+[Number Format Specifier](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#numeric-format-specifier-n)
 
  |           Value| Format|   SByte|         Int16|         Int32|         Int64|     Byte|       UInt16|       UInt32|       UInt64|        Single|        Double |
  |---:            | :---  | ---:   | ---:         | ---:         | ---:         | ---:    | ---:        | ---:        | ---:        | ---:         | ---:          |
@@ -152,7 +152,7 @@ This document provides examples of numeric formatting in the **nanoFramework** C
 
 ## X-Hexadecimal
 
-[Hexadecimal Format Specifier](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#XFormatString)
+[Hexadecimal Format Specifier](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#hexadecimal-format-specifier-x)
 
 |     Value| Format| SByte|  Int16|    Int32|            Int64| Byte| UInt16| UInt32| UInt64 |
 | ---:     | :---  | ---: | ---:  | ---:    | ---:            | ---:| ---:  | ---:  | ---:   |

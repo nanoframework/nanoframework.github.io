@@ -11,9 +11,9 @@ When we move to embedded systems that's a totally different story.
 
 A few more details to properly set context:
 
-- [`double` type](https://docs.microsoft.com/en-us/dotnet/api/system.double): represents a double-precision 64-bit number with values ranging from negative 1.79769313486232e308 to positive 1.79769313486232e308. Precision ~15-17 digits. Size 8 bytes.
-- [`float` type](https://docs.microsoft.com/en-us/dotnet/api/system.single): represents a single-precision 32-bit number with values ranging from negative 3.402823e38 to positive 3.402823e38. Precision ~6-9 digits. Size 4 bytes.
-- Comparison of [floating-point numeric types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types).
+- [`double` type](https://learn.microsoft.com/en-us/dotnet/api/system.double): represents a double-precision 64-bit number with values ranging from negative 1.79769313486232e308 to positive 1.79769313486232e308. Precision ~15-17 digits. Size 8 bytes.
+- [`float` type](https://learn.microsoft.com/en-us/dotnet/api/system.single): represents a single-precision 32-bit number with values ranging from negative 3.402823e38 to positive 3.402823e38. Precision ~6-9 digits. Size 4 bytes.
+- Comparison of [floating-point numeric types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types).
 
 There are all sorts of variants and combinations on how to deal with FP and DP in the embedded world. From hardware support on the CPU to libraries that perform those calculations at the expense of more code and execution speed. .NET **nanoFramework** targets 32-bit MCUs, therefore support for 64-bits calculations requires extra code and processing.
 
