@@ -53,6 +53,53 @@ You'll get as well the status of the deployment happening in the Terminal.
 Some ESP32 devices have issues with the initial discovery process and require an alternative deployment method.
 If you're having issues with the deployment, you can use an _alternative_ method: you have to select `nanoFramework: Deploy Project (alternative method)` instead and follow the prompts, same as with the other steps.
 
+### Using WSL2 and Dev Containers
+
+You will need to follow this steps: 
+
+1. Install Ubuntu-22.04 as a distro in WSL2 and set default:
+
+```bash
+wsl --install Ubuntu-22.04
+wsl -s ubuntu-22.04
+```
+
+2. Access the Ubuntu-22.04 distro 
+
+```bash
+wsl
+```
+
+and then install kernel drivers
+
+```bash
+sudo apt-get update
+sudo modprobe vhci_hcd
+sudo apt install linux-tools-generic hwdata -y
+sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip 20
+sudo modprobe vhci_hcd
+```
+
+3. Go back to your windows, open powershell in Adminstrator mode, connect your board with USB and use usbipd to share the serial port. Keep the powershell session open.
+
+```powershell
+usbipd wsl list
+usbipd unbind --busid 1-3
+usbipd bind --busid 1-3
+usbipd wsl attach --busid 1-3 --auto-attach
+```
+
+4. Open VSCode, create a new Dev Container
+5. Edit the devcontainer.json file to include this run Argument to share the serial port from Ubuntu distri to your Dev Container env.
+
+```json
+    "runArgs": [
+        "--device=/dev/ttyUSB0:/dev/ttyUSB0"
+  	]
+```
+
+ 6. In your new Dev Container, follow the process to install nanoFramework VSCode extension
+
 ## Requirements
 
 You will need to make sure you'll have the following elements installed:
@@ -70,3 +117,4 @@ This extension will work on any Mac version (x64 or M1), works only on Linux x64
 
 :warning: That are know issues running commands for STM32 devices when the user path contains diacritic characters. This causes issues with with STM32 Cube Programmer which is used by `nanoff` a dependency of the extension.
 Note that if you're not using the extension with with STM32 devices, this limitation does not apply.
+
