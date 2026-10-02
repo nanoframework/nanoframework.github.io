@@ -174,19 +174,13 @@ steps:
 
       git clone https://github.com/nanoframework/System.Device.WiFi.git -b main libs/System.Device.WiFi
 
-      git clone https://github.com/nanoframework/System.Device.UsbClient.git -b main System.Device.UsbClient
-
       git clone https://github.com/nanoframework/nanoFramework.Benchmark -b main libs/nanoFramework.Benchmark 
 
       git clone https://github.com/nanoframework/nanoFramework.Graphics -b main libs/nanoFramework.Graphics
 
-      git clone https://github.com/nanoframework/nanoFramework.GiantGecko.Adc -b main nanoFramework.GiantGecko.Adc
-
       git clone https://github.com/nanoframework/nanoFramework.Hardware.Esp32 -b main libs/nanoFramework.Hardware.Esp32
 
       git clone https://github.com/nanoframework/nanoFramework.Hardware.Esp32.Rmt -b main libs/nanoFramework.Hardware.Esp32.Rmt
-
-      git clone https://github.com/nanoframework/nanoFramework.Hardware.GiantGecko -b main nanoFramework.Hardware.GiantGecko
 
       git clone https://github.com/nanoframework/nanoFramework.Json -b main libs/nanoFramework.Json
 
@@ -248,6 +242,12 @@ steps:
 
       git clone https://github.com/nanoframework/nanoFramework.MessagePack.git -b main libs/nanoFramework.MessagePack
 
+      git clone https://github.com/nanoframework/System.Threading.git -b main libs/System.Threading
+
+      git clone https://github.com/nanoframework/nanoFramework.Bluetooth.Hid.git -b main libs/nanoFramework.Bluetooth.Hid
+
+      git clone https://github.com/nanoframework/nanoFramework.EspNow.git -b main libs/nanoFramework.EspNow
+
   displayName: Clone repos of class libs
   condition: >-
     or(
@@ -293,6 +293,15 @@ steps:
       Remove-Item -Force libs\CoreLibrary\nanoFramework.TestFramework\nf-debugger\nanoFramework.Tools.Debugger.sln
       Remove-Item -Force "libs\CoreLibrary\nanoFramework.TestFramework\poc\NFUnit Test DemoByReference.sln"
       Remove-Item -Force "libs\CoreLibrary\nanoFramework.TestFramework\poc\NFUnit Test Demo.sln"
+
+      # remove sample projects from the lib solutions so they don't get built or go into the docs
+      Get-ChildItem libs -Recurse -Include *.sln, *.slnx | ForEach-Object {
+          $slnFile = $_.FullName
+          $samples = dotnet sln $slnFile list | Where-Object { $_ -match '(^|[\\/])samples?[\\/]' }
+          foreach ($proj in $samples) {
+              dotnet sln $slnFile remove (Join-Path $_.DirectoryName $proj.Trim())
+          }
+      }
 
 # install docfx helper tools
 - powershell: |
@@ -560,7 +569,7 @@ steps:
   displayName: NuGet restore all class libs
   retryCountOnTaskFailure: 3
   inputs:
-    restoreSolution: 'libs/**/*.sln'
+    restoreSolution: 'libs/**/*.@(sln|slnx)'
     feedsToUse: 'select'
 
 # Build part
@@ -609,7 +618,7 @@ steps:
     )
   retryCountOnTaskFailure: 3
   inputs:
-    solution: 'libs/**/*.sln'
+    solution: 'libs/**/*.sln;libs/**/*.slnx'
     platform: '$(buildPlatform)'
     msbuildArgs: '/p:PublicRelease=true'
     configuration: '$(buildConfiguration)'
