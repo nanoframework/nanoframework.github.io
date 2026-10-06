@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Home Assistant MQTT Integration | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Home Assistant MQTT Integration | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/HomeAssistant/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="home-assistant-mqtt-integration">Home Assistant MQTT Integration</h1>
+
+<p>This binding provides a Home Assistant MQTT integration for .NET nanoFramework. It implements the <a href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery">Home Assistant MQTT Discovery protocol</a>, automatically registering device entities in Home Assistant and keeping their state in sync over MQTT.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>MQTT Discovery</strong> — entities are automatically registered in Home Assistant on connect</li>
+<li><strong>Auto-generated topics</strong> — state and command topics derived from the device and entity names</li>
+<li><strong>Built-in entity types</strong> — Switch, Number, Sensor, Binary Sensor, Select, Text, Time, and more</li>
+<li><strong>Availability tracking</strong> — Last-Will-Testament and online/offline publishing</li>
+<li><strong>HA restart detection</strong> — re-publishes discovery and state when Home Assistant comes back online</li>
+<li><strong>Sensor presets</strong> — ready-made configurations for temperature, humidity, pressure, energy, and more</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="1-create-device-info">1. Create device info</h3>
+<pre><code class="lang-csharp">var device = new HomeAssistantDeviceInfo(
+    id:           &quot;my_device&quot;,
+    name:         &quot;My Device&quot;,
+    model:        &quot;ESP32&quot;,
+    manufacturer: &quot;nanoFramework&quot;);
+</code></pre>
+<h3 id="2-create-the-client">2. Create the client</h3>
+<pre><code class="lang-csharp">var client = new HomeAssistantClient(
+    device:               device,
+    brokerAddress:        &quot;192.168.1.2&quot;,
+    brokerPort:           1883,
+    mqttClientIdPrefix:   &quot;my-device-&quot;,
+    mqttUsername:         null,    // optional
+    mqttPassword:         null);   // optional
+</code></pre>
+<p>The device's <code>Name</code> (from <code>HomeAssistantDeviceInfo</code>) is normalized to lowercase with dashes and becomes the root MQTT topic prefix:
+<code>My Device</code> → <code>nanoframework/my-device/…</code></p>
+<h3 id="3-add-entities">3. Add entities</h3>
+<pre><code class="lang-csharp">// Switch (binary on/off)
+HomeAssistantSwitch lightSwitch = client.AddSwitch(&quot;my_device_light&quot;, &quot;Light&quot;);
+
+// Number (integer input)
+HomeAssistantNumber brightness = client.AddNumber(
+    objectId:          &quot;my_device_brightness&quot;,
+    name:              &quot;Brightness&quot;,
+    min:               &quot;0&quot;,
+    max:               &quot;100&quot;,
+    step:              &quot;1&quot;,
+    unitOfMeasurement: &quot;%&quot;);
+
+// Sensor (read-only numeric value)
+HomeAssistantNumber temperature = client.AddSensor(
+    objectId:          &quot;my_device_temperature&quot;,
+    name:              &quot;Temperature&quot;,
+    unitOfMeasurement: &quot;°C&quot;,
+    deviceClass:       HomeAssistantDeviceClass.Temperature);
+
+// Binary sensor (read-only ON/OFF, no command topic — for example a door or motion sensor)
+HomeAssistantSwitch doorSensor = client.AddBinarySensor(
+    objectId:    &quot;my_device_door&quot;,
+    name:        &quot;Front Door&quot;,
+    deviceClass: &quot;door&quot;);
+
+// Select (enumerated options)
+HomeAssistantSelect mode = client.AddSelect(
+    objectId: &quot;my_device_mode&quot;,
+    name:     &quot;Mode&quot;,
+    options:  new[] { &quot;Off&quot;, &quot;Low&quot;, &quot;High&quot; });
+
+// Diagnostic text sensor (read-only, shown under Diagnostics in HA)
+HomeAssistantTextItem status = client.AddDiagnosticStringSensor(
+    objectId:     &quot;my_device_status&quot;,
+    name:         &quot;Status&quot;,
+    initialValue: &quot;OK&quot;);
+
+// Time (time of day, for example a schedule or alarm time)
+HomeAssistantTime startTime = client.AddTime(
+    objectId:     &quot;my_device_start_time&quot;,
+    name:         &quot;Start Time&quot;,
+    initialValue: new TimeSpan(6, 30, 0));
+</code></pre>
+<h3 id="4-subscribe-to-state-changes">4. Subscribe to state changes</h3>
+<pre><code class="lang-csharp">lightSwitch.OnStateChange += (sender, oldState, newState) =&gt;
+{
+    if (newState == &quot;ON&quot;)
+    {
+        // turn on hardware
+    }
+    else
+    {
+        // turn off hardware
+    }
+};
+
+brightness.OnStateChange += (sender, oldState, newState) =&gt;
+{
+    int value;
+    if (int.TryParse(newState, out value))
+    {
+        // apply brightness
+    }
+};
+
+startTime.OnStateChange += (sender, oldState, newState) =&gt;
+{
+    // newState is an ISO time string (HH:MM:SS); Value parses it for you
+    TimeSpan timeOfDay = startTime.Value;
+    // apply schedule
+};
+</code></pre>
+<p>Use <code>startTime.SetValue(new TimeSpan(7, 0, 0))</code> to publish a new time from the device. Only the hours, minutes and seconds components are used, and negative values throw <code>ArgumentOutOfRangeException</code> (as does a negative <code>initialValue</code> passed to <code>AddTime</code>).</p>
+<h3 id="5-connect-and-publish">5. Connect and publish</h3>
+<pre><code class="lang-csharp">bool connected = client.Connect();
+
+if (connected)
+{
+    // Publish initial entity states
+    lightSwitch.PublishState(&quot;OFF&quot;);
+    brightness.PublishState(&quot;50&quot;);
+    temperature.PublishState(&quot;21.5&quot;);
+}
+</code></pre>
+<p><code>Connect()</code> automatically sets a Last-Will-Testament on <code>client.AvailabilityTopic</code> (payload <code>&quot;offline&quot;</code>), so Home Assistant marks the device unavailable if it disconnects ungracefully. Pass a different topic to <code>willTopic</code> to override it — <code>client.AvailabilityTopic</code> then reflects that custom topic for the rest of the session, so <code>PublishOnline()</code>, <code>Disconnect()</code>, and discovery payloads all stay consistent with the broker's LWT topic. Pass <code>string.Empty</code> to connect without an LWT at all (availability publishing still uses the default topic in that case).</p>
+<h3 id="6-publish-state-updates">6. Publish state updates</h3>
+<p>Use <code>PublishState</code> for application-originated changes (does not trigger <code>OnStateChange</code>):</p>
+<pre><code class="lang-csharp">temperature.PublishState(&quot;22.3&quot;);
+</code></pre>
+<p>Use <code>SetState</code> when receiving an external command and you need to run actuation logic (does trigger <code>OnStateChange</code>, does not publish):</p>
+<pre><code class="lang-csharp">lightSwitch.SetState(&quot;ON&quot;);
+</code></pre>
+<p>After successful actuation, publish the confirmed state:</p>
+<pre><code class="lang-csharp">lightSwitch.PublishState(&quot;ON&quot;);
+</code></pre>
+<h3 id="7-handle-home-assistant-restarts">7. Handle Home Assistant restarts</h3>
+<p>Subscribe to incoming MQTT messages and re-publish discovery and state when HA comes back online:</p>
+<pre><code class="lang-csharp">client.MqttMessageReceived += (sender, e) =&gt;
+{
+    string topic = e.Topic;
+    string payload = System.Text.Encoding.UTF8.GetString(e.Message, 0, e.Message.Length).Trim();
+
+    if (client.IsHomeAssistantOnlineEvent(topic, payload))
+    {
+        client.PublishOnline();
+        client.PublishDiscovery();
+        // re-publish all entity states here
+    }
+};
+</code></pre>
+<h2 id="mqtt-topic-convention">MQTT Topic Convention</h2>
+<p>Topics are auto-generated from the device name and entity name:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Example value</th>
+<th>Resulting topic segment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device name</td>
+<td><code>MyDevice</code></td>
+<td><code>nanoframework/mydevice</code></td>
+</tr>
+<tr>
+<td>Entity name</td>
+<td><code>Timer ON Seconds</code></td>
+<td><code>timer_on_seconds</code></td>
+</tr>
+<tr>
+<td>State topic</td>
+<td></td>
+<td><code>nanoframework/mydevice/timer_on_seconds/state</code></td>
+</tr>
+<tr>
+<td>Command topic</td>
+<td></td>
+<td><code>nanoframework/mydevice/timer_on_seconds/set</code></td>
+</tr>
+<tr>
+<td>Availability</td>
+<td></td>
+<td><code>nanoframework/mydevice/availability</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sensor-presets">Sensor Presets</h2>
+<p><code>HomeAssistantSensorPresets</code> applies common device class, state class, and unit-of-measurement settings to a <code>HomeAssistantDiscoveryEntity</code>:</p>
+<pre><code class="lang-csharp">HomeAssistantNumber tempSensor = client.AddSensor(&quot;my_device_temp&quot;, &quot;Temperature&quot;);
+HomeAssistantSensorPresets.ApplyTemperaturePreset(tempSensor.Discovery);
+
+HomeAssistantNumber humiditySensor = client.AddSensor(&quot;my_device_humidity&quot;, &quot;Humidity&quot;);
+HomeAssistantSensorPresets.ApplyHumidityPreset(humiditySensor.Discovery);
+</code></pre>
+<p>Available presets:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Device class</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ApplyTemperaturePreset</code></td>
+<td><code>temperature</code></td>
+<td>°C</td>
+</tr>
+<tr>
+<td><code>ApplyHumidityPreset</code></td>
+<td><code>humidity</code></td>
+<td>%</td>
+</tr>
+<tr>
+<td><code>ApplyPressurePreset</code></td>
+<td><code>atmospheric_pressure</code></td>
+<td>hPa</td>
+</tr>
+<tr>
+<td><code>ApplyPowerPreset</code></td>
+<td><code>power</code></td>
+<td>W</td>
+</tr>
+<tr>
+<td><code>ApplyEnergyPreset</code></td>
+<td><code>energy</code></td>
+<td>Wh</td>
+</tr>
+<tr>
+<td><code>ApplyWaterPreset</code></td>
+<td><code>water</code></td>
+<td>L</td>
+</tr>
+<tr>
+<td><code>ApplyVoltagePreset</code></td>
+<td><code>voltage</code></td>
+<td>V</td>
+</tr>
+<tr>
+<td><code>ApplyCurrentPreset</code></td>
+<td><code>current</code></td>
+<td>A</td>
+</tr>
+<tr>
+<td><code>ApplyIlluminancePreset</code></td>
+<td><code>illuminance</code></td>
+<td>lx</td>
+</tr>
+<tr>
+<td><code>ApplyBatteryPreset</code></td>
+<td><code>battery</code></td>
+<td>%</td>
+</tr>
+<tr>
+<td><code>ApplyDurationPreset</code></td>
+<td><code>duration</code></td>
+<td>s</td>
+</tr>
+<tr>
+<td><code>ApplyCarbonDioxidePreset</code></td>
+<td><code>carbon_dioxide</code></td>
+<td>ppm</td>
+</tr>
+</tbody>
+</table>
+<h2 id="supported-component-types">Supported Component Types</h2>
+<p><code>HomeAssistantComponentType</code> covers:</p>
+<p><code>Switch</code>, <code>Number</code>, <code>Sensor</code>, <code>BinarySensor</code>, <code>Button</code>, <code>Select</code>, <code>Light</code>, <code>Cover</code>, <code>Climate</code>, <code>Text</code>, <code>Time</code></p>
+<blockquote>
+<p>The <code>Time</code> entity requires Home Assistant 2026.5 or newer.</p>
+</blockquote>
+<h2 id="entity-categories">Entity Categories</h2>
+<p>Use <code>HomeAssistantEntityCategory</code> to control where entities appear in the HA UI:</p>
+<ul>
+<li><code>HomeAssistantEntityCategory.Config</code> — shown under <em>Configuration</em></li>
+<li><code>HomeAssistantEntityCategory.Diagnostic</code> — shown under <em>Diagnostics</em></li>
+</ul>
+<h2 id="sample">Sample</h2>
+<p>See the <a href="https://github.com/nanoframework/nanoFramework.IoT.Device/tree/main/devices/HomeAssistant/samples/HomeAssistant.sample">repository sample</a> for a complete ESP32 sprinkler controller example that demonstrates:</p>
+<ul>
+<li>Loading Wi-Fi and MQTT credentials from <code>config.json</code> stored on the device filesystem</li>
+<li>Connecting to Wi-Fi and an MQTT broker with auto-reconnect</li>
+<li>Registering Switch, Number, and diagnostic Sensor entities</li>
+<li>Controlling a GPIO relay from HA switch commands</li>
+<li>Configurable timer mode with ON/OFF duration entities</li>
+<li>Detecting Home Assistant restarts and re-publishing state</li>
+</ul>
+<h3 id="wiring-sample">Wiring (sample)</h3>
+<table>
+<thead>
+<tr>
+<th>ESP32 pin</th>
+<th>Connected to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPIO15 (default)</td>
+<td>Relay IN</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>Relay GND</td>
+</tr>
+<tr>
+<td>3.3V / 5V</td>
+<td>Relay VCC</td>
+</tr>
+</tbody>
+</table>
+<p>The relay GPIO pin and active-high/active-low polarity are configurable from Home Assistant at runtime.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.home-assistant.io/integrations/mqtt/">Home Assistant MQTT Integration</a></li>
+<li><a href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery">MQTT Discovery Protocol</a></li>
+<li><a href="https://github.com/nanoframework/nanoFramework.m2mqtt">nanoFramework M2Mqtt</a></li>
+<li>Credits to <a href="https://github.com/WilliamBZA/nanoframework.homeassistant.mqttdiscovery">WilliamBZA</a> for the great start to create this binding!</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/HomeAssistant/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

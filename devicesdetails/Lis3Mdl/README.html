@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>LIS3MDL - three-axis digital magnetometer | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LIS3MDL - three-axis digital magnetometer | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Lis3Mdl/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="lis3mdl---three-axis-digital-magnetometer">LIS3MDL - three-axis digital magnetometer</h1>
+
+<p>The LIS3MDL is a low-power, high-performance magnetic sensor with selectable full-scale ranges from plus or minus 4 gauss to plus or minus 16 gauss. It is included on boards such as the ST B-L475E-IOT01A Discovery kit.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://www.st.com/resource/en/datasheet/lis3mdl.pdf">LIS3MDL datasheet</a></li>
+<li><a href="https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html">B-L475E-IOT01A Discovery kit</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>The on-board LIS3MDL on the B-L475E-IOT01A uses address <code>0x1E</code>, exposed as <code>SecondaryI2cAddress</code>. It is connected to the board's sensor I2C bus. The sample uses bus 2; adjust the bus number if your firmware maps that peripheral differently.</p>
+<p>External LIS3MDL modules commonly use address <code>0x1C</code>, exposed as <code>DefaultI2cAddress</code>. For ESP32 targets, configure the selected I2C pins before creating the device.</p>
+<pre><code class="lang-csharp">using Iot.Device.Lis3Mdl;
+using System.Device.I2c;
+using System.Diagnostics;
+using System.Threading;
+
+I2cConnectionSettings settings = new(2, Lis3Mdl.SecondaryI2cAddress);
+using Lis3Mdl sensor = new(I2cDevice.Create(settings));
+
+sensor.MagneticInductionScale = MagneticInductionScale.Scale04G;
+sensor.DataRate = DataRate.Rate10Hz;
+
+while (true)
+{
+    var field = sensor.MagneticField;
+    Debug.WriteLine($&quot;X: {field.X:F2} mG, Y: {field.Y:F2} mG, Z: {field.Z:F2} mG&quot;);
+    Debug.WriteLine($&quot;Temperature: {sensor.Temperature.DegreesCelsius:F1} C&quot;);
+    Thread.Sleep(1000);
+}
+</code></pre>
+<p><code>MagneticField</code> returns a <code>Vector3</code> whose components are measured in milligauss. <code>MagneticFieldX</code>, <code>MagneticFieldY</code>, and <code>MagneticFieldZ</code> return UnitsNet values. The driver also exposes continuous, single-shot, and power-down operation modes, four performance modes, and output rates from 0.625 Hz to 1000 Hz.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Lis3Mdl/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

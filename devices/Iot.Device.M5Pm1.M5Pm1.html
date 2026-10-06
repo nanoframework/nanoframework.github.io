@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class M5Pm1 | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class M5Pm1 | .NET nanoFramework Documentation ">
+      
+      <meta name="description" content="Driver for the M5Stack M5PM1 power-management IC used on ESP32-S3 boards such as the M5StickS3.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Iot.Device.M5Pm1.M5Pm1">
+
+
+
+  <h1 id="Iot_Device_M5Pm1_M5Pm1" data-uid="Iot.Device.M5Pm1.M5Pm1" class="text-break">
+Class M5Pm1  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.M5Pm1.html">M5Pm1</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.M5Pm1.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Driver for the M5Stack M5PM1 power-management IC used on ESP32-S3 boards such as the M5StickS3.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class M5Pm1</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">M5Pm1</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Iot_Device_M5Pm1_M5Pm1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The M5PM1 handles the battery and USB power paths, charging control and status, board power gates
+and external 5V switching. This binding exposes the telemetry and control features that are most
+commonly used (battery/VBUS/5V-out voltage, external 5V enable, charge enable, charging status and
+the power source). The register behaviour is ported from the M5Stack <code>M5Unified</code> power
+implementation, which is the most authoritative reference for the M5PM1.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1__ctor_" data-uid="Iot.Device.M5Pm1.M5Pm1.#ctor*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1__ctor_System_Device_I2c_I2cDevice_System_Boolean_" data-uid="Iot.Device.M5Pm1.M5Pm1.#ctor(System.Device.I2c.I2cDevice,System.Boolean)">
+  M5Pm1(I2cDevice, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.M5Pm1.M5Pm1.html">M5Pm1</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public M5Pm1(I2cDevice i2cDevice, bool shouldDispose = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>The I2C device used for communication with the M5PM1.</p>
+</dd>
+    <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to dispose the <code class="paramref">i2cDevice</code> when this instance is disposed; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">i2cDevice</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.IO.IOException.html">IOException</a></dt>
+    <dd><p>Thrown when the M5PM1 does not acknowledge on the I2C bus.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_DeviceId" data-uid="Iot.Device.M5Pm1.M5Pm1.DeviceId">
+  DeviceId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>M5PM1 device identifier (value of registers 0x00-0x01).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DeviceId = 8272</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_I2cDefaultAddress" data-uid="Iot.Device.M5Pm1.M5Pm1.I2cDefaultAddress">
+  I2cDefaultAddress
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>M5PM1 default I2C address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int I2cDefaultAddress = 110</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_BatteryChargeEnabled_" data-uid="Iot.Device.M5Pm1.M5Pm1.BatteryChargeEnabled*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_BatteryChargeEnabled" data-uid="Iot.Device.M5Pm1.M5Pm1.BatteryChargeEnabled">
+  BatteryChargeEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether battery charging is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool BatteryChargeEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_ExternalOutputEnabled_" data-uid="Iot.Device.M5Pm1.M5Pm1.ExternalOutputEnabled*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_ExternalOutputEnabled" data-uid="Iot.Device.M5Pm1.M5Pm1.ExternalOutputEnabled">
+  ExternalOutputEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the external 5V output is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ExternalOutputEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_IsCharging_" data-uid="Iot.Device.M5Pm1.M5Pm1.IsCharging*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_IsCharging" data-uid="Iot.Device.M5Pm1.M5Pm1.IsCharging">
+  IsCharging
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the battery is currently charging.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCharging { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_Dispose_" data-uid="Iot.Device.M5Pm1.M5Pm1.Dispose*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_Dispose" data-uid="Iot.Device.M5Pm1.M5Pm1.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_GetBatteryVoltage_" data-uid="Iot.Device.M5Pm1.M5Pm1.GetBatteryVoltage*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_GetBatteryVoltage" data-uid="Iot.Device.M5Pm1.M5Pm1.GetBatteryVoltage">
+  GetBatteryVoltage()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the battery voltage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ElectricPotential GetBatteryVoltage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.ElectricPotential.html">ElectricPotential</a></dt>
+    <dd><p>The battery voltage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_GetDeviceId_" data-uid="Iot.Device.M5Pm1.M5Pm1.GetDeviceId*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_GetDeviceId" data-uid="Iot.Device.M5Pm1.M5Pm1.GetDeviceId">
+  GetDeviceId()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the device identifier reported by the M5PM1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetDeviceId()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The device identifier, which should equal <a class="xref" href="Iot.Device.M5Pm1.M5Pm1.html#Iot_Device_M5Pm1_M5Pm1_DeviceId">DeviceId</a> (0x2050).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_GetOutputVoltage_" data-uid="Iot.Device.M5Pm1.M5Pm1.GetOutputVoltage*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_GetOutputVoltage" data-uid="Iot.Device.M5Pm1.M5Pm1.GetOutputVoltage">
+  GetOutputVoltage()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the external 5V output voltage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ElectricPotential GetOutputVoltage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.ElectricPotential.html">ElectricPotential</a></dt>
+    <dd><p>The 5V output voltage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_GetPowerSource_" data-uid="Iot.Device.M5Pm1.M5Pm1.GetPowerSource*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_GetPowerSource" data-uid="Iot.Device.M5Pm1.M5Pm1.GetPowerSource">
+  GetPowerSource()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the active power source (5V input, 5V input/output, or battery).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PowerSource GetPowerSource()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.M5Pm1.PowerSource.html">PowerSource</a></dt>
+    <dd><p>The current <a class="xref" href="Iot.Device.M5Pm1.PowerSource.html">PowerSource</a>, or <a class="xref" href="Iot.Device.M5Pm1.PowerSource.html#Iot_Device_M5Pm1_PowerSource_Unknown">Unknown</a> if the register reports a value outside the documented range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_GetVbusVoltage_" data-uid="Iot.Device.M5Pm1.M5Pm1.GetVbusVoltage*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_GetVbusVoltage" data-uid="Iot.Device.M5Pm1.M5Pm1.GetVbusVoltage">
+  GetVbusVoltage()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the VBUS (USB input) voltage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ElectricPotential GetVbusVoltage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnitsNet.ElectricPotential.html">ElectricPotential</a></dt>
+    <dd><p>The VBUS voltage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_ReadGpio_" data-uid="Iot.Device.M5Pm1.M5Pm1.ReadGpio*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_ReadGpio_Iot_Device_M5Pm1_Pin_" data-uid="Iot.Device.M5Pm1.M5Pm1.ReadGpio(Iot.Device.M5Pm1.Pin)">
+  ReadGpio(Pin)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the input level of a GPIO pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PinValue ReadGpio(Pin pin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="Iot.Device.M5Pm1.Pin.html">Pin</a></dt>
+    <dd><p>The GPIO pin to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd><p>The input level of the pin.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_ReadGpioOutputLatch_" data-uid="Iot.Device.M5Pm1.M5Pm1.ReadGpioOutputLatch*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_ReadGpioOutputLatch_Iot_Device_M5Pm1_Pin_" data-uid="Iot.Device.M5Pm1.M5Pm1.ReadGpioOutputLatch(Iot.Device.M5Pm1.Pin)">
+  ReadGpioOutputLatch(Pin)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the output latch level of a GPIO pin (the last value written, not the physical input level).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PinValue ReadGpioOutputLatch(Pin pin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="Iot.Device.M5Pm1.Pin.html">Pin</a></dt>
+    <dd><p>The GPIO pin to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd><p>The output latch level of the pin.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_SetGpioDrive_" data-uid="Iot.Device.M5Pm1.M5Pm1.SetGpioDrive*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_SetGpioDrive_Iot_Device_M5Pm1_Pin_Iot_Device_M5Pm1_GpioDrive_" data-uid="Iot.Device.M5Pm1.M5Pm1.SetGpioDrive(Iot.Device.M5Pm1.Pin,Iot.Device.M5Pm1.GpioDrive)">
+  SetGpioDrive(Pin, GpioDrive)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the output driver type (push-pull or open-drain) of a GPIO pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGpioDrive(Pin pin, GpioDrive drive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="Iot.Device.M5Pm1.Pin.html">Pin</a></dt>
+    <dd><p>The GPIO pin to configure.</p>
+</dd>
+    <dt><code>drive</code> <a class="xref" href="Iot.Device.M5Pm1.GpioDrive.html">GpioDrive</a></dt>
+    <dd><p>The driver type to apply.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_SetGpioFunction_" data-uid="Iot.Device.M5Pm1.M5Pm1.SetGpioFunction*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_SetGpioFunction_Iot_Device_M5Pm1_Pin_Iot_Device_M5Pm1_GpioFunction_" data-uid="Iot.Device.M5Pm1.M5Pm1.SetGpioFunction(Iot.Device.M5Pm1.Pin,Iot.Device.M5Pm1.GpioFunction)">
+  SetGpioFunction(Pin, GpioFunction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the multiplexed function of a GPIO pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGpioFunction(Pin pin, GpioFunction function)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="Iot.Device.M5Pm1.Pin.html">Pin</a></dt>
+    <dd><p>The GPIO pin to configure.</p>
+</dd>
+    <dt><code>function</code> <a class="xref" href="Iot.Device.M5Pm1.GpioFunction.html">GpioFunction</a></dt>
+    <dd><p>The function to apply.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_SetGpioMode_" data-uid="Iot.Device.M5Pm1.M5Pm1.SetGpioMode*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_SetGpioMode_Iot_Device_M5Pm1_Pin_System_Device_Gpio_PinMode_" data-uid="Iot.Device.M5Pm1.M5Pm1.SetGpioMode(Iot.Device.M5Pm1.Pin,System.Device.Gpio.PinMode)">
+  SetGpioMode(Pin, PinMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the direction (input or output) of a GPIO pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGpioMode(Pin pin, PinMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="Iot.Device.M5Pm1.Pin.html">Pin</a></dt>
+    <dd><p>The GPIO pin to configure.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="../api/System.Device.Gpio.PinMode.html">PinMode</a></dt>
+    <dd><p>The direction to apply. Only <a class="xref" href="../api/System.Device.Gpio.PinMode.html#System_Device_Gpio_PinMode_Input">Input</a> and <a class="xref" href="../api/System.Device.Gpio.PinMode.html#System_Device_Gpio_PinMode_Output">Output</a> are supported; the M5PM1 has no internal pull resistors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">mode</code> is not <a class="xref" href="../api/System.Device.Gpio.PinMode.html#System_Device_Gpio_PinMode_Input">Input</a> or <a class="xref" href="../api/System.Device.Gpio.PinMode.html#System_Device_Gpio_PinMode_Output">Output</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Iot_Device_M5Pm1_M5Pm1_WriteGpio_" data-uid="Iot.Device.M5Pm1.M5Pm1.WriteGpio*"></a>
+
+  <h3 id="Iot_Device_M5Pm1_M5Pm1_WriteGpio_Iot_Device_M5Pm1_Pin_System_Device_Gpio_PinValue_" data-uid="Iot.Device.M5Pm1.M5Pm1.WriteGpio(Iot.Device.M5Pm1.Pin,System.Device.Gpio.PinValue)">
+  WriteGpio(Pin, PinValue)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the output level of a GPIO pin (when it is configured as an output).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void WriteGpio(Pin pin, PinValue value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pin</code> <a class="xref" href="Iot.Device.M5Pm1.Pin.html">Pin</a></dt>
+    <dd><p>The GPIO pin to drive.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="../api/System.Device.Gpio.PinValue.html">PinValue</a></dt>
+    <dd><p>The level to drive the pin to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

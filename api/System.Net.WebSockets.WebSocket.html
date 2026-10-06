@@ -517,7 +517,7 @@ the connection. Default is 60 seconds.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Will start closing the WebSocket connection using the close handshake defined in the WebSocket protocol specification section 7.</p>
+  <div class="markdown level1 summary"><p>Will start closing the WebSocket connection using the close handshake defined in the <a class="xref" href="System.Net.WebSockets.WebSocket.html">WebSocket</a> protocol specification section 7.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -543,7 +543,19 @@ the connection. Default is 60 seconds.</p>
 
 
   <h4 class="section" id="System_Net_WebSockets_WebSocket_Close_System_Net_WebSockets_WebSocketFrame_WebSocketCloseStatus_System_String__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>WebSocketCloseStatus.EndpointUnavailable will close the WebSocket synchronous without awaiting response.</p>
+  <div class="markdown level1 remarks"><p>
+This method doesn't block. The close message is sent after the messages already queued and <a class="xref" href="System.Net.WebSockets.WebSocket.html#System_Net_WebSockets_WebSocket_ConnectionClosed">ConnectionClosed</a> is raised
+when the remote endpoint answers the close message, or after <a class="xref" href="System.Net.WebSockets.WebSocket.html#System_Net_WebSockets_WebSocket_ServerTimeout">ServerTimeout</a> if it doesn't.
+</p>
+<p>
+<a class="xref" href="System.Net.WebSockets.WebSocketFrame.WebSocketCloseStatus.html#System_Net_WebSockets_WebSocketFrame_WebSocketCloseStatus_EndpointUnavailable">EndpointUnavailable</a> will close the <a class="xref" href="System.Net.WebSockets.WebSocket.html">WebSocket</a> synchronous without awaiting response.
+The call blocks until the close message is sent, waiting at most <a class="xref" href="System.Net.WebSockets.WebSocket.html#System_Net_WebSockets_WebSocket_ServerTimeout">ServerTimeout</a> (5 seconds if it's infinite).
+If that time expires first, the connection is closed anyway and the close message may not have been sent.
+Messages still queued may not be sent.
+</p>
+<p>
+Only has effect if the connection is open. With <a class="xref" href="System.Net.WebSockets.WebSocketFrame.WebSocketCloseStatus.html#System_Net_WebSockets_WebSocketFrame_WebSocketCloseStatus_Empty">Empty</a> no status code is sent, so <code class="paramref">statusDescription</code> is ignored.
+</p>
 </div>
 
 

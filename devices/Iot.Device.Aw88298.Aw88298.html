@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Aw88298 | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Aw88298 | .NET nanoFramework Documentation ">
+      
+      <meta name="description" content="Driver for the Awinic AW88298 I2S Class-D smart audio amplifier (speaker output).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Iot.Device.Aw88298.Aw88298">
+
+
+
+  <h1 id="Iot_Device_Aw88298_Aw88298" data-uid="Iot.Device.Aw88298.Aw88298" class="text-break">
+Class Aw88298  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Aw88298.html">Aw88298</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Aw88298.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Driver for the Awinic AW88298 I2S Class-D smart audio amplifier (speaker output).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Aw88298</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Aw88298</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Iot_Device_Aw88298_Aw88298_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The AW88298 drives a speaker from an I2S PCM stream. This binding covers the I2C control plane
+only (reset, power/enable, output volume, mute and the boost configuration). The PCM audio samples
+are streamed over I2S using <code>System.Device.I2s</code> and are not handled by this class. The
+register sequences are ported from the Espressif <code>esp_codec_dev</code> component. The AW88298 uses
+16-bit registers.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Iot_Device_Aw88298_Aw88298__ctor_" data-uid="Iot.Device.Aw88298.Aw88298.#ctor*"></a>
+
+  <h3 id="Iot_Device_Aw88298_Aw88298__ctor_System_Device_I2c_I2cDevice_System_Boolean_" data-uid="Iot.Device.Aw88298.Aw88298.#ctor(System.Device.I2c.I2cDevice,System.Boolean)">
+  Aw88298(I2cDevice, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Aw88298.Aw88298.html">Aw88298</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Aw88298(I2cDevice i2cDevice, bool shouldDispose = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>The I2C device used for communication with the amplifier.</p>
+</dd>
+    <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to dispose the <code class="paramref">i2cDevice</code> when this instance is disposed; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">i2cDevice</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_Aw88298_Aw88298_DefaultI2cAddress" data-uid="Iot.Device.Aw88298.Aw88298.DefaultI2cAddress">
+  DefaultI2cAddress
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default I2C address for the AW88298 (7-bit).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const byte DefaultI2cAddress = 54</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Iot_Device_Aw88298_Aw88298_Muted_" data-uid="Iot.Device.Aw88298.Aw88298.Muted*"></a>
+
+  <h3 id="Iot_Device_Aw88298_Aw88298_Muted" data-uid="Iot.Device.Aw88298.Aw88298.Muted">
+  Muted
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the amplifier output is muted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Muted { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the output is muted; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Aw88298_Aw88298_Volume_" data-uid="Iot.Device.Aw88298.Aw88298.Volume*"></a>
+
+  <h3 id="Iot_Device_Aw88298_Aw88298_Volume" data-uid="Iot.Device.Aw88298.Aw88298.Volume">
+  Volume
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the amplifier output volume as a percentage from 0 (minimum) to 100 (maximum).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Volume { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The output volume as a percentage from 0 (minimum) to 100 (maximum).</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Iot_Device_Aw88298_Aw88298_Volume_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The percentage is mapped linearly onto the digital volume field (bits 15:8) of register 0x0C.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Iot_Device_Aw88298_Aw88298_Dispose_" data-uid="Iot.Device.Aw88298.Aw88298.Dispose*"></a>
+
+  <h3 id="Iot_Device_Aw88298_Aw88298_Dispose" data-uid="Iot.Device.Aw88298.Aw88298.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Aw88298_Aw88298_Initialize_" data-uid="Iot.Device.Aw88298.Aw88298.Initialize*"></a>
+
+  <h3 id="Iot_Device_Aw88298_Aw88298_Initialize_System_Int32_" data-uid="Iot.Device.Aw88298.Aw88298.Initialize(System.Int32)">
+  Initialize(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets and configures the amplifier for I2S playback (16-bit samples).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(int sampleRate = 16000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampleRate</code> <a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The I2S sample rate, in Hz, of the audio stream that will be sent to the amplifier (for example 16000).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Aw88298_Aw88298_Initialize_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This runs the AW88298 initialization register sequence ported from the M5Stack CoreS3
+(M5Unified) / Espressif <code>esp_codec_dev</code> drivers. The I2S control register (0x06) is
+derived from <code class="paramref">sampleRate</code> so the amplifier locks to the incoming stream.
+The amplifier is left enabled; call <a class="xref" href="Iot.Device.Aw88298.Aw88298.html#Iot_Device_Aw88298_Aw88298_Start">Start()</a> to (re-)enable the output stage after
+a <a class="xref" href="Iot.Device.Aw88298.Aw88298.html#Iot_Device_Aw88298_Aw88298_Stop">Stop()</a>.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Aw88298_Aw88298_Start_" data-uid="Iot.Device.Aw88298.Aw88298.Start*"></a>
+
+  <h3 id="Iot_Device_Aw88298_Aw88298_Start" data-uid="Iot.Device.Aw88298.Aw88298.Start">
+  Start()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Powers up the amplifier output stage so it can drive the speaker.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Aw88298_Aw88298_Stop_" data-uid="Iot.Device.Aw88298.Aw88298.Stop*"></a>
+
+  <h3 id="Iot_Device_Aw88298_Aw88298_Stop" data-uid="Iot.Device.Aw88298.Aw88298.Stop">
+  Stop()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Powers down the amplifier output stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

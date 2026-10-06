@@ -511,6 +511,33 @@ The authentication process uses the specified SSL protocols.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Authentication has already been performed on this stream, or all native SSL context slots are in.</p>
+</dd>
+    <dt><a class="xref" href="System.OutOfMemoryException.html">OutOfMemoryException</a></dt>
+    <dd><p>A memory allocation failed while setting up the SSL context. The device may be low on heap.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>SSL context initialisation failed. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains the
+corresponding <a class="xref" href="System.Net.Sockets.SslError.html">SslError</a> value:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_DrbgSeedFailed">DrbgSeedFailed</a> - entropy source could not be initialised;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_ConfigDefaultsFailed">ConfigDefaultsFailed</a> - internal mbedTLS configuration error;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_UnsupportedProtocolVersion">UnsupportedProtocolVersion</a> - the requested TLS version is not supported on this device;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_SetupFailed">SetupFailed</a> - final SSL context setup failed.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Thrown during the TLS handshake when:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeBadContext">HandshakeBadContext</a> - the SSL context was not valid;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeSetHostname">HandshakeSetHostname</a> - setting the server hostname for SNI failed.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>Thrown during the TLS handshake. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains:
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeCertVerifyFailed">HandshakeCertVerifyFailed</a> - the bitmask of <code>MBEDTLS_X509_BADCERT_*</code> verification flags;
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeFailed">HandshakeFailed</a> - the raw negative mbedTLS error code.</p>
+</dd>
+  </dl>
 
 
 
@@ -554,6 +581,36 @@ The authentication process uses the specified certificate collections and SSL pr
   <div class="markdown level1 remarks"><p>Instead of providing the client certificate in the <code class="paramref">clientCertificate</code> parameter the <a class="xref" href="System.Net.Security.SslStream.html#System_Net_Security_SslStream_UseStoredDeviceCertificate">UseStoredDeviceCertificate</a> property can be used to use the certificate stored in the device.</p>
 </div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Authentication has already been performed on this stream, or all native SSL context slots are in.</p>
+</dd>
+    <dt><a class="xref" href="System.OutOfMemoryException.html">OutOfMemoryException</a></dt>
+    <dd><p>A memory allocation failed while setting up the SSL context. The device may be low on heap.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>SSL context initialisation failed. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains the
+corresponding <a class="xref" href="System.Net.Sockets.SslError.html">SslError</a> value:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_DrbgSeedFailed">DrbgSeedFailed</a> - entropy source could not be initialised;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_ConfigDefaultsFailed">ConfigDefaultsFailed</a> - internal mbedTLS configuration error;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_UnsupportedProtocolVersion">UnsupportedProtocolVersion</a> - the requested TLS version is not supported on this device;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_CertificateParseFailed">CertificateParseFailed</a> - the client certificate could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_PrivateKeyParseFailed">PrivateKeyParseFailed</a> - the client private key could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_OwnCertConfigFailed">OwnCertConfigFailed</a> - configuring the certificate/key pair on the SSL context failed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_SetupFailed">SetupFailed</a> - final SSL context setup failed.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Thrown during the TLS handshake when:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeBadContext">HandshakeBadContext</a> - the SSL context was not valid;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeSetHostname">HandshakeSetHostname</a> - setting the server hostname for SNI failed.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>Thrown during the TLS handshake. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains:
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeCertVerifyFailed">HandshakeCertVerifyFailed</a> - the bitmask of <code>MBEDTLS_X509_BADCERT_*</code> verification flags;
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeFailed">HandshakeFailed</a> - the raw negative mbedTLS error code.</p>
+</dd>
+  </dl>
 
 
 
@@ -600,6 +657,36 @@ The authentication process uses the specified certificate collections and SSL pr
   <div class="markdown level1 remarks"><p>Instead of providing the client certificate in the <code class="paramref">clientCertificate</code> parameter the <a class="xref" href="System.Net.Security.SslStream.html#System_Net_Security_SslStream_UseStoredDeviceCertificate">UseStoredDeviceCertificate</a> property can be used to use the certificate stored in the device.</p>
 </div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Authentication has already been performed on this stream, or all native SSL context slots are in.</p>
+</dd>
+    <dt><a class="xref" href="System.OutOfMemoryException.html">OutOfMemoryException</a></dt>
+    <dd><p>A memory allocation failed while setting up the SSL context. The device may be low on heap.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>SSL context initialisation failed. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains the
+corresponding <a class="xref" href="System.Net.Sockets.SslError.html">SslError</a> value:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_DrbgSeedFailed">DrbgSeedFailed</a> - entropy source could not be initialised;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_ConfigDefaultsFailed">ConfigDefaultsFailed</a> - internal mbedTLS configuration error;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_UnsupportedProtocolVersion">UnsupportedProtocolVersion</a> - the requested TLS version is not supported on this device;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_CertificateParseFailed">CertificateParseFailed</a> - the client or CA certificate could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_PrivateKeyParseFailed">PrivateKeyParseFailed</a> - the client private key could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_OwnCertConfigFailed">OwnCertConfigFailed</a> - configuring the certificate/key pair on the SSL context failed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_SetupFailed">SetupFailed</a> - final SSL context setup failed.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Thrown during the TLS handshake when:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeBadContext">HandshakeBadContext</a> - the SSL context was not valid;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeSetHostname">HandshakeSetHostname</a> - setting the server hostname for SNI failed.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>Thrown during the TLS handshake. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains:
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeCertVerifyFailed">HandshakeCertVerifyFailed</a> - the bitmask of <code>MBEDTLS_X509_BADCERT_*</code> verification flags;
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeFailed">HandshakeFailed</a> - the raw negative mbedTLS error code.</p>
+</dd>
+  </dl>
 
 
 
@@ -624,7 +711,7 @@ The authentication process uses the specified certificate collections and SSL pr
     <dd><p>The X509Certificate used to authenticate the server.</p>
 </dd>
     <dt><code>clientCertificateRequired</code> <a class="xref" href="System.Boolean.html">bool</a></dt>
-    <dd><p>A <a class="xref" href="System.Boolean.html">bool</a> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request, if no certificate is provided, the server still accepts the connection request.</p>
+    <dd><p>A <a class="xref" href="System.Boolean.html">bool</a> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request — if no certificate is provided, the server still accepts the connection request.</p>
 </dd>
     <dt><code>enabledSslProtocols</code> <a class="xref" href="System.Net.Security.SslProtocols.html">SslProtocols</a></dt>
     <dd><p>The protocols that may be used for authentication.</p>
@@ -642,6 +729,34 @@ The authentication process uses the specified certificate collections and SSL pr
   <div class="markdown level1 remarks"><p>Instead of providing the server certificate in the <code class="paramref">serverCertificate</code> parameter the <a class="xref" href="System.Net.Security.SslStream.html#System_Net_Security_SslStream_UseStoredDeviceCertificate">UseStoredDeviceCertificate</a> property can be used to use the certificate stored in the device.</p>
 </div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Authentication has already been performed on this stream, or all native SSL context slots are in.</p>
+</dd>
+    <dt><a class="xref" href="System.OutOfMemoryException.html">OutOfMemoryException</a></dt>
+    <dd><p>A memory allocation failed while setting up the SSL context. The device may be low on heap.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>SSL context initialisation failed. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains the
+corresponding <a class="xref" href="System.Net.Sockets.SslError.html">SslError</a> value:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_DrbgSeedFailed">DrbgSeedFailed</a> - entropy source could not be initialised;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_ConfigDefaultsFailed">ConfigDefaultsFailed</a> - internal mbedTLS configuration error;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_UnsupportedProtocolVersion">UnsupportedProtocolVersion</a> - the requested TLS version is not supported on this device;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_CertificateParseFailed">CertificateParseFailed</a> - the server certificate could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_PrivateKeyParseFailed">PrivateKeyParseFailed</a> - the server private key could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_OwnCertConfigFailed">OwnCertConfigFailed</a> - configuring the certificate/key pair on the SSL context failed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_SetupFailed">SetupFailed</a> - final SSL context setup failed.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Thrown during the TLS handshake when <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeBadContext">HandshakeBadContext</a> - the SSL context was not valid.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>Thrown during the TLS handshake. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains:
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeCertVerifyFailed">HandshakeCertVerifyFailed</a> - the bitmask of <code>MBEDTLS_X509_BADCERT_*</code> verification flags (when client certificate verification is enabled);
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeFailed">HandshakeFailed</a> - the raw negative mbedTLS error code.</p>
+</dd>
+  </dl>
 
 
 
@@ -682,6 +797,34 @@ verification requirements and security protocol.</p>
   <div class="markdown level1 remarks"><p>Instead of providing the server certificate in the <code class="paramref">serverCertificate</code> parameter the <a class="xref" href="System.Net.Security.SslStream.html#System_Net_Security_SslStream_UseStoredDeviceCertificate">UseStoredDeviceCertificate</a> property can be used to use the certificate stored in the device.</p>
 </div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Authentication has already been performed on this stream, or all native SSL context slots are in.</p>
+</dd>
+    <dt><a class="xref" href="System.OutOfMemoryException.html">OutOfMemoryException</a></dt>
+    <dd><p>A memory allocation failed while setting up the SSL context. The device may be low on heap.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>SSL context initialisation failed. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains the
+corresponding <a class="xref" href="System.Net.Sockets.SslError.html">SslError</a> value:
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_DrbgSeedFailed">DrbgSeedFailed</a> - entropy source could not be initialised;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_ConfigDefaultsFailed">ConfigDefaultsFailed</a> - internal mbedTLS configuration error;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_UnsupportedProtocolVersion">UnsupportedProtocolVersion</a> - the requested TLS version is not supported on this device;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_CertificateParseFailed">CertificateParseFailed</a> - the server certificate could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_PrivateKeyParseFailed">PrivateKeyParseFailed</a> - the server private key could not be parsed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_OwnCertConfigFailed">OwnCertConfigFailed</a> - configuring the certificate/key pair on the SSL context failed;
+<a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_SetupFailed">SetupFailed</a> - final SSL context setup failed.</p>
+</dd>
+    <dt><a class="xref" href="System.InvalidOperationException.html">InvalidOperationException</a></dt>
+    <dd><p>Thrown during the TLS handshake when <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeBadContext">HandshakeBadContext</a> - the SSL context was not valid.</p>
+</dd>
+    <dt><a class="xref" href="System.Security.Cryptography.CryptographicException.html">CryptographicException</a></dt>
+    <dd><p>Thrown during the TLS handshake. The <a class="xref" href="System.Security.Cryptography.CryptographicException.html#System_Security_Cryptography_CryptographicException_ErrorCode">ErrorCode</a> property contains:
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeCertVerifyFailed">HandshakeCertVerifyFailed</a> - the bitmask of <code>MBEDTLS_X509_BADCERT_*</code> verification flags (when client certificate verification is enabled);
+for <a class="xref" href="System.Net.Sockets.SslError.html#System_Net_Sockets_SslError_HandshakeFailed">HandshakeFailed</a> - the raw negative mbedTLS error code.</p>
+</dd>
+  </dl>
 
 
 
@@ -824,6 +967,35 @@ verification requirements and security protocol.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">buffer</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>
+<code class="paramref">offset</code> or <code class="paramref">size</code> is less than zero
+</p>
+<p>
+-or-
+</p>
+<p>
+<code class="paramref">offset</code> is greater than the length of <code class="paramref">buffer</code>.
+</p>
+<p>
+-or-
+</p>
+<p>
+<code class="paramref">offset</code> + <code class="paramref">size</code> is greater than the length of <code class="paramref">buffer</code>.
+</p>
+</dd>
+    <dt><a class="xref" href="System.ObjectDisposedException.html">ObjectDisposedException</a></dt>
+    <dd><p>The stream has been disposed.</p>
+</dd>
+    <dt><a class="xref" href="System.IO.IOException.html">IOException</a></dt>
+    <dd><p>The write operation failed.</p>
+</dd>
+  </dl>
 
 
 

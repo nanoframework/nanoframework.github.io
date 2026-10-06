@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>ES7243E - Audio ADC (microphone capture codec) | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="ES7243E - Audio ADC (microphone capture codec) | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Es7243e/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="es7243e---audio-adc-microphone-capture-codec">ES7243E - Audio ADC (microphone capture codec)</h1>
+
+<p>The <a href="https://www.everest-semi.com/">Everest Semiconductor ES7243E</a> is a low-power audio ADC used on many ESP32 audio boards (ESP-BOX, ESP32-S3-Korvo, LyraT). It digitizes analog microphone inputs and outputs the captured audio as an I2S PCM stream.</p>
+<p>This binding covers the <strong>I2C control plane only</strong>. It configures the codec (clocking, serial data format, microphone gain, mute and power state). The captured PCM audio samples are streamed out over <strong>I2S</strong> using <code>System.Device.I2s</code> and are not handled by this binding.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The register sequences are ported from the Espressif <a href="https://components.espressif.com/components/espressif/esp_codec_dev"><code>esp_codec_dev</code></a> component and must be validated on real hardware if different from the ESP32-S3 Box Lite. The default I2C address (typically 0x10 or 0x11) and the exact serial-format bit mapping depend on your board wiring - confirm against the schematic and codec datasheet.</p>
+</div>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>ES7243E is configured over I2C (control) and streams captured audio over I2S (data).</li>
+<li>Two chips make up a full-duplex audio path on boards such as the ESP32-S3-BOX-Lite: the ES7243E (ADC, capture) and the ES8156 (DAC, playback).</li>
+<li>Espressif <a href="https://components.espressif.com/components/espressif/esp_codec_dev"><code>esp_codec_dev</code> component</a> - the source of the register sequences used by this binding (<a href="https://github.com/espressif/esp-adf/tree/master/components/esp_codec_dev/device/es7243e">ES7243E driver source</a>).</li>
+<li>Espressif <a href="https://github.com/espressif/esp-box/blob/master/docs/hardware_overview/esp32_s3_box_lite/hardware_overview_for_lite.md">ESP32-S3-BOX-Lite hardware overview</a> and the <a href="https://github.com/espressif/esp-box">ESP-BOX repository</a>.</li>
+</ul>
+<h2 id="audio-path-on-the-esp32-s3-box-lite">Audio path on the ESP32-S3-BOX-Lite</h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Pin</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I2C SCL</td>
+<td>GPIO18</td>
+<td>Codec register control clock</td>
+</tr>
+<tr>
+<td>I2C SDA</td>
+<td>GPIO8</td>
+<td>Codec register control data</td>
+</tr>
+<tr>
+<td>I2S DSIN</td>
+<td>GPIO16</td>
+<td>Capture samples from the ES7243E into the ESP32</td>
+</tr>
+<tr>
+<td>I2S DOUT</td>
+<td>GPIO15</td>
+<td>Playback samples out of the ESP32 to the ES8156</td>
+</tr>
+<tr>
+<td>I2S WS / LRCLK</td>
+<td>GPIO47</td>
+<td>Word select / left-right clock</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>I2C bus carries register configuration only</strong> (sample rate, data format, mic gain, mute, power). No audio samples travel over I2C. The <strong>actual PCM audio streams over I2S</strong>.</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: I2C pins for the ESP32 must be properly set up before creating the <code>I2cDevice</code>. For this, make sure you install the <code>nanoFramework.Hardware.Esp32</code> NuGet and use the <code>Configuration</code> class to configure the pins:</p>
+<pre><code class="lang-csharp">using Iot.Device.Es7243e;
+using nanoFramework.Hardware.Esp32;
+using System;
+using System.Device.I2c;
+using System.Device.I2s;
+
+// Setup ESP32-S3-BOX-Lite I2C control bus (SDA = GPIO8, SCL = GPIO18).
+Configuration.SetPinFunction(8, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(18, DeviceFunction.I2C1_CLOCK);
+
+I2cConnectionSettings settings = new I2cConnectionSettings(1, Es7243e.DefaultI2cAddress);
+I2cDevice i2cDevice = new I2cDevice(settings);
+
+Es7243e adc = new Es7243e(i2cDevice);
+
+// Setup the ESP32 I2S receiver first so MCLK/BCLK/WS are running before the codec is configured.
+// ESP32-S3-BOX-Lite I2S pin-out: BCLK = GPIO17, WS = GPIO47, DSIN = GPIO16, MCLK = GPIO2.
+Configuration.SetPinFunction(17, DeviceFunction.I2S1_BCK);
+Configuration.SetPinFunction(47, DeviceFunction.I2S1_WS);
+Configuration.SetPinFunction(16, DeviceFunction.I2S1_MDATA_IN);
+Configuration.SetPinFunction(2, DeviceFunction.I2S1_MCK);
+
+I2sDevice i2s = new I2sDevice(new I2sConnectionSettings(1)
+{
+    Mode = I2sMode.Master | I2sMode.Rx,
+    CommunicationFormat = I2sCommunicationFormat.I2S,
+    ChannelFormat = I2sChannelFormat.RightLeft,
+    BitsPerSample = I2sBitsPerSample.Bit16,
+    SampleRate = 16_000,
+});
+
+// Bring the codec up and start capturing. Initialize() already puts the ES7243E into 16-bit I2S
+// mode; set the mic gain after Start() (which resets it to a low value).
+adc.Initialize();
+adc.Start();
+adc.SetMicGain(Es7243e.MaxMicGain);
+
+// Read a block of audio and compute a simple peak amplitude. When you speak or tap near the
+// microphones the reported value rises above the idle noise floor, confirming the ES7243E is
+// configured correctly and streaming over I2S.
+SpanByte buffer = new byte[1024];
+i2s.Read(buffer);
+
+int peak = 0;
+for (int i = 0; i + 1 &lt; buffer.Length; i += 2)
+{
+    short sample = (short)(buffer[i] | (buffer[i + 1] &lt;&lt; 8));
+    int magnitude = sample &lt; 0 ? -sample : sample;
+    if (magnitude &gt; peak)
+    {
+        peak = magnitude;
+    }
+}
+
+Debug.WriteLine($&quot;Peak amplitude = {peak}&quot;);
+</code></pre>
+<p>The full sample loops the I2S read so you can watch the peak amplitude react to sound in real time.</p>
+<p>For other targets (STM32, etc.) use the preset hardware I2C pins (no <code>SetPinFunction</code> call needed).</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Es7243e/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

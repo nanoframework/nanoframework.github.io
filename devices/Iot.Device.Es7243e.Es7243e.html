@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Es7243e | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Es7243e | .NET nanoFramework Documentation ">
+      
+      <meta name="description" content="Driver for the Everest Semiconductor ES7243E audio ADC (microphone capture codec).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Iot.Device.Es7243e.Es7243e">
+
+
+
+  <h1 id="Iot_Device_Es7243e_Es7243e" data-uid="Iot.Device.Es7243e.Es7243e" class="text-break">
+Class Es7243e  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Es7243e.html">Es7243e</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Es7243e.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Driver for the Everest Semiconductor ES7243E audio ADC (microphone capture codec).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Es7243e</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Es7243e</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Iot_Device_Es7243e_Es7243e_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This binding covers the I2C control plane only. It configures the codec (clocking, serial data
+format, microphone gain, mute and power state). The captured PCM audio samples are streamed out
+over I2S and are not handled by this class. The register sequences are ported from the Espressif
+<code>esp_codec_dev</code> component.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Iot_Device_Es7243e_Es7243e__ctor_" data-uid="Iot.Device.Es7243e.Es7243e.#ctor*"></a>
+
+  <h3 id="Iot_Device_Es7243e_Es7243e__ctor_System_Device_I2c_I2cDevice_System_Boolean_" data-uid="Iot.Device.Es7243e.Es7243e.#ctor(System.Device.I2c.I2cDevice,System.Boolean)">
+  Es7243e(I2cDevice, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Es7243e.Es7243e.html">Es7243e</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Es7243e(I2cDevice i2cDevice, bool shouldDispose = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i2cDevice</code> <a class="xref" href="../api/System.Device.I2c.I2cDevice.html">I2cDevice</a></dt>
+    <dd><p>The I2C device used for communication with the codec.</p>
+</dd>
+    <dt><code>shouldDispose</code> <a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to dispose the <code class="paramref">i2cDevice</code> when this instance is disposed; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">i2cDevice</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_DefaultI2cAddress" data-uid="Iot.Device.Es7243e.Es7243e.DefaultI2cAddress">
+  DefaultI2cAddress
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default I2C address for the ES7243E (7-bit).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const byte DefaultI2cAddress = 16</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Es7243e_Es7243e_DefaultI2cAddress_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The address depends on the board wiring of the ES7243E address pins (typically 0x10 or 0x11).
+Confirm against the schematic.</p>
+</div>
+
+
+
+
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_MaxMicGain" data-uid="Iot.Device.Es7243e.Es7243e.MaxMicGain">
+  MaxMicGain
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum microphone gain register value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const byte MaxMicGain = 30</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_MinMicGain" data-uid="Iot.Device.Es7243e.Es7243e.MinMicGain">
+  MinMicGain
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Minimum microphone gain register value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const byte MinMicGain = 16</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Iot_Device_Es7243e_Es7243e_Muted_" data-uid="Iot.Device.Es7243e.Es7243e.Muted*"></a>
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_Muted" data-uid="Iot.Device.Es7243e.Es7243e.Muted">
+  Muted
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the ADC output is muted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Muted { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the capture output is muted; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Iot_Device_Es7243e_Es7243e_Dispose_" data-uid="Iot.Device.Es7243e.Es7243e.Dispose*"></a>
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_Dispose" data-uid="Iot.Device.Es7243e.Es7243e.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Es7243e_Es7243e_Initialize_" data-uid="Iot.Device.Es7243e.Es7243e.Initialize*"></a>
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_Initialize" data-uid="Iot.Device.Es7243e.Es7243e.Initialize">
+  Initialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies the default power-up and clocking configuration to the codec.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Es7243e_Es7243e_Initialize_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This runs the ES7243E initialization register sequence (slave mode, I2S data format). After
+calling this method the codec is configured; call <a class="xref" href="Iot.Device.Es7243e.Es7243e.html#Iot_Device_Es7243e_Es7243e_Start">Start()</a> to begin capturing.
+This implementation is proven to work on ESP32-S3 and you may have to implement your own for
+other platforms. The ES7243E datasheet is not publicly available, so the register bit layout
+and function is not fully known.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Es7243e_Es7243e_SetMicGain_" data-uid="Iot.Device.Es7243e.Es7243e.SetMicGain*"></a>
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_SetMicGain_System_Byte_" data-uid="Iot.Device.Es7243e.Es7243e.SetMicGain(System.Byte)">
+  SetMicGain(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the analog microphone (PGA) gain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMicGain(byte gain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gain</code> <a class="xref" href="../api/System.Byte.html">byte</a></dt>
+    <dd><p>The gain register value, from <a class="xref" href="Iot.Device.Es7243e.Es7243e.html#Iot_Device_Es7243e_Es7243e_MinMicGain">MinMicGain</a> (lowest) to <a class="xref" href="Iot.Device.Es7243e.Es7243e.html#Iot_Device_Es7243e_Es7243e_MaxMicGain">MaxMicGain</a> (highest).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Iot_Device_Es7243e_Es7243e_SetMicGain_System_Byte__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The same value is written to both PGA gain registers (0x20 and 0x21). Higher values increase gain.</p>
+</div>
+
+
+
+
+  <a id="Iot_Device_Es7243e_Es7243e_Start_" data-uid="Iot.Device.Es7243e.Es7243e.Start*"></a>
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_Start" data-uid="Iot.Device.Es7243e.Es7243e.Start">
+  Start()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Powers up the codec and starts capturing audio from the microphones.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Es7243e_Es7243e_Stop_" data-uid="Iot.Device.Es7243e.Es7243e.Stop*"></a>
+
+  <h3 id="Iot_Device_Es7243e_Es7243e_Stop" data-uid="Iot.Device.Es7243e.Es7243e.Stop">
+  Stop()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops audio capture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

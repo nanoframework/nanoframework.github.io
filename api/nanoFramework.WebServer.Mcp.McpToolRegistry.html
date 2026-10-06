@@ -93,7 +93,7 @@ Class McpToolRegistry
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="nanoFramework.html">nanoFramework</a>.<a class="xref" href="nanoFramework.WebServer.html">WebServer</a>.<a class="xref" href="nanoFramework.WebServer.Mcp.html">Mcp</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">nanoFramework</span>.<a class="xref" href="nanoFramework.WebServer.html">WebServer</a>.<a class="xref" href="nanoFramework.WebServer.Mcp.html">Mcp</a></dd></dl>
   <dl><dt>Assembly</dt><dd>nanoFramework.WebServer.Mcp.dll</dd></dl>
   </div>
 
@@ -234,6 +234,79 @@ Class McpToolRegistry
 
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="nanoFramework_WebServer_Mcp_McpToolRegistry_DiscoverTools_" data-uid="nanoFramework.WebServer.Mcp.McpToolRegistry.DiscoverTools*"></a>
+
+  <h3 id="nanoFramework_WebServer_Mcp_McpToolRegistry_DiscoverTools_System_Object___" data-uid="nanoFramework.WebServer.Mcp.McpToolRegistry.DiscoverTools(System.Object[])">
+  DiscoverTools(object[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Discovers MCP tools by scanning the provided object instances for methods decorated with the McpServerToolAttribute.
+Instance methods are invoked against the object they were discovered on, allowing live device objects to expose tools.
+This overload is additive and can be called in addition to the static <a class="xref" href="nanoFramework.WebServer.Mcp.McpToolRegistry.html#nanoFramework_WebServer_Mcp_McpToolRegistry_DiscoverTools_System_Type___">DiscoverTools(Type[])</a> discovery.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DiscoverTools(object[] toolInstances)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toolInstances</code> <a class="xref" href="System.Object.html">object</a>[]</dt>
+    <dd><p>An array of object instances to scan for MCP tools.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="nanoFramework_WebServer_Mcp_McpToolRegistry_DiscoverTools_" data-uid="nanoFramework.WebServer.Mcp.McpToolRegistry.DiscoverTools*"></a>
+
+  <h3 id="nanoFramework_WebServer_Mcp_McpToolRegistry_DiscoverTools_System_Object___System_String___" data-uid="nanoFramework.WebServer.Mcp.McpToolRegistry.DiscoverTools(System.Object[],System.String[])">
+  DiscoverTools(object[], string[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Discovers MCP tools on the provided object instances, prepending an optional per-instance name prefix to every
+discovered tool name so that several instances of the same type can be registered without name collisions.
+This overload is additive and can be called in addition to the static <a class="xref" href="nanoFramework.WebServer.Mcp.McpToolRegistry.html#nanoFramework_WebServer_Mcp_McpToolRegistry_DiscoverTools_System_Type___">DiscoverTools(Type[])</a> discovery.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DiscoverTools(object[] toolInstances, string[] toolNamePrefixes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toolInstances</code> <a class="xref" href="System.Object.html">object</a>[]</dt>
+    <dd><p>An array of object instances to scan for MCP tools.</p>
+</dd>
+    <dt><code>toolNamePrefixes</code> <a class="xref" href="System.String.html">string</a>[]</dt>
+    <dd><p>An optional parallel array of name prefixes; a null or empty entry means no prefix. May be null to apply no prefixes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="nanoFramework_WebServer_Mcp_McpToolRegistry_DiscoverTools_" data-uid="nanoFramework.WebServer.Mcp.McpToolRegistry.DiscoverTools*"></a>

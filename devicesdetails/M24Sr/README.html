@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>M24SR - dynamic NFC tag | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="M24SR - dynamic NFC tag | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/M24Sr/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="m24sr---dynamic-nfc-tag">M24SR - dynamic NFC tag</h1>
+
+<p>The M24SR is an NFC Forum Type 4 dynamic tag that exposes the same NDEF storage over NFC and I2C. It is included on boards such as the ST B-L475E-IOT01A Discovery kit. Unlike a register-based EEPROM, the I2C interface uses framed ISO 14443-4 APDU commands with CRC checking and session arbitration.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://www.st.com/en/nfc/m24sr64-y.html">M24SR64-Y product page</a></li>
+<li><a href="https://www.st.com/resource/en/datasheet/m24sr64-y.pdf">M24SR64-Y datasheet</a></li>
+<li><a href="https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html">B-L475E-IOT01A Discovery kit</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: make sure you properly setup the I2C pins especially for ESP32 before creating the <code>I2cDevice</code>, make sure you install the <code>nanoFramework.Hardware.ESP32 nuget</code>:</p>
+<pre><code class="lang-csharp">//////////////////////////////////////////////////////////////////////
+// when connecting to an ESP32 device, need to configure the I2C GPIOs
+// used for the bus
+Configuration.SetPinFunction(21, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(22, DeviceFunction.I2C1_CLOCK);
+</code></pre>
+<p>The on-board M24SR64-Y uses the 7-bit I2C address <code>0x56</code>. The sample uses I2C bus 2; adjust the bus number if the board firmware maps that peripheral differently.</p>
+<p>An I2C session must be opened before accessing the tag and closed afterward. <code>OpenSession</code> retries normal session acquisition up to the configured polling limit and does not intentionally interrupt NFC activity. It throws <code>InvalidOperationException</code> if the session remains unavailable. Use <code>KillSession</code> only when taking ownership is more important than preserving an active RF session.</p>
+<pre><code class="lang-csharp">using Iot.Device.M24Sr;
+using Iot.Device.Ndef;
+using System.Device.I2c;
+using System.Diagnostics;
+
+I2cConnectionSettings settings = new(2, M24Sr.DefaultI2cAddress);
+using M24Sr tag = new(I2cDevice.Create(settings));
+
+tag.OpenSession();
+try
+{
+    M24SrCapabilityContainer capabilityContainer = tag.ReadCapabilityContainer();
+    NdefMessage message = tag.ReadNdefMessage();
+
+    Debug.WriteLine($&quot;NDEF capacity: {capabilityContainer.MaximumNdefFileSize - 2} bytes&quot;);
+    Debug.WriteLine($&quot;NDEF length: {message.Length} bytes, records: {message.Records.Count}&quot;);
+}
+finally
+{
+    tag.CloseSession();
+}
+</code></pre>
+<p><code>ReadNdefMessage</code> and <code>WriteNdefMessage</code> reuse the repository's <code>Iot.Device.Ndef</code> message model. Writes first set the two-byte NDEF length to zero, update the payload in capability-container-sized chunks, and commit the final length last so an NFC reader does not observe a partially updated message.</p>
+<p>The default answer polling limit is 80 attempts with a one-millisecond delay. Increase it with the constructor's <code>answerPollingAttempts</code> parameter if the target's I2C implementation or tag write timing requires more margin.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/M24Sr/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

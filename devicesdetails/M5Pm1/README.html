@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>M5PM1 - M5Stack power-management IC | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="M5PM1 - M5Stack power-management IC | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/M5Pm1/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="m5pm1---m5stack-power-management-ic">M5PM1 - M5Stack power-management IC</h1>
+
+<p>The M5PM1 is M5Stack's ESP32-S3-era power-management IC, used on boards such as the <strong>M5StickS3</strong>. It handles the battery and USB power paths, charging control and status, board power gates and external 5V switching.</p>
+<p>This binding covers the <strong>I2C control plane</strong> and exposes the telemetry and control features that are most commonly used: battery / VBUS / 5V-out voltage, external 5V enable, charge enable, charging status and the active power source. The register behaviour is ported from the M5Stack <code>M5Unified</code> power implementation, which is the most authoritative reference for the M5PM1 (M5Stack's public product docs do not expose a full register map).</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://docs.m5stack.com/en/core/M5StickS3">M5StickS3 product page</a></li>
+<li><a href="https://docs.m5stack.com/en/product_i2c_addr">M5Stack I2C device address table</a></li>
+<li><a href="https://github.com/m5stack/M5Unified/blob/master/src/utility/Power_Class.cpp">M5Unified power implementation (<code>Power_Class.cpp</code>)</a></li>
+<li><a href="https://github.com/m5stack/M5Unified/blob/master/src/utility/Power_Class.hpp">M5Unified power API (<code>Power_Class.hpp</code>)</a></li>
+<li><a href="https://github.com/m5stack/M5GFX/blob/master/src/M5GFX.cpp">M5GFX board autodetect / PM1 checks (<code>M5GFX.cpp</code>)</a></li>
+</ul>
+<h2 id="device-family">Device family</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I2C address</td>
+<td><code>0x6E</code></td>
+</tr>
+<tr>
+<td>Battery voltage</td>
+<td>registers <code>0x22</code> / <code>0x23</code> (mV)</td>
+</tr>
+<tr>
+<td>VBUS voltage</td>
+<td>registers <code>0x24</code> / <code>0x25</code> (mV)</td>
+</tr>
+<tr>
+<td>5V out voltage</td>
+<td>registers <code>0x26</code> / <code>0x27</code> (mV)</td>
+</tr>
+<tr>
+<td>External 5V enable</td>
+<td>register <code>0x06</code>, bit 3</td>
+</tr>
+<tr>
+<td>Charge enable</td>
+<td>register <code>0x06</code>, bit 0</td>
+</tr>
+<tr>
+<td>Charging status</td>
+<td>register <code>0x12</code>, bit 0 (low = charging)</td>
+</tr>
+<tr>
+<td>Power source</td>
+<td>register <code>0x04</code>, bits 2:0</td>
+</tr>
+<tr>
+<td>Reliability init</td>
+<td>I2C sleep off (<code>0x09</code> = <code>0x00</code>), watchdog off (<code>0x0A</code> = <code>0x00</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage">Usage</h2>
+<p><strong>Important</strong>: on the M5StickS3 the M5PM1 is on the internal I2C bus (SDA = GPIO47, SCL = GPIO48). Configure those pins before creating the <code>I2cDevice</code>.</p>
+<pre><code class="lang-csharp">using Iot.Device.M5Pm1;
+using nanoFramework.Hardware.Esp32;
+using System.Device.I2c;
+using System.Diagnostics;
+using UnitsNet;
+
+// M5StickS3 internal I2C bus.
+Configuration.SetPinFunction(47, DeviceFunction.I2C1_DATA);
+Configuration.SetPinFunction(48, DeviceFunction.I2C1_CLOCK);
+
+// The M5PM1 is a 100 kHz (standard-mode) device; the ESP32 default of 400 kHz is NAK'd.
+I2cConnectionSettings settings = new I2cConnectionSettings(1, M5Pm1.I2cDefaultAddress, I2cBusSpeed.StandardMode);
+I2cDevice i2cDevice = new I2cDevice(settings);
+
+M5Pm1 power = new M5Pm1(i2cDevice);
+
+// The constructor wakes the PMIC and applies the M5Stack reliability init (disable the I2C idle-sleep
+// and the watchdog); the M5PM1 sleeps on an idle I2C bus. Optionally confirm the device ID.
+int deviceId = power.GetDeviceId(); // should equal M5Pm1.DeviceId (0x2050)
+Debug.WriteLine($&quot;M5PM1 device ID: 0x{deviceId:X4} (expected 0x{M5Pm1.DeviceId:X4}).&quot;);
+
+// Control.
+power.BatteryChargeEnabled = true;
+power.ExternalOutputEnabled = true;
+
+// Telemetry (UnitsNet ElectricPotential).
+Debug.WriteLine($&quot;Battery : {power.GetBatteryVoltage().Millivolts} mV&quot;);
+Debug.WriteLine($&quot;VBUS    : {power.GetVbusVoltage().Millivolts} mV&quot;);
+Debug.WriteLine($&quot;5V out  : {power.GetOutputVoltage().Millivolts} mV&quot;);
+Debug.WriteLine($&quot;Source  : {power.GetPowerSource()}&quot;);
+Debug.WriteLine($&quot;Charging: {power.IsCharging}&quot;);
+</code></pre>
+<h3 id="gpio">GPIO</h3>
+<p>The M5PM1 exposes five general-purpose I/O pins (<code>Pin.Gpio0</code> to <code>Pin.Gpio4</code>). Each pin has a mux function (<code>GpioFunction</code>), a direction (the standard <code>PinMode</code> input or output only), an output driver type (<code>GpioDrive</code>), an output latch and an input reading. Boards wire these pins to different loads (for example the M5StickS3 uses <code>Gpio2</code> for the L3B / LCD power gate).</p>
+<pre><code class="lang-csharp">using System.Device.Gpio;
+
+// Drive GPIO2 high as a push-pull output (e.g. the M5StickS3 L3B / LCD power gate).
+power.SetGpioFunction(Pin.Gpio2, GpioFunction.Gpio);
+power.SetGpioDrive(Pin.Gpio2, GpioDrive.PushPull);
+power.SetGpioMode(Pin.Gpio2, PinMode.Output);
+power.WriteGpio(Pin.Gpio2, PinValue.High);
+
+// Read GPIO0 as an input (e.g. the M5StickS3 charge-status line).
+power.SetGpioMode(Pin.Gpio0, PinMode.Input);
+PinValue level = power.ReadGpio(Pin.Gpio0);
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/M5Pm1/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

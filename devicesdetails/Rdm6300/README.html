@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>RDM6300 RFID reader | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="RDM6300 RFID reader | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Rdm6300/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="rdm6300-rfid-reader">RDM6300 RFID reader</h1>
+
+<p>The RDM6300 is a 125 kHz RFID reader module that reports tag identifiers over a fixed 9600 baud, 8-N-1 UART connection. It is a passive reader: the host receives tag frames from TX, but there is no documented command or configuration protocol to implement over RX. It is typically compatible with EM4100/EM4102 read-only tags.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://www.handsontec.com/dataspecs/module/RDM6300.pdf">RDM6300 datasheet</a></li>
+<li><a href="https://github.com/nanoframework/nf-Community-Contributions/tree/main/drivers/RFID_RDM6300_UART">Original nanoFramework community contribution</a></li>
+</ul>
+<h2 id="protocol">Protocol</h2>
+<p>Each read is a 14-byte ASCII hexadecimal frame. The checksum is the XOR of the five decoded data bytes: the version/customer byte followed by the four tag ID bytes.</p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Start of text (<code>0x02</code>)</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>Version or customer code, two hexadecimal characters</td>
+</tr>
+<tr>
+<td>3-10</td>
+<td>Four-byte tag ID, eight hexadecimal characters</td>
+</tr>
+<tr>
+<td>11-12</td>
+<td>XOR checksum, two hexadecimal characters</td>
+</tr>
+<tr>
+<td>13</td>
+<td>End of text (<code>0x03</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>The reader repeats the frame while a tag remains in the field, typically about every 65 ms. Consequently, <code>TagDetected</code> is raised for each valid frame. Applications that need one action per presentation should ignore consecutive events with the same <code>TagId</code> until the tag has been absent for an application-defined interval.</p>
+<h2 id="wiring">Wiring</h2>
+<p>Connect the reader's TX output to the microcontroller UART RX input. The reader does not require a connection to the microcontroller UART TX output.</p>
+<table>
+<thead>
+<tr>
+<th>RDM6300</th>
+<th>ESP32 example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TX</td>
+<td>GPIO16 (COM2 RX)</td>
+<td>Tag data from the reader</td>
+</tr>
+<tr>
+<td>RX</td>
+<td>Not connected</td>
+<td>Reserved; no host commands are required</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+<td>Common ground</td>
+</tr>
+<tr>
+<td>+5V</td>
+<td>5V</td>
+<td>Module power</td>
+</tr>
+<tr>
+<td>ANT1, ANT2</td>
+<td>Antenna</td>
+<td>External 125 kHz antenna</td>
+</tr>
+<tr>
+<td>LED</td>
+<td>Optional GPIO input</td>
+<td>Status output; normally high and briefly active low when a tag is read</td>
+</tr>
+</tbody>
+</table>
+<p>Check the logic voltage of your module variant before connecting TX. Use a level shifter or voltage divider when its output exceeds the microcontroller input rating.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">using Iot.Device.Rdm6300;
+using nanoFramework.Hardware.Esp32;
+using System.Diagnostics;
+using System.Threading;
+
+Configuration.SetPinFunction(Gpio.IO17, DeviceFunction.COM2_TX);
+Configuration.SetPinFunction(Gpio.IO16, DeviceFunction.COM2_RX);
+
+using Rdm6300 reader = new Rdm6300(&quot;COM2&quot;);
+reader.TagDetected += (sender, tag) =&gt;
+{
+    Debug.WriteLine($&quot;Raw tag: {tag}&quot;);
+    Debug.WriteLine($&quot;Version: 0x{reader.TagVersion:X2}&quot;);
+    Debug.WriteLine($&quot;Tag ID: 0x{reader.TagId:X8}&quot;);
+};
+
+Thread.Sleep(Timeout.Infinite);
+</code></pre>
+<p>The latest complete value is available through <code>Tag</code>, with its decoded fields exposed through <code>TagVersion</code> and <code>TagId</code>. <code>TryParseFrame</code> can validate and decode a complete frame received by another transport or stored for later processing.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Rdm6300/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
