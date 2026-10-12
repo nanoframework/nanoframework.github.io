@@ -10,7 +10,7 @@ The Structure of the AssemblyHeader is as follows:
 | [HeaderCRC](#headercrc)                         | `uint32_t`                    | CRC32 of the AssemblyHeader structure itself              |
 | [AssemblyCRC](#assemblycrc)                     | `uint32_t`                    | CRC32 of the complete assembly                            |
 | [Flags](#flags)                                 | [AssemblyHeaderFlags](#flags) | Flags for the assembly                                    |
-| [NativeMethodsChecksum](#nativemethodschecksum) | `uint32_t`                    | Native Method Checksum                                    |
+| [NativeContractHash](#nativecontracthash)       | `uint32_t`                    | Native contract hash (native methods checksum in v1)      |
 | [NativeMethodsOffset](#nativemethodsoffset)     | `uint32_t`                    | Native Methods Offset                                     |
 | [Version](#version)                             | `VersionInfo`                 | Version information data structure for this assembly      |
 | [AssemblyName](#assemblyname)                   | `uint16_t`                    | String table index for the Assembly's name                |
@@ -45,18 +45,15 @@ ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data starting f
 
 The flags property are meant to contain a bit flags value. They are not used in .NET **nanoFramework** and were kept for historical reasons and structure compatibility.
 
-### NativeMethodsChecksum
+### NativeContractHash
 
-The **_NativeMethodsChecksum_** is a value used to validate that the managed assembly and the native implementation registered in the CLR firmware agree on the native methods table layout. The CLR does **not** recompute this value; it only compares the value stored in the assembly header with the value associated with the native code for that assembly.
+The **_NativeContractHash_** is a value used to validate that the managed assembly and the native implementation registered in the CLR firmware agree on everything that the native code depends on: the native methods and the layout of the fields of the classes and structs. The CLR does **not** recompute this value; it only compares the value stored in the assembly header with the value associated with the native code for that assembly. If they don't match, the assembly isn't loaded.
 
-The algorithm used to compute this checksum is documented in [NativeMethodsChecksum Algorithm](NativeMethodsChecksumAlgorithm.md). The most important requirement is that any change to any type or method signature of any type that participates in native interop **must** yield a different value.
+It's `0` for assemblies without native methods. Those don't require a native counterpart in the firmware.
 
-The current MetadataProcessor implementation computes a deterministic CRC32 over a sequence derived from:
+The algorithm used to compute this value is documented in [Native Contract Hash](NativeContractHash.md). The most important requirements are that any change on the native interface of an assembly (adding, removing or changing a native method, or changing the field layout of any class or struct) **must** yield a different value, and that changes that have no impact on the native side (e.g. adding a managed method) **must not**.
 
-- The assembly name.
-- A mangled class name (namespace + nesting + type name, normalized for generics).
-- A mangled method signature (method name + static/instance marker + return type + parameter types).
-- A `nullptr` marker appended for every visited method entry to make the checksum position-dependent.
+> In the v1 format (`NFMRK1`) this field is the *NativeMethodsChecksum*, computed with a different algorithm that hashed all the methods of all the types. The field is at the same offset in both formats, but a v2 runtime only loads v2 PE files.
 
 ### NativeMethodsOffset
 
@@ -64,7 +61,7 @@ The current MetadataProcessor implementation computes a deterministic CRC32 over
 
 ### Version
 
-The **_Version_** field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the debugger for version checks at deployment time. The runtime itself doesn't use versions to resolve references, as only one version of an assembly can be loaded at a time. Thus assembly references in the PE format don't include a version.
+The **_Version_** field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the runtime and by the tools to check the [assembly references](AssemblyRefTableEntry.md): a reference to an assembly is resolved to the assembly with the same name and the same major and minor version numbers. Only one version of an assembly can be loaded at a time. The version is *not* used to check the native side of an assembly; that's what the [NativeContractHash](#nativecontracthash) is for.
 
 ### AssemblyName
 

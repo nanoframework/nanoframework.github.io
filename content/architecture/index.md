@@ -13,7 +13,7 @@ Topics relevant for .NET development:
 Topics relevant for native development:
 
 - [Generating stubs for a native project, NANOCLR macros, Arguments and return types](nanoclr-stub-args.md)
-- [Package and assembly versions and checksums](guide-version-checksums.md)
+- [Package and assembly versions and the native contract hash](guide-version-checksums.md)
 - [PE File format](pe-file.md) and more details [here](pe-file/index.md)
 - [Memory map structure](memory-map-structure.md)
 - [Native interrupt handlers](native-interrupt-handlers.md)

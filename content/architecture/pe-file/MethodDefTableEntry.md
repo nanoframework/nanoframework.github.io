@@ -5,7 +5,7 @@ The MethodRef table contains entries with the following structure
 | Name              | Type                   | Description                                                                                              |
 | ----------------- | ---------------------- | -------------------------------------------------------------------------------------------------------- |
 | Name              | StringTableIndex       | Index into [String table](StringTable.md) for the name of the method                                     |
-| RVA               | MetadataOffset         | Offset into the IL byte code blob table for the opcodes of the method                                    |
+| RVA               | MetadataOffset         | Offset into the IL byte code blob table for the opcodes of the method (the [native slot](#native-methods) for a native method) |
 | Flags             | MethodDefFlags         | Flags to indicate intrinsic attributes and semantics of the method                                       |
 | RetVal            | DataType               | DataType of the return value for the method                                                              |
 | ArgumentsCount    | uint8_t                | Count of arguments to the method                                                                         |
@@ -15,6 +15,14 @@ The MethodRef table contains entries with the following structure
 | FirstGenericParam | GenericParamTableIndex | Index into [GenericParam table](GenericParamTableEntry.md) for the first generic parameter of the method |
 | GenericParamCount | uint8_t                | Count of generic parameters for the method                                                               |
 | Signature         | SigTableIndex          | Index into [Signature table](SignatureTable.md) that describes the method itself                         |
+
+## Native methods
+
+A method implemented in native code (e.g. declared `extern` with `MethodImplOptions.InternalCall`) has the `MD_Native` flag (`0x00008000`) set in its `Flags`. It has no IL byte code, so its `RVA` is **not** an offset into the byte code table: it holds the **native slot** of the method, which is the index of the handler in the methods lookup table of the native assembly declaration.
+
+Native slots are dense (0 to N-1, being N the number of native methods in the assembly) and are assigned by the metadata processor independently of the order of the methods in the PE file. See [Native Contract Hash](NativeContractHash.md#native-slots).
+
+Readers of the PE file must check the `MD_Native` flag before using the `RVA` of a method. In particular, the length of the IL byte code of a method can't be computed from the `RVA` of the next method definition if that one is a native method.
 
 ## Signature Table Usage
 

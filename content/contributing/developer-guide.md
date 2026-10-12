@@ -7,12 +7,16 @@ These are not a full reference, but they give some clues on where to look next.
 
 ## Quick note about compatibility between managed and native parts
 
-There is an interface mechanism between the managed libraries and the firmware. This interface is structured around the methods decorated with the `MethodImpl(MethodImplOptions.InternalCall)` attribute. During the build of a managed library a checksum value generated taking into account the methods name, parameters and return types. That checksum, is used to characterize the library interface and it's stored in stub files.
-Changes can happen at both ends without any compatibility issues, as long as the interface does change.
+There is an interface mechanism between the managed libraries and the firmware. This interface is structured around the methods decorated with the `MethodImpl(MethodImplOptions.InternalCall)` attribute and around the fields of the classes and structs, because native code accesses these by index. During the build of a managed library the metadata processor generates a *native contract hash* that characterizes that interface: the native methods (name, parameters and return types) and the field layout of the classes and structs. The hash is stored in the stub files and in the PE file.
+Changes can happen at both ends without any compatibility issues, as long as the interface does not change. Adding or changing managed methods, or the body of any method, does not change the hash.
 
-More details about checksum value can be found in [NativeMethodsChecksum](../architecture/pe-file/AssemblyHeader.md#nativemethodschecksum) `AssemblyHeader` field description.
+There is no version to bump. When the interface changes the hash changes by itself and the native declaration has to be updated with the new hash, along with the rest of the stubs.
 
-More details about whole versioning can be found in [NuGet, assembly and native versions](https://www.nanoframework.net/nuget-assembly-and-native-versions/) blog post.
+The native code can't break the contract that the managed code was built for: bug fixes and improvements are fine, breaking changes are not. The hash doesn't see what a native method does, so changing the behavior of an existing native method would go unnoticed. If a breaking change is needed, start from the C# API call: add a new method to the C# library (with its own `extern` declaration if it needs native code), keep the existing one working and bump the version of the library if the managed API breaks. See the [versioning policy](versioning-policy.md).
+
+More details about the hash can be found in [Native Contract Hash](../architecture/pe-file/NativeContractHash.md) and in [Package and assembly versions and the native contract hash](../architecture/guide-version-checksums.md).
+
+The versioning of the previous generation of the framework (native methods checksum and native version) is described in the [NuGet, assembly and native versions](https://www.nanoframework.net/nuget-assembly-and-native-versions/) blog post.
 
 ## How to call native code from managed code
 
@@ -37,12 +41,7 @@ Assuming you want to call from nanoframework's mscorlib (source can be found in 
    ```
 
 1. Add code which calls the function above as you wish.
-1. If you change the assembly signature (via adding or modifying an ```extern``` function) you should bump the assembly version in the ```AssemblyInfo.cs``` file:
-
-   ```csharp
-   [assembly: AssemblyNativeVersion("100.5.0.5")]
-   ```
-
+1. There's no version to change when you add or modify an ```extern``` function (or the fields of a class): the build generates the new native contract hash.
 1. Build the solution.
 1. Compare the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder's actual state with the saved one. The files which should have changed:
    - ```corlib_native.cpp```
@@ -53,10 +52,12 @@ Assuming you want to call from nanoframework's mscorlib (source can be found in 
 1. Apply the changes you found to the same files under ```nf-interpreter/src/CLR/CorLib```.
 
    **DO NOT** overwrite the files there! The files under nf-interpreter may have additional declarations, etc.
-   Open the file and look for ```#if (NANOCLR_REFLECTION ==``` lines. There could be more of them.
+   Open the file and look for ```#if CONFIG_NF_FEATURE_SUPPORT_REFLECTION``` lines. There could be more of them.
    Copy over the diff meaningfully:
-   - changes from the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` are going inside the ```NANOCLR_REFLECTION == TRUE``` blocks
-   - changes from the ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` are going inside the ```NANOCLR_REFLECTION == FALSE``` blocks.
+   - changes from the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` are going inside the ```#if CONFIG_NF_FEATURE_SUPPORT_REFLECTION``` blocks
+   - changes from the ```nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs``` are going inside the ```#elif !CONFIG_NF_FEATURE_SUPPORT_REFLECTION``` blocks.
+
+   In ```corlib_native.cpp``` also copy the methods lookup table (it has one entry per native method, in the order generated by the build, so replace the whole table instead of adding the new entry by hand) and the **native contract hash** in the declaration at the end of the file. Each variant has its own hash.
 1. You will find that a stub for the function you declared above will be generated with this signature:
 
    ```cpp
