@@ -105,9 +105,9 @@
 <td>Flags for the assembly</td>
 </tr>
 <tr>
-<td><a href="#nativemethodschecksum">NativeMethodsChecksum</a></td>
+<td><a href="#nativecontracthash">NativeContractHash</a></td>
 <td><code>uint32_t</code></td>
-<td>Native Method Checksum</td>
+<td>Native contract hash (native methods checksum in v1)</td>
 </tr>
 <tr>
 <td><a href="#nativemethodsoffset">NativeMethodsOffset</a></td>
@@ -178,20 +178,17 @@ This is used to clearly identify a .NET <strong>nanoFramework</strong> PE file o
 <p>ANSI X3.66 32 bit CRC for the entire contents of the Assembly PE data starting from <a href="#paddingoftables">PaddingOfTables</a></p>
 <h3 id="flags">Flags</h3>
 <p>The flags property are meant to contain a bit flags value. They are not used in .NET <strong>nanoFramework</strong> and were kept for historical reasons and structure compatibility.</p>
-<h3 id="nativemethodschecksum">NativeMethodsChecksum</h3>
-<p>The <strong><em>NativeMethodsChecksum</em></strong> is a value used to validate that the managed assembly and the native implementation registered in the CLR firmware agree on the native methods table layout. The CLR does <strong>not</strong> recompute this value; it only compares the value stored in the assembly header with the value associated with the native code for that assembly.</p>
-<p>The algorithm used to compute this checksum is documented in <a href="NativeMethodsChecksumAlgorithm.html">NativeMethodsChecksum Algorithm</a>. The most important requirement is that any change to any type or method signature of any type that participates in native interop <strong>must</strong> yield a different value.</p>
-<p>The current MetadataProcessor implementation computes a deterministic CRC32 over a sequence derived from:</p>
-<ul>
-<li>The assembly name.</li>
-<li>A mangled class name (namespace + nesting + type name, normalized for generics).</li>
-<li>A mangled method signature (method name + static/instance marker + return type + parameter types).</li>
-<li>A <code>nullptr</code> marker appended for every visited method entry to make the checksum position-dependent.</li>
-</ul>
+<h3 id="nativecontracthash">NativeContractHash</h3>
+<p>The <strong><em>NativeContractHash</em></strong> is a value used to validate that the managed assembly and the native implementation registered in the CLR firmware agree on everything that the native code depends on: the native methods and the layout of the fields of the classes and structs. The CLR does <strong>not</strong> recompute this value; it only compares the value stored in the assembly header with the value associated with the native code for that assembly. If they don't match, the assembly isn't loaded.</p>
+<p>It's <code>0</code> for assemblies without native methods. Those don't require a native counterpart in the firmware.</p>
+<p>The algorithm used to compute this value is documented in <a href="NativeContractHash.html">Native Contract Hash</a>. The most important requirements are that any change on the native interface of an assembly (adding, removing or changing a native method, or changing the field layout of any class or struct) <strong>must</strong> yield a different value, and that changes that have no impact on the native side (e.g. adding a managed method) <strong>must not</strong>.</p>
+<blockquote>
+<p>In the v1 format (<code>NFMRK1</code>) this field is the <em>NativeMethodsChecksum</em>, computed with a different algorithm that hashed all the methods of all the types. The field is at the same offset in both formats, but a v2 runtime only loads v2 PE files.</p>
+</blockquote>
 <h3 id="nativemethodsoffset">NativeMethodsOffset</h3>
 <p>(TBD)</p>
 <h3 id="version">Version</h3>
-<p>The <strong><em>Version</em></strong> field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the debugger for version checks at deployment time. The runtime itself doesn't use versions to resolve references, as only one version of an assembly can be loaded at a time. Thus assembly references in the PE format don't include a version.</p>
+<p>The <strong><em>Version</em></strong> field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the runtime and by the tools to check the <a href="AssemblyRefTableEntry.html">assembly references</a>: a reference to an assembly is resolved to the assembly with the same name and the same major and minor version numbers. Only one version of an assembly can be loaded at a time. The version is <em>not</em> used to check the native side of an assembly; that's what the <a href="#nativecontracthash">NativeContractHash</a> is for.</p>
 <h3 id="assemblyname">AssemblyName</h3>
 <p><a href="StringTable.html">String Table</a> index for the name of the assembly</p>
 <h3 id="stringtableversion">StringTableVersion</h3>

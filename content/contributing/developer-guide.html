@@ -91,10 +91,12 @@
 <p>Until then, here follows some unsorted tips.
 These are not a full reference, but they give some clues on where to look next.</p>
 <h2 id="quick-note-about-compatibility-between-managed-and-native-parts">Quick note about compatibility between managed and native parts</h2>
-<p>There is an interface mechanism between the managed libraries and the firmware. This interface is structured around the methods decorated with the <code>MethodImpl(MethodImplOptions.InternalCall)</code> attribute. During the build of a managed library a checksum value generated taking into account the methods name, parameters and return types. That checksum, is used to characterize the library interface and it's stored in stub files.
-Changes can happen at both ends without any compatibility issues, as long as the interface does change.</p>
-<p>More details about checksum value can be found in <a href="../architecture/pe-file/AssemblyHeader.html#nativemethodschecksum">NativeMethodsChecksum</a> <code>AssemblyHeader</code> field description.</p>
-<p>More details about whole versioning can be found in <a href="https://www.nanoframework.net/nuget-assembly-and-native-versions/">NuGet, assembly and native versions</a> blog post.</p>
+<p>There is an interface mechanism between the managed libraries and the firmware. This interface is structured around the methods decorated with the <code>MethodImpl(MethodImplOptions.InternalCall)</code> attribute and around the fields of the classes and structs, because native code accesses these by index. During the build of a managed library the metadata processor generates a <em>native contract hash</em> that characterizes that interface: the native methods (name, parameters and return types) and the field layout of the classes and structs. The hash is stored in the stub files and in the PE file.
+Changes can happen at both ends without any compatibility issues, as long as the interface does not change. Adding or changing managed methods, or the body of any method, does not change the hash.</p>
+<p>There is no native version to bump. When the interface changes the hash changes by itself and the native declaration has to be updated with the new hash, along with the rest of the stubs.</p>
+<p>The native code can't break the contract that the managed code was built for: bug fixes and improvements are fine, breaking changes are not. The hash doesn't see what a native method does, so changing the behavior of an existing native method would go unnoticed. If a breaking change is needed, start from the C# API call: add a new method to the C# library (with its own <code>extern</code> declaration if it needs native code), keep the existing one working and bump the version of the library if the managed API breaks. See the <a href="versioning-policy.html">versioning policy</a>.</p>
+<p>More details about the hash can be found in <a href="../architecture/pe-file/NativeContractHash.html">Native Contract Hash</a> and in <a href="../architecture/guide-version-checksums.html">Package and assembly versions and the native contract hash</a>.</p>
+<p>The versioning of the previous generation of the framework (native methods checksum and native version) is described in the <a href="https://www.nanoframework.net/nuget-assembly-and-native-versions/">NuGet, assembly and native versions</a> blog post.</p>
 <h2 id="how-to-call-native-code-from-managed-code">How to call native code from managed code</h2>
 <p>Assuming you want to call from nanoframework's mscorlib (source can be found in CoreLibrary repository) C# code (e.g. System.Number class) some implementation you would like to place in it's nanoCLR (source in nf-interpreter repository) C++ code. Follow steps below:</p>
 <ol>
@@ -120,9 +122,7 @@ private static extern String FormatNative(
 </li>
 <li><p>Add code which calls the function above as you wish.</p>
 </li>
-<li><p>If you change the assembly signature (via adding or modifying an <code>extern</code> function) you should bump the assembly version in the <code>AssemblyInfo.cs</code> file:</p>
-<pre><code class="lang-csharp">[assembly: AssemblyNativeVersion(&quot;100.5.0.5&quot;)]
-</code></pre>
+<li><p>There's no native version to change when you add or modify an <code>extern</code> function (or the fields of a class): the build generates the new native contract hash. If the change also breaks the public C# API of the library, that is a managed breaking change and the version of the library has to be bumped, see the <a href="versioning-policy.html">versioning policy</a>.</p>
 </li>
 <li><p>Build the solution.</p>
 </li>
@@ -136,12 +136,13 @@ private static extern String FormatNative(
 </li>
 <li><p>Apply the changes you found to the same files under <code>nf-interpreter/src/CLR/CorLib</code>.</p>
 <p><strong>DO NOT</strong> overwrite the files there! The files under nf-interpreter may have additional declarations, etc.
-Open the file and look for <code>#if (NANOCLR_REFLECTION ==</code> lines. There could be more of them.
+Open the file and look for <code>#if CONFIG_NF_FEATURE_SUPPORT_REFLECTION</code> lines. There could be more of them.
 Copy over the diff meaningfully:</p>
 <ul>
-<li>changes from the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> are going inside the <code>NANOCLR_REFLECTION == TRUE</code> blocks</li>
-<li>changes from the <code>nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs</code> are going inside the <code>NANOCLR_REFLECTION == FALSE</code> blocks.</li>
+<li>changes from the <code>nanoFramework.CoreLibrary\bin\Debug\Stubs</code> are going inside the <code>#if CONFIG_NF_FEATURE_SUPPORT_REFLECTION</code> blocks</li>
+<li>changes from the <code>nanoFramework.CoreLibrary.NoReflection\bin\Debug\Stubs</code> are going inside the <code>#elif !CONFIG_NF_FEATURE_SUPPORT_REFLECTION</code> blocks.</li>
 </ul>
+<p>In <code>corlib_native.cpp</code> also copy the methods lookup table (it has one entry per native method, in the order generated by the build, so replace the whole table instead of adding the new entry by hand) and the <strong>native contract hash</strong> in the declaration at the end of the file. Each variant has its own hash.</p>
 </li>
 <li><p>You will find that a stub for the function you declared above will be generated with this signature:</p>
 <pre><code class="lang-cpp">HRESULT Library_corlib_native_System_Number::

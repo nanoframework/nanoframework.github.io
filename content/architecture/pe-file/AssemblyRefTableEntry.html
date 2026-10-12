@@ -73,7 +73,7 @@
         <article data-uid="">
 <h1 id="assemblyreftableentry-clr_record_assemblyref">AssemblyRefTableEntry (CLR_RECORD_ASSEMBLYREF)</h1>
 
-<p>The assembly Reference table contains references to other assemblies. The runtime will lookup the assembly by name and version when resolving the reference to an assembly header.</p>
+<p>The assembly Reference table contains references to other assemblies. The runtime will lookup the assembly by name and version when resolving the reference to an assembly header. A reference is satisfied by the assembly with the same name and the same major and minor version numbers (build and revision numbers are not compared).</p>
 <p>The format of the AssemblyRefTableEntry is as follows:</p>
 <table>
 <thead>
@@ -92,7 +92,7 @@
 <tr>
 <td>Version</td>
 <td>VersionInfo</td>
-<td>VersionInfo structure for the version of the assembly (Checked at runtime for an EXACT match)</td>
+<td>VersionInfo structure for the version of the assembly (Checked at runtime for a match of the major and minor numbers)</td>
 </tr>
 </tbody>
 </table>

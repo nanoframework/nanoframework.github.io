@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Text2Speech for .NET nanoFramework | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Text2Speech for .NET nanoFramework | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Text2Speech/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="text2speech-for-net-nanoframework">Text2Speech for .NET nanoFramework</h1>
+
+<p>A managed, integer-only formant speech synthesizer for constrained .NET nanoFramework devices. The language-neutral core and the compact English and Phase 1 French frontends are distributed as separate assemblies and packages.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Managed C# with no native runtime component or external voice data.</li>
+<li>Integer-only formant synthesis suitable for microcontrollers without an FPU.</li>
+<li>Division-free per-sample rendering with fixed-point interpolation and 24-bit oscillator phases.</li>
+<li>2 kHz control-rate updates for pitch, formants, envelopes, and transitions while oscillators and noise remain at 8 kHz.</li>
+<li>Reused parser and renderer workspaces to reduce repeated allocations and garbage collection.</li>
+<li>Built-in English and French spelling-to-phoneme rules, number expansion, punctuation pauses, and statement/question intonation.</li>
+<li>French support for precomposed accents, oral and rounded vowels, four approximate nasal vowels, French consonants and glides, cardinal integers through 999,999,999, and accentual-group prosody.</li>
+<li>Public language, frontend, phoneme, and bounded-buffer APIs for allocation-conscious language packs.</li>
+<li>Streaming or buffered unsigned 8-bit mono PCM at 8,000 Hz.</li>
+<li>Canonical 44-byte PCM WAV header creation and validation.</li>
+<li>ESP32-S3-BOX-Lite sample with bilingual English/French synthesis-to-I2S playback and optional WAV playback.</li>
+<li>nanoFramework Test Framework coverage and nanoFramework.IoT.Device-style StyleCop enforcement.</li>
+</ul>
+<p>At 8,000 Hz, audio occupies approximately 8,000 bytes per second plus the 44-byte WAV header.</p>
+<h2 id="projects">Projects</h2>
+<ul>
+<li><code>Text2Speech.nfproj</code>: language-neutral renderer, synthesis API, segmentation contracts, PCM sinks, and WAV support.</li>
+<li><code>Languages\English\Text2Speech.English.nfproj</code>: English normalization, spelling rules, and acoustic definitions.</li>
+<li><code>Languages\French\Text2Speech.French.nfproj</code>: French normalization, spelling rules, and acoustic definitions.</li>
+<li><code>samples\Text2Speech.Samples\Text2Speech.Samples.nfproj</code>: internal-storage and ESP32 I2S sample.</li>
+<li><code>samples\Text2Speech.WebServerSample\Text2Speech.WebServerSample.nfproj</code>: Wi-Fi browser interface for synthesis, playback, and WAV management.</li>
+<li><code>tests\Text2Speech.Tests\Text2Speech.Tests.nfproj</code>: simulator-compatible unit tests.</li>
+<li><code>Text2Speech.sln</code>: complete solution.</li>
+</ul>
+<h3 id="nuget-packages">NuGet packages</h3>
+<p>The package specifications follow the nanoFramework IoT.Device layout and include the nanoFramework icon, XML documentation, managed DLL, PDB, PDBX, PE image, README, license, and attribution notice:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Assembly</th>
+<th>Dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nanoFramework.Iot.Device.Text2Speech</code></td>
+<td><code>Iot.Device.Text2Speech.dll</code></td>
+<td><code>nanoFramework.CoreLibrary</code></td>
+</tr>
+<tr>
+<td><code>nanoFramework.Iot.Device.Text2Speech.English</code></td>
+<td>Core and English assemblies</td>
+<td><code>nanoFramework.CoreLibrary</code></td>
+</tr>
+<tr>
+<td><code>nanoFramework.Iot.Device.Text2Speech.French</code></td>
+<td>Core and French assemblies</td>
+<td><code>nanoFramework.CoreLibrary</code></td>
+</tr>
+</tbody>
+</table>
+<p>Following the nanoFramework WebServer MCP and Skills package pattern, each language package is standalone: it contains the core assembly artifacts plus its language assembly and flattens the core package dependencies. Applications only need to install the selected language package, while the core-only package remains available for custom language frontends. Applications only pay the flash and initialization cost of the language assemblies they reference. The namespace remains <code>Iot.Device.Text2Speech</code> across all three assemblies. The core deliberately provides no parameterless or voice-only <code>TtsSynthesizer</code> constructor and no parameterless <code>TtsSegmenter</code> constructor, because those APIs would create a dependency on a particular language package.</p>
+<p>The core <code>.nfproj</code> and <code>.nuspec</code> files are kept at the binding root. Each language-specific project and package specification is kept with its sources under <code>Languages\English</code> or <code>Languages\French</code>; samples and tests remain in their established folders.</p>
+<h3 id="source-layout">Source layout</h3>
+<p>Production source files keep the <code>Iot.Device.Text2Speech</code> namespace while being grouped by responsibility, with one top-level type per file:</p>
+<ul>
+<li><code>Audio</code>: PCM sinks and canonical WAV helpers.</li>
+<li><code>Synthesis</code>: the language-neutral synthesizer, segmenter, renderer, renderer lookup tables, voice controls, and public phoneme model.</li>
+<li><code>Languages</code>: language and frontend extension contracts.</li>
+<li><code>Languages\English</code>: English frontend source, spelling patterns, acoustic tables, and assembly metadata.</li>
+<li><code>Languages\French</code>: French frontend source, bounded cardinal normalizer, contextual spelling rules, acoustic tables, and assembly metadata.</li>
+<li><code>samples\Text2Speech.Samples\Audio</code>: ESP32-S3-BOX-Lite I2S playback and queue implementation.</li>
+<li><code>samples\Text2Speech.Samples\Storage</code>: sample-only WAV file playback and streaming writer helpers.</li>
+<li><code>samples\Text2Speech.WebServerSample\Controllers</code>: browser API and UI controller.</li>
+<li><code>tests\Text2Speech.Tests\Audio</code> and <code>tests\Text2Speech.Tests\Synthesis</code>: tests grouped by the corresponding library area.</li>
+</ul>
+<p>The web sample links the shared hardware and storage source files from their organized sample folders rather than duplicating them.</p>
+<blockquote>
+<p>[!Important] It is strongly recommended to have a device with I2S capabilities in order to play the sounds properly. While technically possible as well with a DAC. PSRAM recommended as well for best performances.</p>
+</blockquote>
+<p>This is how the sample web interface looks like:</p>
+<p><img src="../../devicesimages/Text2Speech/screenshot.png" alt="Web screen shot"></p>
+<p>It allows selecting English or French, one of the three voice profiles, and buffered or live-streaming playback. You can also download, delete or play again any of the files. This is also a great demonstration of the amazing <a href="https://github.com/nanoframework/nanoFramework.WebServer">.NET nanoFramework WebServer</a>.</p>
+<h2 id="library-usage">Library usage</h2>
+<pre><code class="lang-csharp">ITtsLanguage language = EnglishTtsLanguage.Instance;
+VoiceOptions voice = new VoiceOptions(
+    pitchShift: -1,
+    speedPercent: 95,
+    formantScalePercent: 98,
+    intonationPercent: 140,
+    fricativeNoisePercent: 80,
+    transitionSmoothingPercent: 150);
+
+TtsSynthesizer synthesizer = new TtsSynthesizer(language, voice);
+byte[] pcm = synthesizer.Speak(&quot;Hello from Text2Speech.&quot;);
+byte[] header = WavPcm8Mono8000.CreateHeader(pcm.Length);
+</code></pre>
+<h3 id="language-frontends">Language frontends</h3>
+<p>The core has no default language dependency. Install the core package plus at least one language package, select the language explicitly, and pass the same definition to <code>TtsSynthesizer</code> and <code>TtsSegmenter</code>:</p>
+<pre><code class="lang-csharp">ITtsLanguage language = EnglishTtsLanguage.Instance;
+VoiceOptions voice = new VoiceOptions();
+TtsSynthesizer synthesizer = new TtsSynthesizer(language, voice);
+TtsSegmenter segmenter = new TtsSegmenter(language);
+</code></pre>
+<p>A language pack implements two small interfaces:</p>
+<ul>
+<li><code>ITtsLanguage</code> is an immutable definition and factory. It reports a display name and deterministic per-round text limit, then creates an independent frontend for each synthesizer or segmenter.</li>
+<li><code>ITtsLanguageFrontend</code> normalizes one text round, applies spelling, number, stress, and intonation rules, and appends acoustic phonemes to <code>TtsPhonemeBuffer</code>. It returns <code>false</code> instead of truncating when the fixed 128-phoneme capacity is exceeded.</li>
+</ul>
+<p><code>TtsPhoneme</code> is the renderer-neutral acoustic model. A language pack supplies formant frequencies, amplitudes, MIDI pitch, duration, voicing, and optional formant glides. <code>TtsPhonemeType</code> selects one of the shared renderer paths: voiced, fricative, stop, silence, or voiced fricative. Definitions are validated when constructed so invalid frequencies, amplitudes, pitches, durations, and glides fail before synthesis starts.</p>
+<p><code>TtsPhonemeBuffer.TryAdd</code> also has an overload with a local duration percentage.
+This lets a frontend lengthen accented vowels or shorten unstressed material
+without creating duplicate acoustic phoneme definitions. Existing frontends
+using the pitch-only overload retain a 100% duration and byte-identical timing.</p>
+<p>A minimal frontend has this shape:</p>
+<pre><code class="lang-csharp">public sealed class ExampleLanguage : ITtsLanguage
+{
+    public string Name =&gt; &quot;Example&quot;;
+    public int MaximumTextLength =&gt; 96;
+
+    public ITtsLanguageFrontend CreateFrontend()
+    {
+        return new ExampleFrontend();
+    }
+}
+
+public sealed class ExampleFrontend : ITtsLanguageFrontend
+{
+    private static readonly TtsPhoneme Vowel = new TtsPhoneme(
+        TtsPhonemeType.Voiced,
+        730, 1090, 2440,
+        6, 5, 2,
+        45, 130,
+        false,
+        0, 0, 0);
+
+    public bool TryPrepare(string text, TtsPhonemeBuffer phonemes)
+    {
+        for (int i = 0; i &lt; text.Length; i++)
+        {
+            if (text[i] == 'a' &amp;&amp; !phonemes.TryAdd(Vowel, 0))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+</code></pre>
+<p>Frontend instances may retain reusable normalization and lookup buffers, but should not allocate per phoneme. The synthesizer serializes calls on its frontend instance. A language definition must create a new frontend rather than sharing mutable parsing state across synthesizers. For embedded size, applications should reference only the language packs they deploy.</p>
+<p>The shared renderer, PCM sinks, WAV support, continuous streaming, and I2S samples do not depend on the selected language. Languages requiring new acoustic categories, such as lexical tone contours beyond a per-phoneme pitch offset, may still require renderer extensions.</p>
+<h3 id="voice-options">Voice options</h3>
+<p>Voice controls are bounded for predictable embedded behavior:</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th style="text-align: right;">Default</th>
+<th style="text-align: right;">Range</th>
+<th>Audible impact</th>
+<th>Resource impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pitchShift</code></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-12 to 12</td>
+<td>Moves the glottal pitch in semitones. Negative values sound lower; positive values sound higher. It does not change formants or speaking duration. Large shifts sound increasingly synthetic.</td>
+<td>No meaningful change to output size or synthesis cost.</td>
+</tr>
+<tr>
+<td><code>speedPercent</code></td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">60 to 160</td>
+<td>Changes every phoneme and pause duration. Values below 100 speak more slowly; values above 100 speak faster. Very high values can reduce intelligibility, while very low values exaggerate the robotic character.</td>
+<td>Output length, synthesis time, pre-render RAM, and WAV size change inversely with speed. For example, 150% speed produces roughly two-thirds as many samples.</td>
+</tr>
+<tr>
+<td><code>formantScalePercent</code></td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">80 to 120</td>
+<td>Scales vocal-tract resonances independently of pitch. Lower values produce a larger, darker voice; higher values produce a smaller, brighter voice. Extreme values can sound nasal or artificial.</td>
+<td>No change to output length; only small fixed-point scaling work.</td>
+</tr>
+<tr>
+<td><code>intonationPercent</code></td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0 to 200</td>
+<td>Controls statement and question pitch movement. Zero produces a flat monotone, 100 preserves Text2Speech's normal contour, and values above 100 make phrasing more expressive.</td>
+<td>No change to output length or meaningful CPU cost.</td>
+</tr>
+<tr>
+<td><code>fricativeNoisePercent</code></td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0 to 150</td>
+<td>Controls noisy consonants and stop bursts such as <strong>s</strong>, <strong>f</strong>, <strong>sh</strong>, <strong>t</strong>, and <strong>k</strong>. Lower values soften harsh consonants; zero can make words difficult to understand. Higher values improve consonant emphasis but can sound hissy.</td>
+<td>No change to output length or meaningful CPU cost.</td>
+</tr>
+<tr>
+<td><code>transitionSmoothingPercent</code></td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0 to 200</td>
+<td>Controls blending between adjacent voiced phonemes. Zero makes formant changes abrupt; moderate increases can reduce robotic stepping. Excessive smoothing can smear vowels and consonant boundaries.</td>
+<td>No change to output length; wider transitions affect more samples but use the same per-sample renderer path.</td>
+</tr>
+</tbody>
+</table>
+<p>All percentages use 100 as the original Text2Speech behavior. Options are immutable: create a new <code>TtsSynthesizer</code> when changing a voice profile. A synthesizer retains and reuses its parser and renderer workspaces; concurrent calls on the same instance are serialized for correctness.</p>
+<p>Pitch and formants intentionally remain separate. Raising both creates a smaller, brighter character; lowering both creates a larger, darker character. Changing only pitch preserves more of the original vocal identity. Intonation is applied on top of the base pitch shift.</p>
+<p>The ESP32-S3-BOX-Lite sample demonstrates four reusable synthesizers with different immutable profiles: a smooth voice, a faster bright voice, a deep voice, and a separate streaming voice. Select the desired synthesizer before each buffered or streaming call; the player and I2S device remain shared.</p>
+<p>For tuning, change one option at a time and test a phrase containing vowels, fricatives, stops, a comma, and a question. Start with small adjustments: 1-2 semitones for pitch, 5-10% for speed or formants, and 20-30% for intonation, noise, or smoothing.</p>
+<h3 id="creating-additional-voice-characters">Creating additional voice characters</h3>
+<p><code>VoiceOptions</code> can provide a first approximation: a higher pitch and formant scale can suggest a smaller vocal tract, while lower values can suggest a larger or darker voice. Convincing female, child, or older-adult voices require more than one global preset. Create separately measured and tuned phoneme tables with appropriate base pitch ranges, vowel formants, amplitudes, durations, transitions, noise balance, and language-specific prosody, then expose each calibrated set as a reusable profile or language definition. Characteristics such as breathiness, vocal jitter, and age-related instability would require new bounded renderer controls because the current renderer does not model them explicitly. Validate candidate voices with varied phrases and multiple listeners; these profiles are acoustic approximations and should not be presented as universal characteristics of an age or gender group. See the [NOTICE] file which contains pointers on models and elements used to create the French male model and improve the English one.</p>
+<p>For constrained devices, prefer <code>Speak(string, IPcmSink)</code>. It emits reusable 2,048-byte blocks rather than allocating the complete utterance, reducing filesystem and managed/native write overhead at a fixed 2 KB working-memory cost. Each synthesizer call accepts up to 96 characters and uses a fixed 128-phoneme workspace. Applications handling longer text should split it at sentence or word boundaries and synthesize each bounded round separately.</p>
+<p><code>TeePcmSink</code> is part of the core library because it depends only on <code>IPcmSink</code>. It forwards every PCM block to two destinations in order, allowing one synthesis pass to feed combinations such as playback and WAV storage without introducing hardware-specific dependencies.</p>
+<p>Use <code>TtsSegmenter</code> to apply those boundaries consistently. It prefers sentence endings, then whitespace, and splits inside a word only when no boundary is available. It also verifies the expanded phoneme count and subdivides expansion-heavy segments when required:</p>
+<pre><code class="lang-csharp">TtsSegmenter segmenter = new TtsSegmenter(synthesizer.Language);
+string[] segments = segmenter.Split(longText);
+for (int i = 0; i &lt; segments.Length; i++)
+{
+    synthesizer.Speak(segments[i], sink);
+}
+</code></pre>
+<p>The returned array contains only independently synthesizable rounds. Process one round at a time so buffered playback never holds PCM for the complete long passage.</p>
+<p>Streaming blocks intentionally follow fixed PCM sizes rather than word boundaries. The parser preserves word spaces and full-sentence intonation while the renderer carries transitions continuously across the utterance. Flushing at every word would create smaller, irregular queue entries and additional synchronization without increasing synthesis throughput or allowing managed code to run during a blocking native I2S write.</p>
+<p>The public PCM representation is unsigned 8-bit mono. The renderer internally produces signed samples and converts them by adding 128 for WAV compatibility.</p>
+<h2 id="direct-i2s-and-wav-playback">Direct I2S and WAV playback</h2>
+<p>The sample targets the <strong>ESP32-S3-BOX-Lite</strong> playback path and initializes the board's ES8156 DAC with the <code>nanoFramework.Iot.Device.Es8156</code> binding. Its default path first synthesizes compact 8-bit mono PCM in RAM and then sends it to I2S, avoiding file creation, flash writes, WAV reopening, and flash reads:</p>
+<p>InterpolatedI2sPcmSink intentionally remains in the sample rather than the core library. The core package is hardware-independent and depends only on nanoFramework CoreLibrary; moving the sink would force all users to reference I2S, threading, and device-specific playback APIs even when they only generate PCM, write WAV files, or use another output transport. IPcmSink is the core extension boundary for hardware integrations. If the I2S implementation becomes a reusable supported component beyond these samples, it should move to a separate optional package such as Iot.Device.Text2Speech.I2s, not into the synthesis core.</p>
+<pre><code class="lang-csharp">int samples = player.Speak(synthesizer, &quot;Hello from Text2Speech.&quot;);
+</code></pre>
+<p>Playback mode is selected when the player creates its fixed-rate I2S device. The no-argument constructor preserves interpolated 16 kHz playback. Fast 8 kHz mode skips midpoint interpolation and halves the generated I2S frames:</p>
+<pre><code class="lang-csharp">Esp32S3BoxLiteWavPlayer player =
+    new Esp32S3BoxLiteWavPlayer(I2sPlaybackMode.Fast8Khz);
+</code></pre>
+<p>The sample selects fast 8 kHz mode for its buffered and streaming benchmarks. It reduces managed conversion work and uses an 8 KB conversion buffer instead of 16 KB, at the cost of rougher high-frequency audio. Both modes still send signed 16-bit interleaved stereo samples to the ES8156.</p>
+<p>Pre-rendering guarantees smooth playback even when managed synthesis is slower than real time. Its temporary memory cost is approximately 8 KB per second of generated speech. <code>SpeakStreaming(...)</code> remains available for minimum startup latency, but can underrun on slower targets.</p>
+<p>The caller can optionally provide a full WAV path to either speech method. The generated file always contains the compact source format - unsigned 8-bit mono at 8 kHz - regardless of the selected I2S playback mode, and can be replayed without synthesizing again:</p>
+<pre><code class="lang-csharp">string bufferedPath = @&quot;I:\greeting.wav&quot;;
+player.Speak(synthesizer, &quot;Hello from Text2Speech.&quot;, bufferedPath);
+player.Play(bufferedPath);
+
+string streamingPath = @&quot;I:\live.wav&quot;;
+player.SpeakStreaming(synthesizer, &quot;Save this while speaking.&quot;, streamingPath);
+player.Play(streamingPath);
+</code></pre>
+<p>An existing destination is overwritten. Streaming uses a tee sink so each generated 2 KB PCM block is queued for playback and written to the WAV file in the same synthesis pass. Flash-write latency consumes some streaming headroom; use buffered saving when startup latency is unimportant or storage is slow. If streaming synthesis or playback fails, the incomplete WAV is closed and removed rather than exposed as reusable output.</p>
+<p>The sample uses <code>TtsSegmenter</code> for every phrase, so callers can replace a sample string with longer text without changing the playback code. Buffered playback processes one segment at a time. Live streaming keeps one producer-consumer session active across every segment, so synthesis of the next round can continue while queued audio from the previous round is playing. Both modes log the total round count. Buffered playback reports source samples, expected audio duration, synthesis time, synthesis speed as a percentage of real time, and playback time. A value above 100% means synthesis is faster than playback; below 100% means live streaming cannot remain continuous without pre-rendering. Streaming playback reports total elapsed time and its difference from the expected audio duration.</p>
+<pre><code class="lang-text">[buffered:smooth] rounds=2, samples=24000, audio=3000 ms, synthesis=1500 ms, synthesis-speed=200% real-time, playback=3010 ms.
+[streaming:streaming] rounds=2, samples=24000, audio=3000 ms, total=3800 ms, overhead=800 ms.
+</code></pre>
+<p>ESP32-S3-BOX-Lite wiring:</p>
+<ul>
+<li>I2C bus 1: SDA GPIO8, SCL GPIO18 (ES8156 control)</li>
+<li>I2S bus 1: MCLK GPIO2, BCLK GPIO17, WS/LRCLK GPIO47, DOUT GPIO15</li>
+<li>Speaker amplifier enable: GPIO46</li>
+<li>WAV sample rate: 8,000 Hz</li>
+<li>I2S playback rate: 8,000 Hz in fast mode or 16,000 Hz in interpolated mode</li>
+<li>I2S transport: signed 16-bit interleaved stereo</li>
+</ul>
+<p>The I2S peripheral is created and primed with silence before the ES8156 is initialized, because the slave codec needs MCLK/BCLK/WS running while its registers are configured. The amplifier remains disabled until the codec is initialized and unmuted. Configured I2S routes are read back and validated before playback.</p>
+<p>Playback uses a bounded producer-consumer pipeline after PCM is available. It copies 2,048-byte source blocks into an eight-block queue while a below-normal-priority playback thread performs conversion and I2S writes, allowing synthesis to refill the queue first. The queue costs about 16 KB of RAM, in addition to an 8 KB fast-mode or 16 KB interpolated-mode conversion buffer. The lower-priority playback worker yields after each source block so synthesis can refill the queue instead of being starved by blocking writes. The ESP32 I2S device uses a 40 KB DMA buffer, matching the ES8156 IoT.Device sample, so native playback can continue while managed synthesis runs. The default pre-rendered path fills this pipeline from memory fast enough to prevent underruns; the optional streaming path starts after seven blocks are ready and provides approximately 1,792 ms of managed-queue headroom plus native DMA buffering. This increases startup latency but covers short synthesis and conversion deficits that would otherwise cause audible underruns. Multi-round text pays this startup cost only once: the queue, conversion state, and playback worker remain active until every round has been synthesized, and optional WAV writers rotate without draining playback.</p>
+<p>Streaming playback also prints an <code>[i2s-diagnostic]</code> line. It reports the configured startup-block count, queue depth and wait times, managed conversion count and duration, native write count and duration, and two overlap indicators. The player defaults to four 2,048-sample startup blocks, providing approximately 1.024 seconds of source-audio reserve at 8 kHz; callers can select from one through eight blocks when constructing <code>Esp32S3BoxLiteWavPlayer</code> to trade startup latency for underrun protection. <code>managed-heartbeats-during-i2s</code> counts executions of a low-priority 50 ms diagnostic heartbeat while native writes are active; <code>samples-queued-during-i2s</code> counts source samples delivered by synthesis during those writes. Long native write time with both values at zero indicates that <code>I2sDevice.Write()</code> blocks managed execution globally. Producer waits indicate a full queue, consumer waits after startup indicate that synthesis is not feeding PCM quickly enough, and conversion time measures interpolation and stereo PCM packing on the playback worker.</p>
+<p>Both direct and WAV playback accept compact 8 kHz, unsigned 8-bit mono source PCM. Fast mode converts each source sample directly into one 8 kHz stereo frame. Interpolated mode produces the original sample and a linear midpoint, yielding 16 kHz output. Every signed 16-bit result is duplicated into the left and right I2S slots expected by the codec:</p>
+<pre><code class="lang-text">current16 = (current8 - 128) &lt;&lt; 8
+fastFrames = [current16 stereo]
+midpoint16 = (previous16 + current16) / 2
+interpolatedFrames = [previous16 stereo, midpoint16 stereo]
+</code></pre>
+<p>The ES7243E microphone capture path is separate and is not needed for WAV playback. The firmware must expose internal storage as <code>I:</code> and include the filesystem, GPIO, I2C, I2S, and ESP32 native assemblies. Deployment, storage mounting, MCLK generation, amplifier operation, and audio quality must still be validated on the physical board.</p>
+<h2 id="web-server-sample">Web server sample</h2>
+<p>The web server sample targets the ESP32-S3-BOX-Lite and reuses the fast 8 kHz ES8156 playback implementation. The direct hardware sample plays buffered English and French phrases, then demonstrates continuous multi-round streaming in French. Set the Wi-Fi network directly in <code>samples\Text2Speech.WebServerSample\Program.cs</code> before deployment:</p>
+<pre><code class="lang-csharp">private const string WifiSsid = &quot;YOUR_WIFI_SSID&quot;;
+private const string WifiPassword = &quot;YOUR_WIFI_PASSWORD&quot;;
+</code></pre>
+<p>At startup, the sample uses <code>WifiNetworkHelper.ConnectDhcp</code> when both constants are provided. If either value is null or empty, it uses <code>WifiNetworkHelper.Reconnect</code> with credentials already stored on the device. It then prints the assigned browser URL to the debugger, initializes the ES8156 audio path, and starts <code>nanoFramework.WebServer</code> on HTTP port 80. The firmware must include Wi-Fi, networking, HTTP server, filesystem, threading, GPIO, I2C, I2S, and ESP32 native assemblies. Internal storage must be mounted as <code>I:</code>.</p>
+<p>The sample targets the stable nanoFramework package family. The firmware native-assembly checksums must match the managed packages used to build the application; native versions such as <code>v100.x</code> are not directly comparable to managed NuGet versions such as <code>v1.5.x</code>. If deployment reports a checksum mismatch for <code>System.Net</code> or <code>System.Device.Wifi</code>, update the ESP32-S3 firmware to a release matching the current stable package stack. Deploy <code>Text2Speech.WebServerSample</code>; the deployment tool will correctly skip the non-executable <code>Text2Speech</code> library project.</p>
+<p>The page at <code>/</code> provides:</p>
+<ul>
+<li>Text input up to 1,024 characters. The server prefers sentence boundaries and then word boundaries when splitting it into synthesis rounds of at most 96 characters. Buffered mode can pause briefly between rounds; streaming mode keeps one continuous playback session.</li>
+<li>English or French language selection, with language-aware segmentation and synthesis.</li>
+<li>Smooth, fast-bright, and deep predefined voice profiles for either language.</li>
+<li>Hardware output volume from 0% through 100% and a mute control, applied to speech and saved-WAV playback.</li>
+<li>Buffered playback or live streaming selection.</li>
+<li>WAV saving enabled by default, with one counter-named WAV file created for every synthesis round.</li>
+<li>A live list of saved WAV files with device playback, download, and delete actions.</li>
+</ul>
+<p>Saved files use the first available <code>I:\text2speech-N.wav</code> counter name. Long requests create multiple sequential files, one for each synthesis round. The counter checks existing files before writing, so a restart does not overwrite earlier recordings. File, synthesis, and playback operations are serialized to prevent deleting or downloading a WAV while it is being written.</p>
+<p>HTTP routes:</p>
+<ul>
+<li><code>GET /</code>: static browser application.</li>
+<li><code>POST /speak</code>: URL-encoded language, text, voice, playback mode, and save option.</li>
+<li><code>POST /sound</code>: validated codec volume percentage and mute state.</li>
+<li><code>GET /files</code>: current WAV file table fragment.</li>
+<li><code>POST /play</code>: validated playback of a stored canonical unsigned 8-bit mono 8 kHz WAV through the device.</li>
+<li><code>GET /download?name=...</code>: WAV download.</li>
+<li><code>POST /delete</code>: validated WAV deletion.</li>
+</ul>
+<p>The web project links the tested ESP32-S3-BOX-Lite player sources from the existing I2S sample rather than maintaining a second playback implementation.</p>
+<h2 id="build">Build</h2>
+<p>Use the nanoFramework Visual Studio/VS Code build workflow:</p>
+<pre><code class="lang-powershell">nuget restore Text2Speech.sln -PackagesDirectory packages -NonInteractive
+msbuild Text2Speech.sln /p:platform=&quot;Any CPU&quot; /p:Configuration=Release /verbosity:minimal
+</code></pre>
+<p>If <code>msbuild</code> is not on <code>PATH</code>, locate the Visual Studio MSBuild executable with <code>vswhere</code> and invoke it directly. StyleCop findings fail the build.
+To validate the IoT.Device-style packages after a Release build, provide one version to all three specifications:</p>
+<pre><code class="lang-powershell">nuget pack Text2Speech.nuspec -Version 1.0.0 -Properties commit=LOCAL
+nuget pack Languages\English\Text2Speech.English.nuspec -Version 1.0.0 -Properties commit=LOCAL
+nuget pack Languages\French\Text2Speech.French.nuspec -Version 1.0.0 -Properties commit=LOCAL
+</code></pre>
+<h2 id="tests">Tests</h2>
+<p>The test project uses <code>nanoFramework.TestFramework</code>, <code>nanoFramework.UnitTestLauncher</code>, and the nanoFramework VSTest adapter. Build the Release solution first, then run <code>tests\Text2Speech.Tests\bin\Release\NFUnitTest.dll</code> using <code>tests\Text2Speech.Tests\nano.runsettings</code>. The checked-in settings use the nanoCLR simulator (<code>IsRealHardware=False</code>).</p>
+<p>Tests cover format constants, deterministic synthesis, buffered/streamed equivalence, number expansion, frontend rules, invalid input, WAV headers, and malformed/truncated WAV rejection.</p>
+<h2 id="constraints">Constraints</h2>
+<ul>
+<li>The separately packaged English and French frontends are intentionally compact; other languages require their own <code>ITtsLanguage</code> and <code>ITtsLanguageFrontend</code> implementation, phoneme inventory, normalization, spelling, stress, and intonation rules.</li>
+<li>French pronunciation is rule based. Its embedded prosody was distilled from HI! PARIS SSML output and French accentual-group behavior: approximately 2% slower segment timing, short word joins, final-vowel lengthening, continuation rises, declarative falls, question rises, and differentiated comma, clause, and terminal pauses. It does not provide a full lexicon, optional liaison, grammatical disambiguation, or exact acoustic nasal coupling, so irregular and context-sensitive words remain approximate.</li>
+<li>French oral-vowel F1/F2 targets are conservatively calibrated halfway toward single-speaker native-French measurements extracted from the Cnam-LMSSC Multilingual LibriSpeech French Phoneme dataset. F3, amplitudes, pitch, duration, schwa, and nasal-vowel targets remain independently tuned so acoustic changes can be evaluated separately.</li>
+<li>English F1/F2 targets with direct General American matches are conservatively calibrated using numerical outputs independently calculated by the local acoustic-analysis pipeline. Diphthong targets use independently calculated early and late vowel contours. F3, amplitudes, pitch, duration, unsupported vowels, and rhotic variants without direct matches remain independently tuned.</li>
+<li>To generate the French Prosology, we've been using HI! PARIS two-stage Qwen2.5-7B cascade on a host computer and converts its SSML into bounded pitch, speed, volume, and pause controls. The generated controls are development artifacts; the firmware frontend continues to use its built-in deterministic contour until a continuous span-level runtime bridge is added.</li>
+<li>Input and phonemes are bounded by the selected language and the fixed 128-entry <code>TtsPhonemeBuffer</code> to keep memory deterministic.</li>
+<li>The 8 kHz output favors size and embedded cost over high-fidelity speech.</li>
+<li>Calls reset renderer state for deterministic output and are safe to use through separate synthesizer calls; a sink must consume each block synchronously.</li>
+</ul>
+<h2 id="license-and-attribution">License and attribution</h2>
+<p>This repository is MIT licensed. The managed engine is derived from PebbleTalk at commit <code>8ddfbb60b9cd940a8ef4a24c3787ad211b19b003</code>, copyright (c) 2026 neonfire, also under the MIT License. English acoustic constants are independently calculated outputs of the local calibration pipeline; source measurements and recordings are not included. French spelling rules are independently adapted from Epitran French data (MIT, copyright 2016 David Mortensen), French cardinal behavior is adapted from Unicode CLDR data (Unicode License v3), and French oral-vowel calibration uses measurements derived from the Cnam-LMSSC Multilingual LibriSpeech French Phoneme dataset (CC BY 4.0). Host-side prosody tooling interoperates with the MIT-licensed HI! PARIS Prosody-Control-French-TTS project and separately downloaded Apache-2.0 models. See <code>LICENSE</code> and <code>NOTICE</code>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.IoT.Device/blob/main/devices/Text2Speech/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

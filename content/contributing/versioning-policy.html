@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Versioning policy | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Versioning policy | .NET nanoFramework Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../x-cross/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/contributing/versioning-policy.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="versioning-policy">Versioning policy</h1>
+
+<p>.NET <strong>nanoFramework</strong> has several things with a version or a version-like value: the NuGet packages of the class libraries, the firmware, the PE format and the native contract of each native assembly. This page says who sets each one and when it has to change. How they are generated and checked is explained in <a href="../architecture/guide-version-checksums.html">Package and assembly versions and the native contract hash</a>.</p>
+<h2 id="the-rule-in-one-line">The rule in one line</h2>
+<p><strong>The native implementation never breaks the contract that the managed code was built for.</strong> Bug fixes and improvements in the native code are fine. Breaking changes are not allowed there: when a breaking change is needed, it <strong>starts in the C# API</strong>.</p>
+<p>The rest of this page explains what that means in practice.</p>
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Set by</th>
+<th>Changes when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version of a class library (the assembly and the NuGet package)</td>
+<td>The developer sets major and minor in the <code>version.json</code> of the repository; the last number is automatic</td>
+<td>Major and minor: a deliberate managed breaking change (see below). Last number: every commit.</td>
+</tr>
+<tr>
+<td>Native contract hash of an assembly</td>
+<td>Nobody. It's computed by the metadata processor at build time</td>
+<td>The native methods or the field layout of the assembly change, which means that the C# declarations changed</td>
+</tr>
+<tr>
+<td>Firmware (nanoCLR) version</td>
+<td>The firmware repository</td>
+<td>Every firmware build</td>
+</tr>
+<tr>
+<td>PE format</td>
+<td>The framework generation</td>
+<td>v2 PE files (<code>NFMRK2</code>) are loaded by nanoCLR 2.x and later</td>
+</tr>
+</tbody>
+</table>
+<p>The versions are independent from each other. The firmware version doesn't tell if a package works with it, and the package version doesn't tell if a firmware works with it. What tells that is the native contract hash, and only within the same PE generation: the package and the firmware also have to use the same PE format (v2 PE files with nanoCLR 2.x and later). The hash tells about the native compatibility between them once that's the case.</p>
+<h2 id="class-libraries">Class libraries</h2>
+<ul>
+<li>The last number of the version is generated by the build and always increases. Nothing to do.</li>
+<li><strong>Minor version</strong>: bump it when you make a <em>managed binary breaking change</em>: changing or removing a public API that other libraries and applications use, so they have to be updated and rebuilt. An assembly reference is resolved by name and by the <strong>major and minor</strong> numbers, so after the bump the dependents must be rebuilt against the new package, and the tools report it before deploying.</li>
+<li><strong>Major version</strong>: for a new generation of the library or a big breaking change. It breaks references like a minor bump does.</li>
+<li>A change in the native code never needs a version bump, because the native code is not allowed to break the contract (see below). A breaking change starts in the C# API and is, therefore, a managed change.</li>
+</ul>
+<h2 id="native-code">Native code</h2>
+<p>The native implementation of a library has to keep doing what the managed code, and the applications that use it, expect. The managed code that is already published and deployed can't be told that the native code behaves differently, and nothing in the tools detects it: the native contract hash only covers the signatures of the native methods and the layout of the fields, not what the native code does. If native code was allowed to break the contract, the compatibility between libraries and firmware couldn't be maintained.</p>
+<table>
+<thead>
+<tr>
+<th>Allowed in the native code</th>
+<th>Not allowed in the native code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bug fixes</td>
+<td>Changing what an existing native method does so the managed code behaves differently (meaning of the arguments, return values, side effects the managed code relies on)</td>
+</tr>
+<tr>
+<td>Improvements: performance, memory use, code size, robustness</td>
+<td>Using the fields of a class in a different way from what the managed code expects</td>
+</tr>
+<tr>
+<td>Support for more targets or peripherals behind the same managed API</td>
+<td>Removing, or replacing by a different one, a native method that published managed assemblies call</td>
+</tr>
+</tbody>
+</table>
+<p>In short, existing managed code must not be able to tell the new native code from the previous one, except that it's better.</p>
+<h3 id="when-a-breaking-change-is-needed">When a breaking change is needed</h3>
+<p>A breaking change has to start from the C# API call. The steps are:</p>
+<ol>
+<li><strong>Add the new API call to the C# library</strong>: a new method or a new type. If it needs native code, it gets its own <code>extern</code> method, with its own name and signature. The existing native method stays as it is.</li>
+<li><strong>Keep the existing API working.</strong> If the existing API also has to change or be removed, that's a managed breaking change: bump the minor (or major) version of the library as described above, so the dependents are made aware and are forced to update their libraries and references.</li>
+<li><strong>Implement the new native method</strong> in the firmware. The native contract hash changes by itself (there's a new native method), and the new package and the new firmware are released together.</li>
+</ol>
+<p>Never change the behavior of an existing native method and rely on the version, or on anything else, to tell the consumers.</p>
+<h3 id="what-needs-a-new-package-or-a-new-firmware">What needs a new package or a new firmware</h3>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>New package</th>
+<th>New firmware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Managed code only (bug fix, new managed API, refactoring), the hash does not change</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Native code only (bug fix, improvement), the signatures and the fields do not change</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>The contract changes (native method or field layout), because of a change in the C# API</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Static field indexes are assembly-wide: a managed change that adds a static field, or reorders types that have static fields, changes the contract and the hash, even if no native method is touched. See <a href="../architecture/pe-file/NativeContractHash.html#field-constants">Field constants</a>.</li>
+<li>A bug fix or an improvement in the native code doesn't need a new package, and the packages that already exist keep working with the new firmware.</li>
+<li>A change in the contract needs a new package <strong>and</strong> a new firmware, which are released together. The native declaration in nf-interpreter is updated before, or together with, the package. The latest firmware always works with the latest packages.</li>
+<li>Enums that are shared with native code are not part of the contract: never renumber existing members, only append.</li>
+<li>When the contract of an assembly changes, check the assemblies that have types deriving from types of that assembly: their stubs have to be regenerated in the same change. See <a href="../architecture/pe-file/NativeContractHash.html#types-in-different-assemblies">Native Contract Hash</a>.</li>
+</ul>
+<h2 id="firmware-and-class-libraries">Firmware and class libraries</h2>
+<p>A firmware works with a library if both are of the same PE generation (v2 PE files for nanoCLR 2.x and later) and the firmware has the native contract hash that the library requires, or the library has no native code. The hash only tells about the native compatibility within that generation: the v1 checksum and the v2 hash are computed in different ways and are never compared with each other. To find a package version for the firmware you have, look for the hash of the native assembly in the <code>native_assemblies.json</code> that is published with the firmware (or in the <strong>Device Capabilities</strong> of the <strong>Device Explorer</strong>) and look for the package that has it in its description and in its <code>nfnc-</code> tag.</p>
+<h2 id="pe-format">PE format</h2>
+<p>The PE format version is part of the generation of the framework. The nanoCLR 2.x and later only load v2 PE files (<code>NFMRK2</code>) and the tools infer the format to use from the nanoCLR version that the device reports. A v1 PE file can't be loaded by a v2 firmware and the other way around, and a deployment can't mix them.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/nanoframework/nanoframework.github.io/blob/pages-source/content/contributing/versioning-policy.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

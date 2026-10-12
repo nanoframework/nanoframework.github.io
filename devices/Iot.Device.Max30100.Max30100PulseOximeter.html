@@ -1,0 +1,4739 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Max30100PulseOximeter | .NET nanoFramework Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Max30100PulseOximeter | .NET nanoFramework Documentation ">
+      
+      <meta name="description" content="Processes MAX30100 samples to estimate pulse rate and oxygen saturation.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Iot.Device.Max30100.Max30100PulseOximeter">
+
+
+
+  <h1 id="Iot_Device_Max30100_Max30100PulseOximeter" data-uid="Iot.Device.Max30100.Max30100PulseOximeter" class="text-break">
+Class Max30100PulseOximeter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">Iot</span>.<a class="xref" href="Iot.Device.html">Device</a>.<a class="xref" href="Iot.Device.Max30100.html">Max30100</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Iot.Device.Max30100.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Processes MAX30100 samples to estimate pulse rate and oxygen saturation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Max30100PulseOximeter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="../api/System.Object.html">object</a></div>
+      <div><span class="xref">Max30100PulseOximeter</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Iot_Device_Max30100_Max30100PulseOximeter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The default oxygen-saturation calculation uses an uncalibrated ratio-of-ratios approximation.
+Results are for experimentation only and must not be used for medical purposes.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter__ctor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.#ctor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter__ctor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.#ctor">
+  Max30100PulseOximeter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Max30100.Max30100PulseOximeter.html">Max30100PulseOximeter</a> class
+with the default signal-processing configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Max30100PulseOximeter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter__ctor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.#ctor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter__ctor_Iot_Device_Max30100_Max30100PulseOximeterOptions_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.#ctor(Iot.Device.Max30100.Max30100PulseOximeterOptions)">
+  Max30100PulseOximeter(Max30100PulseOximeterOptions)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Iot.Device.Max30100.Max30100PulseOximeter.html">Max30100PulseOximeter</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Max30100PulseOximeter(Max30100PulseOximeterOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Iot.Device.Max30100.Max30100PulseOximeterOptions.html">Max30100PulseOximeterOptions</a></dt>
+    <dd><p>The signal-processing configuration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">options</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A processing option is outside its supported range.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>Two or more processing options are incompatible.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAbruptChangeRelativePercent" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAbruptChangeRelativePercent">
+  DefaultAbruptChangeRelativePercent
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default one-sample relative change treated as abrupt movement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultAbruptChangeRelativePercent = 4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAlternateHeartRateConfirmationCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAlternateHeartRateConfirmationCount">
+  DefaultAlternateHeartRateConfirmationCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default number of matching alternate candidates required to replace a heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultAlternateHeartRateConfirmationCount = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAnalysisIntervalSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAnalysisIntervalSeconds">
+  DefaultAnalysisIntervalSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default interval between complete signal analyses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultAnalysisIntervalSeconds = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAutocorrelationCyclesForFullQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAutocorrelationCyclesForFullQuality">
+  DefaultAutocorrelationCyclesForFullQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default number of waveform cycles that produces full cycle evidence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultAutocorrelationCyclesForFullQuality = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAutocorrelationFallbackQualityFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAutocorrelationFallbackQualityFactor">
+  DefaultAutocorrelationFallbackQualityFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default quality multiplier applied when autocorrelation supplies the only estimate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultAutocorrelationFallbackQualityFactor = 0.75</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAutocorrelationHarmonicThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAutocorrelationHarmonicThreshold">
+  DefaultAutocorrelationHarmonicThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default relative strength needed to select a half-lag harmonic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultAutocorrelationHarmonicThreshold = 0.85</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAutocorrelationProminenceForFullQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAutocorrelationProminenceForFullQuality">
+  DefaultAutocorrelationProminenceForFullQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default peak prominence that produces full prominence evidence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultAutocorrelationProminenceForFullQuality = 0.2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAutocorrelationShoulderFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAutocorrelationShoulderFraction">
+  DefaultAutocorrelationShoulderFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default lag fraction used to evaluate autocorrelation peak shoulders.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultAutocorrelationShoulderFraction = 0.25</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultAutocorrelationTargetSampleRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultAutocorrelationTargetSampleRate">
+  DefaultAutocorrelationTargetSampleRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default target sample rate used for autocorrelation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultAutocorrelationTargetSampleRate = 25</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultBaselineTrackingRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultBaselineTrackingRate">
+  DefaultBaselineTrackingRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default baseline-tracking rate used by the high-pass filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultBaselineTrackingRate = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultBeatDetectionThresholdFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultBeatDetectionThresholdFraction">
+  DefaultBeatDetectionThresholdFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default RMS fraction used as the minimum beat-peak height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultBeatDetectionThresholdFraction = 0.1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultBeatIntervalToleranceFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultBeatIntervalToleranceFraction">
+  DefaultBeatIntervalToleranceFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default accepted deviation from the median beat interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultBeatIntervalToleranceFraction = 0.25</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultBeatRefractoryPeriodFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultBeatRefractoryPeriodFraction">
+  DefaultBeatRefractoryPeriodFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default refractory period as a fraction of the shortest supported beat interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultBeatRefractoryPeriodFraction = 0.75</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultEstimatorDisagreementQualityFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultEstimatorDisagreementQualityFactor">
+  DefaultEstimatorDisagreementQualityFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default quality multiplier applied when heart-rate estimators disagree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultEstimatorDisagreementQualityFactor = 0.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultFilterSettlingSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultFilterSettlingSeconds">
+  DefaultFilterSettlingSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default duration discarded while the filters settle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultFilterSettlingSeconds = 0.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultFingerDetectionThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultFingerDetectionThreshold">
+  DefaultFingerDetectionThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum red and infrared level used to detect finger contact.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultFingerDetectionThreshold = 1000</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultFingerLossSignalResetSamples" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultFingerLossSignalResetSamples">
+  DefaultFingerLossSignalResetSamples
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default consecutive no-finger samples before clearing signal analysis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultFingerLossSignalResetSamples = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultFingerRemovalDebounceSamples" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultFingerRemovalDebounceSamples">
+  DefaultFingerRemovalDebounceSamples
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default consecutive no-finger samples before confirming finger removal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultFingerRemovalDebounceSamples = 5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultHeartRateCandidateMissLimit" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultHeartRateCandidateMissLimit">
+  DefaultHeartRateCandidateMissLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default consecutive invalid-analysis limit before clearing a heart-rate candidate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultHeartRateCandidateMissLimit = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultHeartRateCandidateSmoothingFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultHeartRateCandidateSmoothingFactor">
+  DefaultHeartRateCandidateSmoothingFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default weight of a new heart-rate candidate during candidate smoothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultHeartRateCandidateSmoothingFactor = 0.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultHeartRateCandidateTolerance" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultHeartRateCandidateTolerance">
+  DefaultHeartRateCandidateTolerance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default maximum difference between consecutive heart-rate candidates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultHeartRateCandidateTolerance = 12</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultHeartRateConfirmationCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultHeartRateConfirmationCount">
+  DefaultHeartRateConfirmationCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default number of matching candidates required to confirm a heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultHeartRateConfirmationCount = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultHeartRateEstimatorAgreementTolerance" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultHeartRateEstimatorAgreementTolerance">
+  DefaultHeartRateEstimatorAgreementTolerance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default maximum difference between interval and periodic heart-rate estimates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultHeartRateEstimatorAgreementTolerance = 12</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultHeartRateSmoothingFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultHeartRateSmoothingFactor">
+  DefaultHeartRateSmoothingFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default weight of a new confirmed heart rate during output smoothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultHeartRateSmoothingFactor = 0.3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultInitialFingerSettlingSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultInitialFingerSettlingSeconds">
+  DefaultInitialFingerSettlingSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default settling duration after initial finger contact.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultInitialFingerSettlingSeconds = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultIntervalDeviationQualityPenalty" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultIntervalDeviationQualityPenalty">
+  DefaultIntervalDeviationQualityPenalty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default multiplier converting relative interval deviation into a quality penalty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultIntervalDeviationQualityPenalty = 200</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMaximumHeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMaximumHeartRate">
+  DefaultMaximumHeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default maximum supported heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMaximumHeartRate = 180</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMaximumOxygenSaturationRatio" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMaximumOxygenSaturationRatio">
+  DefaultMaximumOxygenSaturationRatio
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default maximum ratio of ratios accepted for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMaximumOxygenSaturationRatio = 1.7</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumAbruptChangeCounts" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumAbruptChangeCounts">
+  DefaultMinimumAbruptChangeCounts
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum one-sample change treated as abrupt movement, in ADC counts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultMinimumAbruptChangeCounts = 750</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumAcRms" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumAcRms">
+  DefaultMinimumAcRms
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum AC RMS amplitude required for pulse measurements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumAcRms = 5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumAutocorrelationChannelCorrelation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumAutocorrelationChannelCorrelation">
+  DefaultMinimumAutocorrelationChannelCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum red and infrared correlation for autocorrelation fallback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumAutocorrelationChannelCorrelation = 0.75</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumAutocorrelationQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumAutocorrelationQuality">
+  DefaultMinimumAutocorrelationQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum accepted autocorrelation quality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumAutocorrelationQuality = 55</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumBeatDetectionThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumBeatDetectionThreshold">
+  DefaultMinimumBeatDetectionThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum beat-peak height in ADC counts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumBeatDetectionThreshold = 1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumBeatIntervalCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumBeatIntervalCount">
+  DefaultMinimumBeatIntervalCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum number of consistent beat intervals.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultMinimumBeatIntervalCount = 4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumHeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumHeartRate">
+  DefaultMinimumHeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum supported heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumHeartRate = 40</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumHeartRatePerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumHeartRatePerfusionIndex">
+  DefaultMinimumHeartRatePerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum infrared perfusion index for heart-rate estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumHeartRatePerfusionIndex = 0.04</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumHeartRateQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumHeartRateQuality">
+  DefaultMinimumHeartRateQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum accepted heart-rate quality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumHeartRateQuality = 45</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumOxygenSaturationCorrelation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumOxygenSaturationCorrelation">
+  DefaultMinimumOxygenSaturationCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum red and infrared waveform correlation for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumOxygenSaturationCorrelation = 0.8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumOxygenSaturationPerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumOxygenSaturationPerfusionIndex">
+  DefaultMinimumOxygenSaturationPerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum red and infrared perfusion index for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumOxygenSaturationPerfusionIndex = 0.1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumOxygenSaturationRatio" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumOxygenSaturationRatio">
+  DefaultMinimumOxygenSaturationRatio
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum ratio of ratios accepted for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumOxygenSaturationRatio = 0.3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumWeakSignalOxygenSaturationCorrelation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumWeakSignalOxygenSaturationCorrelation">
+  DefaultMinimumWeakSignalOxygenSaturationCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum channel correlation for adaptive weak-signal SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumWeakSignalOxygenSaturationCorrelation = 0.9</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMinimumWeakSignalOxygenSaturationPerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMinimumWeakSignalOxygenSaturationPerfusionIndex">
+  DefaultMinimumWeakSignalOxygenSaturationPerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default minimum channel perfusion index for adaptive weak-signal SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMinimumWeakSignalOxygenSaturationPerfusionIndex = 0.04</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMissedBeatIntervalFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMissedBeatIntervalFactor">
+  DefaultMissedBeatIntervalFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default interval factor above which a missed beat is inferred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMissedBeatIntervalFactor = 1.6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultMotionRecoverySettlingSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultMotionRecoverySettlingSeconds">
+  DefaultMotionRecoverySettlingSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default settling duration after abrupt movement or temporary contact loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultMotionRecoverySettlingSeconds = 1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultOxygenSaturationCalibrationIntercept" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultOxygenSaturationCalibrationIntercept">
+  DefaultOxygenSaturationCalibrationIntercept
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default oxygen-saturation calibration intercept.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultOxygenSaturationCalibrationIntercept = 110</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultOxygenSaturationCalibrationSlope" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultOxygenSaturationCalibrationSlope">
+  DefaultOxygenSaturationCalibrationSlope
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default oxygen-saturation calibration slope.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultOxygenSaturationCalibrationSlope = -25</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultOxygenSaturationSmoothingFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultOxygenSaturationSmoothingFactor">
+  DefaultOxygenSaturationSmoothingFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default weight of a new oxygen-saturation result during output smoothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultOxygenSaturationSmoothingFactor = 0.2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultPeakDetectionProminenceFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultPeakDetectionProminenceFraction">
+  DefaultPeakDetectionProminenceFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default RMS fraction required for beat-peak prominence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultPeakDetectionProminenceFraction = 0.5</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultSampleRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultSampleRate">
+  DefaultSampleRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default sensor sample rate expected by the processor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultSampleRate = 100</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultSignalSmoothingRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultSignalSmoothingRate">
+  DefaultSignalSmoothingRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default smoothing rate used by the low-pass filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultSignalSmoothingRate = 15</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultStableOpticalSignalHeartRateMissLimit" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultStableOpticalSignalHeartRateMissLimit">
+  DefaultStableOpticalSignalHeartRateMissLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default heart-rate miss limit while the optical signal remains coherent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultStableOpticalSignalHeartRateMissLimit = 6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultStrongCandidateQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultStrongCandidateQuality">
+  DefaultStrongCandidateQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default quality required for immediate strong-candidate acceptance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultStrongCandidateQuality = 80</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultWeakSignalOxygenSaturationConfirmationCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultWeakSignalOxygenSaturationConfirmationCount">
+  DefaultWeakSignalOxygenSaturationConfirmationCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default stable-window count required by adaptive weak-signal SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultWeakSignalOxygenSaturationConfirmationCount = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultWeakSignalOxygenSaturationRatioTolerance" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultWeakSignalOxygenSaturationRatioTolerance">
+  DefaultWeakSignalOxygenSaturationRatioTolerance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default maximum ratio change accepted by adaptive weak-signal SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultWeakSignalOxygenSaturationRatioTolerance = 0.1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DefaultWindowSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DefaultWindowSeconds">
+  DefaultWindowSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default analysis-window duration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultWindowSeconds = 6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AbruptChangeRelativePercent_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AbruptChangeRelativePercent*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AbruptChangeRelativePercent" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AbruptChangeRelativePercent">
+  AbruptChangeRelativePercent
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the one-sample relative change treated as abrupt movement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AbruptChangeRelativePercent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The red or infrared change as a percentage of the previous DC level.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AlternateHeartRateConfirmationCount_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AlternateHeartRateConfirmationCount*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AlternateHeartRateConfirmationCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AlternateHeartRateConfirmationCount">
+  AlternateHeartRateConfirmationCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the matching alternate-candidate count required to replace a heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AlternateHeartRateConfirmationCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The required alternate-candidate count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AnalysisIntervalSeconds_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AnalysisIntervalSeconds*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AnalysisIntervalSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AnalysisIntervalSeconds">
+  AnalysisIntervalSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the interval between complete signal analyses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AnalysisIntervalSeconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The interval in seconds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AnalysisWindowProgress_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AnalysisWindowProgress*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AnalysisWindowProgress" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AnalysisWindowProgress">
+  AnalysisWindowProgress
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the percentage of the analysis window currently filled with stable samples.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AnalysisWindowProgress { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from zero through 100.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationCyclesForFullQuality_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationCyclesForFullQuality*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationCyclesForFullQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationCyclesForFullQuality">
+  AutocorrelationCyclesForFullQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the waveform-cycle count that produces full cycle evidence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AutocorrelationCyclesForFullQuality { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The cycle count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationFallbackQualityFactor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationFallbackQualityFactor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationFallbackQualityFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationFallbackQualityFactor">
+  AutocorrelationFallbackQualityFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the quality multiplier applied when autocorrelation supplies the only estimate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AutocorrelationFallbackQualityFactor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from zero through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationHarmonicThreshold_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationHarmonicThreshold*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationHarmonicThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationHarmonicThreshold">
+  AutocorrelationHarmonicThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the relative strength needed to select a half-lag harmonic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AutocorrelationHarmonicThreshold { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value greater than zero through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationHeartRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationHeartRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationHeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationHeartRate">
+  AutocorrelationHeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the heart rate independently estimated from waveform periodicity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AutocorrelationHeartRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The normalized-autocorrelation estimate in beats per minute, or zero when no periodic peak is available.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationProminenceForFullQuality_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationProminenceForFullQuality*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationProminenceForFullQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationProminenceForFullQuality">
+  AutocorrelationProminenceForFullQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the peak prominence that produces full prominence evidence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AutocorrelationProminenceForFullQuality { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The normalized prominence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationQuality_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationQuality*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationQuality">
+  AutocorrelationQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the confidence of the normalized-autocorrelation estimate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AutocorrelationQuality { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from zero through 100 based on peak strength, prominence, and cycle evidence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationShoulderFraction_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationShoulderFraction*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationShoulderFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationShoulderFraction">
+  AutocorrelationShoulderFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the lag fraction used to evaluate autocorrelation peak shoulders.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AutocorrelationShoulderFraction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value greater than zero through one half.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationTargetSampleRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationTargetSampleRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AutocorrelationTargetSampleRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AutocorrelationTargetSampleRate">
+  AutocorrelationTargetSampleRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the target sample rate used for autocorrelation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AutocorrelationTargetSampleRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The target rate in samples per second.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_BaselineTrackingRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BaselineTrackingRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_BaselineTrackingRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BaselineTrackingRate">
+  BaselineTrackingRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the baseline-tracking rate used by the high-pass filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BaselineTrackingRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The filter rate per second. The per-sample coefficient is this value divided by the sample rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_BeatDetectionProminenceThreshold_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatDetectionProminenceThreshold*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_BeatDetectionProminenceThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatDetectionProminenceThreshold">
+  BeatDetectionProminenceThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum prominence used for beat detection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BeatDetectionProminenceThreshold { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The required rise from a preceding local valley in filtered ADC counts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_BeatDetectionThreshold_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatDetectionThreshold*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_BeatDetectionThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatDetectionThreshold">
+  BeatDetectionThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum positive peak height used for beat detection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BeatDetectionThreshold { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The peak-height threshold in filtered ADC counts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_BeatDetectionThresholdFraction_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatDetectionThresholdFraction*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_BeatDetectionThresholdFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatDetectionThresholdFraction">
+  BeatDetectionThresholdFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the RMS fraction used as the minimum beat-peak height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BeatDetectionThresholdFraction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The positive peak-height threshold as a fraction of infrared AC RMS.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_BeatIntervalToleranceFraction_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatIntervalToleranceFraction*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_BeatIntervalToleranceFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatIntervalToleranceFraction">
+  BeatIntervalToleranceFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the accepted deviation from the median beat interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BeatIntervalToleranceFraction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The maximum deviation as a fraction of the median interval.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_BeatRefractoryPeriodFraction_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatRefractoryPeriodFraction*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_BeatRefractoryPeriodFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.BeatRefractoryPeriodFraction">
+  BeatRefractoryPeriodFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the refractory period as a fraction of the shortest supported beat interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BeatRefractoryPeriodFraction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value greater than zero through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_CandidateHeartRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.CandidateHeartRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_CandidateHeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.CandidateHeartRate">
+  CandidateHeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current unconfirmed pulse-rate candidate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CandidateHeartRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The candidate rate in beats per minute, or zero when no candidate is available.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_ChannelCorrelation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.ChannelCorrelation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_ChannelCorrelation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.ChannelCorrelation">
+  ChannelCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the correlation between the filtered infrared and red waveforms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ChannelCorrelation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from -1 through 1, where 1 indicates matching waveform shapes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_DetectedBeatIntervals_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DetectedBeatIntervals*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DetectedBeatIntervals" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DetectedBeatIntervals">
+  DetectedBeatIntervals
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of beat intervals accepted during the latest analysis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DetectedBeatIntervals { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The number of accepted beat intervals.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_DetectedBeatPeaks_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DetectedBeatPeaks*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_DetectedBeatPeaks" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.DetectedBeatPeaks">
+  DetectedBeatPeaks
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of prominence-qualified beat peaks found during the latest analysis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DetectedBeatPeaks { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The number of peaks remaining after refractory-period suppression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_EstimatorDisagreementQualityFactor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.EstimatorDisagreementQualityFactor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_EstimatorDisagreementQualityFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.EstimatorDisagreementQualityFactor">
+  EstimatorDisagreementQualityFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the quality multiplier applied when heart-rate estimators disagree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EstimatorDisagreementQualityFactor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from zero through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_FilterSettlingSeconds_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FilterSettlingSeconds*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_FilterSettlingSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FilterSettlingSeconds">
+  FilterSettlingSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the duration discarded while the filters settle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double FilterSettlingSeconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The settling duration in seconds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_FingerDetected_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerDetected*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_FingerDetected" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerDetected">
+  FingerDetected
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether a finger is currently detected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FingerDetected { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when the current optical levels indicate finger contact.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_FingerDetectionThreshold_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerDetectionThreshold*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_FingerDetectionThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerDetectionThreshold">
+  FingerDetectionThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum red and infrared level used to detect finger contact.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FingerDetectionThreshold { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The raw ADC threshold.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_FingerLossSignalResetSamples_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerLossSignalResetSamples*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_FingerLossSignalResetSamples" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerLossSignalResetSamples">
+  FingerLossSignalResetSamples
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the no-finger sample count that clears signal analysis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FingerLossSignalResetSamples { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The consecutive sample count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_FingerRemovalDebounceSamples_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerRemovalDebounceSamples*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_FingerRemovalDebounceSamples" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.FingerRemovalDebounceSamples">
+  FingerRemovalDebounceSamples
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the no-finger sample count that confirms finger removal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FingerRemovalDebounceSamples { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The consecutive sample count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HasValidHeartRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HasValidHeartRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HasValidHeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HasValidHeartRate">
+  HasValidHeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the pulse-rate estimate is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasValidHeartRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when the infrared waveform has a sufficiently periodic pulse signal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HasValidOxygenSaturation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HasValidOxygenSaturation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HasValidOxygenSaturation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HasValidOxygenSaturation">
+  HasValidOxygenSaturation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the oxygen-saturation estimate is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasValidOxygenSaturation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when both optical channels pass the ratio-of-ratios signal checks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HasValidReading_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HasValidReading*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HasValidReading" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HasValidReading">
+  HasValidReading
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether pulse and oxygen-saturation estimates are available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasValidReading { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when the current estimates passed basic signal checks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRate">
+  HeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the estimated pulse rate in beats per minute.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double HeartRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The estimated pulse rate, or zero when no valid estimate is available.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateCandidateMissLimit_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateCandidateMissLimit*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateCandidateMissLimit" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateCandidateMissLimit">
+  HeartRateCandidateMissLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the consecutive invalid-analysis limit before clearing a heart-rate candidate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HeartRateCandidateMissLimit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The number of invalid windows that clears the candidate. A confirmed rate is held for one fewer windows.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateCandidateSmoothingFactor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateCandidateSmoothingFactor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateCandidateSmoothingFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateCandidateSmoothingFactor">
+  HeartRateCandidateSmoothingFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the weight of a new heart-rate candidate during candidate smoothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double HeartRateCandidateSmoothingFactor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value greater than zero through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateCandidateTolerance_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateCandidateTolerance*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateCandidateTolerance" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateCandidateTolerance">
+  HeartRateCandidateTolerance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum difference between consecutive heart-rate candidates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double HeartRateCandidateTolerance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The tolerance in BPM. Larger differences are treated as a new candidate that must repeat before replacing the established rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateConfirmationCount_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateConfirmationCount*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateConfirmationCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateConfirmationCount">
+  HeartRateConfirmationCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the matching-candidate count required to confirm a heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HeartRateConfirmationCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The required candidate count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateEstimatorAgreementTolerance_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateEstimatorAgreementTolerance*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateEstimatorAgreementTolerance" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateEstimatorAgreementTolerance">
+  HeartRateEstimatorAgreementTolerance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum difference between interval and periodic heart-rate estimates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double HeartRateEstimatorAgreementTolerance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The agreement tolerance in BPM.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateEstimatorsDisagree_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateEstimatorsDisagree*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateEstimatorsDisagree" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateEstimatorsDisagree">
+  HeartRateEstimatorsDisagree
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether interval and autocorrelation estimates disagreed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HeartRateEstimatorsDisagree { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when both estimators were individually valid but exceeded the configured agreement tolerance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateSmoothingFactor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateSmoothingFactor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_HeartRateSmoothingFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.HeartRateSmoothingFactor">
+  HeartRateSmoothingFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the weight of a new confirmed heart rate during output smoothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double HeartRateSmoothingFactor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value greater than zero through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_InfraredAcRms_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.InfraredAcRms*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_InfraredAcRms" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.InfraredAcRms">
+  InfraredAcRms
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the infrared AC root-mean-square amplitude from the latest analysis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InfraredAcRms { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The filtered infrared amplitude in ADC counts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_InitialFingerSettlingSeconds_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.InitialFingerSettlingSeconds*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_InitialFingerSettlingSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.InitialFingerSettlingSeconds">
+  InitialFingerSettlingSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the settling duration after initial finger contact.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InitialFingerSettlingSeconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The duration in seconds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_IntervalDeviationQualityPenalty_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.IntervalDeviationQualityPenalty*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_IntervalDeviationQualityPenalty" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.IntervalDeviationQualityPenalty">
+  IntervalDeviationQualityPenalty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the multiplier converting relative interval deviation into a quality penalty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double IntervalDeviationQualityPenalty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The quality-penalty multiplier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_IsHeartRateHeld_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.IsHeartRateHeld*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_IsHeartRateHeld" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.IsHeartRateHeld">
+  IsHeartRateHeld
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the last confirmed heart rate is being held through a weak analysis window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsHeartRateHeld { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when the displayed heart rate was retained rather than refreshed by the latest window.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_IsSettling_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.IsSettling*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_IsSettling" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.IsSettling">
+  IsSettling
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether finger contact is still stabilizing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSettling { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True while initial pressure and optical-level changes are being discarded.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MaximumHeartRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MaximumHeartRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MaximumHeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MaximumHeartRate">
+  MaximumHeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum supported heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MaximumHeartRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The maximum rate in BPM.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MaximumOxygenSaturationRatio_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MaximumOxygenSaturationRatio*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MaximumOxygenSaturationRatio" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MaximumOxygenSaturationRatio">
+  MaximumOxygenSaturationRatio
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum ratio of ratios accepted for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MaximumOxygenSaturationRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The maximum ratio.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAbruptChangeCounts_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAbruptChangeCounts*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAbruptChangeCounts" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAbruptChangeCounts">
+  MinimumAbruptChangeCounts
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum one-sample change treated as abrupt movement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MinimumAbruptChangeCounts { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The minimum red or infrared change in ADC counts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAcRms_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAcRms*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAcRms" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAcRms">
+  MinimumAcRms
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum AC RMS amplitude required for pulse measurements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumAcRms { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum amplitude in ADC counts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAutocorrelationChannelCorrelation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAutocorrelationChannelCorrelation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAutocorrelationChannelCorrelation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAutocorrelationChannelCorrelation">
+  MinimumAutocorrelationChannelCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum red and infrared correlation for autocorrelation fallback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumAutocorrelationChannelCorrelation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from minus one through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAutocorrelationQuality_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAutocorrelationQuality*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumAutocorrelationQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumAutocorrelationQuality">
+  MinimumAutocorrelationQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum accepted autocorrelation quality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumAutocorrelationQuality { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum quality percentage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumBeatDetectionThreshold_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumBeatDetectionThreshold*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumBeatDetectionThreshold" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumBeatDetectionThreshold">
+  MinimumBeatDetectionThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum beat-peak height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumBeatDetectionThreshold { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum positive peak threshold in ADC counts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumBeatIntervalCount_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumBeatIntervalCount*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumBeatIntervalCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumBeatIntervalCount">
+  MinimumBeatIntervalCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum number of consistent beat intervals.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MinimumBeatIntervalCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The minimum accepted interval count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumHeartRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumHeartRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumHeartRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumHeartRate">
+  MinimumHeartRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum supported heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumHeartRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum rate in BPM.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumHeartRatePerfusionIndex_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumHeartRatePerfusionIndex*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumHeartRatePerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumHeartRatePerfusionIndex">
+  MinimumHeartRatePerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum infrared perfusion index for heart-rate estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumHeartRatePerfusionIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum perfusion index percentage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumHeartRateQuality_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumHeartRateQuality*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumHeartRateQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumHeartRateQuality">
+  MinimumHeartRateQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum accepted heart-rate quality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumHeartRateQuality { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum quality percentage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumOxygenSaturationCorrelation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumOxygenSaturationCorrelation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumOxygenSaturationCorrelation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumOxygenSaturationCorrelation">
+  MinimumOxygenSaturationCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum red and infrared waveform correlation for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumOxygenSaturationCorrelation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum correlation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumOxygenSaturationPerfusionIndex_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumOxygenSaturationPerfusionIndex*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumOxygenSaturationPerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumOxygenSaturationPerfusionIndex">
+  MinimumOxygenSaturationPerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum red and infrared perfusion index for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumOxygenSaturationPerfusionIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum perfusion index percentage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumOxygenSaturationRatio_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumOxygenSaturationRatio*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumOxygenSaturationRatio" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumOxygenSaturationRatio">
+  MinimumOxygenSaturationRatio
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum ratio of ratios accepted for oxygen-saturation estimation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumOxygenSaturationRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum ratio.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumWeakSignalOxygenSaturationCorrelation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumWeakSignalOxygenSaturationCorrelation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumWeakSignalOxygenSaturationCorrelation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumWeakSignalOxygenSaturationCorrelation">
+  MinimumWeakSignalOxygenSaturationCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum channel correlation for adaptive weak-signal SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumWeakSignalOxygenSaturationCorrelation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from minus one through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumWeakSignalOxygenSaturationPerfusionIndex_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumWeakSignalOxygenSaturationPerfusionIndex*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MinimumWeakSignalOxygenSaturationPerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MinimumWeakSignalOxygenSaturationPerfusionIndex">
+  MinimumWeakSignalOxygenSaturationPerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum channel perfusion index for adaptive weak-signal SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MinimumWeakSignalOxygenSaturationPerfusionIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum perfusion index percentage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MissedBeatIntervalFactor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MissedBeatIntervalFactor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MissedBeatIntervalFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MissedBeatIntervalFactor">
+  MissedBeatIntervalFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the interval factor used to infer one missed beat.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MissedBeatIntervalFactor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The interval-to-median factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_MotionRecoverySettlingSeconds_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MotionRecoverySettlingSeconds*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_MotionRecoverySettlingSeconds" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.MotionRecoverySettlingSeconds">
+  MotionRecoverySettlingSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the settling duration after abrupt movement or temporary contact loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MotionRecoverySettlingSeconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The duration in seconds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturation">
+  OxygenSaturation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the experimental oxygen-saturation estimate as a percentage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double OxygenSaturation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The estimated oxygen saturation, or zero when no valid estimate is available.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturationCalibrationIntercept_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturationCalibrationIntercept*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturationCalibrationIntercept" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturationCalibrationIntercept">
+  OxygenSaturationCalibrationIntercept
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the intercept used to convert the ratio of ratios to oxygen saturation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double OxygenSaturationCalibrationIntercept { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The intercept in the equation SpO₂ = intercept + slope × ratio.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturationCalibrationSlope_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturationCalibrationSlope*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturationCalibrationSlope" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturationCalibrationSlope">
+  OxygenSaturationCalibrationSlope
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the slope used to convert the ratio of ratios to oxygen saturation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double OxygenSaturationCalibrationSlope { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The slope in the equation SpO₂ = intercept + slope × ratio.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturationSmoothingFactor_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturationSmoothingFactor*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_OxygenSaturationSmoothingFactor" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.OxygenSaturationSmoothingFactor">
+  OxygenSaturationSmoothingFactor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the weight of a new oxygen-saturation result during output smoothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double OxygenSaturationSmoothingFactor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value greater than zero through one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_PeakDetectionProminenceFraction_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.PeakDetectionProminenceFraction*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_PeakDetectionProminenceFraction" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.PeakDetectionProminenceFraction">
+  PeakDetectionProminenceFraction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the RMS fraction required for beat-peak prominence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PeakDetectionProminenceFraction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The minimum rise from the preceding local valley as a fraction of infrared AC RMS.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_PerfusionIndex_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.PerfusionIndex*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_PerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.PerfusionIndex">
+  PerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the infrared AC signal as a percentage of its DC level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PerfusionIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The infrared perfusion-index approximation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_RatioOfRatios_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.RatioOfRatios*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_RatioOfRatios" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.RatioOfRatios">
+  RatioOfRatios
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the red-to-infrared AC/DC ratio used by the oxygen-saturation approximation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RatioOfRatios { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The latest ratio of ratios, or zero before an analysis is available.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_RawBeatIntervals_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.RawBeatIntervals*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_RawBeatIntervals" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.RawBeatIntervals">
+  RawBeatIntervals
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of physiologically plausible beat intervals found before consistency filtering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RawBeatIntervals { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The number of raw beat intervals.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_RedPerfusionIndex_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.RedPerfusionIndex*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_RedPerfusionIndex" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.RedPerfusionIndex">
+  RedPerfusionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the red AC signal as a percentage of its DC level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RedPerfusionIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The red-channel perfusion-index approximation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_SignalDiagnostic_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SignalDiagnostic*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_SignalDiagnostic" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SignalDiagnostic">
+  SignalDiagnostic
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reason the current signal has not produced a valid heart rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Max30100SignalDiagnostic SignalDiagnostic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Iot.Device.Max30100.Max30100SignalDiagnostic.html">Max30100SignalDiagnostic</a></dt>
+    <dd><p>The current signal diagnostic, or <a class="xref" href="Iot.Device.Max30100.Max30100SignalDiagnostic.html#Iot_Device_Max30100_Max30100SignalDiagnostic_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_SignalQuality_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SignalQuality*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_SignalQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SignalQuality">
+  SignalQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the periodic-signal confidence as a percentage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SignalQuality { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>A value from zero to 100 representing beat-interval consistency and evidence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_SignalSmoothingRate_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SignalSmoothingRate*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_SignalSmoothingRate" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SignalSmoothingRate">
+  SignalSmoothingRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the smoothing rate used by the low-pass filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SignalSmoothingRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The filter rate per second. The per-sample coefficient is this value divided by the sample rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_StableOpticalSignalHeartRateMissLimit_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.StableOpticalSignalHeartRateMissLimit*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_StableOpticalSignalHeartRateMissLimit" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.StableOpticalSignalHeartRateMissLimit">
+  StableOpticalSignalHeartRateMissLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the heart-rate miss limit used while the optical signal remains coherent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StableOpticalSignalHeartRateMissLimit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The consecutive invalid-analysis limit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_StrongCandidateQuality_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.StrongCandidateQuality*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_StrongCandidateQuality" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.StrongCandidateQuality">
+  StrongCandidateQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the quality required for immediate strong-candidate acceptance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StrongCandidateQuality { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The strong-candidate quality percentage.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_UsedAutocorrelationFallback_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.UsedAutocorrelationFallback*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_UsedAutocorrelationFallback" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.UsedAutocorrelationFallback">
+  UsedAutocorrelationFallback
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the current candidate used autocorrelation without valid beat intervals.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsedAutocorrelationFallback { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when periodicity supplied the estimate at reduced confidence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_UsedWeakSignalOxygenSaturation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.UsedWeakSignalOxygenSaturation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_UsedWeakSignalOxygenSaturation" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.UsedWeakSignalOxygenSaturation">
+  UsedWeakSignalOxygenSaturation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether adaptive weak-signal validation supplied SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsedWeakSignalOxygenSaturation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Boolean.html">bool</a></dt>
+    <dd><p>True when the current oxygen-saturation value passed the adaptive weak-signal path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_WeakSignalOxygenSaturationConfirmationCount_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.WeakSignalOxygenSaturationConfirmationCount*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_WeakSignalOxygenSaturationConfirmationCount" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.WeakSignalOxygenSaturationConfirmationCount">
+  WeakSignalOxygenSaturationConfirmationCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the stable-window count required before publishing weak-signal SpO₂.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WeakSignalOxygenSaturationConfirmationCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Int32.html">int</a></dt>
+    <dd><p>The consecutive analysis-window count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_WeakSignalOxygenSaturationRatioTolerance_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.WeakSignalOxygenSaturationRatioTolerance*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_WeakSignalOxygenSaturationRatioTolerance" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.WeakSignalOxygenSaturationRatioTolerance">
+  WeakSignalOxygenSaturationRatioTolerance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum ratio change accepted between weak-signal analysis windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double WeakSignalOxygenSaturationRatioTolerance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The maximum absolute ratio change.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_AddSample_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AddSample*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_AddSample_Iot_Device_Max30100_Max30100Reading_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.AddSample(Iot.Device.Max30100.Max30100Reading)">
+  AddSample(Max30100Reading)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds one sensor sample to the analysis window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSample(Max30100Reading reading)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reading</code> <a class="xref" href="Iot.Device.Max30100.Max30100Reading.html">Max30100Reading</a></dt>
+    <dd><p>The sensor sample.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_CalibrateOxygenSaturation_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.CalibrateOxygenSaturation*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_CalibrateOxygenSaturation_System_Double___System_Double___" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.CalibrateOxygenSaturation(System.Double[],System.Double[])">
+  CalibrateOxygenSaturation(double[], double[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fits oxygen-saturation calibration coefficients from paired ratio and reference measurements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CalibrateOxygenSaturation(double[] ratios, double[] referenceOxygenSaturations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ratios</code> <a class="xref" href="../api/System.Double.html">double</a>[]</dt>
+    <dd><p>Stable <a class="xref" href="Iot.Device.Max30100.Max30100PulseOximeter.html#Iot_Device_Max30100_Max30100PulseOximeter_RatioOfRatios">RatioOfRatios</a> measurements.</p>
+</dd>
+    <dt><code>referenceOxygenSaturations</code> <a class="xref" href="../api/System.Double.html">double</a>[]</dt>
+    <dd><p>Simultaneous reference oxygen-saturation percentages.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentNullException.html">ArgumentNullException</a></dt>
+    <dd><p>Either array is null.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.ArgumentException.html">ArgumentException</a></dt>
+    <dd><p>The arrays have different lengths, contain fewer than two points, all ratios are equal, or the fitted slope is not negative.</p>
+</dd>
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A ratio is outside zero through 10, or a reference oxygen-saturation value is outside zero through 100.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_Reset_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.Reset*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_Reset" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears buffered samples and all calculated values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Iot_Device_Max30100_Max30100PulseOximeter_SetOxygenSaturationCalibration_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SetOxygenSaturationCalibration*"></a>
+
+  <h3 id="Iot_Device_Max30100_Max30100PulseOximeter_SetOxygenSaturationCalibration_System_Double_System_Double_" data-uid="Iot.Device.Max30100.Max30100PulseOximeter.SetOxygenSaturationCalibration(System.Double,System.Double)">
+  SetOxygenSaturationCalibration(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets previously calculated oxygen-saturation calibration coefficients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOxygenSaturationCalibration(double intercept, double slope)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intercept</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The intercept in the equation SpO₂ = intercept + slope × ratio.</p>
+</dd>
+    <dt><code>slope</code> <a class="xref" href="../api/System.Double.html">double</a></dt>
+    <dd><p>The negative slope in the equation SpO₂ = intercept + slope × ratio.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../api/System.ArgumentOutOfRangeException.html">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">intercept</code> is outside zero through 200, or <code class="paramref">slope</code> is outside -200 through zero.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

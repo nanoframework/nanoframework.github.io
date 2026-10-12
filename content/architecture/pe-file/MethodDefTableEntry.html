@@ -91,7 +91,7 @@
 <tr>
 <td>RVA</td>
 <td>MetadataOffset</td>
-<td>Offset into the IL byte code blob table for the opcodes of the method</td>
+<td>Offset into the IL byte code blob table for the opcodes of the method (the <a href="#native-methods">native slot</a> for a native method)</td>
 </tr>
 <tr>
 <td>Flags</td>
@@ -140,6 +140,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="native-methods">Native methods</h2>
+<p>A method implemented in native code (e.g. declared <code>extern</code> with <code>MethodImplOptions.InternalCall</code>) has the <code>MD_Native</code> flag (<code>0x00008000</code>) set in its <code>Flags</code>. It has no IL byte code, so its <code>RVA</code> is <strong>not</strong> an offset into the byte code table: it holds the <strong>native slot</strong> of the method, which is the index of the handler in the methods lookup table of the native assembly declaration.</p>
+<p>Native slots are dense (0 to N-1, being N the number of native methods in the assembly) and are assigned by the metadata processor independently of the order of the methods in the PE file. See <a href="NativeContractHash.html#native-slots">Native Contract Hash</a>.</p>
+<p>Readers of the PE file must check the <code>MD_Native</code> flag before using the <code>RVA</code> of a method. In particular, the length of the IL byte code of a method can't be computed from the <code>RVA</code> of the next method definition if that one is a native method.</p>
 <h2 id="signature-table-usage">Signature Table Usage</h2>
 <p>The method Def has multiple references to the signature table each describes some aspect of the method in distinct ways. This section describes the sequence of entries in the signature and their meanings for a method definition.</p>
 <h3 id="locals-signature-table">Locals Signature Table</h3>
