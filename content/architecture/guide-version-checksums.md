@@ -25,7 +25,7 @@ The native contract hash is a number computed by the metadata processor from a m
 - A native method (an `extern` method with `MethodImplOptions.InternalCall`) is added, removed or has its signature changed.
 - The field layout of any class or struct of the assembly changes (a field added, removed, reordered, renamed or with another type), because native code reads and writes fields by index.
 
-It doesn't change when managed code changes: adding a method, a class or a private helper, changing a method body, or reordering types doesn't affect it. That means that a change in the managed side that has nothing to do with the native side does not require a new firmware.
+It doesn't change when managed code changes: adding a method, a class or a private helper, or changing a method body doesn't affect it. The one exception is a change that moves static fields: the static field indexes are assembly-wide and follow the order of the types in the PE file, so adding a static field, or reordering types that have static fields, changes the hash (see [Field constants](pe-file/NativeContractHash.md#field-constants)). Other than that, a change in the managed side that has nothing to do with the native side does not require a new firmware.
 
 It's `0` for assemblies without native methods. These don't need any support from the firmware.
 
@@ -59,7 +59,7 @@ Each native assembly has a corlib_native.cpp (and .h) file.  A developer copies 
 1. Copy the changes of the stubs to the files in nf-interpreter, **including the new hash** in the declaration. Don't overwrite the files, they may have more code than the stubs.
 1. Implement the native code.
 
-There is no version to bump. If the hash in the declaration is not the one of the assembly (for example because the stubs were not updated) the nanoCLR refuses to load the assembly and the deploy tools report the mismatch before the application is deployed.
+There is no *native* version to bump. (If the change also breaks the public C# API of the library, that's a managed breaking change and the version of the library is bumped for it, see below.) If the hash in the declaration is not the one of the assembly (for example because the stubs were not updated) the nanoCLR refuses to load the assembly and the deploy tools report the mismatch before the application is deployed.
 
 **The native implementation must never break the contract that the managed code was built for.** Bug fixes and improvements in the native code are fine, as long as the managed code can't tell the difference except that it's better. Breaking changes are not allowed in the native code. The hash only covers the native signatures and the fields, it can't tell what a native method does, so nothing would warn the existing libraries and applications that the native code now behaves in a different way.
 

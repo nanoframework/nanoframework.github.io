@@ -10,7 +10,7 @@ These are not a full reference, but they give some clues on where to look next.
 There is an interface mechanism between the managed libraries and the firmware. This interface is structured around the methods decorated with the `MethodImpl(MethodImplOptions.InternalCall)` attribute and around the fields of the classes and structs, because native code accesses these by index. During the build of a managed library the metadata processor generates a *native contract hash* that characterizes that interface: the native methods (name, parameters and return types) and the field layout of the classes and structs. The hash is stored in the stub files and in the PE file.
 Changes can happen at both ends without any compatibility issues, as long as the interface does not change. Adding or changing managed methods, or the body of any method, does not change the hash.
 
-There is no version to bump. When the interface changes the hash changes by itself and the native declaration has to be updated with the new hash, along with the rest of the stubs.
+There is no native version to bump. When the interface changes the hash changes by itself and the native declaration has to be updated with the new hash, along with the rest of the stubs.
 
 The native code can't break the contract that the managed code was built for: bug fixes and improvements are fine, breaking changes are not. The hash doesn't see what a native method does, so changing the behavior of an existing native method would go unnoticed. If a breaking change is needed, start from the C# API call: add a new method to the C# library (with its own `extern` declaration if it needs native code), keep the existing one working and bump the version of the library if the managed API breaks. See the [versioning policy](versioning-policy.md).
 
@@ -41,7 +41,7 @@ Assuming you want to call from nanoframework's mscorlib (source can be found in 
    ```
 
 1. Add code which calls the function above as you wish.
-1. There's no version to change when you add or modify an ```extern``` function (or the fields of a class): the build generates the new native contract hash.
+1. There's no native version to change when you add or modify an ```extern``` function (or the fields of a class): the build generates the new native contract hash. If the change also breaks the public C# API of the library, that is a managed breaking change and the version of the library has to be bumped, see the [versioning policy](versioning-policy.md).
 1. Build the solution.
 1. Compare the ```nanoFramework.CoreLibrary\bin\Debug\Stubs``` folder's actual state with the saved one. The files which should have changed:
    - ```corlib_native.cpp```

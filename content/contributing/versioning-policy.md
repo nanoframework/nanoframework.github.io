@@ -17,7 +17,7 @@ The rest of this page explains what that means in practice.
 | Firmware (nanoCLR) version                | The firmware repository                      | Every firmware build                                                              |
 | PE format                                 | The framework generation                     | v2 PE files (`NFMRK2`) are loaded by nanoCLR 2.x and later                        |
 
-The versions are independent from each other. The firmware version doesn't tell if a package works with it, and the package version doesn't tell if a firmware works with it. What tells that is the native contract hash.
+The versions are independent from each other. The firmware version doesn't tell if a package works with it, and the package version doesn't tell if a firmware works with it. What tells that is the native contract hash, and only within the same PE generation: the package and the firmware also have to use the same PE format (v2 PE files with nanoCLR 2.x and later). The hash tells about the native compatibility between them once that's the case.
 
 ## Class libraries
 
@@ -56,6 +56,7 @@ Never change the behavior of an existing native method and rely on the version, 
 | Native code only (bug fix, improvement), the signatures and the fields do not change     | no          | yes          |
 | The contract changes (native method or field layout), because of a change in the C# API  | yes         | yes          |
 
+- Static field indexes are assembly-wide: a managed change that adds a static field, or reorders types that have static fields, changes the contract and the hash, even if no native method is touched. See [Field constants](../architecture/pe-file/NativeContractHash.md#field-constants).
 - A bug fix or an improvement in the native code doesn't need a new package, and the packages that already exist keep working with the new firmware.
 - A change in the contract needs a new package **and** a new firmware, which are released together. The native declaration in nf-interpreter is updated before, or together with, the package. The latest firmware always works with the latest packages.
 - Enums that are shared with native code are not part of the contract: never renumber existing members, only append.
@@ -63,7 +64,7 @@ Never change the behavior of an existing native method and rely on the version, 
 
 ## Firmware and class libraries
 
-A firmware works with a library if it has the native contract hash that the library requires, or if the library has no native code. To find a package version for the firmware you have, look for the hash of the native assembly in the `native_assemblies.json` that is published with the firmware (or in the **Device Capabilities** of the **Device Explorer**) and look for the package that has it in its description and in its `nfnc-` tag.
+A firmware works with a library if both are of the same PE generation (v2 PE files for nanoCLR 2.x and later) and the firmware has the native contract hash that the library requires, or the library has no native code. The hash only tells about the native compatibility within that generation: the v1 checksum and the v2 hash are computed in different ways and are never compared with each other. To find a package version for the firmware you have, look for the hash of the native assembly in the `native_assemblies.json` that is published with the firmware (or in the **Device Capabilities** of the **Device Explorer**) and look for the package that has it in its description and in its `nfnc-` tag.
 
 ## PE format
 

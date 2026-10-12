@@ -26,7 +26,8 @@ Here are solutions to some common problems when getting started.
 - The description of the NuGet package will contain the native contract hash that is required (and it's also in the package tags, as `nfnc-` followed by the hash).
 - See [Guide for package and assembly versions and the native contract hash](../architecture/guide-version-checksums.md) for more info.
 - Use the **Device Capabilities** button ![Device Capabilities](../../images/getting-started-guides/device-capabilities.png) on the **Device Explorer** to see what native assemblies and native contract hashes are installed on the device as part of the firmware.
-- If you are changing a nanoFramework component and you change the interface/contract of either the C# code or the C++ code, the native contract hash changes and you will get this kind of error until the firmware and the library are rebuilt together. There is no native version to bump: the hash is generated automatically.
+- If you are changing a nanoFramework component and you change the declaration of a native method or the layout of the fields in the C# code (and the C++ stubs with it), the native contract hash changes and you will get this kind of error until the firmware and the library are rebuilt together. There is no native version to bump: the hash is generated automatically.
+- The hash only reflects the declarations of the native methods and the layout of the fields, not what a native method does. A change in the behavior of native code is not detected by it and has to be reviewed for compatibility on its own: the native code is not allowed to break the contract (see the [versioning policy](../contributing/versioning-policy.md)).
 
 ## nanoff does not load correct version of firmware
 
