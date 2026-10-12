@@ -48,6 +48,7 @@ The PE file starts with an [Assembly header](AssemblyHeader.md) which is the top
 - [GenericParam Table](GenericParamTableEntry.md) (new in v2.0)
 - [MethodSpec Table](MethodSpecTableEntry.md) (new in v2.0)
 - [Common PE Types and Enumerations](Common-PE-Types-and-Enumerations.md)
+- [Native Contract Hash](NativeContractHash.md) (new in v2.0)
 
     > Note 1: The structures above are packed with 1 byte boundary.
     > Note 2: the documentation for the PE file format was taken from the original one at .NET Micro Framework.

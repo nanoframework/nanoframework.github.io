@@ -70,17 +70,24 @@ The various elements are selected and incorporated at different moments in the b
 
 ![Version-based references between components](../../images/architecture-deployment-versioning.png)
 
-Each native implementation of a component has a [version and checksum](guide-version-checksums.md). .NET **nanoFramework** tools can obtain a list of native components and their version and checksum from the runtime once it is deployed on a device.
+Each native implementation of a component has a [native contract hash](guide-version-checksums.md). .NET **nanoFramework** tools can obtain a list of native components and their native contract hash from the runtime once it is deployed on a device.
 
-Each managed implementation of a component has a version as is common for .NET assemblies. If the component also has a native implementation, the .NET assembly also has a reference (via the *AssemblyNativeVersion* attribute) to the version of the native component. .NET **nanoFramework** tools can read the attribute.
+Each managed implementation of a component has a version as is common for .NET assemblies. If the component also has a native implementation, the .NET assembly (the PE file) carries the [native contract hash](pe-file/NativeContractHash.md) that it was built against. There is no separate native version to maintain. .NET **nanoFramework** tools can read the hash from the header of the PE file.
 
-The consistency of references from one .NET assembly to another is done by the regular .NET tooling like Visual Studio, MS Build and the (NuGet) package manager. Version conflicts are detected in the build process and have to be resolved before an *application.bin* or *.pe*-file can be created for deployment to a device.
+The consistency of references from one .NET assembly to another is done by the regular .NET tooling like Visual Studio, MS Build and the (NuGet) package manager. Version conflicts are detected in the build process and have to be resolved before an *application.bin* or *.pe*-file can be created for deployment to a device. A reference is satisfied by an assembly with the same name and the same major and minor version numbers.
 
-The consistency of references from managed assemblies to the native components is done by .NET **nanoFramework** tools and components:
+The consistency of the deployment with the runtime on the device is verified by .NET **nanoFramework** tools and components:
 
-- Before an application starts to run on a device, the presence and version consistency of the native components is checked by reading the *AssemblyNativeVersion* attribute values. The application will not be run if a native component is missing or the *AssemblyNativeVersion* value is different from the version of the native component present in the runtime.
+- Before the *.pe*-files of an application are deployed to a device (to run, debug or test), the Visual Studio extension, the Visual Studio Code extension and the test platform (when it runs on a real device) check, with the information that the runtime reports:
+  - that each PE file has the format that the firmware loads (the v2 format for nanoCLR 2.x and later) and that the PE files are not a mix of formats;
+  - that every assembly with native methods has a native counterpart in the runtime with the same native contract hash;
+  - that every assembly reference can be resolved with the assemblies being deployed.
 
-- The same consistency check is done by the Visual Studio extension before the *.pe*-files of an application are deployed for debugging.
+  The application is not deployed if a native component is missing, if the *native contract hash* is different from the one of the native component present in the runtime, or if a reference can't be resolved. The message tells which assemblies are the problem and what to check.
+
+- The runtime repeats the checks when it starts: an assembly with native methods is not loaded if its native contract hash is different from the one of its native component, and an assembly reference that can't be resolved prevents the application from running.
+
+The *nanoff* tool deploys the files that it is given without these checks.
 
 ## Interdependency of tools and runtimes
 

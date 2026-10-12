@@ -15,16 +15,19 @@ Here are solutions to some common problems when getting started.
 
 ## When you attempt to debug you get a deployment error and you see a message "Couldn't find a valid assembly required by mscorlib..." in the Output Window/.NET nanoFramework Extension
 
-- An example of the error when the problem is version number.  This was done by back-levelling the CoreLibrary to 1.10.4-preview.11 which was for the previous checksum. In this case the checksum was not checked - since the required native assembly version did not match the deploy failed prior to checking the checksum:
+- The managed assemblies of the application and the firmware of the device are not aligned. Before deploying, the extension compares the PE files with what the firmware reports and the Output Window/.NET nanoFramework Extension shows what is wrong:
 
->![mscorlib version mismatch](../../images/getting-started-guides/mscorlib-version-mismatch.png)
+  - *The target has the wrong version for the following assembly(ies)*: the PE file requires a native contract hash that is different from the one of the native assembly in the firmware. The message shows both hashes.
+  - *The target does not have support for the following assembly(ies)*: the firmware doesn't have the native assembly that the PE file needs. Check if the firmware image was built to include it.
+  - *The target can't load the following PE file(s), they have the wrong format*: the PE files are from the previous generation (v1) and the firmware is v2, or the other way around. Update the firmware, or the NuGet packages and the Visual Studio extension, so they are of the same generation.
+  - *The following assembly reference(s) can't be resolved*: an assembly references another one with a major or minor version that is not the one being deployed. The NuGet packages of the project are not consistent.
 
-- The C# and native C++ assemblies are not version aligned.
-- The C# version is determined by NuGet and the version of the component you selected. nanoFramework.CoreLibrary is the most common problem seen since it tends to load early.  
-- The description of the NuGet package will contain the version and checksum of the native assembly that is required.
-- See [Guide for package and assembly versions and checksums](../architecture/guide-version-checksums.md) for more info.
-- Use the **Device Capabilities** button ![Device Capabilities](../../images/getting-started-guides/device-capabilities.png) on the **Device Explorer** to see what assembly versions and checksums are installed on the device as part of the firmware.
-- If you are changing a nanoFramework component and you change the interface/contract of either the C# code or the C++ code, you will get a checksum mismatch error instead of a version mismatch error.  This is the mechanism that prevents developers from breaking the contract without generating new versions and checksums.
+- The C# and native C++ assemblies are not aligned. That's determined by the NuGet package version of the component you selected and by the firmware installed on the device. nanoFramework.CoreLibrary is the most common problem seen since it tends to load early.
+- The description of the NuGet package will contain the native contract hash that is required (and it's also in the package tags, as `nfnc-` followed by the hash).
+- See [Guide for package and assembly versions and the native contract hash](../architecture/guide-version-checksums.md) for more info.
+- Use the **Device Capabilities** button ![Device Capabilities](../../images/getting-started-guides/device-capabilities.png) on the **Device Explorer** to see what native assemblies and native contract hashes are installed on the device as part of the firmware.
+- If you are changing a nanoFramework component and you change the declaration of a native method or the layout of the fields in the C# code (and the C++ stubs with it), the native contract hash changes and you will get this kind of error until the firmware and the library are rebuilt together. There is no native version to bump: the hash is generated automatically.
+- The hash only reflects the declarations of the native methods and the layout of the fields, not what a native method does. A change in the behavior of native code is not detected by it and has to be reviewed for compatibility on its own: the native code is not allowed to break the contract (see the [versioning policy](../contributing/versioning-policy.md)).
 
 ## nanoff does not load correct version of firmware
 

@@ -83,6 +83,7 @@ Providing a testimonial with an endorsement to the project or highlighting a fea
   - [C/C++ Coding Style](cxx-coding-style.md)
   - [GitHub Labels](labels.md)
   - [Project priorities](project-priorities.md)
+  - [Versioning policy](versioning-policy.md)
   - [Contribution License Agreement](cla.md)
   - Developing native code
     - [Debug with VS Code](developing-native/vscode-debug-instructions.md)
