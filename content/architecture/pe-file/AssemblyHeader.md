@@ -53,7 +53,7 @@ It's `0` for assemblies without native methods. Those don't require a native cou
 
 The algorithm used to compute this value is documented in [Native Contract Hash](NativeContractHash.md). The most important requirements are that any change on the native interface of an assembly (adding, removing or changing a native method, or changing the field layout of any class or struct) **must** yield a different value, and that changes that have no impact on the native side (e.g. adding a managed method) **must not**.
 
-> In the v1 format (`NFMRK1`) this field is the *NativeMethodsChecksum*, computed with a different algorithm that hashed all the methods of all the types. The field is at the same offset in both formats, but a v2 runtime only loads v2 PE files.
+> In the v1 format (`NFMRK1`) this field is the _NativeMethodsChecksum_, computed with a different algorithm that hashed all the methods of all the types. The field is at the same offset in both formats, but a v2 runtime only loads v2 PE files.
 
 ### NativeMethodsOffset
 
@@ -61,7 +61,7 @@ The algorithm used to compute this value is documented in [Native Contract Hash]
 
 ### Version
 
-The **_Version_** field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the runtime and by the tools to check the [assembly references](AssemblyRefTableEntry.md): a reference to an assembly is resolved to the assembly with the same name and the same major and minor version numbers. Only one version of an assembly can be loaded at a time. The version is *not* used to check the native side of an assembly; that's what the [NativeContractHash](#nativecontracthash) is for.
+The **_Version_** field holds the assembly's version number. (as opposed to the version of the AssemblyHeaderStructure itself). This is used by the runtime and by the tools to check the [assembly references](AssemblyRefTableEntry.md): a reference to an assembly is resolved to the assembly with the same name and the same major and minor version numbers. Only one version of an assembly can be loaded at a time. The version is _not_ used to check the native side of an assembly; that's what the [NativeContractHash](#nativecontracthash) is for.
 
 ### AssemblyName
 
