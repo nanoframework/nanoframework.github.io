@@ -58,5 +58,5 @@ Ask in the Hacktoberfest channel on [Discord](https://discord.gg/gCyBu8T), or co
 
 - Star the repositories and tell others about the project.
 - Publish a project, tutorial or video that uses .NET **nanoFramework**.
-- Support the project financially through [Open Collective](https://opencollective.com/nanoframework) or [GitHub Sponsors](https://github.com/sponsors/nanoframework). See [financial sponsors](https://docs.nanoframework.net/content/contributing/financial-sponsors.html) for what the funding pays for.
+- Support the project financially through [Open Collective](https://opencollective.com/nanoframework) or [GitHub Sponsors](https://github.com/sponsors/nanoframework). See [Support .NET nanoFramework](https://nanoframework.net/support-nanoframework/?ref=docs) for what the funding pays for.
 - Does your company ship a product built on .NET **nanoFramework**? Tell us on Discord. We would love to feature it.
