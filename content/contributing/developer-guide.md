@@ -16,7 +16,7 @@ The native code can't break the contract that the managed code was built for: bu
 
 More details about the hash can be found in [Native Contract Hash](../architecture/pe-file/NativeContractHash.md) and in [Package and assembly versions and the native contract hash](../architecture/guide-version-checksums.md).
 
-The versioning of the previous generation of the framework (native methods checksum and native version) is described in the [NuGet, assembly and native versions](https://www.nanoframework.net/nuget-assembly-and-native-versions/) blog post.
+The versioning of the previous generation of the framework (native methods checksum and native version) is described in the [NuGet, assembly and native versions](https://www.nanoframework.net/nuget-assembly-and-native-versions/?ref=docs) blog post.
 
 ## How to call native code from managed code
 

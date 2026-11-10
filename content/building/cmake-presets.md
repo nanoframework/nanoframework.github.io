@@ -169,4 +169,4 @@ The following options have been **migrated to [Kconfig](kconfig-options.md)** an
 
 ## Migration to Kconfig options
 
-Please refer to the [blog post about moving to Kconfig](https://nanoframework.net/build-configuration-updated-to-kconfig-options/) for information about the transition to Kconfig from CMake presets.
+Please refer to the [blog post about moving to Kconfig](https://nanoframework.net/build-configuration-updated-to-kconfig-options/?ref=docs) for information about the transition to Kconfig from CMake presets.

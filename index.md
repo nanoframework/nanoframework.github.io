@@ -17,19 +17,7 @@ Our mantra is about **making it easy to write C# code for embedded systems!** An
 
 Most of the core team members and contributors are embedded systems enthusiasts, passionate about coding and people that like challenges. The work on .NET **nanoFramework** is done mostly in their free time. Some of the core members happen to work for companies that heavily sponsor .NET **nanoFramework** and offer their work hours to move the project forward. If you use .NET **nanoFramework** for as part of your product or just want to support it, please donate. This allows us to pay for the infrastructure costs and more time investment on the project. Besides monetary contributions, there are several other ways to contribute. Please read the documentation about this [here](content/contributing/index.md).
 
-### Sponsors
-
-Sponsors will get their logo and a link to their website on our GitHub readme and also on our home page.
-
-<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/bronze-sponsor.svg?avatarHeight=72&width=600" alt="become sponsor"></a></br>
-<a href="https://www.orgpal.com"><img src="https://www.orgpal.com/orgpallogo.png" alt="Orgpal" width="250"></a></br>
-<a href="https://hive.linkit.nl/"><img src="https://docs.nanoframework.net/images/logos/LINKIT.png" alt="LINKIT" width="300" ></a></br>
-
-### Backers
-
-Backers are individuals who contribute money to help support nanoFramework. Every little bit helps and we appreciate all contributions, even the smallest ones.
-
-<a href="https://opencollective.com/nanoframework#support"><img src="https://opencollective.com/nanoframework/tiers/backer.svg?avatarHeight=80" alt="opencollective"></a>
+See how to sponsor .NET **nanoFramework**, and who already supports it, on the [Support .NET nanoFramework](https://nanoframework.net/support-nanoframework/?ref=docs) page of our website.
 
 ## What is .NET **nanoFramework**
 

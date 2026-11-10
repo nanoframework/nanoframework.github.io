@@ -28,4 +28,4 @@ You are welcomed to submit projects to [Hackster.io](https://www.hackster.io/nan
 
 Tweet about your project and mention [@nanoFramework](https://twitter.com/nanoframework).
 
-Looking for [professional support](professional-support.md)?
+Professional support for commercial projects is offered by our [engineering partners](https://nanoframework.net/partner-program/?ref=docs).
